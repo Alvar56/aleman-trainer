@@ -1,0 +1,22 @@
+node_modules
+dist
+.DS_Store
+*.local
+.vite
+
+# la version de un solo fichero para repartir
+dist-portable
+Deutsch Trainer.html
+
+# TU PROGRESO. No subir NUNCA: dentro estan los apuntes del Notizbuch con las
+# fotos de los ejercicios, las entradas del Tagebuch, la clasificacion y todo
+# lo demas. Son 550 KB de datos personales.
+.dtrainer-sync.json
+*.dtrainer-sync.json
+
+# Exportaciones de progreso, por si alguna cae en la carpeta.
+dtrainer-*.json
+progreso*.json
+
+# Lo genera scripts/extraer-textos.mjs --claves
+scripts/_claves.json

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Deutsch Trainer</title>
+  <!-- La raya cruza de borde arriba a borde abajo, casi vertical. Las dos
+       banderas tienen las franjas horizontales, asi que un corte en diagonal
+       de esquina a esquina deja a una sin una franja entera. Asi cada bandera
+       conserva sus tres. Mismos cortes y grosor que create_icon.py:
+       12 y 20 de 32 (= 96 y 160 de 256), stroke 1 (= 8 de 256). -->
+  <defs>
+    <clipPath id="marco"><rect width="32" height="32" rx="7"/></clipPath>
+    <clipPath id="de"><path d="M0 0 H12 L20 32 H0 Z"/></clipPath>
+    <clipPath id="at"><path d="M12 0 H32 V32 H20 Z"/></clipPath>
+  </defs>
+  <g clip-path="url(#marco)">
+    <g clip-path="url(#de)">
+      <rect width="32" height="10.67" fill="#111111"/>
+      <rect y="10.67" width="32" height="10.67" fill="#dd0000"/>
+      <rect y="21.34" width="32" height="10.66" fill="#ffce00"/>
+    </g>
+    <g clip-path="url(#at)">
+      <rect width="32" height="10.67" fill="#ef3340"/>
+      <rect y="10.67" width="32" height="10.67" fill="#ffffff"/>
+      <rect y="21.34" width="32" height="10.66" fill="#ef3340"/>
+    </g>
+    <path d="M12 0 L20 32" stroke="#0f1729" stroke-width="1" fill="none"/>
+  </g>
+</svg>

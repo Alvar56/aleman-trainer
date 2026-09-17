@@ -1,0 +1,2187 @@
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #f1f3f6;
+  --border: #e6e8ec;
+  --border-strong: #d3d7de;
+  --line: #e6e8ec;
+  --text: #101828;
+  --text-2: #344054;
+  --muted: #667085;
+  --accent: #1f3d63;
+  --accent-hover: #2b5288;
+  --accent-soft: #eef3f9;
+  --accent-ink: #ffffff;
+  --good: #157f3c;
+  --good-bg: #edf8f0;
+  --good-border: #b7e4c5;
+  --bad: #c62a2a;
+  --bad-bg: #fdf1f1;
+  --bad-border: #f3c7c7;
+  --amber: #b45309;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow: 0 6px 20px rgba(16, 24, 40, 0.07);
+  --maxw: 1340px;
+  --maxw-read: 760px;
+  font-synthesis: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface-2: #22262f;
+    --border: #2d3140;
+    --border-strong: #3d4255;
+    --line: #2d3140;
+    --text: #e8eaf0;
+    --text-2: #b0b8c8;
+    --muted: #7a849a;
+    --accent: #5b8bd4;
+    --accent-hover: #7aa3e0;
+    --accent-soft: rgba(91, 139, 212, 0.12);
+    --accent-ink: #ffffff;
+    --good: #4ade80;
+    --good-bg: rgba(74, 222, 128, 0.1);
+    --good-border: rgba(74, 222, 128, 0.25);
+    --bad: #f87171;
+    --bad-bg: rgba(248, 113, 113, 0.1);
+    --bad-border: rgba(248, 113, 113, 0.25);
+    --amber: #fbbf24;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Componentes con colores hardcoded que necesitan override en dark */
+  .wetter-warn { border-color: #7c5a20; background: #2a2013; }
+  .lied-save.on { border-color: #a16207; color: #fbbf24; background: #2a2013; }
+  .pill.racha.fuego { background: #2a2013; border-color: #a16207; color: #fbbf24; }
+  .pill.monedas { background: #2a2013; border-color: #a16207; color: #fbbf24; }
+  .fox-nuevo { color: #fbbf24; background: #2a2013; }
+  .lied-mitlesen { border-color: var(--accent); background: var(--accent-soft); }
+  img, video, iframe { opacity: 0.92; }
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+html { -webkit-text-size-adjust: 100%; }
+
+/* El hueco de la barra de scroll se reserva SIEMPRE, haya barra o no.
+   Sin esto, cambiar de seccion movia el contenido 15 px: Grammatik cabe entera
+   en pantalla (870 px de alto) y no saca barra, mientras que Kommunikation
+   (3257 px, el doble que cualquier otra) si la saca. Al pasar de una a otra,
+   toda la columna se estrechaba de golpe y se veia un saltito. */
+html { scrollbar-gutter: stable; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3 { margin: 0; line-height: 1.3; font-weight: 700; letter-spacing: -0.011em; }
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.06rem; }
+h3 { font-size: 0.98rem; }
+p { margin: 0; }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  color: var(--text);
+  background: var(--surface);
+  transition: background 0.14s ease, border-color 0.14s ease, box-shadow 0.14s ease, transform 0.06s ease;
+}
+button:hover { background: var(--surface-2); }
+button:active { transform: translateY(1px); }
+button:disabled { cursor: default; opacity: 0.5; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+:focus:not(:focus-visible) { outline: none; }
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn-ghost { background: transparent; }
+.btn-ghost:hover { background: var(--surface-2); }
+/* Abierto. Antes se le encajaba .btn-primary encima y salÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a texto blanco sobre
+   fondo claro, ilegible. */
+.btn-ghost.on {
+  background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600;
+}
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-sm { padding: 7px 11px; font-size: 0.86rem; }
+
+.muted { color: var(--muted); }
+.stack > * + * { margin-top: 14px; }
+.row { display: flex; align-items: center; gap: 12px; }
+.spread { justify-content: space-between; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  padding: 3px 9px; border-radius: 999px; font-size: 0.76rem; color: var(--muted);
+  white-space: nowrap;
+}
+.pill.ai { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+
+/* ---------- Layout ---------- */
+.layout { display: flex; align-items: flex-start; min-height: 100%; }
+
+.sidebar {
+  width: 232px; flex: 0 0 232px; align-self: stretch;
+  background: var(--surface); border-right: 1px solid var(--border);
+  /* Ajustado para que los once apartados quepan de una sin barra de scroll en
+     una pantalla normal; si la ventana es muy baja, sigue pudiendo bajar. */
+  padding: 14px 14px 12px; display: flex; flex-direction: column; gap: 2px;
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+}
+.sidebar .brand { font-weight: 800; font-size: 1.02rem; padding: 2px 10px 6px; letter-spacing: -0.02em; }
+.nav-item {
+  width: 100%; text-align: left; border: 1px solid transparent; background: transparent;
+  padding: 7px 12px; border-radius: 9px; color: var(--text-2); font-size: 0.92rem; font-weight: 500;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-item:hover { background: var(--surface-2); }
+.nav-item.active { background: var(--accent); color: #fff; font-weight: 600; }
+.nav-item.active:hover { background: var(--accent); }
+.nav-item .ico { width: 18px; text-align: center; opacity: 0.95; font-size: 0.95rem; }
+.sidebar .sep { flex: 1; min-height: 10px; }
+
+.lang-box { display: flex; gap: 6px; padding-bottom: 6px; }
+.lang-btn {
+  flex: 1; padding: 4px 6px; border-radius: 8px; font-size: 0.76rem; font-weight: 600;
+  border: 1px solid var(--border-strong); background: var(--surface); color: var(--muted);
+}
+.lang-btn.on { border-color: var(--accent); background: var(--accent); color: #fff; }
+.engine-box { border-top: 1px solid var(--border); padding-top: 10px; }
+.engine-box > label { font-size: 0.74rem; color: var(--muted); display: block; margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+.engine-status { font-size: 0.76rem; margin-top: 6px; display: flex; align-items: center; gap: 7px; color: var(--muted); }
+.dot-live { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px var(--good-bg); flex-shrink: 0; }
+.dot-off { width: 7px; height: 7px; border-radius: 50%; background: var(--border-strong); flex-shrink: 0; }
+
+.main { flex: 1 1 auto; min-width: 0; padding: 24px 34px 24px; }
+.main > * { max-width: var(--maxw); margin-inline: auto; }
+/* Haciendo ejercicios solo miras una frase y tres opciones: en 1340px se
+   quedaban pegadas a la izquierda con medio metro de gris al lado.
+
+   La columna la comparten TODAS las pantallas de ejercicio. Antes esto era
+   `.main > .session`, o sea solo si la sesion colgaba directamente de .main, y
+   ademas habia juegos sin clase ninguna: segun por donde entraras, el mismo
+   ejercicio salia centrado o pegado al borde izquierdo. */
+.session,
+.kp { max-width: 780px; margin-inline: auto; }
+/* Y dentro, lo que traiga ancho propio se estira a la columna en vez de
+   quedarse a un lado: las opciones venian topadas a 540px y con 965px de
+   ancho dejaban la mitad derecha vacia. */
+.session .options,
+.kp .options { max-width: none; }
+
+.dash-cols { display: grid; grid-template-columns: 360px 1fr; gap: 12px; align-items: start; }
+@media (max-width: 900px) { .dash-cols { grid-template-columns: 1fr; } }
+
+@media (max-width: 880px) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    width: 100%; flex-basis: auto; height: auto; position: static;
+    flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 6px;
+    border-right: none; border-bottom: 1px solid var(--border); padding: 10px 12px;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+  }
+  .sidebar .brand { padding: 4px 8px; font-size: 0.95rem; flex-shrink: 0; scroll-snap-align: start; order: -2; }
+  .sidebar .lang-box { padding-bottom: 0; flex-shrink: 0; order: -1; }
+  .sidebar .sep { display: none; }
+  .nav-item { width: auto; padding: 8px 11px; flex-shrink: 0; scroll-snap-align: start; }
+  .nav-item .ico { display: none; }
+  .engine-box { border-top: none; padding-top: 0; margin-left: auto; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .engine-box > label { display: none; }
+  .engine-box .engine-status { display: none; }
+  .main { padding: 20px 16px 24px; }
+}
+
+/* ---------- Page header ---------- */
+.page-head { margin-bottom: 12px; }
+.page-head h1 { font-size: 1.5rem; margin-bottom: 3px; }
+.page-head p { color: var(--muted); margin-top: 3px; font-size: 0.95rem; }
+/* El hueco de la derecha es para el monedero, que va fijo en esa esquina: sin
+   el, el boton de volver le queda debajo. */
+.topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 20px; padding-right: 92px; }
+.topbar h1 { font-size: 1.4rem; }
+
+/* ---------- Cards / panels ---------- */
+.card, .panel {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  padding: 12px;
+}
+.panel > h2 { font-size: 1rem; margin-bottom: 14px; }
+.panel-row {
+  display: flex; align-items: center; gap: 14px; padding: 13px 0;
+  border-top: 1px solid var(--border);
+}
+.panel-row:first-of-type { border-top: none; padding-top: 4px; }
+.panel-row:last-child { padding-bottom: 2px; }
+
+/* Las cinco en una fila: mas pequenas, pero legibles. */
+.statcards { display: grid; grid-template-columns: 1.25fr 1fr 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+@media (max-width: 1150px) { .statcards { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 680px) { .statcards { grid-template-columns: 1fr 1fr; } }
+.statcard { padding: 8px 10px; display: flex; align-items: center; gap: 10px; }
+.statcard .n { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; flex-shrink: 0; }
+.statcard .l { font-size: 0.75rem; color: var(--muted); margin-top: 0; line-height: 1.3; }
+.statcard .sub { font-size: 0.7rem; color: var(--muted); margin-top: 2px; line-height: 1.3; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+@media (max-width: 820px) { .two-col { grid-template-columns: 1fr; } }
+
+.mini-bar { height: 6px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+.mini-bar > span { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+
+/* ---------- Topic list ---------- */
+.sec-title {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+.sec-title h2 { font-size: 1.12rem; }
+.sec-title .muted { font-size: 0.83rem; }
+.topic-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 900px) { .topic-grid { grid-template-columns: 1fr 1fr; } }
+.topic-grid.single { grid-template-columns: 1fr; }
+button.topic-open {
+  display: block; width: 100%; height: 100%; text-align: left; padding: 18px 20px;
+}
+button.topic-open:hover { background: var(--surface); border-color: var(--accent); box-shadow: var(--shadow); transform: translateY(-1px); }
+.topic-open .t-title { font-size: 1.06rem; font-weight: 700; letter-spacing: -0.01em; }
+.topic-open .t-blurb { color: var(--muted); font-size: 0.86rem; margin-top: 3px; }
+.chev { color: var(--muted); font-size: 1.1rem; line-height: 1; flex-shrink: 0; }
+
+/* ---------- Racha / calendario del mes ---------- */
+.flame { font-size: 1.6rem; line-height: 1; }
+.flame.cold { filter: grayscale(1) opacity(0.5); }
+.cal-label { font-size: 0.8rem; font-weight: 600; color: var(--muted); margin: 6px 0 8px; }
+.month-cal {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;
+}
+.mc-head {
+  text-align: center; font-size: 0.66rem; font-weight: 700; color: var(--muted);
+  padding-bottom: 2px;
+}
+.mc-cell {
+  border-radius: 7px; background: var(--surface-2);
+  border: 1px solid var(--border); display: grid; place-items: center;
+  font-size: 0.72rem; color: var(--muted); padding: 4px 0;
+}
+.mc-cell.active { background: var(--good); border-color: transparent; color: #fff; font-weight: 700; }
+.mc-cell.today { outline: 2px solid var(--accent); outline-offset: 1px; }
+.mc-cell.empty { background: transparent; border-color: transparent; }
+.statcard .mini-bar { max-width: 130px; }
+
+/* ---------- Exercise ---------- */
+.progress-top { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.progress-top .bar { flex: 1; height: 8px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+.progress-top .bar > span { display: block; height: 100%; background: var(--accent); transition: width 0.3s ease; }
+.timer { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.9rem; }
+
+.prompt-label { font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
+.sentence { font-size: 1.3rem; font-weight: 600; line-height: 1.5; margin: 4px 0 22px; }
+.blank {
+  display: inline-block; min-width: 72px; margin: 0 4px;
+  border-bottom: 2px solid var(--border-strong);
+  text-align: center; font-weight: 700; vertical-align: baseline;
+}
+.blank.filled {
+  border-bottom-color: var(--good);
+  color: var(--good);
+}
+
+/* ---------- Lueckentext: completar con el banco de palabras ---------- */
+/* Los huecos son parte de la frase, no cajas puestas encima: van sobre la
+   misma linea de base y se marcan con un subrayado, como el hueco de un
+   cuaderno de papel. Antes eran recuadros altos y redondeados que partian la
+   frase a saltos y descuadraban el renglon. */
+.cloze-frase { line-height: 2.1; }
+.cloze-frase .cloze-hueco {
+  display: inline-block; width: var(--cloze-ancho, 7.5em); max-width: 100%;
+  margin: 0 5px; padding: 0 6px 2px;
+  /* El interlineado se pone corto A PROPOSITO. El hueco es un <input>, y con
+     el `line-height: 2.1` de la frase su caja mide el doble que el texto: el
+     subrayado se iba a dos dedos por debajo del renglon y parecia flotando. */
+  font: inherit; line-height: 1.3; text-align: center; color: var(--muted);
+  background: transparent; border: none; border-radius: 0;
+  border-bottom: 2px dashed var(--border-strong);
+  vertical-align: baseline;
+  transition: color 0.14s ease, background 0.14s ease, border-color 0.14s ease;
+}
+/* El hueco donde va a caer la siguiente palabra que pulses. Hace falta
+   marcarlo: el unico hueco distinto era el que tenia el foco, y el foco del
+   navegador se pinta como un recuadro, o sea igual que un hueco ya lleno. */
+.cloze-frase .cloze-hueco.destino,
+.cloze-frase .cloze-hueco:focus-visible {
+  outline: none;
+  border-bottom-color: var(--accent);
+  background: var(--accent-soft);
+}
+.cloze-frase .cloze-hueco.puesto { color: var(--accent); border-bottom-style: solid; border-bottom-color: var(--accent); }
+.cloze-frase .cloze-hueco.bien { color: var(--good); background: var(--good-bg); border-bottom: 2px solid var(--good); }
+.cloze-frase .cloze-hueco.mal { color: var(--bad); background: var(--bad-bg); border-bottom: 2px solid var(--bad); }
+/* Corregido sigue siendo texto que se lee, no un campo apagado: el navegador
+   lo destine por su cuenta y en el movil lo deja casi invisible. */
+.cloze-frase .cloze-hueco:disabled { opacity: 1; -webkit-text-fill-color: currentColor; }
+
+.cloze-banco { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; margin-top: 26px; }
+.cloze-pieza {
+  padding: 9px 17px; border-radius: 999px; font-size: 1.02rem; font-weight: 600;
+  border: 1.5px solid var(--border-strong); background: var(--surface); color: var(--text);
+  box-shadow: var(--shadow-sm); cursor: grab; user-select: none;
+}
+.cloze-pieza:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.cloze-pieza:active:not(:disabled) { cursor: grabbing; }
+/* La palabra gastada no se va: se queda en su sitio en gris. Si desapareciera,
+   las demas darian un salto cada vez que colocas una. */
+.cloze-pieza:disabled {
+  opacity: 0.4; box-shadow: none; border-style: dashed; cursor: default;
+  background: var(--surface); color: var(--muted);
+}
+.cloze-pie { margin-top: 30px; text-align: center; }
+
+.options { display: grid; gap: 10px; max-width: 540px; }
+.option {
+  text-align: left; padding: 14px 16px; border: 1.5px solid var(--border-strong);
+  background: var(--surface); font-size: 1.02rem; border-radius: 11px;
+}
+.option:hover:not(:disabled) { border-color: var(--accent); }
+.option.correct { border-color: var(--good); background: var(--good-bg); }
+.option.wrong { border-color: var(--bad); background: var(--bad-bg); }
+.option.dim { opacity: 0.45; }
+@keyframes pop { 0% { transform: scale(0.97); } 60% { transform: scale(1.02); } 100% { transform: scale(1); } }
+.option.correct, .option.wrong { animation: pop 0.22s ease; }
+
+/* Lista de tarjetas de un mazo */
+.card-list-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 620px) { .card-list-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 980px) { .card-list-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.card-mini { padding: 10px 12px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface-2); line-height: 1.3; }
+
+/* Selector de tipo de juego */
+.gametype-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 8px; }
+.gametype-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.gametype {
+  display: flex; flex-direction: row; align-items: center; gap: 10px;
+  padding: 7px 11px; border: 1.5px solid var(--border-strong); border-radius: 11px;
+  background: var(--surface); text-align: left; font-size: 1.15rem; line-height: 1.1;
+}
+.gametype span { font-size: 0.92rem; font-weight: 600; }
+.gametype small { font-size: 0.74rem; color: var(--muted); font-weight: 400; }
+.gametype:hover { border-color: var(--accent); background: var(--surface); box-shadow: var(--shadow-sm); }
+
+/* Sesiones de vocabulario ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â usan todo el ancho pero centran el contenido */
+.vocab-session { max-width: 900px; margin-inline: auto; }
+.fc-wrap { display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 8px; }
+.qa-wrap { max-width: 620px; margin-inline: auto; }
+
+/* Flashcards */
+.flashcard { width: 100%; max-width: 620px; height: 300px; perspective: 1400px; cursor: pointer; }
+.fc-inner {
+  position: relative; width: 100%; height: 100%; transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+  transform-style: preserve-3d;
+}
+.flashcard.flipped .fc-inner { transform: rotateY(180deg); }
+.fc-face {
+  position: absolute; inset: 0; backface-visibility: hidden; border-radius: 18px;
+  border: 1.5px solid var(--border-strong); background: var(--surface); box-shadow: var(--shadow);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; padding: 28px; text-align: center;
+}
+.fc-back { transform: rotateY(180deg); background: var(--accent-soft); border-color: transparent; }
+.fc-word { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.01em; }
+.fc-hint { font-size: 0.78rem; color: var(--muted); }
+.fc-ex { font-size: 1rem; color: var(--text-2); }
+.fc-ex-es { font-size: 0.88rem; color: var(--muted); }
+.flashcard.flash-ok .fc-face { border-color: var(--good); box-shadow: 0 0 0 4px var(--good-bg), var(--shadow); }
+.flashcard.flash-no .fc-face { border-color: var(--amber); box-shadow: 0 0 0 4px rgba(180,83,9,0.12), var(--shadow); }
+.fc-reveal { min-width: 220px; }
+.fc-rate { width: 100%; max-width: 620px; }
+.judge-btn.yes { }
+.judge-btn.no { }
+
+/* Juego "emparejar" ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â dos columnas que se conectan */
+.match-cols {
+  position: relative; display: grid; grid-template-columns: 1fr 90px 1fr;
+  max-width: 760px; margin-inline: auto; align-items: start;
+}
+@media (max-width: 620px) { .match-cols { grid-template-columns: 1fr 44px 1fr; } }
+.match-cols > .match-col:first-of-type { grid-column: 1; }
+.match-cols > .match-col:last-of-type { grid-column: 3; }
+.match-col { display: flex; flex-direction: column; gap: 10px; }
+.match-col-head {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--muted); text-align: center; margin-bottom: 2px;
+}
+.match-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.match-lines line { stroke: var(--good); stroke-width: 2.5; stroke-linecap: round; opacity: 0.65; }
+.match-tile {
+  min-height: 56px; padding: 12px 14px; border-radius: 11px; font-size: 0.95rem; font-weight: 500;
+  border: 1.5px solid var(--border-strong); background: var(--surface); line-height: 1.25; text-align: center;
+}
+.match-tile:hover:not(:disabled) { border-color: var(--accent); }
+.match-col:first-of-type .match-tile { font-weight: 700; }
+.match-tile.sel { border-color: var(--accent); background: var(--accent-soft); }
+.match-tile.matched { border-color: var(--good); background: var(--good-bg); color: var(--good); }
+.match-tile.wrong { border-color: var(--bad); background: var(--bad-bg); animation: shake 0.35s; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
+
+/* Juego der/die/das */
+.gender-word {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 28px 22px; border: 1.5px solid var(--border-strong); border-radius: 18px;
+  background: var(--surface); box-shadow: var(--shadow); width: 100%; max-width: 460px; text-align: center;
+}
+.gw-noun { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.02em; }
+.gw-es { font-size: 0.9rem; color: var(--muted); }
+.gender-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; width: 100%; max-width: 460px; }
+.gender-btn {
+  padding: 18px 10px; font-size: 1.1rem; font-weight: 700; border-radius: 12px;
+  border: 2px solid var(--border-strong); background: var(--surface);
+}
+.gender-btn.der { color: #1d4ed8; }
+.gender-btn.die { color: #be185d; }
+.gender-btn.das { color: #15803d; }
+.gender-btn:hover:not(:disabled) { border-color: currentColor; }
+.gender-btn.der:hover:not(:disabled) { background: #eff4ff; }
+.gender-btn.die:hover:not(:disabled) { background: #fdf1f6; }
+.gender-btn.das:hover:not(:disabled) { background: #eefaf1; }
+.gender-btn.correct { border-color: var(--good); background: var(--good-bg); }
+.gender-btn.wrong { border-color: var(--bad); background: var(--bad-bg); }
+.gender-btn.dim { opacity: 0.4; }
+.gender-fix {
+  margin-top: 14px; padding: 16px 20px; border-radius: 14px;
+  border: 1.5px solid var(--bad); background: var(--bad-bg);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: fadeIn 0.18s ease-out;
+}
+.gf-line { font-size: 1.25rem; }
+.gf-art.der { color: #1d4ed8; }
+.gf-art.die { color: #be185d; }
+.gf-art.das { color: #15803d; }
+.gf-es { font-size: 0.9rem; color: var(--muted); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+/* BotÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n destacado del juego der/die/das en la lista de Vocabulario */
+.gender-cta {
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+  padding: 16px 18px; border-radius: var(--radius); border: 1.5px solid var(--accent);
+  background: var(--accent-soft); color: var(--text); margin-bottom: 22px;
+}
+.gender-cta:hover { background: var(--accent-soft); box-shadow: var(--shadow); }
+.gender-cta .gc-emoji { font-size: 1.6rem; }
+.gender-cta .gc-title { font-weight: 700; }
+.gender-cta .gc-sub { font-size: 0.82rem; color: var(--muted); }
+
+/* Juego "ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿correcto o no?" */
+.judge-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 460px; }
+.judge-btn { padding: 16px; font-size: 1.02rem; font-weight: 600; border: 1.5px solid var(--border-strong); border-radius: 12px; background: var(--surface); }
+.judge-btn:hover:not(:disabled) { border-color: var(--accent); }
+.judge-btn.good { border-color: var(--good); background: var(--good-bg); color: var(--good); }
+.judge-btn.bad { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); }
+.judge-btn.dim { opacity: 0.45; }
+
+.bank, .answer-row {
+  display: flex; flex-wrap: wrap; gap: 8px; min-height: 52px; max-width: 600px;
+  padding: 11px; border-radius: 11px; border: 1.5px dashed var(--border-strong); background: var(--surface-2);
+}
+.answer-row { border-style: solid; border-color: var(--accent); margin-bottom: 12px; background: var(--surface); }
+.token {
+  padding: 9px 13px; border-radius: 9px; background: var(--surface);
+  border: 1px solid var(--border-strong); font-size: 1.02rem; user-select: none;
+  box-shadow: var(--shadow-sm); animation: pop 0.16s ease;
+}
+.token:hover { border-color: var(--accent); }
+.answer-row .token { background: var(--surface-2); }
+
+/* ---------- Ordenar frases (una sola caja) ---------- */
+.wo-box {
+  display: flex; flex-wrap: wrap; gap: 9px; min-height: 58px; max-width: 640px;
+  padding: 13px; border-radius: 12px; background: var(--surface);
+  border: 1.5px solid var(--border-strong); transition: border-color 0.18s ease, background 0.18s ease;
+}
+.wo-box.arrastrando { border-color: var(--accent); background: var(--accent-soft); }
+.wo-box.done-ok { border-color: var(--good); background: var(--good-bg); }
+.wo-box.done-ko { border-color: var(--bad); }
+
+.wo-word {
+  padding: 9px 14px; border-radius: 9px; background: var(--surface);
+  border: 1.5px solid var(--border-strong); font-size: 1.02rem; user-select: none;
+  cursor: grab; touch-action: none;
+  box-shadow: var(--shadow-sm); color: var(--text);
+  transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease, transform 0.1s ease;
+}
+.wo-word:hover:not(:disabled) { border-color: var(--accent); }
+/* ya estÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡ en su sitio */
+.wo-word.ok {
+  background: var(--good-bg); border-color: var(--good); color: var(--good); font-weight: 600;
+}
+.wo-word.ko { background: var(--bad-bg); border-color: var(--bad-border); color: var(--bad); }
+/* levantada con un toque, esperando dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³nde ponerla */
+.wo-word.cogida {
+  border-color: var(--accent); background: var(--accent-soft); color: var(--accent);
+  transform: translateY(-4px); box-shadow: 0 6px 16px rgba(16, 24, 40, 0.16);
+}
+/* el hueco donde va a caer */
+.wo-hueco {
+  display: inline-block; border-radius: 9px;
+  border: 2px dashed var(--accent); background: var(--accent-soft);
+  opacity: 0.75;
+}
+/* la palabra que llevas en la mano */
+.wo-flotante {
+  position: fixed; z-index: 60; pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+  padding: 9px 14px; border-radius: 9px; font-size: 1.02rem;
+  background: var(--surface); color: var(--accent);
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 10px 24px rgba(16, 24, 40, 0.22);
+  transform: rotate(-2deg) scale(1.04);
+}
+.wo-word:disabled { opacity: 1; cursor: default; }
+.wo-hint { font-size: 0.82rem; margin-top: 9px; min-height: 1.2em; }
+
+/* Feedback */
+.feedback { margin-top: 20px; border-radius: 12px; padding: 16px; border: 1px solid var(--border); max-width: 600px; animation: slideUp 0.24s ease; }
+.feedback.ok { background: var(--good-bg); border-color: var(--good-border); }
+.feedback.no { background: var(--bad-bg); border-color: var(--bad-border); }
+.feedback .verdict { font-weight: 700; margin-bottom: 8px; }
+.feedback .de { font-size: 1.06rem; font-weight: 600; }
+.feedback .es { margin: 6px 0; color: var(--text-2); }
+.feedback .why { color: var(--muted); font-size: 0.92rem; }
+.lang-tag {
+  display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--muted); background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: 5px; padding: 1px 5px;
+  margin-right: 7px; vertical-align: 1.5px; white-space: nowrap;
+}
+.feedback.ok .lang-tag, .feedback.no .lang-tag { background: rgba(255,255,255,0.6); }
+.feedback .ai-explain { margin-top: 12px; padding: 12px; background: var(--accent-soft); border-radius: 9px; font-size: 0.9rem; color: var(--accent); white-space: pre-wrap; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Summary */
+.big-stat { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; }
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center; }
+.stat-grid .card { padding: 14px; }
+.mistake { padding: 11px 13px; border-radius: 9px; background: var(--surface-2); border: 1px solid var(--border); margin-top: 8px; }
+.mistake .de { font-weight: 600; }
+.confetti-badge { font-size: 2.6rem; }
+
+/* Tabs (TeorÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a / Ejercicios) */
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 22px; }
+.tab {
+  border: none; background: transparent; border-radius: 0; padding: 10px 14px;
+  color: var(--muted); font-weight: 600; font-size: 0.92rem;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.tab:hover { background: transparent; color: var(--text); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Theory ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â una secciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n por fila */
+.theory-grid { display: flex; flex-direction: column; gap: 14px; }
+
+.theory-sec-head {
+  width: 100%; display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  background: none; border: none; padding: 0; text-align: left;
+}
+.theory-sec-head:hover:not(:disabled) { background: none; }
+.theory-sec-head h2 { font-size: 1rem; }
+.theory-sec-head:disabled { cursor: default; }
+.sec-toggle { font-size: 0.74rem; color: var(--accent); font-weight: 700; white-space: nowrap; }
+.sec-body { margin: 10px 0 12px; }
+.sec-more-link { display: inline-block; padding: 10px 0 0; font-size: 0.82rem; }
+
+.theory-detail { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.theory-detail p { margin: 0 0 10px; color: var(--text-2); line-height: 1.6; }
+.theory-detail p:last-child { margin-bottom: 0; }
+.theory-detail h3 { margin: 16px 0 8px; font-size: 0.92rem; }
+
+.intro-panel p { font-size: 1.03rem; line-height: 1.6; }
+
+.examples { display: grid; gap: 8px; margin-top: 10px; }
+.ex {
+  display: flex; flex-wrap: wrap; gap: 2px 12px; padding: 10px 12px;
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 9px;
+}
+.ex-de { font-weight: 600; }
+.ex-es { color: var(--muted); }
+.ex-es:not(:empty)::before { content: "— "; }
+ul.pitfalls { margin: 0; padding-left: 20px; }
+ul.pitfalls li { margin: 7px 0; line-height: 1.55; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { padding: 9px 8px; border-bottom: 1px solid var(--border); text-align: left; }
+th { color: var(--muted); font-weight: 600; }
+tr.me td { color: var(--accent); font-weight: 700; }
+.scroll-x { overflow-x: auto; }
+@media (max-width: 600px) { .hide-mobile { display: none; } }
+
+/* Forms */
+label.field {
+  display: block; margin-top: 16px; font-size: 0.85rem;
+  color: var(--text-2); font-weight: 600;
+}
+label.field:first-of-type { margin-top: 0; }
+.field-hint { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 5px; font-weight: 400; }
+input[type="text"], input[type="password"], input[type="number"], select {
+  display: block; width: 100%; max-width: 380px; margin-top: 6px; padding: 9px 11px; border-radius: 9px;
+  background: var(--surface); border: 1px solid var(--border-strong); color: var(--text); font: inherit;
+}
+input[type="number"] { max-width: 110px; }
+input[type="range"] { display: block; width: 100%; max-width: 380px; margin-top: 8px; padding: 0; }
+input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.sidebar select { display: block; max-width: none; padding: 8px 10px; font-size: 0.85rem; margin-top: 0; }
+.switch { display: flex; align-items: center; gap: 9px; margin-top: 10px; font-weight: 600; font-size: 0.9rem; }
+.switch input[type="checkbox"] { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); }
+
+.link-btn { background: none; border: none; color: var(--accent); padding: 6px; font-weight: 500; }
+.link-btn:hover { background: none; text-decoration: underline; }
+
+.loading { display: grid; place-items: center; padding: 70px 0; color: var(--muted); }
+.spinner {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 3px solid var(--border); border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite; margin-bottom: 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- Cuaderno ---------- */
+.nb-title-input {
+  display: block; width: 100%; max-width: none; margin: 0; padding: 10px 12px;
+  border: 1px solid var(--border-strong); border-radius: 10px; background: var(--surface);
+  color: var(--text); font: inherit; font-size: 1.05rem; font-weight: 600;
+}
+.nb-meta { display: flex; gap: 14px; flex-wrap: wrap; }
+.nb-field {
+  display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-2);
+}
+.nb-field input, .nb-field select { max-width: 240px; margin-top: 6px; }
+.nb-field input[type="date"] {
+  display: block; padding: 9px 11px; border-radius: 9px; background: var(--surface);
+  border: 1px solid var(--border-strong); color: var(--text); font: inherit;
+}
+.nb-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.nb-chip {
+  font-size: 0.75rem; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--surface-2); color: var(--text-2);
+}
+.nb-chip.gram { background: var(--accent-soft); border-color: #cddcec; color: var(--accent); }
+.nb-chip.voc { background: var(--good-bg); border-color: var(--good-border); color: var(--good); }
+.nb-raw {
+  display: block; width: 100%; margin-top: 8px; padding: 12px 13px; border-radius: 11px;
+  background: var(--surface); border: 1px solid var(--border-strong); color: var(--text);
+  font: inherit; line-height: 1.5; resize: vertical; min-height: 180px;
+}
+.nb-raw:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.nb-chip.komm { background: #fff4e6; border-color: #ffd9a8; color: #a05a00; }
+
+/* ---------- Cuaderno: tomos y lecciones ---------- */
+.band-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.band-tab {
+  padding: 8px 16px; border-radius: 10px; border: 1.5px solid var(--border-strong);
+  background: var(--surface); color: var(--text-2); display: flex; flex-direction: column;
+  align-items: flex-start; line-height: 1.25; cursor: pointer;
+}
+.band-tab strong { font-size: 0.95rem; }
+.band-tab small { font-size: 0.7rem; color: var(--muted); }
+.band-tab.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.band-tab.on small { color: var(--accent); }
+
+.lk-card { position: relative; }
+.lk-pct {
+  font-size: 0.78rem; font-weight: 700; color: var(--muted);
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 999px; padding: 2px 9px; white-space: nowrap;
+}
+.lk-pct.medio { color: var(--accent); background: var(--accent-soft); border-color: #cddcec; }
+.lk-pct.alto { color: var(--good); background: var(--good-bg); border-color: var(--good-border); }
+.lk-bar { margin-top: 12px; }
+.band-bar {
+  display: block; height: 3px; width: 100%; margin-top: 5px;
+  background: var(--border); border-radius: 999px; overflow: hidden;
+}
+.band-bar > span { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+.band-tab.on .band-bar { background: #cddcec; }
+.lk-card.dim { opacity: 0.6; }
+.lk-counts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.lk-pill {
+  font-size: 0.72rem; padding: 2px 8px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--surface-2); color: var(--text-2);
+}
+.lk-pill.w { background: var(--good-bg); border-color: var(--good-border); color: var(--good); }
+.lk-pill.g { background: var(--accent-soft); border-color: #cddcec; color: var(--accent); }
+.lk-pill.k { background: #fff4e6; border-color: #ffd9a8; color: #a05a00; }
+.lk-pill.n { background: #f3ecff; border-color: #dccdf5; color: #6b3fa0; }
+
+.lk-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+@media (max-width: 700px) { .lk-tabs { grid-template-columns: repeat(2, 1fr); } }
+.lk-tab {
+  padding: 10px 12px; border-radius: 11px; border: 1.5px solid var(--border-strong);
+  background: var(--surface); color: var(--text-2); text-align: left; cursor: pointer;
+  display: flex; flex-direction: column; gap: 2px; line-height: 1.2;
+}
+.lk-tab span { font-size: 0.88rem; font-weight: 600; }
+.lk-tab small { font-size: 0.7rem; color: var(--muted); }
+.lk-tab.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.lk-tab.on small { color: var(--accent); }
+/* Variante de una sola lÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­nea: nombre a la izquierda, nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºmero a la derecha. */
+.lk-tabs-fila .lk-tab {
+  flex-direction: row; align-items: center; justify-content: space-between; gap: 10px;
+}
+.lk-tabs-fila .lk-tab small { flex-shrink: 0; }
+.news-tabs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 18px; }
+@media (max-width: 950px) { .news-tabs-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .news-tabs-grid { grid-template-columns: 1fr; } }
+
+.lk-block-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+/* Los tÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­tulos alemanes van en minÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºscula (infinitivos); en pantalla se
+   muestran con la inicial en mayÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºscula sin tocar el texto original. */
+.lk-block-title::first-letter,
+.theory-sec-head h2::first-letter { text-transform: uppercase; }
+.lk-expl { font-size: 0.87rem; color: var(--text-2); line-height: 1.55; margin: 0 0 10px; }
+.lk-words { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.lk-words td { padding: 5px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+.lk-words tr:last-child td { border-bottom: none; }
+.lk-words td.de { font-weight: 600; width: 52%; padding-right: 12px; }
+.lk-words td.es { color: var(--muted); }
+.lk-examples { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+.lk-examples li {
+  padding: 8px 11px; border-radius: 9px; background: var(--surface-2);
+  border: 1px solid var(--border); display: flex; flex-direction: column; gap: 2px;
+}
+.lk-examples .de { font-size: 0.9rem; font-weight: 600; }
+.lk-examples .es { font-size: 0.82rem; color: var(--muted); }
+
+.komm-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  width: 100%; background: none; border: none; padding: 0; cursor: pointer;
+  color: inherit; text-align: left; font: inherit;
+}
+/* Cabeceras plegables (Pruefung, Kommunikation, los modelos del examen, las
+   preguntas del dialogo, las secciones de teoria).
+   El boton ocupa la fila entera, pero el recuadro tiene su propio padding: si
+   al pasar el raton se pinta solo el boton, ese padding se queda blanco y
+   parece un halo alrededor del gris. Se pinta el recuadro entero y el boton
+   se queda transparente.
+   Se marca solo cuando el raton esta en la CABECERA: si no, con la seccion
+   abierta se tenirian tambien al pasar por el contenido. */
+.komm-head:hover { background: none; }
+.card:has(> .komm-head),
+.dlg-frage:has(> .komm-head),
+.theory-sec:has(> .theory-sec-head) {
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+.card:has(> .komm-head:hover) { background: var(--surface-2); }
+.theory-sec:has(> .theory-sec-head:hover:not(:disabled)) { background: var(--surface-2); }
+/* Esta ya es gris de serie, asi que el gris no se veria: se marca como el
+   resto de cosas seleccionables de la app. */
+.dlg-frage:has(> .komm-head:hover) { background: var(--accent-soft); border-color: var(--border-strong); }
+
+/* ---------- MenÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âº bilingÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼e ---------- */
+.nav-de { font-weight: 500; }
+.nav-item.active .nav-de { font-weight: 600; }
+
+/* ---------- PrÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼fung (simulacro de examen) ---------- */
+.pruef-blurb { display: block; font-size: 0.8rem; margin-top: 3px; font-weight: 400; }
+.pruef-typen { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+@media (max-width: 700px) { .pruef-typen { grid-template-columns: 1fr; } }
+.pruef-typ {
+  text-align: left; padding: 11px 13px; border-radius: 10px;
+  border: 1.5px solid var(--border-strong); background: var(--surface);
+  display: flex; flex-direction: column; gap: 2px; line-height: 1.25;
+}
+.pruef-typ:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+.pt-name { font-size: 0.88rem; font-weight: 600; }
+.pt-es { font-size: 0.76rem; color: var(--muted); }
+
+.falle { display: flex; flex-direction: row; align-items: flex-start; gap: 13px; }
+.falle-ico { font-size: 1.3rem; line-height: 1.1; }
+
+.pruef-result { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 11px 14px; }
+.pruef-result > span:first-child { flex: 1; min-width: 0; font-size: 0.88rem; }
+.pruef-note { font-size: 0.84rem; font-weight: 700; }
+.pruef-note.good { color: var(--good); }
+.pruef-note.warn { color: var(--amber); }
+.pruef-note.bad { color: var(--bad); }
+
+.pruef-score { display: flex; flex-direction: row; align-items: center; gap: 18px; }
+.pruef-score.good { border-color: var(--good-border); background: var(--good-bg); }
+.pruef-score.warn { border-color: #f3d9ab; background: #fdf6ec; }
+.pruef-score.bad { border-color: var(--bad-border); background: var(--bad-bg); }
+.ps-num { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+
+/* audio */
+.hoer-box { background: var(--accent-soft); border-color: #cddcec; }
+.hoer-warn {
+  margin-top: 12px; padding: 11px 13px; border-radius: 10px;
+  background: #fdf6ec; border: 1px solid #f3d9ab; font-size: 0.85rem; line-height: 1.5;
+}
+.hoer-skript { margin-top: 14px; }
+.hoer-skript pre, .lese-text pre {
+  margin: 0; white-space: pre-wrap; word-break: break-word; font: inherit;
+  font-size: 0.95rem; line-height: 1.65;
+}
+.lese-text { background: var(--surface-2); }
+
+/* anuncios y carteles */
+.material-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.material { position: relative; padding: 14px 16px; }
+.mat-id {
+  position: absolute; top: 10px; right: 12px; font-weight: 800; color: var(--accent);
+  background: var(--accent-soft); border-radius: 6px; padding: 1px 7px; font-size: 0.78rem;
+}
+.mat-titel { font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; padding-right: 34px; }
+.mat-text { font-size: 0.87rem; line-height: 1.5; color: var(--text-2); white-space: pre-wrap; }
+
+/* preguntas */
+.frage.ok { border-color: var(--good-border); }
+.frage.ko { border-color: var(--bad-border); }
+.frage-head { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 11px; }
+.frage-n {
+  flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--surface-2); border: 1px solid var(--border);
+  display: grid; place-items: center; font-size: 0.75rem; font-weight: 700; color: var(--muted);
+}
+.frage-txt { font-size: 0.95rem; font-weight: 600; line-height: 1.45; }
+.opt-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.opt-row.many { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.opt {
+  padding: 9px 15px; border-radius: 9px; border: 1.5px solid var(--border-strong);
+  background: var(--surface); font-size: 0.88rem; text-align: left;
+}
+.opt.elegida { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.opt.correcta { border-color: var(--good); background: var(--good-bg); color: var(--good); font-weight: 700; }
+.opt.fallada { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); text-decoration: line-through; }
+.opt.dim { opacity: 0.5; }
+
+.frage-fb { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--border); font-size: 0.86rem; line-height: 1.55; }
+.fb-stelle { font-style: italic; color: var(--text-2); }
+.fb-warum { margin-top: 6px; }
+.fb-falle { margin-top: 6px; color: var(--amber); font-size: 0.83rem; }
+
+/* Schreiben */
+.punkte-liste { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
+.punkt { display: flex; gap: 10px; align-items: flex-start; font-size: 0.89rem; }
+.punkt-n {
+  flex: 0 0 auto; width: 21px; height: 21px; border-radius: 50%;
+  background: var(--surface-2); border: 1px solid var(--border);
+  display: grid; place-items: center; font-size: 0.72rem; font-weight: 700; color: var(--muted);
+}
+.punkt.ok .punkt-n { background: var(--good-bg); border-color: var(--good-border); color: var(--good); }
+.punkt.ko .punkt-n { background: var(--bad-bg); border-color: var(--bad-border); color: var(--bad); }
+.punkt-kom { font-size: 0.82rem; color: var(--muted); margin-top: 3px; line-height: 1.45; }
+
+.bewertung { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
+@media (max-width: 700px) { .bewertung { grid-template-columns: 1fr; } }
+.bewertung strong { font-size: 0.85rem; }
+.bewertung p { font-size: 0.84rem; color: var(--text-2); line-height: 1.5; margin-top: 3px; }
+
+/* Sprechen */
+.sprech-prep { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.sprech-timer {
+  font-size: 1.5rem; font-weight: 800; font-variant-numeric: tabular-nums;
+  color: var(--accent); letter-spacing: -0.01em;
+}
+.sprech-timer.fin { color: var(--bad); }
+.karten { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+.karte {
+  background: var(--surface); border: 1.5px solid var(--border-strong); border-radius: 12px;
+  padding: 18px 14px; display: flex; flex-direction: column; align-items: center; gap: 7px;
+  box-shadow: var(--shadow-sm);
+}
+.karte-n { font-size: 0.7rem; font-weight: 700; color: var(--muted); }
+.karte-w { font-size: 1rem; font-weight: 700; text-align: center; line-height: 1.3; }
+.say-btn {
+  border: none; background: transparent; padding: 0 0 0 7px; font-size: 0.85rem;
+  opacity: 0.55; cursor: pointer;
+}
+.say-btn:hover { opacity: 1; background: transparent; }
+
+/* ---------- Foto de ejercicio / imagen ---------- */
+.foto-box { border-style: dashed; border-color: var(--border-strong); }
+.foto-drop {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 26px 18px; border-radius: 12px; cursor: pointer;
+  border: 1.5px dashed var(--border-strong); background: var(--surface-2);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.foto-drop:hover { border-color: var(--accent); background: var(--accent-soft); }
+.foto-ico { font-size: 1.9rem; line-height: 1; }
+.foto-cta { font-weight: 600; font-size: 0.95rem; }
+.foto-preview { margin-top: 12px; }
+.foto-preview img {
+  max-width: 100%; max-height: 320px; border-radius: 11px;
+  border: 1px solid var(--border); display: block;
+}
+
+/* Ejercicio resuelto desde una foto: lista con separadores. */
+/* Cada ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­tem, su propio bloque con aire alrededor. Antes era una lista con
+   lÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­neas finas y al leerla de corrido no se veÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³nde acababa una pregunta y
+   empezaba la siguiente. */
+.foto-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.foto-lista .fi {
+  padding: 14px 16px; border: 1px solid var(--border); border-radius: 11px;
+  background: var(--surface);
+}
+/* solo lo que fallaste lleva color: lo demÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s ya se distingue por el ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ */
+.foto-lista .fi.ko { background: var(--bad-bg); }
+.fi-n {
+  display: inline-block; margin-right: 9px; padding: 1px 7px; border-radius: 6px;
+  background: var(--surface-2); color: var(--muted);
+  font-size: 0.72rem; font-weight: 700; white-space: nowrap;
+  vertical-align: 2px; font-variant-numeric: tabular-nums;
+}
+.fi-q { margin: 0; font-size: 0.92rem; line-height: 1.5; }
+.fi-a {
+  margin: 4px 0 0; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap;
+  font-size: 0.98rem;
+}
+.fi-a .falsch { color: var(--bad); text-decoration: line-through; }
+.fi-a .pfeil { color: var(--muted); font-weight: 700; }
+.fi-a .richtig { color: var(--good); font-weight: 700; }
+.fi-ok { color: var(--good); font-weight: 700; }
+.fi-warum { margin: 7px 0 0; font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+/* El enunciado de la hoja, antes de la lista de ÃƒÆ’Ã‚Â­tems. */
+/* Cada ejercicio de la hoja: su instrucciÃƒÆ’Ã‚Â³n impresa y debajo sus ÃƒÆ’Ã‚Â­tems. */
+.foto-bloque { display: flex; flex-direction: column; gap: 8px; }
+.foto-bloque + .foto-bloque { margin-top: 18px; }
+.foto-enunciado {
+  margin: 0; padding: 10px 14px; border-radius: 10px;
+  background: var(--accent-soft); color: var(--accent);
+  font-size: 0.86rem; font-weight: 600; line-height: 1.55;
+}
+
+/* ---------- Tagebuch ---------- */
+.diary-count { font-size: 0.76rem; text-align: right; margin-top: 5px; }
+.diary-korrigiert { font-size: 1rem; line-height: 1.7; white-space: pre-wrap; }
+
+.diary-korr { border: 1px solid var(--border); border-radius: 11px; padding: 12px 14px; background: var(--surface-2); }
+.diary-korr-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.diary-regel { font-size: 0.76rem; }
+.diary-diff { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; font-size: 0.95rem; }
+.diary-diff .falsch { color: var(--bad); text-decoration: line-through; text-decoration-thickness: 1px; }
+.diary-diff .pfeil { color: var(--muted); font-weight: 700; }
+.diary-diff .richtig { color: var(--good); font-weight: 700; }
+.diary-warum { font-size: 0.85rem; color: var(--text-2); line-height: 1.5; margin-top: 7px; }
+
+.diary-wort { border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+.diary-wort:last-child { border-bottom: none; padding-bottom: 0; }
+.diary-wort-es { font-size: 0.8rem; display: block; margin-top: 3px; }
+
+.diary-lob, .diary-next { display: flex; flex-direction: row; align-items: flex-start; gap: 13px; }
+.diary-lob { border-color: var(--good-border); background: var(--good-bg); }
+.diary-next { border-color: var(--accent); background: var(--accent-soft); }
+.diary-lob-ico { font-size: 1.35rem; line-height: 1.1; }
+.diary-lektion { border-color: var(--accent); }
+
+.nb-chip.orto { background: #fdf1e3; border-color: #f2d3ab; color: #9a5b12; }
+.nb-chip.orden { background: #f3ecff; border-color: #dccdf5; color: #6b3fa0; }
+.nb-chip.stil { background: var(--surface-2); border-color: var(--border-strong); color: var(--text-2); }
+
+/* ---------- Minijuegos: Wortsalat y Blitz ---------- */
+.ws-clue { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-bottom: 4px; }
+.ws-es { font-size: 1.25rem; font-weight: 700; text-align: center; }
+.ws-art { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+.ws-len { font-size: 0.76rem; color: var(--muted); }
+
+.ws-box {
+  display: flex; flex-wrap: wrap; gap: 7px; justify-content: center;
+  padding: 16px; border-radius: 14px; background: var(--surface);
+  border: 1.5px solid var(--border-strong); min-height: 74px; align-items: center;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+.ws-box.done { border-color: var(--good); background: var(--good-bg); }
+.ws-box.fail { border-color: var(--bad); background: var(--bad-bg); }
+
+.ws-letter {
+  width: 46px; height: 52px; padding: 0; border-radius: 10px;
+  font-size: 1.35rem; font-weight: 700; text-transform: none;
+  background: var(--surface); border: 1.5px solid var(--border-strong);
+  box-shadow: var(--shadow-sm); user-select: none;
+  transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease, transform 0.1s ease;
+}
+.ws-letter:hover:not(:disabled) { border-color: var(--accent); }
+.ws-letter.ok { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+.ws-letter.fail { background: var(--bad-bg); border-color: var(--bad-border); color: var(--bad); }
+.ws-letter.sel {
+  border-color: var(--accent); background: var(--accent-soft); color: var(--accent);
+  transform: translateY(-4px); box-shadow: 0 5px 14px rgba(16, 24, 40, 0.15);
+}
+.ws-letter:disabled { opacity: 1; cursor: default; }
+.ws-ok { font-size: 1.1rem; font-weight: 700; color: var(--good); animation: pop 0.2s ease; }
+
+.blitz-stats { display: flex; gap: 8px; justify-content: center; margin-bottom: 14px; }
+.blitz-racha { background: #fff4e6; border-color: #ffd9a8; color: #a05a00; font-weight: 700; }
+.blitz-timer { font-variant-numeric: tabular-nums; font-weight: 700; }
+.blitz-timer.urgente { color: var(--bad); }
+.blitz-word {
+  font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; text-align: center;
+  padding: 26px 20px; background: var(--surface); border: 1.5px solid var(--border-strong);
+  border-radius: 16px; width: 100%; max-width: 520px; box-shadow: var(--shadow-sm);
+}
+.blitz-opts { display: flex; flex-direction: column; gap: 9px; width: 100%; max-width: 520px; }
+.blitz-opt {
+  padding: 15px 18px; border-radius: 12px; font-size: 1rem; text-align: left;
+  border: 1.5px solid var(--border-strong); background: var(--surface);
+}
+.blitz-opt:hover:not(:disabled) { border-color: var(--accent); }
+.blitz-opt.ok { border-color: var(--good); background: var(--good-bg); color: var(--good); font-weight: 700; }
+.blitz-opt.ko { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); }
+.blitz-opt.dim { opacity: 0.45; }
+
+/* ---------- Lieder ---------- */
+.lied-controls { display: flex; flex-direction: column; align-items: stretch; gap: 14px; }
+.lied-sug { display: flex; flex-wrap: wrap; gap: 7px; }
+.lied-random {
+  display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap;
+  border-top: 1px solid var(--border); padding-top: 14px;
+}
+.lied-random .btn-ghost { margin-left: auto; }
+@media (max-width: 620px) { .lied-random .btn-ghost { margin-left: 0; width: 100%; } }
+.lied-mitlesen { display: flex; flex-direction: row; align-items: flex-start; gap: 13px; border-color: var(--accent); background: var(--accent-soft); }
+.lied-steps { margin: 8px 0 0; padding-left: 20px; font-size: 0.87rem; line-height: 1.6; }
+.lied-steps li + li { margin-top: 5px; }
+.lied-field { display: flex; flex-direction: column; gap: 5px; font-size: 0.8rem; font-weight: 600; color: var(--text-2); }
+.lied-field select { padding: 9px 11px; border-radius: 9px; border: 1px solid var(--border-strong); background: var(--surface); color: var(--text); font: inherit; }
+.lied-controls .btn-primary { margin-left: auto; }
+@media (max-width: 620px) { .lied-controls .btn-primary { margin-left: 0; width: 100%; } }
+
+.lied-head { display: flex; flex-direction: row; align-items: flex-start; gap: 16px; }
+.lied-acciones { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.lied-cerrar {
+  /* inline-flex y padding 0: con el relleno que trae el botÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n por defecto, la
+     ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ no caÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a en el centro del cÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­rculo y se notaba. */
+  display: inline-flex; align-items: center; justify-content: center; padding: 0;
+  background: none; border: 1px solid var(--line); border-radius: 999px;
+  width: 32px; height: 32px; cursor: pointer; color: var(--muted);
+  font-size: 0.9rem; line-height: 1; flex-shrink: 0;
+}
+.lied-cerrar:hover { border-color: var(--bad); color: var(--bad); }
+.lied-titel { font-size: 1.3rem; line-height: 1.25; }
+.lied-artist { font-size: 1rem; color: var(--text-2); margin-top: 2px; font-weight: 600; }
+.lied-meta { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 10px; }
+.lied-note { font-size: 0.79rem; line-height: 1.5; margin-top: -4px; }
+.lied-nota { font-style: italic; }
+
+/* ---------- Nachrichten ---------- */
+.news-card { padding: 20px 22px; }
+.news-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 0.78rem; margin-bottom: 8px; }
+.news-titel { font-size: 1.15rem; line-height: 1.35; margin-bottom: 2px; }
+.news-titel-es { font-size: 0.9rem; color: var(--muted); margin-bottom: 4px; }
+.news-video {
+  position: relative; width: 100%; max-width: 640px; aspect-ratio: 16 / 9;
+  margin: 14px 0 4px; border-radius: 12px; overflow: hidden; background: #000;
+}
+.news-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.news-de { font-size: 0.98rem; line-height: 1.6; margin-top: 12px; }
+.news-es { font-size: 0.89rem; line-height: 1.55; color: var(--muted); margin-top: 8px; }
+.news-woerter { margin-top: 14px; }
+.news-woerter .nb-chip { font-weight: 400; }
+.news-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+.news-link { font-size: 0.86rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+.news-link:hover { text-decoration: underline; }
+/* el vÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­deo es lo que se quiere ver, asÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ que su enlace pesa mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s que el artÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­culo */
+.news-link.primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 999px;
+}
+.news-link.primary:hover { text-decoration: none; filter: brightness(1.08); }
+
+/* Guardar canciones: la estrella tiene que verse a la primera */
+.lied-save {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: none; border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 14px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+  color: var(--muted); white-space: nowrap;
+}
+.lied-save:hover { border-color: var(--accent); color: var(--accent); }
+.lied-save.on { border-color: #eab308; color: #a16207; background: #fef9c3; }
+.lied-guardada { display: flex; align-items: flex-start; gap: 10px; text-align: left; cursor: pointer; }
+.lied-quitar {
+  background: none; border: none; cursor: pointer; font-size: 1.1rem;
+  color: #eab308; line-height: 1; padding: 2px 4px; flex-shrink: 0;
+}
+.lied-quitar:hover { color: var(--bad); }
+
+.event-facts {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px; margin: 12px 0 4px; padding: 12px 14px;
+  background: var(--surface-2); border-radius: 10px; border: 1px solid var(--border);
+}
+.event-facts > div { display: flex; flex-direction: column; gap: 2px; font-size: 0.87rem; }
+.ef-l { font-size: 0.7rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ---------- Sport y Wetter ---------- */
+.sport-score {
+  display: inline-flex; align-items: baseline; gap: 10px; margin: 12px 0 2px;
+  padding: 9px 15px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--border);
+}
+.ss-l { font-size: 0.7rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.ss-v { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; }
+.sport-next { font-size: 0.87rem; margin-top: 12px; color: var(--text-2); }
+.sport-next .ef-l { margin-right: 7px; }
+
+.wetter-warn { display: flex; flex-direction: row; align-items: flex-start; gap: 13px; border-color: #f3d9ab; background: #fdf6ec; }
+.wetter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.wetter-tag { text-align: center; padding: 16px 12px; }
+.wetter-tag.heute { border-color: var(--accent); background: var(--accent-soft); }
+.wt-tag { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.wetter-tag.heute .wt-tag { color: var(--accent); }
+/* El titulo del parte iba pegado al aviso de arriba y a las tarjetas de abajo */
+.wetter-titel { margin-top: 12px; margin-bottom: 18px; padding-bottom: 10px; }
+.wt-datum { font-size: 0.74rem; color: var(--muted); margin-top: 2px; }
+.wetter-tag.heute .wt-datum { color: var(--text-2); font-weight: 600; }
+.wt-symbol { font-size: 2.4rem; line-height: 1.2; margin: 6px 0 2px; }
+.wt-temp { display: flex; align-items: baseline; justify-content: center; gap: 8px; }
+.wt-temp .max { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+.wt-temp .min { font-size: 1rem; color: var(--muted); }
+.wt-text { font-size: 0.82rem; line-height: 1.45; margin-top: 8px; }
+.wt-text.es { color: var(--muted); font-size: 0.78rem; margin-top: 4px; }
+
+/* ---------- Buscador de dudas de gramÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡tica ---------- */
+.ask { margin-top: 34px; }
+.ask-box { padding: 18px 20px; }
+.ask-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: stretch; }
+.ask-input {
+  flex: 1 1 320px; min-width: 0; padding: 12px 14px; border-radius: 11px;
+  border: 1.5px solid var(--border-strong); background: var(--surface);
+  color: var(--text); font: inherit; font-size: 0.95rem;
+}
+.ask-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.ask-row .btn-primary { flex: 0 0 auto; padding: 12px 22px; }
+.ask-sug { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.ask-chip {
+  font-size: 0.8rem; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--border-strong); background: var(--surface-2);
+  color: var(--text-2); cursor: pointer;
+}
+.ask-chip:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.ask-chip:disabled { opacity: 0.5; cursor: default; }
+.ask-chip.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+/* Buscador de ciudad del parte: la caja y los atajos en una fila */
+.wetter-ciudad {
+  display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 18px; margin-bottom: 18px;
+}
+/* .ask-input lleva flex-basis 320px pensado para una fila; dentro de una
+   columna ese 320px pasa a ser la ALTURA y la caja crece medio metro. */
+.wetter-ciudad .ask-input { flex: none; width: 100%; }
+.ask-answer { border-color: var(--accent); background: var(--accent-soft); }
+.ask-kurz { font-size: 1rem; line-height: 1.55; }
+.ask-merk { flex-direction: row; display: flex; align-items: flex-start; gap: 12px; }
+.ask-merk-ico { font-size: 1.3rem; line-height: 1; }
+
+/* ---------- ConversaciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n nativa ---------- */
+.dialog { display: flex; flex-direction: column; gap: 12px; }
+.dlg-turn { display: flex; flex-direction: column; gap: 3px; max-width: 82%; }
+.dlg-turn.b { align-self: flex-end; align-items: flex-end; }
+.dlg-wer { font-size: 0.72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+.dlg-bubble {
+  padding: 10px 13px; border-radius: 14px; border: 1px solid var(--border);
+  background: var(--surface);
+}
+.dlg-turn.a .dlg-bubble { border-bottom-left-radius: 4px; }
+.dlg-turn.b .dlg-bubble { border-bottom-right-radius: 4px; background: var(--accent-soft); border-color: #cddcec; }
+.dlg-de { font-size: 0.95rem; font-weight: 600; line-height: 1.45; }
+.dlg-es { font-size: 0.83rem; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+.dlg-wann { font-size: 0.75rem; color: var(--muted); font-style: italic; margin-top: 2px; }
+.dlg-frage { border: 1px solid var(--border); border-radius: 10px; padding: 9px 12px; background: var(--surface-2); }
+.dlg-antwort { font-size: 0.88rem; margin-top: 8px; font-weight: 600; }
+
+.lk-practice, .lk-all {
+  display: flex; flex-direction: row; align-items: center;
+  justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.lk-practice > span { font-size: 0.88rem; color: var(--text-2); }
+.lk-practice { padding: 14px 18px; }
+.lk-all {
+  border-color: var(--accent); background: var(--accent-soft);
+  padding: 22px 24px; margin-top: 26px;
+}
+/* En Lieder esta tarjeta cierra una pila de bloques y tiene que respirar igual
+   que el resto: ni pegada (como estaba) ni con el margen grande de .lk-all,
+   que ahÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ lo separarÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a demasiado. */
+.lied-warum { margin-top: 14px; }
+.lk-all > div { flex: 1 1 300px; min-width: 0; }
+.lk-all > div > strong { font-size: 1rem; }
+.lk-all .btn-primary { flex: 0 0 auto; padding: 11px 20px; }
+@media (max-width: 620px) {
+  .lk-all, .lk-practice { align-items: stretch; }
+  .lk-all .btn-primary { width: 100%; }
+}
+
+.nb-clean-text {
+  margin: 0; white-space: pre-wrap; word-break: break-word; font: inherit;
+  font-size: 0.9rem; line-height: 1.6; color: var(--text-2);
+}
+
+/* Selector de dificultad del juego der/die/das */
+.gender-niveles {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: -10px;
+}
+
+/* Racha de aciertos seguidos durante la sesiÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n */
+.pill.racha { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+.pill.racha.fuego { background: #fef3c7; border-color: #f59e0b; color: #b45309; }
+/* el desglose de monedas del resumen, en amarillo como el monedero */
+.pill.monedas { background: #fef9c3; border-color: #eab308; color: #854d0e; font-weight: 600; }
+
+/* la palabra que estÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s arrastrando: sigue en su sitio pero apagada, asÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ no se
+   desmonta y el navegador no pierde la captura del puntero */
+.wo-word.fantasma { opacity: 0.25; }
+
+/* Desglose por minijuego que se abre al dominar un tema */
+.corona-box {
+  margin-top: 16px; padding: 14px 16px; border-radius: 12px;
+  border: 1.5px solid #eab308; background: #fefce8;
+}
+.corona-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+.corona { font-size: 1.5rem; line-height: 1; }
+.juego-bloque { padding: 7px 0; border-top: 1px solid #fde68a; }
+.juego-bloque:first-of-type { border-top: none; }
+.juego-fila {
+  display: grid; grid-template-columns: 1fr 90px 42px;
+  gap: 10px; align-items: center; font-size: 0.85rem;
+}
+.jf-tiempos {
+  display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.74rem; margin-top: 3px;
+}
+.jf-record { color: #b45309; font-weight: 600; }
+.jf-nombre { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.jf-barra { margin: 0; }
+/* El color de una barra de aciertos, la use quien la use. */
+.mini-bar > span.bien { background: var(--good); }
+.mini-bar > span.medio { background: #eab308; }
+.mini-bar > span.mal { background: var(--bad); }
+.jf-pct { font-weight: 700; text-align: right; }
+.jf-sub { font-size: 0.74rem; text-align: right; }
+.corona-locked { font-size: 0.8rem; margin-top: 14px; }
+@media (max-width: 620px) {
+  .juego-fila { grid-template-columns: 1fr 56px 38px; }
+}
+
+/* LecciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n dominada en la lista */
+.lk-corona { font-size: 1.05rem; line-height: 1; flex-shrink: 0; }
+.lk-pct.corona { color: #b45309; background: #fef3c7; border-color: #f59e0b; }
+
+/* ---------- El zorrito ---------- */
+.fox-face { display: block; image-rendering: pixelated; }
+@keyframes fox-flota { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.fox-face.flota { animation: fox-flota 3.2s ease-in-out infinite; }
+
+.fox-card {
+  display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap;
+  padding: 18px 20px; border-radius: 14px; margin-bottom: 18px;
+  border: 1.5px solid var(--accent); background: var(--accent-soft);
+}
+.fox-card-cara { background: none; border: none; padding: 0; cursor: pointer; flex-shrink: 0; }
+.fox-card-cara:hover { background: none; }
+.fox-card-texto { flex: 1 1 280px; min-width: 0; }
+.fox-burbuja {
+  position: relative; background: var(--surface); border: 1.5px solid var(--border-strong);
+  border-radius: 12px; padding: 11px 14px; margin-bottom: 10px;
+}
+.fox-burbuja::before {
+  content: ""; position: absolute; left: -8px; top: 16px; width: 0; height: 0;
+  border: 7px solid transparent; border-right-color: var(--border-strong); border-left: 0;
+}
+.fb-de { display: block; font-size: 1rem; font-weight: 600; }
+.fb-es { display: block; font-size: 0.83rem; color: var(--muted); margin-top: 3px; }
+.fox-card-form { display: flex; gap: 8px; flex-wrap: wrap; }
+.fox-card-form .ask-input { flex: 1 1 200px; }
+.fox-card-pie { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 9px; }
+.fox-nuevo { font-size: 0.78rem; color: #b45309; background: #fef3c7; border-radius: 999px; padding: 3px 10px; }
+
+/* chat */
+/* El chat ocupa lo que queda de pantalla y la lista de mensajes es la que
+   crece; si no, quedaba medio metro de gris muerto debajo del cuadro. */
+/* Altura fija, no minima: con min-height el chat crecia mas que la ventana y
+   lo que acababa bajando era la pagina entera, cabecera incluida. Asi solo
+   baja la lista de mensajes. 96px = el relleno de arriba y abajo de .main */
+/* El margen negativo se come parte del relleno de abajo de .main: son 44px
+   mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s de conversaciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n sin que la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina entera se ponga a hacer scroll. */
+.fox-chat {
+  display: flex; flex-direction: column; gap: 12px;
+  height: calc(100vh - 52px); margin-bottom: -44px;
+}
+/* Felix se queda arriba mientras la conversaciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n sube: es con quien hablas,
+   no tiene sentido que se vaya de la pantalla. */
+.fox-chat-head {
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  position: sticky; top: 0; z-index: 5;
+  /* el hueco de la derecha es para el monedero, que va fijo en esa esquina */
+  background: var(--bg); padding: 20px 92px 12px 0; margin-bottom: -2px;
+  border-bottom: 1px solid var(--border);
+}
+.fox-avatar { flex-shrink: 0; }
+.fox-avatar.pensando { animation: fox-flota 1.4s ease-in-out infinite; }
+.fox-sinvoz { font-size: 0.78rem; margin: -4px 0 0; }
+.fox-mensajes {
+  flex: 1 1 auto;
+  display: flex; flex-direction: column; gap: 12px; min-height: 220px;
+  overflow-y: auto; padding: 14px; border-radius: 12px; background: var(--surface-2);
+}
+.fox-vacio { font-size: 0.86rem; margin: auto; text-align: center; max-width: 380px; }
+.fox-msg { max-width: 82%; padding: 10px 13px; border-radius: 13px; font-size: 0.94rem; line-height: 1.5; }
+.fox-msg.mio { align-self: flex-end; background: var(--accent); color: var(--accent-ink); border-bottom-right-radius: 4px; }
+.fox-msg.suyo { align-self: flex-start; background: var(--surface); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
+.fm-de { display: flex; gap: 8px; align-items: flex-start; font-weight: 600; }
+.fm-voz { background: none; border: none; padding: 0 2px; cursor: pointer; font-size: 0.9rem; line-height: 1.4; }
+.fm-voz:hover { background: none; }
+.fm-es { font-size: 0.83rem; color: var(--muted); margin-top: 4px; }
+.fm-correccion {
+  margin-top: 10px; padding: 9px 11px; border-radius: 9px;
+  background: var(--bad-bg); border: 1px solid var(--bad-border);
+}
+.fmc-linea { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 0.9rem; }
+.fmc-linea .falsch { text-decoration: line-through; color: var(--bad); }
+.fmc-linea .richtig { color: var(--good); font-weight: 700; }
+.fmc-warum { font-size: 0.8rem; color: var(--text-2); margin-top: 5px; }
+.fm-uebung {
+  margin-top: 10px; padding: 10px 12px; border-radius: 9px;
+  background: var(--accent-soft); border: 1px solid var(--accent);
+}
+.fm-solucion { margin-top: 6px; font-size: 0.85rem; }
+.fm-solucion summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+.fox-msg.escribiendo { display: flex; gap: 5px; padding: 14px 16px; }
+.fox-msg.escribiendo span {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--muted);
+  animation: fox-punto 1.1s infinite ease-in-out;
+}
+.fox-msg.escribiendo span:nth-child(2) { animation-delay: 0.18s; }
+.fox-msg.escribiendo span:nth-child(3) { animation-delay: 0.36s; }
+@keyframes fox-punto {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-4px); }
+}
+.fox-barra { display: flex; gap: 9px; }
+.fox-barra .ask-input { flex: 1; }
+.fox-limpiar { align-self: flex-start; padding: 0; font-size: 0.8rem; }
+
+/* personalizar */
+.fox-modal {
+  position: fixed; inset: 0; z-index: 80; background: rgba(16, 24, 40, 0.45);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.fox-modal-caja {
+  background: var(--surface); border-radius: 16px; padding: 22px;
+  width: min(520px, 100%); max-height: 88vh; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.fox-preview { display: flex; justify-content: center; padding: 10px 0; }
+/* Ficha de arriba del todo: saldo | Felix | el resto. Felix va en el centro
+   de verdad (columnas laterales iguales), no en el hueco que quede. */
+.fox-ficha {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 14px;
+}
+.fox-ficha .fox-preview { padding: 0; }
+/* El saldo es el nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºmero que miras para saber si te llega para algo, asÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ que va
+   grande y solo, sin icono compitiendo al lado. */
+.fox-saldo-grande { display: flex; flex-direction: column; line-height: 1.05; }
+.fox-saldo-grande .fsg-num {
+  font-size: 2.3rem; font-weight: 800; color: #a16207;
+  font-variant-numeric: tabular-nums; letter-spacing: -0.02em;
+}
+.fox-saldo-grande .fsg-lab {
+  font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.09em; color: #b45309; margin-top: 3px;
+}
+.fox-stats { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.fox-stats li { display: flex; align-items: baseline; justify-content: flex-end; gap: 6px; }
+.fox-stats strong { font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+.fox-stats small { color: var(--muted); font-size: 0.82rem; min-width: 52px; text-align: left; }
+@media (max-width: 520px) {
+  .fox-ficha { grid-template-columns: 1fr auto; }
+  .fox-ficha .fox-stats { grid-column: 1 / -1; }
+  .fox-stats li { justify-content: center; }
+}
+.fox-items { display: flex; gap: 8px; flex-wrap: wrap; }
+.fox-item {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1px;
+  padding: 7px 12px; border-radius: 9px; border: 1.5px solid var(--border-strong);
+  background: var(--surface); cursor: pointer; font-size: 0.85rem;
+}
+.fox-item.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.fox-item.bloqueado { opacity: 0.55; cursor: default; }
+.fox-item small { font-size: 0.68rem; color: var(--muted); }
+
+/* candado de los colores */
+.fox-color { display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+.fox-color.bloqueado { border-color: var(--border); cursor: default; opacity: 0.8; }
+.fc-lock { filter: grayscale(1); opacity: 0.7; }
+.fox-pista { font-size: 0.74rem; margin: 2px 0 0; }
+
+/* Animaciones por gesto: el zorro se mueve segun lo que siente, no solo
+   flota. Se aplican al grupo interior para no pelearse con el flotado. */
+.fox-cuerpo { transform-origin: 50% 80%; }
+@keyframes fox-brinco {
+  0%, 100% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-1.1px) scale(1.04); }
+  55% { transform: translateY(0) scale(0.98); }
+}
+@keyframes fox-ladea {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-5deg); }
+}
+@keyframes fox-tiembla {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-0.6px); }
+  75% { transform: translateX(0.6px); }
+}
+@keyframes fox-cae {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(0.7px) rotate(2deg); }
+}
+.fox-muyfeliz .fox-cuerpo { animation: fox-brinco 0.75s ease-in-out 3; }
+.fox-feliz .fox-cuerpo { animation: fox-brinco 1.1s ease-in-out 2; }
+.fox-pensando .fox-cuerpo { animation: fox-ladea 2.4s ease-in-out infinite; }
+.fox-sorpresa .fox-cuerpo { animation: fox-tiembla 0.28s linear 4; }
+.fox-triste .fox-cuerpo { animation: fox-cae 2.8s ease-in-out infinite; }
+.fox-guino .fox-cuerpo { animation: fox-brinco 0.6s ease-in-out 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fox-face.flota, .fox-cuerpo, .fox-avatar.pensando { animation: none !important; }
+}
+
+/* La cola se menea sola: va en su propio grupo del SVG, con el eje de giro
+   en su base, asÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ el resto del zorro no se mueve con ella. */
+.fox-cola { transform-box: fill-box; transform-origin: 80% 90%; }
+@keyframes fox-menea {
+  0%, 100% { transform: rotate(0deg); }
+  35% { transform: rotate(-5deg); }
+  70% { transform: rotate(4deg); }
+}
+.fox-face .fox-cola { animation: fox-menea 3.4s ease-in-out infinite; }
+.fox-muyfeliz .fox-cola, .fox-feliz .fox-cola { animation-duration: 1.1s; }
+.fox-triste .fox-cola { animation-duration: 6s; }
+@media (prefers-reduced-motion: reduce) { .fox-cola { animation: none !important; } }
+
+/* ---------- Traducir frases ---------- */
+.ueb-dir { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+.ueb-fuente { text-transform: none; letter-spacing: 0; font-weight: 400; }
+.ueb-origen {
+  font-size: 1.3rem; line-height: 1.45; font-weight: 600; margin: 10px 0 16px;
+  padding: 16px 18px; border-radius: 12px; background: var(--surface-2);
+  border: 1.5px solid var(--border);
+}
+.ueb-pistas { display: flex; flex-direction: column; gap: 7px; margin-bottom: 12px; align-items: flex-start; }
+.ueb-pista { display: flex; gap: 9px; align-items: baseline; font-size: 0.85rem; }
+.up-et { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+.up-tx { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--accent); font-weight: 600; }
+.ueb-caja {
+  width: 100%; padding: 13px 15px; border-radius: 12px; font-size: 1.05rem;
+  border: 1.5px solid var(--border-strong); background: var(--surface); resize: vertical;
+  font-family: inherit; line-height: 1.5;
+}
+.ueb-caja:focus { outline: none; border-color: var(--accent); }
+.ueb-caja.bien { border-color: var(--good); background: var(--good-bg); }
+.ueb-caja.casi { border-color: #eab308; background: #fefce8; }
+.ueb-caja.mal { border-color: var(--bad); background: var(--bad-bg); }
+.ueb-resultado { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; align-items: flex-start; }
+.ueb-veredicto { font-weight: 700; font-size: 0.95rem; }
+.ueb-veredicto.bien { color: var(--good); }
+.ueb-veredicto.casi, .ueb-veredicto.orden { color: #b45309; }
+.ueb-veredicto.mal, .ueb-veredicto.vacio { color: var(--bad); }
+.ueb-buena { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.ub-et { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+.ub-tx { font-size: 1.05rem; font-weight: 600; color: var(--good); }
+.ueb-explica {
+  width: 100%; padding: 12px 14px; border-radius: 11px;
+  background: var(--accent-soft); border: 1px solid var(--accent);
+}
+.ue-resumen { font-size: 0.9rem; line-height: 1.5; }
+.ue-fallos { list-style: none; margin: 9px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.ue-fallos li { display: flex; gap: 7px; align-items: baseline; flex-wrap: wrap; font-size: 0.87rem; }
+.ue-fallos .falsch { text-decoration: line-through; color: var(--bad); }
+.ue-fallos .richtig { color: var(--good); font-weight: 700; }
+.ue-por { color: var(--text-2); font-size: 0.82rem; }
+.ue-consejo { font-size: 0.84rem; margin-top: 9px; color: var(--text-2); }
+
+/* El zorro de la portada llena el alto de su tarjeta; en pantalla estrecha
+   se encoge para no comerse la fila entera. */
+@media (max-width: 720px) { .fox-card-cara .fox-face { width: 104px; height: auto; } }
+
+/* Colores como fichas, con su requisito escrito */
+.fox-color-item { min-width: 118px; }
+.fci-fila { display: flex; align-items: center; gap: 7px; }
+.fci-dot { width: 15px; height: 15px; border-radius: 50%; border: 1.5px solid; flex-shrink: 0; }
+.fox-color-item.bloqueado .fci-dot { filter: grayscale(1); opacity: 0.55; }
+
+/* Tienda del zorro */
+.fox-saldo {
+  text-align: center; font-size: 1.05rem; padding: 8px 12px; border-radius: 999px;
+  background: #fef9c3; border: 1.5px solid #eab308; color: #854d0e; align-self: center;
+}
+.fox-saldo strong { font-size: 1.2rem; }
+.fox-aviso { text-align: center; color: var(--bad); font-size: 0.85rem; margin: -6px 0 0; }
+.fox-item.comprable { border-style: dashed; border-color: #eab308; opacity: 1; cursor: pointer; }
+.fox-item.comprable:hover { background: #fef9c3; }
+.fox-item.comprable small { color: #854d0e; font-weight: 600; }
+
+/* PartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­culas del zorro: suben flotando y se apagan */
+.fox-particulas { pointer-events: none; }
+@keyframes fox-mota {
+  0% { opacity: 0; transform: translateY(2px) scale(0.6); }
+  25% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-6px) scale(0.5); }
+}
+.fox-mota {
+  transform-box: fill-box; transform-origin: center;
+  animation-name: fox-mota; animation-iteration-count: infinite; animation-timing-function: ease-out;
+}
+@media (prefers-reduced-motion: reduce) { .fox-mota { animation: none; opacity: 0.7; } }
+
+/* Monedero fijo arriba a la derecha: el saldo siempre a la vista, y las
+   monedas del ejercicio volando hasta ÃƒÂ©l. */
+.monedero {
+  position: fixed; top: 14px; right: 18px; z-index: 60;
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 999px;
+  background: #fef9c3; border: 1.5px solid #eab308; color: #854d0e;
+  font-size: 0.95rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+  transition: top 0.3s ease;
+}
+@media (max-width: 880px) {
+  .monedero { top: 76px; }
+  .monedero.scrolled { top: 14px; }
+}
+.mnd-total { font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+.mnd-icono { display: inline-block; }
+.mnd-icono.salta { animation: mnd-salto 0.34s ease; }
+@keyframes mnd-salto {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.45) rotate(-14deg); }
+  100% { transform: scale(1); }
+}
+/* el +N cuelga POR DEBAJO de la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ldora: hacia arriba se salÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a de la pantalla */
+.mnd-subidas { position: absolute; inset: 0; }
+.mnd-sube {
+  position: absolute; left: 50%; top: 100%; transform: translateX(-50%);
+  font-weight: 700; color: #16a34a; font-size: 1rem; white-space: nowrap;
+  text-shadow: 0 1px 0 #fff, 0 0 6px #fff;
+  animation: mnd-flota 1.5s ease-out forwards;
+}
+@keyframes mnd-flota {
+  0% { opacity: 0; transform: translate(-50%, -10px) scale(0.7); }
+  25% { opacity: 1; transform: translate(-50%, 2px) scale(1.15); }
+  75% { opacity: 1; transform: translate(-50%, 8px) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, 20px) scale(0.9); }
+}
+
+/* las monedas que van del ejercicio a la esquina */
+.mnd-vuelos { position: fixed; inset: 0; pointer-events: none; z-index: 70; }
+.mnd-vuelo {
+  position: fixed; font-size: 1.15rem; line-height: 1;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+  animation: mnd-vuela var(--dur) cubic-bezier(0.42, 0, 0.5, 1) var(--retraso) both;
+}
+@keyframes mnd-vuela {
+  0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+  14% { transform: translate(0, -16px) scale(1.3); opacity: 1; }
+  /* punto alto del arco, a mitad de camino */
+  55% {
+    transform: translate(calc(var(--dx) * 0.5), calc(var(--dy) * 0.5 - 34px)) scale(1.05);
+    opacity: 1;
+  }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0.5); opacity: 0.9; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mnd-icono.salta, .mnd-sube, .mnd-vuelo { animation-duration: 0.01ms; }
+}
+@media (max-width: 720px) {
+  .monedero { top: 68px; right: 10px; padding: 4px 10px; font-size: 0.85rem; }
+  .monedero.scrolled { top: 10px; }
+}
+
+
+/* Cambiar el nombre estÃ¡ bajo llave hasta que lo compras. */
+.fox-nombre { display: flex; gap: 8px; align-items: stretch; }
+.fox-nombre input { flex: 1; min-width: 0; }
+.fox-nombre input:disabled { opacity: 0.6; cursor: not-allowed; }
+.fox-nombre .fox-item { flex-shrink: 0; justify-content: center; }
+
+
+/* Notas de una canciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n: se escriben mientras suena, asÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ que el cuadro va
+   pegado al vÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­deo y se guarda solo. */
+.lied-notas { display: flex; flex-direction: column; gap: 8px; }
+/* Notas con negrita y cursiva. Es un contentEditable, no un textarea: un
+   textarea no puede enseÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â±ar formato. */
+.nota-rica {
+  display: flex; align-items: stretch;
+  border: 1px solid var(--border-strong); border-radius: 10px; background: var(--surface);
+}
+/* Columna estrecha a la derecha, con los botones arriba del todo. */
+.nr-barra {
+  display: flex; flex-direction: column; justify-content: flex-start; gap: 4px;
+  padding: 8px 6px; border-left: 1px solid var(--border); flex-shrink: 0;
+}
+.nr-barra button {
+  width: 28px; height: 26px; border-radius: 6px; border: 1px solid transparent;
+  background: none; color: var(--text-2); cursor: pointer; font-size: 0.9rem; padding: 0;
+}
+.nr-barra button:hover { background: var(--surface-2); border-color: var(--border); }
+/* Se puede estirar tirando de la esquina y, si el texto es largo, se desplaza
+   por dentro: asÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ el vÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­deo de la canciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n no se va de la pantalla. */
+.nr-caja {
+  flex: 1; min-width: 0; min-height: 84px; max-height: 45vh;
+  padding: 10px 12px; outline: none; overflow-y: auto; resize: vertical;
+  font-size: 0.92rem; line-height: 1.55; color: var(--text);
+}
+.nr-caja.vacia::before {
+  content: attr(data-placeholder); color: var(--muted); pointer-events: none;
+}
+.nota-rica:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
+.lied-nota-ok { color: var(--good); font-weight: 600; }
+
+
+/* Pegar una captura o arrastrar el archivo al cuadro de la foto. */
+.foto-box { outline: none; }
+.foto-box.arrastrando { border-color: var(--accent); background: var(--accent-soft); }
+.foto-pegar { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+.foto-box:focus-within .foto-drop { border-color: var(--accent); }
+
+
+/* ---------- Ahorcado (GalgenmÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤nnchen) ---------- */
+.hang-tablero {
+  display: flex; gap: 30px; align-items: center; justify-content: center;
+  flex-wrap: wrap; margin-top: 12px; margin-bottom: 24px;
+}
+.hang-svg { width: 128px; height: 156px; flex-shrink: 0; }
+.hang-derecha { display: flex; flex-direction: column; gap: 12px; min-width: 210px; }
+/* Los fallos que te quedan, de un vistazo y sin contar trozos del muÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â±eco. */
+.hang-vidas { display: flex; gap: 5px; }
+.hang-vida { width: 13px; height: 13px; border-radius: 50%; background: var(--accent); }
+.hang-vida.ida { background: var(--border); }
+.hang-pista-txt {
+  margin: 0; font-size: 0.92rem; padding: 6px 10px; border-radius: 8px;
+  background: var(--accent-soft); color: var(--accent);
+}
+.hang-pistas { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+
+/* La palabra. Los huecos son la raya de toda la vida, y la letra aparece
+   encima cuando la aciertas. */
+.hang-palabra {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  margin: 32px 0 16px;
+}
+.hang-hueco {
+  width: 32px; height: 44px; display: flex; align-items: center; justify-content: center;
+  border-bottom: 3px solid var(--border-strong);
+  font-size: 1.6rem; font-weight: 700; letter-spacing: 0;
+}
+.hang-hueco.visto { color: var(--text); border-bottom-color: var(--accent); }
+.hang-hueco.fijo { border-bottom-color: transparent; opacity: 0.6; }
+
+/* Teclado en pantalla. En el portÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡til se puede escribir directamente, pero en
+   el mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³vil hace falta, y ademÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s asÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ se ve quÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© letras ya has gastado. */
+.hang-teclado {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  max-width: 480px; margin: 24px auto 0;
+}
+.hang-tecla {
+  /* inline-flex y padding 0: sin esto la letra no cae en el centro exacto del
+     cuadrito, igual que pasaba con la ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ de cerrar. */
+  display: inline-flex; align-items: center; justify-content: center; padding: 0;
+  width: 38px; height: 42px; border-radius: 8px; font-size: 1rem; font-weight: 600;
+  border: 1.5px solid var(--border-strong); background: var(--surface); cursor: pointer;
+}
+.hang-tecla:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+.hang-tecla.bien { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+.hang-tecla.mal { background: var(--surface-2); color: var(--muted); opacity: 0.55; }
+.hang-tecla:disabled { cursor: default; }
+
+.hang-final { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 10px; }
+.hang-final p { margin: 0; }
+.hang-ok { color: var(--good); font-weight: 700; font-size: 1.05rem; }
+.hang-ko { color: var(--bad); font-weight: 700; font-size: 1.05rem; }
+
+@media (max-width: 560px) {
+  .hang-svg { width: 104px; height: 128px; }
+  .hang-hueco { width: 24px; height: 34px; font-size: 1.25rem; }
+  .hang-tecla { width: 33px; height: 38px; font-size: 0.92rem; }
+}
+
+
+/* Pie del panel de PrÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡ctica: los dos enlaces de "y ademÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡sÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦" y la nota de las
+   monedas, que evita la sorpresa de ganar 1 aquÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ y 5 en una lecciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n. */
+.home-practica-pies { display: flex; flex-direction: row; gap: 16px; align-items: center; flex-wrap: wrap; }
+.home-practica-nota { font-size: 0.76rem; margin: 10px 0 0; }
+
+
+/* Reglas de un tema de gramÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡tica, con el mismo aire que las tarjetas de
+   vocabulario: nombre, de quÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© va, y cÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³mo lo llevas. */
+.concept-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
+.concept-card { display: flex; flex-direction: column; gap: 4px; }
+.cc-titulo { font-weight: 600; font-size: 0.92rem; }
+.cc-pista { font-size: 0.78rem; line-height: 1.45; }
+
+
+/* Palabras de una lecciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n, en tabla: se leen en columna y se comparan de un
+   vistazo, que es para lo que sirve una lista de vocabulario. */
+.woerter-tabla { width: 100%; border-collapse: collapse; }
+.woerter-tabla td { padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.woerter-tabla tr:last-child td { border-bottom: none; }
+.woerter-tabla .wt-de { font-weight: 600; width: 45%; }
+.woerter-tabla .wt-es { color: var(--text-2); }
+
+
+/* LÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼ckentext: escribir la palabra en vez de elegirla. */
+/* Las letras que no estan en un teclado espanol (ä ö ü ß). Van pegadas debajo
+   del cuadro de texto y alineadas con su borde izquierdo: centradas en la fila
+   se iban al lado del boton de guardar, lejos de donde escribes. */
+.umlaut-fila { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+.umlaut-fila .hang-tecla { width: 34px; height: 34px; font-size: 0.95rem; }
+
+/* El pie del cuadro del diario: las teclas a la izquierda, las palabras a la
+   derecha, los dos en la misma linea. */
+.diary-pie { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.diary-pie .umlaut-fila { margin-top: 8px; }
+.diary-pie .diary-count { margin-left: auto; }
+
+/* El tema propuesto para escribir, con la pinta de la pagina del libro: el
+   encargo arriba, las preguntas numeradas y los principios de frase en su
+   recuadro aparte. */
+.tb-tema { border-left: 3px solid var(--accent); }
+.tb-tema-es { font-size: 0.85rem; margin: 4px 0 0; }
+.tb-tema-fragen {
+  margin: 14px 0 0; padding-left: 22px;
+  display: flex; flex-direction: column; gap: 7px;
+  font-size: 0.95rem; line-height: 1.45;
+}
+.tb-tema-fragen li::marker { color: var(--accent); font-weight: 700; }
+.tb-tema-caja {
+  margin-top: 14px; padding: 11px 13px; border-radius: 11px;
+  background: var(--surface-2); border: 1px solid var(--border);
+}
+.tb-tema-et { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 7px; }
+/* Los principios de frase son largos, asi que la pildora se parte en varias
+   lineas en vez de salirse de la caja. */
+.tb-tema-caja .ask-chip { font-size: 0.85rem; text-align: left; border-radius: 10px; white-space: normal; }
+
+.write-fila { display: flex; gap: 10px; align-items: center; margin-top: 16px; }
+.write-input { flex: 1; min-width: 0; font-size: 1.05rem; }
+.write-input.bien { border-color: var(--good); background: var(--good-bg); }
+.write-input.mal { border-color: var(--bad); background: var(--bad-bg); }
+
+
+/* Las dos barras de un tema. La de arriba se pone verde al dominarlo: es la
+   seÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â±al de que ya has terminado ahÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­, y de que la segunda barra tiene sentido. */
+.tema-barras { margin: 2px 0 16px; }
+.tema-barras-et { font-size: 0.76rem; margin-top: 5px; }
+.mini-bar.completo > span { background: var(--good); }
+.pill.completo { background: var(--good-bg); border-color: var(--good); color: var(--good); font-weight: 700; }
+
+
+/* Resumen de la cuenta en Ajustes. */
+.set-resumen { display: flex; flex-wrap: wrap; gap: 22px; }
+.set-resumen > div { display: flex; flex-direction: column; line-height: 1.15; }
+.set-resumen strong { font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.set-resumen small { color: var(--muted); font-size: 0.78rem; margin-top: 2px; }
+.btn-ghost.danger { color: var(--bad); border-color: var(--bad-border); }
+
+
+/* El "ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Ãƒâ€šÃ‚Â volver" de las entradas del cuaderno y del diario: iba pegado al
+   tÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­tulo de debajo y parecÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a parte del mismo campo. */
+.volver-arriba { padding: 0; align-self: flex-start; margin-bottom: 16px; }
+
+
+/* Cuando la foto es vieja y no trae el enunciado impreso, al menos se separa
+   por nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºmero de ejercicio. */
+.foto-enunciado.sinTexto { background: var(--surface-2); color: var(--text-2); }
+
+
+/* CÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³mo se resuelve el ejercicio, en una lÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­nea, debajo del enunciado. */
+.foto-comoresolver {
+  margin: -2px 0 0; padding: 0 2px; font-size: 0.82rem; line-height: 1.5;
+  color: var(--text-2);
+}
+
+
+/* Sitios con audio real, en el apartado de HÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¶ren. */
+.audios { margin-top: 4px; }
+.audio-fila {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  padding: 10px 12px; margin-bottom: 8px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--surface-2);
+  text-decoration: none; color: inherit;
+}
+.audio-fila:hover { border-color: var(--accent); background: var(--accent-soft); }
+.af-nombre { font-weight: 600; font-size: 0.9rem; }
+.af-que { font-size: 0.8rem; line-height: 1.45; margin-top: 2px; }
+.audio-fila .pill { flex-shrink: 0; }
+
+
+/* Elegir mazos para practicarlos juntos. */
+.combi-lista { display: flex; flex-wrap: wrap; gap: 7px; }
+.combi-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 11px; border-radius: 999px; cursor: pointer;
+  border: 1.5px solid var(--border-strong); background: var(--surface);
+  font-size: 0.84rem; color: var(--text-2);
+}
+.combi-chip:hover { border-color: var(--accent); }
+.combi-chip.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.combi-chip small { color: var(--muted); font-size: 0.74rem; }
+.combi-chip.on small { color: var(--accent); }
+
+
+/* ---------- Espera de las cosas con IA ----------
+   Tres seÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â±ales, cada una responde a una pregunta: la barra dice que sigue
+   viva, los pasos dicen por donde va, el reloj dice cuanto llevas. */
+.cargando { display: flex; flex-direction: column; gap: 12px; }
+.cg-cabecera { display: flex; align-items: center; gap: 12px; }
+/* Aro girando con el emoji dentro: el aro da vueltas, el emoji no. Un emoji
+   rotando marea y encima se lee peor. */
+.cg-aro {
+  position: relative; flex-shrink: 0;
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 3px solid var(--surface-2);
+  border-top-color: var(--accent);
+  animation: cg-gira 0.9s linear infinite;
+  display: grid; place-items: center;
+}
+@keyframes cg-gira { to { transform: rotate(360deg); } }
+.cg-icono {
+  font-size: 1.1rem; line-height: 1;
+  /* gira al reves que el aro, asi que queda quieto */
+  animation: cg-gira 0.9s linear infinite reverse;
+}
+.cg-texto { flex: 1; min-width: 0; }
+.cg-titulo { display: block; font-size: 0.95rem; }
+.cg-paso {
+  display: flex; align-items: baseline; gap: 2px;
+  color: var(--text-2); font-size: 0.86rem; line-height: 1.45; margin-top: 2px;
+}
+.cg-reloj {
+  color: var(--muted); font-size: 0.8rem; font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+/* Los tres puntitos que van saltando detrÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s del texto. */
+.cg-puntos { display: inline-flex; gap: 3px; margin-left: 3px; }
+.cg-puntos i {
+  width: 3px; height: 3px; border-radius: 50%; background: currentColor;
+  animation: cg-punto 1.4s ease-in-out infinite;
+}
+.cg-puntos i:nth-child(2) { animation-delay: 0.18s; }
+.cg-puntos i:nth-child(3) { animation-delay: 0.36s; }
+@keyframes cg-punto {
+  0%, 60%, 100% { opacity: 0.25; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+/* Barra indeterminada: se pasea de lado a lado. No finge un porcentaje porque
+   no sabemos cuanto falta, y una barra clavada en el 90% miente peor. */
+.cg-barra {
+  position: relative; height: 4px; border-radius: 999px;
+  background: var(--surface-2); overflow: hidden;
+}
+.cg-barra > span {
+  position: absolute; top: 0; bottom: 0; width: 38%; border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: cg-pasea 1.9s ease-in-out infinite;
+}
+@keyframes cg-pasea {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
+
+.cg-largo { font-size: 0.79rem; margin: 0; line-height: 1.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cg-icono, .cg-puntos i, .cg-barra > span { animation-duration: 0.01ms; }
+  .cg-barra > span { left: 0; width: 100%; }
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+.modal {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+/* La ventana de conjugacion se ajusta a lo que ocupa la forma mas larga.
+   Con un ancho fijo, "bin zufrieden gewesen" partia en dos lineas y la tabla
+   quedaba desalineada: unas celdas de una linea y otras de dos.
+
+   width:max-content hace que el navegador calcule el ancho que necesita la
+   rejilla; las columnas 1fr se igualan a la mas ancha, asi que las seis
+   tarjetas salen del mismo tamano. El max-width lo corta antes de que se salga
+   de la pantalla. */
+.modal-conj {
+  width: max-content;
+  max-width: min(1240px, calc(100vw - 2rem));
+}
+.conj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.conj-card {
+  background: var(--surface-2);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+}
+.conj-examples {
+  margin-top: 24px;
+  padding: 18px;
+  background: var(--surface-2);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.conj-example {
+  margin-bottom: 12px;
+}
+.conj-example:last-child {
+  margin-bottom: 0;
+}
+.conj-example .ce-tense {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+.conj-example .ce-de {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.conj-example .ce-es {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.conj-title {
+  margin: 0 0 12px 0;
+  font-size: 1.05rem;
+  color: var(--accent);
+  border-bottom: 2px solid var(--border-strong);
+  padding-bottom: 6px;
+}
+.conj-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.conj-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+}
+.conj-table tr:last-child td {
+  border-bottom: none;
+}
+.conj-pronoun {
+  color: var(--muted);
+  /* 1% + nowrap = lo justo para el pronombre; el resto se lo queda la forma. */
+  width: 1%;
+  white-space: nowrap;
+  padding-right: 18px;
+  font-size: 0.9rem;
+}
+.conj-form {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* En pantallas estrechas no cabe en tres columnas: primero dos, luego una. Y
+   en el movil se deja partir la forma, que es mejor que desbordar a lo ancho. */
+@media (max-width: 900px) {
+  .conj-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px) {
+  .conj-grid { grid-template-columns: 1fr; }
+  .conj-form { white-space: normal; }
+}
+/* ---------- Espera de lo que se busca en la web ----------
+   Noticias y canciones. A diferencia de la espera de los ejercicios, aqui si
+   se puede enseñar algo: esta rastreando medios. De ahi el radar y los nombres
+   pasando por debajo. Lo que no se finge, igual que alli, es el porcentaje. */
+.buscando { display: flex; flex-direction: column; gap: 12px; }
+.bs-cabecera { display: flex; align-items: center; gap: 13px; }
+
+/* Radar: tres anillos saliendo del centro, desfasados entre si. */
+.bs-radar {
+  position: relative; flex-shrink: 0;
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+}
+.bs-onda {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  animation: bs-onda 2.4s ease-out infinite;
+}
+.bs-onda:nth-child(2) { animation-delay: 0.8s; }
+.bs-onda:nth-child(3) { animation-delay: 1.6s; }
+@keyframes bs-onda {
+  0%   { transform: scale(0.35); opacity: 0.85; }
+  70%  { opacity: 0.12; }
+  100% { transform: scale(1); opacity: 0; }
+}
+/* El emoji del centro no gira: es lo unico que hay que leer ahi. Solo respira. */
+.bs-centro {
+  position: relative; z-index: 1;
+  font-size: 1.15rem; line-height: 1;
+  animation: bs-late 2.4s ease-in-out infinite;
+}
+@keyframes bs-late {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.12); }
+}
+
+.bs-texto { flex: 1; min-width: 0; }
+.bs-titulo { display: block; font-size: 0.95rem; }
+.bs-paso {
+  display: flex; align-items: baseline; gap: 2px;
+  color: var(--text-2); font-size: 0.86rem; line-height: 1.45; margin-top: 2px;
+}
+.bs-reloj {
+  color: var(--muted); font-size: 0.8rem; font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+/* Los medios por los que anda mirando. Ninguno se marca como "hecho": no
+   sabemos por donde va, y un tic falso es peor que no poner nada. */
+.bs-fuentes { display: flex; flex-wrap: wrap; gap: 6px; }
+.bs-fuente {
+  padding: 3px 9px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--surface-2);
+  color: var(--muted); font-size: 0.73rem;
+  transition: color 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+.bs-fuente.mirando {
+  color: var(--accent); border-color: var(--accent); background: var(--accent-soft);
+}
+
+/* Refrescando algo que ya esta en pantalla: una linea, pero que se mueva.
+   Antes era un "Generando..." gris y quieto que parecia la app colgada. */
+.bs-linea {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-bottom: 10px; padding: 5px 11px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent);
+  font-size: 0.82rem;
+}
+.bs-lupa { display: inline-block; animation: bs-rastrea 1.8s ease-in-out infinite; }
+@keyframes bs-rastrea {
+  0%, 100% { transform: translateX(-2px) rotate(-8deg); }
+  50%      { transform: translateX(2px) rotate(8deg); }
+}
+
+/* Pestaña que se esta actualizando: un puntito latiendo, para ver de un
+   vistazo CUAL de las cinco esta buscando sin tener que entrar.
+   Va en el hueco del numero, a la derecha, ocupando su sitio: asi la pestaña
+   no cambia de ancho al empezar a buscar. */
+.tab-buscando {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: currentColor; flex-shrink: 0;
+  animation: bs-punto 1.1s ease-in-out infinite;
+}
+@keyframes bs-punto {
+  0%, 100% { opacity: 0.3; transform: scale(0.75); }
+  50%      { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bs-onda, .bs-centro, .bs-lupa, .tab-buscando { animation-duration: 0.01ms; }
+}
+
+/* Ampliar un tema con la IA: el premio por dejarlo entero en verde. */
+.ampliar {
+  margin-top: 14px; padding: 14px; border-radius: var(--radius);
+  border: 1px dashed var(--border-strong); background: var(--surface-2);
+}
+/* El semaforo del tema de un vistazo. Va en proporcion: una barra llena de
+   verde es exactamente lo que abre el boton. */
+.ampliar-barra {
+  display: flex; gap: 2px; height: 6px; margin-top: 12px;
+  border-radius: 999px; overflow: hidden;
+}
+.ampliar-barra > span { display: block; }
+.av-verde { background: var(--good); }
+.av-amarilla { background: #f59e0b; }
+.av-roja { background: var(--bad); }
+.av-vacia { background: var(--border-strong); }
+.ampliar-ej { font-size: 0.84rem; margin-top: 6px; }
+.ampliar-ej-es { font-size: 0.8rem; }
+.ampliar-nota {
+  font-size: 0.76rem; margin-top: 6px; color: var(--accent);
+  background: var(--accent-soft); border-radius: 7px; padding: 4px 7px;
+}
+
+/* Practicar una funcion comunicativa con las frases del Kursbuch, sin IA. */
+.kp-fin { gap: 12px; padding: 30px 20px; }
+.kp-nota { font-size: 2.4rem; font-weight: 800; }
+.kp-nota.bien { color: var(--good); }
+.kp-nota.mal { color: var(--bad); }
+/* La correccion y el boton de seguir, en una fila bajo el ejercicio. */
+.kp-pie {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border);
+}
+.kp-pie .btn-primary { margin-left: auto; }
+.kp-ok { color: var(--good); font-weight: 700; }
+.kp-ko { color: var(--bad); font-weight: 700; }
+.komm-aviso { font-size: 0.78rem; margin: 10px 0 0; }
+
+/* ---------- Audio en la conversacion ----------
+   El altavocito de cada intervencion va dentro de la burbuja, detras del
+   texto aleman, y solo se ve al pasar por encima: si estuviera siempre
+   visible, veinte iconos competirian con lo que hay que leer. En tactil no
+   hay hover, asi que ahi se queda fijo. */
+.dlg-de { position: relative; }
+.dlg-say {
+  margin-left: 8px;
+  vertical-align: baseline;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+.dlg-turn:hover .dlg-say,
+.dlg-say:focus-visible,
+.lk-examples li:hover .dlg-say {
+  opacity: 1;
+}
+@media (hover: none) {
+  .dlg-say { opacity: 1; }
+}
+
+/* La intervencion que se esta leyendo. Un borde, no un cambio de fondo: el
+   fondo ya distingue quien habla y perderiamos esa pista. */
+.dlg-turn.sonando .dlg-bubble {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.dlg-turn.sonando .dlg-say { opacity: 1; }
