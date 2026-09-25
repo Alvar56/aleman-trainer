@@ -218,9 +218,7 @@ export function levelFromXp(totalXp = 0) {
 }
 
 export function getLevel() {
-  // Nivel 100 temporal para previsualizar el efecto dorado (132.000 XP)
-  const xp = Math.max(getStreak().totalXp || 0, 132000);
-  return levelFromXp(xp);
+  return levelFromXp(getStreak().totalXp);
 }
 
 // ---------- Calendario del mes ----------
