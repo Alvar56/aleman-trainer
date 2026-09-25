@@ -215,7 +215,7 @@ export default function FoxAjustes({ onClose, onChange }) {
           </div>
           <ul className="fox-stats">
             <li><strong>{l.coronas}</strong><small>Kronen</small></li>
-            <li><strong>{l.nivel}</strong><small>Level</small></li>
+            <li><strong className={l.nivel >= 100 ? 'num-dorado' : ''}>{l.nivel}</strong><small>Level</small></li>
             <li><strong>{l.racha}</strong><small>in Folge</small></li>
             <li><strong>{l.dias}</strong><small>Tage</small></li>
           </ul>

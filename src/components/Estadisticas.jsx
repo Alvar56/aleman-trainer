@@ -73,7 +73,9 @@ export default function Estadisticas() {
       </div>
 
       <div className="est-tiras">
-        <span className="pill">🎚️ {pick('Nivel', 'Level')} {nivel.level}</span>
+        <span className={'pill' + (nivel.level >= 100 ? ' pill-dorada' : '')}>
+          🎚️ {pick('Nivel', 'Level')} <span className={nivel.level >= 100 ? 'num-dorado' : ''}>{nivel.level}</span>
+        </span>
         <span className="pill">➕ {tot.xp} XP</span>
         <span className="pill">⭐ {t('sum.streak')} {racha.current}</span>
         <span className="pill">📅 {tot.dias} {pick('días con práctica', 'days practised')}</span>

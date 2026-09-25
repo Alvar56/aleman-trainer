@@ -31,7 +31,7 @@ export default function Premios({
     <div className="sum-premios">
       {/* 1. las noticias */}
       {subida && (
-        <span className="pill nivel-nuevo">
+        <span className={'pill nivel-nuevo' + (subida.value >= 100 ? ' pill-dorada' : '')}>
           🆙 {t('sum.levelUp', { n: subida.value })} 🪙 +{subida.monedas}
         </span>
       )}

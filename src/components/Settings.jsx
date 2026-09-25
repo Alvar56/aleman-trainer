@@ -99,7 +99,7 @@ export default function Settings({ onBack }) {
         <h2>{t('set.account')}</h2>
         <div className="set-resumen">
           <div className="card statcard">
-            <div className="n">{lvl.level}</div>
+            <div className={'n' + (lvl.level >= 100 ? ' num-dorado' : '')}>{lvl.level}</div>
             <div className="l">{t('set.level')}</div>
           </div>
           <div className="card statcard">
