@@ -474,8 +474,8 @@ const DICT = {
   'home.moreGames': ['O una lección de vocabulario', 'Or a vocabulary lesson'],
   'home.moreGamesShort': ['O vocabulario', 'Or vocabulary'],
   'home.practiceNote': [
-    'Estos dan 1 moneda por acierto. Otras actividades más largas (como el diario o el examen) pagan más.',
-    'These pay 1 coin per correct answer. Longer activities (like the diary or exam) pay more.'
+    'Estos ejercicios rápidos otorgan 1 moneda por cada acierto. Las lecciones completas y actividades más extensas (como el diario, comprensión de textos o el examen) otorgan mayores recompensas de monedas y XP extra.',
+    'These quick exercises give 1 coin per correct answer. Complete lessons and longer activities (like the diary, reading & listening, or exams) grant greater coin rewards and bonus XP.'
   ],
   'home.gWeakSub': ['{n} puntos flojos', '{n} weak points'],
   'home.gWeakNone': ['aún nada', 'nothing yet'],
@@ -1490,8 +1490,8 @@ const DICT = {
   'home.sesionesSub': ['desde que empezaste', 'since you started'],
   'home.atRiskWhy': ['Practica hoy para no perder la racha', 'Practise today to keep your streak'],
   'home.practiceNoteSinIA': [
-    'Estos dan 1 moneda por acierto. Las lecciones completas pagan más.',
-    'These pay 1 coin per correct answer. Full lessons pay more.'
+    'Estos ejercicios rápidos otorgan 1 moneda por cada acierto. Las lecciones completas, retos de vocabulario y exámenes otorgan mayores recompensas de monedas y XP extra.',
+    'These quick exercises give 1 coin per correct answer. Full lessons, vocabulary challenges and exams grant greater coin rewards and bonus XP.'
   ],
 
   // kasus

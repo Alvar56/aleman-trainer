@@ -2822,7 +2822,7 @@ input.ask-input,
     display: inline;
   }
 }
-.home-practica-nota { font-size: 0.76rem; margin: 10px 0 0; }
+.home-practica-nota { font-size: 0.78rem; line-height: 1.45; margin: 12px 0 0; }
 
 
 /* Reglas de un tema de gramática, con el mismo aire que las tarjetas de
