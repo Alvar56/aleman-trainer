@@ -204,13 +204,19 @@ export default function Dashboard({ onStart, onNavigate, onFox, onFlashcards }) 
           )}
           <div className="home-practica-pies">
             <button className="link-btn" onClick={() => onNavigate('grammar')}>
-              {t('home.pickTopic')} <span className="fl-arr">▸</span>
+              <span className="desk-txt">{t('home.pickTopic')}</span>
+              <span className="mob-txt">{t('home.pickTopicShort')}</span>
+              <span className="fl-arr">▸</span>
             </button>
             <button className="link-btn" onClick={() => onNavigate('vocab')}>
-              {t('home.moreGames')} <span className="fl-arr">▸</span>
+              <span className="desk-txt">{t('home.moreGames')}</span>
+              <span className="mob-txt">{t('home.moreGamesShort')}</span>
+              <span className="fl-arr">▸</span>
             </button>
             <button className="link-btn" onClick={() => onNavigate('komm')}>
-              {t('home.kommTopic')} <span className="fl-arr">▸</span>
+              <span className="desk-txt">{t('home.kommTopic')}</span>
+              <span className="mob-txt">{t('home.kommTopicShort')}</span>
+              <span className="fl-arr">▸</span>
             </button>
           </div>
           <p className="muted home-practica-nota">

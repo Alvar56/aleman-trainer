@@ -471,7 +471,8 @@ const DICT = {
   'home.gUeb': ['Traducir frases', 'Translate sentences'],
   'home.gUebSub': ['con pistas, en los dos sentidos', 'with hints, both directions'],
   // Lleva al índice de Wortschatz, donde eliges lección o mazo; no a un juego.
-  'home.moreGames': ['O vocabulario', 'Or vocabulary'],
+  'home.moreGames': ['O una lección de vocabulario', 'Or a vocabulary lesson'],
+  'home.moreGamesShort': ['O vocabulario', 'Or vocabulary'],
   'home.practiceNote': [
     'Estos dan 1 moneda por acierto. Otras actividades más largas (como el diario o el examen) pagan más.',
     'These pay 1 coin per correct answer. Longer activities (like the diary or exam) pay more.'
@@ -487,8 +488,10 @@ const DICT = {
     'o arrastra el archivo aquí (Ctrl+V si pinchas antes en este cuadro)',
     'or drop the file here (Ctrl+V if you click this box first)'
   ],
-  'home.pickTopic': ['O gramática', 'Or grammar'],
-  'home.kommTopic': ['O comunicación', 'Or communication'],
+  'home.pickTopic': ['O una lección de gramática', 'Or a grammar lesson'],
+  'home.pickTopicShort': ['O gramática', 'Or grammar'],
+  'home.kommTopic': ['O una lección de comunicación', 'Or a communication lesson'],
+  'home.kommTopicShort': ['O comunicación', 'Or communication'],
 
   // Wortschatz
   'voc.sub': [

@@ -2785,20 +2785,42 @@ input.ask-input,
 .home-practica-pies {
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  width: 100%;
+  flex-wrap: wrap;
 }
 .home-practica-pies .link-btn {
   padding: 0;
   font-size: 0.84rem;
   white-space: nowrap;
-  text-align: center;
 }
 .home-practica-pies .fl-arr {
   margin-left: 2px;
+}
+.home-practica-pies .mob-txt {
+  display: none;
+}
+.home-practica-pies .desk-txt {
+  display: inline;
+}
+
+@media (max-width: 600px) {
+  .home-practica-pies {
+    justify-content: space-between;
+    gap: 6px;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .home-practica-pies .link-btn {
+    text-align: center;
+    flex-shrink: 1;
+  }
+  .home-practica-pies .desk-txt {
+    display: none;
+  }
+  .home-practica-pies .mob-txt {
+    display: inline;
+  }
 }
 .home-practica-nota { font-size: 0.76rem; margin: 10px 0 0; }
 
