@@ -2785,7 +2785,7 @@ input.ask-input,
 .home-practica-pies {
   display: flex;
   flex-direction: row;
-  gap: clamp(6px, 1.8vw, 16px);
+  gap: 12px;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
@@ -2793,11 +2793,9 @@ input.ask-input,
 }
 .home-practica-pies .link-btn {
   padding: 0;
-  font-size: clamp(0.66rem, 2.3vw, 0.84rem);
+  font-size: 0.84rem;
   white-space: nowrap;
   text-align: center;
-  min-width: 0;
-  flex-shrink: 1;
 }
 .home-practica-pies .fl-arr {
   margin-left: 2px;
