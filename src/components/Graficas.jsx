@@ -96,7 +96,15 @@ export function BarrasDia({ datos, valor = (d) => d.minutos, unidad = '', etique
   return (
     <div className="grafica" ref={caja}>
       {ancho > 0 && (
-        <svg width={ancho} height={altoTotal} viewBox={`0 0 ${ancho} ${altoTotal}`} className="gr-svg" role="img" aria-label={etiqueta}>
+        <svg
+          width={ancho}
+          height={altoTotal}
+          viewBox={`0 0 ${ancho} ${altoTotal}`}
+          className="gr-svg"
+          style={{ width: '100%', height: `${altoTotal}px` }}
+          role="img"
+          aria-label={etiqueta}
+        >
           <Rejilla ancho={ancho} alto={alto} max={max} unidad={unidad} />
           {datos.map((d, i) => {
             const v = valor(d);
@@ -148,7 +156,15 @@ export function Linea({ datos, etiqueta, alto = 120 }) {
   return (
     <div className="grafica" ref={caja}>
       {ancho > 0 && (
-        <svg width={ancho} height={altoTotal} viewBox={`0 0 ${ancho} ${altoTotal}`} className="gr-svg" role="img" aria-label={etiqueta}>
+        <svg
+          width={ancho}
+          height={altoTotal}
+          viewBox={`0 0 ${ancho} ${altoTotal}`}
+          className="gr-svg"
+          style={{ width: '100%', height: `${altoTotal}px` }}
+          role="img"
+          aria-label={etiqueta}
+        >
           <Rejilla ancho={ancho} alto={alto} max={max} unidad="%" />
           <polygon points={area} className="gr-area" />
           <polyline points={linea} className="gr-linea" />
