@@ -233,9 +233,8 @@ export default function App() {
     setViewProxy(memView);
   };
 
-  // El "volver" de cada pantalla: ese sí va al índice, que es lo que pides.
   const go = (name) => setViewProxy({ name });
-  const openTopic = (topicId) => setViewProxy({ name: 'topic', topicId });
+  const openTopic = (topicId, tab = 'teoria') => setViewProxy({ name: 'topic', topicId, tab });
   // La pestaña viaja en la vista para que la memoria de sección la recuerde.
   const setTab = (tab) => setViewProxy((v) => ({ ...v, tab }));
   // Entrar a traducir frases. Desde la portada se entra directo, con todas
@@ -248,8 +247,8 @@ export default function App() {
 
   // La teoria del tema que acabas de practicar. Devuelve null cuando no hay
   // ninguna (la tanda mixta), y asi el resumen no pinta el boton.
-  const volverAlTema = (topicId, tab) => {
-    if (!topicId || topicId === 'mix') return null;
+  const volverAlTema = (topicId, tab = 'ejercicios') => {
+    if (!topicId || topicId === 'mix' || String(topicId).startsWith('mix:')) return null;
     return () => setViewProxy({ name: 'topic', topicId, tab });
   };
 
@@ -258,11 +257,9 @@ export default function App() {
   // se ha salido... salvo con las tarjetas, que se lanzan desde la teoría: allí
   // devolver a ejercicios dejaba al alumno en otra pantalla de la que estaba.
   const returnToDeck = (deckId, tab = 'ejercicios') => {
-    // La mezcla de TODO el vocabulario no es un mazo al que volver: se empieza
-    // desde la portada y ahi hay que devolver. openDeck la abria como si fuera
-    // un mazo de Wortschatz y te sacaba de la Startseite sin haber ido tu.
+    // La mezcla de TODO el vocabulario devuelve a Wortschatz (vocabulario)
     if (String(deckId).startsWith('combi:')) {
-      go('home');
+      go('vocab');
       return;
     }
     const d = getDeck(deckId);
@@ -365,7 +362,13 @@ export default function App() {
             mode={view.mode}
             game={view.game}
             itemsFijos={view.itemsFijos}
-            onExit={() => view.topicId === 'mix' ? go('home') : openTopic(view.topicId)}
+            onExit={() => {
+              if (!view.topicId || view.topicId === 'mix' || String(view.topicId).startsWith('mix:')) {
+                go('grammar');
+              } else {
+                openTopic(view.topicId, 'ejercicios');
+              }
+            }}
             onDone={(data) => setView({ name: 'summary', data })}
           />
         )}
