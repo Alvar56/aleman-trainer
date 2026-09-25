@@ -21,6 +21,9 @@ const EJE = 52;
 // Margen derecho para que las barras, líneas y fechas no queden pegadas al borde derecho
 const MARGEN_DER = 4;
 
+// Margen superior interno para que los valores máximos y la cuadrícula respiren
+const PAD_TOP = 10;
+
 // Y lo que se reserva abajo para las fechas. Es el mismo en todas aunque
 // alguna no escriba nada ahi: asi las lineas del cero de dos graficas
 // vecinas caen a la misma altura.
@@ -65,7 +68,7 @@ function Rejilla({ ancho, alto, max, unidad }) {
   return (
     <g>
       {[0, 0.5, 1].map((f) => {
-        const y = Math.round(alto - f * alto) + 0.5; // media raya: line de 1px nítida
+        const y = Math.round(PAD_TOP + (alto - f * alto)) + 0.5; // media raya: line de 1px nítida
         return (
           <g key={f}>
             <line x1={EJE} y1={y} x2={finX} y2={y} className="gr-rejilla" />
@@ -84,7 +87,7 @@ function Rejilla({ ancho, alto, max, unidad }) {
 export function BarrasDia({ datos, valor = (d) => d.minutos, unidad = '', etiqueta, alto = 120 }) {
   const caja = useRef(null);
   const ancho = useAncho(caja);
-  const altoTotal = alto + PIE;
+  const altoTotal = PAD_TOP + alto + PIE;
   const max = techo(Math.max(...datos.map(valor), 0));
   const util = Math.max(0, ancho - EJE - MARGEN_DER);
   const paso = util / Math.max(1, datos.length);
@@ -114,7 +117,7 @@ export function BarrasDia({ datos, valor = (d) => d.minutos, unidad = '', etique
               <rect
                 key={d.clave || i}
                 x={x}
-                y={alto - h}
+                y={PAD_TOP + alto - h}
                 width={grosor}
                 height={Math.max(v > 0 ? 3 : 0, h)}
                 rx={2}
@@ -126,8 +129,8 @@ export function BarrasDia({ datos, valor = (d) => d.minutos, unidad = '', etique
           })}
           {/* Solo el primero y el último llevan fecha: con treinta etiquetas no
               se lee ninguna. */}
-          <text x={EJE} y={alto + 15} className="gr-eje">{datos[0]?.etiquetaCorta || ''}</text>
-          <text x={finX} y={alto + 15} textAnchor="end" className="gr-eje">
+          <text x={EJE} y={PAD_TOP + alto + 15} className="gr-eje">{datos[0]?.etiquetaCorta || ''}</text>
+          <text x={finX} y={PAD_TOP + alto + 15} textAnchor="end" className="gr-eje">
             {datos[datos.length - 1]?.etiquetaCorta || ''}
           </text>
         </svg>
@@ -142,16 +145,16 @@ export function Linea({ datos, etiqueta, alto = 120 }) {
   const ancho = useAncho(caja);
   // El mismo hueco de abajo que la de barras aunque aqui no haya fechas que
   // escribir: si no, las dos lineas del cero de una fila no coinciden.
-  const altoTotal = alto + PIE;
+  const altoTotal = PAD_TOP + alto + PIE;
   const util = Math.max(0, ancho - EJE - MARGEN_DER);
   const finX = Math.max(EJE, ancho - MARGEN_DER);
   const max = 100;
   if (datos.length < 2) return null;
   const px = (i) => EJE + (i / (datos.length - 1)) * util;
-  const py = (v) => alto - (v / max) * alto;
+  const py = (v) => PAD_TOP + alto - (v / max) * alto;
 
   const linea = datos.map((d, i) => `${px(i)},${py(d.media ?? 0)}`).join(' ');
-  const area = `${EJE},${alto} ${linea} ${finX},${alto}`;
+  const area = `${EJE},${PAD_TOP + alto} ${linea} ${finX},${PAD_TOP + alto}`;
 
   return (
     <div className="grafica" ref={caja}>
