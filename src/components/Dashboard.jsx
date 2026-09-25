@@ -48,9 +48,8 @@ export default function Dashboard({ onStart, onNavigate, onFox, onFlashcards }) 
             aqui y no con :first-child, que se colaba en las otras rejillas de
             statcards (el examen, el diario) y les descuadraba el reparto. */}
         <div className="card statcard statcard-ancha">
-          <div className="n">
-            {t('home.levelN', { n: '' })}
-            <span className={lvl.level >= 100 ? 'num-dorado' : ''}>{lvl.level}</span>
+          <div className={'n' + (lvl.level >= 100 ? ' num-dorado' : '')}>
+            {t('home.levelN', { n: lvl.level })}
           </div>
           <div className="flex-min">
             <div className="l" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 4 }}>
