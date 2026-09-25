@@ -633,7 +633,7 @@ const DICT = {
   'sum.freezeUsed': ['(congelador usado)', '(freeze used)'],
   // Subir de nivel: se avisa al terminar la tanda, que es cuando pasa.
   'sum.levelUp': ['¡Nivel {n}!', 'Level {n}!'],
-  'sum.rank': ['puesto', 'rank'],
+  'sum.rank': ['Puesto', 'Rank'],
   // El boton de volver a intentar SOLO lo que acabas de fallar.
   'sum.retryFails': ['🩹 Repetir los fallos ({n})', '🩹 Retry your mistakes ({n})'],
   'sum.mistakes': ['Repaso de fallos ({n})', 'Mistake review ({n})'],
