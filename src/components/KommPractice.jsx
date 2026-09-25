@@ -316,8 +316,30 @@ export default function KommPractice({
   const desde = useRef(Date.now());
   const [fin, setFin] = useState(null);
 
+  const p = preguntas[i] || null;
+
+  const starItem = useMemo(() => {
+    if (!p) return null;
+    const pid = p.id || `komm:${lektionId || ''}:${p.tipo || 'mc'}:${p.explica?.de || p.item?.sentence || i}`;
+    return {
+      ...p,
+      id: pid,
+      tipo: p.tipo || 'mc',
+      item: p.item,
+      explica: p.explica,
+      seccion: p.seccion,
+      lektionId: p.lektionId || lektionId,
+      funktion: typeof funktion === 'object' ? (funktion?.funktion || '') : (funktion || ''),
+      sentence: p.item?.sentence,
+      prompt: p.item?.prompt || p.item?.anweisung,
+      de: p.explica?.de || p.de,
+      es: p.explica?.es || p.es,
+      ...(p.item || {})
+    };
+  }, [p, lektionId, funktion, i]);
+
   // Enter para pasar a la siguiente, como en gramática.
-  useTeclas({ Enter: () => siguiente(), ' ': () => siguiente() }, juzgada !== null);
+  useTeclas({ Enter: () => siguiente(), ' ': () => siguiente() }, juzgada !== null && !fin);
 
   if (!preguntas.length) return null;
 
@@ -501,29 +523,7 @@ export default function KommPractice({
     );
   }
 
-  const p = preguntas[i];
-
-  const starItem = useMemo(() => {
-    if (!p) return null;
-    const pid = p.id || `komm:${lektionId || ''}:${p.tipo || 'mc'}:${p.explica?.de || p.item?.sentence || i}`;
-    return {
-      ...p,
-      id: pid,
-      tipo: p.tipo || 'mc',
-      item: p.item,
-      explica: p.explica,
-      seccion: p.seccion,
-      lektionId: p.lektionId || lektionId,
-      funktion: funktion?.funktion,
-      sentence: p.item?.sentence,
-      prompt: p.item?.prompt || p.item?.anweisung,
-      de: p.explica?.de || p.de,
-      es: p.explica?.es || p.es,
-      ...(p.item || {})
-    };
-  }, [p, lektionId, funktion?.funktion, i]);
-
-  const buena = p.item.answer || (p.item.solution || []).join(' ');
+  const buena = p?.item?.answer || (p?.item?.solution || []).join(' ');
 
   return (
     <div className="stack kp">
@@ -537,7 +537,9 @@ export default function KommPractice({
           misma clase que el enunciado del ejercicio y salian dos lineas
           grises identicas seguidas, sin saber cual era cual. */}
       <div className="ctx-fila">
-        <span className="pill ctx-tema">💬 {funktion.funktion}</span>
+        <span className="pill ctx-tema">
+          💬 {typeof funktion === 'object' ? (funktion?.funktion || '') : (funktion || '')}
+        </span>
         <span className="row" style={{ gap: 8 }}>
           <StarButton item={starItem} />
           <RachaPill n={seguidas} />
