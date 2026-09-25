@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { t } from '../lib/i18n.js';
+import { useTeclas } from '../lib/teclas.js';
 
 // Ordenar la frase en la misma caja, de dos maneras que valen a la vez:
 //
@@ -15,6 +16,9 @@ export default function WordOrder({ item, onAnswer }) {
     return <div className="error">Invalid item</div>;
   }
   const solution = item.solution;
+  const validas = item.alternativas && item.alternativas.length
+    ? item.alternativas
+    : [solution.join(' ')];
 
   // Empieza desordenado, pero nunca con la frase ya resuelta.
   const initial = useMemo(() => {
@@ -31,6 +35,9 @@ export default function WordOrder({ item, onAnswer }) {
   const [destino, setDestino] = useState(null); // hueco donde caería
   const [checked, setChecked] = useState(false);
   const [correct, setCorrect] = useState(false);
+  // Acertó con una colocación distinta de la de referencia: se le dice que la
+  // suya vale y cuál es la otra, que también hay que saberla.
+  const [otraForma, setOtraForma] = useState(null);
 
   const boxRef = useRef(null);
   const inicio = useRef(null); // gesto en curso
@@ -68,12 +75,15 @@ export default function WordOrder({ item, onAnswer }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [drag]);
 
-  // Solo se usa DESPUÉS de comprobar, para marcar hasta dónde ibas bien.
-  const bienPuestas = useMemo(() => {
-    let n = 0;
-    while (n < words.length && words[n].text === solution[n]) n++;
-    return n;
-  }, [words, solution]);
+  // Solo se usa DESPUÉS de comprobar: qué palabras cayeron en su sitio.
+  //
+  // Antes se contaba hasta el primer fallo y todo lo de detrás salía en rojo,
+  // aunque estuviera bien puesto: con una palabra cambiada de sitio, media
+  // frase correcta parecía un desastre.
+  const enSuSitio = useMemo(
+    () => words.map((w, i) => w.text === solution[i]),
+    [words, solution]
+  );
 
   // La palabra arrastrada se queda en el DOM aunque se vea fantasma: si se
   // desmonta, el navegador suelta la captura del puntero y el pointerup ya no
@@ -177,8 +187,13 @@ export default function WordOrder({ item, onAnswer }) {
       fijarCogida(null);
     } else {
       setWords((ws) => {
+        const desde = ws.findIndex((w) => w.id === levantada);
+        const hasta = ws.findIndex((w) => w.id === s.id);
         const resto = quitar(ws, levantada);
-        const pos = resto.findIndex((w) => w.id === s.id);
+        // Hacia delante se coloca DETRAS de la que tocas; hacia atras,
+        // delante. Colocando siempre delante no habia forma de mandar una
+        // palabra al final de la frase sin arrastrarla.
+        const pos = resto.findIndex((w) => w.id === s.id) + (desde < hasta ? 1 : 0);
         const movida = ws.find((w) => w.id === levantada);
         return [...resto.slice(0, pos), movida, ...resto.slice(pos)];
       });
@@ -206,8 +221,28 @@ export default function WordOrder({ item, onAnswer }) {
     });
   }
 
+  // Enter para comprobar. Control (o Tab) enfoca/recorre las palabras, y
+  // las flechas izquierda/derecha mueven la palabra enfocada.
+  useTeclas({
+    Enter: () => check(),
+    Control: () => {
+      const wordsEls = boxRef.current?.querySelectorAll('.wo-word');
+      if (!wordsEls || wordsEls.length === 0) return;
+      const active = document.activeElement;
+      let nextIdx = 0;
+      wordsEls.forEach((el, idx) => {
+        if (el === active) nextIdx = (idx + 1) % wordsEls.length;
+      });
+      wordsEls[nextIdx]?.focus();
+    }
+  }, !checked);
+
   function check() {
-    const ok = words.map((w) => w.text).join(' ') === solution.join(' ');
+    // No basta con comparar contra la frase guardada: en alemán suele haber
+    // más de una colocación buena. Vale cualquiera de las aceptadas.
+    const mia = words.map((w) => w.text).join(' ');
+    const ok = validas.includes(mia);
+    setOtraForma(ok && mia !== solution.join(' ') ? mia : null);
     setCorrect(ok);
     setChecked(true);
     onAnswer(ok);
@@ -228,7 +263,7 @@ export default function WordOrder({ item, onAnswer }) {
         {words.map((w, i) => {
           let cls = 'wo-word';
           // El color solo aparece al comprobar.
-          if (checked) cls += correct || i < bienPuestas ? ' ok' : ' ko';
+          if (checked) cls += correct || enSuSitio[i] ? ' ok' : ' ko';
           else if (drag?.id === w.id) cls += ' fantasma';
           else if (cogida === w.id) cls += ' cogida';
           return (
@@ -275,6 +310,13 @@ export default function WordOrder({ item, onAnswer }) {
       {checked && !correct && (
         <p className="muted" style={{ marginTop: 12 }}>
           {t('ses.correctIs')}: <strong style={{ color: 'var(--text)' }}>{solution.join(' ')}</strong>
+        </p>
+      )}
+
+      {checked && correct && otraForma && (
+        <p className="muted" style={{ marginTop: 12 }}>
+          {t('ses.alsoRight')}{' '}
+          <strong style={{ color: 'var(--text)' }}>{solution.join(' ')}</strong>
         </p>
       )}
     </div>

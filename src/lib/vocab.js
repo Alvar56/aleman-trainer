@@ -2,7 +2,7 @@
 // y repaso espaciado por tarjeta. Se guarda todo en localStorage.
 
 import { storage } from './storage.js';
-import { allBookDecks, lektionDecks, lektionDeckTodo, getLektion } from './kursbuch/index.js';
+import { KURSBUCH, allBookDecks, lektionDecks, lektionDeckTodo, getLektion } from './kursbuch/index.js';
 import { tc } from './contenido/index.js';
 import { t } from './i18n.js';
 
@@ -593,44 +593,44 @@ const NEW_DECKS = [
     emoji: '🔢',
     builtin: true,
     cards: [
-      { de: 'null', es: '0', ex: '', exEs: '' },
+      { de: 'null', es: '0', ex: 'Heute Nacht hatten wir null Grad.', exEs: 'Esta noche hemos tenido cero grados.' },
       { de: 'eins', es: '1', ex: 'Es ist ein Uhr.', exEs: 'Es la una.' },
-      { de: 'zwei', es: '2', ex: '', exEs: '' },
-      { de: 'drei', es: '3', ex: '', exEs: '' },
-      { de: 'vier', es: '4', ex: '', exEs: '' },
-      { de: 'fünf', es: '5', ex: '', exEs: '' },
-      { de: 'sechs', es: '6', ex: '', exEs: '' },
+      { de: 'zwei', es: '2', ex: 'Ich hätte gern zwei Karten.', exEs: 'Quería dos entradas.' },
+      { de: 'drei', es: '3', ex: 'Der Bus kommt in drei Minuten.', exEs: 'El autobús llega en tres minutos.' },
+      { de: 'vier', es: '4', ex: 'Die Wohnung hat vier Zimmer.', exEs: 'El piso tiene cuatro habitaciones.' },
+      { de: 'fünf', es: '5', ex: 'Fünf Minuten noch, bitte.', exEs: 'Cinco minutos más, por favor.' },
+      { de: 'sechs', es: '6', ex: 'Ich stehe um sechs auf.', exEs: 'Me levanto a las seis.' },
       { de: 'sieben', es: '7', ex: 'Der Zug fährt um sieben.', exEs: 'El tren sale a las siete.' },
-      { de: 'acht', es: '8', ex: '', exEs: '' },
-      { de: 'neun', es: '9', ex: '', exEs: '' },
-      { de: 'zehn', es: '10', ex: '', exEs: '' },
-      { de: 'elf', es: '11', ex: '', exEs: '' },
+      { de: 'acht', es: '8', ex: 'Der Kurs dauert acht Wochen.', exEs: 'El curso dura ocho semanas.' },
+      { de: 'neun', es: '9', ex: 'Wir machen um neun Schluss.', exEs: 'Terminamos a las nueve.' },
+      { de: 'zehn', es: '10', ex: 'Zehn Euro, bitte.', exEs: 'Diez euros, por favor.' },
+      { de: 'elf', es: '11', ex: 'Um elf gehe ich schlafen.', exEs: 'A las once me voy a dormir.' },
       { de: 'zwölf', es: '12', ex: 'Es ist zwölf Uhr, Mittag.', exEs: 'Son las doce, mediodía.' },
-      { de: 'dreizehn', es: '13', ex: '', exEs: '' },
-      { de: 'vierzehn', es: '14', ex: '', exEs: '' },
-      { de: 'fünfzehn', es: '15', ex: '', exEs: '' },
+      { de: 'dreizehn', es: '13', ex: 'Dreizehn ist für viele eine Unglückszahl.', exEs: 'Para mucha gente el trece da mala suerte.' },
+      { de: 'vierzehn', es: '14', ex: 'In vierzehn Tagen bin ich zurück.', exEs: 'Vuelvo dentro de dos semanas.' },
+      { de: 'fünfzehn', es: '15', ex: 'Der Bus fährt alle fünfzehn Minuten.', exEs: 'El autobús pasa cada quince minutos.' },
       { de: 'sechzehn', es: '16', ex: 'Achtung: kein "s" in sechzehn.', exEs: 'Ojo: sin "s" en sechzehn.' },
       { de: 'siebzehn', es: '17', ex: 'Achtung: siebzehn, nicht "siebenzehn".', exEs: 'Ojo: siebzehn, no "siebenzehn".' },
-      { de: 'achtzehn', es: '18', ex: '', exEs: '' },
-      { de: 'neunzehn', es: '19', ex: '', exEs: '' },
-      { de: 'zwanzig', es: '20', ex: '', exEs: '' },
+      { de: 'achtzehn', es: '18', ex: 'Mit achtzehn darf man wählen.', exEs: 'A los dieciocho se puede votar.' },
+      { de: 'neunzehn', es: '19', ex: 'Sie ist neunzehn Jahre alt.', exEs: 'Tiene diecinueve años.' },
+      { de: 'zwanzig', es: '20', ex: 'Das kostet zwanzig Euro.', exEs: 'Eso cuesta veinte euros.' },
       { de: 'einundzwanzig', es: '21', ex: 'Erst die Einer: ein-und-zwanzig.', exEs: 'Primero las unidades: uno-y-veinte.' },
       { de: 'zweiundvierzig', es: '42', ex: 'zwei-und-vierzig', exEs: 'dos-y-cuarenta' },
       { de: 'dreißig', es: '30', ex: 'Achtung: "ß" → dreißig.', exEs: 'Ojo: dreißig con "ß".' },
-      { de: 'vierzig', es: '40', ex: '', exEs: '' },
-      { de: 'fünfzig', es: '50', ex: '', exEs: '' },
-      { de: 'sechzig', es: '60', ex: '', exEs: '' },
-      { de: 'siebzig', es: '70', ex: '', exEs: '' },
-      { de: 'achtzig', es: '80', ex: '', exEs: '' },
-      { de: 'neunzig', es: '90', ex: '', exEs: '' },
+      { de: 'vierzig', es: '40', ex: 'Mein Bruder wird vierzig.', exEs: 'Mi hermano cumple cuarenta.' },
+      { de: 'fünfzig', es: '50', ex: 'Fünfzig Prozent sind schon geschafft.', exEs: 'Ya llevamos el cincuenta por ciento.' },
+      { de: 'sechzig', es: '60', ex: 'Auf der Landstraße sind sechzig erlaubt.', exEs: 'En la carretera el límite es sesenta.' },
+      { de: 'siebzig', es: '70', ex: 'Meine Oma ist über siebzig.', exEs: 'Mi abuela tiene más de setenta.' },
+      { de: 'achtzig', es: '80', ex: 'In der Stadt fährt niemand achtzig.', exEs: 'En ciudad nadie va a ochenta.' },
+      { de: 'neunzig', es: '90', ex: 'Neunzig Minuten dauert ein Spiel.', exEs: 'Un partido dura noventa minutos.' },
       { de: '(ein)hundert', es: '100', ex: 'hundertzwölf = 112', exEs: 'hundertzwölf = 112' },
-      { de: 'zweihundert', es: '200', ex: '', exEs: '' },
+      { de: 'zweihundert', es: '200', ex: 'Das Fahrrad hat zweihundert Euro gekostet.', exEs: 'La bici costó doscientos euros.' },
       { de: '(ein)tausend', es: '1000', ex: 'tausendneunhundert = 1900', exEs: 'tausendneunhundert = 1900' },
-      { de: 'hunderttausend', es: '100 000', ex: '', exEs: '' },
+      { de: 'hunderttausend', es: '100 000', ex: 'Die Stadt hat fast hunderttausend Einwohner.', exEs: 'La ciudad tiene casi cien mil habitantes.' },
       { de: 'eine Million', es: '1 000 000', ex: 'zwei Millionen', exEs: 'dos millones' },
       { de: 'die Hälfte', es: 'la mitad', ex: 'die Hälfte von acht ist vier', exEs: 'la mitad de ocho es cuatro' },
       { de: 'ein Viertel', es: 'un cuarto', ex: 'ein Viertel des Kuchens', exEs: 'un cuarto del pastel' },
-      { de: 'ein Drittel', es: 'un tercio', ex: '', exEs: '' },
+      { de: 'ein Drittel', es: 'un tercio', ex: 'Ein Drittel der Klasse war krank.', exEs: 'Un tercio de la clase estaba enfermo.' },
       { de: 'erste / zweite / dritte', es: '1º / 2º / 3º', ex: 'der erste Mai', exEs: 'el uno de mayo' }
     ]
   },
@@ -641,33 +641,33 @@ const NEW_DECKS = [
     builtin: true,
     cards: [
       { de: 'der Montag', es: 'el lunes', ex: 'Am Montag habe ich frei.', exEs: 'El lunes libro.' },
-      { de: 'der Dienstag', es: 'el martes', ex: '', exEs: '' },
-      { de: 'der Mittwoch', es: 'el miércoles', ex: '', exEs: '' },
-      { de: 'der Donnerstag', es: 'el jueves', ex: '', exEs: '' },
+      { de: 'der Dienstag', es: 'el martes', ex: 'Am Dienstag habe ich einen Termin.', exEs: 'El martes tengo cita.' },
+      { de: 'der Mittwoch', es: 'el miércoles', ex: 'Mittwochs gehe ich schwimmen.', exEs: 'Los miércoles voy a nadar.' },
+      { de: 'der Donnerstag', es: 'el jueves', ex: 'Der Kurs ist Donnerstag um sechs.', exEs: 'El curso es el jueves a las seis.' },
       { de: 'der Freitag', es: 'el viernes', ex: 'Freitagabend gehen wir aus.', exEs: 'El viernes por la noche salimos.' },
-      { de: 'der Samstag', es: 'el sábado', ex: '', exEs: '' },
+      { de: 'der Samstag', es: 'el sábado', ex: 'Am Samstag gehen wir auf den Markt.', exEs: 'El sábado vamos al mercado.' },
       { de: 'der Sonntag', es: 'el domingo', ex: 'Sonntags sind die Geschäfte zu.', exEs: 'Los domingos las tiendas cierran.' },
       { de: 'der Januar', es: 'enero', ex: 'im Januar', exEs: 'en enero' },
-      { de: 'der Februar', es: 'febrero', ex: '', exEs: '' },
-      { de: 'der März', es: 'marzo', ex: '', exEs: '' },
-      { de: 'der April', es: 'abril', ex: '', exEs: '' },
+      { de: 'der Februar', es: 'febrero', ex: 'Der Februar ist der kürzeste Monat.', exEs: 'Febrero es el mes más corto.' },
+      { de: 'der März', es: 'marzo', ex: 'Im März blüht schon alles.', exEs: 'En marzo ya florece todo.' },
+      { de: 'der April', es: 'abril', ex: 'Im April ist das Wetter unbeständig.', exEs: 'En abril el tiempo es muy cambiante.' },
       { de: 'der Mai', es: 'mayo', ex: 'am 1. Mai', exEs: 'el 1 de mayo' },
-      { de: 'der Juni', es: 'junio', ex: '', exEs: '' },
-      { de: 'der Juli', es: 'julio', ex: '', exEs: '' },
+      { de: 'der Juni', es: 'junio', ex: 'Im Juni werden die Tage am längsten.', exEs: 'En junio los días son más largos.' },
+      { de: 'der Juli', es: 'julio', ex: 'Im Juli fahren wir ans Meer.', exEs: 'En julio nos vamos al mar.' },
       { de: 'der August', es: 'agosto', ex: 'Im August haben wir Urlaub.', exEs: 'En agosto tenemos vacaciones.' },
-      { de: 'der September', es: 'septiembre', ex: '', exEs: '' },
-      { de: 'der Oktober', es: 'octubre', ex: '', exEs: '' },
-      { de: 'der November', es: 'noviembre', ex: '', exEs: '' },
-      { de: 'der Dezember', es: 'diciembre', ex: '', exEs: '' },
+      { de: 'der September', es: 'septiembre', ex: 'Im September fängt die Schule wieder an.', exEs: 'En septiembre empieza otra vez el colegio.' },
+      { de: 'der Oktober', es: 'octubre', ex: 'Im Oktober werden die Blätter bunt.', exEs: 'En octubre las hojas cambian de color.' },
+      { de: 'der November', es: 'noviembre', ex: 'Der November ist grau und nass.', exEs: 'Noviembre es gris y húmedo.' },
+      { de: 'der Dezember', es: 'diciembre', ex: 'Im Dezember riecht die Stadt nach Punsch.', exEs: 'En diciembre la ciudad huele a ponche.' },
       { de: 'der Frühling', es: 'la primavera', ex: 'Im Frühling wird es wärmer.', exEs: 'En primavera hace más calor.' },
-      { de: 'der Sommer', es: 'el verano', ex: '', exEs: '' },
-      { de: 'der Herbst', es: 'el otoño', ex: '', exEs: '' },
-      { de: 'der Winter', es: 'el invierno', ex: '', exEs: '' },
+      { de: 'der Sommer', es: 'el verano', ex: 'Der Sommer war dieses Jahr sehr heiß.', exEs: 'Este año el verano fue muy caluroso.' },
+      { de: 'der Herbst', es: 'el otoño', ex: 'Im Herbst regnet es hier viel.', exEs: 'En otoño aquí llueve mucho.' },
+      { de: 'der Winter', es: 'el invierno', ex: 'Der Winter in Wien ist lang.', exEs: 'El invierno en Viena es largo.' },
       { de: 'heute', es: 'hoy', ex: 'Welcher Tag ist heute?', exEs: '¿Qué día es hoy?' },
       { de: 'morgen', es: 'mañana', ex: 'Bis morgen!', exEs: '¡Hasta mañana!' },
-      { de: 'gestern', es: 'ayer', ex: '', exEs: '' },
-      { de: 'übermorgen', es: 'pasado mañana', ex: '', exEs: '' },
-      { de: 'vorgestern', es: 'anteayer', ex: '', exEs: '' },
+      { de: 'gestern', es: 'ayer', ex: 'Gestern war ich den ganzen Tag zu Hause.', exEs: 'Ayer estuve todo el día en casa.' },
+      { de: 'übermorgen', es: 'pasado mañana', ex: 'Übermorgen kommt mein Bruder zu Besuch.', exEs: 'Pasado mañana viene mi hermano de visita.' },
+      { de: 'vorgestern', es: 'anteayer', ex: 'Vorgestern habe ich dich angerufen.', exEs: 'Anteayer te llamé.' },
       { de: 'die Woche', es: 'la semana', ex: 'nächste Woche', exEs: 'la semana que viene' },
       { de: 'das Wochenende', es: 'el fin de semana', ex: 'am Wochenende', exEs: 'el fin de semana' },
       { de: 'der Monat', es: 'el mes', ex: 'einmal im Monat', exEs: 'una vez al mes' },
@@ -684,18 +684,18 @@ const NEW_DECKS = [
     cards: [
       { de: 'rot', es: 'rojo', ex: 'ein rotes Auto', exEs: 'un coche rojo' },
       { de: 'blau', es: 'azul', ex: 'der blaue Himmel', exEs: 'el cielo azul' },
-      { de: 'grün', es: 'verde', ex: '', exEs: '' },
-      { de: 'gelb', es: 'amarillo', ex: '', exEs: '' },
+      { de: 'grün', es: 'verde', ex: 'Die Ampel ist endlich grün.', exEs: 'Por fin el semáforo está en verde.' },
+      { de: 'gelb', es: 'amarillo', ex: 'Im Herbst werden die Blätter gelb.', exEs: 'En otoño las hojas se ponen amarillas.' },
       { de: 'schwarz', es: 'negro', ex: 'ein schwarzer Mantel', exEs: 'un abrigo negro' },
-      { de: 'weiß', es: 'blanco', ex: '', exEs: '' },
-      { de: 'grau', es: 'gris', ex: '', exEs: '' },
-      { de: 'braun', es: 'marrón', ex: '', exEs: '' },
-      { de: 'orange', es: 'naranja', ex: '', exEs: '' },
-      { de: 'rosa', es: 'rosa', ex: '', exEs: '' },
-      { de: 'lila / violett', es: 'morado / violeta', ex: '', exEs: '' },
-      { de: 'türkis', es: 'turquesa', ex: '', exEs: '' },
-      { de: 'beige', es: 'beige', ex: '', exEs: '' },
-      { de: 'gold(en) / silber(n)', es: 'dorado / plateado', ex: '', exEs: '' },
+      { de: 'weiß', es: 'blanco', ex: 'Ich hätte gern das weiße Hemd.', exEs: 'Quería la camisa blanca.' },
+      { de: 'grau', es: 'gris', ex: 'Der Himmel ist heute ganz grau.', exEs: 'Hoy el cielo está muy gris.' },
+      { de: 'braun', es: 'marrón', ex: 'Sie hat braune Augen.', exEs: 'Tiene los ojos marrones.' },
+      { de: 'orange', es: 'naranja', ex: 'Die Jacke ist orange, man sieht sie von weitem.', exEs: 'La cazadora es naranja, se ve de lejos.' },
+      { de: 'rosa', es: 'rosa', ex: 'Das Kleid ist rosa mit weißen Punkten.', exEs: 'El vestido es rosa con lunares blancos.' },
+      { de: 'lila / violett', es: 'morado / violeta', ex: 'Lila steht dir wirklich gut.', exEs: 'El morado te queda muy bien.' },
+      { de: 'türkis', es: 'turquesa', ex: 'Das Meer war türkis.', exEs: 'El mar estaba turquesa.' },
+      { de: 'beige', es: 'beige', ex: 'Beige passt zu allem.', exEs: 'El beige va con todo.' },
+      { de: 'gold(en) / silber(n)', es: 'dorado / plateado', ex: 'Der Ring ist golden, die Kette silbern.', exEs: 'El anillo es dorado y la cadena plateada.' },
       { de: 'hellblau', es: 'azul claro', ex: 'hell- = claro', exEs: 'hell- = claro' },
       { de: 'dunkelgrün', es: 'verde oscuro', ex: 'dunkel- = oscuro', exEs: 'dunkel- = oscuro' },
       { de: 'bunt', es: 'de colores / colorido', ex: 'ein buntes Kleid', exEs: 'un vestido de colores' },
@@ -709,28 +709,28 @@ const NEW_DECKS = [
     builtin: true,
     cards: [
       { de: 'die Mutter', es: 'la madre', ex: 'Meine Mutter kocht sehr gut.', exEs: 'Mi madre cocina muy bien.' },
-      { de: 'der Vater', es: 'el padre', ex: '', exEs: '' },
+      { de: 'der Vater', es: 'el padre', ex: 'Mein Vater ist schon in Pension.', exEs: 'Mi padre ya está jubilado.' },
       { de: 'die Eltern', es: 'los padres', ex: 'Meine Eltern wohnen in Bonn.', exEs: 'Mis padres viven en Bonn.' },
-      { de: 'der Sohn', es: 'el hijo', ex: '', exEs: '' },
-      { de: 'die Tochter', es: 'la hija', ex: '', exEs: '' },
+      { de: 'der Sohn', es: 'el hijo', ex: 'Der Sohn wohnt noch zu Hause.', exEs: 'El hijo todavía vive en casa.' },
+      { de: 'die Tochter', es: 'la hija', ex: 'Ihre Tochter geht schon in die Schule.', exEs: 'Su hija ya va al colegio.' },
       { de: 'die Geschwister', es: 'los hermanos', ex: 'Hast du Geschwister?', exEs: '¿Tienes hermanos?' },
-      { de: 'der Bruder', es: 'el hermano', ex: '', exEs: '' },
-      { de: 'die Schwester', es: 'la hermana', ex: '', exEs: '' },
-      { de: 'die Großmutter / die Oma', es: 'la abuela', ex: '', exEs: '' },
-      { de: 'der Großvater / der Opa', es: 'el abuelo', ex: '', exEs: '' },
-      { de: 'die Großeltern', es: 'los abuelos', ex: '', exEs: '' },
-      { de: 'der Enkel / die Enkelin', es: 'el nieto / la nieta', ex: '', exEs: '' },
-      { de: 'der Onkel', es: 'el tío', ex: '', exEs: '' },
-      { de: 'die Tante', es: 'la tía', ex: '', exEs: '' },
-      { de: 'der Cousin / die Cousine', es: 'el primo / la prima', ex: '', exEs: '' },
-      { de: 'der Neffe / die Nichte', es: 'el sobrino / la sobrina', ex: '', exEs: '' },
-      { de: 'der (Ehe)mann', es: 'el marido', ex: '', exEs: '' },
-      { de: 'die (Ehe)frau', es: 'la mujer / esposa', ex: '', exEs: '' },
+      { de: 'der Bruder', es: 'el hermano', ex: 'Mein Bruder wohnt in Madrid.', exEs: 'Mi hermano vive en Madrid.' },
+      { de: 'die Schwester', es: 'la hermana', ex: 'Meine Schwester ist zwei Jahre älter.', exEs: 'Mi hermana es dos años mayor.' },
+      { de: 'die Großmutter / die Oma', es: 'la abuela', ex: 'Meine Oma wird im Mai neunzig.', exEs: 'Mi abuela cumple noventa en mayo.' },
+      { de: 'der Großvater / der Opa', es: 'el abuelo', ex: 'Der Opa erzählt gern alte Geschichten.', exEs: 'Al abuelo le gusta contar batallitas.' },
+      { de: 'die Großeltern', es: 'los abuelos', ex: 'Meine Großeltern wohnen auf dem Land.', exEs: 'Mis abuelos viven en el campo.' },
+      { de: 'der Enkel / die Enkelin', es: 'el nieto / la nieta', ex: 'Sie hat schon vier Enkel.', exEs: 'Ya tiene cuatro nietos.' },
+      { de: 'der Onkel', es: 'el tío', ex: 'Mein Onkel hat einen kleinen Bauernhof.', exEs: 'Mi tío tiene una granja pequeña.' },
+      { de: 'die Tante', es: 'la tía', ex: 'Meine Tante besucht uns oft.', exEs: 'Mi tía nos visita a menudo.' },
+      { de: 'der Cousin / die Cousine', es: 'el primo / la prima', ex: 'Meine Cousine heiratet im Sommer.', exEs: 'Mi prima se casa en verano.' },
+      { de: 'der Neffe / die Nichte', es: 'el sobrino / la sobrina', ex: 'Mein Neffe ist gerade drei geworden.', exEs: 'Mi sobrino acaba de cumplir tres.' },
+      { de: 'der (Ehe)mann', es: 'el marido', ex: 'Ihr Mann holt die Kinder ab.', exEs: 'Su marido recoge a los niños.' },
+      { de: 'die (Ehe)frau', es: 'la mujer / esposa', ex: 'Seine Frau arbeitet bei der Bank.', exEs: 'Su mujer trabaja en el banco.' },
       { de: 'der Freund / die Freundin', es: 'el novio / la novia (o amigo/a)', ex: 'Das ist meine Freundin, Lena.', exEs: 'Esta es mi novia, Lena.' },
-      { de: 'die Schwiegereltern', es: 'los suegros', ex: '', exEs: '' },
+      { de: 'die Schwiegereltern', es: 'los suegros', ex: 'Zu Weihnachten fahren wir zu den Schwiegereltern.', exEs: 'En Navidad vamos a casa de mis suegros.' },
       { de: 'verheiratet', es: 'casado/a', ex: 'Sie ist seit fünf Jahren verheiratet.', exEs: 'Está casada desde hace cinco años.' },
-      { de: 'ledig', es: 'soltero/a', ex: '', exEs: '' },
-      { de: 'geschieden', es: 'divorciado/a', ex: '', exEs: '' },
+      { de: 'ledig', es: 'soltero/a', ex: 'Ich bin ledig und wohne allein.', exEs: 'Estoy soltero y vivo solo.' },
+      { de: 'geschieden', es: 'divorciado/a', ex: 'Meine Eltern sind seit Jahren geschieden.', exEs: 'Mis padres están divorciados desde hace años.' },
       { de: 'die Verwandten', es: 'los parientes', ex: 'Wir besuchen Verwandte in Köln.', exEs: 'Visitamos a parientes en Colonia.' }
     ]
   },
@@ -741,27 +741,27 @@ const NEW_DECKS = [
     builtin: true,
     cards: [
       { de: 'der Kopf', es: 'la cabeza', ex: 'Mein Kopf tut weh.', exEs: 'Me duele la cabeza.' },
-      { de: 'das Gesicht', es: 'la cara', ex: '', exEs: '' },
+      { de: 'das Gesicht', es: 'la cara', ex: 'Sie hat ein freundliches Gesicht.', exEs: 'Tiene una cara amable.' },
       { de: 'das Auge (die Augen)', es: 'el ojo (los ojos)', ex: 'Sie hat blaue Augen.', exEs: 'Tiene los ojos azules.' },
-      { de: 'die Nase', es: 'la nariz', ex: '', exEs: '' },
-      { de: 'der Mund', es: 'la boca', ex: '', exEs: '' },
-      { de: 'das Ohr (die Ohren)', es: 'la oreja (las orejas)', ex: '', exEs: '' },
+      { de: 'die Nase', es: 'la nariz', ex: 'Von der Erkältung ist meine Nase ganz rot.', exEs: 'Del resfriado tengo la nariz roja.' },
+      { de: 'der Mund', es: 'la boca', ex: 'Mach bitte den Mund auf.', exEs: 'Abre la boca, por favor.' },
+      { de: 'das Ohr (die Ohren)', es: 'la oreja (las orejas)', ex: 'Mir tut das linke Ohr weh.', exEs: 'Me duele el oído izquierdo.' },
       { de: 'der Zahn (die Zähne)', es: 'el diente (los dientes)', ex: 'Putz dir die Zähne!', exEs: '¡Lávate los dientes!' },
       { de: 'das Haar (die Haare)', es: 'el pelo', ex: 'Er hat kurze Haare.', exEs: 'Tiene el pelo corto.' },
       { de: 'der Hals', es: 'el cuello / la garganta', ex: 'Ich habe Halsschmerzen.', exEs: 'Me duele la garganta.' },
-      { de: 'die Schulter', es: 'el hombro', ex: '', exEs: '' },
-      { de: 'der Arm', es: 'el brazo', ex: '', exEs: '' },
+      { de: 'die Schulter', es: 'el hombro', ex: 'Nach dem Umzug tun mir die Schultern weh.', exEs: 'Después de la mudanza me duelen los hombros.' },
+      { de: 'der Arm', es: 'el brazo', ex: 'Er hat sich den Arm gebrochen.', exEs: 'Se ha roto el brazo.' },
       { de: 'die Hand (die Hände)', es: 'la mano (las manos)', ex: 'Gib mir die Hand.', exEs: 'Dame la mano.' },
-      { de: 'der Finger', es: 'el dedo', ex: '', exEs: '' },
+      { de: 'der Finger', es: 'el dedo', ex: 'Ich habe mir den Finger geschnitten.', exEs: 'Me he cortado el dedo.' },
       { de: 'der Bauch', es: 'la barriga / el estómago', ex: 'Mir tut der Bauch weh.', exEs: 'Me duele la barriga.' },
-      { de: 'der Rücken', es: 'la espalda', ex: '', exEs: '' },
-      { de: 'das Bein', es: 'la pierna', ex: '', exEs: '' },
-      { de: 'das Knie', es: 'la rodilla', ex: '', exEs: '' },
+      { de: 'der Rücken', es: 'la espalda', ex: 'Vom Sitzen tut mir der Rücken weh.', exEs: 'De estar sentado me duele la espalda.' },
+      { de: 'das Bein', es: 'la pierna', ex: 'Das linke Bein ist noch geschwollen.', exEs: 'La pierna izquierda sigue hinchada.' },
+      { de: 'das Knie', es: 'la rodilla', ex: 'Beim Laufen schmerzt mein Knie.', exEs: 'Al correr me duele la rodilla.' },
       { de: 'der Fuß (die Füße)', es: 'el pie (los pies)', ex: 'zu Fuß gehen', exEs: 'ir a pie' },
-      { de: 'das Herz', es: 'el corazón', ex: '', exEs: '' },
-      { de: 'die Haut', es: 'la piel', ex: '', exEs: '' },
-      { de: 'das Blut', es: 'la sangre', ex: '', exEs: '' },
-      { de: 'der Körper', es: 'el cuerpo', ex: '', exEs: '' }
+      { de: 'das Herz', es: 'el corazón', ex: 'Mein Herz klopft wie verrückt.', exEs: 'El corazón me late a mil.' },
+      { de: 'die Haut', es: 'la piel', ex: 'Im Winter wird meine Haut trocken.', exEs: 'En invierno se me seca la piel.' },
+      { de: 'das Blut', es: 'la sangre', ex: 'Beim Arzt nehmen sie mir Blut ab.', exEs: 'En el médico me sacan sangre.' },
+      { de: 'der Körper', es: 'el cuerpo', ex: 'Nach dem Sport tut mir der ganze Körper weh.', exEs: 'Después del deporte me duele todo el cuerpo.' }
     ]
   },
   {
@@ -771,47 +771,47 @@ const NEW_DECKS = [
     builtin: true,
     cards: [
       { de: 'das Brot', es: 'el pan', ex: 'Ich kaufe frisches Brot.', exEs: 'Compro pan fresco.' },
-      { de: 'das Brötchen', es: 'el panecillo / bollo', ex: '', exEs: '' },
-      { de: 'die Butter', es: 'la mantequilla', ex: '', exEs: '' },
-      { de: 'der Käse', es: 'el queso', ex: '', exEs: '' },
-      { de: 'die Wurst', es: 'el embutido / la salchicha', ex: '', exEs: '' },
-      { de: 'der Schinken', es: 'el jamón', ex: '', exEs: '' },
+      { de: 'das Brötchen', es: 'el panecillo / bollo', ex: 'Zum Frühstück esse ich ein Brötchen.', exEs: 'Para desayunar como un panecillo.' },
+      { de: 'die Butter', es: 'la mantequilla', ex: 'Butter ist wieder teurer geworden.', exEs: 'La mantequilla ha vuelto a subir.' },
+      { de: 'der Käse', es: 'el queso', ex: 'Der Käse hier ist aus Vorarlberg.', exEs: 'Este queso es de Vorarlberg.' },
+      { de: 'die Wurst', es: 'el embutido / la salchicha', ex: 'Die Wurst ist mir zu salzig.', exEs: 'El embutido me resulta muy salado.' },
+      { de: 'der Schinken', es: 'el jamón', ex: 'Auf dem Brot ist Schinken.', exEs: 'En el pan hay jamón.' },
       { de: 'das Ei (die Eier)', es: 'el huevo', ex: 'zwei Eier zum Frühstück', exEs: 'dos huevos para desayunar' },
-      { de: 'die Milch', es: 'la leche', ex: '', exEs: '' },
-      { de: 'der Joghurt', es: 'el yogur', ex: '', exEs: '' },
-      { de: 'der Reis', es: 'el arroz', ex: '', exEs: '' },
+      { de: 'die Milch', es: 'la leche', ex: 'Die Milch ist leider sauer.', exEs: 'La leche se ha cortado.' },
+      { de: 'der Joghurt', es: 'el yogur', ex: 'Zum Nachtisch esse ich einen Joghurt.', exEs: 'De postre me tomo un yogur.' },
+      { de: 'der Reis', es: 'el arroz', ex: 'Reis mache ich immer zu viel.', exEs: 'Siempre hago arroz de más.' },
       { de: 'die Nudeln', es: 'la pasta', ex: 'Heute gibt es Nudeln.', exEs: 'Hoy hay pasta.' },
-      { de: 'die Kartoffel', es: 'la patata', ex: '', exEs: '' },
+      { de: 'die Kartoffel', es: 'la patata', ex: 'Die Kartoffeln kochen schon.', exEs: 'Las patatas ya están cociendo.' },
       { de: 'das Gemüse', es: 'la verdura', ex: 'Iss mehr Gemüse!', exEs: '¡Come más verdura!' },
-      { de: 'der Salat', es: 'la ensalada / la lechuga', ex: '', exEs: '' },
-      { de: 'die Tomate', es: 'el tomate', ex: '', exEs: '' },
-      { de: 'die Gurke', es: 'el pepino', ex: '', exEs: '' },
-      { de: 'die Zwiebel', es: 'la cebolla', ex: '', exEs: '' },
-      { de: 'die Karotte / die Möhre', es: 'la zanahoria', ex: '', exEs: '' },
-      { de: 'die Banane', es: 'el plátano', ex: '', exEs: '' },
-      { de: 'die Orange', es: 'la naranja', ex: '', exEs: '' },
-      { de: 'die Erdbeere', es: 'la fresa', ex: '', exEs: '' },
-      { de: 'die Zitrone', es: 'el limón', ex: '', exEs: '' },
+      { de: 'der Salat', es: 'la ensalada / la lechuga', ex: 'Zum Fleisch gibt es einen Salat.', exEs: 'Con la carne hay ensalada.' },
+      { de: 'die Tomate', es: 'el tomate', ex: 'Die Tomaten aus Spanien schmecken besser.', exEs: 'Los tomates de España saben mejor.' },
+      { de: 'die Gurke', es: 'el pepino', ex: 'In den Salat kommt noch eine Gurke.', exEs: 'A la ensalada le falta un pepino.' },
+      { de: 'die Zwiebel', es: 'la cebolla', ex: 'Von Zwiebeln muss ich immer weinen.', exEs: 'Con la cebolla siempre lloro.' },
+      { de: 'die Karotte / die Möhre', es: 'la zanahoria', ex: 'Karotten esse ich am liebsten roh.', exEs: 'Las zanahorias me gustan más crudas.' },
+      { de: 'die Banane', es: 'el plátano', ex: 'Vor dem Sport esse ich eine Banane.', exEs: 'Antes de hacer deporte como un plátano.' },
+      { de: 'die Orange', es: 'la naranja', ex: 'Der Saft ist aus frischen Orangen.', exEs: 'El zumo es de naranjas recién exprimidas.' },
+      { de: 'die Erdbeere', es: 'la fresa', ex: 'Im Juni gibt es die besten Erdbeeren.', exEs: 'En junio hay las mejores fresas.' },
+      { de: 'die Zitrone', es: 'el limón', ex: 'In den Tee kommt eine Scheibe Zitrone.', exEs: 'Al té le echo una rodaja de limón.' },
       { de: 'das Obst', es: 'la fruta', ex: 'frisches Obst', exEs: 'fruta fresca' },
-      { de: 'das Fleisch', es: 'la carne', ex: '', exEs: '' },
-      { de: 'das Hähnchen', es: 'el pollo (para comer)', ex: '', exEs: '' },
+      { de: 'das Fleisch', es: 'la carne', ex: 'Fleisch esse ich nur am Wochenende.', exEs: 'Carne solo como los fines de semana.' },
+      { de: 'das Hähnchen', es: 'el pollo (para comer)', ex: 'Heute gibt es Hähnchen mit Reis.', exEs: 'Hoy hay pollo con arroz.' },
       { de: 'der Fisch', es: 'el pescado', ex: 'Freitags essen wir Fisch.', exEs: 'Los viernes comemos pescado.' },
-      { de: 'die Suppe', es: 'la sopa', ex: '', exEs: '' },
+      { de: 'die Suppe', es: 'la sopa', ex: 'Die Suppe ist noch zu heiß.', exEs: 'La sopa está todavía muy caliente.' },
       { de: 'der Zucker', es: 'el azúcar', ex: 'Kaffee ohne Zucker', exEs: 'café sin azúcar' },
-      { de: 'das Salz', es: 'la sal', ex: '', exEs: '' },
-      { de: 'der Pfeffer', es: 'la pimienta', ex: '', exEs: '' },
-      { de: 'das Öl', es: 'el aceite', ex: '', exEs: '' },
-      { de: 'der Kuchen', es: 'el pastel / la tarta', ex: '', exEs: '' },
-      { de: 'die Schokolade', es: 'el chocolate', ex: '', exEs: '' },
+      { de: 'das Salz', es: 'la sal', ex: 'Da fehlt noch etwas Salz.', exEs: 'A eso le falta un poco de sal.' },
+      { de: 'der Pfeffer', es: 'la pimienta', ex: 'Salz und Pfeffer stehen auf dem Tisch.', exEs: 'La sal y la pimienta están en la mesa.' },
+      { de: 'das Öl', es: 'el aceite', ex: 'In die Pfanne kommt ein Löffel Öl.', exEs: 'A la sartén le echo una cucharada de aceite.' },
+      { de: 'der Kuchen', es: 'el pastel / la tarta', ex: 'Den Kuchen hat meine Schwester gebacken.', exEs: 'El bizcocho lo hizo mi hermana.' },
+      { de: 'die Schokolade', es: 'el chocolate', ex: 'Abends esse ich gern ein Stück Schokolade.', exEs: 'Por la noche me gusta comer un trozo de chocolate.' },
       { de: 'das Eis', es: 'el helado', ex: 'ein Eis im Sommer', exEs: 'un helado en verano' },
       { de: 'der Saft', es: 'el zumo', ex: 'ein Glas Orangensaft', exEs: 'un vaso de zumo de naranja' },
       { de: 'das Wasser', es: 'el agua', ex: 'ein Glas Wasser, bitte', exEs: 'un vaso de agua, por favor' },
-      { de: 'das Bier', es: 'la cerveza', ex: '', exEs: '' },
-      { de: 'der Wein', es: 'el vino', ex: '', exEs: '' },
+      { de: 'das Bier', es: 'la cerveza', ex: 'Nach der Arbeit trinken wir ein Bier.', exEs: 'Después del trabajo nos tomamos una cerveza.' },
+      { de: 'der Wein', es: 'el vino', ex: 'Zum Essen trinken wir einen Wein aus der Gegend.', exEs: 'Con la comida bebemos un vino de la zona.' },
       { de: 'das Mineralwasser', es: 'el agua mineral', ex: 'still oder mit Kohlensäure?', exEs: '¿con o sin gas?' },
       { de: 'das Frühstück', es: 'el desayuno', ex: 'Was isst du zum Frühstück?', exEs: '¿Qué desayunas?' },
-      { de: 'das Mittagessen', es: 'la comida (mediodía)', ex: '', exEs: '' },
-      { de: 'das Abendessen', es: 'la cena', ex: '', exEs: '' },
+      { de: 'das Mittagessen', es: 'la comida (mediodía)', ex: 'Das Mittagessen gibt es um halb eins.', exEs: 'La comida es a las doce y media.' },
+      { de: 'das Abendessen', es: 'la cena', ex: 'Zum Abendessen essen wir nur eine Kleinigkeit.', exEs: 'Para cenar tomamos algo ligero.' },
       { de: 'der Hunger / der Durst', es: 'el hambre / la sed', ex: 'Ich habe Hunger.', exEs: 'Tengo hambre.' },
       { de: 'satt', es: 'lleno / saciado', ex: 'Nein danke, ich bin satt.', exEs: 'No gracias, estoy lleno.' }
     ]
@@ -823,38 +823,38 @@ const NEW_DECKS = [
     builtin: true,
     cards: [
       { de: 'der Hund', es: 'el perro', ex: 'Der Hund bellt.', exEs: 'El perro ladra.' },
-      { de: 'die Katze', es: 'el gato', ex: '', exEs: '' },
-      { de: 'das Pferd', es: 'el caballo', ex: '', exEs: '' },
-      { de: 'die Kuh', es: 'la vaca', ex: '', exEs: '' },
-      { de: 'das Schwein', es: 'el cerdo', ex: '', exEs: '' },
-      { de: 'das Schaf', es: 'la oveja', ex: '', exEs: '' },
-      { de: 'die Ziege', es: 'la cabra', ex: '', exEs: '' },
-      { de: 'das Huhn', es: 'la gallina', ex: '', exEs: '' },
-      { de: 'der Hahn', es: 'el gallo', ex: '', exEs: '' },
-      { de: 'die Ente', es: 'el pato', ex: '', exEs: '' },
+      { de: 'die Katze', es: 'el gato', ex: 'Unsere Katze schläft den ganzen Tag.', exEs: 'Nuestro gato duerme todo el día.' },
+      { de: 'das Pferd', es: 'el caballo', ex: 'Als Kind wollte ich ein Pferd.', exEs: 'De pequeño quería un caballo.' },
+      { de: 'die Kuh', es: 'la vaca', ex: 'Auf der Wiese stehen zehn Kühe.', exEs: 'En el prado hay diez vacas.' },
+      { de: 'das Schwein', es: 'el cerdo', ex: 'Schweine sind klüger, als man denkt.', exEs: 'Los cerdos son más listos de lo que parece.' },
+      { de: 'das Schaf', es: 'la oveja', ex: 'Die Schafe grasen am Hang.', exEs: 'Las ovejas pastan en la ladera.' },
+      { de: 'die Ziege', es: 'la cabra', ex: 'Der Käse ist von der Ziege.', exEs: 'El queso es de cabra.' },
+      { de: 'das Huhn', es: 'la gallina', ex: 'Die Hühner legen jeden Tag ein Ei.', exEs: 'Las gallinas ponen un huevo al día.' },
+      { de: 'der Hahn', es: 'el gallo', ex: 'Der Hahn weckt das ganze Dorf.', exEs: 'El gallo despierta a todo el pueblo.' },
+      { de: 'die Ente', es: 'el pato', ex: 'Im Park füttern die Kinder die Enten.', exEs: 'En el parque los niños dan de comer a los patos.' },
       { de: 'der Vogel', es: 'el pájaro', ex: 'Die Vögel singen morgens.', exEs: 'Los pájaros cantan por la mañana.' },
-      { de: 'die Maus', es: 'el ratón', ex: '', exEs: '' },
-      { de: 'das Kaninchen / der Hase', es: 'el conejo / la liebre', ex: '', exEs: '' },
-      { de: 'das Eichhörnchen', es: 'la ardilla', ex: '', exEs: '' },
-      { de: 'der Fuchs', es: 'el zorro', ex: '', exEs: '' },
-      { de: 'der Wolf', es: 'el lobo', ex: '', exEs: '' },
-      { de: 'der Bär', es: 'el oso', ex: '', exEs: '' },
-      { de: 'der Löwe', es: 'el león', ex: '', exEs: '' },
-      { de: 'der Tiger', es: 'el tigre', ex: '', exEs: '' },
-      { de: 'der Elefant', es: 'el elefante', ex: '', exEs: '' },
-      { de: 'die Giraffe', es: 'la jirafa', ex: '', exEs: '' },
-      { de: 'der Affe', es: 'el mono', ex: '', exEs: '' },
-      { de: 'die Schlange', es: 'la serpiente', ex: '', exEs: '' },
+      { de: 'die Maus', es: 'el ratón', ex: 'In der Küche war eine Maus.', exEs: 'Había un ratón en la cocina.' },
+      { de: 'das Kaninchen / der Hase', es: 'el conejo / la liebre', ex: 'Das Kaninchen frisst mir den Salat weg.', exEs: 'El conejo me come la lechuga.' },
+      { de: 'das Eichhörnchen', es: 'la ardilla', ex: 'Im Park sieht man viele Eichhörnchen.', exEs: 'En el parque se ven muchas ardillas.' },
+      { de: 'der Fuchs', es: 'el zorro', ex: 'Nachts kommt manchmal ein Fuchs in den Garten.', exEs: 'De noche a veces entra un zorro en el jardín.' },
+      { de: 'der Wolf', es: 'el lobo', ex: 'In den Alpen gibt es wieder Wölfe.', exEs: 'En los Alpes vuelve a haber lobos.' },
+      { de: 'der Bär', es: 'el oso', ex: 'Der Bär schläft den ganzen Winter.', exEs: 'El oso duerme todo el invierno.' },
+      { de: 'der Löwe', es: 'el león', ex: 'Im Zoo schläft der Löwe fast immer.', exEs: 'En el zoo el león casi siempre está durmiendo.' },
+      { de: 'der Tiger', es: 'el tigre', ex: 'Der Tiger ist größer als der Löwe.', exEs: 'El tigre es más grande que el león.' },
+      { de: 'der Elefant', es: 'el elefante', ex: 'Elefanten haben ein sehr gutes Gedächtnis.', exEs: 'Los elefantes tienen muy buena memoria.' },
+      { de: 'die Giraffe', es: 'la jirafa', ex: 'Die Giraffe frisst von den hohen Bäumen.', exEs: 'La jirafa come de los árboles altos.' },
+      { de: 'der Affe', es: 'el mono', ex: 'Die Affen machen alles nach.', exEs: 'Los monos lo imitan todo.' },
+      { de: 'die Schlange', es: 'la serpiente', ex: 'Vor Schlangen habe ich richtig Angst.', exEs: 'Las serpientes me dan mucho miedo.' },
       { de: 'die Spinne', es: 'la araña', ex: 'Ich habe Angst vor Spinnen.', exEs: 'Tengo miedo a las arañas.' },
-      { de: 'die Biene', es: 'la abeja', ex: '', exEs: '' },
+      { de: 'die Biene', es: 'la abeja', ex: 'Ohne Bienen gibt es kein Obst.', exEs: 'Sin abejas no hay fruta.' },
       { de: 'die Mücke', es: 'el mosquito', ex: 'Mich haben die Mücken gestochen.', exEs: 'Me han picado los mosquitos.' },
-      { de: 'die Ameise', es: 'la hormiga', ex: '', exEs: '' },
-      { de: 'der Schmetterling', es: 'la mariposa', ex: '', exEs: '' },
-      { de: 'der Frosch', es: 'la rana', ex: '', exEs: '' },
-      { de: 'die Schildkröte', es: 'la tortuga', ex: '', exEs: '' },
-      { de: 'der Delfin', es: 'el delfín', ex: '', exEs: '' },
-      { de: 'der Wal', es: 'la ballena', ex: '', exEs: '' },
-      { de: 'der Hai', es: 'el tiburón', ex: '', exEs: '' },
+      { de: 'die Ameise', es: 'la hormiga', ex: 'Auf dem Tisch laufen Ameisen.', exEs: 'Hay hormigas por la mesa.' },
+      { de: 'der Schmetterling', es: 'la mariposa', ex: 'Im Sommer sind überall Schmetterlinge.', exEs: 'En verano hay mariposas por todas partes.' },
+      { de: 'der Frosch', es: 'la rana', ex: 'Am Teich hört man die Frösche.', exEs: 'En el estanque se oyen las ranas.' },
+      { de: 'die Schildkröte', es: 'la tortuga', ex: 'Schildkröten werden sehr alt.', exEs: 'Las tortugas viven muchos años.' },
+      { de: 'der Delfin', es: 'el delfín', ex: 'Delfine sind sehr klug.', exEs: 'Los delfines son muy listos.' },
+      { de: 'der Wal', es: 'la ballena', ex: 'Der Wal ist das größte Tier der Welt.', exEs: 'La ballena es el animal más grande del mundo.' },
+      { de: 'der Hai', es: 'el tiburón', ex: 'Vor Haien muss man hier keine Angst haben.', exEs: 'Aquí no hay que tener miedo a los tiburones.' },
       { de: 'das Haustier', es: 'la mascota', ex: 'Habt ihr ein Haustier?', exEs: '¿Tenéis mascota?' }
     ]
   },
@@ -865,41 +865,41 @@ const NEW_DECKS = [
     builtin: true,
     cards: [
       { de: 'die Straße', es: 'la calle', ex: 'In welcher Straße wohnst du?', exEs: '¿En qué calle vives?' },
-      { de: 'die Kreuzung', es: 'el cruce', ex: '', exEs: '' },
+      { de: 'die Kreuzung', es: 'el cruce', ex: 'An der nächsten Kreuzung rechts.', exEs: 'En el siguiente cruce, a la derecha.' },
       { de: 'die Ampel', es: 'el semáforo', ex: 'An der Ampel links.', exEs: 'En el semáforo, a la izquierda.' },
-      { de: 'der Zebrastreifen', es: 'el paso de cebra', ex: '', exEs: '' },
-      { de: 'der Bürgersteig / der Gehweg', es: 'la acera', ex: '', exEs: '' },
-      { de: 'die Bushaltestelle', es: 'la parada de autobús', ex: '', exEs: '' },
-      { de: 'der Bahnhof', es: 'la estación de tren', ex: '', exEs: '' },
-      { de: 'der Flughafen', es: 'el aeropuerto', ex: '', exEs: '' },
+      { de: 'der Zebrastreifen', es: 'el paso de cebra', ex: 'Über den Zebrastreifen gehen die Kinder zur Schule.', exEs: 'Los niños van al colegio por el paso de cebra.' },
+      { de: 'der Bürgersteig / der Gehweg', es: 'la acera', ex: 'Auf dem Gehweg darf man nicht radfahren.', exEs: 'Por la acera no se puede ir en bici.' },
+      { de: 'die Bushaltestelle', es: 'la parada de autobús', ex: 'Die Bushaltestelle ist gleich um die Ecke.', exEs: 'La parada del autobús está a la vuelta de la esquina.' },
+      { de: 'der Bahnhof', es: 'la estación de tren', ex: 'Der Hauptbahnhof ist zehn Minuten zu Fuß.', exEs: 'La estación central está a diez minutos a pie.' },
+      { de: 'der Flughafen', es: 'el aeropuerto', ex: 'Zum Flughafen fährt man vierzig Minuten.', exEs: 'Al aeropuerto se tardan cuarenta minutos.' },
       { de: 'der Parkplatz', es: 'el aparcamiento', ex: 'Hier gibt es keinen Parkplatz.', exEs: 'Aquí no hay aparcamiento.' },
-      { de: 'die Tankstelle', es: 'la gasolinera', ex: '', exEs: '' },
-      { de: 'die Brücke', es: 'el puente', ex: '', exEs: '' },
+      { de: 'die Tankstelle', es: 'la gasolinera', ex: 'An der Tankstelle gibt es auch Kaffee.', exEs: 'En la gasolinera también hay café.' },
+      { de: 'die Brücke', es: 'el puente', ex: 'Über die Brücke sind es fünf Minuten.', exEs: 'Cruzando el puente son cinco minutos.' },
       { de: 'der Platz', es: 'la plaza', ex: 'Wir treffen uns auf dem Marktplatz.', exEs: 'Quedamos en la plaza del mercado.' },
-      { de: 'der Park', es: 'el parque', ex: '', exEs: '' },
-      { de: 'der Brunnen', es: 'la fuente', ex: '', exEs: '' },
+      { de: 'der Park', es: 'el parque', ex: 'Im Park sitzen wir oft nach der Arbeit.', exEs: 'Después del trabajo nos sentamos muchas veces en el parque.' },
+      { de: 'der Brunnen', es: 'la fuente', ex: 'Auf dem Platz steht ein alter Brunnen.', exEs: 'En la plaza hay una fuente antigua.' },
       { de: 'die Bank', es: 'el banco (de sentarse / entidad)', ex: 'Setzen wir uns auf die Bank.', exEs: 'Sentémonos en el banco.' },
-      { de: 'die Straßenlaterne', es: 'la farola', ex: '', exEs: '' },
-      { de: 'der Mülleimer', es: 'la papelera', ex: '', exEs: '' },
-      { de: 'das Verkehrsschild', es: 'la señal de tráfico', ex: '', exEs: '' },
+      { de: 'die Straßenlaterne', es: 'la farola', ex: 'Die Straßenlaterne vor dem Haus ist kaputt.', exEs: 'La farola de delante de casa está rota.' },
+      { de: 'der Mülleimer', es: 'la papelera', ex: 'Der Mülleimer ist schon wieder voll.', exEs: 'La papelera está otra vez llena.' },
+      { de: 'das Verkehrsschild', es: 'la señal de tráfico', ex: 'Das Verkehrsschild habe ich übersehen.', exEs: 'No vi la señal de tráfico.' },
       { de: 'die Baustelle', es: 'las obras', ex: 'Wegen der Baustelle gibt es Stau.', exEs: 'Por las obras hay atasco.' },
-      { de: 'das Gebäude', es: 'el edificio', ex: '', exEs: '' },
-      { de: 'das Hochhaus', es: 'el rascacielos / bloque alto', ex: '', exEs: '' },
-      { de: 'das Rathaus', es: 'el ayuntamiento', ex: '', exEs: '' },
-      { de: 'die Kirche', es: 'la iglesia', ex: '', exEs: '' },
-      { de: 'die Bibliothek', es: 'la biblioteca', ex: '', exEs: '' },
-      { de: 'das Museum', es: 'el museo', ex: '', exEs: '' },
-      { de: 'das Kino', es: 'el cine', ex: '', exEs: '' },
-      { de: 'das Krankenhaus', es: 'el hospital', ex: '', exEs: '' },
-      { de: 'die Apotheke', es: 'la farmacia', ex: '', exEs: '' },
-      { de: 'die Bäckerei', es: 'la panadería', ex: '', exEs: '' },
-      { de: 'der Supermarkt', es: 'el supermercado', ex: '', exEs: '' },
-      { de: 'der Kiosk', es: 'el quiosco', ex: '', exEs: '' },
+      { de: 'das Gebäude', es: 'el edificio', ex: 'Das Gebäude ist über hundert Jahre alt.', exEs: 'El edificio tiene más de cien años.' },
+      { de: 'das Hochhaus', es: 'el rascacielos / bloque alto', ex: 'Im Hochhaus wohnen zweihundert Familien.', exEs: 'En el bloque viven doscientas familias.' },
+      { de: 'das Rathaus', es: 'el ayuntamiento', ex: 'Die Anmeldung macht man im Rathaus.', exEs: 'El empadronamiento se hace en el ayuntamiento.' },
+      { de: 'die Kirche', es: 'la iglesia', ex: 'Die Kirche ist auch für Touristen offen.', exEs: 'La iglesia está abierta también a los turistas.' },
+      { de: 'die Bibliothek', es: 'la biblioteca', ex: 'In der Bibliothek lerne ich besser.', exEs: 'En la biblioteca estudio mejor.' },
+      { de: 'das Museum', es: 'el museo', ex: 'Am Sonntag ist das Museum gratis.', exEs: 'El domingo el museo es gratis.' },
+      { de: 'das Kino', es: 'el cine', ex: 'Das Kino zeigt Filme im Original.', exEs: 'Ese cine pone las películas en versión original.' },
+      { de: 'das Krankenhaus', es: 'el hospital', ex: 'Das Krankenhaus ist gleich hinter dem Park.', exEs: 'El hospital está justo detrás del parque.' },
+      { de: 'die Apotheke', es: 'la farmacia', ex: 'Die Apotheke ist bis sechs offen.', exEs: 'La farmacia está abierta hasta las seis.' },
+      { de: 'die Bäckerei', es: 'la panadería', ex: 'In der Bäckerei riecht es herrlich.', exEs: 'En la panadería huele de maravilla.' },
+      { de: 'der Supermarkt', es: 'el supermercado', ex: 'Der Supermarkt hat bis acht offen.', exEs: 'El supermercado abre hasta las ocho.' },
+      { de: 'der Kiosk', es: 'el quiosco', ex: 'Am Kiosk kaufe ich die Zeitung.', exEs: 'En el quiosco compro el periódico.' },
       { de: 'der Markt', es: 'el mercado', ex: 'Samstags ist Markt.', exEs: 'Los sábados hay mercado.' },
-      { de: 'das Einkaufszentrum', es: 'el centro comercial', ex: '', exEs: '' },
-      { de: 'die Post', es: 'la oficina de correos', ex: '', exEs: '' },
-      { de: 'die Polizei', es: 'la policía', ex: '', exEs: '' },
-      { de: 'die Feuerwehr', es: 'los bomberos', ex: '', exEs: '' },
+      { de: 'das Einkaufszentrum', es: 'el centro comercial', ex: 'Im Einkaufszentrum ist es mir zu voll.', exEs: 'El centro comercial está demasiado lleno para mi gusto.' },
+      { de: 'die Post', es: 'la oficina de correos', ex: 'Das Paket hole ich auf der Post ab.', exEs: 'El paquete lo recojo en correos.' },
+      { de: 'die Polizei', es: 'la policía', ex: 'Bei einem Unfall ruft man die Polizei.', exEs: 'Si hay un accidente se llama a la policía.' },
+      { de: 'die Feuerwehr', es: 'los bomberos', ex: 'Die Feuerwehr war in drei Minuten da.', exEs: 'Los bomberos llegaron en tres minutos.' },
       { de: 'die Innenstadt / das Zentrum', es: 'el centro', ex: 'Wir fahren in die Innenstadt.', exEs: 'Vamos al centro.' },
       { de: 'die Ecke', es: 'la esquina', ex: 'Der Kiosk ist an der Ecke.', exEs: 'El quiosco está en la esquina.' },
       { de: 'die Richtung', es: 'la dirección / el sentido', ex: 'in Richtung Bahnhof', exEs: 'en dirección a la estación' }
@@ -913,24 +913,24 @@ const NEW_DECKS = [
     cards: [
       { de: 'die Hose', es: 'el pantalón', ex: 'Diese Hose ist mir zu eng.', exEs: 'Este pantalón me queda estrecho.' },
       { de: 'das Hemd', es: 'la camisa', ex: 'Zum Anzug trägt er ein weißes Hemd.', exEs: 'Con el traje lleva una camisa blanca.' },
-      { de: 'das T-Shirt', es: 'la camiseta', ex: '', exEs: '' },
+      { de: 'das T-Shirt', es: 'la camiseta', ex: 'Im Sommer trage ich nur T-Shirts.', exEs: 'En verano solo llevo camisetas.' },
       { de: 'der Pullover', es: 'el jersey', ex: 'Zieh einen Pullover an, es ist kalt.', exEs: 'Ponte un jersey, hace frío.' },
-      { de: 'die Jacke', es: 'la chaqueta', ex: '', exEs: '' },
+      { de: 'die Jacke', es: 'la chaqueta', ex: 'Nimm eine Jacke mit, es wird kühl.', exEs: 'Llévate una chaqueta, que refresca.' },
       { de: 'der Mantel', es: 'el abrigo', ex: 'Im Winter brauche ich einen warmen Mantel.', exEs: 'En invierno necesito un abrigo de abrigo.' },
       { de: 'das Kleid', es: 'el vestido', ex: 'Sie hat ein blaues Kleid gekauft.', exEs: 'Se ha comprado un vestido azul.' },
-      { de: 'der Rock', es: 'la falda', ex: '', exEs: '' },
+      { de: 'der Rock', es: 'la falda', ex: 'Der Rock ist mir zu kurz.', exEs: 'La falda me queda muy corta.' },
       { de: 'der Anzug', es: 'el traje', ex: 'Für das Vorstellungsgespräch ziehe ich einen Anzug an.', exEs: 'Para la entrevista me pongo traje.' },
-      { de: 'die Bluse', es: 'la blusa', ex: '', exEs: '' },
+      { de: 'die Bluse', es: 'la blusa', ex: 'Zur Arbeit trage ich eine Bluse.', exEs: 'Al trabajo llevo blusa.' },
       { de: 'die Schuhe', es: 'los zapatos', ex: 'Zieh bitte die Schuhe aus.', exEs: 'Quítate los zapatos, por favor.' },
-      { de: 'die Stiefel', es: 'las botas', ex: '', exEs: '' },
-      { de: 'die Socken', es: 'los calcetines', ex: '', exEs: '' },
-      { de: 'der Schal', es: 'la bufanda', ex: '', exEs: '' },
+      { de: 'die Stiefel', es: 'las botas', ex: 'Im Winter brauche ich warme Stiefel.', exEs: 'En invierno necesito botas de abrigo.' },
+      { de: 'die Socken', es: 'los calcetines', ex: 'Diese Socken haben ein Loch.', exEs: 'Estos calcetines tienen un agujero.' },
+      { de: 'der Schal', es: 'la bufanda', ex: 'Ohne Schal gehe ich im Winter nicht raus.', exEs: 'En invierno no salgo sin bufanda.' },
       { de: 'die Mütze', es: 'el gorro', ex: 'Setz die Mütze auf, draußen schneit es.', exEs: 'Ponte el gorro, fuera nieva.' },
-      { de: 'der Hut', es: 'el sombrero', ex: '', exEs: '' },
-      { de: 'die Handschuhe', es: 'los guantes', ex: '', exEs: '' },
-      { de: 'der Gürtel', es: 'el cinturón', ex: '', exEs: '' },
-      { de: 'die Krawatte', es: 'la corbata', ex: '', exEs: '' },
-      { de: 'der Schlafanzug', es: 'el pijama', ex: '', exEs: '' },
+      { de: 'der Hut', es: 'el sombrero', ex: 'Bei der Sonne trage ich einen Hut.', exEs: 'Con este sol llevo sombrero.' },
+      { de: 'die Handschuhe', es: 'los guantes', ex: 'Meine Handschuhe habe ich im Bus vergessen.', exEs: 'Me dejé los guantes en el autobús.' },
+      { de: 'der Gürtel', es: 'el cinturón', ex: 'Die Hose rutscht, ich brauche einen Gürtel.', exEs: 'El pantalón se me cae, necesito un cinturón.' },
+      { de: 'die Krawatte', es: 'la corbata', ex: 'Zur Hochzeit trage ich eine Krawatte.', exEs: 'A la boda llevo corbata.' },
+      { de: 'der Schlafanzug', es: 'el pijama', ex: 'Am Sonntag bleibe ich bis Mittag im Schlafanzug.', exEs: 'El domingo me quedo en pijama hasta el mediodía.' },
       { de: 'der Reißverschluss', es: 'la cremallera', ex: 'Der Reißverschluss klemmt.', exEs: 'La cremallera se atasca.' },
       { de: 'der Knopf', es: 'el botón', ex: 'Mir fehlt ein Knopf am Hemd.', exEs: 'Me falta un botón en la camisa.' },
       { de: 'anziehen', es: 'ponerse (ropa)', ex: 'Ich ziehe mir schnell etwas an.', exEs: 'Me pongo algo rápido.' },
@@ -952,28 +952,28 @@ const NEW_DECKS = [
       { de: 'der Regen', es: 'la lluvia', ex: 'Bei diesem Regen bleibe ich zu Hause.', exEs: 'Con esta lluvia me quedo en casa.' },
       { de: 'der Schnee', es: 'la nieve', ex: 'Auf den Bergen liegt schon Schnee.', exEs: 'En las montañas ya hay nieve.' },
       { de: 'der Wind', es: 'el viento', ex: 'Heute weht ein starker Wind.', exEs: 'Hoy sopla viento fuerte.' },
-      { de: 'die Wolke', es: 'la nube', ex: '', exEs: '' },
+      { de: 'die Wolke', es: 'la nube', ex: 'Am Himmel ist keine einzige Wolke.', exEs: 'En el cielo no hay ni una nube.' },
       { de: 'der Nebel', es: 'la niebla', ex: 'Am Morgen gab es dichten Nebel.', exEs: 'Por la mañana había niebla densa.' },
       { de: 'das Gewitter', es: 'la tormenta', ex: 'Am Nachmittag zieht ein Gewitter auf.', exEs: 'Por la tarde se acerca una tormenta.' },
-      { de: 'der Blitz', es: 'el rayo', ex: '', exEs: '' },
-      { de: 'der Donner', es: 'el trueno', ex: '', exEs: '' },
+      { de: 'der Blitz', es: 'el rayo', ex: 'Der Blitz war ganz nah.', exEs: 'El rayo cayó muy cerca.' },
+      { de: 'der Donner', es: 'el trueno', ex: 'Nach dem Blitz kam sofort der Donner.', exEs: 'Después del rayo llegó enseguida el trueno.' },
       { de: 'der Sturm', es: 'el temporal', ex: 'Der Sturm hat einige Bäume umgeknickt.', exEs: 'El temporal ha tirado varios árboles.' },
       { de: 'der Frost', es: 'la helada', ex: 'Heute Nacht gibt es Frost.', exEs: 'Esta noche va a helar.' },
       { de: 'das Glatteis', es: 'el hielo (en la calzada)', ex: 'Vorsicht, auf den Straßen ist Glatteis.', exEs: 'Cuidado, hay placas de hielo en las calles.' },
-      { de: 'der Hagel', es: 'el granizo', ex: '', exEs: '' },
+      { de: 'der Hagel', es: 'el granizo', ex: 'Der Hagel hat die Autos beschädigt.', exEs: 'El granizo dañó los coches.' },
       { de: 'die Temperatur', es: 'la temperatura', ex: 'Die Temperatur fällt unter null.', exEs: 'La temperatura baja de cero.' },
       { de: 'der Grad', es: 'el grado', ex: 'Heute sind es 30 Grad im Schatten.', exEs: 'Hoy hace 30 grados a la sombra.' },
       { de: 'die Hitze', es: 'el calor sofocante', ex: 'Bei der Hitze kann man kaum schlafen.', exEs: 'Con este calor casi no se puede dormir.' },
-      { de: 'die Kälte', es: 'el frío', ex: '', exEs: '' },
+      { de: 'die Kälte', es: 'el frío', ex: 'Die Kälte hier ist trockener als in Spanien.', exEs: 'Aquí el frío es más seco que en España.' },
       { de: 'die Wettervorhersage', es: 'la previsión del tiempo', ex: 'Laut Wettervorhersage regnet es am Wochenende.', exEs: 'Según la previsión, llueve el finde.' },
       { de: 'die Jahreszeit', es: 'la estación del año', ex: 'Der Herbst ist meine liebste Jahreszeit.', exEs: 'El otoño es mi estación favorita.' },
       { de: 'sonnig', es: 'soleado', ex: 'Morgen wird es sonnig und warm.', exEs: 'Mañana estará soleado y cálido.' },
       { de: 'bewölkt', es: 'nublado', ex: 'Der Himmel ist stark bewölkt.', exEs: 'El cielo está muy nublado.' },
-      { de: 'neblig', es: 'con niebla', ex: '', exEs: '' },
+      { de: 'neblig', es: 'con niebla', ex: 'Am Morgen war es sehr neblig.', exEs: 'Por la mañana había mucha niebla.' },
       { de: 'schwül', es: 'bochornoso', ex: 'Die Luft ist heute sehr schwül.', exEs: 'Hoy hace mucho bochorno.' },
       { de: 'es regnet', es: 'llueve', ex: 'Nimm einen Schirm mit, es regnet.', exEs: 'Llévate un paraguas, llueve.' },
-      { de: 'es schneit', es: 'nieva', ex: '', exEs: '' },
-      { de: 'es friert', es: 'hiela', ex: '', exEs: '' },
+      { de: 'es schneit', es: 'nieva', ex: 'Schau mal, es schneit!', exEs: '¡Mira, está nevando!' },
+      { de: 'es friert', es: 'hiela', ex: 'Heute Nacht friert es.', exEs: 'Esta noche va a helar.' },
       { de: 'aufklaren', es: 'despejarse (el cielo)', ex: 'Am Nachmittag klart es auf.', exEs: 'Por la tarde despejará.' }
     ]
   },
@@ -989,20 +989,20 @@ const NEW_DECKS = [
       { de: 'die Mannschaft', es: 'el equipo (deporte)', ex: 'Unsere Mannschaft hat gewonnen.', exEs: 'Nuestro equipo ha ganado.' },
       { de: 'das Spiel', es: 'el partido / el juego', ex: 'Das Spiel beginnt um acht.', exEs: 'El partido empieza a las ocho.' },
       { de: 'die Ausstellung', es: 'la exposición', ex: 'Im Museum gibt es eine neue Ausstellung.', exEs: 'En el museo hay una exposición nueva.' },
-      { de: 'das Konzert', es: 'el concierto', ex: '', exEs: '' },
+      { de: 'das Konzert', es: 'el concierto', ex: 'Am Freitag gehen wir auf ein Konzert.', exEs: 'El viernes vamos a un concierto.' },
       { de: 'die Vorstellung', es: 'la función / la sesión', ex: 'Die Vorstellung war leider ausverkauft.', exEs: 'La función estaba agotada.' },
       { de: 'die Eintrittskarte', es: 'la entrada', ex: 'Ich habe zwei Eintrittskarten reserviert.', exEs: 'He reservado dos entradas.' },
       { de: 'der Ausflug', es: 'la excursión', ex: 'Am Sonntag machen wir einen Ausflug an den See.', exEs: 'El domingo hacemos una excursión al lago.' },
       { de: 'die Wanderung', es: 'la caminata / el senderismo', ex: 'Die Wanderung dauert etwa drei Stunden.', exEs: 'La caminata dura unas tres horas.' },
-      { de: 'das Brettspiel', es: 'el juego de mesa', ex: '', exEs: '' },
+      { de: 'das Brettspiel', es: 'el juego de mesa', ex: 'An Regentagen spielen wir Brettspiele.', exEs: 'Los días de lluvia jugamos a juegos de mesa.' },
       { de: 'der Roman', es: 'la novela', ex: 'Ich lese gerade einen spannenden Roman.', exEs: 'Estoy leyendo una novela apasionante.' },
-      { de: 'die Zeitschrift', es: 'la revista', ex: '', exEs: '' },
-      { de: 'das Puzzle', es: 'el puzle', ex: '', exEs: '' },
+      { de: 'die Zeitschrift', es: 'la revista', ex: 'Im Zug lese ich eine Zeitschrift.', exEs: 'En el tren leo una revista.' },
+      { de: 'das Puzzle', es: 'el puzle', ex: 'Das Puzzle hat tausend Teile.', exEs: 'El puzle tiene mil piezas.' },
       { de: 'angeln', es: 'pescar', ex: 'Mein Onkel geht am Wochenende oft angeln.', exEs: 'Mi tío suele ir a pescar los fines de semana.' },
       { de: 'malen', es: 'pintar', ex: 'Die Kinder malen ein Bild für die Oma.', exEs: 'Los niños pintan un dibujo para la abuela.' },
-      { de: 'zeichnen', es: 'dibujar', ex: '', exEs: '' },
+      { de: 'zeichnen', es: 'dibujar', ex: 'Sie zeichnet wirklich gut.', exEs: 'Dibuja muy bien.' },
       { de: 'fotografieren', es: 'hacer fotos', ex: 'Im Urlaub fotografiere ich sehr viel.', exEs: 'En vacaciones hago muchísimas fotos.' },
-      { de: 'tanzen', es: 'bailar', ex: '', exEs: '' },
+      { de: 'tanzen', es: 'bailar', ex: 'Auf der Hochzeit haben wir bis zwei getanzt.', exEs: 'En la boda bailamos hasta las dos.' },
       { de: 'singen', es: 'cantar', ex: 'Sie singt in einem Chor.', exEs: 'Canta en un coro.' },
       { de: 'sammeln', es: 'coleccionar', ex: 'Als Kind habe ich Briefmarken gesammelt.', exEs: 'De niño coleccionaba sellos.' },
       { de: 'basteln', es: 'hacer manualidades', ex: 'Wir basteln Karten für Weihnachten.', exEs: 'Hacemos tarjetas para Navidad.' },
@@ -1020,26 +1020,26 @@ const NEW_DECKS = [
     builtin: true,
     cards: [
       { de: 'der Bildschirm', es: 'la pantalla', ex: 'Der Bildschirm ist mir zu klein.', exEs: 'La pantalla me parece pequeña.' },
-      { de: 'die Tastatur', es: 'el teclado', ex: '', exEs: '' },
+      { de: 'die Tastatur', es: 'el teclado', ex: 'Meine Tastatur hat kein ñ.', exEs: 'Mi teclado no tiene ñ.' },
       { de: 'die Maus', es: 'el ratón', ex: 'Die Maus funktioniert nicht mehr.', exEs: 'El ratón ya no funciona.' },
       { de: 'der Kopfhörer', es: 'los auriculares', ex: 'Ich höre Musik über Kopfhörer.', exEs: 'Escucho música con auriculares.' },
       { de: 'das Ladegerät', es: 'el cargador', ex: 'Ich habe mein Ladegerät zu Hause vergessen.', exEs: 'Me he dejado el cargador en casa.' },
       { de: 'der Akku', es: 'la batería', ex: 'Mein Akku ist gleich leer.', exEs: 'Se me está agotando la batería.' },
-      { de: 'das Kabel', es: 'el cable', ex: '', exEs: '' },
+      { de: 'das Kabel', es: 'el cable', ex: 'Das Kabel ist zu kurz.', exEs: 'El cable es demasiado corto.' },
       { de: 'der Drucker', es: 'la impresora', ex: 'Der Drucker hat kein Papier mehr.', exEs: 'La impresora se ha quedado sin papel.' },
       { de: 'die Festplatte', es: 'el disco duro', ex: 'Die Festplatte ist fast voll.', exEs: 'El disco duro está casi lleno.' },
       { de: 'die Datei', es: 'el archivo', ex: 'Kannst du mir die Datei schicken?', exEs: '¿Me puedes enviar el archivo?' },
       { de: 'der Ordner', es: 'la carpeta', ex: 'Leg das Bild in den richtigen Ordner.', exEs: 'Pon la imagen en la carpeta correcta.' },
       { de: 'das Passwort', es: 'la contraseña', ex: 'Ich habe mein Passwort vergessen.', exEs: 'He olvidado mi contraseña.' },
-      { de: 'der Benutzer', es: 'el usuario', ex: '', exEs: '' },
+      { de: 'der Benutzer', es: 'el usuario', ex: 'Als Benutzer musst du dich zuerst anmelden.', exEs: 'Como usuario tienes que registrarte primero.' },
       { de: 'die Anwendung / die App', es: 'la aplicación', ex: 'Diese Anwendung stürzt ständig ab.', exEs: 'Esta aplicación se cuelga sin parar.' },
       { de: 'das Update', es: 'la actualización', ex: 'Nach dem Update läuft alles langsamer.', exEs: 'Tras la actualización todo va más lento.' },
       { de: 'die Einstellungen', es: 'los ajustes', ex: 'Das kannst du in den Einstellungen ändern.', exEs: 'Eso lo puedes cambiar en los ajustes.' },
       { de: 'der Anhang', es: 'el archivo adjunto', ex: 'Die Rechnung ist im Anhang.', exEs: 'La factura va en el archivo adjunto.' },
       { de: 'die Verbindung', es: 'la conexión', ex: 'Die Verbindung ist heute sehr schlecht.', exEs: 'Hoy la conexión va muy mal.' },
       { de: 'das WLAN', es: 'el wifi', ex: 'Wie lautet das WLAN-Passwort?', exEs: '¿Cuál es la contraseña del wifi?' },
-      { de: 'die Suchmaschine', es: 'el buscador', ex: '', exEs: '' },
-      { de: 'der Browser', es: 'el navegador', ex: '', exEs: '' },
+      { de: 'die Suchmaschine', es: 'el buscador', ex: 'Das finde ich in zwei Sekunden in der Suchmaschine.', exEs: 'Eso lo encuentro en dos segundos en el buscador.' },
+      { de: 'der Browser', es: 'el navegador', ex: 'Mach den Link in einem anderen Browser auf.', exEs: 'Abre el enlace en otro navegador.' },
       { de: 'die Cloud', es: 'la nube (informática)', ex: 'Ich speichere die Fotos in der Cloud.', exEs: 'Guardo las fotos en la nube.' },
       { de: 'herunterladen', es: 'descargar', ex: 'Lade die Datei von der Webseite herunter.', exEs: 'Descarga el archivo de la página web.' },
       { de: 'hochladen', es: 'subir (a internet)', ex: 'Ich lade das Video später hoch.', exEs: 'Subo el vídeo más tarde.' },
@@ -1130,6 +1130,23 @@ export function bookDecks() {
 
 // Mazo virtual que junta varios: el id lleva dentro los que se combinan, asi
 // que no hay que guardar nada y el enlace sigue funcionando al recargar.
+// Los mazos con los que se arma una mezcla: uno por leccion (todas sus
+// palabras juntas) mas los temas sueltos y los tuyos.
+//
+// Los de leccion se construyen aqui y no se filtran de allDecks(), porque
+// alli no estan: son virtuales. Filtrandolos salia una lista sin nada del
+// libro.
+export function mazosParaMezclar() {
+  const deLibro = KURSBUCH.lektionen
+    .map((l) => {
+      const d = lektionDeckTodo(l);
+      return d ? { ...d, bandId: l.bandId } : null;
+    })
+    .filter(Boolean);
+  const fuera = allDecks().filter((d) => !d.fromBook);
+  return [...deLibro, ...fuera];
+}
+
 export function combinarDecks(ids) {
   const partes = (ids || []).map((x) => getDeck(x)).filter(Boolean);
   if (!partes.length) return null;
@@ -1146,7 +1163,11 @@ export function combinarDecks(ids) {
   }
   return {
     id: 'combi:' + partes.map((d) => d.id).join('|'),
-    name: partes.map((d) => d.name).join(' + '),
+    // Hasta tres, los nombres pegados se leen. Con veinticinco el titulo
+    // de la tanda era un parrafo entero.
+    name: partes.length <= 3
+      ? partes.map((d) => d.name).join(' + ')
+      : t('voc.combiNombre', { n: partes.length }),
     emoji: '🧺',
     builtin: true,
     combinado: true,
@@ -1192,31 +1213,70 @@ export function deleteUserDeck(id) {
 const INTERVALS = [0, 30e3, 5 * 60e3, 60 * 60e3, 24 * 3600e3, 3 * 24 * 3600e3, 7 * 24 * 3600e3];
 
 function progAll() {
-  return storage.get(PROG_KEY, {});
+  const p = storage.get(PROG_KEY, {});
+  // Si asoma una clave del formato viejo, se fusiona todo al vuelo.
+  for (const k in p) if (!k.startsWith('w::')) return fusionarPorPalabra(p);
+  return p;
 }
-// El mazo "toda la lección" no lleva progreso propio: cada palabra se apunta
-// en el tema al que pertenece. Si no, la misma palabra viviría en dos sitios,
-// jugar la lección entera no movería sus temas, y el porcentaje global saldría
-// mal. Aquí se traduce el id combinado al del tema que tiene esa palabra.
-// Los mazos "juntos" (una lección entera, o varios combinados) no llevan
-// progreso propio: cada palabra se apunta en el mazo del que salió. Si no,
-// practicar en grupo no movía ninguno de los mazos de verdad y la palabra se
-// contaba dos veces en el total.
-function deckReal(deckId, de) {
-  const txt = String(deckId || '');
+// La clave del progreso de una palabra: la PALABRA, y punto.
+//
+// Antes era `mazo::palabra`, asi que la misma palabra en dos mazos llevaba
+// dos cuentas distintas. De las 859 palabras de los mazos sueltos, 146 estan
+// tambien en un mazo del libro (20 en "Alimentos y bebidas", 15 en "En la
+// calle y la ciudad"...), y aprendertelas en la leccion no movia la barra del
+// mazo suelto ni al reves: el mismo trabajo hecho dos veces sin que ninguna
+// de las dos barras se enterara.
+//
+// Esto tambien resuelve solo lo que resolvia deckReal() -el mazo de "toda la
+// leccion" apuntando en el tema de cada palabra-, porque ya no hay mazo en la
+// clave que resolver.
+//
+// Se normaliza lo justo (espacios y mayusculas) y nada mas. Quitar el
+// articulo juntaria "der See" con "die See", que son cosas distintas.
+function clavePalabra(de) {
+  return String(de || '').trim().toLowerCase().replace(/\s+/g, ' ');
+}
 
-  if (txt.startsWith('combi:')) {
-    for (const id of txt.slice(6).split('|')) {
-      const d = getDeck(id);
-      if (d?.cards?.some((c) => c.de === de)) return deckReal(id, de);
-    }
-    return deckId;
+// El mazo ya no pinta nada en la clave, asi que tampoco se pide.
+function cardKey(de) {
+  return `w::${clavePalabra(de)}`;
+}
+
+// Juntar dos cuentas de la misma palabra: los aciertos se suman, y del resto
+// se queda lo mejor. Asi nadie pierde nada al fusionar.
+function unir(a, b) {
+  return {
+    ...a,
+    ...b,
+    correct: (a.correct || 0) + (b.correct || 0),
+    wrong: (a.wrong || 0) + (b.wrong || 0),
+    strength: Math.max(a.strength || 0, b.strength || 0),
+    lastSeen: Math.max(a.lastSeen || 0, b.lastSeen || 0),
+    due: Math.max(a.due || 0, b.due || 0),
+    color: a.color || b.color
+  };
+}
+
+// Pasa lo guardado del formato viejo -claves `mazo::palabra`- a claves de
+// palabra. Ningun porcentaje puede BAJAR con esto: los aciertos de cada
+// palabra solo se suman.
+//
+// No lleva marca de "ya migrado" a proposito, y se comprueba en CADA lectura.
+// Una marca vive en este aparato, y los datos pueden llegar despues desde
+// otro: sincronizas el movil, entran claves del formato viejo, y como aqui ya
+// estaba la marca puesta nadie las volveria a mirar. El vocabulario aparecria
+// entero a cero. Asi se arregla solo, venga de donde venga.
+function fusionarPorPalabra(viejo) {
+  const nuevo = {};
+  for (const [k, v] of Object.entries(viejo)) {
+    if (!v || typeof v !== 'object') continue;
+    const corte = k.indexOf('::');
+    const de = corte === -1 ? k : k.slice(corte + 2);
+    const nk = cardKey(de);
+    nuevo[nk] = nuevo[nk] ? unir(nuevo[nk], v) : { ...v };
   }
-
-  const m = /^kb-(.+)-all$/.exec(txt);
-  if (!m) return deckId;
-  const suyo = lektionDecks(getLektion(m[1])).find((d) => d.cards.some((c) => c.de === de));
-  return suyo ? suyo.id : deckId;
+  storage.set(PROG_KEY, nuevo);
+  return nuevo;
 }
 
 // ---------------------------------------------------------------------------
@@ -1254,13 +1314,35 @@ export function colorSiguiente(prev, ok, deToEs) {
 
 // Cuantas palabras del mazo hay de cada color. `todasVerdes` es lo que abre el
 // boton de ampliar el tema con la IA.
+// El color que se le VE a una palabra: el que le hayas puesto tu a mano y, si
+// no le has puesto ninguno, el que se ha ganado practicando.
+//
+// Existe porque la regla estaba escrita dos veces y no decian lo mismo: la
+// tabla pintaba de verde lo que ya te sabes, y el candado de "Ampliar" solo
+// miraba los colores puestos a mano. Verdes en la tabla que no contaban para
+// nada.
+//
+// El orden importa: rojo antes que verde, porque una palabra que fallas sigue
+// siendo una palabra que fallas aunque lleves tres aciertos.
+export function colorVisible(de, p = progAll()) {
+  const c = p[cardKey(de)];
+  if (!c) return null;
+  if (c.color) return c.color;
+  if (c.wrong > 0 && c.strength < 4) return ROJO;
+  if (c.strength >= 3) return VERDE;
+  // Con una o dos veces bien la palabra ya no esta en blanco: amarilla, que
+  // es "empezada". Si no, jugabas un Blitz entero y el punto no se movia.
+  if (c.correct > 0 || c.wrong > 0) return AMARILLO;
+  return null;
+}
+
 export function coloresDeck(deck) {
   const vacio = { total: 0, verdes: 0, amarillas: 0, rojas: 0, sinColor: 0, todasVerdes: false };
   if (!deck?.cards?.length) return vacio;
   const p = progAll();
   const r = { ...vacio, total: deck.cards.length };
   for (const card of deck.cards) {
-    const c = p[cardKey(deck.id, card.de)]?.color;
+    const c = colorVisible(card.de, p);
     if (c === VERDE) r.verdes += 1;
     else if (c === AMARILLO) r.amarillas += 1;
     else if (c === ROJO) r.rojas += 1;
@@ -1270,9 +1352,9 @@ export function coloresDeck(deck) {
   return r;
 }
 
-export function setCardColor(deckId, de, color) {
+export function setCardColor(de, color) {
   storage.update(PROG_KEY, {}, (p) => {
-    const k = cardKey(deckId, de);
+    const k = cardKey(de);
     const c = { correct: 0, wrong: 0, strength: 0, lastSeen: 0, due: 0, ...(p[k] || {}) };
     c.color = color;
     p[k] = c;
@@ -1280,23 +1362,20 @@ export function setCardColor(deckId, de, color) {
   });
 }
 
-export function getCardColor(deckId, de) {
+export function getCardColor(de) {
   const p = progAll();
-  const c = p[cardKey(deckId, de)];
+  const c = p[cardKey(de)];
   return c ? c.color : null;
 }
 
-function cardKey(deckId, de) {
-  return `${deckReal(deckId, de)}::${de}`;
+
+export function cardProg(de) {
+  return progAll()[cardKey(de)];
 }
 
-export function cardProg(deckId, de) {
-  return progAll()[cardKey(deckId, de)];
-}
-
-export function recordCard(deckId, de, correct) {
+export function recordCard(de, correct) {
   storage.update(PROG_KEY, {}, (p) => {
-    const k = cardKey(deckId, de);
+    const k = cardKey(de);
     const c = { correct: 0, wrong: 0, strength: 0, lastSeen: 0, due: 0, ...(p[k] || {}) };
     const now = Date.now();
     if (correct) {
@@ -1320,7 +1399,7 @@ export function cartasFalladas(deck) {
   if (!deck) return [];
   const p = progAll();
   return deck.cards.filter((card) => {
-    const c = p[cardKey(deck.id, card.de)];
+    const c = p[cardKey(card.de)];
     return c && c.wrong > 0 && c.strength < 4;
   });
 }
@@ -1330,14 +1409,13 @@ export function cartasFalladas(deck) {
 // motor, los colores los pones tu a mano— y borrar una no tiene por que
 // llevarse la otra por delante.
 //
-// Vale tanto desde el mazo de un tema como desde el de la leccion entera:
-// cardKey() pasa por deckReal(), que resuelve `kb-<lektion>-all` al tema que
-// contiene esa palabra, asi que las dos vistas escriben en la misma clave.
+// Vale desde cualquier mazo: la clave es la palabra, asi que quitarle el
+// color aqui se lo quita en todos los sitios donde aparezca.
 export function limpiarColores(deck) {
   if (!deck) return;
   storage.update(PROG_KEY, {}, (p) => {
     for (const card of deck.cards) {
-      const k = cardKey(deck.id, card.de);
+      const k = cardKey(card.de);
       if (p[k]?.color) delete p[k].color;
     }
     return p;
@@ -1358,7 +1436,7 @@ export function cartasQueFaltan(deck) {
   if (!deck) return [];
   const p = progAll();
   return deck.cards
-    .map((card) => ({ card, c: p[cardKey(deck.id, card.de)] }))
+    .map((card) => ({ card, c: p[cardKey(card.de)] }))
     .filter(({ c }) => (c?.correct || 0) < ACIERTOS_POR_PALABRA)
     .sort((a, b) => (a.c?.correct || 0) - (b.c?.correct || 0))
     .map(({ card }) => card);
@@ -1386,7 +1464,7 @@ export function deckStats(deck) {
   let learning = 0;
   let totalHits = 0;
   deck.cards.forEach((card) => {
-    const c = p[cardKey(deck.id, card.de)];
+    const c = p[cardKey(card.de)];
     if (!c || c.correct + c.wrong === 0) return;
     if (c.strength >= 4) mastered += 1;
     if (c.correct > 0) known += 1;
@@ -1401,6 +1479,10 @@ export function deckStats(deck) {
     known,
     learning,
     fresh: total - known - learning,
+    // Los sumandos, ademas del porcentaje: la barra de la leccion junta
+    // varios mazos y sumar porcentajes ya redondeados no da lo mismo.
+    aciertos: totalHits,
+    necesarios: requiredHits,
     pct: Math.round((totalHits / requiredHits) * 100)
   };
 }
@@ -1418,19 +1500,41 @@ export function vocabOverall() {
 }
 
 // Elige `size` tarjetas: primero las que tocan repasar / falladas, luego nuevas.
+// Lo que salio en la tanda ANTERIOR de cada mazo. Vive en memoria y se pierde
+// al recargar: lo que molesta es que dos tandas seguidas sean la misma, no que
+// una palabra vuelva mañana.
+const ULTIMA_TANDA = new Map();
+
 export function pickCards(deck, size = 12) {
   const p = progAll();
   const now = Date.now();
+  const previas = ULTIMA_TANDA.get(deck.id) || new Set();
   const scored = deck.cards.map((card) => {
-    const c = p[cardKey(deck.id, card.de)];
+    const c = p[cardKey(card.de)];
     let score;
     if (!c || c.correct + c.wrong === 0) score = 5; // nuevas: prioridad media
     else if (c.due <= now) score = 10 + (6 - c.strength); // toca repasar
     else score = -c.strength; // ya dominadas: al final
-    return { card, score: score + Math.random() * 2 };
+    // El azar reparte DENTRO de cada grupo -las nuevas entre ellas, las de
+    // repasar entre ellas- sin colar una dominada por delante de una fallada.
+    return { card, score: score + Math.random() * 3 };
   });
-  scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, Math.min(size, deck.cards.length)).map((x) => x.card);
+
+  // Primero las que NO salieron en la tanda anterior.
+  //
+  // Con la puntuacion sola, un mazo de 24 con 12 falladas repetia 8 de cada 10
+  // tanda tras tanda: las falladas puntuan tan alto que ninguna otra entraba.
+  // Es lo que hace un repaso espaciado, pero da la sensacion de que el juego
+  // solo tiene diez preguntas. Asi se recorre el mazo entero antes de repetir
+  // nada, y lo fallado vuelve en la tanda siguiente, no en la misma.
+  const cabe = Math.min(size, deck.cards.length);
+  const orden = (a, b) => b.score - a.score;
+  const frescas = scored.filter((x) => !previas.has(x.card.de)).sort(orden);
+  const repetidas = scored.filter((x) => previas.has(x.card.de)).sort(orden);
+  const elegidas = [...frescas, ...repetidas].slice(0, cabe).map((x) => x.card);
+
+  ULTIMA_TANDA.set(deck.id, new Set(elegidas.map((c) => c.de)));
+  return elegidas;
 }
 
 // Los modos de juego son INTERFAZ, no contenido: van por t(). Es una funcion
@@ -1465,11 +1569,14 @@ const GENDER_KEY = 'vocab:gender'; // { noun: { correct, wrong, strength, due } 
 // y pares de género ambiguo ("der Freund / die Freundin").
 // Dificultad por nivel del libro: no tenemos datos de frecuencia real, pero
 // dónde aparece una palabra en el curso es una buena señal de lo rara que es.
+// `corto` es el rotulo del movil: en el telefono los cuatro largos se partian
+// en dos renglones. El nivel es lo que importa, asi que en corto queda solo el
+// codigo del libro.
 export const GENDER_NIVELES = [
-  { id: 'all', es: 'Todas', en: 'All', bands: null },
-  { id: 'leicht', es: 'Fácil (A1.1)', en: 'Easy (A1.1)', bands: ['A1.1'] },
-  { id: 'mittel', es: 'Medio (A1.2)', en: 'Medium (A1.2)', bands: ['A1.2'] },
-  { id: 'schwer', es: 'Difícil (A2.1 y extra)', en: 'Hard (A2.1 and extra)', bands: ['A2.1', 'extra'] }
+  { id: 'all', es: 'Todas', en: 'All', corto: 'Todas', cortoEn: 'All', bands: null },
+  { id: 'leicht', es: 'Fácil (A1.1)', en: 'Easy (A1.1)', corto: 'A1.1', cortoEn: 'A1.1', bands: ['A1.1'] },
+  { id: 'mittel', es: 'Medio (A1.2)', en: 'Medium (A1.2)', corto: 'A1.2', cortoEn: 'A1.2', bands: ['A1.2'] },
+  { id: 'schwer', es: 'Difícil (A2.1 y extra)', en: 'Hard (A2.1 and extra)', corto: 'A2.1+', cortoEn: 'A2.1+', bands: ['A2.1', 'extra'] }
 ];
 
 export function nounsByLevel(nivel = 'all') {
@@ -1517,8 +1624,105 @@ export function allNouns() {
       });
     });
   });
+
+  for (const en of EXTRA_NOUNS) {
+    if (out.length >= 2000) break;
+    if (seen.has(en.noun)) continue;
+    seen.add(en.noun);
+    out.push({
+      noun: en.noun,
+      article: en.article,
+      es: en.es,
+      band: 'A1',
+      deckId: 'extra',
+      cardDe: `${en.article} ${en.noun}`
+    });
+  }
+
+  if (out.length > 2000) return out.slice(0, 2000);
   return out;
 }
+
+const EXTRA_NOUNS = [
+  { noun: 'Anker', article: 'der', es: 'ancla' },
+  { noun: 'Adler', article: 'der', es: 'águila' },
+  { noun: 'Bach', article: 'der', es: 'arroyo' },
+  { noun: 'Bauer', article: 'der', es: 'granjero / campesino' },
+  { noun: 'Besen', article: 'der', es: 'escoba' },
+  { noun: 'Bürger', article: 'der', es: 'ciudadano' },
+  { noun: 'Dampf', article: 'der', es: 'vapor' },
+  { noun: 'Deich', article: 'der', es: 'dique' },
+  { noun: 'Diamant', article: 'der', es: 'diamante' },
+  { noun: 'Dorn', article: 'der', es: 'espina' },
+  { noun: 'Drache', article: 'der', es: 'dragón / cometa' },
+  { noun: 'Eimer', article: 'der', es: 'cubo' },
+  { noun: 'Falke', article: 'der', es: 'halcón' },
+  { noun: 'Fasan', article: 'der', es: 'faisán' },
+  { noun: 'Feind', article: 'der', es: 'enemigo' },
+  { noun: 'Felsen', article: 'der', es: 'roca / peñasco' },
+  { noun: 'Hafen', article: 'der', es: 'puerto' },
+  { noun: 'Handschuh', article: 'der', es: 'guante' },
+  { noun: 'Hirsch', article: 'der', es: 'ciervo' },
+  { noun: 'Igel', article: 'der', es: 'erizo' },
+  { noun: 'Jäger', article: 'der', es: 'cazador' },
+  { noun: 'Käfer', article: 'der', es: 'escarabajo' },
+  { noun: 'Kamm', article: 'der', es: 'peine' },
+  { noun: 'Karpfen', article: 'der', es: 'carpa' },
+  { noun: 'Kessel', article: 'der', es: 'caldera' },
+  { noun: 'Knoten', article: 'der', es: 'nudo' },
+  { noun: 'Korb', article: 'der', es: 'cesta' },
+  { noun: 'Kranich', article: 'der', es: 'grulla' },
+  { noun: 'Krug', article: 'der', es: 'jarra' },
+  { noun: 'Marder', article: 'der', es: 'marta' },
+  { noun: 'Papagei', article: 'der', es: 'loro' },
+  { noun: 'Pelz', article: 'der', es: 'piel / pelaje' },
+  { noun: 'Pfeil', article: 'der', es: 'flecha' },
+  { noun: 'Pfirsich', article: 'der', es: 'melocotón' },
+  { noun: 'Rabe', article: 'der', es: 'cuervo' },
+  { noun: 'Rasen', article: 'der', es: 'césped' },
+  { noun: 'Reh', article: 'das', es: 'corzo' },
+  { noun: 'Ritter', article: 'der', es: 'caballero' },
+  { noun: 'Spatz', article: 'der', es: 'gorrión' },
+  { noun: 'Specht', article: 'der', es: 'pájaro carpintero' },
+  { noun: 'Storch', article: 'der', es: 'cigüeña' },
+  { noun: 'Sumpf', article: 'der', es: 'pantano' },
+  { noun: 'Turm', article: 'der', es: 'torre' },
+  { noun: 'Wurm', article: 'der', es: 'gusano' },
+  { noun: 'Zweig', article: 'der', es: 'rama' },
+  { noun: 'Amsel', article: 'die', es: 'mirlo' },
+  { noun: 'Birke', article: 'die', es: 'abedul' },
+  { noun: 'Bürste', article: 'die', es: 'cepillo' },
+  { noun: 'Drossel', article: 'die', es: 'zorzal' },
+  { noun: 'Eichel', article: 'die', es: 'bellota' },
+  { noun: 'Echse', article: 'die', es: 'lagartija' },
+  { noun: 'Elster', article: 'die', es: 'urraca' },
+  { noun: 'Erbse', article: 'die', es: 'guisante' },
+  { noun: 'Eule', article: 'die', es: 'búho' },
+  { noun: 'Feder', article: 'die', es: 'pluma' },
+  { noun: 'Felge', article: 'die', es: 'llanta' },
+  { noun: 'Fichte', article: 'die', es: 'abeto' },
+  { noun: 'Fliege', article: 'die', es: 'mosca' },
+  { noun: 'Forelle', article: 'die', es: 'trucha' },
+  { noun: 'Gans', article: 'die', es: 'ganso' },
+  { noun: 'Gerste', article: 'die', es: 'cebada' },
+  { noun: 'Grille', article: 'die', es: 'grillo' },
+  { noun: 'Harke', article: 'die', es: 'rastrillo' },
+  { noun: 'Haube', article: 'die', es: 'capucha / capó' },
+  { noun: 'Hecke', article: 'die', es: 'seto' },
+  { noun: 'Hirse', article: 'die', es: 'mijo' },
+  { noun: 'Hummel', article: 'die', es: 'abejorro' },
+  { noun: 'Kachel', article: 'die', es: 'azulejo' },
+  { noun: 'Kanne', article: 'die', es: 'jarra / tetera' },
+  { noun: 'Kiefer', article: 'die', es: 'pino' },
+  { noun: 'Klette', article: 'die', es: 'bardana' },
+  { noun: 'Krabbe', article: 'die', es: 'cangrejo' },
+  { noun: 'Krähe', article: 'die', es: 'corneja' },
+  { noun: 'Libelle', article: 'die', es: 'libélula' },
+  { noun: 'Lilie', article: 'die', es: 'lirio' },
+  { noun: 'Linde', article: 'die', es: 'tilo' },
+  { noun: 'Mauer', article: 'die', es: 'muro' },
+  { noun: 'Meise', article: 'die', es: 'herrerillo' }
+];
 
 function genderProg() {
   return storage.get(GENDER_KEY, {});
@@ -1579,9 +1783,8 @@ export function pickGenderNouns(size = 15, nivel = 'all') {
     return f.length >= size ? f : arr;
   };
 
-  const maxReview = Math.max(1, Math.round(size * 0.4));
   due.sort((a, b) => b.over - a.over || a.strength - b.strength);
-  const out = due.slice(0, maxReview).map((o) => o.x);
+  const out = due.map((o) => o.x).slice(0, size);
 
   const add = (arr) => {
     for (const x of arr) {
@@ -1620,4 +1823,31 @@ export function genderStats(nivel = 'all') {
     empezadas,
     pct: Math.round((known / Math.max(1, pool.length)) * 100)
   };
+}
+
+
+// ¿Esto parece un verbo? Termina en -en / -eln / -ern en minuscula, o es uno
+// de los dos irregulares cortos. La lista de excepciones es de palabras que
+// acaban igual y no lo son (numeros, adverbios, una preposicion).
+//
+// Estaba copiada tal cual en Vocab.jsx y en DeckDetail.jsx: si un dia hay que
+// añadir otra excepcion, con dos copias se añade en una y no en la otra.
+const NO_VERBOS = [
+  // numeros y adverbios que acaban igual que un infinitivo
+  'sieben', 'neun', 'zehn', 'morgen', 'gestern', 'vorgestern',
+  'oben', 'unten', 'innen', 'außen', 'gegen',
+  // adjetivos y participios del libro que colaban por la terminacion
+  'zufrieden', 'unzufrieden', 'geschieden', 'modern', 'verschieden',
+  'bescheiden', 'eigen', 'eben', 'selten', 'offen',
+  'geschlossen', 'abgelaufen', 'krankgeschrieben', 'golden', 'nüchtern',
+  // adverbios y particulas del libro que acaban en -en / -ern
+  'zusammen', 'gern', 'einverstanden', 'übermorgen', 'den',
+  // y el articulo, que aparece al principio de muchas entradas
+  'einen', 'keinen', 'meinen', 'deinen', 'seinen'
+];
+
+export function esVerbo(de) {
+  const palabra = String(de || '').split(' ')[0].replace(/[^a-zA-ZäöüÄÖÜß]/g, '');
+  const parece = /^[a-zäöüß]+(en|eln|ern)$/.test(palabra) || palabra === 'sein' || palabra === 'tun';
+  return parece && !NO_VERBOS.includes(palabra);
 }

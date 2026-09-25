@@ -142,6 +142,7 @@ export default {
   id: 'konnektoren',
   name: 'Konnektoren & Nebensätze',
   nameEs: 'Conectores y subordinadas',
+  emoji: '🔗',
   blurb: 'weil/denn, dass, wenn/als, obwohl/trotzdem, deshalb… y el orden del verbo',
   theory,
   concepts: [

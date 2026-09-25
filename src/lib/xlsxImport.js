@@ -2,7 +2,11 @@
 // Detecta las columnas por el encabezado; si no hay encabezado claro,
 // usa las dos primeras columnas (alemán, español).
 
-import * as XLSX from 'xlsx';
+// La libreria NO se importa arriba a proposito: son 429 kB (143 comprimidos)
+// que se cargaban SIEMPRE, en cada primera visita, para algo que se hace una
+// vez o ninguna y que ademas vive en Ajustes. Con el import dentro de la
+// funcion, el bundle inicial pasa de 1.978 kB a 1.646 kB y esos 429 solo se
+// bajan cuando de verdad eliges un archivo.
 
 const DE_HINTS = ['deutsch', 'german', 'wort', 'word', 'begriff', 'vokabel', 'aleman', 'alemán', 'de'];
 const ES_HINTS = ['spanisch', 'spanish', 'übersetzung', 'translation', 'bedeutung', 'meaning', 'espanol', 'español', 'traduccion', 'traducción', 'es'];
@@ -23,6 +27,7 @@ function findCol(headers, hints) {
 }
 
 export async function parseVocabFile(file) {
+  const XLSX = await import('xlsx');
   const buf = await file.arrayBuffer();
   const wb = XLSX.read(buf, { type: 'array' });
   const ws = wb.Sheets[wb.SheetNames[0]];

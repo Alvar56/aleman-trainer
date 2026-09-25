@@ -48,7 +48,7 @@ const { preguntasFuchs } = await import('../src/lib/fuchs.js');
 const { teiles, fallen } = await import('../src/lib/pruefung.js');
 const { framesDeRegla } = await import('../src/lib/kursbuch/frames/_motor.js');
 const { EN } = await import('../src/lib/contenido/en.js');
-const { observarTc } = await import('../src/lib/contenido/index.js');
+const { observarTc, tc } = await import('../src/lib/contenido/index.js');
 
 // Un rng deterministico (LCG). Las plantillas eligen su frase con rng(), asi
 // que con Math.random el recuento bailaba entre dos ejecuciones seguidas.
@@ -154,10 +154,17 @@ function recolecta() {
   }
 
   // ---- las plantillas del libro ----
-  // Hay que generarlas: el texto sale de mc()/order(), que es donde se traduce.
-  for (const [key, d] of Object.entries(DATA)) {
-    for (const f of framesDeRegla(d, key)) {
-      try { recorre(f.make(Math.random), 'frames'); } catch { /* alguna necesita estado */ }
+  // Se leen de DATA y no de los ejercicios ya montados: el motor dejo de
+  // traducir al montarlos -ahora se traduce al pintarlos, para que cambiar de
+  // idioma a mitad de tanda cambie tambien lo que ya tienes delante- y el
+  // recuento veia las dos pasadas iguales y las daba por sin traducir.
+  for (const d of Object.values(DATA)) {
+    for (const x of [...(d.picks || []), ...(d.orders || [])]) {
+      anota(tc(x.t), 'frames');
+      // El 'por que' a veces es un patron aleman a secas: cuenta como
+      // traducible solo si de verdad esta en castellano, igual que hace
+      // recorre() con los campos mixtos.
+      if (x.e && pareceCastellano(x.e)) anota(tc(x.e), 'frames');
     }
   }
 

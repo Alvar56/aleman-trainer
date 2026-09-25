@@ -1,0 +1,975 @@
+// Mapeo de Kommunikation para A1.1 (lecciones 2 a 8).
+// 8 funciones de 10 frases exactamente por lección.
+import fs from 'node:fs';
+
+export const a11resto = {
+  "a11-l2": [
+    {
+      "funktion": "nach dem Alter fragen",
+      "es": "Preguntar la edad",
+      "esEn": "Asking about age",
+      "toma": [
+        "Wie alt bist du? – Ich bin 25.",
+        "Wie alt ist Ihre Tochter?",
+        "Darf ich fragen, wie alt Sie sind?",
+        "Wann hast du Geburtstag?",
+        "In welchem Jahr sind Sie geboren?",
+        "Wie alt sind deine Eltern?",
+        "Wie alt ist Ihr jüngstes Kind?",
+        "Bist du älter oder jünger als dein Bruder?",
+        "Wie alt ist deine Schwester?",
+        "In welchem Jahr bist du geboren?"
+      ]
+    },
+    {
+      "funktion": "über Familie und Familienstand sprechen",
+      "es": "Hablar de la familia y el estado civil",
+      "esEn": "Talking about family and marital status",
+      "toma": [
+        "Sind Sie verheiratet?",
+        "Ich bin seit fünf Jahren verheiratet und habe zwei Kinder.",
+        "Sind Sie ledig oder verheiratet?",
+        "Haben Sie Kinder?",
+        "Mein Familienstand ist ledig.",
+        "Ich bin verwitwet und lebe jetzt bei meiner Tochter.",
+        "Haben Sie Geschwister?",
+        "Wer wohnt alles in Ihrem Haushalt?",
+        "Bist du verheiratet oder ledig?",
+        "Hast du Kinder?"
+      ]
+    },
+    {
+      "funktion": "nach Wohnort und Wohnsituation fragen",
+      "es": "Preguntar por el lugar de residencia",
+      "esEn": "Asking about residence and living situation",
+      "toma": [
+        "Woher kommen Sie?",
+        "Wo sind Sie geboren?",
+        "Wie lange leben Sie schon in Österreich?",
+        "Wohnst du gern in dieser Gegend?",
+        "Seit wann wohnen Sie in dieser Wohnung?",
+        "In welchem Stock wohnen Sie?",
+        "Ich wohne im dritten Stock, ohne Aufzug.",
+        "Ich bin gerade umgezogen.",
+        "Meine neue Adresse ist Gumpendorfer Straße 45, Tür 12.",
+        "Was machst du in deiner Freizeit?"
+      ]
+    },
+    {
+      "funktion": "Adresse und Kontaktdaten angeben",
+      "es": "Dar la dirección y los datos de contacto",
+      "esEn": "Giving address and contact details",
+      "toma": [
+        "Ich wohne in der Hauptstraße 12, 1010 Wien.",
+        "Meine Telefonnummer ist 0664 1234567.",
+        "Wie ist Ihre Adresse?",
+        "Unter welcher Nummer erreiche ich Sie?",
+        "Wie ist Ihre Postleitzahl?",
+        "Unter welcher E-Mail-Adresse kann ich Sie erreichen?",
+        "Mein Handy ist neu, die Nummer hat sich geändert.",
+        "Wie lautet Ihre Adresse bitte?",
+        "Haben Sie eine österreichische Handynummer?",
+        "Ist das noch Ihre aktuelle Adresse?"
+      ]
+    },
+    {
+      "funktion": "über Sprachkenntnisse sprechen",
+      "es": "Hablar de conocimientos de idiomas",
+      "esEn": "Talking about language skills",
+      "toma": [
+        "Ich spreche ein bisschen Deutsch.",
+        "Sprechen Sie Englisch? – Ja, sehr gut.",
+        "Ich lerne Deutsch, aber ich mache noch viele Fehler.",
+        "Verstehen Sie mich?",
+        "Ich spreche nur ein paar Wörter Türkisch.",
+        "Welche Sprache sprechen Sie bei der Arbeit?",
+        "Mein Deutsch ist noch nicht so gut.",
+        "Ich lese schon Zeitung auf Deutsch.",
+        "Sprechen Sie langsamer, bitte, ich lerne noch.",
+        "Auf welchem Niveau sind Sie?"
+      ]
+    },
+    {
+      "funktion": "um Wiederholung bitten",
+      "es": "Pedir que te lo repitan",
+      "esEn": "Asking for repetition",
+      "toma": [
+        "Wie bitte?",
+        "Können Sie das bitte wiederholen?",
+        "Noch einmal, bitte. Langsamer, bitte.",
+        "Entschuldigung, das habe ich nicht verstanden.",
+        "Können Sie das bitte aufschreiben?",
+        "Was bedeutet das genau?",
+        "Sprechen Sie bitte etwas lauter, ich höre Sie schlecht.",
+        "Noch einmal von vorne, bitte.",
+        "Wie war die Nummer noch einmal?",
+        "Können Sie das bitte langsamer sagen?"
+      ]
+    },
+    {
+      "funktion": "ein Formular ausfüllen",
+      "es": "Rellenar un formulario",
+      "esEn": "Filling in a form",
+      "toma": [
+        "Bitte füllen Sie dieses Formular aus.",
+        "Wo muss ich unterschreiben?",
+        "Diese Angabe verstehe ich nicht.",
+        "Muss ich das Formular heute abgeben?",
+        "Brauchen Sie eine Kopie von meinem Pass?",
+        "Hier fehlt noch etwas, oder?",
+        "Kann ich den Antrag auch online stellen?",
+        "Was soll ich bei Geschlecht ankreuzen?",
+        "Brauchen Sie das Original oder reicht eine Kopie?",
+        "Wo trage ich die Telefonnummer ein?"
+      ]
+    },
+    {
+      "funktion": "persönliche Daten und Dokumente klären",
+      "es": "Aclarar datos personales y documentos",
+      "esEn": "Clarifying personal details and documents",
+      "toma": [
+        "Haben Sie einen Ausweis dabei?",
+        "Darf ich nach Ihrem Geburtsdatum fragen?",
+        "Was ist Ihre Staatsangehörigkeit?",
+        "Sind Sie berufstätig?",
+        "Ich bin 32 Jahre alt und ledig.",
+        "Wie ist Ihr Familienname?",
+        "Ich habe noch keinen Meldezettel.",
+        "Ist mein Ausweis noch gültig?",
+        "Wie ist Ihr Geburtsdatum?",
+        "Muss ich das Formular unterschreiben?"
+      ]
+    }
+  ],
+  "a11-l3": [
+    {
+      "funktion": "fragen, wo Gegenstände sind",
+      "es": "Preguntar dónde están los objetos",
+      "esEn": "Asking where objects are",
+      "toma": [
+        "Wo ist der Kuli? – Hier. / Da drüben.",
+        "Wo ist meine Brille?",
+        "Hast du meinen Schlüssel gesehen?",
+        "Ist das dein Rucksack?",
+        "Weißt du, wo mein Ladekabel ist?",
+        "Wo liegen die Ordner vom letzten Jahr?",
+        "Gibt es hier irgendwo einen Kugelschreiber?",
+        "Wo ist der Schlüssel für die Tür?",
+        "Ist das dein Handy auf dem Tisch?",
+        "Weißt du, wo die Schere geblieben ist?"
+      ]
+    },
+    {
+      "funktion": "Räume und Geräte im Gebäude suchen",
+      "es": "Buscar salas y aparatos en el edificio",
+      "esEn": "Looking for rooms and equipment in the building",
+      "toma": [
+        "Wo finde ich das Büro?",
+        "Wo finde ich hier einen Drucker?",
+        "Ist mein Rucksack noch im Büro?",
+        "Wo finde ich hier den Eingang zum Lager?",
+        "Ist mein Telefon im Besprechungsraum?",
+        "Wo ist denn hier der Kopierer?",
+        "Entschuldigung, wo finde ich Zimmer zwölf?",
+        "Ist die Kantine im Erdgeschoss?",
+        "Wissen Sie, wo Frau Berger sitzt?",
+        "Wo ist die Chefin heute?"
+      ]
+    },
+    {
+      "funktion": "nach dem Beruf fragen",
+      "es": "Preguntar por la profesión",
+      "esEn": "Asking about someone's profession",
+      "toma": [
+        "Was sind Sie von Beruf? – Ich bin Ärztin.",
+        "Was machst du beruflich?",
+        "Wo arbeiten Sie?",
+        "Arbeitest du Vollzeit?",
+        "Was machst du genau?",
+        "Gefällt dir deine Arbeit?",
+        "Seit wann arbeitest du dort?",
+        "Welchen Beruf hast du gelernt?",
+        "Bei welcher Firma arbeiten Sie?",
+        "Wie hast du diese Stelle gefunden?"
+      ]
+    },
+    {
+      "funktion": "über die berufliche Situation sprechen",
+      "es": "Hablar de la situación laboral",
+      "esEn": "Talking about the employment situation",
+      "toma": [
+        "Ich suche gerade Arbeit.",
+        "Ich mache eine Ausbildung.",
+        "Machst du gerade ein Praktikum?",
+        "Verdienst du gut bei der Arbeit?",
+        "Ist die Arbeit anstrengend?",
+        "Möchtest du den Beruf wechseln?",
+        "Ich arbeite als Krankenpflegerin im Spital.",
+        "Mein Mann ist selbstständig.",
+        "Ich bin zurzeit arbeitslos.",
+        "Bist du angestellt oder selbstständig?"
+      ]
+    },
+    {
+      "funktion": "über Arbeitsbedingungen sprechen",
+      "es": "Hablar de las condiciones laborales",
+      "esEn": "Talking about working conditions",
+      "toma": [
+        "Wie viele Stunden arbeitest du pro Woche?",
+        "Wie viele Mitarbeiter hat der Betrieb?",
+        "Arbeitest du lieber drinnen oder draußen?",
+        "Musst du eine Uniform tragen?",
+        "Arbeitest du in Vollzeit oder Teilzeit?",
+        "Arbeitest du lieber im Team oder allein?",
+        "Wie bist du zu diesem Beruf gekommen?",
+        "Was gefällt dir an deinem Job am besten?",
+        "Suchst du gerade eine neue Stelle?",
+        "Wie lange brauchst du in die Arbeit?"
+      ]
+    },
+    {
+      "funktion": "über Arbeitszeiten sprechen",
+      "es": "Hablar de los horarios de trabajo",
+      "esEn": "Talking about work hours",
+      "toma": [
+        "Wann fängst du morgens an?",
+        "Arbeitest du auch am Wochenende?",
+        "Wie lange dauert deine Mittagspause?",
+        "Hast du morgen frei?",
+        "Machst du oft Überstunden?",
+        "Wann hast du Urlaub?",
+        "Kannst du am Freitag früher gehen?",
+        "Ich arbeite von Montag bis Donnerstag.",
+        "Arbeitest du auch in der Nachtschicht?",
+        "Kannst du dir die Arbeitszeit frei einteilen?"
+      ]
+    },
+    {
+      "funktion": "am Arbeitsplatz zusammenarbeiten",
+      "es": "Colaborar en el trabajo",
+      "esEn": "Collaborating in the workplace",
+      "toma": [
+        "Der Computer ist schon wieder langsam.",
+        "Kannst du mir kurz helfen?",
+        "Ich habe einen Termin um drei Uhr.",
+        "Der Drucker funktioniert nicht.",
+        "Diese Woche habe ich die späte Schicht.",
+        "Machen wir zusammen Mittagspause?",
+        "Kannst du mir die Datei schicken?",
+        "Heute ist wirklich viel Stress.",
+        "Kannst du für mich ans Telefon gehen?",
+        "Haben Sie kurz Zeit für eine Frage?"
+      ]
+    },
+    {
+      "funktion": "zustimmen und widersprechen",
+      "es": "Dar la razón y llevar la contraria",
+      "esEn": "Agreeing and disagreeing",
+      "toma": [
+        "Ja, stimmt. · Genau.",
+        "Nein, das stimmt nicht. · Doch!",
+        "Das ist doch nicht richtig, oder?",
+        "Da bin ich anderer Meinung.",
+        "Stimmt, so habe ich das noch nicht gesehen.",
+        "Nein, das glaube ich nicht.",
+        "Du hast völlig recht, entschuldige.",
+        "Genau so ist es, du hast es erfasst.",
+        "Da muss ich dir leider widersprechen.",
+        "Das stimmt allerdings."
+      ]
+    }
+  ],
+  "a11-l4": [
+    {
+      "funktion": "nach der Familie fragen",
+      "es": "Preguntar por la familia",
+      "esEn": "Asking about family",
+      "toma": [
+        "Hast du Geschwister? – Ja, zwei Brüder.",
+        "Wie viele Geschwister hast du?",
+        "Bist du verheiratet?",
+        "Hast du Kinder?",
+        "Wo wohnt deine Familie?",
+        "Wie alt ist dein Bruder?",
+        "Wie viele Personen seid ihr zu Hause?",
+        "Leben deine Großeltern noch?",
+        "Hast du viele Verwandte in Österreich?",
+        "Wie oft siehst du deine Familie?"
+      ]
+    },
+    {
+      "funktion": "über Familienmitglieder berichten",
+      "es": "Contar cosas sobre la familia",
+      "esEn": "Talking about family members",
+      "toma": [
+        "Meine Eltern wohnen in Polen.",
+        "Wohnst du noch bei deinen Eltern?",
+        "Meine Schwester ist schwanger.",
+        "Meine Eltern sind seit letztem Jahr geschieden.",
+        "Wir sind eine große Familie.",
+        "Ich bin Einzelkind.",
+        "Mein Sohn sieht seinem Vater sehr ähnlich.",
+        "Am Samstag ist eine große Familienfeier.",
+        "Wo bist du aufgewachsen?",
+        "Wie oft telefonierst du mit deinen Eltern?"
+      ]
+    },
+    {
+      "funktion": "Familienangehörige vorstellen",
+      "es": "Presentar a familiares",
+      "esEn": "Introducing family members",
+      "toma": [
+        "Das ist meine Schwester Ana.",
+        "Darf ich vorstellen? Mein Mann.",
+        "Kennst du meinen Onkel schon?",
+        "Das sind meine Großeltern.",
+        "Darf ich dir meine Frau vorstellen?",
+        "Das sind meine Schwiegereltern aus Ungarn.",
+        "Kennst du schon meinen Cousin Marco?",
+        "Das ist mein Stiefvater Thomas.",
+        "Ich möchte Ihnen meinen Sohn vorstellen.",
+        "Darf ich Ihnen meine Frau vorstellen?"
+      ]
+    },
+    {
+      "funktion": "etwas vermuten",
+      "es": "Hacer suposiciones",
+      "esEn": "Making assumptions",
+      "toma": [
+        "Ist das deine Schwester?",
+        "Das ist sicher dein Opa.",
+        "Das ist bestimmt deine Mutter auf dem Foto.",
+        "Ihr seid sicher Geschwister, oder?",
+        "Der Kleine ist wohl dein Enkel.",
+        "Du hast wahrscheinlich viele Cousins.",
+        "Das ist vielleicht dein Bruder am Telefon.",
+        "Das ist sicher deine Urgroßmutter auf dem Bild.",
+        "Ihr habt wahrscheinlich denselben Charakter.",
+        "Die beiden sind sicher verwandt."
+      ]
+    },
+    {
+      "funktion": "nach Gegenständen und Besitz fragen",
+      "es": "Preguntar por objetos y pertenencias",
+      "esEn": "Asking about objects and ownership",
+      "toma": [
+        "Was ist das? – Das ist ein Foto.",
+        "Wer ist das?",
+        "Wem gehört dieses Foto?",
+        "Was ist das für ein Ring?",
+        "Ist das ein Geschenk für die Hochzeit?",
+        "Wer ist die Frau auf dem Bild?",
+        "Was bedeutet dieses Symbol hier?",
+        "Was ist das für ein altes Buch?",
+        "Gehört dir dieser Ring?",
+        "Wem gehört eigentlich dieser Schal?"
+      ]
+    },
+    {
+      "funktion": "über Fotos sprechen",
+      "es": "Hablar de fotografías",
+      "esEn": "Talking about photographs",
+      "toma": [
+        "Möchtest du ein paar Fotos sehen?",
+        "Wann ist dieses Foto entstanden?",
+        "Wer steht ganz links auf dem Bild?",
+        "Du warst als Kind sehr blond!",
+        "Darf ich das Foto fotografieren?",
+        "Auf diesem Bild ist die ganze Familie.",
+        "Wer hat dieses Foto gemacht?",
+        "Sind das drei Generationen auf einem Bild?",
+        "Wie alt warst du auf diesem Foto?",
+        "Wer ist das neben dir auf dem Foto?"
+      ]
+    },
+    {
+      "funktion": "über das Zusammenleben sprechen",
+      "es": "Hablar de la convivencia en casa",
+      "esEn": "Talking about living together",
+      "toma": [
+        "Wer macht bei euch den Haushalt?",
+        "Streitet ihr oft?",
+        "Ich kümmere mich um meine Oma.",
+        "Meine Kinder helfen kaum im Haushalt.",
+        "Wir essen abends immer zusammen.",
+        "Mein Bruder wohnt wieder bei meinen Eltern.",
+        "Die Kinder vertragen sich heute wieder.",
+        "Die Beziehung zu meinem Vater ist heute gut.",
+        "Wie löst ihr einen Streit?",
+        "Unterstützt dich deine Familie bei der Ausbildung?"
+      ]
+    },
+    {
+      "funktion": "Aufgaben im Haushalt aufteilen",
+      "es": "Repartir tareas del hogar",
+      "esEn": "Sharing household tasks",
+      "toma": [
+        "Gibt es bei euch feste Regeln zu Hause?",
+        "Wie viel Vertrauen habt ihr untereinander?",
+        "Wer putzt bei euch die Küche?",
+        "Kocht bei euch jeder für sich?",
+        "Wie ist das Zusammenwohnen mit deinem Bruder?",
+        "Haltet ihr in der Familie zusammen?",
+        "Wie oft gibt es ein Familientreffen?",
+        "Hast du einen Spitznamen?",
+        "Bist du das älteste Kind zu Hause?",
+        "Habt ihr eine große Familie?"
+      ]
+    }
+  ],
+  "a11-l5": [
+    {
+      "funktion": "nach der Uhrzeit und dem Zeitplan fragen",
+      "es": "Preguntar la hora y los horarios",
+      "esEn": "Asking about the time and schedule",
+      "toma": [
+        "Wann hast du Zeit? – Am Samstag.",
+        "Um wie viel Uhr treffen wir uns?",
+        "Wie spät ist es eigentlich?",
+        "Wann stehst du normalerweise auf?",
+        "Der Wecker klingelt bei mir um fünf.",
+        "Ich habe heute gar keine Zeit.",
+        "Wie lange brauchst du bis zur Arbeit?",
+        "Um wie viel Uhr fängt der Film an?",
+        "Bist du immer so pünktlich?",
+        "Mein Tag ist heute völlig voll."
+      ]
+    },
+    {
+      "funktion": "über Zeitnot und Termine sprechen",
+      "es": "Hablar de falta de tiempo y fechas",
+      "esEn": "Talking about lack of time and appointments",
+      "toma": [
+        "Ich schaffe das nicht bis Freitag.",
+        "Nachher gehe ich noch schnell einkaufen.",
+        "Wie teilst du dir den Tag ein?",
+        "Wann hast du übermorgen Zeit?",
+        "Das ist dringend, kannst du es heute machen?",
+        "Nimm dir ruhig Zeit dafür.",
+        "Haben wir bis dahin noch genug Zeit?",
+        "Schaffst du das bis morgen Mittag?",
+        "Wie lange dauert die Fahrt ungefähr?",
+        "Bist du morgen früh oder später da?"
+      ]
+    },
+    {
+      "funktion": "höflich um Hilfe bitten",
+      "es": "Pedir ayuda con educación",
+      "esEn": "Politely asking for help",
+      "toma": [
+        "Kannst du mir bitte helfen?",
+        "Einen Moment, bitte.",
+        "Könnten Sie mir bitte kurz die Tür aufhalten?",
+        "Darf ich dich um einen Gefallen bitten?",
+        "Kannst du mich morgen früh anrufen?",
+        "Würden Sie das bitte noch einmal prüfen?",
+        "Hilfst du mir kurz beim Tragen?",
+        "Könnten Sie mir bitte den Weg zeigen?",
+        "Kannst du bitte etwas leiser sein?",
+        "Darf ich Sie kurz stören?"
+      ]
+    },
+    {
+      "funktion": "um Gefallen und Unterstützung bitten",
+      "es": "Pedir favores y asistencia",
+      "esEn": "Asking for favors and assistance",
+      "toma": [
+        "Könntest du einen Augenblick warten?",
+        "Darf ich dich um deinen Rat bitten?",
+        "Würdest du das bitte für mich erledigen?",
+        "Kannst du mir nächste Woche noch einmal helfen?",
+        "Darf ich mir kurz deinen Kuli ausleihen?",
+        "Würdest du mich um sieben anrufen?",
+        "Sollen wir das gleich erledigen?",
+        "Sollen wir lieber morgen weitermachen?",
+        "Lass uns eine kurze Mittagspause machen.",
+        "Machen wir eine kurze Pause?"
+      ]
+    },
+    {
+      "funktion": "über Öffnungszeiten sprechen",
+      "es": "Hablar de horarios de apertura",
+      "esEn": "Talking about opening hours",
+      "toma": [
+        "Wann hat die Bank offen? – Von 9 bis 15 Uhr.",
+        "Am Sonntag ist geschlossen.",
+        "Wann haben Sie geöffnet?",
+        "Haben Sie sonntags offen?",
+        "Wie lange dauert der Kurs?",
+        "Um wie viel Uhr fängt es an?",
+        "Bis wann hat die Apotheke heute offen?",
+        "Ist das Amt am Samstag geöffnet?",
+        "Wann macht der Supermarkt zu?",
+        "Haben Sie über Mittag geschlossen?"
+      ]
+    },
+    {
+      "funktion": "Auskunft über Dienstleistungen erfragen",
+      "es": "Pedir información sobre servicios",
+      "esEn": "Asking about services and availability",
+      "toma": [
+        "Ab wann kann ich morgen kommen?",
+        "Wie lange dauert die Sprechstunde?",
+        "Haben Sie an Feiertagen geöffnet?",
+        "Wie sind die Öffnungszeiten am Werktag?",
+        "Kann ich auch später noch kommen?",
+        "Öffnet die Bibliothek stündlich oder durchgehend?",
+        "Bis wann hat der Supermarkt offen?",
+        "Hat die Apotheke sonntags auch offen?",
+        "Wann macht das Amt am Montag auf?",
+        "Ist das Schwimmbad im Sommer länger offen?"
+      ]
+    },
+    {
+      "funktion": "sich verabreden",
+      "es": "Quedar con alguien",
+      "esEn": "Arranging a meeting",
+      "toma": [
+        "Hast du am Freitag Zeit?",
+        "Passt dir 18 Uhr? – Ja, das passt.",
+        "Wann treffen wir uns?",
+        "Wo treffen wir uns?",
+        "Geht es auch etwas später?",
+        "Hast du am Wochenende schon etwas vor?",
+        "Wollen wir uns am Donnerstag treffen?",
+        "Passt es dir um halb acht?",
+        "Kommst du allein oder mit Ana?",
+        "Sollen wir uns direkt dort treffen?"
+      ]
+    },
+    {
+      "funktion": "Verabredungen anpassen und vorschlagen",
+      "es": "Ajustar citas y hacer planes",
+      "esEn": "Adjusting plans and making suggestions",
+      "toma": [
+        "Ich muss leider absagen.",
+        "Ich muss unseren Termin leider verschieben.",
+        "Können wir das auf nächste Woche legen?",
+        "Ich komme vielleicht zehn Minuten später.",
+        "Bleibt es bei Freitag um sieben?",
+        "Wollen wir ins Kino gehen?",
+        "Gute Idee! · Ja, gern.",
+        "Wollen wir zusammen spazieren gehen?",
+        "Wie wäre es mit einem Kaffee?",
+        "Hast du Lust auf ein Konzert?"
+      ]
+    }
+  ],
+  "a11-l6": [
+    {
+      "funktion": "im Restaurant bestellen",
+      "es": "Pedir en el restaurante",
+      "esEn": "Ordering in a restaurant",
+      "toma": [
+        "Ich hätte gern eine Suppe.",
+        "Einmal Schnitzel, bitte.",
+        "Ich hätte gern ein Schnitzel.",
+        "Was können Sie empfehlen?",
+        "Für mich bitte nur ein Wasser.",
+        "Wir möchten gern bestellen.",
+        "Können wir bitte die Speisekarte haben?",
+        "Ich nehme das Menü mit Suppe.",
+        "Für mich bitte nur einen kleinen Salat.",
+        "Könnten wir bitte noch Brot bekommen?"
+      ]
+    },
+    {
+      "funktion": "nach Angeboten und Empfehlungen fragen",
+      "es": "Preguntar por ofertas y recomendaciones",
+      "esEn": "Asking for recommendations and offers",
+      "toma": [
+        "Was ist die Spezialität des Hauses?",
+        "Haben Sie auch vegetarische Gerichte?",
+        "Als Nachtisch nehmen wir einen Apfelstrudel.",
+        "Das Essen war ausgezeichnet, danke.",
+        "Was ist heute im Angebot?",
+        "Können wir gleich bestellen oder sollen wir warten?",
+        "Bitte einmal das Gleiche wie mein Kollege.",
+        "Ich hätte gern eine kleine Portion.",
+        "Könnte ich bitte die Karte haben?",
+        "Für mich bitte das Gleiche."
+      ]
+    },
+    {
+      "funktion": "nach dem Preis fragen",
+      "es": "Preguntar el precio",
+      "esEn": "Asking about prices",
+      "toma": [
+        "Was kostet das?",
+        "Wie viel kostet das Kilo Äpfel?",
+        "Ist das der Preis für ein Stück?",
+        "Haben Sie etwas Günstigeres?",
+        "Warum ist das so teuer geworden?",
+        "Gibt es heute eine Sonderaktion?",
+        "Was kosten zweihundert Gramm Käse?",
+        "Ist die Dose billiger als die frische Ware?",
+        "Warum ist das Brot hier teurer?",
+        "Was kostet das Kilo?"
+      ]
+    },
+    {
+      "funktion": "bezahlen und abrechnen",
+      "es": "Pagar y pedir la cuenta",
+      "esEn": "Paying and asking for the bill",
+      "toma": [
+        "Die Rechnung, bitte.",
+        "Die Rechnung, bitte. Wir zahlen getrennt.",
+        "Wie viel macht das? – Das macht 8,50 Euro.",
+        "Was macht das zusammen?",
+        "Kann ich mit Karte zahlen?",
+        "Gibt es einen Rabatt auf abgelaufene Ware?",
+        "Ist der Preis pro Person?",
+        "Geht das auch etwas günstiger?",
+        "Brauchen Sie ein Sackerl?",
+        "Möchten Sie ein Sackerl dazu?"
+      ]
+    },
+    {
+      "funktion": "über Vorlieben beim Essen sprechen",
+      "es": "Hablar de preferencias de comida",
+      "esEn": "Talking about food preferences",
+      "toma": [
+        "Ich mag keinen Fisch.",
+        "Ich esse gern Gemüse.",
+        "Isst du gern Fisch?",
+        "Ich esse kein Fleisch.",
+        "Magst du scharfes Essen?",
+        "Was isst du am liebsten?",
+        "Magst du österreichisches Essen?",
+        "Isst du gern scharf?",
+        "Trinkst du Kaffee oder lieber Tee?",
+        "Ich esse kein Schweinefleisch."
+      ]
+    },
+    {
+      "funktion": "über Geschmack und Verträglichkeit sprechen",
+      "es": "Hablar del sabor y tolerancias",
+      "esEn": "Talking about taste and tolerances",
+      "toma": [
+        "Schmeckt es dir?",
+        "Schmeckt dir die Suppe?",
+        "Wie schmeckt dir die österreichische Küche?",
+        "Vertragen Sie Milchprodukte?",
+        "Hast du eine Allergie?",
+        "Ich bin satt, ich kann nicht mehr.",
+        "Wie findest du das österreichische Frühstück?",
+        "Magst du eher süß oder salzig?",
+        "Gibt es etwas, das du nicht magst?",
+        "Bist du Vegetarier?"
+      ]
+    },
+    {
+      "funktion": "sagen, was es zu essen gibt",
+      "es": "Decir qué hay de comer",
+      "esEn": "Saying what food is available",
+      "toma": [
+        "Heute gibt es Suppe und Salat.",
+        "Heute gibt es Nudeln mit Tomatensoße.",
+        "Zum Frühstück gibt es frische Semmeln.",
+        "Als Nachspeise gibt es Eis.",
+        "Im Angebot gibt es diese Woche Fisch.",
+        "Es gibt heute nur noch kalte Küche.",
+        "Heute gibt es Fisch aus der Pfanne.",
+        "Im Ofen ist noch ein Kuchen.",
+        "Zum Nachtisch gibt es frisches Obst.",
+        "Auf dem Wochenmarkt gibt es alles frisch."
+      ]
+    },
+    {
+      "funktion": "im Supermarkt einkaufen",
+      "es": "Comprar en el supermercado",
+      "esEn": "Shopping at the supermarket",
+      "toma": [
+        "Wo finde ich hier den Reis?",
+        "Haben Sie noch frische Erdäpfel?",
+        "Bis wann ist die Milch haltbar?",
+        "Ich habe meine Einkaufsliste vergessen.",
+        "Der Einkaufswagen ist schon ganz voll.",
+        "Haben Sie Kleingeld für den Wagen?",
+        "Wo finde ich die Dosen mit Tomaten?",
+        "Ist diese Ware noch haltbar?",
+        "Haben Sie auch tiefgekühltes Gemüse?",
+        "Bekomme ich hier auch frisches Brot?"
+      ]
+    }
+  ],
+  "a11-l7": [
+    {
+      "funktion": "nach dem Wetter und der Vorhersage fragen",
+      "es": "Preguntar por el tiempo y el pronóstico",
+      "esEn": "Asking about the weather and forecast",
+      "toma": [
+        "Wie ist das Wetter? – Es regnet.",
+        "Wie ist das Wetter heute?",
+        "Wie wird das Wetter am Wochenende?",
+        "Wie ist die Prognose für die Woche?",
+        "Hast du den Wetterbericht gesehen?",
+        "Wie warm ist es eigentlich?",
+        "Wie viel Grad hat es draußen?",
+        "Regnet es draußen noch?",
+        "Schneit es schon?",
+        "Ist es bei euch auch so windig?"
+      ]
+    },
+    {
+      "funktion": "das Wetter und den Himmel beschreiben",
+      "es": "Describir el tiempo y el cielo",
+      "esEn": "Describing the weather and the sky",
+      "toma": [
+        "Es sind 20 Grad.",
+        "Heute ist es schön / schlecht.",
+        "Es regnet den ganzen Tag.",
+        "Heute ist es richtig warm.",
+        "Morgen soll es schneien.",
+        "Was für ein scheußliches Wetter!",
+        "Es ist heute richtig schwül.",
+        "Der Himmel ist heute ganz grau.",
+        "Es hat die ganze Nacht geregnet.",
+        "Der Nebel ist heute sehr dicht."
+      ]
+    },
+    {
+      "funktion": "über Hitze, Kälte und Unwetter sprechen",
+      "es": "Hablar de frío, calor y tormentas",
+      "esEn": "Talking about cold, heat and storms",
+      "toma": [
+        "Hier ist es im Winter sehr kalt.",
+        "Hat es bei euch auch geschneit?",
+        "War das ein Blitz?",
+        "Heute ist es endlich wieder warm.",
+        "Im Sommer ist es hier sehr heiß.",
+        "Gestern gab es ein schweres Unwetter.",
+        "Das Wetter ändert sich hier sehr schnell.",
+        "Die Temperaturen sinken heute Nacht stark.",
+        "Es ist heute völlig windstill.",
+        "Hat es bei euch auch Frost gegeben?"
+      ]
+    },
+    {
+      "funktion": "Kleidung an das Wetter anpassen",
+      "es": "Adaptar la ropa al tiempo",
+      "esEn": "Adapting clothes to the weather",
+      "toma": [
+        "Nimm einen Regenschirm mit!",
+        "Zieh dich warm an, es ist kühl.",
+        "Soll ich eine Jacke mitnehmen?",
+        "Vergiss die Sonnencreme nicht!",
+        "Setz bitte eine Mütze auf.",
+        "Nimmst du den Regenschirm mit?",
+        "Zieh dir feste Schuhe an.",
+        "Wo sind meine Handschuhe?",
+        "Zieh den Kindern die Gummistiefel an.",
+        "Vergiss die Sonnenbrille nicht."
+      ]
+    },
+    {
+      "funktion": "sich auf Hitze und Kälte einstellen",
+      "es": "Prepararse para el frío o el calor",
+      "esEn": "Preparing for heat and cold",
+      "toma": [
+        "Sollen wir drinnen bleiben?",
+        "Bei dem Wetter gehe ich nicht raus.",
+        "Der Wetterbericht sagt Sonne.",
+        "Mir ist kalt.",
+        "Die Straßen sind heute sehr glatt.",
+        "Wir sollten heute drinnen bleiben.",
+        "Mach bitte die Heizung an.",
+        "Im Schatten ist es viel angenehmer.",
+        "Sollen wir den Sonnenschirm aufstellen?",
+        "Mir ist eiskalt."
+      ]
+    },
+    {
+      "funktion": "über Jahreszeiten sprechen",
+      "es": "Hablar de las estaciones del año",
+      "esEn": "Talking about the seasons",
+      "toma": [
+        "Welche Jahreszeit magst du am liebsten?",
+        "Der Frühling kommt dieses Jahr früh.",
+        "Im Winter wird es hier sehr früh dunkel.",
+        "Der Sommer war dieses Jahr kurz.",
+        "Wann fangen die Ferien an?",
+        "Der Herbst ist meine liebste Zeit zum Wandern.",
+        "Im Jänner ist es hier am kältesten.",
+        "Der Sonnenuntergang ist im Sommer erst um neun.",
+        "Im Mai regnet es hier fast jeden Tag.",
+        "Die Jahreszeiten sind in Spanien anders."
+      ]
+    },
+    {
+      "funktion": "Klima und Wetter im Jahresverlauf vergleichen",
+      "es": "Comparar el clima a lo largo del año",
+      "esEn": "Comparing climate throughout the year",
+      "toma": [
+        "Wann taut hier normalerweise der Schnee?",
+        "Der Sommer wird jedes Jahr heißer.",
+        "Im Herbst gibt es hier viele Regenschauer.",
+        "Welcher Monat ist im Durchschnitt am kältesten?",
+        "Der Frühling kommt hier später als in Spanien.",
+        "Welche Jahreszeit ist hier am schönsten?",
+        "Ist der Winter hier sehr hart?",
+        "Wird es im Sommer sehr heiß?",
+        "Wann beginnt hier der Frühling?",
+        "Fehlt dir das Meer im Sommer?"
+      ]
+    },
+    {
+      "funktion": "Pläne vom Wetter abhängig machen",
+      "es": "Hacer planes según el tiempo",
+      "esEn": "Making plans depending on the weather",
+      "toma": [
+        "Gehen wir schwimmen, wenn es warm bleibt?",
+        "Bei Regen fällt der Ausflug aus.",
+        "Wenn es schneit, fahre ich nicht mit dem Auto.",
+        "Sollen wir drinnen oder draußen sitzen?",
+        "Das Grillfest ist nur bei schönem Wetter.",
+        "Ich fahre morgen mit dem Rad, wenn es trocken bleibt.",
+        "Bei Gewitter gehen wir nicht auf den Berg.",
+        "Wir verschieben das Picknick auf Sonntag.",
+        "Bei der Hitze bleibe ich zu Hause.",
+        "Was machen wir, wenn es regnet?"
+      ]
+    }
+  ],
+  "a11-l8": [
+    {
+      "funktion": "sagen, wie oft man etwas macht",
+      "es": "Decir con qué frecuencia haces algo",
+      "esEn": "Saying how often you do something",
+      "toma": [
+        "immer – oft – manchmal – selten – nie",
+        "Ich gehe zweimal pro Woche ins Fitnessstudio.",
+        "Wie oft machst du Sport?",
+        "Ich koche fast jeden Tag selbst.",
+        "Ins Kino gehe ich nur selten.",
+        "Ich lese jeden Abend eine halbe Stunde.",
+        "Wir treffen uns einmal im Monat.",
+        "Ich habe noch nie Ski gefahren.",
+        "Manchmal gehe ich am Abend schwimmen.",
+        "Ich trainiere immer vor der Arbeit."
+      ]
+    },
+    {
+      "funktion": "über Gewohnheiten und Routinen sprechen",
+      "es": "Hablar de hábitos y rutinas",
+      "esEn": "Talking about habits and routines",
+      "toma": [
+        "Wie oft gehst du ins Theater?",
+        "Singst du regelmäßig im Chor?",
+        "Wir spielen jeden Sonntag ein Brettspiel.",
+        "Ich mache fast täglich Gartenarbeit.",
+        "Wie oft kochst du selbst?",
+        "Fährst du jeden Tag mit dem Rad?",
+        "Gehst du oft ins Kino?",
+        "Wie häufig hast du Deutschkurs?",
+        "Treibst du regelmäßig Sport?",
+        "Gehst du ins Fitnessstudio?"
+      ]
+    },
+    {
+      "funktion": "über Fähigkeiten sprechen",
+      "es": "Hablar de habilidades",
+      "esEn": "Talking about skills and abilities",
+      "toma": [
+        "Du spielst super Fußball!",
+        "Kannst du Gitarre spielen?",
+        "Das kann ich überhaupt nicht.",
+        "Kannst du schwimmen?",
+        "Ich bin ziemlich schlecht in Mathematik.",
+        "Spielst du ein Instrument?",
+        "Kannst du ein Instrument spielen?",
+        "Bist du gut im Kochen?",
+        "Bist du Anfänger oder schon fortgeschritten?",
+        "Hast du genug Ehrgeiz für den Wettkampf?"
+      ]
+    },
+    {
+      "funktion": "über Hobbys und Interessen sprechen",
+      "es": "Hablar de aficiones e intereses",
+      "esEn": "Talking about hobbies and interests",
+      "toma": [
+        "Mein Hobby ist Fotografieren.",
+        "Was machst du in deiner Freizeit?",
+        "Machst du gern Sport?",
+        "Mein größtes Hobby ist Klettern.",
+        "Was machst du am liebsten in deiner Freizeit?",
+        "Sammelst du etwas?",
+        "Ich entspanne mich am besten beim Kochen.",
+        "Was für Filme siehst du gern?",
+        "Ich lese lieber, als fernzusehen.",
+        "Was ist deine größte Leidenschaft?"
+      ]
+    },
+    {
+      "funktion": "über Pläne und Kurse sprechen",
+      "es": "Hablar de planes y cursos futuros",
+      "esEn": "Talking about future plans and courses",
+      "toma": [
+        "Ich will einen Deutschkurs machen.",
+        "Ich will nächstes Jahr einen Kurs machen.",
+        "Ich will nächstes Jahr einen Tanzkurs machen.",
+        "Ich habe vor, im Sommer Spanisch zu lernen.",
+        "Ich möchte gern Gitarre lernen.",
+        "Hast du schon Pläne für den Sommer?",
+        "Würdest du gern einen Tanzkurs machen?",
+        "Bist du in einem Verein?",
+        "Was kostet die Mitgliedschaft im Verein?",
+        "In welchem Verein spielst du?"
+      ]
+    },
+    {
+      "funktion": "über Sport und Wettkämpfe sprechen",
+      "es": "Hablar de deportes y competiciones",
+      "esEn": "Talking about sports and competitions",
+      "toma": [
+        "Wer hat gestern gewonnen?",
+        "Wann ist das nächste Spiel?",
+        "Ich habe mich beim Training verletzt.",
+        "Unsere Mannschaft hat leider verloren.",
+        "Der neue Trainer ist wirklich streng.",
+        "Wo trainiert ihr im Winter?",
+        "Die Ausrüstung war ganz schön teuer.",
+        "Nimmst du beim Turnier teil?",
+        "Wie viele Zuschauer waren beim Spiel?",
+        "Wie ist das Spiel am Sonntag ausgegangen?"
+      ]
+    },
+    {
+      "funktion": "jemanden einladen und reagieren",
+      "es": "Invitar a alguien y reaccionar",
+      "esEn": "Inviting someone and reacting",
+      "toma": [
+        "Hast du Lust, am Samstag mitzukommen?",
+        "Wir grillen am Sonntag, kommst du?",
+        "Ich lade dich zum Essen ein.",
+        "Leider kann ich am Freitag nicht.",
+        "Ich muss leider absagen, mir geht es nicht gut.",
+        "Kommst du mit ins Konzert?",
+        "Vielleicht nächstes Mal, heute passt es nicht.",
+        "Bring ruhig jemanden mit!",
+        "Ich habe zwei Eintrittskarten, kommst du mit?",
+        "Wir spielen heute Abend Karten, magst du?"
+      ]
+    },
+    {
+      "funktion": "widersprechen und korrigieren",
+      "es": "Llevar la contraria y corregir",
+      "esEn": "Disagreeing and correcting",
+      "toma": [
+        "Das stimmt nicht.",
+        "Nein, überhaupt nicht.",
+        "Das stimmt so nicht ganz.",
+        "Nein, das sehe ich völlig anders.",
+        "Da muss ich dir widersprechen.",
+        "Doch, ich kann sehr gut kochen!",
+        "Überhaupt nicht, das war ganz anders.",
+        "Das glaube ich dir nicht.",
+        "Das kann eigentlich nicht stimmen.",
+        "Also da bin ich anderer Meinung."
+      ]
+    }
+  ]
+};
+
+fs.writeFileSync('scripts/k-a11resto.json', JSON.stringify(a11resto, null, 2));
+console.log('k-a11resto.json generado con éxito.');

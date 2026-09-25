@@ -305,6 +305,7 @@ export default {
   id: 'irregularVerben',
   name: 'Unregelmäßige Verben',
   nameEs: 'Verbos irregulares',
+  emoji: '⚡',
   blurb: 'Cambio de raíz en presente (e→i, e→ie, a→ä), imperativo y Präteritum de verbos fuertes',
   theory,
   concepts: [

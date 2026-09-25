@@ -3,6 +3,7 @@ import { analyzeImage } from '../lib/ai.js';
 import { runJob } from '../lib/aiJobs.js';
 import { useAiJob } from '../lib/useAiJob.js';
 import { updateNote, getNote, fotosDeNota } from '../lib/notebook.js';
+import { guardarFoto, leerFoto, borrarFoto } from '../lib/fotos.js';
 import { aiAvailable } from '../lib/settings.js';
 import { t, localeFecha } from '../lib/i18n.js';
 
@@ -87,6 +88,25 @@ function Resultado({ a, esAufgabe, onBorrar }) {
   // El interruptor de la traduccion es de CADA resultado. Compartido, abrir la
   // traduccion de uno la abria en todos a la vez.
   const [verEs, setVerEs] = useState(true);
+
+  // La miniatura ya no viaja dentro de la nota: se pide a IndexedDB por su
+  // referencia. `a.thumb` se sigue mirando primero por las notas que todavia
+  // no ha tocado la migracion, y por si IndexedDB no esta disponible.
+  const [img, setImg] = useState(a.thumb || null);
+  useEffect(() => {
+    if (a.thumb || !a.thumbRef) return undefined;
+    let vivo = true;
+    leerFoto(a.thumbRef)
+      .then((url) => {
+        if (vivo) setImg(url);
+      })
+      .catch(() => {
+        /* sin IndexedDB (portable en file://) no hay miniatura, y ya esta */
+      });
+    return () => {
+      vivo = false;
+    };
+  }, [a.thumb, a.thumbRef]);
   return (
     <div className="foto-resuelto stack" style={{ marginTop: 16 }}>
       <div className="row spread" style={{ alignItems: 'center' }}>
@@ -102,9 +122,9 @@ function Resultado({ a, esAufgabe, onBorrar }) {
           ✕ {t('foto.deleteOne')}
         </button>
       </div>
-      {a.thumb && (
+      {img && (
         <div className="foto-preview">
-          <img src={a.thumb} alt="" />
+          <img src={img} alt="" />
         </div>
       )}
           {a.problema && (
@@ -292,7 +312,17 @@ export default function NotePhoto({ noteId, modo = 'aufgabe', lektion, analisis 
     // ese rato puedes haber borrado un resultado o haber resuelto otra foto.
     // Con la foto de entonces, ese cambio se deshacia al terminar.
     const campo = modo === 'aufgabe' ? 'fotoAufgaben' : 'fotoBilder';
-    const nuevo = { ...r, thumb: mini, at: Date.now() };
+    // La miniatura va a IndexedDB y en la nota queda solo la referencia. Antes
+    // se guardaba la imagen entera en base64 dentro de la nota, y como cada
+    // guardado sincroniza TODO el progreso, seis fotos eran 555 KB subidos
+    // cada vez que ganabas una moneda.
+    //
+    // Si IndexedDB no va, guardarFoto devuelve null y la imagen se queda
+    // dentro como siempre: no se pierde nada, solo no se gana.
+    const ref = await guardarFoto(mini);
+    const nuevo = ref
+      ? { ...r, thumbRef: ref, at: Date.now() }
+      : { ...r, thumb: mini, at: Date.now() };
     const previas = noteId ? fotosDeNota(getNote(noteId), modo) : analisis;
     const lista = [nuevo, ...previas];
     if (noteId) updateNote(noteId, { [campo]: lista, fotoAnalyse: null });
@@ -311,6 +341,9 @@ export default function NotePhoto({ noteId, modo = 'aufgabe', lektion, analisis 
   function borrar(i) {
     if (!confirm(t('foto.confirmDel'))) return;
     const campo = modo === 'aufgabe' ? 'fotoAufgaben' : 'fotoBilder';
+    // Tambien de IndexedDB: si no, la imagen se queda ahi para siempre sin que
+    // nada la apunte, y el tope de la cuota vuelve a acercarse solo.
+    if (analisis[i]?.thumbRef) borrarFoto(analisis[i].thumbRef);
     const lista = analisis.filter((_, k) => k !== i);
     if (noteId) updateNote(noteId, { [campo]: lista });
     onCambio?.(lista);

@@ -22,7 +22,7 @@ export default function VocabReto({ deck, onExit, onFinish }) {
     return (
       <div className="card center stack">
         <p style={{ color: 'var(--bad)' }}>{err}</p>
-        <button className="btn-ghost" onClick={onExit}>← {deck?.name}</button>
+        <button className="btn-ghost" onClick={onExit}><span className="fl-atras">←</span> {deck?.name}</button>
       </div>
     );
   }
@@ -31,7 +31,7 @@ export default function VocabReto({ deck, onExit, onFinish }) {
     return (
       <div className="card center stack">
         <p className="muted">Preparando el reto con las palabras de {deck?.name}… (tarda un minuto)</p>
-        <button className="btn-ghost" onClick={onExit}>← {deck?.name}</button>
+        <button className="btn-ghost" onClick={onExit}><span className="fl-atras">←</span> {deck?.name}</button>
       </div>
     );
   }

@@ -7,11 +7,18 @@
 // del HTML el JavaScript, el CSS y el icono. El resultado no pide NADA a la
 // red, asi que funciona desde el escritorio, desde un USB o sin internet.
 //
-// Lo que ese fichero NO lleva: la IA. Felix, las noticias, la correccion del
-// diario y la generacion del examen hablan con un servidor (el puente de
-// `npm run dev` o una API con clave), y ahi no hay servidor. Todo lo demas
-// -gramatica, vocabulario, los minijuegos, Kommunikation, la racha- va con
-// plantillas y funciona igual.
+// Lo que ese fichero NO lleva: la IA, y no "apagada" sino sin compilar. Se
+// hace con SIN_IA=1, asi que fuera el chat con Felix, las noticias, las
+// canciones, el examen, los generadores, la correccion del diario, pasar los
+// apuntes a limpio y todos los ajustes de IA. Antes iban dentro y solo servian
+// para enseñar botones que al pulsarlos decian que no habia IA.
+//
+// Todo lo demas -gramatica, vocabulario y sus seis minijuegos, der/die/das,
+// traducir, Kommunikation, el cuaderno, el diario, el nivel, la racha y
+// Felix con su ropa- va con plantillas y funciona igual.
+//
+// Si alguna vez quieres el portable CON la IA dentro (para usarlo con tu
+// propia clave de Gemini u OpenAI):  SIN_IA= npm run portable
 
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -21,7 +28,10 @@ const SALIDA = 'Deutsch Trainer.html';
 const DIST = 'dist-portable';
 
 console.log('1/3  compilando…');
-execSync('npx vite build', { stdio: 'inherit', env: { ...process.env, PORTABLE: '1' } });
+execSync('npx vite build', {
+  stdio: 'inherit',
+  env: { SIN_IA: '1', ...process.env, PORTABLE: '1' }
+});
 
 console.log('2/3  metiendo todo en un fichero…');
 const dir = path.resolve(DIST);
@@ -55,9 +65,21 @@ if (mEstilo) html = html.replace(estilo, () => `<style>\n${leer(mEstilo[1])}\n</
 
 // El icono, como data URI: si no, la pestaña sale sin icono y ademas el
 // navegador pide un fichero que no existe.
+//
+// Van los dos formatos. El SVG es el bueno -escala a cualquier tamaño-, pero
+// el lector de iconos del navegador es mas tiquismiquis que una etiqueta <img>
+// y hay versiones que descartan un SVG sin medidas propias o directamente sin
+// mirar. El .ico lleva seis tamaños rasterizados (16 a 256) y lo entiende
+// cualquier cosa, asi que va primero como red de seguridad: el que sepa leer
+// el SVG se queda con el SVG, y el que no, tiene el otro.
 const svg = fs.readFileSync('public/favicon.svg', 'utf8');
 const icono = 'data:image/svg+xml;base64,' + Buffer.from(svg, 'utf8').toString('base64');
+const ico = 'data:image/x-icon;base64,' + fs.readFileSync('public/icon.ico').toString('base64');
 html = html.replace(/href="[^"]*favicon\.svg"/g, `href="${icono}"`);
+html = html.replace(
+  /(\s*)<link rel="icon" type="image\/svg\+xml"/,
+  `$1<link rel="icon" type="image/x-icon" href="${ico}" />$1<link rel="icon" type="image/svg+xml"`
+);
 
 // Un aviso para quien abra el fichero con un editor en vez de con el navegador.
 html = html.replace(

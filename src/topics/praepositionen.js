@@ -161,6 +161,7 @@ export default {
   id: 'praepositionen',
   name: 'Präpositionen',
   nameEs: 'Preposiciones',
+  emoji: '📍',
   blurb: 'Acusativo, dativo, Wechselpräpositionen, contracciones y verbos con preposición fija',
   theory,
   concepts: [

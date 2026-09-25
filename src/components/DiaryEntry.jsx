@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cobrarUnaVezAlDia, MONEDAS_TAGEBUCH } from '../lib/monedas.js';
-import { t } from '../lib/i18n.js';
+import { t, getLang, esOtroIdioma } from '../lib/i18n.js';
+import { SIN_IA } from '../lib/modo.js';
+import IdeasDiario from './IdeasDiario.jsx';
 import {
   getEntry, updateEntry, deleteEntry, countWords, topMistakes, temasVistos, recordarTema
 } from '../lib/diary.js';
@@ -19,14 +21,6 @@ const TIPO_CLASS = {
   'Orden de la frase': 'orden', 'Word order': 'orden', 'Sentence order': 'orden',
   'Estilo': 'stil', 'Style': 'stil'
 };
-
-const IDEAS = [
-  'Was hast du heute gemacht?',
-  'Wie war dein Wochenende?',
-  'Was hat dich heute geärgert?',
-  'Beschreib eine Person, die du getroffen hast.',
-  'Was willst du diese Woche schaffen?'
-];
 
 export default function DiaryEntry({ entryId, onBack, onDeleted }) {
   const [entry, setEntry] = useState(() => getEntry(entryId));
@@ -85,7 +79,9 @@ export default function DiaryEntry({ entryId, onBack, onDeleted }) {
     try {
       persist({ text });
       const correction = await correctDiary({ text, niveau: 'A2', errores: topMistakes(4) });
-      persist({ correction, correctedAt: Date.now() });
+      // El idioma de la correccion queda sellado: las explicaciones de los
+      // fallos salen en el idioma que tuvieras puesto y no cambian solas.
+      persist({ correction, correctedAt: Date.now(), correctionLang: getLang() });
       if (primera) cobrarUnaVezAlDia('tagebuch', MONEDAS_TAGEBUCH);
       setTab('korrektur');
     } catch (e) {
@@ -124,7 +120,7 @@ export default function DiaryEntry({ entryId, onBack, onDeleted }) {
   return (
     <div className="reading stack">
       <button className="link-btn volver-arriba" onClick={onBack}>
-        ← Tagebuch
+        <span className="fl-atras">◂</span> Tagebuch
       </button>
 
       <input
@@ -140,10 +136,14 @@ export default function DiaryEntry({ entryId, onBack, onDeleted }) {
           Datum
           <input type="date" value={entry.date} onChange={(e) => persist({ date: e.target.value })} />
         </label>
+        {/* Borrar, en la fila de la fecha y a la derecha. Estaba al final de
+            la página, donde en la versión sin IA se quedaba solo en una fila
+            entera para él y había que bajar hasta abajo para verlo. */}
+        <button className="btn-ghost btn-sm nb-borrar" onClick={borrar}>{t('delete')}</button>
       </div>
 
       {c && (
-        <div className="lk-tabs" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+        <div className="lk-tabs lk-tabs-2">
           <button className={'lk-tab' + (tab === 'schreiben' ? ' on' : '')} onClick={() => setTab('schreiben')}>
             <span>✍️ Mein Text</span><small>{t('tb.tabMineSub')}</small>
           </button>
@@ -235,30 +235,38 @@ export default function DiaryEntry({ entryId, onBack, onDeleted }) {
 
           {!text.trim() && (
             <div className="card">
-              <div className="row spread" style={{ alignItems: 'center', gap: 12, marginBottom: 10 }}>
-                <span className="muted" style={{ fontSize: '0.78rem' }}>{t('tb.ideas')}</span>
-                <button className="btn-ghost btn-sm" onClick={pedirTema} disabled={!aiOn || temaBusy}>
-                  {temaBusy ? t('tb.topicThinking') : entry.thema ? t('tb.topicAgain') : t('tb.topicBtn')}
-                </button>
-              </div>
-              <div className="nb-chips">
-                {IDEAS.map((i) => (
-                  <span className="nb-chip voc" key={i}>{i}</span>
-                ))}
-              </div>
+              {/* Aqui si hay cuadro donde escribir, asi que pulsar una idea
+                  la mete en el texto. El titulo lo pone IdeasDiario: antes
+                  estaba tambien aqui arriba y salia repetido. Las ideas van
+                  escritas en el codigo; pedirle a la IA un tema a medida, no,
+                  y por eso ese boton va como `accion`. */}
+              <IdeasDiario
+                cuantas={5}
+                onElegir={ponerAnfang}
+                accion={
+                  !SIN_IA && (
+                    <button className="btn-ghost btn-sm" onClick={pedirTema} disabled={!aiOn || temaBusy}>
+                      {temaBusy ? t('tb.topicThinking') : entry.thema ? t('tb.topicAgain') : t('tb.topicBtn')}
+                    </button>
+                  )
+                }
+              />
               {jobTema.status === 'error' && (
                 <p style={{ color: 'var(--bad)', fontSize: '0.83rem', marginTop: 10 }}>{jobTema.error}</p>
               )}
             </div>
           )}
 
-          <div className="row" style={{ gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
-            <button className="btn-primary" onClick={corregir} disabled={!aiOn || !text.trim() || busy}>
-              {busy ? t('tb.correcting') : c ? t('tb.correctAgain') : t('tb.correctBtn')}
-            </button>
-            <button className="btn-ghost" onClick={borrar} style={{ marginLeft: 'auto' }}>{t('delete')}</button>
-          </div>
-          {!aiOn && (
+          {/* Corregir lo hace la IA. Sin ella no queda ningún botón, así que
+              la fila entera se va en vez de dejar un hueco vacío al final. */}
+          {!SIN_IA && (
+            <div className="row" style={{ gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
+              <button className="btn-primary" onClick={corregir} disabled={!aiOn || !text.trim() || busy}>
+                {busy ? t('tb.correcting') : c ? t('tb.correctAgain') : t('tb.correctBtn')}
+              </button>
+            </div>
+          )}
+          {!SIN_IA && !aiOn && (
             <p className="muted" style={{ fontSize: '0.83rem', marginTop: -4 }}>
               {t('tb.offCorrect')}
             </p>
@@ -269,6 +277,9 @@ export default function DiaryEntry({ entryId, onBack, onDeleted }) {
 
       {c && tab === 'korrektur' && (
         <div className="stack">
+          {esOtroIdioma(entry.correctionLang) && (
+            <p className="aviso-idioma">⚠ {t('otroIdioma')}</p>
+          )}
           {c.lob && (
             <div className="card diary-lob">
               <span className="diary-lob-ico">👏</span>

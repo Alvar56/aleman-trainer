@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import { AppErrorBoundary } from './components/AppErrorBoundary.jsx';
 import Sidebar from './components/Sidebar.jsx';
 import Monedero from './components/Monedero.jsx';
+import MazoConIA from './components/MazoConIA.jsx';
 import Dashboard from './components/Dashboard.jsx';
 import Grammar from './components/Grammar.jsx';
 import TopicDetail from './components/TopicDetail.jsx';
@@ -35,16 +36,28 @@ import ExamLesenHoeren from './components/ExamLesenHoeren.jsx';
 import ExamSchreiben from './components/ExamSchreiben.jsx';
 import ExamSprechen from './components/ExamSprechen.jsx';
 import { getTopic } from './topics/index.js';
-import { getDeck, soloFallos, soloQueFaltan } from './lib/vocab.js';
-import { getNote } from './lib/notebook.js';
+import { getDeck, soloFallos, soloQueFaltan, mazosParaMezclar } from './lib/vocab.js';
+import { getNote, migrarFotos } from './lib/notebook.js';
+import KasusGame from './components/KasusGame.jsx';
+import { SIN_IA, PORTABLE } from './lib/modo.js';
 import { getLektion } from './lib/kursbuch/index.js';
 import { onLangChange } from './lib/i18n.js';
-import { storage } from './lib/storage.js';
+import { storage, fusionarDelServidor, alFusionar, HAY_SERVIDOR } from './lib/storage.js';
 
 // Vistas que no merece la pena recordar: una partida o un resumen a medias.
-const EFIMERAS = ['session', 'summary', 'vsession', 'vsummary', 'ksession', 'ksummary', 'nsession', 'nsummary', 'exam', 'vreto', 'gender', 'traducir', 'fox', 'askpractice'];
+const EFIMERAS = ['session', 'summary', 'vsession', 'vsummary', 'nsession', 'nsummary', 'exam', 'vreto', 'gender', 'kasus', 'traducir', 'fox', 'askpractice'];
 
-const TOP_LEVEL = ['home', 'grammar', 'vocab', 'komm', 'news', 'lieder', 'diary', 'pruefung', 'notebook', 'leaderboard', 'settings'];
+// Pantallas donde estas HACIENDO un ejercicio. El monedero va fijo arriba a la
+// derecha y ahi tapaba el contador (1/20), asi que en estas se aparta. Lo
+// marcamos con una clase en el <body> en vez de deducirlo desde el CSS: se ve
+// en el inspector y no depende de que el navegador resuelva un :has().
+// Los juegos de vocabulario cuya tanda es una lista de tarjetas y por tanto se
+// puede repetir con solo las falladas. Fuera: emparejar (es una parrilla) y
+// der/die/das (no va por mazo).
+const REPETIBLES = ['quiz', 'write', 'flashcards', 'wortsalat', 'blitz', 'hangman'];
+const EJERCICIO = ['session', 'vsession', 'nsession', 'exam', 'vreto', 'gender', 'kasus', 'traducir'];
+
+const TOP_LEVEL = ['home', 'grammar', 'vocab', 'komm', 'news', 'lieder', 'diary', 'pruefung', ...(PORTABLE ? [] : ['notebook']), 'leaderboard', 'settings'];
 
 export default function App() {
   const [view, setView] = useState({ name: 'home' });
@@ -53,31 +66,107 @@ export default function App() {
   useEffect(() => onLangChange(() => setLangTick((n) => n + 1)), []);
 
   useEffect(() => {
-    const sync = async () => {
+    document.body.classList.toggle('en-ejercicio', EJERCICIO.includes(view.name));
+  }, [view.name]);
+
+  // Traerse lo de los otros aparatos.
+  //
+  // Dos cosas que hacia mal:
+  //
+  // 1. Metia los datos del servidor ENCIMA de los de aqui, clave por clave.
+  //    Si habias escrito algo en este aparato y no habia llegado a subir
+  //    (porque el servidor iba por delante y el POST se habia comido un 409),
+  //    desaparecia. Ahora fusionarDelServidor respeta lo que has tocado tu y
+  //    aun esta sin subir.
+  //
+  // 2. Recargaba la pagina. Y esto esta enganchado a volver a la pestaña, o
+  //    sea que mirar el movil en mitad de una tanda y volver al ordenador te
+  //    borraba la tanda: las vistas de ejercicio estan en EFIMERAS y no se
+  //    recuerdan. Ahora, si estas en un ejercicio, se apunta y se hace al
+  //    salir de el.
+  const vistaAhora = useRef(view);
+  vistaAhora.current = view;
+  const syncAplazada = useRef(false);
+  const recargaAplazada = useRef(false);
+  const sincronizar = useRef(null);
+
+  useEffect(() => {
+    sincronizar.current = async () => {
+      if (!HAY_SERVIDOR) return;
       try {
         const res = await fetch('/api/sync');
-        if (res.ok) {
-          const { timestamp, data } = await res.json();
-          const localTs = Number(localStorage.getItem('dtrainer_sync_ts') || 0);
-          if (timestamp > localTs) {
-            storage.importAll(data);
-            localStorage.setItem('dtrainer_sync_ts', timestamp);
-            location.reload();
-          }
+        if (!res.ok) return;
+        const { timestamp, data } = await res.json();
+        const localTs = Number(localStorage.getItem('dtrainer_sync_ts') || 0);
+        if (timestamp <= localTs) return;
+        if (EJERCICIO.includes(vistaAhora.current.name)) {
+          syncAplazada.current = true;
+          return;
         }
-      } catch (e) {
-        // console.warn('Sync failed', e);
+        const traidas = fusionarDelServidor(data, timestamp);
+        // Recargar y no repintar a secas: media app lee el almacen UNA vez, al
+        // montarse (useState(() => ...)), asi que un repintado no se entera de
+        // lo que acaba de llegar. La recarga es bruta pero honesta; lo que no
+        // vale es hacerla encima de un ejercicio, y de eso se encarga la
+        // comprobacion de arriba.
+        if (traidas > 0) location.reload();
+      } catch {
+        /* sin servidor: se reintenta al volver a la pestaña */
       }
     };
-    sync();
-    const handleVis = () => { if (!document.hidden) sync(); };
-    window.addEventListener('visibilitychange', handleVis);
-    return () => window.removeEventListener('visibilitychange', handleVis);
+    sincronizar.current();
+    const alVolver = () => { if (!document.hidden) sincronizar.current(); };
+    window.addEventListener('visibilitychange', alVolver);
+    // Si los datos cambian por debajo (una fusion tras un 409), repintar.
+    // Tras una fusion por conflicto: si estas en un ejercicio se espera a que
+    // salgas, igual que arriba.
+    const quitar = alFusionar(() => {
+      if (EJERCICIO.includes(vistaAhora.current.name)) {
+        // Bandera propia: aqui la mezcla YA esta hecha y la marca ya esta al
+        // dia, asi que al salir no hay que volver a mirar el servidor -diria
+        // "nada nuevo"-, hay que pintar lo que ya tenemos.
+        recargaAplazada.current = true;
+        return;
+      }
+      location.reload();
+    });
+    return () => {
+      window.removeEventListener('visibilitychange', alVolver);
+      quitar();
+    };
   }, []);
+
+  // Las fotos del cuaderno, de dentro de la nota a IndexedDB. Una sola vez:
+  // cuando ya no queda ninguna incrustada, no escribe nada.
+  useEffect(() => {
+    if (PORTABLE) return;
+    migrarFotos().catch(() => {
+      /* si no se puede, las fotos se quedan donde estaban */
+    });
+  }, []);
+
+  useEffect(() => {
+    if (PORTABLE && ['notebook', 'note', 'nsession', 'nsummary'].includes(view.name)) {
+      setView({ name: 'home' });
+    }
+  }, [view.name]);
+
+  // Al salir de un ejercicio, lo que se quedo esperando.
+  useEffect(() => {
+    if (EJERCICIO.includes(view.name)) return;
+    if (recargaAplazada.current) {
+      recargaAplazada.current = false;
+      location.reload();
+      return;
+    }
+    if (!syncAplazada.current) return;
+    syncAplazada.current = false;
+    sincronizar.current?.();
+  }, [view.name]);
 
   const current = TOP_LEVEL.includes(view.name)
     ? view.name
-    : ['grammar', 'topic', 'askpractice'].includes(view.name)
+    : ['grammar', 'topic', 'askpractice', 'kasus'].includes(view.name)
     ? 'grammar'
     : (view.name === 'session' && view.topicId !== 'mix') || (view.name === 'summary' && view.data?.topic?.id !== 'mix')
     ? 'grammar'
@@ -85,7 +174,7 @@ export default function App() {
     ? 'home'
     : ['deck', 'vsession', 'vsummary', 'gender', 'lektionvocab', 'vreto'].includes(view.name)
     ? 'vocab'
-    : ['kommlektion', 'ksession', 'ksummary', 'traducir'].includes(view.name)
+    : ['kommlektion', 'traducir'].includes(view.name)
     ? 'komm'
     : ['exam', 'dentry', 'note', 'nsession', 'nsummary'].includes(view.name)
     ? view.name === 'exam' ? 'pruefung' : view.name.startsWith('d') ? 'diary' : 'notebook'
@@ -149,8 +238,13 @@ export default function App() {
   const openTopic = (topicId) => setViewProxy({ name: 'topic', topicId });
   // La pestaña viaja en la vista para que la memoria de sección la recuerde.
   const setTab = (tab) => setViewProxy((v) => ({ ...v, tab }));
-  const start = (topicId, mode, game = 'mixed') =>
-    setViewProxy({ name: 'session', topicId, mode, game, k: Date.now() });
+  // Entrar a traducir frases. Desde la portada se entra directo, con todas
+  // las dificultades y en mixto; desde Kommunikation se elige antes.
+  const traducir = (lektionId = null, dir = 'mix', nivel = 'all', cartasFijas = null) =>
+    setViewProxy({ name: 'traducir', lektionId, dir, nivel, cartasFijas, k: Date.now() });
+
+  const start = (topicId, mode, game = 'mixed', itemsFijos = null) =>
+    setViewProxy({ name: 'session', topicId, mode, game, itemsFijos, k: Date.now() });
 
   // La teoria del tema que acabas de practicar. Devuelve null cuando no hay
   // ninguna (la tanda mixta), y asi el resumen no pinta el boton.
@@ -160,23 +254,54 @@ export default function App() {
   };
 
   const openDeck = (deckId) => setViewProxy({ name: 'deck', deckId });
-  const returnToDeck = (deckId) => {
-    if (deckId.startsWith('kb-') && deckId.endsWith('-all')) {
-      setViewProxy({ name: 'lektionvocab', lektionId: deckId.slice(3, -4), tab: 'ejercicios' });
+  // Al salir de un juego se vuelve a la pestaña de ejercicios, que es de donde
+  // se ha salido... salvo con las tarjetas, que se lanzan desde la teoría: allí
+  // devolver a ejercicios dejaba al alumno en otra pantalla de la que estaba.
+  const returnToDeck = (deckId, tab = 'ejercicios') => {
+    // La mezcla de TODO el vocabulario no es un mazo al que volver: se empieza
+    // desde la portada y ahi hay que devolver. openDeck la abria como si fuera
+    // un mazo de Wortschatz y te sacaba de la Startseite sin haber ido tu.
+    if (String(deckId).startsWith('combi:')) {
+      go('home');
+      return;
+    }
+    const d = getDeck(deckId);
+    if (d?.lektionId || (String(deckId).startsWith('kb-') && !String(deckId).startsWith('kb-topic-'))) {
+      const lid = d?.lektionId || String(deckId).replace(/^kb-/, '').replace(/-w\d+$/, '').replace(/-all$/, '');
+      setViewProxy({ name: 'lektionvocab', lektionId: lid, tab });
     } else {
       openDeck(deckId);
     }
   };
+  const volverDeJuego = (deckId, vmode) =>
+    returnToDeck(deckId, vmode === 'flashcards' ? 'teoria' : 'ejercicios');
   // fallos: la misma partida pero con un subconjunto del mazo.
   //   true / 'fallos' -> solo lo que has fallado
   //   'faltan'        -> solo lo que aun no cuenta para el porcentaje
-  const startVocab = (deckId, vmode, fallos = false, dir = null) =>
-    setViewProxy({ name: 'vsession', deckId, vmode, fallos, dir, k: Date.now() });
+  const startVocab = (deckId, vmode, fallos = false, dir = null, cartasFijas = null) =>
+    setViewProxy({ name: 'vsession', deckId, vmode, fallos, dir, cartasFijas, k: Date.now() });
   const startReto = (deckId) => setViewProxy({ name: 'vreto', deckId, k: Date.now() });
+
+  // Tarjetas de TODO el vocabulario, sin pasar por Wortschatz. Los mazos del
+  // libro se cogen enteros por lección (`kb-…-all`) y no en grupitos de diez,
+  // que es como vienen partidos; si no, cada palabra entraria dos veces.
+  // `dir` es el sentido de la tarjeta ('de-es' o 'es-de'). Importa mas de lo
+  // que parece: el color que gana la palabra depende de el, y sin elegirlo
+  // salia al azar, asi que no se podia practicar el lado dificil a proposito.
+  const flashcardsDeTodo = (dir = null) => {
+    const ids = mazosParaMezclar().map((d) => d.id);
+    if (ids.length) startVocab('combi:' + ids.join('|'), 'flashcards', false, dir);
+  };
   // El mazo de "solo mis fallos" lleva el mismo id, así que el progreso de cada
   // palabra se sigue apuntando donde toca.
   const mazoDeLaVista = () => {
-    const d = getDeck(view.deckId);
+    const d = view.deckId === 'starred'
+      ? { id: 'starred', name: 'Marcados', emoji: '⭐', builtin: true, cards: view.cartasFijas || [] }
+      : getDeck(view.deckId);
+    if (!d) return null;
+    if (view.cartasFijas?.length) {
+      return { ...d, cards: view.cartasFijas };
+    }
     if (view.fallos === 'faltan') return soloQueFaltan(d);
     return view.fallos ? soloFallos(d) : d;
   };
@@ -192,16 +317,19 @@ export default function App() {
             onStart={start}
             onNavigate={go}
             onFox={(abrirCon) => setView({ name: 'fox', abrirCon })}
+            onFlashcards={flashcardsDeTodo}
           />
         )}
         {view.name === 'grammar' && (
           <Grammar
             onOpen={openTopic}
+            onStart={start}
+            onKasus={(filtro) => setViewProxy({ name: 'kasus', filtro, k: Date.now() })}
             onPractise={(d) => setView({ name: 'askpractice', ...d, k: Date.now() })}
           />
         )}
 
-        {view.name === 'askpractice' && (
+        {!SIN_IA && view.name === 'askpractice' && (
           <AskPractice
             key={view.k}
             pregunta={view.pregunta}
@@ -236,6 +364,7 @@ export default function App() {
             topic={getTopic(view.topicId)}
             mode={view.mode}
             game={view.game}
+            itemsFijos={view.itemsFijos}
             onExit={() => view.topicId === 'mix' ? go('home') : openTopic(view.topicId)}
             onDone={(data) => setView({ name: 'summary', data })}
           />
@@ -245,13 +374,21 @@ export default function App() {
           <Summary
             data={view.data}
             onRepeat={() => start(view.data.topic.id, view.data.mode || 'mixed', view.data.game || 'mixed')}
-            onWeak={() => start(view.data.topic.id, 'weak', 'mixed')}
+            /* Otra tanda con lo que acaba de fallar, sin generar nada nuevo. */
+            onRepetirFallos={() =>
+              setViewProxy({
+                name: 'session',
+                topicId: view.data.topic.id,
+                mode: view.data.mode || 'mixed',
+                game: view.data.game || 'mixed',
+                itemsFijos: view.data.fallos,
+                k: Date.now()
+              })
+            }
             onHome={() => go('home')}
-            onLeaderboard={() => go('leaderboard')}
-            /* La tanda mixta no sale de un tema, asi que ahi no hay teoria a
-               la que volver: el boton no se pinta. */
-            onTeoria={volverAlTema(view.data?.topic?.id, 'teoria')}
-            onEjercicios={volverAlTema(view.data?.topic?.id, 'ejercicios')}
+            /* La tanda mixta no sale de un tema, asi que ahi no hay adonde
+               volver: el boton no se pinta. */
+            onTema={volverAlTema(view.data?.topic?.id, 'ejercicios')}
           />
         )}
 
@@ -261,12 +398,13 @@ export default function App() {
             lektionId={view.lektionId}
             dir={view.dir}
             nivel={view.nivel}
+            cartasFijas={view.cartasFijas}
             onExit={() => go('komm')}
             onFinish={(data) => setView({ name: 'vsummary', data })}
           />
         )}
 
-        {view.name === 'fox' && (
+        {!SIN_IA && view.name === 'fox' && (
           <div className="reading">
             <FoxChat abrirCon={view.abrirCon} onClose={() => go('home')} />
           </div>
@@ -288,6 +426,7 @@ export default function App() {
             tab={view.tab}
             onTab={setTab}
             onStart={startVocab}
+            onStartGrammar={start}
             onReto={startReto}
             onBack={() => go('vocab')}
           />
@@ -309,7 +448,11 @@ export default function App() {
             onTab={setTab}
             onStart={startVocab}
             onReto={startReto}
-            onBack={() => go('vocab')}
+            onBack={() => {
+              const d = getDeck(view.deckId);
+              if (d?.lektionId) setViewProxy({ name: 'lektionvocab', lektionId: d.lektionId });
+              else go('vocab');
+            }}
             onDeleted={() => go('vocab')}
           />
         )}
@@ -324,55 +467,86 @@ export default function App() {
           />
         )}
 
-        {view.name === 'vsession' &&
-          (view.vmode === 'match' ? (
-            <MatchGame
-              key={view.k}
-              deck={mazoDeLaVista()}
-              onExit={() => returnToDeck(view.deckId)}
-              onFinish={(data) => setView({ name: 'vsummary', data })}
-            />
-          ) : view.vmode === 'wortsalat' ? (
-            <WortsalatGame
-              key={view.k}
-              deck={mazoDeLaVista()}
-              onExit={() => returnToDeck(view.deckId)}
-              onFinish={(data) => setView({ name: 'vsummary', data })}
-            />
-          ) : view.vmode === 'hangman' ? (
-            <HangmanGame
-              key={view.k}
-              deck={mazoDeLaVista()}
-              onExit={() => returnToDeck(view.deckId)}
-              onFinish={(data) => setView({ name: 'vsummary', data })}
-            />
-          ) : view.vmode === 'blitz' ? (
-            <BlitzGame
-              key={view.k}
-              deck={mazoDeLaVista()}
-              onExit={() => returnToDeck(view.deckId)}
-              onFinish={(data) => setView({ name: 'vsummary', data })}
-            />
-          ) : (
-            <VocabSession
-              key={view.k}
-              deck={mazoDeLaVista()}
-              mode={view.vmode}
-              dir={view.dir}
-              onExit={() => returnToDeck(view.deckId)}
-              onFinish={(data) => setView({ name: 'vsummary', data })}
-            />
-          ))}
+        {/* MazoConIA anade al mazo palabras nuevas segun el mando de Ajustes.
+            Con el mando a cero -como viene- devuelve el mazo tal cual y no
+            pide nada. Envuelve a los seis porque todos reciben el mazo por
+            la misma puerta. */}
+        {view.name === 'vsession' && (
+          <MazoConIA deck={mazoDeLaVista()}>
+            {(mazo) =>
+              view.vmode === 'match' ? (
+                <MatchGame
+                  key={view.k}
+                  deck={mazo}
+                  onExit={() => returnToDeck(view.deckId)}
+                  onFinish={(data) => setView({ name: 'vsummary', data })}
+                />
+              ) : view.vmode === 'wortsalat' ? (
+                <WortsalatGame
+                  key={view.k}
+                  deck={mazo}
+                  cartasFijas={view.cartasFijas}
+                  onExit={() => returnToDeck(view.deckId)}
+                  onFinish={(data) => setView({ name: 'vsummary', data })}
+                />
+              ) : view.vmode === 'hangman' ? (
+                <HangmanGame
+                  key={view.k}
+                  deck={mazo}
+                  cartasFijas={view.cartasFijas}
+                  onExit={() => returnToDeck(view.deckId)}
+                  onFinish={(data) => setView({ name: 'vsummary', data })}
+                />
+              ) : view.vmode === 'blitz' ? (
+                <BlitzGame
+                  key={view.k}
+                  deck={mazo}
+                  cartasFijas={view.cartasFijas}
+                  onExit={() => returnToDeck(view.deckId)}
+                  onFinish={(data) => setView({ name: 'vsummary', data })}
+                />
+              ) : (
+                <VocabSession
+                  key={view.k}
+                  deck={mazo}
+                  mode={view.vmode}
+                  dir={view.dir}
+                  cartasFijas={view.cartasFijas}
+                  onExit={() => volverDeJuego(view.deckId, view.vmode)}
+                  onFinish={(data) => setView({ name: 'vsummary', data })}
+                />
+              )
+            }
+          </MazoConIA>
+        )}
 
         {view.name === 'vsummary' && (
           <VocabSummary
             data={view.data}
+            /* Las que se te han escapado, otra vez. Emparejar no lo ofrece:
+               alli la tanda es una parrilla de parejas, no una lista de
+               tarjetas que se pueda repetir tal cual. */
+            onRepetirFallos={REPETIBLES.includes(view.data.mode) && view.data.missed?.length
+              ? () =>
+                  setViewProxy({
+                    name: 'vsession',
+                    deckId: view.data.deck.id,
+                    vmode: view.data.mode,
+                    dir: view.data.dir || null,
+                    cartasFijas: view.data.missed,
+                    k: Date.now()
+                  })
+              : null}
             onRepeat={() =>
               view.data.mode === 'gender'
                 ? setView({ name: 'gender', k: Date.now() })
                 : startVocab(view.data.deck.id, view.data.mode)
             }
-            onDeck={() => (view.data.mode === 'gender' ? go('vocab') : returnToDeck(view.data.deck.id))}
+            onDeck={() =>
+              view.data.mode === 'gender'
+                ? go('vocab')
+                : volverDeJuego(view.data.deck.id, view.data.mode)
+            }
             onHome={() => go('home')}
           />
         )}
@@ -380,7 +554,7 @@ export default function App() {
         {view.name === 'komm' && (
           <Kommunikation
             onOpen={(lektionId) => setViewProxy({ name: 'kommlektion', lektionId })}
-            onTraducir={(lektionId, dir, nivel) => setViewProxy({ name: 'traducir', lektionId, dir, nivel, k: Date.now() })}
+            onTraducir={traducir}
           />
         )}
 
@@ -395,54 +569,69 @@ export default function App() {
           />
         )}
 
-        {view.name === 'news' && <News />}
-        {view.name === 'lieder' && <Lieder />}
+        {view.name === 'kasus' && (
+          <KasusGame
+            key={view.k}
+            filtro={view.filtro}
+            onExit={() => go('grammar')}
+            onFinish={(data) => setView({ name: 'vsummary', data })}
+          />
+        )}
+
+        {!SIN_IA && view.name === 'news' && <News />}
+        {!SIN_IA && view.name === 'lieder' && <Lieder />}
 
         {view.name === 'diary' && (
           <Diary onOpen={(entryId) => setViewProxy({ name: 'dentry', entryId })} />
         )}
 
+        {/* `onDeleted` faltaba en las dos pantallas de entrada, aquí y en la
+            del Notizbuch. Borrar sí borraba, pero justo después onDeleted()
+            petaba por no ser una función y la pantalla se quedaba quieta
+            enseñando una entrada que ya no existía. */}
         {view.name === 'dentry' && (
           <DiaryEntry
             entryId={view.entryId}
             onBack={() => go('diary')}
+            onDeleted={() => go('diary')}
             onRefresh={() => setViewProxy({ name: 'dentry', entryId: view.entryId, k: Date.now() })}
           />
         )}
 
-        {view.name === 'pruefung' && (
+        {!SIN_IA && view.name === 'pruefung' && (
           <Pruefung
             onStart={(teil, typ) => setViewProxy({ name: 'exam', teil, typ, k: Date.now() })}
           />
         )}
 
-        {view.name === 'exam' && view.teil === 'schreiben' && (
+        {!SIN_IA && view.name === 'exam' && view.teil === 'schreiben' && (
           <ExamSchreiben key={view.k} typ={view.typ} onBack={() => go('pruefung')} />
         )}
-        {view.name === 'exam' && view.teil === 'sprechen' && (
+        {!SIN_IA && view.name === 'exam' && view.teil === 'sprechen' && (
           <ExamSprechen key={view.k} typ={view.typ} onBack={() => go('pruefung')} />
         )}
-        {view.name === 'exam' && (view.teil === 'lesen' || view.teil === 'hoeren') && (
+        {!SIN_IA && view.name === 'exam' && (view.teil === 'lesen' || view.teil === 'hoeren') && (
           <ExamLesenHoeren key={view.k} teil={view.teil} typ={view.typ} onBack={() => go('pruefung')} />
         )}
 
-        {view.name === 'notebook' && (
+        {!PORTABLE && view.name === 'notebook' && (
           <Notebook
             onOpen={(noteId) => setViewProxy({ name: 'note', noteId })}
             onSession={() => setViewProxy({ name: 'nsession', k: Date.now() })}
           />
         )}
 
-        {view.name === 'note' && (
+        {!PORTABLE && view.name === 'note' && (
           <NotebookEntry
             noteId={view.noteId}
             onBack={() => go('notebook')}
+            onDeleted={() => go('notebook')}
             onRefresh={() => setViewProxy({ name: 'note', noteId: view.noteId, k: Date.now() })}
             onReview={(noteId) => setView({ name: 'nsession', noteId, k: Date.now() })}
           />
         )}
 
-        {view.name === 'nsession' && (
+        {!PORTABLE && view.name === 'nsession' && (
           <NotebookSession
             key={view.k}
             note={getNote(view.noteId)}
@@ -452,7 +641,7 @@ export default function App() {
           />
         )}
 
-        {view.name === 'nsummary' && (
+        {!PORTABLE && view.name === 'nsummary' && (
           <VocabSummary
             data={view.data}
             onRepeat={() => setView({ name: 'nsession', noteId: view.noteId, k: Date.now() })}

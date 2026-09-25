@@ -59,21 +59,20 @@ export default function OpenQuestion({ item, onAnswer, lektionId }) {
         </div>
       )}
 
-      <div className="write-fila" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
+      <div className="write-fila write-col">
         <textarea
           ref={input}
           className={'ask-input write-input' + (hecho ? (feedback?.correct ? ' bien' : ' mal') : '')}
-          style={{ minHeight: 120, resize: 'vertical', width: '100%', fontSize: '1.1rem', padding: 12 }}
           value={texto}
           onChange={(e) => setTexto(e.target.value)}
           onKeyDown={handleKeyDown}
           disabled={hecho || evaluando}
-          placeholder="Escribe tu respuesta aquí..."
+          placeholder={t('oq.placeholder')}
         />
         
         {!hecho && (
           <button className="btn-primary" style={{ marginTop: 16 }} onClick={comprobar} disabled={!texto.trim() || evaluando}>
-            {evaluando ? 'Evaluando con IA...' : t('ses.check')}
+            {evaluando ? t('oq.marking') : t('ses.check')}
           </button>
         )}
       </div>
@@ -83,7 +82,7 @@ export default function OpenQuestion({ item, onAnswer, lektionId }) {
       )}
       {hecho && feedback && (
         <div style={{ marginTop: 20, padding: 16, background: feedback.correct ? 'var(--good-bg)' : 'var(--bad-bg)', borderLeft: `4px solid ${feedback.correct ? 'var(--good)' : 'var(--bad)'}`, borderRadius: 8 }}>
-          <strong>{feedback.correct ? '¡Bien hecho!' : 'Necesita mejorar'}</strong>
+          <strong>{feedback.correct ? t('oq.good') : t('oq.improve')}</strong>
           {feedback.why && <p style={{ marginTop: 8, marginBottom: 0 }}>{feedback.why}</p>}
         </div>
       )}

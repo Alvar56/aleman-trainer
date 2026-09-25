@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { SIN_IA } from '../lib/modo.js';
 import { t } from '../lib/i18n.js';
 import { coloresDeck, saveUserDeck } from '../lib/vocab.js';
 import { ampliarVocabulario } from '../lib/ai.js';
 import { aiAvailable } from '../lib/settings.js';
 import { runJob, clearJob } from '../lib/aiJobs.js';
 import { useAiJob } from '../lib/useAiJob.js';
+import Desplegable from './Desplegable.jsx';
 
 // El premio por dejar un tema entero en verde: pedirle a la IA más palabras de
 // ese mismo campo.
@@ -13,11 +15,18 @@ import { useAiJob } from '../lib/useAiJob.js';
 // quedan. Un botón que aparece de la nada no se entiende; uno que lleva un
 // rato ahí con un contador sí, y encima da algo que perseguir.
 export default function AmpliarTema({ deck, niveau = 'A2', subtemas = [], onCreado }) {
+  // Compilada sin IA: esto no se pinta. Es un generador entero, no una
+  // funcion que se pueda quedar a medias, y en gris solo ensenaba un boton
+  // muerto y un aviso mandandote a activar la IA donde ya no hay nada.
+  if (SIN_IA) return null;
   const CLAVE = `voc:ampliar:${deck?.id}`;
   const job = useAiJob(CLAVE);
   const busy = job.status === 'running';
   const nuevas = job.status === 'done' ? job.result : null;
   const err = job.status === 'error' ? job.error : '';
+  // La lista de palabras nuevas, abierta o plegada. Empieza abierta: acabas de
+  // pedirlas y lo primero que quieres es verlas.
+  const [abierto, setAbierto] = useState(true);
   const col = coloresDeck(deck);
   const aiOn = aiAvailable();
 
@@ -91,20 +100,35 @@ export default function AmpliarTema({ deck, niveau = 'A2', subtemas = [], onCrea
 
       {nuevas && (
         <div className="stack" style={{ gap: 10, marginTop: 14 }}>
-          <div className="lk-block-title" style={{ margin: 0 }}>
+          {/* El titulo es el tirador: doce fichas con ejemplo y nota tapan todo
+              lo que hay debajo mientras decides si te las quedas. */}
+          <button
+            className="lk-block-title ampliar-tirador"
+            onClick={() => setAbierto((x) => !x)}
+            aria-expanded={abierto}
+          >
             {t('voc.expandFound', { n: nuevas.woerter.length })}
-          </div>
-          <div className="card-list-grid">
-            {nuevas.woerter.map((w, i) => (
-              <div className="card-mini" key={i}>
-                <div style={{ fontWeight: 600 }}>{w.de}</div>
-                <div className="muted">{w.es}</div>
-                {w.ex && <div className="ampliar-ej">{w.ex}</div>}
-                {w.exEs && <div className="muted ampliar-ej-es">{w.exEs}</div>}
-                {w.nota && <div className="ampliar-nota">{w.nota}</div>}
-              </div>
-            ))}
-          </div>
+            {/* Con la flechita sola no se veia que esto se pudiera plegar: era
+                un triangulito gris de seis pixeles al otro extremo de la fila.
+                La palabra lo dice y ademas agranda el sitio donde pulsar. */}
+            <span className="ampliar-plegar">
+              {abierto ? t('voc.hide') : t('voc.show')}
+              <span className="chev">{abierto ? '▴' : '▾'}</span>
+            </span>
+          </button>
+          <Desplegable abierto={abierto}>
+            <div className="card-list-grid">
+              {nuevas.woerter.map((w, i) => (
+                <div className="card-mini" key={i}>
+                  <div style={{ fontWeight: 600 }}>{w.de}</div>
+                  <div className="muted">{w.es}</div>
+                  {w.ex && <div className="ampliar-ej">{w.ex}</div>}
+                  {w.exEs && <div className="muted ampliar-ej-es">{w.exEs}</div>}
+                  {w.nota && <div className="ampliar-nota">{w.nota}</div>}
+                </div>
+              ))}
+            </div>
+          </Desplegable>
           <div className="row" style={{ gap: 10, flexWrap: 'wrap' }}>
             <button className="btn-primary" onClick={guardar}>{t('voc.expandSave')}</button>
             <button className="btn-ghost btn-sm" onClick={pedir} disabled={busy}>{t('voc.expandMore')}</button>

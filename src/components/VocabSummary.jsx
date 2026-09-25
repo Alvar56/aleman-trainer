@@ -1,13 +1,26 @@
 import React from 'react';
-import { t } from '../lib/i18n.js';
+import { t, pick } from '../lib/i18n.js';
 
-export default function VocabSummary({ data, onRepeat, onDeck, onHome }) {
-  const { deck, mode, correct, total, seconds, xp, mistakes, missed = [], streak, monedas = 0 } = data;
+// El mismo listón que en gramática y en Kommunikation.
+const APROBADO = 80;
+
+import Premios from './Premios.jsx';
+
+export default function VocabSummary({ data, onRepeat, onRepetirFallos, onDeck, onHome }) {
+  const {
+    deck, mode, correct, total, seconds, xp, mistakes, missed = [], streak,
+    monedas = 0, rachaMax = 0, rachaRecord = null, rank = null
+  } = data;
   const isMatch = mode === 'match';
+  // Los mazos de una lección del libro vuelven a la pestaña de ejercicios;
+  // los mazos sueltos, a su propia pantalla, que no tiene pestañas.
+  const esDeLeccion = String(deck?.id || '').startsWith('kb-');
   const pct = total ? Math.round((correct / total) * 100) : 0;
+  const pleno = isMatch ? mistakes === 0 : total > 0 && correct === total;
   const mm = Math.floor(seconds / 60);
   const ss = String(seconds % 60).padStart(2, '0');
   const up = streak?.events?.find((e) => ['up', 'start', 'freeze-used'].includes(e.type));
+  const subida = streak?.events?.find((e) => e.type === 'level');
   // El regalo de estrenar el dia. Solo cae en la primera leccion del dia, sea
   // del juego que sea, asi que solo ahi se puede llegar a 20 en un ejercicio.
   const bonoDia = streak?.events?.find((e) => e.type === 'coins')?.value || 0;
@@ -15,8 +28,11 @@ export default function VocabSummary({ data, onRepeat, onDeck, onHome }) {
   return (
     <div className="stack reading">
       <div className="card center stack">
-        <div className="confetti-badge">{isMatch ? (mistakes === 0 ? '🏆' : '🎉') : pct >= 80 ? '🎉' : '💪'}</div>
-        <h2>{deck?.emoji} {deck?.name || ''}</h2>
+        <div className="confetti-badge">{pleno ? '🏆' : pct >= APROBADO ? '🎉' : '💪'}</div>
+        <h2>{pleno ? t('sum.perfect') : pct >= APROBADO ? t('sum.good') : t('sum.keep')}</h2>
+        {/* El mazo baja a la pastilla de siempre: arriba va el veredicto,
+            como en gramática y en Kommunikation. */}
+        <span className="pill ctx-tema">{deck?.emoji} {deck?.name || ''}</span>
         <div className="stat-grid">
           <div className="card">
             <div className="big-stat">{isMatch ? mistakes : pct + '%'}</div>
@@ -31,12 +47,17 @@ export default function VocabSummary({ data, onRepeat, onDeck, onHome }) {
             <div className="muted">{t('voc.timeStat')}</div>
           </div>
         </div>
-        <div className="row" style={{ justifyContent: 'center', gap: 16, marginTop: 24 }}>
-          <span className="pill">➕ {xp} XP</span>
-          {up && <span className="pill">⭐ racha {streak.state.current}</span>}
-          {monedas > 0 && <span className="pill monedas">🪙 +{monedas}</span>}
-          {bonoDia > 0 && <span className="pill monedas">📅 +{bonoDia}{t('voc.newDayBonus')}</span>}
-        </div>
+        <Premios
+          subida={subida}
+          xp={xp}
+          monedas={monedas}
+          bonoDia={bonoDia}
+          rachaMax={rachaMax}
+          rachaRecord={rachaRecord}
+          dias={streak?.state?.current || 0}
+          congelador={up?.type === 'freeze-used'}
+          rank={rank}
+        />
       </div>
 
       {missed.length > 0 && (
@@ -52,9 +73,25 @@ export default function VocabSummary({ data, onRepeat, onDeck, onHome }) {
       )}
 
       <div className="btn-row">
-        <button className="btn-primary" onClick={onRepeat}>{t('vsum.another')}</button>
+        {/* Otra tanda solo con las que se te han escapado. */}
+        {onRepetirFallos && missed.length > 0 && (
+          <button className="btn-primary" onClick={onRepetirFallos}>
+            {mode === 'flashcards'
+              ? t('vsum.retryCards', { n: missed.length })
+              : t('sum.retryFails', { n: missed.length })}
+          </button>
+        )}
+        <button className={onRepetirFallos && missed.length > 0 ? 'btn-ghost' : 'btn-primary'} onClick={onRepeat}>{t('vsum.another')}</button>
         <button className="btn-ghost" onClick={onDeck}>
-          {mode === 'notebook' ? t('vsum.backEntry') : mode === 'gender' ? t('back') : t('vsum.backDeck')}
+          {mode === 'notebook'
+            ? t('vsum.backEntry')
+            : mode === 'gender'
+            ? t('back')
+            : mode === 'flashcards'
+            ? t('vsum.backLesson')
+            : esDeLeccion
+            ? t('vsum.backExercises')
+            : t('vsum.backDeck')}
         </button>
         <button className="btn-ghost" onClick={onHome}>{t('sum.home')}</button>
       </div>

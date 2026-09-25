@@ -20,3 +20,6 @@ progreso*.json
 
 # Lo genera scripts/extraer-textos.mjs --claves
 scripts/_claves.json
+scripts/_antes.json
+__pycache__/
+*.pyc

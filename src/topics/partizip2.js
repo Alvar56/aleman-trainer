@@ -69,11 +69,11 @@ const frames = [
     make(rng) {
       const subj = pick(rng, SUBJ);
       const v = pick(rng, V);
-      const t = pick(rng, TIME);
+      const cuando = pick(rng, TIME);
       return mc(rng, {
         conceptId: `partizip:${v.g}`,
         prompt: t('tp.pickPart2'),
-        sentence: `${cap(subj.de)} ${subj[v.aux]} ${t} ${v.mid.join(' ')} ___.`,
+        sentence: `${cap(subj.de)} ${subj[v.aux]} ${cuando} ${v.mid.join(' ')} ___.`,
         correct: v.part,
         distractors: shuffle(rng, [...new Set(v.wrong)]).slice(0, 2),
         translation: perfGloss(subj, v),
@@ -86,7 +86,7 @@ const frames = [
     make(rng) {
       const subj = pick(rng, SUBJ);
       const v = pick(rng, V);
-      const t = pick(rng, TIME);
+      const cuando = pick(rng, TIME);
       const correct = subj[v.aux];
       const wrongAux = subj[v.aux === 'haben' ? 'sein' : 'haben'];
       const prät = subj[v.aux === 'haben' ? 'prätH' : 'prätS'];
@@ -94,7 +94,7 @@ const frames = [
       return mc(rng, {
         conceptId: `perfekt:aux:${v.aux}`,
         prompt: t('tp.pickAux'),
-        sentence: `${cap(subj.de)} ___ ${t} ${v.mid.join(' ')} ${v.part}.`,
+        sentence: `${cap(subj.de)} ___ ${cuando} ${v.mid.join(' ')} ${v.part}.`,
         correct,
         distractors: [wrongAux, prät],
         translation: perfGloss(subj, v),
@@ -107,8 +107,8 @@ const frames = [
     make(rng) {
       const subj = pick(rng, SUBJ);
       const v = pick(rng, V);
-      const t = pick(rng, TIME);
-      const solution = [cap(t.split(' ')[0]), ...t.split(' ').slice(1), subj[v.aux], subj.de, ...v.mid, v.part];
+      const cuando = pick(rng, TIME);
+      const solution = [cap(cuando.split(' ')[0]), ...cuando.split(' ').slice(1), subj[v.aux], subj.de, ...v.mid, v.part];
       return order(rng, {
         conceptId: 'perfekt:satzstellung',
         prompt: t('tp.orderPerfTime'),
@@ -266,6 +266,7 @@ export default {
   id: 'partizip2',
   name: 'Partizip II / Perfekt',
   nameEs: 'Participio 2 y Perfekt',
+  emoji: '🕰️',
   blurb: 'Partizip II (débil/fuerte/-ieren/prefijos), haben vs sein y el orden en la subordinada',
   theory,
   concepts: [

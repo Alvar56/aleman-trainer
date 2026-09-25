@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t } from '../lib/i18n.js';
 import Cargando from './Cargando.jsx';
 import { generateSchreibenAufgabe, correctSchreiben } from '../lib/pruefungAi.js';
@@ -9,6 +10,7 @@ import { useAiJob } from '../lib/useAiJob.js';
 import { ganar, MONEDAS_EXAMEN } from '../lib/monedas.js';
 import { countWords } from '../lib/diary.js';
 import Umlaut from './Umlaut.jsx';
+import Desplegable from './Desplegable.jsx';
 
 // El tipo llega de la IA en el idioma de la interfaz, así que se reconoce en
 // ambos para que el color del chip no se pierda al cambiar de idioma.
@@ -21,6 +23,7 @@ const TIPO_CLASS = {
 };
 
 export default function ExamSchreiben({ typ, onBack }) {
+  const fox = useFox();
   // Igual que en Lesen/Hören: la tarea vive en el gestor de trabajos para que
   // irse a otra sección no la tire.
   const JOB = `examen:schreiben:${typ}`;
@@ -73,7 +76,7 @@ export default function ExamSchreiben({ typ, onBack }) {
   if (busy) {
     return (
       <div className="reading stack">
-        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>← Prüfung</button>
+        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}><span className="fl-atras">←</span> Prüfung</button>
         <Cargando
           icono="📝"
           titulo={t('wait.exTitle')}
@@ -89,7 +92,7 @@ export default function ExamSchreiben({ typ, onBack }) {
   if (fallo && !aufgabe) {
     return (
       <div className="reading stack">
-        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>← Prüfung</button>
+        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}><span className="fl-atras">←</span> Prüfung</button>
         <div className="card" style={{ borderColor: 'var(--bad)', background: 'var(--bad-bg)' }}>{fallo}</div>
         <button className="btn-primary" style={{ alignSelf: 'flex-start' }} onClick={cargar}>{t('retry')}</button>
       </div>
@@ -103,7 +106,7 @@ export default function ExamSchreiben({ typ, onBack }) {
   if (!aufgabe) {
     return (
       <div className="reading stack">
-        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>← Prüfung</button>
+        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}><span className="fl-atras">←</span> Prüfung</button>
         <Cargando
           icono="📝"
           titulo={t('wait.exTitle')}
@@ -118,7 +121,7 @@ export default function ExamSchreiben({ typ, onBack }) {
   return (
     <div className="reading stack">
       <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>
-        ← Prüfung
+        <span className="fl-atras">←</span> Prüfung
       </button>
 
       <div className="page-head" style={{ marginBottom: 0 }}>
@@ -254,7 +257,9 @@ export default function ExamSchreiben({ typ, onBack }) {
                 <span className="lk-block-title" style={{ margin: 0 }}>{t('ex.model')}</span>
                 <span className="muted" style={{ fontSize: '0.78rem' }}>{verModelo ? '▴' : t('ex.see')}</span>
               </button>
-              {verModelo && <p className="diary-korrigiert" style={{ marginTop: 10 }}>{res.musterloesung}</p>}
+              <Desplegable abierto={verModelo}>
+                <p className="diary-korrigiert" style={{ marginTop: 10 }}>{res.musterloesung}</p>
+              </Desplegable>
             </div>
           )}
 
@@ -264,6 +269,7 @@ export default function ExamSchreiben({ typ, onBack }) {
           </div>
         </div>
       )}
+      <FoxOverlay fox={fox} />
     </div>
   );
 }

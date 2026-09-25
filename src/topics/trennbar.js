@@ -95,7 +95,9 @@ const frames = [
         prompt: t('tp.fillZu'),
         sentence: `Es wäre gut, ${v.mid.slice(0, 3).join(' ')} ___.`,
         correct: v.zu,
-        distractors: sep ? [`zu ${v.inf}`, v.inf] : [v.zu.replace(' ', ''), v.inf],
+        distractors: sep
+          ? [`zu ${v.inf}`, v.inf, v.part]
+          : [v.zu.replace(' ', ''), v.inf, `zu ${v.part}`],
         translation: t('tp.wouldBeGood', { v: tc(v.es), m: tc(v.midEs) }),
         explanation: sep
           ? t('tp.sepZu', { zu: v.zu, inf: v.inf })
@@ -266,6 +268,7 @@ export default {
   id: 'trennbar',
   name: 'Trennbare Verben',
   nameEs: 'Verbos separables e inseparables',
+  emoji: '✂️',
   blurb: 'Prefijo al final (aufstehen), sin ge- en inseparables (verstanden), zu en medio, y en subordinada',
   theory,
   concepts: [

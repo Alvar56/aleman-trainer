@@ -20,6 +20,12 @@ const INTERVALS = [0, 20e3, 2 * 60e3, 10 * 60e3, 60 * 60e3, 24 * 60e3 * 60, 3 * 
 
 export function recordAnswer(conceptId, correct, extra = {}) {
   return storage.update(KEYS.progress, DEFAULT, (p) => {
+    // Los dos cajones, por si lo guardado viene de una version que no los
+    // tenia: sin esto, contestar un ejercicio revienta con un TypeError y no
+    // se apunta NADA, ni ahi ni en el resto de la tanda. Es la misma guarda
+    // que ya lleva recordKommPracticed.
+    p.concepts = p.concepts || {};
+    p.seenItems = p.seenItems || {};
     const c = { ...blank(), ...(p.concepts[conceptId] || {}) };
     const now = Date.now();
     if (correct) {
@@ -86,10 +92,10 @@ export function itemSeenRecently(itemKey, withinMs = 6 * 60 * 60 * 1000) {
 // por encima del cual dejan de sumar. Es el mismo numero que usa topicMastery
 // y el que decide que reglas faltan.
 //
-// Eran 10, y con 4 reglas por leccion salian 40 aciertos frente a los ~90 del
-// vocabulario de la misma leccion: gramatica iba a menos de la mitad de
-// esfuerzo y la barra volaba. Con 15 quedan 60, que se acerca sin igualarlo.
-export const ACIERTOS_POR_CONCEPTO = 15;
+// Con 8 reglas por leccion x 30 aciertos = 240 aciertos para el 100%,
+// quedando exactamente equilibrada con el vocabulario (120 palabras x 2 = 240)
+// y con la comunicacion (8 funciones x 30 = 240).
+export const ACIERTOS_POR_CONCEPTO = 30;
 
 // A partir de que porcentaje aparece el boton de "terminar el tema". Por
 // debajo falta tanto que seria la sesion normal con otro nombre.
@@ -121,20 +127,59 @@ export function topicMastery(conceptIds) {
   };
 }
 
-// Se llama al TERMINAR de practicar una función, no al abrirla. Antes bastaba
-// con que la IA devolviera el diálogo —sin leerlo siquiera— para que contara,
-// así que el porcentaje medía clics, no práctica.
+// ---------- Kommunikation ----------
 //
-// Guarda tambien el acierto de esa vuelta. Las entradas antiguas son un numero
-// suelto (la fecha) y se siguen leyendo igual: lo que cuenta para el porcentaje
-// es que exista, no su forma.
-export function recordKommPracticed(lektionId, funktion, pct = null) {
+// Se apunta RESPUESTA A RESPUESTA, igual que una regla de gramática o una
+// palabra de vocabulario. Ha pasado por dos arreglos:
+//
+//   · antes bastaba con que la IA devolviera el diálogo —sin leerlo siquiera—
+//     para que contara, así que el porcentaje medía clics, no práctica;
+//   · y luego se apuntaba la tanda entera al terminarla, así que la barra
+//     pegaba saltos de hasta veinte puntos y salirse a la mitad no contaba
+//     nada de lo que llevabas bien.
+
+// Con lo que se aprueba una tanda. Solo es el mensaje del final ("bien" o
+// "otra vuelta"): el porcentaje no lo mira, cuenta aciertos.
+export const KOMM_APROBADO = 80;
+
+// Aciertos que pide un apartado para llenarse, igual que una regla pide 30 y
+// una palabra 2. Con 8 funciones x 30 aciertos = 240 aciertos por leccion,
+// equilibrado al 100% con vocabulario (120 x 2 = 240) y gramatica (8 x 30 = 240).
+export const ACIERTOS_POR_APARTADO = 30;
+
+// Los aciertos que llevas en un apartado.
+//
+// Antes esto se guardaba de otras maneras -primero solo la fecha, luego la
+// mejor nota y las tandas aprobadas-, asi que las entradas viejas se traducen
+// a aciertos en vez de tirarse: lo que ya tenias hecho sigue contando.
+function aciertosDe(v) {
+  if (!v) return 0;
+  if (typeof v !== 'object') return ACIERTOS_POR_APARTADO; // solo se escribia al aprobar
+  if (typeof v.aciertos === "number") return v.aciertos;
+  const mejor = v.mejor ?? v.pct ?? KOMM_APROBADO;
+  const porNota = Math.round(Math.min(1, mejor / KOMM_APROBADO) * ACIERTOS_POR_APARTADO);
+  return Math.max(porNota, (v.buenas || 0) * ACIERTOS_POR_APARTADO);
+}
+
+// Lo que suma un apartado, de 0 a 1.
+export function pesoDeApartado(v) {
+  return Math.min(1, aciertosDe(v) / ACIERTOS_POR_APARTADO);
+}
+
+// Se apunta lo que has acertado de ese apartado en la tanda. No hay nota que
+// pasar: fallar no resta, solo no suma, igual que en los otros dos.
+export function recordKommPracticed(lektionId, funktion, aciertos = 0, preguntas = 0) {
   storage.update(KEYS.progress, DEFAULT, (p) => {
     p.kommPracticed = p.kommPracticed || {};
     const clave = `${lektionId}:${funktion}`;
     const antes = p.kommPracticed[clave];
     const veces = (typeof antes === 'object' && antes?.veces) || (antes ? 1 : 0);
-    p.kommPracticed[clave] = { at: Date.now(), pct, veces: veces + 1 };
+    p.kommPracticed[clave] = {
+      at: Date.now(),
+      aciertos: aciertosDe(antes) + Math.max(0, aciertos),
+      preguntas: ((typeof antes === 'object' && antes?.preguntas) || 0) + Math.max(0, preguntas),
+      veces: veces + 1
+    };
     return p;
   });
 }
@@ -148,18 +193,53 @@ export function kommMastery(lektionId, kommunikationArray) {
   // Cuáles están hechas, no solo cuántas: la lista las marca con un ✓ para que
   // se vea de un vistazo cuál te queda por practicar.
   const hechas = {};
+  // La barra es la media de lo que lleva cada apartado, y lo que lleva un
+  // apartado son sus aciertos: exactamente igual que en gramatica y en
+  // vocabulario. Un apartado queda hecho (y con su tic) al llenarse.
+  let suma = 0;
   kommunikationArray.forEach((k) => {
     const v = kp[`${lektionId}:${k.funktion}`];
     if (!v) return;
+    suma += pesoDeApartado(v);
+    if (aciertosDe(v) < ACIERTOS_POR_APARTADO) return;
     practiced += 1;
-    hechas[k.funktion] = typeof v === 'object' ? v : { at: v, pct: null, veces: 1 };
+    hechas[k.funktion] = typeof v === 'object' ? v : { at: v, veces: 1 };
   });
   return {
-    pct: Math.round((practiced / kommunikationArray.length) * 100),
+    pct: Math.round((suma / kommunikationArray.length) * 100),
     practiced,
     total: kommunikationArray.length,
     hechas
   };
+}
+
+// Los apartados en los que has FALLADO y que todavia no estan llenos. Es el
+// equivalente de cartasFalladas() en vocabulario: lo que has tocado y se te ha
+// resistido, para poder repasarlo aparte.
+//
+// Kommunikation guarda el progreso por apartado, no frase a frase, asi que lo
+// que se repasa es el apartado entero: sus frases, otra vez.
+export function kommApartadosFallados(lektionId, kommunikationArray) {
+  const p = load();
+  const kp = p.kommPracticed || {};
+  return (kommunikationArray || []).filter((k) => {
+    const v = kp[`${lektionId}:${k.funktion}`];
+    if (!v || typeof v !== 'object') return false;
+    const fallos = (v.preguntas || 0) - (v.aciertos || 0);
+    return fallos > 0 && aciertosDe(v) < ACIERTOS_POR_APARTADO;
+  });
+}
+
+// Los que aun no estan llenos, empezando por los que menos llevas: el
+// equivalente de cartasQueFaltan(). Es lo que queda para el 100%.
+export function kommApartadosQueFaltan(lektionId, kommunikationArray) {
+  const p = load();
+  const kp = p.kommPracticed || {};
+  return (kommunikationArray || [])
+    .map((k) => ({ k, n: aciertosDe(kp[`${lektionId}:${k.funktion}`]) }))
+    .filter(({ n }) => n < ACIERTOS_POR_APARTADO)
+    .sort((a, b) => a.n - b.n)
+    .map(({ k }) => k);
 }
 
 export function resetProgress() {

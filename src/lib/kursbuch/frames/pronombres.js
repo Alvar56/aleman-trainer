@@ -5,6 +5,7 @@
 export const PRONOMBRES = {
   // ---------- A1.1 L3: er / sie / es para cosas ----------
   'personalpronomen-singular-er-sie-es-fur-': {
+    reserva: ['ihn', 'ihm', 'ihr'],
     picks: [
       { s: 'Wo ist der Schlüssel? – ___ ist hier.', a: 'Er', d: ['Sie', 'Es'], t: '¿Dónde está la llave? – Está aquí.', e: 'der Schlüssel → er. El pronombre sigue el género alemán, no el español.' },
       { s: 'Wo ist die Brille? – ___ ist da.', a: 'Sie', d: ['Er', 'Es'], t: '¿Dónde están las gafas? – Ahí.', e: 'die Brille → sie.' },
@@ -17,13 +18,24 @@ export const PRONOMBRES = {
       { s: 'Das Fenster ist offen. ___ ist kaputt.', a: 'Es', d: ['Er', 'Sie'], t: 'La ventana está abierta. Está rota.', e: 'das Fenster → es.' },
       { s: 'Der Stuhl gefällt mir. ___ ist sehr bequem.', a: 'Er', d: ['Sie', 'Es'], t: 'La silla me gusta. Es muy cómoda.', e: 'der Stuhl → er.' },
       { s: 'Die Tasche ist schön. ___ kostet 40 Euro.', a: 'Sie', d: ['Er', 'Es'], t: 'El bolso es bonito. Cuesta 40 euros.', e: 'die Tasche → sie.' },
-      { s: 'Das Mädchen ist klein. ___ heißt Lena.', a: 'Es', d: ['Er', 'Sie'], t: 'La niña es pequeña. Se llama Lena.', e: 'das Mädchen es neutro → es, aunque sea una persona.' }
+      { s: 'Das Mädchen ist klein. ___ heißt Lena.', a: 'Es', d: ['Er', 'Sie'], t: 'La niña es pequeña. Se llama Lena.', e: 'das Mädchen es neutro → es, aunque sea una persona.' },
+      { s: 'Wo ist mein Handy? ___ war doch gerade noch hier.', a: 'Es', d: ['Er', 'Sie'], t: '¿Dónde está mi móvil? Si estaba aquí hace nada.', e: 'das Handy → es.' },
+      { s: 'Die Suppe ist kalt. Kannst du ___ warm machen?', a: 'sie', d: ['ihn', 'es'], t: 'La sopa está fría. ¿La puedes calentar?', e: 'die Suppe en acusativo: sie.' },
+      { s: 'Der Kuchen war super. Hast du ___ selbst gebacken?', a: 'ihn', d: ['sie', 'es'], t: 'La tarta estaba buenísima. ¿La has hecho tú?', e: 'der Kuchen en acusativo: ihn.' },
+      { s: 'Das Fahrrad steht unten. ___ hat einen Platten.', a: 'Es', d: ['Er', 'Sie'], t: 'La bici está abajo. Tiene una rueda pinchada.', e: 'das Fahrrad → es.' },
+      { s: 'Die Wohnung ist frei, aber ___ ist ziemlich teuer.', a: 'sie', d: ['er', 'es'], t: 'El piso está libre, pero es bastante caro.', e: 'die Wohnung → sie.' },
+      { s: 'Mein Mantel ist weg. Hast du ___ irgendwo gesehen?', a: 'ihn', d: ['sie', 'es'], t: 'Mi abrigo ha desaparecido. ¿Lo has visto por algún lado?', e: 'der Mantel en acusativo: ihn.' },
+      { s: 'Der Schlüssel liegt da. Nimm ___ bitte mit.', a: 'ihn', d: ['sie', 'es'], t: 'La llave está ahí. Llévatela, por favor.', e: 'der Schlüssel en acusativo: ihn.' },
+      { s: 'Das Paket ist gekommen. ___ steht im Flur.', a: 'Es', d: ['Er', 'Sie'], t: 'Ha llegado el paquete. Está en la entrada.', e: 'das Paket → es.' }
     ],
     orders: [
       { sol: ['Wo', 'ist', 'der', 'Schlüssel?', 'Er', 'ist', 'hier'], t: '¿Dónde está la llave? Está aquí.', e: 'der → er.' },
       { sol: ['Die', 'Brille', 'ist', 'neu.', 'Sie', 'war', 'teuer'], t: 'Las gafas son nuevas. Fueron caras.', e: 'die → sie.' },
       { sol: ['Das', 'Buch', 'ist', 'gut.', 'Es', 'ist', 'sehr', 'spannend'], t: 'El libro es bueno. Es muy emocionante.', e: 'das → es.' },
       { sol: ['Der', 'Tisch', 'ist', 'neu.', 'Er', 'war', 'nicht', 'teuer'], t: 'La mesa es nueva. No fue cara.', e: 'der → er.' }
+    ],
+    clozes: [
+      { txt: 'Wo ist der Schlüssel? – ___ ist in der Tasche. Und die Brille? – ___ liegt auf dem Tisch. Und das Handy? – ___ ist kaputt.', a: ['Er', 'Sie', 'Es'], extra: ['Ihr', 'Wir', 'Ihnen'], t: '¿Dónde está la llave? – Está en el bolso. ¿Y las gafas? – Están en la mesa. ¿Y el móvil? – Está roto.', e: 'El pronombre repite el género de la cosa, no de la persona: der → er, die → sie, das → es.' }
     ]
   },
 
@@ -41,13 +53,20 @@ export const PRONOMBRES = {
       { s: 'Er sieht ___ jeden Tag.', a: 'uns', d: ['wir', 'unser'], t: 'Nos ve todos los días.', e: 'Acusativo de wir → uns.' },
       { s: 'Den Pullover? Ich mag ___ nicht.', a: 'ihn', d: ['er', 'ihm'], t: '¿El jersey? No me gusta.', e: 'Masculino en acusativo → ihn.' },
       { s: 'Meine Schwester? Ich sehe ___ selten.', a: 'sie', d: ['ihr', 'ihn'], t: '¿Mi hermana? La veo poco.', e: 'Femenino en acusativo → sie.' },
-      { s: 'Das Buch? Ich habe ___ schon gelesen.', a: 'es', d: ['ihn', 'ihm'], t: '¿El libro? Ya lo he leído.', e: 'Neutro en acusativo → es.' }
+      { s: 'Das Buch? Ich habe ___ schon gelesen.', a: 'es', d: ['ihn', 'ihm'], t: '¿El libro? Ya lo he leído.', e: 'Neutro en acusativo → es.' },
+      { s: 'Den Mantel nehme ich, ___ finde ich schön.', a: 'ihn', d: ['er', 'ihm'], t: 'El abrigo me lo llevo, me parece bonito.', e: 'der Mantel en acusativo → ihn.' },
+      { s: 'Die Hose ist toll, willst du ___ anprobieren?', a: 'sie', d: ['ihr', 'ihnen'], t: 'El pantalón es estupendo, ¿te lo quieres probar?', e: 'die Hose en acusativo → sie.' },
+      { s: 'Das Hemd passt nicht, ich möchte ___ umtauschen.', a: 'es', d: ['ihm', 'er'], t: 'La camisa no me queda, quiero cambiarla.', e: 'das Hemd en acusativo → es.' },
+      { s: 'Rufen Sie ___ bitte morgen Vormittag an.', a: 'mich', d: ['mir', 'ich'], t: 'Llámeme mañana por la mañana, por favor.', e: 'anrufen pide acusativo: mich.' }
     ],
     orders: [
       { sol: ['Ich', 'rufe', 'dich', 'morgen', 'an'], t: 'Te llamo mañana.', e: 'dich en acusativo; anrufen separable.' },
       { sol: ['Den', 'Mantel', 'nehme', 'ich', 'nicht'], t: 'El abrigo no me lo llevo.', e: 'Complemento en acusativo al principio.' },
       { sol: ['Kennst', 'du', 'mich', 'noch?'], t: '¿Todavía me conoces?', e: 'mich en acusativo.' },
       { sol: ['Wir', 'besuchen', 'euch', 'am', 'Wochenende'], t: 'Os visitamos el fin de semana.', e: 'euch en acusativo.' }
+    ],
+    clozes: [
+      { txt: 'Die Jacke ist schön – ich nehme ___. Den Pullover finde ich zu eng, ich probiere ___ nicht an. Und die Schuhe? ___ nehme ich auch mit.', a: ['sie', 'ihn', 'Die'], extra: ['es', 'ihm', 'Den'], t: 'La chaqueta es bonita, me la llevo. El jersey me parece estrecho, no me lo pruebo. ¿Y los zapatos? Esos también me los llevo.', e: 'El pronombre repite el género de la prenda: die Jacke → sie, der Pullover en acusativo → ihn.' }
     ]
   },
 
@@ -65,13 +84,25 @@ export const PRONOMBRES = {
       { s: 'Gefällt ___ die Wohnung?', a: 'euch', d: ['ihr', 'euer'], t: '¿Os gusta el piso?', e: 'Dativo de ihr → euch.' },
       { s: 'Ich zeige ___ die Fotos.', a: 'ihnen', d: ['sie', 'ihre'], t: 'Les enseño las fotos.', e: 'Dativo plural → ihnen.' },
       { s: 'Das Buch gehört ___.', a: 'mir', d: ['mich', 'meiner'], t: 'El libro es mío.', e: 'gehören + dativo → mir.' },
-      { s: 'Kannst du ___ die Adresse geben?', a: 'mir', d: ['mich', 'ich'], t: '¿Me puedes dar la dirección?', e: 'geben: el destinatario va en dativo.' }
+      { s: 'Kannst du ___ die Adresse geben?', a: 'mir', d: ['mich', 'ich'], t: '¿Me puedes dar la dirección?', e: 'geben: el destinatario va en dativo.' },
+      { s: 'Die Wohnung gefällt ___ sehr gut.', a: 'uns', d: ['wir', 'unser'], t: 'El piso nos gusta mucho.', e: 'gefallen rige dativo: uns.' },
+      { s: 'Kannst du ___ mit dem Schrank helfen?', a: 'mir', d: ['mich', 'ich'], t: '¿Me ayudas con el armario?', e: 'helfen rige dativo: mir.' },
+      { s: 'Ich schenke ___ die alte Lampe.', a: 'euch', d: ['ihr', 'euer'], t: 'Os regalo la lámpara vieja.', e: 'El destinatario en dativo plural informal: euch.' },
+      { s: 'Das Sofa gehört ___ nicht.', a: 'ihm', d: ['ihn', 'er'], t: 'El sofá no es suyo.', e: 'gehören rige dativo: ihm.' },
+      { s: 'Kannst du ___ das bitte erklären?', a: 'mir', d: ['mich', 'ich'], t: '¿Me lo puedes explicar, por favor?', e: 'erklären lleva la persona en dativo: mir.' },
+      { s: 'Ich schicke ___ gleich die Adresse.', a: 'dir', d: ['dich', 'du'], t: 'Te mando ahora la dirección.', e: 'schicken + dativo: dir.' },
+      { s: 'Gefällt ___ die neue Wohnung?', a: 'euch', d: ['ihr', 'ihnen'], t: '¿Os gusta el piso nuevo?', e: 'El dativo de ihr es euch.' },
+      { s: 'Wir zeigen ___ morgen die Wohnung.', a: 'ihnen', d: ['sie', 'ihr'], t: 'Mañana les enseñamos el piso.', e: 'Dativo plural: ihnen.' },
+      { s: 'Das gehört ___ gar nicht.', a: 'uns', d: ['wir', 'unser'], t: 'Eso no es nuestro en absoluto.', e: 'El dativo de wir es uns.' }
     ],
     orders: [
       { sol: ['Das', 'Zimmer', 'gefällt', 'mir', 'sehr', 'gut'], t: 'La habitación me gusta mucho.', e: 'gefallen + dativo (mir).' },
       { sol: ['Kannst', 'du', 'mir', 'bitte', 'helfen?'], t: '¿Me puedes ayudar, por favor?', e: 'helfen + mir.' },
       { sol: ['Ich', 'danke', 'Ihnen', 'für', 'die', 'Hilfe'], t: 'Le agradezco la ayuda.', e: 'danken + Ihnen (formal).' },
       { sol: ['Wie', 'geht', 'es', 'deinen', 'Eltern?'], t: '¿Cómo están tus padres?', e: 'La persona por la que se pregunta va en dativo.' }
+    ],
+    clozes: [
+      { txt: 'Kannst du ___ helfen? – Klar, ich helfe ___ gern. Und der Lampe? Die gefällt ___ nicht, sagt Anna. Wir schenken sie ___ Nachbarn.', a: ['mir', 'dir', 'ihr', 'den'], extra: ['mich', 'dich', 'sie', 'die'], t: '¿Me ayudas? – Claro, te ayudo encantado. ¿Y la lámpara? A Anna no le gusta. Se la regalamos a los vecinos.', e: 'Con helfen y gefallen la persona va en dativo: mir, dir, ihr. El plural lleva -n: den Nachbarn.' }
     ]
   },
 
@@ -89,7 +120,28 @@ export const PRONOMBRES = {
       { s: 'Die Stadt ___ mir sehr.', a: 'gefällt', d: ['gefallen', 'gefalle'], t: 'La ciudad me gusta mucho.', e: 'Una cosa → gefällt.' },
       { s: 'Gefällt ___ mein neues Sofa?', a: 'Ihnen', d: ['Sie', 'Ihr'], t: '¿Le gusta mi sofá nuevo?', e: 'Forma formal en dativo → Ihnen.' },
       { s: 'Die Bilder ___ meinen Eltern gut.', a: 'gefallen', d: ['gefällt', 'gefalle'], t: 'Los cuadros les gustan a mis padres.', e: 'Sujeto plural → gefallen.' },
-      { s: 'Wie gefällt ___ die Musik?', a: 'dir', d: ['dich', 'du'], t: '¿Qué te parece la música?', e: 'Persona en dativo.' }
+      { s: 'Wie gefällt ___ die Musik?', a: 'dir', d: ['dich', 'du'], t: '¿Qué te parece la música?', e: 'Persona en dativo.' },
+      { s: 'Die Wohnung ___ mir sehr gut.', a: 'gefällt', d: ['gefalle', 'gefallen'], t: 'El piso me gusta mucho.', e: 'El sujeto es la cosa que gusta: die Wohnung → gefällt.' },
+      { s: 'Die neuen Möbel ___ uns nicht.', a: 'gefallen', d: ['gefällt', 'gefalle'], t: 'Los muebles nuevos no nos gustan.', e: 'Sujeto en plural → gefallen.' },
+      { s: '___ dir das Zimmer?', a: 'Gefällt', d: ['Gefallen', 'Gefalle'], t: '¿Te gusta la habitación?', e: 'das Zimmer es el sujeto → gefällt.' },
+      { s: 'Der Balkon ___ meiner Frau am besten.', a: 'gefällt', d: ['gefallen', 'gefalle'], t: 'A mi mujer lo que más le gusta es el balcón.', e: 'Un solo sujeto → gefällt, y la persona en dativo.' },
+      { s: 'Wie ___ Ihnen die Küche?', a: 'gefällt', d: ['gefallen', 'gefällst'], t: '¿Qué le parece la cocina?', e: 'die Küche → gefällt; Ihnen es el dativo de cortesía.' },
+      { s: 'Die Farben ___ mir überhaupt nicht.', a: 'gefallen', d: ['gefällt', 'gefalle'], t: 'Los colores no me gustan nada.', e: 'Plural → gefallen.' },
+      { s: 'Das Haus ___ allen sehr gut.', a: 'gefällt', d: ['gefallen', 'gefällst'], t: 'La casa les gusta mucho a todos.', e: 'das Haus es el sujeto, allen va en dativo.' },
+      { s: '___ euch die Aussicht?', a: 'Gefällt', d: ['Gefallen', 'Gefällst'], t: '¿Os gusta la vista?', e: 'die Aussicht → gefällt.' },
+      { s: 'Die Küche ___ mir besonders gut.', a: 'gefällt', d: ['gefalle', 'gefallen'], t: 'La cocina me gusta especialmente.', e: 'El sujeto es la cocina, en singular: gefällt.' },
+      { s: '___ dir die Farbe im Flur?', a: 'Gefällt', d: ['Gefallen', 'Gefällst'], t: '¿Te gusta el color del pasillo?', e: 'die Farbe en singular → gefällt.' },
+      { s: 'Die Vorhänge ___ uns überhaupt nicht.', a: 'gefallen', d: ['gefällt', 'gefalle'], t: 'Las cortinas no nos gustan nada.', e: 'Sujeto en plural → gefallen.' },
+      { s: '___ Ihnen das Zimmer nach hinten?', a: 'Gefällt', d: ['Gefallen', 'Gefällst'], t: '¿Le gusta la habitación de atrás?', e: 'das Zimmer, singular → gefällt.' },
+      { s: 'Mir ___ die Aussicht am besten.', a: 'gefällt', d: ['gefallen', 'gefalle'], t: 'Lo que más me gustan son las vistas.', e: 'die Aussicht, singular → gefällt.' },
+      { s: 'Und, wie gefällt ___ die neue Wohnung?', a: 'dir', d: ['du', 'dich'], t: 'Y qué, ¿te gusta el piso nuevo?', e: 'gefallen pide dativo: dir.' },
+      { s: 'Wien gefällt ___ von Tag zu Tag besser.', a: 'uns', d: ['wir', 'unser'], t: 'Viena nos gusta más de día en día.', e: 'Dativo: uns.' },
+      { s: 'Gefallen ___ die Schuhe, Frau Berger?', a: 'Ihnen', d: ['Sie', 'Ihr'], t: '¿Le gustan los zapatos, señora Berger?', e: 'Usted en dativo: Ihnen.' },
+      { s: 'Der Film hat ___ überhaupt nicht gefallen.', a: 'mir', d: ['mich', 'ich'], t: 'La película no me gustó nada de nada.', e: 'gefallen siempre con dativo: mir.' },
+      { s: 'Das Bild gefällt ___ Kindern am besten.', a: 'den', d: ['die', 'der'], t: 'El cuadro que más les gusta a los niños es ese.', e: 'Dativo plural: den Kindern.' },
+      { s: 'Gefällt ___ das Hotel am Meer?', a: 'euch', d: ['ihr', 'eure'], t: '¿Os gusta el hotel junto al mar?', e: 'vosotros en dativo: euch.' },
+      { s: 'Die Idee ___ der Chefin überraschend gut.', a: 'gefällt', d: ['gefallen', 'gefällst'], t: 'A la jefa la idea le gusta sorprendentemente.', e: 'El sujeto es die Idee, singular: gefällt.' },
+      { s: 'Mir ___ die neuen Kollegen alle sehr gut.', a: 'gefallen', d: ['gefällt', 'gefalle'], t: 'Los compañeros nuevos me caen todos muy bien.', e: 'El sujeto es plural, die Kollegen: gefallen.' }
     ],
     orders: [
       { sol: ['Gefällt', 'dir', 'das', 'Zimmer?'], t: '¿Te gusta la habitación?', e: 'Verbo + persona en dativo + cosa (sujeto).' },
@@ -113,13 +165,22 @@ export const PRONOMBRES = {
       { s: 'Ich helfe ___ gern.', a: 'euch', d: ['ihr', 'euer'], t: 'Os ayudo con gusto.', e: 'helfen + dativo de ihr → euch.' },
       { s: 'Der Schlüssel gehört ___.', a: 'mir', d: ['mich', 'meiner'], t: 'La llave es mía.', e: 'gehören + dativo → mir.' },
       { s: 'Wir danken ___ für die Einladung.', a: 'Ihnen', d: ['Sie', 'Ihr'], t: 'Le agradecemos la invitación.', e: 'Forma formal en dativo → Ihnen.' },
-      { s: 'Meine Tochter hilft ___ im Haushalt.', a: 'mir', d: ['mich', 'meiner'], t: 'Mi hija me ayuda en casa.', e: 'helfen + mir.' }
+      { s: 'Meine Tochter hilft ___ im Haushalt.', a: 'mir', d: ['mich', 'meiner'], t: 'Mi hija me ayuda en casa.', e: 'helfen + mir.' },
+      { s: 'Das Buch dort gehört ___.', a: 'mir', d: ['mich', 'ich'], t: 'Ese libro de ahí es mío.', e: 'gehören pide dativo: mir.' },
+      { s: 'Kannst du ___ kurz helfen?', a: 'mir', d: ['mich', 'ich'], t: '¿Me puedes ayudar un momento?', e: 'helfen pide dativo.' },
+      { s: 'Ich danke ___ für deine Hilfe.', a: 'dir', d: ['dich', 'du'], t: 'Te doy las gracias por tu ayuda.', e: 'danken pide dativo: dir.' },
+      { s: 'Der Schlüssel gehört ___ Nachbarin.', a: 'der', d: ['die', 'den'], t: 'La llave es de la vecina.', e: 'gehören + dativo: die Nachbarin → der.' },
+      { s: 'Wir helfen ___ gern beim Umzug.', a: 'ihnen', d: ['sie', 'ihr'], t: 'Les ayudamos con gusto con la mudanza.', e: 'helfen + dativo plural: ihnen.' }
     ],
     orders: [
       { sol: ['Das', 'Buch', 'gehört', 'meiner', 'Schwester'], t: 'El libro es de mi hermana.', e: 'gehören + dativo femenino.' },
       { sol: ['Kannst', 'du', 'mir', 'bitte', 'helfen?'], t: '¿Me puedes ayudar, por favor?', e: 'helfen + mir.' },
       { sol: ['Ich', 'danke', 'dir', 'für', 'deine', 'Hilfe'], t: 'Te agradezco tu ayuda.', e: 'danken + dir.' },
       { sol: ['Wir', 'helfen', 'unseren', 'Nachbarn', 'gern'], t: 'Ayudamos con gusto a nuestros vecinos.', e: 'Dativo plural: unseren Nachbarn.' }
+    ],
+    clozes: [
+      { txt: 'Die Wohnung gefällt ___ sehr gut. Das Sofa gehört ___ Vermieterin, aber der Tisch gehört ___. Ich danke ___ Nachbarn für die Hilfe beim Umzug.', a: ['mir', 'der', 'uns', 'den'], extra: ['mich', 'die', 'wir', 'die'], t: 'El piso me gusta mucho. El sofá es de la casera, pero la mesa es nuestra. Les doy las gracias a los vecinos por la ayuda con la mudanza.', e: 'Los cuatro verbos rigen dativo: gefallen, gehören y danken. Fíjate en el plural con -n: den Nachbarn.' },
+      { txt: 'Die neue Wohnung gefällt ___ sehr. Der Schrank gehört ___ Vermieterin, aber das Sofa gehört ___. Wir danken ___ Nachbarn, sie haben ___ beim Umzug geholfen.', a: ['uns', 'der', 'uns', 'den', 'uns'], extra: ['wir', 'die', 'unser', 'die'], t: 'El piso nuevo nos gusta mucho. El armario es de la casera, pero el sofá es nuestro. Damos las gracias a los vecinos, nos ayudaron con la mudanza.', e: 'Los cuatro verbos rigen dativo, y el plural lleva -n: den Nachbarn.' }
     ]
   },
 
@@ -137,13 +198,85 @@ export const PRONOMBRES = {
       { s: 'Gibt es hier ___ Problem?', a: 'ein', d: ['einen', 'eine'], t: '¿Hay algún problema aquí?', e: 'Problem es neutro → ein.' },
       { s: 'In Wien gibt es ___ Straßenbahn.', a: 'eine', d: ['ein', 'einen'], t: 'En Viena hay tranvía.', e: 'Straßenbahn es femenino → eine.' },
       { s: 'Es gibt ___ Bus um sieben Uhr.', a: 'einen', d: ['ein', 'einem'], t: 'Hay un autobús a las siete.', e: 'Bus es masculino en acusativo → einen.' },
-      { s: 'Leider gibt es ___ Zimmer mehr.', a: 'keine', d: ['kein', 'keinen'], t: 'Por desgracia ya no quedan habitaciones.', e: 'Plural → keine.' }
+      { s: 'Leider gibt es ___ Zimmer mehr.', a: 'keine', d: ['kein', 'keinen'], t: 'Por desgracia ya no quedan habitaciones.', e: 'Plural → keine.' },
+      { s: 'In meinem Viertel ___ einen Markt.', a: 'gibt es', d: ['es gibt', 'gibt'], t: 'En mi barrio hay un mercado.', e: 'Con el complemento delante: gibt es.' },
+      { s: 'Hier gibt es ___ Apotheke.', a: 'eine', d: ['ein', 'einen'], t: 'Aquí hay una farmacia.', e: '"es gibt" siempre lleva acusativo; femenino → eine.' },
+      { s: 'In der Nähe gibt es ___ Supermarkt.', a: 'einen', d: ['ein', 'eine'], t: 'Cerca hay un supermercado.', e: 'Masculino en acusativo → einen.' },
+      { s: 'Gibt es hier ___ Museum?', a: 'ein', d: ['einen', 'eine'], t: '¿Hay aquí un museo?', e: 'Neutro en acusativo → ein.' },
+      { s: 'In diesem Dorf gibt es ___ Bahnhof.', a: 'keinen', d: ['kein', 'keine'], t: 'En este pueblo no hay estación.', e: 'La negación también en acusativo: keinen.' },
+      { s: 'Im Park gibt es ___ Spielplatz für die Kinder.', a: 'einen', d: ['ein', 'eine'], t: 'En el parque hay un parque infantil para los niños.', e: 'der Spielplatz → einen.' },
+      { s: 'Gibt es hier ___ Bank?', a: 'eine', d: ['einen', 'ein'], t: '¿Hay aquí un banco?', e: 'die Bank → eine.' },
+      { s: 'In der Stadt gibt es ___ gute Restaurants.', a: 'viele', d: ['viel', 'vielen'], t: 'En la ciudad hay muchos restaurantes buenos.', e: 'Plural en acusativo → viele.' },
+      { s: 'In meinem Viertel gibt es ___ Markt.', a: 'einen', d: ['ein', 'eine'], t: 'En mi barrio hay un mercado.', e: 'es gibt pide acusativo: der Markt → einen.' },
+      { s: 'Hier gibt es zum Glück ___ Apotheke.', a: 'eine', d: ['einen', 'ein'], t: 'Por suerte aquí hay una farmacia.', e: 'die Apotheke → eine.' },
+      { s: 'Gibt es hier in der Nähe ___ Kino?', a: 'ein', d: ['einen', 'eine'], t: '¿Hay un cine cerca de aquí?', e: 'das Kino → ein.' },
+      { s: 'Im Dorf gibt es ___ Bahnhof.', a: 'keinen', d: ['kein', 'keine'], t: 'En el pueblo no hay estación.', e: 'En negativo también acusativo: keinen Bahnhof.' },
+      { s: 'Gibt es hier irgendwo ___ Automaten?', a: 'einen', d: ['ein', 'eine'], t: '¿Hay por aquí alguna máquina?', e: 'der Automat en acusativo → einen.' }
     ],
     orders: [
-      { sol: ['In', 'der', 'Stadt', 'gibt', 'es', 'einen', 'Markt'], t: 'En la ciudad hay un mercado.', e: 'Complemento (1), gibt (2), es (3), acusativo.' },
+      { sol: ['In', 'der', 'Stadt', 'gibt', 'es', 'einen', 'Markt'], alt: [['Es', 'gibt', 'in', 'der', 'Stadt', 'einen', 'Markt']], t: 'En la ciudad hay un mercado.', e: 'Complemento (1), gibt (2), es (3), acusativo.' },
       { sol: ['Gibt', 'es', 'hier', 'eine', 'Apotheke?'], t: '¿Hay una farmacia por aquí?', e: 'En la pregunta "Gibt" va el primero.' },
-      { sol: ['In', 'meinem', 'Viertel', 'gibt', 'es', 'kein', 'Kino'], t: 'En mi barrio no hay cine.', e: 'Neutro en acusativo: kein Kino.' },
+      { sol: ['In', 'meinem', 'Viertel', 'gibt', 'es', 'kein', 'Kino'], alt: [['Es', 'gibt', 'in', 'meinem', 'Viertel', 'kein', 'Kino']], t: 'En mi barrio no hay cine.', e: 'Neutro en acusativo: kein Kino.' },
       { sol: ['Es', 'gibt', 'hier', 'viele', 'schöne', 'Cafés'], t: 'Aquí hay muchas cafeterías bonitas.', e: '"es gibt" también con plural.' }
+    ],
+    clozes: [
+      { txt: 'In meinem Viertel ___ ___ Markt, ___ Apotheke und ___ Kino. Aber ___ ___ Bahnhof.', a: ['gibt', 'es einen', 'eine', 'ein', 'es gibt', 'keinen'], extra: ['es gibt', 'einem', 'einer'], t: 'En mi barrio hay un mercado, una farmacia y un cine. Pero no hay estación.', e: '"es gibt" siempre lleva acusativo, también en negativo: keinen Bahnhof.' }
+    ]
+  },
+  'es-als-subjekt-wetter': {
+    picks: [
+      { s: 'Heute regnet ___ den ganzen Tag.', a: 'es', d: ['er', 'das'], t: 'Hoy llueve todo el día.', e: 'El tiempo lleva siempre es como sujeto.' },
+      { s: 'Im Jänner ___ es hier eiskalt.', a: 'ist', d: ['hat', 'sind'], t: 'En enero aquí hace un frío helador.', e: 'es ist + adjetivo.' },
+      { s: '___ schneit seit gestern.', a: 'Es', d: ['Er', 'Das'], t: 'Nieva desde ayer.', e: 'schneien pide es, no otro sujeto.' },
+      { s: 'Draußen ___ es sehr windig.', a: 'ist', d: ['hat', 'macht'], t: 'Fuera hace mucho viento.', e: 'es ist windig, no «es macht Wind».' },
+      { s: 'Am Abend wird ___ kühl.', a: 'es', d: ['er', 'das'], t: 'Por la tarde refresca.', e: 'También con werden hace falta es.' },
+      { s: '___ gibt heute ein Gewitter.', a: 'Es', d: ['Da', 'Man'], t: 'Hoy hay tormenta.', e: 'es gibt es fijo: siempre con es.' },
+      { s: 'Wie kalt ___ es heute?', a: 'ist', d: ['hat', 'macht'], t: '¿Qué frío hace hoy?', e: 'En la pregunta el es se queda.' },
+      { s: 'Im Dezember wird ___ früh dunkel.', a: 'es', d: ['er', 'das'], t: 'En diciembre oscurece pronto.', e: 'Sin es la frase no se sostiene.' },
+      { s: 'Gestern ___ es den ganzen Tag geregnet.', a: 'hat', d: ['ist', 'war'], t: 'Ayer estuvo lloviendo todo el día.', e: 'regnen forma el Perfekt con haben.' },
+      { s: '___ ist heute achtzehn Grad.', a: 'Es', d: ['Er', 'Das'], t: 'Hoy hace dieciocho grados.', e: 'La temperatura también va con es.' }
+    ]
+  },
+  'dativ-und-akkusativ-zusammen': {
+    picks: [
+      { s: 'Ich gebe ___ Beamten das Formular.', a: 'dem', d: ['den', 'der'], t: 'Le doy el formulario al funcionario.', e: 'A quién: dativo, y va primero.' },
+      { s: 'Ich gebe es ___ morgen.', a: 'ihm', d: ['ihn', 'er'], t: 'Se lo doy mañana.', e: 'Con el qué en pronombre, el dativo va detrás.' },
+      { s: 'Sie zeigt ___ Kollegin die Unterlagen.', a: 'der', d: ['die', 'den'], t: 'Le enseña la documentación a la compañera.', e: 'Dativo femenino: der Kollegin.' },
+      { s: 'Er bringt ___ den Stempel.', a: 'mir', d: ['mich', 'ich'], t: 'Me trae el sello.', e: 'A quién: mir.' },
+      { s: 'Kannst du ___ die Kopie schicken?', a: 'uns', d: ['wir', 'unser'], t: '¿Nos puedes enviar la copia?', e: 'Dativo plural: uns.' },
+      { s: 'Ich schicke ___ Ihnen per Mail.', a: 'es', d: ['ihn', 'sie'], t: 'Se lo envío por correo.', e: 'El pronombre del qué va delante del dativo.' },
+      { s: 'Der Beamte erklärt ___ Antragstellern alles.', a: 'den', d: ['die', 'der'], t: 'El funcionario se lo explica todo a los solicitantes.', e: 'Dativo plural: den + -n.' },
+      { s: 'Geben Sie ___ bitte Ihren Ausweis.', a: 'mir', d: ['mich', 'ich'], t: 'Deme su documento, por favor.', e: 'mir es el dativo de ich.' },
+      { s: 'Ich habe ___ die Bestätigung schon gegeben.', a: 'ihr', d: ['sie', 'ihre'], t: 'Ya le he dado la confirmación.', e: 'Dativo femenino del pronombre: ihr.' },
+      { s: 'Er hat ___ dem Chef weitergeleitet.', a: 'es', d: ['ihn', 'ihm'], t: 'Se lo ha reenviado al jefe.', e: 'Pronombre del qué delante del dativo con nombre.' }
+    ]
+  },
+  'wo-fragen-worueber-darueber': {
+    picks: [
+      { s: '___ freust du dich?', a: 'Worüber', d: ['Über was', 'Über wer'], t: '¿De qué te alegras?', e: 'Por una cosa: wo(r)- + preposición.' },
+      { s: 'Ich denke oft ___.', a: 'daran', d: ['an das', 'an es'], t: 'Pienso en ello a menudo.', e: 'Respuesta con da(r)- + preposición.' },
+      { s: '___ hast du Angst?', a: 'Wovor', d: ['Vor was', 'Vor wem'], t: '¿De qué tienes miedo?', e: 'vor + wo- lleva una v: wovor.' },
+      { s: 'Über wen habt ihr gesprochen? – ___ meinen Chef.', a: 'Über', d: ['Worüber', 'Darüber'], t: '¿De quién habéis hablado? – De mi jefe.', e: 'Con PERSONAS se usa la preposición normal.' },
+      { s: '___ wartest du?', a: 'Worauf', d: ['Auf was', 'Auf wen'], t: '¿Qué estás esperando?', e: 'auf + wo- da worauf.' },
+      { s: 'Die Prüfung? Ich denke die ganze Zeit ___.', a: 'daran', d: ['an sie', 'daran an'], t: '¿El examen? Pienso en él todo el rato.', e: 'Cosa: daran.' },
+      { s: '___ interessierst du dich?', a: 'Wofür', d: ['Für was', 'Für wen'], t: '¿Qué te interesa?', e: 'für + wo- da wofür.' },
+      { s: 'Er hat sich sehr ___ gefreut.', a: 'darüber', d: ['über es', 'über das'], t: 'Se alegró mucho de ello.', e: 'über + da- da darüber.' },
+      { s: 'Auf wen wartest du? – ___ meine Schwester.', a: 'Auf', d: ['Worauf', 'Darauf'], t: '¿A quién esperas? – A mi hermana.', e: 'Persona: preposición normal.' },
+      { s: 'Die r in wo-r-über ist da, ___.', a: 'weil über mit Vokal anfängt', d: ['ohne Grund', 'immer'], t: 'La r de «worüber» está porque «über» empieza por vocal.', e: 'wovor no la lleva: vor empieza por consonante.' }
+    ]
+  },
+  'man-unpersoenlich-essen': {
+    picks: [
+      { s: 'Wie macht ___ diese Suppe?', a: 'man', d: ['er', 'sie'], t: '¿Cómo se hace esta sopa?', e: 'man para hablar en general.' },
+      { s: 'In Spanien ___ man später als hier.', a: 'isst', d: ['essen', 'esst'], t: 'En España se come más tarde que aquí.', e: 'man va con la 3ª persona del singular.' },
+      { s: 'Hier ___ man nur mit Karte zahlen.', a: 'kann', d: ['können', 'kannst'], t: 'Aquí solo se puede pagar con tarjeta.', e: 'man + modal en singular.' },
+      { s: 'Was ___ man zu einer Einladung mit?', a: 'bringt', d: ['bringen', 'bringst'], t: '¿Qué se lleva a una invitación?', e: 'mitbringen: el prefijo al final.' },
+      { s: 'Bei uns ___ man um zwei zu Mittag.', a: 'isst', d: ['essen', 'esst'], t: 'En mi tierra se come a las dos.', e: 'Tercera del singular.' },
+      { s: '___ sagt Prost oder Zum Wohl.', a: 'Man', d: ['Er', 'Sie'], t: 'Se dice Prost o Zum Wohl.', e: 'man como sujeto.' },
+      { s: 'Wie lange ___ man den Teig kneten?', a: 'muss', d: ['müssen', 'musst'], t: '¿Cuánto hay que amasar la masa?', e: 'man + müssen en singular.' },
+      { s: 'Zu einer Hochzeit ___ man sich schön an.', a: 'zieht', d: ['ziehen', 'ziehst'], t: 'A una boda uno se arregla.', e: 'sich anziehen con man: sich, tercera persona.' },
+      { s: '___ braucht nicht viel für dieses Rezept.', a: 'Man', d: ['Es', 'Sie'], t: 'No hace falta mucho para esta receta.', e: 'man en posición 1.' },
+      { s: 'Wo ___ man hier gut essen?', a: 'kann', d: ['können', 'kannst'], t: '¿Dónde se come bien por aquí?', e: 'Pregunta general con man.' }
     ]
   }
 };

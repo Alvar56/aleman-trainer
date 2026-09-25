@@ -3,6 +3,7 @@ import { t } from '../lib/i18n.js';
 import { teiles, fallen, examStats, allResults, veredicto, BESTANDEN } from '../lib/pruefung.js';
 import { aiAvailable } from '../lib/settings.js';
 import { runningJobs } from '../lib/aiJobs.js';
+import Desplegable from './Desplegable.jsx';
 
 // Sitios externos, por parte del examen. Enlaces comprobados uno a uno; los
 // que daban 404 se descartaron en vez de dejarlos "por si acaso".
@@ -115,13 +116,21 @@ export default function Pruefung({ onStart }) {
         </p>
       </div>
 
-      <div className="statcards">
+      <div className="statcards statcards-teile tira-resumen">
         {teiles().map((teil) => {
           const s = st.porTeil[teil.id];
           return (
             <div className="card statcard" key={teil.id}>
-              <div className="n" style={{ fontSize: '1.35rem' }}>
-                {teil.ico} {s.pct == null ? '—' : s.pct + '%'}
+              {/* Sin el icono de la parte: al lado del porcentaje competia
+                  con el, que es el dato que vienes a mirar. El icono sigue
+                  abajo, en la ficha de cada parte.
+
+                  Aprobado o no va en el COLOR del numero. Antes lo decia una
+                  barrita debajo, pero al pasar las cuatro fichas a una sola
+                  fila se quedaba sin sitio y se encogia hasta 0 px: estaba,
+                  y no se veia. */}
+              <div className={'n' + (s.pct == null ? '' : s.pct >= BESTANDEN ? ' aprobado' : ' suspenso')}>
+                {s.pct == null ? '—' : s.pct + '%'}
               </div>
               <div className="l">{teil.name}</div>
               <div className="sub">
@@ -131,16 +140,6 @@ export default function Pruefung({ onStart }) {
                   ? t('pf.oneAttempt', { p: s.ultimo })
                   : t('pf.attempts', { n: s.n, p: s.ultimo })}
               </div>
-              {s.pct != null && (
-                <div className="mini-bar" style={{ marginTop: 8 }}>
-                  <span
-                    style={{
-                      width: s.pct + '%',
-                      background: s.pct >= BESTANDEN ? 'var(--good)' : 'var(--bad)'
-                    }}
-                  />
-                </div>
-              )}
             </div>
           );
         })}
@@ -154,7 +153,7 @@ export default function Pruefung({ onStart }) {
 
       <div className="stack" style={{ gap: 12 }}>
         {teiles().map((teil) => (
-          <div className="card" key={teil.id}>
+          <div className={'card' + (abierto === teil.id ? ' abierta' : '')} key={teil.id}>
             <button
               className="komm-head"
               onClick={() => setAbierto(abierto === teil.id ? null : teil.id)}
@@ -165,7 +164,7 @@ export default function Pruefung({ onStart }) {
                 </span>
                 <span className="muted pruef-blurb">{teil.blurb}</span>
               </span>
-              <span className="muted" style={{ fontSize: '0.78rem', whiteSpace: 'nowrap' }}>
+              <span className="komm-cuenta">
                 ~{teil.min} min {abierto === teil.id ? '▴' : '▾'}
               </span>
             </button>
@@ -173,34 +172,34 @@ export default function Pruefung({ onStart }) {
             {/* En el Hören, además de los simulacros: dónde escuchar alemán de
                 verdad. La IA genera el examen, pero practicar oído necesita
                 audio real y a diario. */}
-            {abierto === teil.id && ENLACES[teil.id] && (
-              <div className="audios">
-                <div className="lk-block-title" style={{ marginTop: 14 }}>
-                  {teil.id === 'hoeren' ? '🎧 ' : '🗣️ '}
-                  {t(teil.id === 'hoeren' ? 'pf.realAudio' : 'pf.realSpeech')}
-                </div>
-                <p className="muted" style={{ fontSize: '0.82rem', margin: '0 0 10px' }}>
-                  {t(teil.id === 'hoeren' ? 'pf.realAudioSub' : 'pf.realSpeechSub')}
-                </p>
-                {ENLACES[teil.id].map((a2) => (
-                  <a
-                    className="audio-fila"
-                    key={a2.url}
-                    href={a2.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+            <Desplegable abierto={abierto === teil.id}>
+              {ENLACES[teil.id] && (
+                <div className="audios">
+                  <div className="lk-block-title" style={{ marginTop: 14 }}>
+                    {teil.id === 'hoeren' ? '🎧 ' : '🗣️ '}
+                    {t(teil.id === 'hoeren' ? 'pf.realAudio' : 'pf.realSpeech')}
+                  </div>
+                  <p className="muted" style={{ fontSize: '0.82rem', margin: '0 0 10px' }}>
+                    {t(teil.id === 'hoeren' ? 'pf.realAudioSub' : 'pf.realSpeechSub')}
+                  </p>
+                  {ENLACES[teil.id].map((a2) => (
+                    <a
+                      className="audio-fila"
+                      key={a2.url}
+                      href={a2.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                   >
-                    <div>
-                      <div className="af-nombre">{a2.nombre}</div>
-                      <div className="af-que muted">{a2.que}</div>
-                    </div>
-                    <span className="pill">{a2.nivel}</span>
-                  </a>
-                ))}
-              </div>
-            )}
+                      <div>
+                        <div className="af-nombre">{a2.nombre}</div>
+                        <div className="af-que muted">{a2.que}</div>
+                      </div>
+                      <span className="pill">{a2.nivel}</span>
+                    </a>
+                  ))}
+                </div>
+              )}
 
-            {abierto === teil.id && (
               <div className="pruef-typen">
                 {teil.typen.map((ty) => (
                   <button
@@ -214,7 +213,7 @@ export default function Pruefung({ onStart }) {
                   </button>
                 ))}
               </div>
-            )}
+            </Desplegable>
           </div>
         ))}
       </div>

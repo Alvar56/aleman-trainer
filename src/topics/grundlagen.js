@@ -236,7 +236,8 @@ export const theory = {
 export default {
   id: 'grundlagen',
   name: 'Grammatik-Grundlagen',
-  nameEs: 'Lo básico: presente, artículos y frase',
+  nameEs: 'Gramática básica',
+  emoji: '🌱',
   blurb: 'Conjugación en presente, der/die/das, verbo en 2ª posición, preguntas, negación y plural',
   theory,
   concepts: [

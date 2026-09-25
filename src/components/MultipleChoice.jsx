@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import { useTeclas, teclasDeOpciones } from '../lib/teclas.js';
 
 // Muestra la frase con el hueco y las opciones. Al elegir, bloquea y avisa.
 export default function MultipleChoice({ item, onAnswer }) {
@@ -11,13 +12,38 @@ export default function MultipleChoice({ item, onAnswer }) {
     onAnswer(opt === item.answer, opt);
   }
 
+  // Deduplicación preventiva de opciones para evitar respuestas repetidas
+  const safeOptions = useMemo(() => {
+    const raw = item?.options || [];
+    const seen = new Set();
+    const clean = [];
+    for (const opt of raw) {
+      const key = String(opt || '').trim().toLowerCase().replace(/\s+/g, ' ');
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      clean.push(opt);
+    }
+    if (item?.answer && !clean.some(o => String(o).trim().toLowerCase().replace(/\s+/g, ' ') === String(item.answer).trim().toLowerCase().replace(/\s+/g, ' '))) {
+      clean.unshift(item.answer);
+    }
+    return clean;
+  }, [item?.options, item?.answer]);
+
+  // 1, 2, 3… eligen la opción en el orden en que se ven. El número va
+  // pintado en el botón: un atajo que no se anuncia no lo usa nadie.
+  useTeclas(teclasDeOpciones(safeOptions, choose), !done);
+
   const parts = String(item.sentence).split('___');
   const answerParts = String(item.answer || '').split(/\s*\.\.\.\s*/);
 
   return (
     <div>
       <div className="prompt-label">{item.prompt || item.anweisung || ''}</div>
-      <div className="sentence">
+      {/* `marco` enmarca la frase segun lo que sea: algo que te DICEN se
+          pinta como un bocadillo y no como una frase suelta en negrita. Sin
+          esto, el enunciado y la frase salian uno debajo del otro con la
+          misma pinta y no se sabia cual era cual. */}
+      <div className={'sentence' + (item.marco ? ' sentence-' + item.marco : '')}>
         {parts.map((p, i) => (
           <React.Fragment key={i}>
             {p}
@@ -30,7 +56,7 @@ export default function MultipleChoice({ item, onAnswer }) {
         ))}
       </div>
       <div className="options">
-        {(item.options || []).map((opt, i) => {
+        {safeOptions.map((opt, i) => {
           let cls = 'option';
           if (done) {
             if (opt === item.answer) cls += ' correct';
@@ -39,6 +65,7 @@ export default function MultipleChoice({ item, onAnswer }) {
           }
           return (
             <button key={i} className={cls} disabled={done} onClick={() => choose(opt)}>
+              {i < 9 && <span className="op-tecla">{i + 1}</span>}
               {opt}
             </button>
           );

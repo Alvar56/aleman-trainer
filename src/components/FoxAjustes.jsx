@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
+import Desplegable from './Desplegable.jsx';
 import FoxFace from './FoxFace.jsx';
 import {
   getFuchs,
@@ -14,21 +15,26 @@ import {
   PRECIO_NOMBRE
 } from '../lib/fuchs.js';
 import { saldo } from '../lib/monedas.js';
+import { useTeclas } from '../lib/teclas.js';
 
 // La tienda del zorro va ENTERA en alemán, títulos y nombres de las cosas
 // incluidos: es una pantalla que se mira mucho y son palabras fáciles, así que
 // sale vocabulario gratis. Y sin emojis delante de cada nombre: con cincuenta
 // cosas en la lista, el emoji era ruido, no información.
+// De la cabeza a los pies, y lo que no se viste al final.
 const RANURAS = [
-  { id: 'cabeza', de: 'Auf dem Kopf' },
-  { id: 'ojos', de: 'Auf den Augen' },
-  { id: 'cuello', de: 'Um den Hals' },
-  { id: 'ropa', de: 'Kleidung' },
-  { id: 'pies', de: 'An den Füßen' },
-  { id: 'objeto', de: 'Gegenstände' },
-  { id: 'particulas', de: 'Effekte' }
+  { id: 'cabeza', de: 'Auf dem Kopf', ico: '🧢' },
+  { id: 'ojos', de: 'Auf den Augen', ico: '👓' },
+  { id: 'cuello', de: 'Um den Hals', ico: '🧣' },
+  { id: 'ropa', de: 'Kleidung', ico: '👕' },
+  { id: 'pies', de: 'An den Füßen', ico: '👟' },
+  { id: 'objeto', de: 'Gegenstände', ico: '🎒' },
+  { id: 'particulas', de: 'Effekte', ico: '✨' }
 ];
 
+// Un bloque de la tienda: lo que se compra arriba y lo que se gana debajo,
+// separado. Mezclados, un trofeo que no esta en venta parecia lo mas caro de
+// la lista.
 // Una cosa de la tienda. Tres estados: ya es tuya (se pone), se puede comprar,
 // o es un trofeo — y esos no se venden, se ganan.
 function Ficha({ cosa, puesta, monedas, onPoner, onComprar, dot = null }) {
@@ -64,17 +70,97 @@ function Ficha({ cosa, puesta, monedas, onPoner, onComprar, dot = null }) {
   );
 }
 
+// Un bloque de la tienda, plegable: lo que se compra arriba y lo que se gana
+// debajo, separado. Solo evalúa sus fichas cuando está abierto para no saturar
+// el hilo principal con 100+ botones en cada render.
+function Bloque({ titulo, ico, cosas, esPuesta, monedas, onPoner, onComprar, dot, abierto, onAbrir }) {
+  const puesta = useMemo(() => cosas.find((c) => esPuesta(c)), [cosas, esPuesta]);
+  const aTiro = useMemo(
+    () => cosas.filter((c) => !c.abierto && !c.req && monedas >= c.precio).length,
+    [cosas, monedas]
+  );
+  const ganables = useMemo(() => (abierto ? cosas.filter((c) => c.req) : []), [abierto, cosas]);
+  const comprables = useMemo(() => (abierto ? cosas.filter((c) => !c.req) : []), [abierto, cosas]);
+  const partir = abierto && ganables.length > 0 && comprables.some((c) => c.precio > 0);
+
+  const pinta = (lista) => (
+    <div className="fox-items">
+      {lista.map((c) => (
+        <Ficha
+          key={c.id}
+          cosa={c}
+          puesta={esPuesta(c)}
+          monedas={monedas}
+          dot={dot ? dot(c) : null}
+          onPoner={() => onPoner(c)}
+          onComprar={() => onComprar(c)}
+        />
+      ))}
+    </div>
+  );
+
+  return (
+    <div className={'fox-bloque' + (abierto ? ' abierto' : '')}>
+      <button className="fox-tirador" onClick={onAbrir} aria-expanded={abierto}>
+        <span className="fox-tirador-izq">
+          <span className="fox-ico" aria-hidden="true">{ico}</span>
+          <span className="fox-titulo">{titulo}</span>
+        </span>
+        <span className="fox-tirador-der">
+          {puesta && (
+            <span className="fox-puesta">
+              <span>{puesta.de}</span>
+            </span>
+          )}
+          {aTiro > 0 && <span className="fox-atiro">{aTiro}</span>}
+          <span className="chev">{abierto ? '▴' : '▾'}</span>
+        </span>
+      </button>
+      <Desplegable abierto={abierto}>
+        {abierto && (
+          partir ? (
+            <>
+              {pinta(comprables)}
+              <div className="fox-subtitulo">Zu verdienen</div>
+              {pinta(ganables)}
+            </>
+          ) : (
+            pinta(cosas)
+          )
+        )}
+      </Desplegable>
+    </div>
+  );
+}
+
 export default function FoxAjustes({ onClose, onChange }) {
   const [f, setF] = useState(getFuchs);
   const [monedas, setMonedas] = useState(saldo);
   const [aviso, setAviso] = useState('');
+  const [abierta, setAbierta] = useState(null);
   const [nombreLibre, setNombreLibre] = useState(puedeCambiarNombre);
-  const l = logros();
+  const l = useMemo(() => logros(), []);
+  const timerRef = useRef(null);
+  const onChangeRef = useRef(onChange);
+  onChangeRef.current = onChange;
+
+  function cerrar() {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    onChangeRef.current?.(f);
+    onClose();
+  }
+
+  // Y con Escape también. useTeclas no se mete cuando estás escribiendo, así
+  // que ponerle nombre al zorro sigue funcionando.
+  useTeclas({ Escape: cerrar });
 
   function cambiar(patch) {
     const next = setFuchs(patch);
     setF(next);
-    onChange?.(next);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      onChangeRef.current?.(next);
+    }, 350);
   }
 
   function sinMonedas() {
@@ -99,11 +185,19 @@ export default function FoxAjustes({ onClose, onChange }) {
   }
 
   return (
-    <div className="fox-modal" role="dialog" aria-modal="true">
+    <div
+      className="fox-modal"
+      role="dialog"
+      aria-modal="true"
+      // Pinchar en el gris de alrededor cierra, como en cualquier ventana. Se
+      // comprueba que el clic sea EN el fondo y no en algo de dentro: si no,
+      // comprar una gorra cerraría la tienda.
+      onClick={(e) => { if (e.target === e.currentTarget) cerrar(); }}
+    >
       <div className="fox-modal-caja">
         <div className="row spread" style={{ alignItems: 'flex-start' }}>
           <h2 style={{ margin: 0 }}>Dein Fuchs</h2>
-          <button className="lied-cerrar" onClick={onClose} title="Zurück">✕</button>
+          <button className="lied-cerrar" onClick={cerrar} title="Zurück">✕</button>
         </div>
 
         {/* Tres columnas: el saldo a la izquierda, que es el número que miras
@@ -114,7 +208,10 @@ export default function FoxAjustes({ onClose, onChange }) {
             <span className="fsg-lab">Münzen</span>
           </div>
           <div className="fox-preview">
-            <FoxFace fuchs={f} gesto="feliz" size={140} conCuerpo />
+            {/* Con una racha de muestra: el efecto aprieta segun subes, y aqui
+                interesa ver como queda cuando lleva un rato encendido, no el
+                minimo. */}
+            <FoxFace fuchs={f} gesto="feliz" size={140} conCuerpo chispeando racha={12} />
           </div>
           <ul className="fox-stats">
             <li><strong>{l.coronas}</strong><small>Kronen</small></li>
@@ -142,64 +239,87 @@ export default function FoxAjustes({ onClose, onChange }) {
                 disabled={monedas < PRECIO_NOMBRE}
                 onClick={pagarNombre}
               >
-                <small>{PRECIO_NOMBRE} Münzen{monedas >= PRECIO_NOMBRE ? ' · kaufen' : ''}</small>
+                {/* Decia solo "2000 Münzen", sin decir para que: al lado de
+                    un campo de nombre bloqueado parecia el precio del zorro. */}
+                <small>Namen ändern · {PRECIO_NOMBRE} Münzen{monedas >= PRECIO_NOMBRE ? ' · kaufen' : ''}</small>
               </button>
             )}
           </div>
         </label>
 
-        <div className="fox-bloque">
-          <div className="lk-block-title">Farbe</div>
-          <div className="fox-items">
-            {coloresDisponibles().map((c) => (
-              <Ficha
-                key={c.id}
-                cosa={c}
-                puesta={f.color === c.id}
-                monedas={monedas}
-                dot={<span className="fci-dot" style={{ background: c.fur, borderColor: c.sombra }} />}
-                onPoner={() => cambiar({ color: c.id })}
-                onComprar={() => pagar(c.id, 'color')}
-              />
-            ))}
-          </div>
-        </div>
+        {/* Primero QUE eres y de que color: es lo que mas cambia al zorro. */}
+        <Bloque
+          titulo="Tier"
+          ico="🦊"
+          abierto={abierta === 'tier'}
+          onAbrir={() => setAbierta((x) => (x === 'tier' ? null : 'tier'))}
+          cosas={animalesDisponibles(f, l)}
+          esPuesta={(a) => f.especie === a.id}
+          monedas={monedas}
+          onPoner={(a) => cambiar({ especie: a.id })}
+          onComprar={(a) => pagar(a.id, null)}
+        />
 
+        <Bloque
+          titulo="Farbe"
+          ico="🎨"
+          abierto={abierta === 'farbe'}
+          onAbrir={() => setAbierta((x) => (x === 'farbe' ? null : 'farbe'))}
+          cosas={coloresDisponibles(l)}
+          esPuesta={(c) => f.color === c.id}
+          monedas={monedas}
+          dot={(c) => {
+            const esGalaxy = c?.id?.startsWith('galaxy');
+            return (
+              <span
+                className={`fci-dot ${esGalaxy ? `fci-dot-galaxy fci-dot-${c.id}` : ''}`}
+                style={{ background: c?.fur, borderColor: c?.sombra }}
+              />
+            );
+          }}
+          onPoner={(c) => cambiar({ color: c.id })}
+          onComprar={(c) => pagar(c.id, 'color')}
+        />
+
+        {/* Y luego se viste, de la cabeza a los pies. */}
         {RANURAS.map((r) => (
-          <div className="fox-bloque" key={r.id}>
-            <div className="lk-block-title">{r.de}</div>
-            <div className="fox-items">
-              {complementosDe(r.id).map((c) => (
-                <Ficha
-                  key={c.id}
-                  cosa={c}
-                  puesta={f[r.id] === c.id}
-                  monedas={monedas}
-                  onPoner={() => cambiar({ [r.id]: c.id })}
-                  onComprar={() => pagar(c.id, r.id)}
-                />
-              ))}
-            </div>
-          </div>
+          <Bloque
+            key={r.id}
+            titulo={r.de}
+            ico={r.ico}
+            abierto={abierta === r.id}
+            onAbrir={() => setAbierta((x) => (x === r.id ? null : r.id))}
+            cosas={complementosDe(r.id, f, l)}
+            esPuesta={(c) => f[r.id] === c.id}
+            monedas={monedas}
+            onPoner={(c) => cambiar({ [r.id]: c.id })}
+            onComprar={(c) => pagar(c.id, r.id)}
+          />
         ))}
 
-        <div className="fox-bloque">
-          <div className="lk-block-title">Tier</div>
-          <div className="fox-items">
-            {animalesDisponibles().map((a) => (
-              <Ficha
-                key={a.id}
-                cosa={a}
-                puesta={f.especie === a.id}
-                monedas={monedas}
-                onPoner={() => cambiar({ especie: a.id })}
-                onComprar={() => pagar(a.id, null)}
-              />
-            ))}
-          </div>
+        {/* Próximamente */}
+        <div
+          style={{
+            textAlign: 'center',
+            padding: '10px 14px',
+            marginTop: 14,
+            marginBottom: 6,
+            fontSize: '0.82rem',
+            color: 'var(--muted)',
+            background: 'var(--surface-2)',
+            borderRadius: 'var(--radius-sm)',
+            border: '1px dashed var(--border)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 6
+          }}
+        >
+          <span>✨</span>
+          <span>Mehr Tiere &amp; Accessoires kommen bald… · More coming soon</span>
         </div>
 
-        <button className="btn-primary" style={{ width: '100%', marginTop: 8 }} onClick={onClose}>
+        <button className="btn-primary" style={{ width: '100%', marginTop: 8 }} onClick={cerrar}>
           Fertig
         </button>
       </div>

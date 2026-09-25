@@ -19,14 +19,56 @@ export default function Monedero() {
   const [subidas, setSubidas] = useState([]);
   const [scrolled, setScrolled] = useState(false);
   const pildora = useRef(null);
+  const esquina = useRef(null);
   const puntero = useRef(null);
   const id = useRef(0);
   const timers = useRef([]);
 
+  // La pildora sube del todo cuando ya has bajado, para no tapar la cabecera.
+  //
+  // Ojo con el ResizeObserver: al cambiar de pantalla el scroll vuelve a 0
+  // SIN disparar 'scroll', asi que la pildora se quedaba creyendo que seguias
+  // abajo y se colocaba mal durante todo el ejercicio. El alto del body si
+  // cambia al cambiar de vista, y eso si lo podemos oir.
+  //
+  // Y de paso se publica el alto de la cabecera en --cabecera. En el movil la
+  // barra de arriba es una tira horizontal cuyo alto depende de si el motor de
+  // IA cabe al lado del titulo o baja a su propia fila; con un `top` fijo en
+  // el CSS, en las pantallas estrechas la pildora acababa plantada encima de
+  // la fila de secciones.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const mirar = () => {
+      setScrolled(window.scrollY > 40);
+      const barra = document.querySelector('.sidebar');
+      if (barra) {
+        document.documentElement.style.setProperty(
+          '--cabecera',
+          `${Math.round(barra.getBoundingClientRect().height)}px`
+        );
+      }
+      // Y lo que mide de ancho la esquina, en --hud. Las cabeceras que llevan
+      // algo pegado a la derecha (el "← Volver" de un tema, la del chat) le
+      // dejan ese hueco. Estaba escrito a mano en el CSS -92px, lo que medía
+      // la pildora sola-, y al poner al lado el boton de claro/oscuro, o
+      // cuando el saldo llega a cuatro cifras, se solapaban.
+      if (esquina.current) {
+        document.documentElement.style.setProperty(
+          '--hud',
+          `${Math.round(esquina.current.getBoundingClientRect().width)}px`
+        );
+      }
+    };
+    mirar();
+    window.addEventListener('scroll', mirar, { passive: true });
+    const ro = new ResizeObserver(mirar);
+    ro.observe(document.body);
+    const barra = document.querySelector('.sidebar');
+    if (barra) ro.observe(barra);
+    if (esquina.current) ro.observe(esquina.current);
+    return () => {
+      window.removeEventListener('scroll', mirar);
+      ro.disconnect();
+    };
   }, []);
 
   // De dónde salen: lo último que has tocado. Si no has tocado nada todavía
@@ -101,19 +143,24 @@ export default function Monedero() {
 
   return (
     <>
-      <div className={`monedero${scrolled ? ' scrolled' : ''}`} ref={pildora} aria-live="polite">
-        {/* la key hace que la animación del saltito se reinicie con cada moneda */}
-        <span key={golpe} className={'mnd-icono' + (golpe ? ' salta' : '')}>
-          🪙
-        </span>
-        <strong className="mnd-total">{mostrado}</strong>
-        <span className="mnd-subidas" aria-hidden="true">
-          {subidas.map((s) => (
-            <span key={s.k} className="mnd-sube">
-              +{s.cuanto}
-            </span>
-          ))}
-        </span>
+      {/* La esquina de arriba a la derecha. Aqui estuvo tambien el interruptor
+          de claro/oscuro, pero en el movil le robaba sitio a la cabecera y el
+          tema se cambia en Ajustes, que es donde se busca. */}
+      <div className={`hud-esquina${scrolled ? ' scrolled' : ''}`} ref={esquina}>
+        <div className="monedero" ref={pildora} aria-live="polite">
+          {/* la key hace que la animación del saltito se reinicie con cada moneda */}
+          <span key={golpe} className={'mnd-icono' + (golpe ? ' salta' : '')}>
+            🪙
+          </span>
+          <strong className="mnd-total">{mostrado}</strong>
+          <span className="mnd-subidas" aria-hidden="true">
+            {subidas.map((s) => (
+              <span key={s.k} className="mnd-sube">
+                +{s.cuanto}
+              </span>
+            ))}
+          </span>
+        </div>
       </div>
       <div className="mnd-vuelos" aria-hidden="true">
         {volando.map((m) => (

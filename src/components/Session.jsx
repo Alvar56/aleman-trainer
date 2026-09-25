@@ -14,22 +14,23 @@ import { saveRun, rankOfRun } from '../lib/leaderboard.js';
 import { getSettings } from '../lib/settings.js';
 import { vocabMixItems, intercalar } from '../lib/mixItems.js';
 import { recordStreak, currentStreak, updateStreak } from '../lib/rachas.js';
-import { ganar, desglose } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
 import { playAudio } from '../lib/audio.js';
-import { getFuchs } from '../lib/fuchs.js';
 import { ensureJob, clearJob } from '../lib/aiJobs.js';
 import { useAiJob } from '../lib/useAiJob.js';
-import FoxFace from './FoxFace.jsx';
+import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import Cargando from './Cargando.jsx';
-
-const WIN_MSGS = ['Super!', 'Toll!', 'Richtig!', 'Wunderbar!', 'Klasse!', 'Genau!'];
-const FAIL_MSGS = ['Schade!', 'Kopf hoch!', 'Knapp daneben!', "Versuch's nochmal!", 'Nicht aufgeben!'];
+import Reloj from './Reloj.jsx';
+import RachaPill from './RachaPill.jsx';
+import StarButton from './StarButton.jsx';
 
 function xpFor(correct) {
   return correct ? 10 : 2;
 }
 
-export default function Session({ topic, mode, game = 'mixed', onExit, onDone }) {
+// `itemsFijos` es una tanda ya montada: la usa "repetir los fallos", que no
+// genera nada nuevo sino que vuelve a poner las preguntas que fallaste.
+export default function Session({ topic, mode, game = 'mixed', itemsFijos = null, onExit, onDone }) {
   const [items, setItems] = useState(null);
   const [aiInfo, setAiInfo] = useState(null);
   const [idx, setIdx] = useState(0);
@@ -37,17 +38,18 @@ export default function Session({ topic, mode, game = 'mixed', onExit, onDone })
   const [phase, setPhase] = useState('answer'); // 'answer' | 'feedback'
   const [lastCorrect, setLastCorrect] = useState(false);
   const [lastChosen, setLastChosen] = useState(null);
+  // Has vuelto atrás con la flecha y estás mirando uno ya contestado. No basta
+  // con comparar idx contra los resultados: al corregir el de ahora también
+  // hay resultado para idx, y ese sí tiene que seguir viéndose entero.
+  const [repasando, setRepasando] = useState(false);
   
-  const [foxMsg, setFoxMsg] = useState('Los geht\'s!');
-  const [foxGesto, setFoxGesto] = useState('normal');
-  const [foxJump, setFoxJump] = useState(false);
+  const fox = useFox();
 
   const results = useRef([]);
   const [racha, setRacha] = useState(() => currentStreak());
   const mejorRacha = useRef(racha);
   const monedasGanadas = useRef(0);
   const startedAt = useRef(Date.now());
-  const [now, setNow] = useState(Date.now());
 
   // Montar la tanda puede tardar minutos cuando entra la IA. Antes vivía en un
   // useEffect con un flag `alive`: al cambiar de sección React desmontaba esto,
@@ -65,13 +67,21 @@ export default function Session({ topic, mode, game = 'mixed', onExit, onDone })
 
   // 'todo' = de todo: gramática y también rondas de vocabulario.
   const esTodo = game === 'todo';
-  // Si es "De todo un poco", damos 20 ejercicios y activamos el modo
-  // aleatorio puro para que no priorice repasar siempre los mismos fallos.
-  const size = esTodo ? 20 : (getSettings().sessionSize || 10);
+  // "De todo un poco" estaba clavado en 20 y se saltaba el ajuste. Ahora
+  // tambien manda tu numero; lo que sigue siendo suyo es el modo aleatorio
+  // puro, para que no priorice repasar siempre los mismos fallos.
+  const size = getSettings().sessionSize || 10;
   const nVocab = esTodo ? Math.max(2, Math.round(size * 0.4)) : 0;
 
   useEffect(() => {
     if (consumido.current) return;
+    // Con la tanda ya dada no hay nada que generar.
+    if (itemsFijos?.length) {
+      consumido.current = true;
+      setItems(itemsFijos);
+      startedAt.current = Date.now();
+      return;
+    }
     // ensureJob y no runJob: si ya se está calculando esta misma tanda, nos
     // enganchamos en vez de lanzar un segundo proceso.
     ensureJob(claveJob, () =>
@@ -95,11 +105,6 @@ export default function Session({ topic, mode, game = 'mixed', onExit, onDone })
     // nuevo, no repetir estos ejercicios.
     clearJob(claveJob);
   }, [job.status, claveJob]);
-
-  useEffect(() => {
-    const timer = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   // Si la generación se cae no hay tanda que enseñar. Antes no existía esta
   // rama: el .then() no tenía catch y la pantalla se quedaba girando para
@@ -158,11 +163,11 @@ export default function Session({ topic, mode, game = 'mixed', onExit, onDone })
   }
 
   const item = items[idx];
-  const elapsed = Math.floor((now - startedAt.current) / 1000);
-  const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
-  const ss = String(elapsed % 60).padStart(2, '0');
+  // Con Math.max: el reloj arranca cuando llegan los ejercicios, que es
+  // DESPUES de montar la pantalla, y hasta el primer tic el resultado era
+  // negativo. Se veia un "-1:-1" en el primer segundo de cada tanda.
 
-  function handleAnswer(correct, chosen) {
+  function handleAnswer(correct, chosen, pistas = 0) {
     results.current.push({
       conceptId: item.conceptId,
       correct,
@@ -171,36 +176,67 @@ export default function Session({ topic, mode, game = 'mixed', onExit, onDone })
     });
     recordAnswer(item.conceptId, correct, { itemKey: itemKey(topic.id, item) });
     const seguidos = correct ? racha + 1 : 0;
-    // Se cobra ejercicio a ejercicio: cuanto mas dificil y mas seguidas
-    // lleves, mas monedas.
-    playAudio(correct);
-    const premio = desglose({ correcto: correct });
-    ganar(premio.base);
-    monedasGanadas.current += premio.base;
+    // Se cobra ejercicio a ejercicio, segun lo que ese ejercicio te pida:
+    // escribirlo de cero (write, cloze, open) vale mas que elegir entre
+    // opciones, y ordenar las palabras queda en medio.
+    const nivel =
+      item.type === 'write' || item.type === 'cloze' || item.type === 'open'
+        ? PRODUCIR
+        : item.type === 'order'
+        ? RECONSTRUIR
+        : RECONOCER;
+    monedasGanadas.current += cobrarEjercicio(correct, { nivel, pistas });
     setRacha(seguidos);
     updateStreak(seguidos);
     if (seguidos > mejorRacha.current) mejorRacha.current = seguidos;
     setLastCorrect(correct);
     setLastChosen(chosen);
     
-    setFoxMsg(correct ? WIN_MSGS[Math.floor(Math.random() * WIN_MSGS.length)] : FAIL_MSGS[Math.floor(Math.random() * FAIL_MSGS.length)]);
-    setFoxGesto(correct ? 'feliz' : 'triste');
-    setFoxJump(true);
-    setTimeout(() => setFoxJump(false), 300);
+    fox.acierto(correct);
 
     setPhase('feedback');
   }
 
   function next() {
-    setFoxMsg('Weiter so!');
-    setFoxGesto('normal');
+    fox.sigue();
     setRetries(0);
-    if (idx + 1 < items.length) {
-      setIdx(idx + 1);
-      setPhase('answer');
-    } else {
+    if (idx + 1 >= items.length) {
       finish();
+      return;
     }
+    // Volviendo de un repaso, el siguiente puede estar ya contestado: entonces
+    // se enseña corregido otra vez y no se vuelve a preguntar. Solo al llegar
+    // al que no has hecho se pide respuesta.
+    const sig = idx + 1;
+    setIdx(sig);
+    verEstado(sig);
+  }
+
+  // Deja la pantalla como corresponda al ejercicio `i`: corregido si ya lo
+  // contestaste, o esperando respuesta si es al que habías llegado.
+  function verEstado(i) {
+    const hecho = results.current[i];
+    if (hecho) {
+      setLastCorrect(hecho.correct);
+      setLastChosen(hecho.chosen);
+      setPhase('feedback');
+      setRepasando(true);
+    } else {
+      // De vuelta en el que te tocaba: se acabó el repaso.
+      setPhase('answer');
+      setRepasando(false);
+    }
+  }
+
+  // El anterior, ya corregido. No se vuelve a puntuar ni cuenta otra vez: lo
+  // que hay guardado en results es lo que se enseña, y ahí no se toca nada.
+  function atras() {
+    if (idx === 0) return;
+    if (!results.current[idx - 1]) return;
+    fox.sigue();
+    setRetries(0);
+    setIdx(idx - 1);
+    verEstado(idx - 1);
   }
 
   function handleRetry() {
@@ -259,6 +295,8 @@ export default function Session({ topic, mode, game = 'mixed', onExit, onDone })
       rachaMax: mejorRacha.current,
       rachaRecord: record,
       rank,
+      // Los fallos en crudo, para poder repetirlos sin volver a generarlos.
+      fallos: results.current.filter((r) => !r.correct).map((r) => r.item),
       mistakes: Object.entries(mistakesByConcept).map(([cid, list]) => ({
         conceptId: cid,
         label: conceptLabel(topic, cid),
@@ -271,28 +309,58 @@ export default function Session({ topic, mode, game = 'mixed', onExit, onDone })
   return (
     <div className="reading session">
       <div className="progress-top">
-        <button className="btn-ghost" onClick={onExit} title={t('ses.exit')}>
-          ✕
+        <button className="btn-ghost ses-icon-btn" onClick={onExit} title={t('ses.exit')}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
         </button>
         <div className="bar">
           <span style={{ width: ((idx + (phase === 'feedback' ? 1 : 0)) / items.length) * 100 + '%' }} />
         </div>
-        <span className="timer">
-          {mm}:{ss}
-        </span>
+        {/* Volver al de antes. Sale solo cuando hay uno detrás contestado:
+            en el primero, o antes de contestar nada, no lleva a ningún sitio.
+            Es de las cosas que más se echan en falta al fallar y querer
+            releer la explicación con calma. */}
+        {idx > 0 && results.current[idx - 1] && (
+          <button className="btn-ghost ses-atras ses-icon-btn" onClick={atras} title={t('ses.prev')}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
+        <span className="timer">{idx + 1}/{items.length}</span>
       </div>
 
-      <div className="row spread" style={{ marginBottom: 8 }}>
-        <span className="pill">
-          {idx + 1} / {items.length}
-        </span>
+      {/* De qué tema es la tanda. Vocabulario y Kommunikation lo dicen desde el
+          principio y aquí no salía: con el mismo test para veinte lecciones,
+          a mitad de tanda ya no sabías en cuál estabas. */}
+      <div className="ctx-fila">
+        <span className="pill ctx-tema">📖 {topic.nameEs}</span>
         <span className="row" style={{ gap: 8 }}>
-          {racha >= 2 && (
-            <span className={'pill racha' + (racha >= 5 ? ' fuego' : '')}>
-              {racha >= 5 ? '🔥' : '⚡'} {t('ses.streakN', { n: racha })}
-            </span>
-          )}
+          {(() => {
+            const itemLektionId = topic?.lektionId || (
+              item.conceptId?.includes(':') && item.conceptId.split(':')[0].match(/^[a-z0-9]+-l[0-9]+$/i)
+                ? item.conceptId.split(':')[0]
+                : null
+            );
+            const itemTopicId = (topic?.id && topic.id !== 'mix' && !topic.id.startsWith('mix:'))
+              ? topic.id
+              : (itemLektionId ? `kb-${itemLektionId}` : topic?.id);
+            return (
+              <StarButton
+                item={{
+                  ...item,
+                  topicId: itemTopicId,
+                  lektionId: itemLektionId,
+                  topicName: topic?.nameEs || topic?.name
+                }}
+              />
+            );
+          })()}
+          <RachaPill n={racha} />
           {aiInfo?.aiUsed && <span className="pill">{t('ses.aiOn')}</span>}
+          <Reloj desde={startedAt.current} />
         </span>
       </div>
 
@@ -302,7 +370,20 @@ export default function Session({ topic, mode, game = 'mixed', onExit, onDone })
         </div>
       )}
 
-      {item.type === 'order' ? (
+      {repasando ? (
+        /* Uno que ya contestaste. Se enseña resuelto y no se puede volver a
+           responder: dejarlo interactivo significaría puntuarlo dos veces, y
+           además lo que se quiere al volver es releer, no jugar otra vez. */
+        <div className="ses-repaso">
+          <div className="prompt-label">{t('ses.reviewing')}</div>
+          <div className="sentence">{frasePreguntada(item)}</div>
+          {lastChosen != null && String(lastChosen) !== '' && (
+            <p className={'ses-repaso-tuya ' + (lastCorrect ? 'ok' : 'no')}>
+              {t('ses.youAnswered')} <strong>{String(lastChosen)}</strong>
+            </p>
+          )}
+        </div>
+      ) : item.type === 'order' ? (
         <WordOrder key={item.id + '-' + retries} item={item} onAnswer={(c) => handleAnswer(c, null)} />
       ) : item.type === 'judge' ? (
         <JudgeCard key={item.id + '-' + retries} item={item} onAnswer={handleAnswer} />
@@ -323,46 +404,27 @@ export default function Session({ topic, mode, game = 'mixed', onExit, onDone })
           chosen={lastChosen}
           last={idx + 1 >= items.length}
           onNext={next}
-          onRetry={handleRetry}
+          /* Reintentar saca el ÚLTIMO resultado de la lista, que estando en un
+             repaso no es el de este ejercicio: borraría el que no toca. */
+          onRetry={repasando ? null : handleRetry}
         />
       )}
 
-      {/* Felix global overlay */}
-      <div 
-        style={{
-          position: 'fixed',
-          bottom: 24,
-          right: 24,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-end',
-          pointerEvents: 'none',
-          zIndex: 100,
-          transform: foxJump ? 'translateY(-15px)' : 'none',
-          transition: 'transform 0.15s ease-out'
-        }}
-      >
-        <div 
-          style={{
-            background: 'var(--surface)',
-            border: '2px solid var(--border)',
-            borderRadius: '16px 16px 0 16px',
-            padding: '10px 16px',
-            marginBottom: 12,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-            fontWeight: 600,
-            fontSize: '0.95rem',
-            color: 'var(--text)',
-            pointerEvents: 'auto',
-            animation: 'fadeIn 0.3s ease-out'
-          }}
-        >
-          {foxMsg}
-        </div>
-        <div style={{ pointerEvents: 'auto' }}>
-          <FoxFace fuchs={getFuchs()} gesto={foxGesto} size={110} conCuerpo className="flota" />
-        </div>
-      </div>
+      {/* El bocadillo solo mientras contestas: al corregir, el cuadro de la
+          correccion ocupa la parte de abajo y se le montaba encima. */}
+      <FoxOverlay fox={fox} mudo={phase !== 'answer'} racha={racha} />
     </div>
   );
+}
+
+// La frase tal y como te la preguntaron, con el hueco todavía vacío: debajo,
+// el cuadro de corrección ya enseña la solución y la traducción, así que
+// repetirla arriba no aporta y se pierde de vista qué te preguntaban.
+function frasePreguntada(item) {
+  if (!item) return '';
+  if (item.type === 'order') return item.prompt || '';
+  if (item.type === 'judge') return item.sentence || '';
+  if (item.type === 'cloze') return item.clozeText || '';
+  if (item.type === 'open') return item.question || item.sentence || '';
+  return item.sentence || '';
 }

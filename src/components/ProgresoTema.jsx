@@ -48,23 +48,33 @@ export function BarrasTema({ topicId, pct, etiqueta }) {
   );
 }
 
-// Cómo se llama cada minijuego en el desglose.
-const NOMBRE_JUEGO = {
+// Cómo se llama cada minijuego en el desglose. Se exporta porque la
+// Bestenliste desglosa lo mismo y no vamos a tener dos listas de nombres
+// que se van separando.
+export const NOMBRE_JUEGO = {
   mixed: ['🎲 Mezclado', '🎲 Mixed'],
   todo: ['🎲 De todo un poco', '🎲 A bit of everything'],
-  mc: ['✅ Test', '✅ Quiz'],
+  mc: ['✅ Test de gramática', '✅ Grammar quiz'],
   order: ['🔀 Ordenar frases', '🔀 Sentence order'],
   judge: ['⚖️ ¿Correcto o no?', '⚖️ Right or wrong?'],
-  write: ['⌨️ Escribir', '⌨️ Type it'],
+  write: ['⌨️ Escribir (gramática)', '⌨️ Type it (grammar)'],
+  // Gramatica y vocabulario comparten el id `write`. En las estadisticas se
+  // separan mirando el tema de la tanda (los de vocabulario empiezan por
+  // "vocab:"), y a ese le toca esta etiqueta.
+  'write:voc': ['⌨️ Escribir (vocabulario)', '⌨️ Type it (vocabulary)'],
   weak: ['🩹 Solo mis fallos', '🩹 Just my mistakes'],
   flashcards: ['🃏 Tarjetas', '🃏 Flashcards'],
-  quiz: ['✅ Test', '✅ Quiz'],
+  quiz: ['✅ Test de vocabulario', '✅ Vocabulary quiz'],
   match: ['🧩 Emparejar', '🧩 Match'],
   wortsalat: ['🔤 Wortsalat', '🔤 Letter salad'],
   blitz: ['⚡ Blitz', '⚡ Blitz'],
   hangman: ['🪢 Ahorcado', '🪢 Hangman'],
   gender: ['🎯 der/die/das', '🎯 der/die/das'],
-  cuaderno: ['📓 Cuaderno', '📓 Notebook']
+  cuaderno: ['📓 Cuaderno', '📓 Notebook'],
+  notebook: ['📓 Cuaderno', '📓 Notebook'],
+  kasus: ['🧭 Kasus', '🧭 Kasus'],
+  komm: ['💬 Kommunikation', '💬 Kommunikation'],
+  uebersetzen: ['🔁 Traducir frases', '🔁 Translate phrases']
 };
 
 // 6.8 -> "6,8" en español, "6.8" en inglés.
@@ -93,18 +103,14 @@ export default function CoronaPanel({ topicId, pct }) {
         <p className="muted" style={{ fontSize: '0.82rem' }}>{t('gr.crownNone')}</p>
       ) : (
         porJuego.map((j) => (
-          <div className="juego-bloque" key={j.game}>
-            <div className="juego-fila">
-              <span className="jf-nombre">{pick(...(NOMBRE_JUEGO[j.game] || [j.game, j.game]))}</span>
-              <span className="mini-bar jf-barra">
-                <span
-                  className={j.pct >= 80 ? 'bien' : j.pct >= 50 ? 'medio' : 'mal'}
-                  style={{ width: j.pct + '%' }}
-                />
-              </span>
-              <span className="jf-pct">{j.pct}%</span>
-            </div>
-            <div className="jf-tiempos muted">
+          /* Todo en UNA fila: nombre, las cifras, la barra y el porcentaje.
+             Antes iba en dos —los datos debajo del nombre— y con cinco
+             minijuegos eran diez renglones para comparar tres números. En
+             rejilla y no en flex para que las barras de todos los juegos
+             queden a la misma altura y se puedan comparar de un vistazo. */
+          <div className="juego-fila" key={j.game}>
+            <span className="jf-nombre">{pick(...(NOMBRE_JUEGO[j.game] || [j.game, j.game]))}</span>
+            <span className="jf-tiempos muted">
               <span>{t('gr.crownRuns', { n: j.sesiones })}</span>
               {j.segPorPregunta != null && (
                 <span>⏱ {t('gr.crownSpeed', { s: seg(j.segPorPregunta) })}</span>
@@ -114,9 +120,19 @@ export default function CoronaPanel({ topicId, pct }) {
                   🏆 {t('gr.crownRecord', { s: seg(j.record.segPorPregunta), n: j.record.preguntas })}
                 </span>
               ) : (
-                <span>{t('gr.crownNoRecord')}</span>
+                /* Corto, y la explicación en el tooltip: la frase entera
+                   ("aún no has hecho una sesión sin fallos") ocupaba más que
+                   el resto de la fila junta para decir que no hay nada. */
+                <span title={t('gr.crownNoRecord')}>{t('gr.crownNoRecordShort')}</span>
               )}
-            </div>
+            </span>
+            <span className="mini-bar jf-barra">
+              <span
+                className={j.pct >= 80 ? 'bien' : j.pct >= 50 ? 'medio' : 'mal'}
+                style={{ width: j.pct + '%' }}
+              />
+            </span>
+            <span className="jf-pct">{j.pct}%</span>
           </div>
         ))
       )}

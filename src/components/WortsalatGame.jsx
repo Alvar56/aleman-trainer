@@ -1,12 +1,19 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { pickCards, recordCard } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrar } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONSTRUIR } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
 import { pick } from '../lib/i18n.js';
+import { getSettings } from '../lib/settings.js';
+import { useTeclas } from '../lib/teclas.js';
+import { apuntarRespuesta, currentStreak } from '../lib/rachas.js';
+import Reloj from './Reloj.jsx';
+import RachaPill from './RachaPill.jsx';
 
-const RONDAS = 8;
+// Cuantas rondas, de Ajustes. Antes eran ocho fijas.
+const RONDAS_POR_DEFECTO = 8;
 
 function revuelve(letras) {
   const x = [...letras];
@@ -29,17 +36,22 @@ function trocear(palabra) {
   return out;
 }
 
-export default function WortsalatGame({ deck, onExit, onFinish }) {
+export default function WortsalatGame({ deck, cartasFijas, onExit, onFinish }) {
+  const fox = useFox();
   // Solo palabras de una pieza: los anagramas de frases enteras no tienen gracia.
+  const rondas = getSettings().sessionSize || RONDAS_POR_DEFECTO;
   const cards = useMemo(() => {
-    const todas = pickCards(deck, RONDAS * 3)
+    // Repitiendo los fallos: exactamente esas y en ese orden. Ya pasaron el
+    // filtro de forma la primera vez, asi que no hay que volver a colarlas.
+    if (cartasFijas && cartasFijas.length) return cartasFijas;
+    const todas = pickCards(deck, rondas * 3)
       .filter((c) => {
         const limpio = String(c.de).replace(/^(der|die|das)\s+/i, '').trim();
         return /^[A-Za-zÄÖÜäöüß-]{4,14}$/.test(limpio);
       })
-      .slice(0, RONDAS);
+      .slice(0, rondas);
     return todas;
-  }, [deck]);
+  }, [deck, rondas, cartasFijas]);
 
   const [idx, setIdx] = useState(0);
   const [letras, setLetras] = useState([]);
@@ -49,11 +61,16 @@ export default function WortsalatGame({ deck, onExit, onFinish }) {
   const selRef = useRef(null);
   const results = useRef([]);
   const monedas = useRef(0); // lo ganado en esta tanda, para el resumen
+  // Aciertos seguidos, como en el resto de juegos.
+  const [seguidas, setSeguidas] = useState(() => currentStreak());
+  const mejorSeguidas = useRef(0);
   const started = useRef(Date.now());
 
   const card = cards[idx];
   const objetivo = card ? String(card.de).replace(/^(der|die|das)\s+/i, '').trim() : '';
   const articulo = card ? (String(card.de).match(/^(der|die|das)\s+/i)?.[1] || '') : '';
+
+  const [pistasUsadas, setPistasUsadas] = useState(0);
 
   useEffect(() => {
     if (!card) return;
@@ -62,6 +79,7 @@ export default function WortsalatGame({ deck, onExit, onFinish }) {
     selRef.current = null;
     setResuelto(false);
     setRendido(false);
+    setPistasUsadas(0);
   }, [idx, card]);
 
   // Cuántas letras seguidas, desde la primera, están ya en su sitio.
@@ -75,13 +93,18 @@ export default function WortsalatGame({ deck, onExit, onFinish }) {
     if (!card || resuelto || rendido) return;
     if (letras.length && bien === objetivo.length) {
       setResuelto(true);
-      recordCard(deck.id, card.de, true);
-      monedas.current += cobrar(results.current, true);
-      results.current.push({ card, ok: true });
+      recordCard(card.de, true);
+      // Tienes las letras delante y las colocas: RECONSTRUIR.
+      monedas.current += cobrarEjercicio(true, { nivel: RECONSTRUIR, pistas: pistasUsadas });
+      results.current.push({ card, ok: true, pistas: pistasUsadas });
+      const rSeg = apuntarRespuesta(true);
+      setSeguidas(rSeg.seguidas);
+      if (rSeg.seguidas > mejorSeguidas.current) mejorSeguidas.current = rSeg.seguidas;
+      fox.acierto(true);
       const t = setTimeout(siguiente, 900);
       return () => clearTimeout(t);
     }
-  }, [bien, letras, resuelto, rendido]);
+  }, [bien, letras, resuelto, rendido, pistasUsadas]);
 
   function tocar(i) {
     if (resuelto || rendido) return;
@@ -97,12 +120,59 @@ export default function WortsalatGame({ deck, onExit, onFinish }) {
     });
   }
 
+  function pedirPistaWS() {
+    if (resuelto || rendido) return;
+    // Buscar una posición aleatoria que aún no tenga su letra correcta
+    const descolocadas = [];
+    letras.forEach((l, i) => {
+      if (l.ch !== objetivo[i]) descolocadas.push(i);
+    });
+    if (!descolocadas.length) return;
+    const targetIdx = descolocadas[Math.floor(Math.random() * descolocadas.length)];
+    const targetChar = objetivo[targetIdx];
+    // Buscar la letra que debería estar allí
+    const actualIdx = letras.findIndex((l, i) => l.ch === targetChar && l.ch !== objetivo[i]);
+    if (actualIdx === -1 || actualIdx === targetIdx) return;
+
+    setLetras((ls) => {
+      const n = [...ls];
+      [n[targetIdx], n[actualIdx]] = [n[actualIdx], n[targetIdx]];
+      return n;
+    });
+    setSel(null);
+    selRef.current = null;
+    setPistasUsadas((p) => p + 1);
+  }
+
   function rendirse() {
     if (resuelto) return;
     setRendido(true);
-    recordCard(deck.id, card.de, false);
+    recordCard(card.de, false);
     results.current.push({ card, ok: false });
+    setSeguidas(apuntarRespuesta(false).seguidas);
+    fox.acierto(false);
   }
+
+  // Atajos de teclado: 1..9 (y 0) para seleccionar fichas, P para pista, Enter/Espacio para avanzar, Escape para salir
+  const teclasMapa = useMemo(() => {
+    if (resuelto || rendido) {
+      return { Enter: () => siguiente(), ' ': () => siguiente(), Escape: onExit };
+    }
+    const m = {
+      p: pedirPistaWS,
+      P: pedirPistaWS,
+      h: pedirPistaWS,
+      H: pedirPistaWS,
+      Escape: onExit
+    };
+    for (let k = 0; k < Math.min(letras.length, 10); k++) {
+      const keyStr = k === 9 ? '0' : String(k + 1);
+      m[keyStr] = () => tocar(k);
+    }
+    return m;
+  }, [resuelto, rendido, letras, objetivo]);
+
+  useTeclas(teclasMapa, cards.length > 0);
 
   function siguiente() {
     if (idx + 1 < cards.length) setIdx(idx + 1);
@@ -158,6 +228,14 @@ export default function WortsalatGame({ deck, onExit, onFinish }) {
         <span className="timer">{idx + 1}/{cards.length}</span>
       </div>
 
+      <div className="ctx-fila">
+        <span className="pill ctx-tema">{deck.emoji} {deck.name}</span>
+        <span className="row" style={{ gap: 8 }}>
+          <RachaPill n={seguidas} />
+          <Reloj desde={started.current} />
+        </span>
+      </div>
+
       <div className="prompt-label">{pick('Ordena las letras', 'Put the letters in order')}</div>
 
       <div className="fc-wrap">
@@ -174,7 +252,19 @@ export default function WortsalatGame({ deck, onExit, onFinish }) {
             else if (i < bien) cls += ' ok';
             if (sel === i) cls += ' sel';
             return (
-              <button key={l.id} className={cls} onClick={() => tocar(i)} disabled={resuelto || rendido}>
+              <button
+                key={l.id}
+                className={cls}
+                onClick={() => tocar(i)}
+                disabled={resuelto || rendido}
+                style={{ position: 'relative' }}
+                title={`Atajo: ${i === 9 ? '0' : i + 1}`}
+              >
+                {!resuelto && !rendido && i < 10 && (
+                  <span className="op-tecla" style={{ fontSize: '0.58rem', position: 'absolute', top: 2, right: 3, opacity: 0.75 }}>
+                    {i === 9 ? '0' : i + 1}
+                  </span>
+                )}
                 {l.ch}
               </button>
             );
@@ -185,14 +275,19 @@ export default function WortsalatGame({ deck, onExit, onFinish }) {
           <>
             <p className="wo-hint muted">
               {sel === null
-                ? pick('Toca dos letras para intercambiarlas. Las verdes ya están en su sitio.',
-                       'Tap two letters to swap them. Green ones are already in place.')
+                ? pick('Toca dos letras (o pulsa sus números) para intercambiarlas. Las verdes ya están en su sitio.',
+                       'Tap two letters (or press their numbers) to swap them. Green ones are already in place.')
                 : pick('Ahora toca la letra con la que quieres intercambiarla.',
                        'Now tap the letter you want to swap it with.')}
             </p>
-            <button className="btn-ghost btn-sm" onClick={rendirse}>
-              {pick('No me sale', 'I give up')}
-            </button>
+            <div className="row" style={{ gap: 8, justifyContent: 'center', marginTop: 4 }}>
+              <button className="btn-ghost btn-sm" onClick={pedirPistaWS} title="Atajo: P">
+                💡 {pick('Colocar una letra (P)', 'Place a letter (P)')}
+              </button>
+              <button className="btn-ghost btn-sm" onClick={rendirse}>
+                {pick('No me sale', 'I give up')}
+              </button>
+            </div>
           </>
         )}
 
@@ -205,6 +300,7 @@ export default function WortsalatGame({ deck, onExit, onFinish }) {
           </>
         )}
 
+      <FoxOverlay fox={fox} racha={seguidas} />
         {resuelto && <p className="ws-ok">✓ {card.de}</p>}
       </div>
     </div>

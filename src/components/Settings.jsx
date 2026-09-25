@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
-import { t } from '../lib/i18n.js';
-import { getSettings, setSettings } from '../lib/settings.js';
+import { t, pick, getLang, setLang, LANGS, LANGS_PENDIENTES } from '../lib/i18n.js';
+import ImportarVocab from './ImportarVocab.jsx';
+import ComoFunciona from './ComoFunciona.jsx';
+import { SIN_IA, PORTABLE, BUILD } from '../lib/modo.js';
+import { getSettings, setSettings, aiAvailable } from '../lib/settings.js';
 import { storage } from '../lib/storage.js';
+import { exportarFotos, importarFotos } from '../lib/fotos.js';
+import { getTema, setTema, TEMAS } from '../lib/tema.js';
 import { getLevel, liveStreak } from '../lib/streak.js';
 import { saldo } from '../lib/monedas.js';
 import { coronas, getFuchs } from '../lib/fuchs.js';
 import { bestStreak } from '../lib/rachas.js';
 import { generateItems } from '../lib/ai.js';
+import { esOrdenador } from '../lib/teclas.js';
+import { hablar, vozAlemana } from '../lib/audio.js';
+
+const ICONO_TEMA = { auto: '🌗', claro: '☀️', oscuro: '🌙' };
+const NOMBRE_TEMA = {
+  auto: ['Automático', 'Automatic'],
+  claro: ['Claro', 'Light'],
+  oscuro: ['Oscuro', 'Dark']
+};
 
 export default function Settings({ onBack }) {
+  const [tema, setTemaLocal] = useState(getTema());
   const [s, setS] = useState(getSettings());
   const [test, setTest] = useState(null);
+  // Sacar las fotos de IndexedDB tarda un momento; el boton lo dice mientras.
+  const [exportando, setExportando] = useState(false);
   const lvl = getLevel();
   const racha = liveStreak();
 
@@ -26,14 +43,26 @@ export default function Settings({ onBack }) {
     }
   }
 
-  function exportData() {
-    const blob = new Blob([JSON.stringify(storage.exportAll(), null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'deutsch-trainer-backup.json';
-    a.click();
-    URL.revokeObjectURL(url);
+  // La copia se lleva TAMBIEN las fotos de los apuntes. Viven en IndexedDB y
+  // no en localStorage, asi que antes se quedaban fuera sin avisar: exportabas,
+  // cambiabas de equipo, importabas, y los apuntes volvian sin una sola imagen.
+  //
+  // Van en su propio apartado del fichero, no mezcladas con las claves, para
+  // que una copia vieja -que no las trae- se siga pudiendo importar igual.
+  async function exportData() {
+    setExportando(true);
+    try {
+      const datos = { __version: 1, claves: storage.exportAll(), fotos: await exportarFotos() };
+      const blob = new Blob([JSON.stringify(datos)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'deutsch-trainer-backup.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    } finally {
+      setExportando(false);
+    }
   }
 
   function importData(e) {
@@ -42,9 +71,14 @@ export default function Settings({ onBack }) {
     const reader = new FileReader();
     reader.onload = () => {
       try {
-        storage.importAll(JSON.parse(reader.result));
-        alert(t('set.imported'));
-        location.reload();
+        const datos = JSON.parse(reader.result);
+        // Copias de antes: el fichero ERA el mapa de claves, sin envoltorio.
+        const claves = datos && datos.claves ? datos.claves : datos;
+        storage.importAll(claves);
+        importarFotos(datos && datos.fotos).then(() => {
+          alert(t('set.imported'));
+          location.reload();
+        });
       } catch {
         alert(t('set.badFile'));
       }
@@ -56,7 +90,7 @@ export default function Settings({ onBack }) {
     <div className="stack reading">
       <div className="topbar">
         <h1>Einstellungen</h1>
-        <button className="link-btn" onClick={onBack}>← {t('back')}</button>
+        <button className="link-btn" onClick={onBack}><span className="fl-atras">◂</span> {t('back')}</button>
       </div>
 
       {/* Lo que llevas conseguido, junto. Estaba repartido entre la portada, el
@@ -64,13 +98,90 @@ export default function Settings({ onBack }) {
       <div className="panel">
         <h2>{t('set.account')}</h2>
         <div className="set-resumen">
-          <div><strong>{saldo()}</strong><small>{t('fox.coins')}</small></div>
-          <div><strong>{lvl.level}</strong><small>{t('set.level')}</small></div>
-          <div><strong>{coronas()}</strong><small>{t('set.crowns')}</small></div>
-          <div><strong>{racha.current}</strong><small>{t('set.streakDays')}</small></div>
-          <div><strong>{bestStreak()}</strong><small>{t('set.bestRun')}</small></div>
+          <div className="card statcard">
+            <div className="n">{lvl.level}</div>
+            <div className="l">{t('set.level')}</div>
+          </div>
+          <div className="card statcard">
+            <div className="n">{lvl.totalXp}</div>
+            <div className="l">XP</div>
+          </div>
+          <div className="card statcard">
+            <div className="n">{saldo()}</div>
+            <div className="l">{t('fox.coins')}</div>
+          </div>
+          <div className="card statcard">
+            <div className="n">{coronas()}</div>
+            <div className="l">{t('set.crowns')}</div>
+          </div>
+          <div className="card statcard">
+            <div className="n">{racha.current}</div>
+            <div className="l">{t('set.streakDays')}</div>
+          </div>
+          <div className="card statcard">
+            <div className="n">{bestStreak()}</div>
+            <div className="l">{t('set.bestRun')}</div>
+          </div>
         </div>
-        <p className="field-hint" style={{ marginTop: 12 }}>{t('set.foxHint', { nombre: getFuchs().nombre })}</p>
+        <p className="field-hint set-resumen-nota">{t('set.foxHint', { nombre: getFuchs().nombre })}</p>
+      </div>
+
+      {/* El idioma se cambia desde la barra lateral, pero ahi son dos
+          pastillas de dos letras y no se ve que haya mas. Aqui esta la lista
+          entera, con los que todavia no estan puestos a la vista y apagados:
+          un hueco marcado dice mas que no decir nada. */}
+      <div className="panel">
+        <h2>{pick('Idioma', 'Language')}</h2>
+        <p className="muted" style={{ fontSize: '0.9rem', marginBottom: 12 }}>
+          {pick(
+            'El alemán no se traduce nunca: es lo que vienes a aprender. Esto cambia lo demás.',
+            'German is never translated: that is what you came for. This changes everything else.'
+          )}
+        </p>
+        <div className="idiomas">
+          {LANGS.map((l) => (
+            <button
+              key={l.id}
+              className={'idioma' + (getLang() === l.id ? ' on' : '')}
+              onClick={() => setLang(l.id)}
+            >
+              <span className="idioma-bandera">{l.flag}</span>
+              <span>{l.label}</span>
+            </button>
+          ))}
+          {LANGS_PENDIENTES.map((l) => (
+            <button key={l.id} className="idioma pendiente" disabled>
+              <span className="idioma-bandera">{l.flag}</span>
+              <span>{l.label}</span>
+              <small>{pick('Próximamente', 'Coming soon')}</small>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* El modo oscuro salia solo de prefers-color-scheme, y el HTML de un
+          fichero se abre en un navegador que muchas veces no se lo pasa a la
+          pagina: se veia siempre claro y no habia donde cambiarlo. */}
+      <div className="panel">
+        <h2>{pick('Aspecto', 'Appearance')}</h2>
+        <p className="muted" style={{ fontSize: '0.9rem', marginBottom: 12 }}>
+          {pick(
+            'En automático sigue al sistema. Si tu navegador no le pasa el modo oscuro a la pagina, elígelo aquí a mano.',
+            'On automatic it follows your system. If your browser does not pass dark mode on to the page, pick it here by hand.'
+          )}
+        </p>
+        <div className="idiomas">
+          {TEMAS.map((id) => (
+            <button
+              key={id}
+              className={'idioma' + (tema === id ? ' on' : '')}
+              onClick={() => { setTema(id); setTemaLocal(id); }}
+            >
+              <span className="idioma-bandera">{ICONO_TEMA[id]}</span>
+              <span>{NOMBRE_TEMA[id][getLang() === 'en' ? 1 : 0]}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="panel">
@@ -84,74 +195,207 @@ export default function Settings({ onBack }) {
       </div>
 
       <div className="panel">
-        <h2>{t('set.aiTitle')}</h2>
-        <p className="muted" style={{ fontSize: '0.9rem' }}>
-          {t('set.aiIntro')}
+        <h2>⌨️ {pick('Atajos de teclado', 'Keyboard shortcuts')}</h2>
+        <p className="muted" style={{ fontSize: '0.9rem', marginBottom: 12 }}>
+          {pick(
+            'Muestra u oculta las etiquetas visuales con los números y letras en las opciones de los ejercicios. Aunque estén ocultas, podrás seguir usando las teclas físicas para responder.',
+            'Show or hide the visual badges with numbers and letters on exercise options. Even when hidden, you can still use keyboard keys to answer.'
+          )}
         </p>
-        <label className="switch" style={{ marginTop: 14 }}>
-          <input type="checkbox" checked={s.aiEnabled} onChange={(e) => up({ aiEnabled: e.target.checked })} />
-          <span>{t('set.aiOn')}</span>
+        <label className="switch">
+          <input
+            type="checkbox"
+            checked={s.showShortcuts !== false}
+            onChange={(e) => up({ showShortcuts: e.target.checked })}
+          />
+          <span>{pick('Mostrar visualmente los atajos de teclado', 'Show keyboard shortcut badges')}</span>
         </label>
+      </div>
 
-        {s.aiEnabled && (
-          <>
-            <label className="field">
-              {t('set.provider')}
-              <select value={s.aiProvider} onChange={(e) => up({ aiProvider: e.target.value })}>
-                <option value="claude-local">Claude (local, sin API key)</option>
-                <option value="gemini">Google Gemini (capa gratuita)</option>
-                <option value="openai-compat">OpenAI / compatible</option>
-              </select>
-            </label>
-            {s.aiProvider === 'claude-local' ? (
-              <p className="field-hint" style={{ marginTop: 10 }}>
-                {t('set.localHint')}
-              </p>
+      <div className="panel">
+        <h2>🔊 {pick('Audio y pronunciación', 'Audio & Pronunciation')}</h2>
+        {esOrdenador() ? (
+          <p className="muted" style={{ fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 12 }}>
+            {pick(
+              'En esta versión de ordenador se pueden escuchar con total claridad y fluidez todos los textos y ejercicios que requieren audio (comprensión auditiva en exámenes, lecturas de lecciones, pronunciación de vocabulario y frases en Kommunikation), gracias a las voces alemanas del sintetizador de voz integrado en el navegador.',
+              'In this desktop version, you can clearly and smoothly listen to all texts and exercises that require audio (exam listening comprehension, lesson readings, vocabulary and Kommunikation sentence pronunciation), thanks to high-quality German speech synthesis built into your browser.'
+            )}
+          </p>
+        ) : (
+          <p className="muted" style={{ fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 12 }}>
+            {pick(
+              'Para escuchar con la máxima claridad los ejercicios de comprensión auditiva y lecturas en voz alta, se recomienda usar la versión de ordenador, que aprovecha las voces completas del sistema.',
+              'For the clearest audio on listening comprehension exercises and read-aloud features, the desktop version is recommended, utilizing complete system voices.'
+            )}
+          </p>
+        )}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+          <button
+            type="button"
+            className="btn-ghost btn-sm"
+            onClick={() => hablar('Hallo! Hier kannst du deutsche Texte und Übungen deutlich hören.')}
+          >
+            {pick('Probar voz alemana', 'Test German voice')}
+          </button>
+          {vozAlemana() && (
+            <span className="field-hint" style={{ margin: 0 }}>
+              {pick('Voz detectada:', 'Detected voice:')} {vozAlemana().name}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Todo el panel de IA fuera cuando se compila sin ella: proveedor,
+          clave, modelo, cuanta parte de la tanda genera y el boton de
+          probar la conexion. Sin IA no hay nada que configurar. */}
+      {!SIN_IA && (
+        <div className="panel">
+          <h2>{t('set.aiTitle')}</h2>
+          <p className="muted" style={{ fontSize: '0.9rem' }}>
+            {t('set.aiIntro')}
+          </p>
+          <label className="switch" style={{ marginTop: 14 }}>
+            <input type="checkbox" checked={s.aiEnabled} onChange={(e) => up({ aiEnabled: e.target.checked })} />
+            <span>{t('set.aiOn')}</span>
+          </label>
+
+          {/* El semáforo que vivía en el menú lateral: si la IA está de
+              verdad encendida, si faltan datos o si van las plantillas. Allí
+              había además un segundo selector de motor, y con este panel al
+              lado eran dos mandos para lo mismo. */}
+          <div className="engine-status">
+            {aiAvailable(s) ? (
+              <>
+                <span className="dot-live" /> {t('set.aiLive')}
+              </>
+            ) : s.aiEnabled ? (
+              <>
+                <span className="dot-off" /> {t('set.aiNoKey')}
+              </>
             ) : (
               <>
-                <label className="field">
-                  {t('set.model')}
-                  <input type="text" value={s.aiModel} onChange={(e) => up({ aiModel: e.target.value })}
-                    placeholder={s.aiProvider === 'gemini' ? 'gemini-1.5-flash' : 'gpt-4o-mini'} />
-                </label>
-                <label className="field">
-                  API key
-                  <input type="password" value={s.aiKey} onChange={(e) => up({ aiKey: e.target.value })}
-                    placeholder={t('set.keyPh')} />
-                  <span className="field-hint">
-                    {s.aiProvider === 'gemini'
-                      ? t('set.geminiHint')
-                      : t('set.openaiHint')}
-                  </span>
-                </label>
-                {s.aiProvider === 'openai-compat' && (
-                  <label className="field">
-                    Base URL
-                    <input type="text" value={s.aiBaseUrl || ''}
-                      onChange={(e) => up({ aiBaseUrl: e.target.value })}
-                      placeholder="https://api.openai.com/v1" />
-                    <span className="field-hint">Para Ollama, Groq, OpenRouter u otro endpoint compatible.</span>
-                  </label>
-                )}
+                <span className="dot-off" /> {t('set.aiTemplates')}
               </>
             )}
-            <label className="field">
-              {t('set.aiShare')}: <strong>{Math.round(s.aiShare * 100)}%</strong>
-              {/* Llega hasta el 100%: quien quiera la tanda entera de la IA
-                  puede pedirla. Y el 0 vale: se practica solo con plantillas. */}
-              <input type="range" min="0" max="1" step="0.1" value={s.aiShare}
-                onChange={(e) => up({ aiShare: Number(e.target.value) })} style={{ width: '100%' }} />
-            </label>
-            <p className="field-hint" style={{ marginTop: 6 }}>
-              {s.aiShare === 0 ? t('set.aiShareOff') : t('set.aiShareHint')}
-            </p>
-            <div style={{ marginTop: 14 }}>
-              <button className="btn-ghost btn-sm" onClick={tryAi}>{t('set.testConn')}</button>
-              {test && <p className="field-hint" style={{ marginTop: 8 }}>{test}</p>}
-            </div>
-          </>
-        )}
-      </div>
+          </div>
+
+          {s.aiEnabled && (
+            <>
+              <label className="field">
+                {t('set.provider')}
+                <select value={s.aiProvider} onChange={(e) => up({ aiProvider: e.target.value })}>
+                  <option value="claude-local">{pick('Claude (local, sin API key)', 'Claude (local, no API key)')}</option>
+                  <option value="gemini">{pick('Google Gemini (capa gratuita)', 'Google Gemini (free tier)')}</option>
+                  <option value="openai-compat">OpenAI / compatible</option>
+                </select>
+              </label>
+
+              {/* Explicación de capacidades: Claude vs Gemini / OpenAI */}
+              <div style={{
+                marginTop: 10,
+                marginBottom: 14,
+                padding: '12px 14px',
+                borderRadius: 10,
+                background: 'var(--surface-2, rgba(255, 255, 255, 0.04))',
+                border: '1px solid var(--border)',
+                fontSize: '0.86rem',
+                lineHeight: 1.5
+              }}>
+                <div style={{ fontWeight: 600, marginBottom: 6, color: 'var(--text)' }}>
+                  {pick('💡 ¿Qué puede hacer cada proveedor?', '💡 What can each provider do?')}
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 7, color: 'var(--text-2)' }}>
+                  <div>
+                    <strong style={{ color: 'var(--text)' }}>Claude (local):</strong>{' '}
+                    {pick(
+                      'Capaz de búsqueda web en tiempo real. Puede generar ejercicios, explicaciones, evaluar respuestas y además buscar noticias reales de prensa austríaca/alemana y canciones en YouTube. Requiere ejecutar el proyecto en local con el servidor de desarrollo.',
+                      'Capable of real-time web search. Can generate exercises, explanations, evaluate answers, and fetch real Austrian/German news and search songs on YouTube. Requires running the project locally with the dev server.'
+                    )}
+                  </div>
+                  <div>
+                    <strong style={{ color: 'var(--text)' }}>Google Gemini:</strong>{' '}
+                    {pick(
+                      'Ideal para generar infinidad de ejercicios adaptativos de gramática y vocabulario, explicar correcciones, evaluar tus frases y charlar con Felix. Sin embargo, su API no realiza búsquedas web en directo, por lo que NO puede buscar canciones ni noticias (estas dos funciones requieren Claude local y no están disponibles con Gemini ni en el archivo HTML portable).',
+                      'Great for generating unlimited adaptive grammar and vocab exercises, explaining corrections, evaluating your sentences, and chatting with Felix. However, its API cannot perform live web searches, so it CANNOT search for songs or news (these two features require local Claude and are unavailable with Gemini or in the portable HTML).'
+                    )}
+                  </div>
+                </div>
+              </div>
+              {s.aiProvider === 'claude-local' ? (
+                <>
+                  <p className="field-hint" style={{ marginTop: 10 }}>
+                    {t('set.localHint')}
+                  </p>
+                  {/* Con este proveedor los campos de clave y modelo estaban
+                      escondidos. El resultado: quien había configurado Gemini y
+                      volvía aquí dejaba de ver su propia configuración, no
+                      entendía por qué no funcionaba nada fuera de npm run dev,
+                      y no tenía ni una pista de dónde mirar. Ahora se dice que
+                      la clave sigue guardada y para qué sirve. */}
+                  {s.aiKey && (
+                    <p className="field-hint" style={{ marginTop: 6 }}>
+                      {t('set.localConClave', { modelo: s.aiModel || '—' })}
+                    </p>
+                  )}
+                </>
+              ) : (
+                <>
+                  <label className="field">
+                    {t('set.model')}
+                    <input type="text" value={s.aiModel} onChange={(e) => up({ aiModel: e.target.value })}
+                      placeholder={s.aiProvider === 'gemini' ? 'gemini-1.5-flash' : 'gpt-4o-mini'} />
+                  </label>
+                  <label className="field">
+                    API key
+                    <input type="password" value={s.aiKey} onChange={(e) => up({ aiKey: e.target.value })}
+                      placeholder={t('set.keyPh')} />
+                    <span className="field-hint">
+                      {s.aiProvider === 'gemini'
+                        ? t('set.geminiHint')
+                        : t('set.openaiHint')}
+                    </span>
+                  </label>
+                  {s.aiProvider === 'openai-compat' && (
+                    <label className="field">
+                      Base URL
+                      <input type="text" value={s.aiBaseUrl || ''}
+                        onChange={(e) => up({ aiBaseUrl: e.target.value })}
+                        placeholder="https://api.openai.com/v1" />
+                      <span className="field-hint">Para Ollama, Groq, OpenRouter u otro endpoint compatible.</span>
+                    </label>
+                  )}
+                </>
+              )}
+              <label className="field">
+                {t('set.aiShare')}: <strong>{Math.round(s.aiShare * 100)}%</strong>
+                {/* Llega hasta el 100%: quien quiera la tanda entera de la IA
+                    puede pedirla. Y el 0 vale: se practica solo con plantillas. */}
+                <input type="range" min="0" max="1" step="0.1" value={s.aiShare}
+                  onChange={(e) => up({ aiShare: Number(e.target.value) })} style={{ width: '100%' }} />
+              </label>
+              <p className="field-hint" style={{ marginTop: 6 }}>
+                {s.aiShare === 0 ? t('set.aiShareOff') : t('set.aiShareHint')}
+              </p>
+              <div style={{ marginTop: 14 }}>
+                <button className="btn-ghost btn-sm" onClick={tryAi}>{t('set.testConn')}</button>
+                {test && <p className="field-hint" style={{ marginTop: 8 }}>{test}</p>}
+              </div>
+            </>
+          )}
+        </div>
+      )}
+
+      {/* Importar un Excel como mazo. Estaba en Wortschatz, donde estorbaba
+          todos los dias por algo que se hace una vez.
+
+          En el HTML de un solo fichero no va. No es por quitar funciones: el
+          lector de hojas de calculo pesa 417 KB de los 2.088 que ocupaba el
+          fichero -el 20%-, y quien lo recibe por Drive no va a importar un
+          Excel. Al no pintarse aqui, ImportarVocab sale del bundle y con el
+          se va su import('xlsx'). */}
+      <ComoFunciona />
+
+      {!PORTABLE && <ImportarVocab />}
 
       <div className="panel">
         <h2>{t('set.data')}</h2>
@@ -159,14 +403,16 @@ export default function Settings({ onBack }) {
           {t('set.dataIntro')}
         </p>
         <div className="btn-row">
-          <button className="btn-ghost btn-sm" onClick={exportData}>{t('set.export')}</button>
+          <button className="btn-ghost btn-sm" onClick={exportData} disabled={exportando}>
+            {exportando ? t('set.exporting') : t('set.export')}
+          </button>
           <label className="btn-ghost btn-sm" style={{ display: 'inline-flex', alignItems: 'center' }}>
             {t('set.import')}
             <input type="file" accept="application/json" onChange={importData} style={{ display: 'none' }} />
           </label>
           <button className="btn-ghost btn-sm danger"
             onClick={() => {
-              if (!confirm(t('set.confirmReset'))) return;
+              if (!confirm(t(SIN_IA ? 'set.confirmResetSinIA' : 'set.confirmReset'))) return;
               const n = storage.resetAll();
               alert(t('set.resetDone', { n }));
               location.reload();
@@ -175,6 +421,30 @@ export default function Settings({ onBack }) {
           </button>
         </div>
       </div>
+
+      {/* Footer con versión, autor y créditos de libros */}
+      <footer className="set-watermark">
+        <span className="sw-item sw-creditos">
+          📖 {pick('Basado en «Miteinander in Österreich» (Hueber Verlag)', 'Based on «Miteinander in Österreich» (Hueber Verlag)')}
+        </span>
+        <span className="sw-sep" aria-hidden="true">·</span>
+        {BUILD && (
+          <>
+            <span className="sw-item sw-build">{t('set.build', { fecha: BUILD })}</span>
+            <span className="sw-sep" aria-hidden="true">·</span>
+          </>
+        )}
+        <span className="sw-item sw-autor">
+          {pick('Creado por Alvar Pascual García', 'Created by Alvar Pascual García')}
+        </span>
+        <span className="sw-sep" aria-hidden="true">·</span>
+        <span className="sw-item sw-feedback">
+          {pick('Feedback:', 'Feedback:')}{' '}
+          <a href="mailto:pascualgarciaallvar@gmail.com" className="sw-email">
+            pascualgarciaallvar@gmail.com
+          </a>
+        </span>
+      </footer>
     </div>
   );
 }

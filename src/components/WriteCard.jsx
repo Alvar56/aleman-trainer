@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { t } from '../lib/i18n.js';
 import Umlaut from './Umlaut.jsx';
+import PistaLetras from './PistaLetras.jsx';
 
 // Lückentext: el mismo ejercicio de test pero SIN las tres opciones — hay que
 // escribir la palabra. Es bastante más difícil (no puedes descartar) y es lo
@@ -15,11 +16,14 @@ function normaliza(s) {
 export default function WriteCard({ item, onAnswer }) {
   const [texto, setTexto] = useState('');
   const [hecho, setHecho] = useState(false);
+  // Letras destapadas a mano. La inicial la enseña siempre el esqueleto.
+  const [pistas, setPistas] = useState(0);
   const input = useRef(null);
 
   useEffect(() => {
     setTexto('');
     setHecho(false);
+    setPistas(0);
     input.current?.focus();
   }, [item.id]);
 
@@ -27,7 +31,9 @@ export default function WriteCard({ item, onAnswer }) {
     if (hecho || !texto.trim()) return;
     setHecho(true);
     const esperado = normaliza(String(item.answer || '').replace(/\s*\.\.\.\s*/g, ' '));
-    onAnswer(normaliza(texto) === esperado, texto.trim());
+    // Las pistas van tambien: destapar letras abarata el ejercicio, igual
+    // que en el juego de traducir.
+    onAnswer(normaliza(texto) === esperado, texto.trim(), pistas);
   }
 
   const parts = String(item.sentence).split('___');
@@ -50,6 +56,16 @@ export default function WriteCard({ item, onAnswer }) {
         ))}
       </div>
 
+      {/* La inicial de cada palabra, y más letras si las pides. Con el campo
+          completamente en blanco esto no es un ejercicio de gramática: es
+          acordarse de la palabra exacta o nada. */}
+      <PistaLetras
+        respuesta={String(item.answer || '').replace(/\s*\.\.\.\s*/g, ' ')}
+        pistas={pistas}
+        onPedir={() => setPistas((n) => n + 1)}
+        oculto={hecho}
+      />
+
       <div className="write-fila">
         <input
           ref={input}
@@ -60,7 +76,17 @@ export default function WriteCard({ item, onAnswer }) {
           value={texto}
           disabled={hecho}
           onChange={(e) => setTexto(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && comprobar()}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              comprobar();
+            } else if (
+              ((e.ctrlKey || e.altKey) && (e.key === 'p' || e.key === 'P' || e.key === 'h' || e.key === 'H')) ||
+              e.key === 'F2'
+            ) {
+              e.preventDefault();
+              setPistas((n) => n + 1);
+            }
+          }}
           placeholder={t('ses.writePh')}
           autoComplete="off"
           autoCapitalize="off"

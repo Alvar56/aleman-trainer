@@ -9,9 +9,9 @@ const avisos = [];
 for (const [key, d] of Object.entries(DATA)) {
   const vistas = new Set();
   (d.picks || []).forEach((x, i) => {
-    const donde = `${key}#pick${i}`;
     const huecos = (String(x.s).match(/___/g) || []).length;
-    if (huecos !== 1) fallos.push(`${donde}: ${huecos} huecos "___" (debe haber 1) → ${x.s}`);
+    const partesAns = String(x.a || '').split(/\s*\.\.\.\s*|\s*…\s*/).filter(Boolean).length;
+    if (huecos !== 1 && huecos !== partesAns) fallos.push(`${donde}: ${huecos} huecos "___" (debe haber 1 o coincidir con partes de respuesta) → ${x.s}`);
     const opts = [x.a, ...(x.d || [])].map((o) => String(o).toLowerCase().trim());
     if (new Set(opts).size !== 3) fallos.push(`${donde}: ${new Set(opts).size} opciones distintas (deben ser 3) → ${JSON.stringify([x.a, ...(x.d || [])])}`);
     if (!x.t) fallos.push(`${donde}: sin traducción`);

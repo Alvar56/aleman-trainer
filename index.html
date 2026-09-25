@@ -7,6 +7,24 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <title>Deutsch Trainer A2-B1</title>
+    <!--
+      El tema, antes de que pinte nada: si esto se hiciera ya dentro de React,
+      la pagina saldria un instante en blanco y luego se pondria oscura.
+      La clave es la misma que usa src/lib/tema.js.
+    -->
+    <script>
+      (function () {
+        try {
+          var guardado = localStorage.getItem('dtrainer:ui:tema');
+          var tema = guardado ? JSON.parse(guardado) : 'auto';
+          var oscuro = tema === 'oscuro'
+            || (tema !== 'claro' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.setAttribute('data-theme', oscuro ? 'dark' : 'light');
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

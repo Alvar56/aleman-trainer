@@ -22,6 +22,15 @@ const KEY = 'ai:jobs:v2';
 const KEY_VIEJA = 'ai:jobs';
 const VACIO = { status: 'idle', result: null, error: '', meta: null, startedAt: 0, endedAt: 0 };
 
+// Trabajos que NO se guardan en el disco: viven mientras la app esta abierta y
+// se van con la recarga.
+//
+// La explicacion de gramatica es de usar y tirar: la pides, la lees y sigues.
+// Guardandola, al volver a la seccion dias despues te encontrabas la pregunta
+// escrita en la caja y la explicacion desplegada, como si la acabaras de
+// pedir. Si una merece quedarse, se guarda con la estrella, que para eso esta.
+const EFIMEROS = ['grammar:ask'];
+
 const jobs = new Map();   // clave -> estado
 const subs = new Map();   // clave -> Set(callback)
 const runIds = new Map(); // clave -> id de la ejecución en curso
@@ -35,8 +44,13 @@ function guardados() {
 
 if (storage.get(KEY_VIEJA, null) !== null) storage.remove(KEY_VIEJA);
 
-// Al arrancar, recupera lo último que terminó bien en cada clave.
+// Al arrancar, recupera lo último que terminó bien en cada clave. Los efimeros
+// no: y si quedaron guardados de una version anterior, se tiran.
 for (const [clave, val] of Object.entries(guardados())) {
+  if (EFIMEROS.includes(clave)) {
+    storage.update(KEY, {}, (p) => { delete p[clave]; return p; });
+    continue;
+  }
   if (val?.result) {
     jobs.set(clave, {
       ...VACIO,
@@ -49,6 +63,7 @@ for (const [clave, val] of Object.entries(guardados())) {
 }
 
 function persistir(clave, estado) {
+  if (EFIMEROS.includes(clave)) return;
   const g = guardados();
   if (estado.status === 'done' && estado.result) {
     g[clave] = { result: estado.result, meta: estado.meta, endedAt: estado.endedAt };

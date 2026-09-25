@@ -9,16 +9,26 @@ import { topicMastery, kommMastery } from './progress.js';
 export function lektionProgress(lektion) {
   if (!lektion) return null;
 
-  // --- vocabulario: tarjetas conocidas sobre el total de la lección ---
+  // --- vocabulario ---
+  //
+  // Con la MISMA regla que la barra de dentro del mazo: dos aciertos por
+  // palabra. Antes esta contaba palabras acertadas alguna VEZ y la de dentro
+  // pedia dos, asi que acertarlas todas una vez dejaba la leccion al 100% y
+  // sus mazos al 50%. Dos barras que miden lo mismo tienen que decir lo
+  // mismo; y de las dos reglas, la buena es la de dos: acertar una vez no es
+  // saberse una palabra.
+  //
+  // Se suman los aciertos y lo que hace falta, no los porcentajes de cada
+  // mazo: la media de porcentajes da de mas a los mazos pequeños.
   const decks = lektionDecks(lektion);
-  let vTotal = 0;
-  let vKnown = 0;
+  let vAciertos = 0;
+  let vNecesarios = 0;
   for (const d of decks) {
     const s = deckStats(d);
-    vTotal += s.total;
-    vKnown += s.known;
+    vAciertos += s.aciertos;
+    vNecesarios += s.necesarios;
   }
-  const woerter = vTotal ? Math.round((vKnown / vTotal) * 100) : null;
+  const woerter = vNecesarios ? Math.round((vAciertos / vNecesarios) * 100) : null;
 
   // --- gramática: dominio medio de sus conceptos ---
   const topic = lektionTopic(lektion);
@@ -39,13 +49,13 @@ export function lektionProgress(lektion) {
     woerter,
     grammatik,
     kommunikation,
-    woerterKnown: vKnown,
-    woerterTotal: vTotal,
+    woerterAciertos: vAciertos,
+    woerterNecesarios: vNecesarios,
     grammatikPracticed: gm?.practiced || 0,
     grammatikTotal: ids.length,
     kommPracticed: km?.practiced || 0,
     kommTotal: km?.total || 0,
-    empezada: (vKnown > 0) || (gm?.practiced > 0) || (km?.practiced > 0)
+    empezada: (vAciertos > 0) || (gm?.practiced > 0) || (km?.practiced > 0)
   };
 }
 

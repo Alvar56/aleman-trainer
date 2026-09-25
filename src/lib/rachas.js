@@ -35,6 +35,17 @@ export function updateStreak(current) {
   return { max: n, record: anterior, nuevo: false };
 }
 
+// Un acierto o un fallo, apuntado. Devuelve cuántas seguidas llevas y si eso
+// ha batido el récord, que es lo que hace falta para el resumen.
+//
+// Antes cada juego llevaba la cuenta por su lado, y por eso solo la llevaba
+// uno: gramática. En vocabulario y en Kommunikation no sumaba ni rompía nada,
+// así que el récord de seguidas de la portada se quedaba corto.
+export function apuntarRespuesta(ok) {
+  const seguidas = ok ? currentStreak() + 1 : 0;
+  return { seguidas, ...updateStreak(seguidas) };
+}
+
 // Mantenemos la función antigua por si acaso (para el dashboard o similar)
 export function recordStreak(max) {
   return updateStreak(max);

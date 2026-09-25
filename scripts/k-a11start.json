@@ -1,0 +1,410 @@
+{
+  "a11-start": [
+    {
+      "funktion": "begrüßen",
+      "es": "Saludar",
+      "esEn": "Greeting",
+      "toma": [
+        "Guten Morgen! / Guten Tag! / Guten Abend!",
+        "Hallo! · Servus! · Grüß Gott! (AT)",
+        "Guten Morgen, schön, dass Sie da sind!",
+        "Hallo, lange nicht gesehen!"
+      ],
+      "nuevas": [
+        [
+          "Guten Tag, Herr Müller!",
+          "¡Buenas tardes, señor Müller!",
+          "Good afternoon, Mr. Müller!",
+          "Guten Tag, Frau Schmidt!",
+          "¡Buenas tardes, señora Schmidt!",
+          "Good afternoon, Ms. Schmidt!"
+        ],
+        [
+          "Hallo zusammen!",
+          "¡Hola a todos!",
+          "Hello everyone!",
+          "Hallo! Schön dich zu sehen.",
+          "¡Hola! Qué bien verte.",
+          "Hello! Nice to see you."
+        ],
+        [
+          "Grüß dich, Anna!",
+          "¡Hola, Anna!",
+          "Greetings, Anna!",
+          "Hallo Peter, wie geht's?",
+          "Hola Peter, ¿qué tal?",
+          "Hello Peter, how are you?"
+        ],
+        [
+          "Guten Abend allerseits!",
+          "¡Buenas tardes/noches a todos!",
+          "Good evening everyone!",
+          "Guten Abend! Kommen Sie rein.",
+          "¡Buenas noches! Pasen.",
+          "Good evening! Come on in."
+        ],
+        [
+          "Hi, wie läuft's?",
+          "¡Hola! ¿Cómo va?",
+          "Hi, how is it going?",
+          "Ganz gut, danke!",
+          "Bastante bien, gracias.",
+          "Pretty good, thanks!"
+        ],
+        [
+          "Schön, dich wiederzusehen!",
+          "¡Qué bien verte otra vez!",
+          "Nice to see you again!",
+          "Gleichfalls, freut mich auch!",
+          "¡Igualmente, a mí también!",
+          "Likewise, good to see you too!"
+        ]
+      ]
+    },
+    {
+      "funktion": "sich verabschieden",
+      "es": "Despedirse",
+      "esEn": "Saying goodbye",
+      "toma": [
+        "Auf Wiedersehen! · Tschüss! · Bis bald!",
+        "Bis nächste Woche im Kurs!",
+        "Schönen Abend noch!",
+        "Schönen Feierabend noch!"
+      ],
+      "nuevas": [
+        [
+          "Bis morgen!",
+          "¡Hasta mañana!",
+          "See you tomorrow!",
+          "Bis morgen, schlaf gut!",
+          "¡Hasta mañana, duerme bien!",
+          "See you tomorrow, sleep well!"
+        ],
+        [
+          "Auf Wiederhören!",
+          "¡Adiós! (por teléfono)",
+          "Goodbye! (on phone)",
+          "Auf Wiederhören, schönen Tag noch!",
+          "¡Adiós, que tenga buen día!",
+          "Goodbye, have a nice day!"
+        ],
+        [
+          "Bis später!",
+          "¡Hasta luego!",
+          "See you later!",
+          "Ja, bis nachher!",
+          "¡Sí, hasta luego!",
+          "Yes, see you later!"
+        ],
+        [
+          "Mach's gut!",
+          "¡Cuídate! / ¡Que te vaya bien!",
+          "Take care!",
+          "Du auch, mach's gut!",
+          "¡Tú también, cuídate!",
+          "You too, take care!"
+        ],
+        [
+          "Schönen Sonntag noch!",
+          "¡Que tengas un buen domingo!",
+          "Have a nice Sunday!",
+          "Danke, dir auch!",
+          "¡Gracias, a ti también!",
+          "Thanks, you too!"
+        ],
+        [
+          "Gute Nacht!",
+          "¡Buenas noches!",
+          "Good night!",
+          "Gute Nacht, träum was Schönes!",
+          "¡Buenas noches, dulces sueños!",
+          "Good night, sweet dreams!"
+        ]
+      ]
+    },
+    {
+      "funktion": "nach dem Namen fragen",
+      "es": "Preguntar el nombre",
+      "esEn": "Asking for names",
+      "toma": [
+        "Wie heißt du? – Ich heiße Nuria.",
+        "Wie heißen Sie? – Mein Name ist Gruber.",
+        "Wie ist dein Vorname?",
+        "Wie heißen Sie mit Vornamen?",
+        "Wie war Ihr Name noch einmal?",
+        "Sagt man zu dir Luna oder Luní?",
+        "Und wie ist Ihr Nachname, bitte?"
+      ],
+      "nuevas": [
+        [
+          "Wer bist du?",
+          "¿Quién eres tú?",
+          "Who are you?",
+          "Ich bin Marco aus Italien.",
+          "Soy Marco, de Italia.",
+          "I am Marco from Italy."
+        ],
+        [
+          "Wie heißen Sie mit Nachnamen?",
+          "¿Cuál es su apellido?",
+          "What is your last name?",
+          "Ich heiße Bauer mit Nachnamen.",
+          "Me apellido Bauer.",
+          "My last name is Bauer."
+        ],
+        [
+          "Wie ist dein Familienname?",
+          "¿Cuál es tu apellido?",
+          "What is your last name?",
+          "Mein Familienname ist Santos.",
+          "Mi apellido es Santos.",
+          "My last name is Santos."
+        ]
+      ]
+    },
+    {
+      "funktion": "sich vorstellen",
+      "es": "Presentarse",
+      "esEn": "Introducing oneself",
+      "toma": [
+        "Ich heiße Maria.",
+        "Mein Name ist Maria López.",
+        "Ich bin Ahmet. Und du?",
+        "Ich bin neu im Kurs, ich heiße Nuria.",
+        "Darf ich mich vorstellen? Ich komme aus Syrien.",
+        "Wir kennen uns noch nicht, oder?",
+        "Ich bin neu hier im Kurs.",
+        "Wir kennen uns noch gar nicht, oder?"
+      ],
+      "nuevas": [
+        [
+          "Freut mich, ich bin David.",
+          "Mucho gusto, soy David.",
+          "Pleased to meet you, I am David.",
+          "Freut mich auch, David! Ich bin Lisa.",
+          "¡Mucho gusto también, David! Soy Lisa.",
+          "Nice to meet you too, David! I am Lisa."
+        ],
+        [
+          "Hallo, mein Vorname ist Clara.",
+          "Hola, mi nombre de pila es Clara.",
+          "Hello, my first name is Clara.",
+          "Hallo Clara, schön dich kennenzulernen.",
+          "Hola Clara, encantado de conocerte.",
+          "Hello Clara, nice to meet you."
+        ]
+      ]
+    },
+    {
+      "funktion": "nach dem Befinden fragen",
+      "es": "Preguntar qué tal está alguien",
+      "esEn": "Asking how someone is",
+      "toma": [
+        "Wie geht's? – Danke, gut. Und dir?",
+        "Wie geht es Ihnen? – Danke, sehr gut.",
+        "Nicht so gut.",
+        "Es geht.",
+        "Wie fühlst du dich heute?",
+        "Alles in Ordnung bei dir?",
+        "Geht es Ihnen wieder besser?",
+        "Du wirkst heute so fröhlich.",
+        "Wie war dein Wochenende?",
+        "Du wirkst heute so gut gelaunt."
+      ],
+      "nuevas": []
+    },
+    {
+      "funktion": "über die Herkunft sprechen",
+      "es": "Hablar de dónde eres",
+      "esEn": "Talking about origin",
+      "toma": [
+        "Woher kommst du? – Ich komme aus Spanien.",
+        "Woher kommen Sie? – Aus Wien.",
+        "Aus welcher Stadt kommst du genau?",
+        "Bist du hier geboren?",
+        "Sprichst du die Sprache deiner Eltern?",
+        "Wie lange lebst du schon in Österreich?",
+        "Und wo genau in Spanien liegt das?",
+        "Bist du schon lange in Wien?"
+      ],
+      "nuevas": [
+        [
+          "Kommst du aus Deutschland?",
+          "¿Vienes de Alemania?",
+          "Are you from Germany?",
+          "Nein, ich komme aus Österreich.",
+          "No, vengo de Austria.",
+          "No, I come from Austria."
+        ],
+        [
+          "Sind Sie aus der Schweiz?",
+          "¿Es usted de Suiza?",
+          "Are you from Switzerland?",
+          "Ja, genau, ich komme aus Zürich.",
+          "Sí, exacto, soy de Zúrich.",
+          "Yes, exactly, I am from Zurich."
+        ]
+      ]
+    },
+    {
+      "funktion": "Telefonnummer und Adresse angeben",
+      "es": "Dar el teléfono y la dirección",
+      "esEn": "Giving phone and address",
+      "toma": [
+        "Wie ist deine Telefonnummer? – 0664 123 45 67.",
+        "Wie ist Ihre E-Mail-Adresse?",
+        "Wo wohnst du? – In Wien, Hauptstraße 12.",
+        "Unter welcher Nummer erreiche ich dich am besten?",
+        "Hast du eine neue Nummer?",
+        "Wo genau wohnst du in Wien?",
+        "Schreib mir bitte deine Adresse auf.",
+        "Unter welcher Nummer erreiche ich Sie am besten?"
+      ],
+      "nuevas": [
+        [
+          "Haben Sie eine Handynummer?",
+          "¿Tiene un número de móvil?",
+          "Do you have a mobile number?",
+          "Ja, meine Nummer ist 0176 555 432.",
+          "Sí, mi número es 0176 555 432.",
+          "Yes, my number is 0176 555 432."
+        ],
+        [
+          "Wie lautet Ihre Postleitzahl?",
+          "¿Cuál es su código postal?",
+          "What is your postal code?",
+          "Meine Postleitzahl ist 1010 Wien.",
+          "Mi código postal es 1010 Viena.",
+          "My postal code is 1010 Vienna."
+        ]
+      ]
+    },
+    {
+      "funktion": "buchstabieren",
+      "es": "Deletrear",
+      "esEn": "Spelling",
+      "toma": [
+        "Wie schreibt man das?",
+        "Können Sie das bitte buchstabieren?",
+        "M wie Martha, A wie Anton.",
+        "Wie schreibt man das mit ü oder mit ue?",
+        "Ist das ein ß oder ein Doppel-s?",
+        "Können Sie den Namen langsam buchstabieren?"
+      ],
+      "nuevas": [
+        [
+          "Schreibt man deinen Namen mit K oder mit C?",
+          "¿Se escribe tu nombre con K o con C?",
+          "Is your name spelled with K or C?",
+          "Mit K, wie Klaus.",
+          "Con K, como Klaus.",
+          "With K, like Klaus."
+        ],
+        [
+          "Buchstabieren Sie bitte Ihren Nachnamen.",
+          "Deletree su apellido, por favor.",
+          "Please spell your last name.",
+          "M-Ü-L-L-E-R.",
+          "M-Ü-L-L-E-R.",
+          "M-U-umlaut-L-L-E-R."
+        ],
+        [
+          "Ist das ein langes oder ein kurzes i?",
+          "¿Es una i larga o corta?",
+          "Is that a long or short i?",
+          "Ein langes i, geschrieben mit ie.",
+          "Una i larga, escrita con ie.",
+          "A long i, written with ie."
+        ],
+        [
+          "Schreibt man das groß oder klein?",
+          "¿Se escribe eso con mayúscula o minúscula?",
+          "Is that spelled uppercase or lowercase?",
+          "Das schreibt man groß, weil es ein Nomen ist.",
+          "Se escribe con mayúscula porque es un sustantivo.",
+          "That is spelled uppercase because it is a noun."
+        ]
+      ]
+    },
+    {
+      "funktion": "sich im Kurs verständigen",
+      "es": "Entenderse en clase",
+      "esEn": "Communicating in class",
+      "toma": [
+        "Wie bitte? Können Sie das wiederholen?",
+        "Was heißt „Tafel“ auf Spanisch?",
+        "Wie sagt man das auf Deutsch?",
+        "Ich verstehe das nicht.",
+        "Langsamer, bitte!",
+        "Ich habe eine Frage zu Übung vier.",
+        "Arbeiten wir zu zweit oder allein?",
+        "Ich brauche noch zwei Minuten, bitte.",
+        "Was bedeutet dieses Wort?",
+        "Können wir das noch einmal zusammen üben?"
+      ],
+      "nuevas": []
+    },
+    {
+      "funktion": "Fragen an die Lehrerin",
+      "es": "Preguntar a la profesora",
+      "esEn": "Asking the teacher",
+      "toma": [
+        "Entschuldigung, ich habe eine Frage.",
+        "Können Sie das bitte an die Tafel schreiben?",
+        "Wie heißt das auf Deutsch?",
+        "Auf welcher Seite sind wir?",
+        "Wo sind wir gerade?",
+        "Was ist die Hausaufgabe?",
+        "Ist das richtig so?",
+        "Können Sie das noch einmal erklären?",
+        "Wie spricht man das aus?",
+        "Wann ist die nächste Prüfung?"
+      ],
+      "nuevas": []
+    },
+    {
+      "funktion": "im Kursraum um Erlaubnis bitten",
+      "es": "Pedir permiso en el aula",
+      "esEn": "Asking for permission in class",
+      "toma": [
+        "Darf ich auf die Toilette gehen?",
+        "Darf ich heute früher gehen?",
+        "Darf ich das Licht anmachen?",
+        "Können wir das Licht ausmachen?",
+        "Darf ich das Fenster aufmachen?",
+        "Können Sie bitte das Fenster zumachen?",
+        "Können wir eine kurze Pause machen?",
+        "Was machen wir in der nächsten Stunde?",
+        "Können Sie mir bitte helfen? Ich finde die Übung nicht.",
+        "Darf ich kurz auf die Toilette gehen?"
+      ],
+      "nuevas": []
+    },
+    {
+      "funktion": "sich bedanken und entschuldigen",
+      "es": "Agradecer y disculparse",
+      "esEn": "Thanking and apologizing",
+      "toma": [
+        "Danke schön! – Bitte schön!",
+        "Vielen Dank für die Hilfe.",
+        "Entschuldigung, ich bin zu spät.",
+        "Es tut mir leid.",
+        "Vielen Dank, das war sehr nett von Ihnen.",
+        "Entschuldigung, der Bus hatte Verspätung.",
+        "Das tut mir wirklich leid.",
+        "Darf ich mich für die Verspätung entschuldigen?",
+        "Entschuldigung, ich habe Sie unterbrochen."
+      ],
+      "nuevas": [
+        [
+          "Kein Problem, schon gut!",
+          "¡No hay problema, no pasa nada!",
+          "No problem, it's fine!",
+          "Danke für dein Verständnis.",
+          "Gracias por tu comprensión.",
+          "Thanks for your understanding."
+        ]
+      ]
+    }
+  ]
+}

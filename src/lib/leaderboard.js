@@ -89,9 +89,16 @@ export function gameStats(topicId, { ultimas = VENTANA } = {}) {
   }).filter((x) => x.sesiones > 0);
 }
 
-// Ranking de mejores sesiones. Puntuacion = precision * aciertos - penalizacion por tiempo.
+// Ranking de mejores sesiones. Puntuacion = precision * aciertos, menos una
+// penalizacion por tiempo.
+//
+// Con suelo en cero. Sin el, una tanda sin ningun acierto se queda con el
+// primer termino a cero y solo la resta del tiempo: salian numeros negativos
+// (-6 por cuarenta segundos). Y como esta lista solo te compara contigo
+// mismo, un negativo no ordenaba nada que un cero no ordenara igual; lo unico
+// que hacia era parecer un castigo por haberlo intentado.
 function score(r) {
-  return r.accuracy * r.correct * 10 - r.seconds * 0.15;
+  return Math.max(0, r.accuracy * r.correct * 10 - r.seconds * 0.15);
 }
 
 // Precisión media de las últimas sesiones de un tema, con todos los juegos

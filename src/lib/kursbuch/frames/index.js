@@ -23,6 +23,8 @@ import { PREP_TIEMPO } from './prep-tiempo.js';
 import { PREP_LUGAR } from './prep-lugar.js';
 import { WECHSEL } from './wechsel.js';
 import { NOMBRES } from './nombres.js';
+import { START } from './start.js';
+import { PRONUNCIACION } from './pronunciacion.js';
 
 export const TEMAS = {
   'La frase': FRASE,
@@ -34,7 +36,9 @@ export const TEMAS = {
   'Preposiciones de tiempo': PREP_TIEMPO,
   'Preposiciones de lugar': PREP_LUGAR,
   'Wechselpräpositionen': WECHSEL,
-  'Nombres y adjetivos': NOMBRES
+  'Nombres y adjetivos': NOMBRES,
+  'La primera clase': START,
+  'Pronunciación': PRONUNCIACION
 };
 
 export const DATA = unir(TEMAS);

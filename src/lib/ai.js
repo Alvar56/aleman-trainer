@@ -89,7 +89,7 @@ Devuelve un array JSON. Cada elemento:
   
   // Para mc, open y write:
   "sentence": "frase con ___ donde va el hueco, o la pregunta abierta",
-  "options": ["op1", "op2", "op3"], // solo para mc
+  "options": ["op1", "op2", "op3", "op4"], // solo para mc
   "answer": "respuesta exacta", // para mc, write. Para open, pon una respuesta modelo ideal.
   
   // Para order:
@@ -264,7 +264,11 @@ async function callClaudeLocal({ prompt, tools, timeoutMs, image }) {
       body: JSON.stringify({ prompt, system: SYSTEM(), tools, timeoutMs, image })
     });
   } catch {
-    throw new Error('No se pudo contactar con el puente local. ¿Está corriendo "npm run dev"?');
+    // Marcado, para que runLLM sepa que esto es "no hay puente" y no un fallo
+    // del modelo: solo en ese caso tiene sentido reintentar con la clave.
+    const e = new Error(t('err.noBridge'));
+    e.puenteCaido = true;
+    throw e;
   }
   if (!res.ok) {
     let msg = `Puente local: error ${res.status}`;
@@ -312,7 +316,28 @@ export async function runLLM(prompt, { json = true, timeoutMs, image = null, too
     return await callGemini({ key: s.aiKey, model: modelName, prompt, json, image });
   }
   if (s.aiProvider === 'claude-local') {
-    return await callClaudeLocal({ prompt, tools, timeoutMs, image });
+    try {
+      return await callClaudeLocal({ prompt, tools, timeoutMs, image });
+    } catch (e) {
+      // El puente local solo existe con `npm run dev` levantado. Fuera de ahí
+      // —el HTML suelto, una copia subida a un servidor— no hay /api/ai y
+      // fallaba todo con un "no se pudo contactar", aunque hubiera una clave
+      // guardada y perfectamente buena.
+      //
+      // Pasa más de lo que parece: claude-local es el proveedor por defecto y
+      // con él Ajustes esconde los campos de modelo y clave, así que quien
+      // configuró Gemini y volvió a este proveedor deja de ver su propia
+      // configuración y no tiene forma de saber por qué no tira nada.
+      //
+      // Si hay clave, se reintenta con el proveedor que diga el modelo. Y si
+      // no la hay, al menos el error explica qué hacer.
+      if (!e || !e.puenteCaido) throw e;
+      if (!s.aiKey) throw e;
+      if (/^gemini/i.test(modelName)) {
+        return await callGemini({ key: s.aiKey, model: modelName, prompt, json, image });
+      }
+      return await callOpenAICompat({ key: s.aiKey, model: modelName, prompt, baseUrl: s.aiBaseUrl, json, image });
+    }
   }
   return await callOpenAICompat({ key: s.aiKey, model: modelName, prompt, baseUrl: s.aiBaseUrl, json, image });
 }
@@ -395,7 +420,11 @@ function normalize(raw, topicId, idx) {
   if (raw.type === 'write' && raw.answer && String(raw.sentence || '').includes('___')) {
     return { ...base, type: 'write', sentence: String(raw.sentence), answer: String(raw.answer) };
   }
-  if (raw.type === 'mc' && Array.isArray(raw.options) && raw.options.length === 3 && raw.answer) {
+  // Cuatro es lo que piden las plantillas y lo que se le pide a la IA, pero
+  // se aceptan tres: un ejercicio con una opción de menos vale igual, y
+  // descartarlo por eso deja la tanda más corta sin ganar nada.
+  if (raw.type === 'mc' && Array.isArray(raw.options)
+      && raw.options.length >= 3 && raw.options.length <= 4 && raw.answer) {
     const options = raw.options.map(String);
     if (!options.includes(String(raw.answer))) return null;
     if (!String(raw.sentence || '').includes('___')) return null;
@@ -464,7 +493,7 @@ export async function generateItems({ topicId, topicName, conceptHints = [], cou
 // pasa es la propia respuesta: si ha preguntado "dich oder dir", los ejercicios
 // tienen que ser de eso y de nada mas.
 export async function generateAskItems({ pregunta, res, count = 8 }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para practicar esto.');
+  if (!aiAvailable()) throw new Error(t('err.aiPractise'));
   const trozos = [];
   if (res?.titel) trozos.push(res.titel);
   if (res?.kurz) trozos.push(res.kurz);
@@ -501,7 +530,7 @@ Devuelve un array JSON. Cada elemento:
   "type": "mc" | "order" | "write",
   "conceptId": "cadena corta con lo que se practica",
   "sentence": "para mc y write: frase con ___ donde va el hueco; para order: la frase completa correcta",
-  "options": ["op1","op2","op3"],
+  "options": ["op1","op2","op3","op4"],
   "answer": "lo que va en el hueco, exacto (mc y write)",
   "tokens": ["la","frase","troceada"],
   "solution": ["orden","correcto","de","los","tokens"],
@@ -513,17 +542,17 @@ Sin texto fuera del JSON. Aleman estandar, con esszet cuando corresponda.`;
 
   const text = await runLLM(prompt);
   const arr = extractJson(text);
-  if (!Array.isArray(arr)) throw new Error('La IA no devolvió ejercicios válidos. Inténtalo otra vez.');
+  if (!Array.isArray(arr)) throw new Error(t('err.noValidItems'));
   const items = arr
     .map((r, i) => normalize(r, 'ask', i))
     .filter(Boolean)
     .map((it) => ({ ...it, prompt: it.type === 'order' ? t('ai.orderSentence') : t('frames.pickOneFull') }));
-  if (!items.length) throw new Error('La IA no devolvió ejercicios utilizables. Inténtalo otra vez.');
+  if (!items.length) throw new Error(t('err.noUsableItems'));
   return items;
 }
 
 export async function generateVocab({ theme, count = 18 }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para generar vocabulario.');
+  if (!aiAvailable()) throw new Error(t('err.aiVocab'));
   const prompt = `Eres profesor de aleman para hablantes de ${idiomaAlumno()} (nivel A2-B1).
 Tema: "${theme}".
 Devuelve SOLO un objeto JSON con esta forma:
@@ -541,7 +570,7 @@ Incluye ${count} tarjetas utiles y frecuentes (mezcla sustantivos con articulo, 
   const text = await runLLM(prompt);
   const obj = extractJson(text);
   const raw = Array.isArray(obj) ? { cards: obj } : obj;
-  if (!raw || !Array.isArray(raw.cards)) throw new Error('La IA no devolvió un mazo válido. Inténtalo otra vez.');
+  if (!raw || !Array.isArray(raw.cards)) throw new Error(t('err.noDeck'));
   const cards = raw.cards
     .map((c) => ({
       de: String(c.de || '').trim(),
@@ -550,7 +579,7 @@ Incluye ${count} tarjetas utiles y frecuentes (mezcla sustantivos con articulo, 
       exEs: String(c.exEs || '').trim()
     }))
     .filter((c) => c.de && c.es);
-  if (!cards.length) throw new Error('La IA no devolvió tarjetas. Inténtalo otra vez.');
+  if (!cards.length) throw new Error(t('err.noCards'));
   return {
     name: String(raw.name || theme).trim().slice(0, 60),
     emoji: String(raw.emoji || '✨').trim().slice(0, 4) || '✨',
@@ -560,10 +589,150 @@ Incluye ${count} tarjetas utiles y frecuentes (mezcla sustantivos con articulo, 
   };
 }
 
+// Genera un tema completo de gramática con IA: tarjetas de teoría, explicación
+// estructurada (con tablas y ejemplos) y ejercicios interactivos para practicar.
+export async function generateGrammarTopic({ topicName, niveau = 'A2' }) {
+  if (!aiAvailable()) throw new Error(t('err.aiAsk'));
+  const prompt = `Eres profesor de alemán para hispanohablantes (nivel A2-B1).
+El alumno quiere aprender y practicar este tema gramatical: "${topicName}".
+
+Genera un tema completo de gramática con:
+1) Tarjetas de teoría (reglas, fórmulas o estructuras clave con ejemplos).
+2) Explicación teórica clara, con secciones, tablas comparativas y errores comunes.
+3) Entre 8 y 12 ejercicios interactivos variados (opción múltiple 'mc', escribir 'write', ordenar frase 'order').
+
+Devuelve SOLO un objeto JSON con este formato exacto:
+{
+  "name": "nombre del tema en alemán (ej. 'Wechselpräpositionen' o 'Modalverben im Präteritum')",
+  "nameEs": "nombre del tema en ${idiomaAlumno()} (ej. 'Preposiciones de cambio' o 'Verbos modales en pasado')",
+  "emoji": "un emoji representativo (ej. 🧭, 🏷️, ⏱️, ⚡, 📖)",
+  "blurb": "resumen en 1 frase de lo que se aprende",
+  "cards": [
+    {
+      "de": "regla, estructura o caso en alemán",
+      "es": "explicación o uso en español",
+      "ex": "frase de ejemplo completa en alemán",
+      "exEs": "traducción de la frase al español"
+    }
+  ],
+  "theory": {
+    "intro": "introducción clara y práctica en español (2-3 frases)",
+    "sections": [
+      {
+        "title": "título de la sección",
+        "body": "explicación clara de la regla",
+        "examples": [
+          { "de": "ejemplo en alemán", "es": "traducción en español" }
+        ],
+        "table": {
+          "title": "título de la tabla resumen",
+          "headers": ["Columna 1", "Columna 2"],
+          "rows": [["valor 1", "valor 2"]]
+        }
+      }
+    ],
+    "pitfalls": ["error típico que cometen los hispanohablantes con este tema"],
+    "merksatz": "regla de oro o truco mnemotécnico para no olvidarlo"
+  },
+  "exercises": [
+    {
+      "type": "mc",
+      "sentence": "Oración en alemán con ___ donde va el hueco",
+      "options": ["opción correcta", "distractor 1", "distractor 2", "distractor 3"],
+      "answer": "opción correcta",
+      "translation": "traducción de la oración al español",
+      "explanation": "breve explicación de por qué es esa opción"
+    },
+    {
+      "type": "write",
+      "sentence": "Oración en alemán con ___ para completar",
+      "answer": "palabra_exacta",
+      "translation": "traducción de la oración",
+      "explanation": "explicación"
+    },
+    {
+      "type": "order",
+      "solution": ["Ich", "gehe", "morgen", "ins", "Kino"],
+      "translation": "Mañana voy al cine",
+      "explanation": "El verbo va en segunda posición"
+    }
+  ]
+}
+
+Reglas:
+- Entre 6 y 10 "cards" útiles con ejemplos claros.
+- 2 a 3 "sections" en theory con ejemplos y tabla comparativa si procede.
+- 8 a 12 ejercicios de calidad ("exercises") mezclando 'mc', 'write' y 'order'.
+- Alemán natural y gramaticalmente impecable.
+Sin texto fuera del JSON.`;
+
+  const text = await runLLM(prompt);
+  const raw = extractJson(text);
+  if (!raw || (!raw.name && !raw.nameEs)) throw new Error(t('err.noAnswer'));
+
+  const cleanTable = (t) =>
+    t && Array.isArray(t.headers) && Array.isArray(t.rows) && t.rows.length
+      ? {
+          title: String(t.title || '').trim(),
+          headers: t.headers.map(String),
+          rows: t.rows.filter(Array.isArray).map((r) => r.map(String))
+        }
+      : null;
+
+  const rawCards = Array.isArray(raw.cards) ? raw.cards : [];
+  const cards = rawCards
+    .map((c) => ({
+      de: String(c.de || '').trim(),
+      es: String(c.es || '').trim(),
+      ex: String(c.ex || '').trim(),
+      exEs: String(c.exEs || '').trim()
+    }))
+    .filter((c) => c.de && c.es);
+
+  const rawTheory = raw.theory || {};
+  const sections = (Array.isArray(rawTheory.sections) ? rawTheory.sections : [])
+    .map((s) => ({
+      title: String(s.title || '').trim(),
+      body: String(s.body || '').trim(),
+      table: cleanTable(s.table),
+      examples: (Array.isArray(s.examples) ? s.examples : [])
+        .map((b) => ({ de: String(b.de || '').trim(), es: String(b.es || '').trim() }))
+        .filter((b) => b.de)
+    }))
+    .filter((s) => s.title || s.body);
+
+  const rawExercises = Array.isArray(raw.exercises) ? raw.exercises : [];
+  const userItems = rawExercises
+    .map((e, idx) => normalize(e, 'ug', idx))
+    .filter(Boolean);
+
+  const topicId = 'ug-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 6);
+
+  return {
+    id: topicId,
+    name: String(raw.name || topicName).trim(),
+    nameEs: String(raw.nameEs || raw.name || topicName).trim(),
+    emoji: String(raw.emoji || '📖').trim().slice(0, 4) || '📖',
+    blurb: String(raw.blurb || topicName).trim(),
+    custom: true,
+    concepts: [
+      { id: `${topicId}:c1`, name: String(raw.name || topicName), label: String(raw.nameEs || topicName) }
+    ],
+    cards,
+    theory: {
+      intro: String(rawTheory.intro || raw.blurb || '').trim(),
+      sections,
+      pitfalls: Array.isArray(rawTheory.pitfalls) ? rawTheory.pitfalls.map(String) : [],
+      merksatz: String(rawTheory.merksatz || '').trim()
+    },
+    userItems
+  };
+}
+
 // Explicacion mas profunda y personalizada de un ejercicio concreto.
 // Se usa desde el panel de feedback ("Pregúntale a la IA").
 export async function explainItem({ item, chosen }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en Ajustes para usar esto.');
+  if (!aiAvailable()) throw new Error(t('err.aiSettings'));
   const frase =
     item.type === 'order'
       ? item.solution.join(' ')
@@ -624,12 +793,12 @@ const FOCUS_LABEL = {
 
 // Ejercicios de una Lektion del libro, enfocados en un bloque (W / G / K / apuntes / todo).
 export async function generateLektionItems({ lektion, focus = 'alles', notes = '', count = 10 }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para generar ejercicios.');
+  if (!aiAvailable()) throw new Error(t('err.aiExercises'));
 
   const bloque = focus === 'notizen' ? '' : focusBlock(lektion, focus);
   const apuntes = notes.trim().slice(0, 4000);
   if (focus === 'notizen' && !apuntes) {
-    throw new Error('No hay apuntes en esta lección todavía.');
+    throw new Error(t('err.noNotes'));
   }
 
   const prompt = `Eres profesor de alemán para hablantes de ${idiomaAlumno()}. Nivel del libro: ${lektion?.bandName || 'A2'}.
@@ -644,7 +813,7 @@ Reglas obligatorias:
 2. Cada ejercicio debe practicar un punto concreto de la lista de arriba.
 3. INSTRUCCIONES (anweisung): Cada ejercicio DEBE tener una instrucción clara y específica (ej. "Transforma estas frases al Perfekt", "Escribe el artículo de esta palabra", "Ordena esta conversación", "Lee el texto y responde").
 4. TIPOS DE EJERCICIO:
-   - "mc": Elegir entre 3 opciones. (Bueno para vocabulario o comprensión).
+   - "mc": Elegir entre 4 opciones. (Bueno para vocabulario o comprensión).
    - "order": Ordenar fichas (pueden ser palabras sueltas de una frase, o frases enteras para ordenar una conversación).
    - "write": Hueco exacto a rellenar con UNA sola palabra (plurales, determinantes, conjugaciones).
    - "cloze": Texto largo con múltiples huecos.
@@ -660,7 +829,7 @@ Devuelve un array JSON. Cada elemento:
   
   // Para mc, open y write:
   "sentence": "frase con ___ donde va el hueco, o la pregunta abierta",
-  "options": ["op1", "op2", "op3"], // solo para mc
+  "options": ["op1", "op2", "op3", "op4"], // solo para mc
   "answer": "respuesta exacta", // para mc, write. Para open, pon una respuesta modelo ideal.
   
   // Para order:
@@ -679,12 +848,12 @@ Sin texto fuera del JSON. Alemán estándar (variantes austriacas si aparecen en
 
   const text = await runLLM(prompt);
   const arr = extractJson(text);
-  if (!Array.isArray(arr)) throw new Error('La IA no devolvió ejercicios válidos. Inténtalo otra vez.');
+  if (!Array.isArray(arr)) throw new Error(t('err.noValidItems'));
   const items = arr
     .map((r, i) => normalize(r, 'cuaderno', i))
     .filter(Boolean)
     .map((it) => ({ ...it, prompt: it.anweisung || t('ai.doExercise') }));
-  if (!items.length) throw new Error('La IA no devolvió ejercicios utilizables. Inténtalo otra vez.');
+  if (!items.length) throw new Error(t('err.noUsableItems'));
   return items;
 }
 
@@ -694,8 +863,8 @@ Sin texto fuera del JSON. Alemán estándar (variantes austriacas si aparecen en
 // modo 'aufgabe' = resolver/corregir un ejercicio · 'bild' = describir la imagen.
 export async function analyzeImage({ dataUrl, modo = 'aufgabe', lektion = null, niveau = 'A2' }) {
   const s = getSettings();
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para usar la foto.');
-  if (!dataUrl) throw new Error('Elige una foto primero.');
+  if (!aiAvailable()) throw new Error(t('err.aiPhoto'));
+  if (!dataUrl) throw new Error(t('err.pickPhoto'));
 
   const idioma = langName(getLang());
   const contexto = lektion ? `\nEl alumno está en ${lektion.bandName} — ${lektion.name}.` : '';
@@ -768,7 +937,7 @@ Sin texto fuera del JSON.`;
   const raw = extractJson(text);
   if (!raw) {
     const pista = String(text || '').replace(/\s+/g, ' ').trim().slice(0, 160);
-    throw new Error('No se pudo leer el análisis de la foto.' + (pista ? ' Llegó: "' + pista + '…"' : ''));
+    throw new Error(t('err.readPhoto') + (pista ? t('err.gotBack', { pista }) : ''));
   }
   const limpiarItems = (arr) =>
     (Array.isArray(arr) ? arr : [])
@@ -824,7 +993,7 @@ Sin texto fuera del JSON.`;
 }
 
 export async function cleanNotes({ raw, lektion }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para pasar los apuntes a limpio.');
+  if (!aiAvailable()) throw new Error(t('err.aiNotes'));
   // OJO: aquí NO se mete el temario de la lección (lektionSummary), solo su
   // nombre. Metiéndolo entero, el modelo se ponía a explicar vocabulario y
   // reglas de la lección que el alumno no había escrito en sus apuntes.
@@ -873,7 +1042,7 @@ Responde solo con el texto, sin comentarios previos.`;
 
 // Genera ejercicios de repaso (mc / order) a partir de los apuntes de una clase.
 export async function generateNotebookItems({ raw, clean, lektion, count = 8, ejercicios = [] }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para generar ejercicios.');
+  if (!aiAvailable()) throw new Error(t('err.aiExercises'));
   // Los apuntes a limpio si los has pasado; si no, lo que escribiste tal cual.
   const base = String(clean || raw || '').slice(0, 4000);
   // Y los ejercicios que hayas resuelto por foto EN ESTA MISMA NOTA: son del
@@ -924,7 +1093,7 @@ Devuelve un array JSON. Cada elemento:
   "context": "OPCIONAL. Texto de lectura para poner antes del ejercicio",
   
   "sentence": "frase con ___ donde va el hueco, o la pregunta abierta",
-  "options": ["op1", "op2", "op3"],
+  "options": ["op1", "op2", "op3", "op4"],
   "answer": "respuesta exacta",
   
   "tokens": ["la", "frase", "troceada"],
@@ -940,19 +1109,19 @@ Devuelve un array JSON. Cada elemento:
 Sin texto fuera del JSON. Alemán estándar, con ß cuando corresponda.`;
   const text = await runLLM(prompt);
   const arr = extractJson(text);
-  if (!Array.isArray(arr)) throw new Error('La IA no devolvió ejercicios válidos. Inténtalo otra vez.');
+  if (!Array.isArray(arr)) throw new Error(t('err.noValidItems'));
   const items = arr
     .map((r, i) => normalize(r, 'cuaderno', i))
     .filter(Boolean)
     .map((it) => ({ ...it, prompt: it.anweisung || t('ai.doExercise') }));
-  if (!items.length) throw new Error('La IA no devolvió ejercicios utilizables. Inténtalo otra vez.');
+  if (!items.length) throw new Error(t('err.noUsableItems'));
   return items;
 }
 
 // Conversación nativa: sobre una Lektion, sobre una función concreta, o sobre
 // un tema libre que escriba el alumno.
 export async function generateDialog({ lektion, funktion = null, thema = null, niveau = 'A2', turns = 14 }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para generar la conversación.');
+  if (!aiAvailable()) throw new Error(t('err.aiDialog'));
 
   const nivel = lektion?.bandName || niveau;
   let contexto;
@@ -1006,7 +1175,7 @@ Incluye 5-7 entradas en "wendungen" y 3 en "fragen". Sin texto fuera del JSON.`;
   const text = await runLLM(prompt);
   const raw = extractJson(text);
   if (!raw || !Array.isArray(raw.turns) || !raw.turns.length) {
-    throw new Error('La IA no devolvió una conversación válida. Inténtalo otra vez.');
+    throw new Error(t('err.noDialog'));
   }
   return {
     titel: String(raw.titel || 'Dialog').trim(),
@@ -1033,8 +1202,8 @@ Incluye 5-7 entradas en "wendungen" y 3 en "fragen". Sin texto fuera del JSON.`;
 
 // Resuelve una duda de gramática concreta: explicación + tablas + ejemplos.
 export async function explainGrammar({ query, niveau = 'A2' }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para preguntar dudas.');
-  if (!query?.trim()) throw new Error('Escribe tu duda primero.');
+  if (!aiAvailable()) throw new Error(t('err.aiAsk'));
+  if (!query?.trim()) throw new Error(t('err.writeQuestion'));
 
   const prompt = `Eres profesor de alemán para hablantes de ${idiomaAlumno()}. El alumno está en nivel ${niveau}
 y sigue el libro Miteinander (alemán de Austria).
@@ -1076,7 +1245,7 @@ Sin texto fuera del JSON.`;
   const text = await runLLM(prompt);
   const raw = extractJson(text);
   if (!raw || (!raw.kurz && !Array.isArray(raw.abschnitte))) {
-    throw new Error('La IA no devolvió una respuesta válida. Prueba a reformular la duda.');
+    throw new Error(t('err.noAnswer'));
   }
   const cleanTable = (t) =>
     t && Array.isArray(t.headers) && Array.isArray(t.rows) && t.rows.length
@@ -1345,13 +1514,13 @@ existe), devuelve "wetter": null en vez de inventarte una.`,
 
 export async function fetchNews({ seccion = 'news', count = 4, niveau = 'A2', ort = 'Wien', evitar = [] } = {}) {
   const s = getSettings();
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para ver las noticias.');
+  if (!aiAvailable()) throw new Error(t('err.aiNews'));
   if (s.aiProvider !== 'claude-local') {
     throw new Error(
       'Las noticias necesitan búsqueda web, que solo está disponible con "IA · Claude (local, sin key)". Cámbialo en el menú lateral.'
     );
   }
-  if (!NEWS_SECCIONES.includes(seccion)) throw new Error('Sección desconocida: ' + seccion);
+  if (!NEWS_SECCIONES.includes(seccion)) throw new Error(t('err.unknownSection', { que: seccion }));
 
   const idioma = langName(getLang());
   const hoy = new Date().toISOString().slice(0, 10);
@@ -1478,7 +1647,7 @@ Sin texto fuera del JSON.`;
         }))
         .filter((n) => n.titel && (n.url || n.youtube) && !esPropaganda(n.url))
     );
-    if (!items.length) throw new Error('Lo recibido no traía fuentes válidas. Prueba otra vez.');
+    if (!items.length) throw new Error(t('err.noSources'));
     return { ...base, items };
   }
 
@@ -1499,7 +1668,7 @@ Sin texto fuera del JSON.`;
         }))
         .filter((e) => e.titel && (e.url || e.youtube))
     );
-    if (!items.length) throw new Error('Lo recibido no traía fuentes válidas. Prueba otra vez.');
+    if (!items.length) throw new Error(t('err.noSources'));
     return { ...base, items };
   }
 
@@ -1521,7 +1690,7 @@ Sin texto fuera del JSON.`;
         }))
         .filter((x) => x.titel && (x.url || x.youtube))
     );
-    if (!items.length) throw new Error('Lo recibido no traía fuentes válidas. Prueba otra vez.');
+    if (!items.length) throw new Error(t('err.noSources'));
     return { ...base, items };
   }
 
@@ -1557,7 +1726,7 @@ Sin texto fuera del JSON.`;
 // lo que dice, la corrección si la hay, la cara que pone y, a veces, un
 // ejercicio. Lo de la cara lo elige él mismo según cómo lo hayas hecho.
 export async function foxChat({ historial = [], mensaje, nombre = 'Felix', especie = 'zorro', niveau = 'A2', lektion = null }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para hablar con el zorro.');
+  if (!aiAvailable()) throw new Error(t('err.aiFox'));
   const idioma = langName(getLang());
   const contexto = lektion ? `\nAhora mismo está con ${lektion.bandName} — ${lektion.name}.` : '';
 
@@ -1624,7 +1793,7 @@ Sin texto fuera del JSON.`;
   const text = await runLLM(prompt, { json: true, timeoutMs: 180000 });
   const raw = extractJson(text);
   if (!raw) {
-    throw new Error('El zorro se ha liado y no ha contestado bien. Prueba otra vez.');
+    throw new Error(t('err.foxConfused'));
   }
   const limpia = (v) => String(v ?? '').trim();
   const CARAS = ['normal', 'feliz', 'muyfeliz', 'guino', 'pensando', 'sorpresa', 'triste'];
@@ -1657,7 +1826,7 @@ Sin texto fuera del JSON.`;
 // ---------- Por qué he fallado esta traducción ----------
 // Corta y al grano: qué has puesto mal, cómo era y por qué. Nada de sermones.
 export async function explainTranslation({ origen, buena, tuya, direccion }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para pedir la explicación.');
+  if (!aiAvailable()) throw new Error(t('err.aiExplain'));
   const idioma = langName(getLang());
   const haciaAleman = direccion === 'es-de';
 
@@ -1691,7 +1860,7 @@ resumen. Sin texto fuera del JSON.`;
 
   const text = await runLLM(prompt, { json: true, timeoutMs: 120000 });
   const raw = extractJson(text);
-  if (!raw) throw new Error('No se pudo leer la explicación. Prueba otra vez.');
+  if (!raw) throw new Error(t('err.readExplain'));
   const limpia = (v) => String(v ?? '').trim();
   return {
     resumen: limpia(raw.resumen),
@@ -1708,7 +1877,7 @@ resumen. Sin texto fuera del JSON.`;
 // preguntas que te guian y unos principios de frase para arrancar. Es para
 // cuando te sientas delante del diario y no se te ocurre nada.
 export async function generateWritingTopic({ niveau = 'A2', evitar = [], lektion = null } = {}) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menu lateral para que te proponga un tema.');
+  if (!aiAvailable()) throw new Error(t('err.aiTopic'));
 
   const idioma = langName(getLang());
   // Sin esta lista acababa proponiendo el fin de semana una y otra vez.
@@ -1755,7 +1924,7 @@ Entre 5 y 8 entradas en "wortschatz". Sin texto fuera del JSON.`;
   const raw = extractJson(txt);
   if (!raw || !raw.thema) {
     const pista = String(txt || '').replace(/\s+/g, ' ').trim().slice(0, 160);
-    throw new Error('No se pudo leer el tema.' + (pista ? ' Llego: "' + pista + '..."' : ''));
+    throw new Error(t('err.readTopic') + (pista ? t('err.gotBack', { pista }) : ''));
   }
   const lista = (v) => (Array.isArray(v) ? v : []).map((x) => String(x || '').trim()).filter(Boolean);
   return {
@@ -1771,8 +1940,8 @@ Entre 5 y 8 entradas en "wortschatz". Sin texto fuera del JSON.`;
 }
 
 export async function correctDiary({ text, niveau = 'A2', errores = [] }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para corregir el diario.');
-  if (!text?.trim()) throw new Error('Escribe algo primero.');
+  if (!aiAvailable()) throw new Error(t('err.aiDiary'));
+  if (!text?.trim()) throw new Error(t('err.writeSomething'));
 
   const recurrentes = errores.length
     ? `
@@ -1828,7 +1997,7 @@ para enseñarle algo que le permita escribir más rico. Sin texto fuera del JSON
   const raw = extractJson(text_);
   if (!raw) {
     const pista = String(text_ || '').replace(/\s+/g, ' ').trim().slice(0, 160);
-    throw new Error('No se pudo leer la corrección.' + (pista ? ' Llegó: "' + pista + '…"' : ''));
+    throw new Error(t('err.readFix') + (pista ? t('err.gotBack', { pista }) : ''));
   }
   const tabla = (t) =>
     t && Array.isArray(t.headers) && Array.isArray(t.rows) && t.rows.length
@@ -1878,7 +2047,7 @@ export async function testAi() {
 }
 
 export async function generateConjugation({ verb }) {
-  if (!aiAvailable()) throw new Error('Activa la IA para conjugar verbos.');
+  if (!aiAvailable()) throw new Error(t('err.aiConjugate'));
   const prompt = `Eres profesor de alemán. El alumno quiere conjugar el verbo "${verb}".
 Devuelve SOLO un objeto JSON con esta estructura (sin markdown fuera del JSON):
 {
@@ -1928,13 +2097,13 @@ Devuelve SOLO un objeto JSON con esta estructura (sin markdown fuera del JSON):
 }`;
   const text = await runLLM(prompt);
   const raw = extractJson(text);
-  if (!raw || !raw.tenses) throw new Error('No se pudo generar la conjugación.');
+  if (!raw || !raw.tenses) throw new Error(t('err.conjFailed'));
   return raw;
 }
 
 // Evalúa la respuesta de una pregunta abierta (tipo "open")
 export async function evaluateAnswer({ item, answer, lektion }) {
-  if (!aiAvailable()) throw new Error('Activa la IA para evaluar respuestas abiertas.');
+  if (!aiAvailable()) throw new Error(t('err.aiOpen'));
 
   const prompt = `Eres profesor de alemán. El alumno ha respondido a la siguiente pregunta de nivel ${lektion?.bandName || 'A2'}:
 
@@ -1962,7 +2131,7 @@ Sin ningún otro texto fuera del JSON.`;
   const arr = extractJson(text);
   if (Array.isArray(arr) && arr.length > 0) return arr[0];
   if (arr && typeof arr === 'object') return arr;
-  throw new Error('No se pudo interpretar la respuesta de la IA.');
+  throw new Error(t('err.parseFailed'));
 }
 
 // Ampliar un tema de vocabulario. Se desbloquea cuando tienes TODAS las
@@ -1972,7 +2141,7 @@ Sin ningún otro texto fuera del JSON.`;
 // Se le pasa lo que ya tienes para que no te devuelva lo mismo con otras
 // palabras: el valor esta en lo que NO esta en la lista.
 export async function ampliarVocabulario({ tema, niveau = 'A2', subtemas = [], yaTengo = [] }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para ampliar el tema.');
+  if (!aiAvailable()) throw new Error(t('err.aiExpand'));
   const idioma = langName(getLang());
   // El bloque cubre la lección entera, y "Lektion 11" no le dice nada a nadie:
   // se le pasan los sub-temas para que sepa de qué campo tirar.
@@ -2023,6 +2192,6 @@ Sin texto fuera del JSON.`;
       nota: String(w.nota || '').trim()
     }))
     .filter((w) => w.de && w.es && !tengo.has(w.de.toLowerCase()));
-  if (!salida.length) throw new Error('No se pudo leer la lista de palabras nuevas.');
+  if (!salida.length) throw new Error(t('err.readWords'));
   return { tema: String(raw.tema || tema), woerter: salida };
 }

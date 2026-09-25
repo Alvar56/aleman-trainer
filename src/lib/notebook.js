@@ -3,6 +3,7 @@
 // Todo en localStorage; al migrar a web pasará por la misma capa storage.
 
 import { storage } from './storage.js';
+import { guardarFoto, borrarFoto, todasLasRefs } from './fotos.js';
 import { resolveLektionId, DEFAULT_LEKTION_ID } from './kursbuch/index.js';
 
 const KEY = 'notebook:notes';
@@ -74,6 +75,9 @@ export function fotosDeNota(note, modo) {
 }
 
 export function deleteNote(id) {
+  // Primero las fotos: despues de quitar la nota ya no hay de donde sacar sus
+  // referencias y se quedarian en IndexedDB para siempre.
+  borrarFotosDeNota(getNote(id));
   storage.update(KEY, [], (list) => list.filter((n) => n.id !== id));
 }
 
@@ -112,4 +116,102 @@ export function ejerciciosDeClase({ max = 8 } = {}) {
     }
   }
   return out;
+}
+
+
+// --- Fotos: de dentro de la nota a IndexedDB --------------------------------
+//
+// Los cinco sitios donde puede haber una foto. Los tres ultimos son de cuando
+// se guardaba UNA por nota; siguen existiendo en las notas de entonces.
+const CAMPOS_FOTO = ['fotoBilder', 'fotoAufgaben'];
+const CAMPOS_FOTO_SUELTA = ['fotoBild', 'fotoAufgabe', 'fotoAnalyse'];
+
+function esImagenIncrustada(x) {
+  return typeof x === 'string' && x.startsWith('data:');
+}
+
+// Mueve a IndexedDB las imagenes que todavia viajan dentro de la nota y las
+// deja apuntadas con `thumbRef`.
+//
+// Es idempotente: lo ya migrado no tiene `thumb`, asi que en los arranques
+// siguientes no toca nada ni escribe nada. Y si IndexedDB no esta disponible,
+// guardarFoto devuelve null y la imagen se queda donde estaba: peor, pero
+// nadie pierde una foto por esto.
+// Una sola a la vez. Sin esto, las dos pasadas que hace React en desarrollo
+// (StrictMode monta, limpia y vuelve a montar) leian las mismas notas todavia
+// sin migrar y guardaban copia de cada foto: la segunda escritura ganaba y la
+// primera tanda se quedaba en IndexedDB sin que nada la apuntara.
+let migrando = null;
+
+export function migrarFotos() {
+  if (!migrando) migrando = hacerMigracion().finally(() => { migrando = null; });
+  return migrando;
+}
+
+async function hacerMigracion() {
+  const notas = storage.get(KEY, []);
+  let movidas = 0;
+
+  for (const nota of notas) {
+    let tocada = false;
+
+    const mover = async (a) => {
+      if (!a || !esImagenIncrustada(a.thumb) || a.thumbRef) return a;
+      const ref = await guardarFoto(a.thumb);
+      if (!ref) return a;
+      movidas += 1;
+      tocada = true;
+      const { thumb, ...resto } = a;
+      return { ...resto, thumbRef: ref };
+    };
+
+    for (const campo of CAMPOS_FOTO) {
+      if (!Array.isArray(nota[campo])) continue;
+      const lista = [];
+      for (const a of nota[campo]) lista.push(await mover(a));
+      nota[campo] = lista;
+    }
+    for (const campo of CAMPOS_FOTO_SUELTA) {
+      if (!nota[campo]) continue;
+      nota[campo] = await mover(nota[campo]);
+    }
+
+    if (tocada) {
+      // Se escribe la lista entera de una vez al final, no nota a nota: cada
+      // storage.set dispara un envio y no hacen falta veinte.
+      storage.set(KEY, notas);
+    }
+  }
+
+  await limpiarHuerfanas();
+  return movidas;
+}
+
+// Fotos en IndexedDB que ya no apunta ninguna nota. Salen de haber borrado una
+// nota antes de que existiera borrarFotosDeNota, y de la migracion duplicada
+// de arriba. Ocupan sitio y no las ve nadie.
+export async function limpiarHuerfanas() {
+  const guardadas = await todasLasRefs();
+  if (!guardadas.length) return 0;
+  const enUso = new Set();
+  storage.get(KEY, []).forEach((n) => refsDeNota(n).forEach((r) => enUso.add(r)));
+  const sobran = guardadas.filter((r) => !enUso.has(r));
+  for (const r of sobran) await borrarFoto(r);
+  return sobran.length;
+}
+
+// Las referencias de una nota, para pedirlas todas juntas.
+export function refsDeNota(note) {
+  if (!note) return [];
+  const out = [];
+  const meter = (a) => { if (a?.thumbRef) out.push(a.thumbRef); };
+  CAMPOS_FOTO.forEach((c) => (note[c] || []).forEach(meter));
+  CAMPOS_FOTO_SUELTA.forEach((c) => meter(note[c]));
+  return out;
+}
+
+// Al borrar una nota se llevan por delante sus fotos: si no, se quedan en
+// IndexedDB para siempre sin que nada las apunte.
+export function borrarFotosDeNota(note) {
+  refsDeNota(note).forEach((ref) => borrarFoto(ref));
 }

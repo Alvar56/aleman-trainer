@@ -1,11 +1,18 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { t } from '../lib/i18n.js';
-import { pickGenderNouns, recordGender, recordCard } from '../lib/vocab.js';
+import FoxOverlay, { useFox } from './FoxOverlay.jsx';
+import { t, pick } from '../lib/i18n.js';
+import { pickGenderNouns, recordGender, recordCard, getDeck } from '../lib/vocab.js';
+import { pistaGenero } from '../lib/genero.js';
+import { useTeclas, esOrdenador } from '../lib/teclas.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrar } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun, guardarParcial } from '../lib/leaderboard.js';
 import { getSettings } from '../lib/settings.js';
+import { apuntarRespuesta, currentStreak } from '../lib/rachas.js';
+import Reloj from './Reloj.jsx';
+import RachaPill from './RachaPill.jsx';
+import Escuchar from './Escuchar.jsx';
 
 const ARTS = [
   { a: 'der', color: 'der' },
@@ -14,22 +21,52 @@ const ARTS = [
 ];
 
 export default function GenderGame({ onExit, onFinish, nivel = 'all' }) {
-  const size = getSettings().sessionSize || 15;
-  const nouns = useMemo(() => pickGenderNouns(Math.max(size, 15), nivel), [nivel]);
+  const fox = useFox();
+  // Sin suelo: lo que digas en Ajustes es lo que sale.
+  const size = getSettings().sessionSize || 10;
+  const nouns = useMemo(() => pickGenderNouns(size, nivel), [nivel, size]);
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null);
+  // La pista de la palabra que hay puesta, una vez pedida. Se guarda entera y
+  // no un booleano porque la de descarte lleva dentro el artículo sorteado: si
+  // se recalculara al pintar, cambiaría en cada render.
+  const [pista, setPista] = useState(null);
   const results = useRef([]);
+  // La racha de aciertos seguidos: hasta ahora solo la llevaba gramática.
+  // Lo que llevas seguidas AHORA, para el rayito de la cabecera. Se
+  // contaba desde el principio, pero solo se veia al terminar.
+  const [seguidas, setSeguidas] = useState(() => currentStreak());
+  const mejorSeguidas = useRef(0);
+  const ultimaSeguidas = useRef(null);
   const monedas = useRef(0); // lo ganado en esta tanda, para el resumen
   const started = useRef(Date.now());
   const advancing = useRef(false);
   const timer = useRef(null);
   useEffect(() => () => clearTimeout(timer.current), []);
 
+  // 1, 2 y 3 son der, die y das, en el orden en que salen en pantalla.
+  // Con la respuesta dada, Enter o espacio avanzan a la siguiente pregunta.
+  // En ordenador no pasa automáticamente: el alumno decide cuándo avanzar.
+  // La P pide la pista.
+  const pedirPista = () => setPista(pistaGenero(cur.noun, cur.article));
+  useTeclas({
+    1: picked ? undefined : () => choose('der'),
+    2: picked ? undefined : () => choose('die'),
+    3: picked ? undefined : () => choose('das'),
+    Enter: picked ? skipWait : undefined,
+    ' ': picked ? skipWait : undefined,
+    p: !picked && !pista ? pedirPista : undefined,
+    P: !picked && !pista ? pedirPista : undefined,
+    h: !picked && !pista ? pedirPista : undefined,
+    H: !picked && !pista ? pedirPista : undefined,
+    Escape: onExit
+  }, nouns.length > 0);
+
   if (!nouns.length) {
     return (
       <div className="card center stack">
-        <p>No hay sustantivos disponibles.</p>
-        <button className="btn-ghost" onClick={onExit}>Volver</button>
+        <p>{pick('No hay sustantivos disponibles.', 'No nouns available.')}</p>
+        <button className="btn-ghost" onClick={onExit}>{pick('Volver', 'Back')}</button>
       </div>
     );
   }
@@ -41,33 +78,43 @@ export default function GenderGame({ onExit, onFinish, nivel = 'all' }) {
     const ok = art === cur.article;
     setPicked(art);
     recordGender(cur.noun, ok);
-    // Y ademas en la tarjeta de la que salio, para que el juego cuente en el
-    // porcentaje de su tema. Antes solo apuntaba en el almacen del genero:
-    // podias jugar una hora y el mazo seguia igual.
-    if (cur.deckId && cur.cardDe) recordCard(cur.deckId, cur.cardDe, ok);
-    monedas.current += cobrar(results.current, ok);
-    results.current.push({ noun: cur, ok });
+    if (cur.deckId && cur.cardDe) recordCard(cur.cardDe, ok);
+    monedas.current += cobrarEjercicio(ok, { nivel: 2, pistas: pista ? 1 : 0 });
+    results.current.push({ noun: cur, ok, picked: art, pista });
+    const rSeg = apuntarRespuesta(ok);
+    if (rSeg.seguidas > mejorSeguidas.current) mejorSeguidas.current = rSeg.seguidas;
+    setSeguidas(rSeg.seguidas);
+    ultimaSeguidas.current = rSeg;
+    fox.acierto(ok);
     advancing.current = true;
-    // Al fallar se deja la solución más tiempo en pantalla para poder leerla.
-    timer.current = setTimeout(() => {
-      advancing.current = false;
-      if (idx + 1 < nouns.length) {
-        setIdx(idx + 1);
-        setPicked(null);
-      } else {
-        finish();
-      }
-    }, ok ? 700 : 3000);
+    if (!esOrdenador()) {
+      timer.current = setTimeout(skipWait, ok ? 700 : 3000);
+    }
   }
 
-  // Permite saltar la espera del fallo sin esperar los 3 s.
+  function atras() {
+    if (idx === 0) return;
+    const prev = results.current[idx - 1];
+    if (!prev) return;
+    if (timer.current) clearTimeout(timer.current);
+    advancing.current = false;
+    results.current.pop();
+    setIdx(idx - 1);
+    setPicked(prev.picked);
+    setPista(prev.pista || null);
+    fox.sigue();
+  }
+
+  // Avanza a la siguiente pregunta
   function skipWait() {
-    if (!picked || !advancing.current) return;
-    clearTimeout(timer.current);
+    if (!picked) return;
+    fox.sigue();
+    if (timer.current) clearTimeout(timer.current);
     advancing.current = false;
     if (idx + 1 < nouns.length) {
       setIdx(idx + 1);
       setPicked(null);
+      setPista(null);
     } else {
       finish();
     }
@@ -94,9 +141,13 @@ export default function GenderGame({ onExit, onFinish, nivel = 'all' }) {
       }
     }
     for (const [id, c] of porMazo) {
+      // Con el nombre del MAZO, no "der/die/das". Estas entradas dicen como
+      // llevas los sustantivos de ese mazo; llamarlas todas igual llenaba la
+      // lista de "Por tema" de filas identicas e indistinguibles.
+      const mazo = getDeck(id);
       guardarParcial({
         topicId: 'vocab:' + id,
-        topicName: 'der/die/das',
+        topicName: mazo ? 'Vocab · ' + mazo.name : 'der/die/das',
         mode: 'gender',
         game: 'gender',
         correct: c.correct,
@@ -119,6 +170,8 @@ export default function GenderGame({ onExit, onFinish, nivel = 'all' }) {
     saveRun({ topicId: 'vocab:gender', topicName: 'der/die/das', mode: 'gender', game: 'gender', correct, total, accuracy: Math.round(acc * 100) / 100, seconds, xp });
     repartirPorMazo(results.current);
     onFinish({
+      rachaMax: mejorSeguidas.current,
+      rachaRecord: ultimaSeguidas.current,
       deck: { id: 'gender', name: 'der / die / das', emoji: '🎯' },
       mode: 'gender',
       correct,
@@ -136,7 +189,22 @@ export default function GenderGame({ onExit, onFinish, nivel = 'all' }) {
       <div className="progress-top">
         <button className="btn-ghost" onClick={onExit} title="Salir">✕</button>
         <div className="bar"><span style={{ width: ((idx + (picked ? 1 : 0)) / nouns.length) * 100 + '%' }} /></div>
+        {idx > 0 && results.current[idx - 1] && (
+          <button className="btn-ghost ses-atras ses-icon-btn" onClick={atras} title={t('ses.prev')}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
         <span className="timer">{idx + 1}/{nouns.length}</span>
+      </div>
+
+      <div className="ctx-fila">
+        <span className="pill ctx-tema">🎲 der / die / das</span>
+        <span className="row" style={{ gap: 8 }}>
+          <RachaPill n={seguidas} />
+          <Reloj desde={started.current} />
+        </span>
       </div>
 
       <div className="prompt-label" style={{ marginBottom: 6 }}>{t('vs.genderQ')}</div>
@@ -146,8 +214,29 @@ export default function GenderGame({ onExit, onFinish, nivel = 'all' }) {
           <span className="gw-es">{cur.es}</span>
         </div>
 
+        {/* La pista. Nunca dice el artículo: dice la regla, que es lo que
+            vale para las otras doscientas palabras con esa terminación. Las
+            que no tienen regla (cuatro de cada cinco) reciben la otra ayuda,
+            descartar uno, que deja la duda en dos y no en tres. */}
+        <div className="gender-niveles gg-pista" style={{ justifyContent: 'center' }}>
+          {!pista ? (
+            <button
+              className="ask-chip"
+              disabled={!!picked}
+              onClick={() => setPista(pistaGenero(cur.noun, cur.article))}
+              title="Atajo: P"
+            >
+              {t('gg.pista')} <span className="op-tecla" style={{ marginLeft: 4 }}>P</span>
+            </button>
+          ) : (
+            <span className="gg-pista-txt">
+              💡 {pista.tipo === 'regla' ? pick(pista.es, pista.en) : t('gg.descarte', { art: pista.fuera })}
+            </span>
+          )}
+        </div>
+
         <div className="gender-row">
-          {ARTS.map(({ a, color }) => {
+          {ARTS.map(({ a, color }, k) => {
             let cls = 'gender-btn ' + color;
             if (picked) {
               if (a === cur.article) cls += ' correct';
@@ -156,22 +245,30 @@ export default function GenderGame({ onExit, onFinish, nivel = 'all' }) {
             }
             return (
               <button key={a} className={cls} disabled={!!picked} onClick={() => choose(a)}>
+                <span className="op-tecla">{k + 1}</span>
                 {a}
               </button>
             );
           })}
         </div>
 
-        {picked && picked !== cur.article && (
-          <div className="gender-fix">
-            <div className="gf-line">
-              Es <strong className={'gf-art ' + cur.article}>{cur.article}</strong>{' '}
-              <strong>{cur.noun}</strong>
+        {picked && (
+          <div className={'gender-fix' + (picked === cur.article ? ' bien' : '')}>
+            <div className="gf-line" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+              <span>{picked === cur.article ? '✓' : '✗'}</span>
+              <span>
+                {pick('Es', 'It’s')} <strong className={'gf-art ' + cur.article}>{cur.article}</strong>{' '}
+                <strong>{cur.noun}</strong>
+              </span>
+              <Escuchar texto={`${cur.article} ${cur.noun}`} className="dlg-say" frase />
             </div>
             <div className="gf-es">{cur.es}</div>
-            <button className="btn-ghost btn-sm" onClick={skipWait}>Siguiente →</button>
+            <button className="btn-primary btn-sm" onClick={skipWait} style={{ marginTop: 4 }}>
+              {t('ueb.siguiente')} {esOrdenador() ? <span className="op-tecla" style={{ marginLeft: 6 }}>↵</span> : null}
+            </button>
           </div>
         )}
+      <FoxOverlay fox={fox} mudo={!!picked} racha={seguidas} />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { SIN_IA } from '../lib/modo.js';
 import { t, localeFecha } from '../lib/i18n.js';
 import { listEntries, createEntry, diaryStats, countWords, topMistakes } from '../lib/diary.js';
 import { aiAvailable } from '../lib/settings.js';
@@ -25,27 +26,51 @@ export default function Diary({ onOpen }) {
       <div className="page-head">
         <h1>Tagebuch</h1>
         <p>
-          {t('tb.sub')}
+          {t(SIN_IA ? 'tb.subSinIA' : 'tb.sub')}
         </p>
       </div>
 
-      <div className="statcards" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+      {/* En clase, no en un style: puesto en linea se saltaba las media
+          queries y en el movil las cuatro se apretaban en 70-94 px. */}
+      <div className={'statcards tira-resumen ' + (SIN_IA ? 'statcards-3' : 'statcards-4')}>
         <div className="card statcard">
           <div className="n">{st.count}</div>
           <div className="l">{t('tb.entries')}</div>
         </div>
-        <div className="card statcard">
-          <div className="n">{st.palabras}</div>
-          <div className="l">{t('tb.wordsWritten')}</div>
-        </div>
-        <div className="card statcard">
-          <div className="n">{st.racha} {st.racha > 0 ? '✍️' : ''}</div>
-          <div className="l">{t('tb.daysRow')}</div>
-        </div>
-        <div className="card statcard">
-          <div className="n">{st.corregidas}</div>
-          <div className="l">{t('tb.corrected')}</div>
-        </div>
+        {/* Sin IA son tres fichas, y en el móvil el grid es de dos columnas:
+            la tercera se quedaba sola con un hueco al lado. Las palabras van
+            las últimas y a lo ancho —es el número que más crece, y así las
+            tres llenan las dos filas—. Con IA son cuatro y salen 2+2 solas.
+
+            "Corregidas" se queda en 0 para siempre cuando no hay IA que
+            corrija: una ficha que solo puede decir cero no es un dato. */}
+        {SIN_IA ? (
+          <>
+            <div className="card statcard">
+              <div className="n">{st.racha} {st.racha > 0 ? '✍️' : ''}</div>
+              <div className="l">{t('tb.daysRow')}</div>
+            </div>
+            <div className="card statcard statcard-ancha">
+              <div className="n">{st.palabras}</div>
+              <div className="l">{t('tb.wordsWritten')}</div>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="card statcard">
+              <div className="n">{st.palabras}</div>
+              <div className="l">{t('tb.wordsWritten')}</div>
+            </div>
+            <div className="card statcard">
+              <div className="n">{st.racha} {st.racha > 0 ? '✍️' : ''}</div>
+              <div className="l">{t('tb.daysRow')}</div>
+            </div>
+            <div className="card statcard">
+              <div className="n">{st.corregidas}</div>
+              <div className="l">{t('tb.corrected')}</div>
+            </div>
+          </>
+        )}
       </div>
 
       {fallos.length > 0 && (
@@ -64,7 +89,9 @@ export default function Diary({ onOpen }) {
         </div>
       )}
 
-      {!aiOn && (
+      {/* El recuadro de "sin IA puedes escribir, pero para corregir actívala"
+          no se pinta cuando no hay IA que activar. */}
+      {!SIN_IA && !aiOn && (
         <div className="card" style={{ marginBottom: 16 }}>
           {t('tb.offHint')}
         </div>
@@ -79,7 +106,7 @@ export default function Diary({ onOpen }) {
       {entries.length === 0 ? (
         <div className="card center">
           <p className="muted">
-            {t('tb.empty')}
+            {t(SIN_IA ? 'tb.emptySinIA' : 'tb.empty')}
           </p>
         </div>
       ) : (
@@ -90,7 +117,7 @@ export default function Diary({ onOpen }) {
             return (
               <button className="card topic-open" key={e.id} onClick={() => onOpen(e.id)}>
                 <div className="row spread" style={{ alignItems: 'flex-start' }}>
-                  <div style={{ flex: 1, minWidth: 0 }}>
+                  <div className="flex-min">
                     <div className="t-title">{e.title || fmt(e.date)}</div>
                     <div className="muted" style={{ fontSize: '0.8rem', margin: '2px 0 6px' }}>
                       {fmt(e.date)} · {n} {n === 1 ? t('word') : t('words')}

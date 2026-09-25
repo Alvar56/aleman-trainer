@@ -357,6 +357,7 @@ export default {
   id: 'modalverben',
   name: 'Modalverben',
   nameEs: 'Verbos modales',
+  emoji: '🚦',
   blurb: 'können, müssen, dürfen, sollen, wollen, möchten · presente, Präteritum, Konjunktiv II y subordinadas',
   theory,
   concepts: [

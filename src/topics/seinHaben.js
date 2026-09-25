@@ -80,14 +80,14 @@ const frames = [
     make(rng) {
       const subj = pick(rng, SUBJ);
       const v = pick(rng, V);
-      const t = pick(rng, TIME);
+      const cuando = pick(rng, TIME);
       const correct = subj[v.aux];
       const wrongAux = subj[v.aux === 'haben' ? 'sein' : 'haben'];
       const prät = subj[v.aux === 'haben' ? 'prätH' : 'prätS'];
       return mc(rng, {
         conceptId: `seinhaben:${v.cat}`,
         prompt: t('tp.pickSeinHaben'),
-        sentence: `${cap(subj.de)} ___ ${t} ${v.mid.join(' ')} ${v.part}.`,
+        sentence: `${cap(subj.de)} ___ ${cuando} ${v.mid.join(' ')} ${v.part}.`,
         correct,
         distractors: shuffle(rng, [wrongAux, prät]),
         translation: perfGloss(subj, v),
@@ -140,8 +140,8 @@ const frames = [
     make(rng) {
       const subj = pick(rng, SUBJ);
       const v = pick(rng, V.filter((x) => x.aux === 'sein'));
-      const t = pick(rng, TIME);
-      const solution = [...t.split(' ').map((w, i) => (i === 0 ? cap(w) : w)), subj.sein, subj.de, ...v.mid, v.part];
+      const cuando = pick(rng, TIME);
+      const solution = [...cuando.split(' ').map((w, i) => (i === 0 ? cap(w) : w)), subj.sein, subj.de, ...v.mid, v.part];
       return order(rng, {
         conceptId: v.cat === 'bewegung' ? 'seinhaben:bewegung' : v.cat === 'zustand' ? 'seinhaben:zustand' : 'seinhaben:spezial',
         prompt: t('tp.orderTimeFirst'),
@@ -264,6 +264,7 @@ export default {
   id: 'seinHaben',
   name: 'sein oder haben',
   nameEs: 'Auxiliar del Perfekt: «sein» o «haben»',
+  emoji: '⚖️',
   blurb: 'Elegir el auxiliar del Perfekt, el orden en la subordinada y el Präteritum war / hatte',
   theory,
   concepts: [

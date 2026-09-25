@@ -33,6 +33,11 @@ export default function FoxChat({ abrirCon = null, onClose }) {
   // En reposo, los dos ojos abiertos e iguales. El 'pensando' se queda solo
   // para mientras escribe: parado se veia un ojo entero y el otro a medias.
   const [gesto, setGesto] = useState('normal');
+  // Mensajes seguidos escritos BIEN. Es lo que enciende las chispas del zorro,
+  // igual que la racha de aciertos las enciende en los ejercicios. Aqui basta
+  // con uno: escribir tres palabras en aleman sin un solo fallo cuesta mucho
+  // mas que acertar un test, asi que no se hace esperar a dos.
+  const [bien, setBien] = useState(0);
   const [ajustes, setAjustes] = useState(false);
   const [hayVoz, setHayVoz] = useState(true);
   const finRef = useRef(null);
@@ -133,7 +138,10 @@ export default function FoxChat({ abrirCon = null, onClose }) {
       // que un "ja" suelto no cuente como respuesta.
       const enAleman = r.aufDeutsch === true;
       const bastante = mio.split(/\s+/).filter(Boolean).length >= 3;
-      if (enAleman && !r.korrektur && bastante) ganar(MONEDAS_FELIX);
+      // El mismo "lo has hecho bien" que paga monedas enciende las chispas.
+      const clavado = enAleman && !r.korrektur && bastante;
+      if (clavado) ganar(MONEDAS_FELIX);
+      setBien((n) => (clavado ? n + 1 : 0));
       guardar([
         ...conMio,
         {
@@ -185,6 +193,7 @@ export default function FoxChat({ abrirCon = null, onClose }) {
     storage.set(KEY, []);
     setMsgs([]);
     setGesto('normal');
+    setBien(0);
   }
 
   const sugerencias = pick(
@@ -202,9 +211,16 @@ export default function FoxChat({ abrirCon = null, onClose }) {
           title={t('fox.customiseName', { nombre: fuchs.nombre })}
         >
           {/* Aquí solo la cara: es una conversación, se le mira a los ojos. */}
-          <FoxFace fuchs={fuchs} gesto={busy ? 'pensando' : gesto} size={78} />
+          <FoxFace
+            fuchs={fuchs}
+            gesto={busy ? 'pensando' : gesto}
+            size={78}
+            chispeando={bien > 0}
+            // Cada mensaje bien seguido aprieta mas, como la racha de aciertos.
+            racha={bien * 3}
+          />
         </button>
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="fox-chat-quien">
           <h2 style={{ margin: 0 }}>{fuchs.nombre}</h2>
           <p className="muted" style={{ fontSize: '0.8rem', margin: '2px 0 0' }}>
             {busy ? t('fox.thinking') : t('fox.sub')}

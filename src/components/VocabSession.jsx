@@ -1,11 +1,19 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t, codigoIdioma } from '../lib/i18n.js';
-import { pickCards, recordCard, setCardColor, getCardColor, colorSiguiente } from '../lib/vocab.js';
+import { pickCards, recordCard, setCardColor, getCardColor, colorSiguiente, allDecks } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrar } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER, PRODUCIR } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { getSettings } from '../lib/settings.js';
-import { saveRun } from '../lib/leaderboard.js';
+import { useTeclas, teclasDeOpciones } from '../lib/teclas.js';
+import { saveRun, rankOfRun } from '../lib/leaderboard.js';
+import { apuntarRespuesta, currentStreak } from '../lib/rachas.js';
+import Reloj from './Reloj.jsx';
+import RachaPill from './RachaPill.jsx';
+import StarButton from './StarButton.jsx';
+import PistaLetras from './PistaLetras.jsx';
+import Umlaut from './Umlaut.jsx';
 
 const COMBINING = new RegExp('[\\u0300-\\u036f]', 'g');
 const norm = (s) =>
@@ -40,19 +48,49 @@ function shuffle(a) {
   return x;
 }
 
-export default function VocabSession({ deck, mode, dir: propDir, onExit, onFinish }) {
+// `cartasFijas`: las tarjetas de "repetir los fallos". Con ellas la tanda no
+// se sortea, son esas y ya está.
+export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = null, onExit, onFinish }) {
+  const fox = useFox();
   const size = Math.min(getSettings().sessionSize || 10, deck.cards.length);
-  const cards = useMemo(() => (mode === 'flashcards' ? shuffle(deck.cards).slice(0, size) : pickCards(deck, size)), [deck, mode, size]);
+  // Las tarjetas de UN tema van enteras: el mazo, de una tirada. No son un
+  // ejercicio que se aprueba, son el material para mirarlo, y cortarlo en diez
+  // obligaba a entrar y salir cinco veces para ver un tema. Los juegos sí
+  // respetan el tamaño de sesión: allí sí hay tanda que terminar.
+  //
+  // Menos cuando el mazo es la mezcla de TODO el vocabulario, que es lo que
+  // sale al practicar desde la portada: ahí entero son mil seiscientas
+  // tarjetas de una sentada, y eso no es material, es una condena. En ese mazo
+  // manda el número de ejercicios que hayas puesto en Ajustes.
+  const mezclaDeTodo = String(deck.id || '').startsWith('combi:');
+  const cards = useMemo(
+    () =>
+      cartasFijas?.length
+        ? cartasFijas
+        : mode === 'flashcards' && !mezclaDeTodo
+          ? shuffle(deck.cards)
+          : pickCards(deck, size),
+    [deck, mode, size, cartasFijas, mezclaDeTodo]
+  );
   const [idx, setIdx] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [seenBack, setSeenBack] = useState(false); // ya ha visto la traducción al menos una vez
   const [flash, setFlash] = useState(null); // 'ok' | 'no' | null  (flashcards)
   const [phase, setPhase] = useState('q'); // quiz/write: 'q' | 'a'
   const [input, setInput] = useState('');
+  // Letras destapadas a mano en el modo de escribir.
+  const [pistas, setPistas] = useState(0);
   const [lastOk, setLastOk] = useState(false);
   const [picked, setPicked] = useState(null);
   const results = useRef([]);
   const monedas = useRef(0); // lo ganado en esta tanda, para el resumen
+  // La racha de aciertos seguidos. La llevaba solo gramática, así que
+  // jugando a vocabulario ni subía ni se rompía.
+  // Lo que llevas seguidas AHORA, para el rayito de la cabecera. Se
+  // contaba desde el principio, pero solo se veia al terminar.
+  const [seguidas, setSeguidas] = useState(() => currentStreak());
+  const mejorSeguidas = useRef(0);
+  const ultimaSeguidas = useRef(null);
   const started = useRef(Date.now());
   const inputRef = useRef(null);
   const advancing = useRef(false);
@@ -63,6 +101,91 @@ export default function VocabSession({ deck, mode, dir: propDir, onExit, onFinis
     if (mode === 'write' && phase === 'q' && inputRef.current) inputRef.current.focus();
   }, [idx, phase, mode]);
 
+  // Las tarjetas, con el teclado: espacio o Enter para girarla, y una vez
+  // vista la traduccion, 1 = no la sabia y 2 = si. Es el gesto de toda la
+  // vida en las apps de flashcards y aqui habia que ir al raton en cada una.
+  //
+  // En el modo de escribir no se engancha nada: alli el teclado es para
+  // escribir. (useTeclas ya se aparta cuando el foco esta en un campo, pero
+  // mas vale no depender solo de eso.)
+  //
+  // Va antes del `return` de "mazo vacio": los hooks no pueden ir detras de
+  // un return condicional.
+  // Las tres de aqui y las opciones del test estaban DESPUES del `return`
+  // de "este mazo no tiene tarjetas". Un hook detras de un return
+  // condicional es justo lo que React no admite: el dia que el mazo llegue
+  // vacio y luego con tarjetas, la lista de hooks cambia de largo entre dos
+  // pintados y salta un error que no dice nada de todo esto. Hoy no pasaba
+  // porque un mazo vacio se queda vacio toda la vida del componente, pero
+  // es de las cosas que se arreglan antes de que muerdan.
+  //
+  // `card` puede ser undefined cuando no hay tarjetas; por eso el `?.` y el
+  // corte de mas abajo, que sigue devolviendo la pantalla de mazo vacio.
+  const card = cards[idx];
+  const deToEs = dir[idx];
+  const prompt = deToEs ? card?.de : card?.es;
+  const answer = deToEs ? card?.es : card?.de;
+
+  const quizOptions = useMemo(() => {
+    if (mode !== 'quiz' || !card) return [];
+    const normText = (s) => String(s || '').trim().toLowerCase();
+    const ansKey = normText(answer);
+    let pool = deck.cards
+      .filter((c) => c.de !== card.de)
+      .map((c) => (deToEs ? c.es : c.de))
+      .filter((text) => normText(text) !== ansKey);
+    // When the deck is very small (e.g. starred items), supplement with cards from all decks
+    if (pool.length < 3) {
+      const all = allDecks().flatMap((d) => d.cards || []);
+      const extra = all
+        .filter((c) => c.de !== card.de && !deck.cards.some((dc) => dc.de === c.de))
+        .map((c) => (deToEs ? c.es : c.de))
+        .filter((text) => normText(text) !== ansKey);
+      pool = [...pool, ...shuffle(extra)];
+    }
+    const uniqPool = [];
+    const seen = new Set();
+    for (const p of shuffle(pool)) {
+      const k = normText(p);
+      if (k && !seen.has(k)) {
+        seen.add(k);
+        uniqPool.push(p);
+      }
+    }
+    return shuffle([answer, ...uniqPool.slice(0, 3)]);
+  }, [idx, mode, card, answer, deToEs, deck]);
+
+  useTeclas(
+    seenBack
+      ? { 1: () => rateFlash(false), 2: () => rateFlash(true) }
+      : { ' ': () => { setRevealed(true); setSeenBack(true); }, Enter: () => { setRevealed(true); setSeenBack(true); } },
+    mode === 'flashcards' && cards.length > 0 && !flash
+  );
+
+  // El test, con los números, igual que el de gramática: el 1 es la primera
+  // opción, el 2 la segunda… Aquí no estaban y había que ir al ratón en cada
+  // palabra, que es justo lo que este juego hace cuarenta veces seguidas.
+  useTeclas(
+    teclasDeOpciones(quizOptions, (opt) => { setPicked(opt); gradeQA(opt === answer); }),
+    mode === 'quiz' && phase === 'q' && cards.length > 0
+  );
+
+  // Y el Enter para pasar a la siguiente, una vez corregida. Valía para las
+  // tarjetas y no para el test ni para escribir: había que buscar el botón.
+  useTeclas(
+    { Enter: () => goNext(), ' ': () => goNext() },
+    (mode === 'quiz' || mode === 'write') && phase === 'a'
+  );
+
+  // Escribir: el Enter con el foco DENTRO del campo lo recoge el formulario.
+  // Este es para cuando el foco se ha ido a otro sitio -al tocar la pantalla, o
+  // después de girar una tarjeta-: sin esto, Enter no hacía nada y había que
+  // volver al campo o buscar el botón de comprobar.
+  useTeclas(
+    { Enter: () => { if (input.trim()) gradeQA(checkWritten(input, answer)); } },
+    mode === 'write' && phase === 'q'
+  );
+
   if (!cards.length) {
     return (
       <div className="card center stack">
@@ -72,18 +195,9 @@ export default function VocabSession({ deck, mode, dir: propDir, onExit, onFinis
     );
   }
 
-  const card = cards[idx];
-  const deToEs = dir[idx];
-  const prompt = deToEs ? card.de : card.es;
-  const answer = deToEs ? card.es : card.de;
-
-  const quizOptions = useMemo(() => {
-    if (mode !== 'quiz') return [];
-    const pool = deck.cards.filter((c) => c.de !== card.de).map((c) => (deToEs ? c.es : c.de));
-    return shuffle([answer, ...shuffle(pool).slice(0, 3)]);
-  }, [idx, mode]);
 
   function goNext() {
+    fox.sigue();
     advancing.current = false;
     if (idx + 1 < cards.length) {
       setIdx(idx + 1);
@@ -92,6 +206,7 @@ export default function VocabSession({ deck, mode, dir: propDir, onExit, onFinis
       setSeenBack(false);
       setFlash(null);
       setInput('');
+      setPistas(0);
       setPicked(null);
     } else {
       finish();
@@ -101,19 +216,32 @@ export default function VocabSession({ deck, mode, dir: propDir, onExit, onFinis
   function rateFlash(ok) {
     if (advancing.current) return;
     advancing.current = true;
-    // La regla vive en vocab.js, junto a los datos: depende de la direccion,
-    // y aqui dentro no se podia ni leer ni probar sin montar una sesion.
-    setCardColor(deck.id, card.de, colorSiguiente(getCardColor(deck.id, card.de), ok, deToEs));
+    // Las flashcards solo actualizan el semáforo visual de la palabra (rojo/
+    // amarillo/verde). NO tocan la racha de aciertos seguidos ni el porcentaje
+    // del mazo: son repaso visual, no práctica punteable.
+    setCardColor(card.de, colorSiguiente(getCardColor(card.de), ok, deToEs));
     results.current.push({ card, ok, deToEs });
     setFlash(ok ? 'ok' : 'no');
+    fox.acierto(ok);
     setTimeout(goNext, 620);
   }
 
   function gradeQA(ok) {
-    recordCard(deck.id, card.de, ok);
-    monedas.current += cobrar(results.current, ok);
+    recordCard(card.de, ok);
+    // Escribir la palabra de cero es PRODUCIR; el test es elegir entre
+    // cuatro que ya tienes delante, o sea RECONOCER.
+    // Las letras que hayas destapado abaratan la pregunta, como en traducir.
+    monedas.current += cobrarEjercicio(ok, {
+      nivel: mode === 'write' ? PRODUCIR : RECONOCER,
+      pistas: mode === 'write' ? pistas : 0
+    });
     results.current.push({ card, ok, deToEs });
+    const rSeg = apuntarRespuesta(ok);
+    if (rSeg.seguidas > mejorSeguidas.current) mejorSeguidas.current = rSeg.seguidas;
+    setSeguidas(rSeg.seguidas);
+    ultimaSeguidas.current = rSeg;
     setLastOk(ok);
+    fox.acierto(ok);
     setPhase('a');
   }
 
@@ -122,12 +250,36 @@ export default function VocabSession({ deck, mode, dir: propDir, onExit, onFinis
     const correct = results.current.filter((r) => r.ok).length;
     const total = results.current.length;
     const acc = total ? correct / total : 0;
-    let xp = results.current.reduce((s, r) => s + (r.ok ? 10 : 2), 0);
-    if (acc >= 0.9) xp += 5;
-    bumpSessions();
-    const streak = recordActivity(xp);
-    saveRun({ topicId: 'vocab:' + deck.id, topicName: 'Vocab · ' + deck.name, mode, game: mode, correct, total, accuracy: Math.round(acc * 100) / 100, seconds, xp });
-    onFinish({ deck, mode, correct, total, seconds, xp, streak, monedas: monedas.current, missed: results.current.filter((r) => !r.ok).map((r) => r.card) });
+    // Las flashcards no cuentan como práctica: solo son repaso visual.
+    // No acumulan XP, no cuentan sesión, no aparecen en el leaderboard.
+    const isFlash = mode === 'flashcards';
+    let xp = 0;
+    let streak = null;
+    let run = null;
+    let rank = null;
+    if (!isFlash) {
+      xp = results.current.reduce((s, r) => s + (r.ok ? 10 : 2), 0);
+      if (acc >= 0.9) xp += 5;
+      bumpSessions();
+      streak = recordActivity(xp);
+      run = saveRun({ topicId: 'vocab:' + deck.id, topicName: 'Vocab · ' + deck.name, mode, game: mode, correct, total, accuracy: Math.round(acc * 100) / 100, seconds, xp });
+      rank = rankOfRun(run.id, 'vocab:' + deck.id);
+    }
+    onFinish({
+      deck,
+      mode,
+      dir: propDir || null,
+      correct,
+      total,
+      seconds,
+      xp,
+      streak,
+      monedas: isFlash ? 0 : monedas.current,
+      rachaMax: mejorSeguidas.current,
+      rachaRecord: ultimaSeguidas.current,
+      rank,
+      missed: results.current.filter((r) => !r.ok).map((r) => r.card)
+    });
   }
 
   const progressPct = ((idx + (phase === 'a' || flash ? 1 : 0)) / cards.length) * 100;
@@ -140,9 +292,24 @@ export default function VocabSession({ deck, mode, dir: propDir, onExit, onFinis
         <span className="timer">{idx + 1}/{cards.length}</span>
       </div>
 
-      <div className="row spread" style={{ marginBottom: 14 }}>
-        <span className="pill">{deck.emoji} {deck.name}</span>
-        <span className="pill">{deToEs ? `DE → ${codigoIdioma()}` : `${codigoIdioma()} → DE`}</span>
+      {/* El contexto (de qué mazo es y en qué sentido va) y el ejercicio
+          necesitan aire entre medias: pegados se leían como una sola cosa. El
+          hueco va en la clase, que en el móvil es otro. */}
+      <div className="ctx-fila">
+        <span className="pill ctx-tema">{deck.emoji} {deck.name}</span>
+        {/* La flecha, en su propio <span>: el glifo → se dibuja centrado en la
+            altura de una minúscula, y al lado de DE / EN, que son todo
+            mayúsculas, se veía caída. Se sube lo que mide esa diferencia. */}
+        <span className="row" style={{ gap: 8 }}>
+          <span className="pill">
+            {deToEs ? 'DE' : codigoIdioma()}
+            <span className="pill-flecha">→</span>
+            {deToEs ? codigoIdioma() : 'DE'}
+          </span>
+          <StarButton item={{ ...card, id: 'vocab:' + (card.id || card.de), deckId: deck?.id, lektionId: deck?.lektionId }} />
+          <RachaPill n={seguidas} />
+          <Reloj desde={started.current} />
+        </span>
       </div>
 
       {/* ---------- TARJETAS ---------- */}
@@ -201,6 +368,7 @@ export default function VocabSession({ deck, mode, dir: propDir, onExit, onFinis
               }
               return (
                 <button key={i} className={cls} disabled={phase === 'a'} onClick={() => { setPicked(opt); gradeQA(opt === answer); }}>
+                  {i < 9 && <span className="op-tecla">{i + 1}</span>}
                   {opt}
                 </button>
               );
@@ -217,8 +385,34 @@ export default function VocabSession({ deck, mode, dir: propDir, onExit, onFinis
           <div className="sentence">{prompt}</div>
           {phase === 'q' ? (
             <form onSubmit={(e) => { e.preventDefault(); if (input.trim()) gradeQA(checkWritten(input, answer)); }}>
-              <input ref={inputRef} type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder={t('vs.yourAnswer')} autoComplete="off" style={{ maxWidth: 460 }} />
-              <button className="btn-primary" style={{ marginTop: 12, display: 'block' }}>{t('vs.check')}</button>
+              {/* La inicial de cada palabra delante. Sin ella hay que dar con
+                  la palabra exacta a la primera, que no es lo que se practica
+                  aquí. */}
+              <PistaLetras
+                respuesta={answer}
+                pistas={pistas}
+                onPedir={() => setPistas((n) => n + 1)}
+              />
+              <input
+                ref={inputRef}
+                className="vs-respuesta"
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (
+                    ((e.ctrlKey || e.altKey) && (e.key === 'p' || e.key === 'P' || e.key === 'h' || e.key === 'H')) ||
+                    e.key === 'F2'
+                  ) {
+                    e.preventDefault();
+                    setPistas((n) => n + 1);
+                  }
+                }}
+                placeholder={t('vs.yourAnswer')}
+                autoComplete="off"
+              />
+              {!deToEs && <Umlaut campo={inputRef} onTexto={setInput} />}
+              <button className="btn-primary" style={{ display: 'block', width: '100%', maxWidth: 320, margin: '12px auto 0' }}>{t('ses.check')}</button>
             </form>
           ) : (
             <>
@@ -230,6 +424,8 @@ export default function VocabSession({ deck, mode, dir: propDir, onExit, onFinis
           )}
         </div>
       )}
+
+      <FoxOverlay fox={fox} mudo={phase === 'a'} racha={seguidas} />
     </div>
   );
 }

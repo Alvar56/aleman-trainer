@@ -23,7 +23,7 @@ export default function AskPractice({ pregunta, res, onExit, onFinish }) {
 
   const volver = (
     <button className="btn-ghost" onClick={onExit}>
-      ← {t('back')}
+      <span className="fl-atras">◂</span> {t('back')}
     </button>
   );
 

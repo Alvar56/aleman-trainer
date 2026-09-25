@@ -151,7 +151,10 @@ export function lektionTopic(lektion) {
         title: tc(r.regel),
         body: tc(r.erklaerung),
         examples: tcEjemplos(r.beispiele),
-        detail: tc(r.detail || r.erklaerung),
+        // Sin detail no hay detalle: repetir aqui la misma explicacion que ya
+        // esta arriba hacia que al desplegar saliera el mismo parrafo dos
+        // veces seguidas. Si la regla no trae nada mas, no hay nada que abrir.
+        detail: r.detail ? tc(r.detail) : null,
         table: tcTabla(r.tabelle) || null,
         more: tcMas(r.mehr) || null
       })),
@@ -180,7 +183,7 @@ export function lektionWoerter(lektion) {
   return (lektion?.woerter || []).map((g) => ({
     ...g,
     thema: tc(g.thema),
-    items: (g.items || []).map((it) => ({ ...it, es: tc(it.es) }))
+    items: (g.items || []).map((it) => ({ ...it, es: tc(it.es), exEs: it.exEs ? tc(it.exEs) : it.exEs }))
   }));
 }
 
@@ -194,9 +197,18 @@ export function lektionDecks(lektion) {
     emoji: '📗',
     builtin: true,
     fromBook: true,
+    bandId: lektion.bandId,
     bandName: lektion.bandName,
     lektionName: lektionLabel(lektion),
-    cards: g.items.map((it) => ({ de: it.de, es: tc(it.es), ex: '', exEs: '' }))
+    // El ejemplo se pasa tal cual esta en el libro. Iba con ex y exEs vacios a
+    // mano, asi que las tarjetas de las lecciones NUNCA daban una frase al
+    // girarlas, mientras que las de los mazos sueltos si.
+    cards: g.items.map((it) => ({
+      de: it.de,
+      es: tc(it.es),
+      ex: it.ex || '',
+      exEs: it.exEs ? tc(it.exEs) : ''
+    }))
   }));
 }
 

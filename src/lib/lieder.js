@@ -6,7 +6,7 @@
 import { storage } from './storage.js';
 import { aiAvailable, getSettings } from './settings.js';
 import { extractJson, limiteIA, apuntarLimiteIA } from './ai.js';
-import { getLang, langName } from './i18n.js';
+import { getLang, langName, t } from './i18n.js';
 
 const KEY = 'lieder:saved';
 const SEEN = 'lieder:seen';
@@ -83,7 +83,7 @@ export function songId(artist, titel) {
 // Pide una canción a la IA. Necesita búsqueda web para que el vídeo exista de verdad.
 // `query` = lo que escriba el usuario: un artista, una canción, o "artista - canción".
 export async function suggestSong({ niveau = 'A2', genre = 'any', query = '' } = {}) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para pedir una canción.');
+  if (!aiAvailable()) throw new Error(t('err.aiSong'));
   const s = getSettings();
   if (s.aiProvider !== 'claude-local') {
     throw new Error(
@@ -137,13 +137,43 @@ Devuelve SOLO un objeto JSON:
   "youtube": "URL del vídeo oficial en YouTube",
   "lyricsUrl": "URL donde está la letra oficial (genius.com, songtexte.com o la web del artista)",
   "worumGehtEs": "de qué trata la canción, 3-4 frases con tus palabras, en ${idioma}",
-  "artistInfo": "quién es el artista, de dónde, qué estilo, por qué es conocido: 3-4 frases en ${idioma}",
+  "kontext": "la historia de ESTA canción: cuándo y por qué se hizo, qué pasaba entonces, cómo le fue, por qué se recuerda. 4-5 frases en ${idioma}. Si no encuentras nada fiable, null en vez de inventar",
+  "artistInfo": "quién es el artista: de dónde, cómo empezó, qué estilo, qué le hace reconocible, dónde está ahora. 4-5 frases en ${idioma}",
+  "aussprache": {
+    "acento": "cómo suena quien canta: de qué zona es su acento, si canta en dialecto o en Hochdeutsch, si vocaliza mucho o se come sílabas. 2-3 frases en ${idioma}",
+    "puntos": [
+      {
+        "de": "la palabra o el grupo corto (1-3 palabras) tal y como está escrito",
+        "suena": "cómo suena de verdad EN LA CANCIÓN, escrito como lo diría un hispanohablante leyéndolo (p. ej. «nicht» → «nijt»)",
+        "porque": "qué pasa ahí y por qué: una regla de pronunciación, una contracción de las que se hacen al cantar, una vocal larga o corta, un final que se come… en ${idioma}"
+      }
+    ],
+    "imitar": [ "un trozo concreto para repetir en voz alta y qué hay que vigilar al hacerlo, en ${idioma}" ]
+  },
   "warum": "por qué esta canción va bien para el nivel ${niveau}: ritmo, claridad al cantar, vocabulario… en ${idioma}",
   "wortschatz": [ { "de": "palabra o expresión corta (con artículo si es sustantivo)", "es": "traducción a ${idioma}", "nota": "matiz o uso, opcional" } ],
   "grammatik": [ { "punkt": "estructura que aparece en la canción", "erklaerung": "explicación breve en ${idioma}" } ],
   "hoertipps": [ "consejo concreto para escucharla y entenderla mejor, en ${idioma}" ]
 }
 Incluye 10-14 entradas en "wortschatz", 2-3 en "grammatik" y 2-3 en "hoertipps".
+
+LA PRONUNCIACIÓN ES LO PRINCIPAL. Una canción sirve sobre todo para el oído y la
+boca: el alumno ya tiene vocabulario y gramática en el resto de la app, y lo que
+no tiene en ninguna otra parte es alemán cantado por un nativo. Así que en
+"aussprache" ponte fino y pon 5-7 entradas en "puntos" y 2-3 en "imitar".
+
+Lo que interesa ahí es lo que NO se deduce de cómo está escrito:
+- sonidos que a un hispanohablante le cuestan: ich-Laut y ach-Laut, la ü y la ö,
+  la z, la r final, la h aspirada, la diferencia entre vocal larga y corta;
+- lo que se come al cantar: "haben" → "habn", "ist es" pegado, la -e final que
+  desaparece, las terminaciones -en que quedan en una n;
+- dialecto o color regional, si lo hay: en vienés, bávaro o suizo cambian
+  vocales enteras y conviene avisar de cuáles;
+- dónde cae el acento de la palabra cuando la melodía lo mueve de sitio.
+Cada punto tiene que salir DE ESTA canción, no ser pronunciación alemana en
+general. Y "suena" se escribe con letras que un hispanohablante lea directo,
+nada de alfabeto fonético.
+
 Sin texto fuera del JSON.`;
 
   // Si ya sabemos que no hay cuota, ni se manda: esperar siete minutos para que
@@ -165,7 +195,7 @@ Sin texto fuera del JSON.`;
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ prompt, tools: ['WebSearch', 'WebFetch'], timeoutMs: 240000 })
   }).catch(() => null);
-  if (!res) throw new Error('No se pudo contactar con el puente local. ¿Está corriendo "npm run dev"?');
+  if (!res) throw new Error(t('err.noBridge'));
   if (!res.ok) {
     let msg = `Puente local: error ${res.status}`;
     let cuerpo = null;
@@ -185,7 +215,7 @@ Sin texto fuera del JSON.`;
   if (raw?.problema && !raw?.titel) throw new Error(String(raw.problema));
   if (!raw || !raw.titel || !raw.artist) {
     const pista = String(text || '').replace(/\s+/g, ' ').trim().slice(0, 160);
-    throw new Error('No se pudo leer la propuesta.' + (pista ? ' Llegó: "' + pista + '…"' : ''));
+    throw new Error(t('err.readProposal') + (pista ? t('err.gotBack', { pista }) : ''));
   }
 
   const url = (u) => (/^https?:\/\//i.test(String(u || '').trim()) ? String(u).trim() : null);
@@ -204,7 +234,28 @@ Sin texto fuera del JSON.`;
     youtube: url(raw.youtube),
     lyricsUrl: url(raw.lyricsUrl),
     worumGehtEs: String(raw.worumGehtEs || '').trim(),
+    kontext: String(raw.kontext || '').trim(),
     artistInfo: String(raw.artistInfo || '').trim(),
+    // La pronunciación es lo que de verdad aporta una canción, así que si
+    // viene mal formada se limpia en vez de tirarla entera.
+    aussprache: (() => {
+      const a = raw.aussprache;
+      if (!a || typeof a !== 'object') return null;
+      const puntos = (Array.isArray(a.puntos) ? a.puntos : [])
+        .map((p) => ({
+          de: String(p.de || '').trim(),
+          suena: String(p.suena || '').trim(),
+          porque: String(p.porque || '').trim()
+        }))
+        // Igual que el vocabulario: nada de versos disfrazados de "punto".
+        .filter((p) => p.de && p.suena && p.de.split(/\s+/).length <= 4);
+      const imitar = (Array.isArray(a.imitar) ? a.imitar : [])
+        .map((x) => String(x || '').trim())
+        .filter(Boolean);
+      const acento = String(a.acento || '').trim();
+      if (!acento && !puntos.length && !imitar.length) return null;
+      return { acento, puntos, imitar };
+    })(),
     warum: String(raw.warum || '').trim(),
     wortschatz: (Array.isArray(raw.wortschatz) ? raw.wortschatz : [])
       .map((w) => ({

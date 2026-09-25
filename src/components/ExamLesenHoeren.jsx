@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t } from '../lib/i18n.js';
 import Cargando from './Cargando.jsx';
 import { generateExamAufgabe } from '../lib/pruefungAi.js';
@@ -7,6 +8,7 @@ import { useAiJob } from '../lib/useAiJob.js';
 import { saveResult, veredicto, getTyp, BESTANDEN } from '../lib/pruefung.js';
 import { recordActivity } from '../lib/streak.js';
 import { ganar, MONEDAS_EXAMEN } from '../lib/monedas.js';
+import BotonCopiar from './BotonCopiar.jsx';
 
 // Busca una voz alemana entre las instaladas en el sistema.
 function germanVoice() {
@@ -19,6 +21,7 @@ function germanVoice() {
 }
 
 export default function ExamLesenHoeren({ teil, typ, onBack }) {
+  const fox = useFox();
   const esHoeren = teil === 'hoeren';
   // La tarea se genera en el gestor de trabajos, no en el estado de aquí:
   // tarda un par de minutos y es normal irse a otra sección mientras. Antes,
@@ -61,12 +64,24 @@ export default function ExamLesenHoeren({ teil, typ, onBack }) {
     if (a) inicio.current = Date.now();
   }
 
+  // Lo que se lee en voz alta: el guion sin las marcas de separación ni los
+  // nombres de quien habla.
+  function textoParaLeer() {
+    return String(aufgabe?.skript || '')
+      .replace(/^---$/gm, '. ')
+      .replace(/^([A-ZÄÖÜ][^:\n]{0,20}):\s*/gm, '')
+      .trim();
+  }
+
+  // Copiar ese mismo texto para oírlo en otro sitio con mejor voz vive en
+  // BotonCopiar: lo mismo hace falta en Kommunikation, y no lo enseña por
+  // pantalla, que sería ver la solución.
+
   function reproducir() {
     const sy = window.speechSynthesis;
     if (!sy || !aufgabe?.skript) return;
     sy.cancel();
-    // Se lee entero, quitando las marcas de separación y los nombres del guion.
-    const texto = aufgabe.skript.replace(/^---$/gm, '. ').replace(/^([A-ZÄÖÜ][^:\n]{0,20}):\s*/gm, '');
+    const texto = textoParaLeer();
     const u = new SpeechSynthesisUtterance(texto);
     if (voz) u.voice = voz;
     u.lang = voz?.lang || 'de-DE';
@@ -91,6 +106,8 @@ export default function ExamLesenHoeren({ teil, typ, onBack }) {
     recordActivity(correct * 10);
     // en proporción a los aciertos: contestar a boleo no paga
     ganar(Math.round((MONEDAS_EXAMEN * correct) / Math.max(1, total)));
+    // Aprobado del examen real: 60 %.
+    fox.acierto(correct >= total * 0.6);
     setEnviado(true);
     parar();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -101,7 +118,7 @@ export default function ExamLesenHoeren({ teil, typ, onBack }) {
   if (busy) {
     return (
       <div className="reading stack">
-        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>← Prüfung</button>
+        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}><span className="fl-atras">←</span> Prüfung</button>
         <Cargando
           icono={esHoeren ? '🎧' : '📖'}
           titulo={t('wait.exTitle')}
@@ -114,7 +131,7 @@ export default function ExamLesenHoeren({ teil, typ, onBack }) {
   if (err) {
     return (
       <div className="reading stack">
-        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>← Prüfung</button>
+        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}><span className="fl-atras">←</span> Prüfung</button>
         <div className="card" style={{ borderColor: 'var(--bad)', background: 'var(--bad-bg)' }}>
           {err || t('ex.cantLoad')}
         </div>
@@ -129,7 +146,7 @@ export default function ExamLesenHoeren({ teil, typ, onBack }) {
   if (!aufgabe) {
     return (
       <div className="reading stack">
-        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>← Prüfung</button>
+        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}><span className="fl-atras">←</span> Prüfung</button>
         <Cargando
           icono={esHoeren ? '🎧' : '📖'}
           titulo={t('wait.exTitle')}
@@ -148,7 +165,7 @@ export default function ExamLesenHoeren({ teil, typ, onBack }) {
   return (
     <div className="reading stack">
       <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>
-        ← Prüfung
+        <span className="fl-atras">←</span> Prüfung
       </button>
 
       <div className="page-head" style={{ marginBottom: 0 }}>
@@ -181,6 +198,9 @@ export default function ExamLesenHoeren({ teil, typ, onBack }) {
               <button className="btn-primary" onClick={hablando ? parar : reproducir} disabled={!voz}>
                 {hablando ? t('ex.stop') : reproducciones === 0 ? t('ex.listen') : t('ex.listenAgain')}
               </button>
+              {/* Copiar el texto para oírlo fuera con una voz mejor. Antes de
+                  corregir: es ahí donde sirve de algo. */}
+              <BotonCopiar texto={textoParaLeer} disabled={enviado} />
               <span className="muted" style={{ fontSize: '0.8rem' }}>
                 {reproducciones === 0
                   ? t('ex.listenNote')
@@ -303,6 +323,7 @@ export default function ExamLesenHoeren({ teil, typ, onBack }) {
           <button className="btn-ghost" onClick={onBack}>{t('ex.backBtn')}</button>
         </div>
       )}
+      <FoxOverlay fox={fox} mudo={enviado} />
     </div>
   );
 }

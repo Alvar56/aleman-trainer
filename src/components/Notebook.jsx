@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { SIN_IA } from '../lib/modo.js';
 import { t, localeFecha } from '../lib/i18n.js';
 import { listNotes, createNote, notebookStats } from '../lib/notebook.js';
 import { getLektion, lektionLabel } from '../lib/kursbuch/index.js';
@@ -28,10 +29,10 @@ export default function Notebook({ onOpen }) {
     <div>
       <div className="page-head">
         <h1>Notizbuch</h1>
-        <p>{t('nb.sub')}</p>
+        <p>{t(SIN_IA ? 'nb.subSinIA' : 'nb.sub')}</p>
       </div>
 
-      {!aiOn && (
+      {!SIN_IA && !aiOn && (
         <div className="card" style={{ marginBottom: 16 }}>
           {t('nb.offHint')}
         </div>
@@ -57,7 +58,7 @@ export default function Notebook({ onOpen }) {
             return (
               <button className="card topic-open" key={n.id} onClick={() => onOpen(n.id)}>
                 <div className="row spread" style={{ alignItems: 'flex-start' }}>
-                  <div style={{ flex: 1, minWidth: 0 }}>
+                  <div className="flex-min">
                     <div className="t-title">{n.title || lektionLabel(l)}</div>
                     <div className="muted" style={{ fontSize: '0.8rem', margin: '2px 0 6px' }}>
                       {fmtDate(n.date)} · {l?.bandName} · {lektionLabel(l)}
@@ -69,7 +70,10 @@ export default function Notebook({ onOpen }) {
                 <div className="row" style={{ gap: 8, marginTop: 10, fontSize: '0.76rem', flexWrap: 'wrap' }}>
                   {n.clean && <span className="pill">{t('nb.clean')}</span>}
                   {n.items?.length > 0 && <span className="pill">{t('nb.exercises', { n: n.items.length })}</span>}
-                  {!n.clean && !n.items?.length && <span className="muted">{t('nb.draft')}</span>}
+                  {/* Borrador tambien en pastilla: al lado de "a limpio" y de
+                      "8 ejercicios" era la unica que iba en texto suelto, y
+                      parecia que se le habia caido el marco. */}
+                  {!n.clean && !n.items?.length && <span className="pill">{t('nb.draft')}</span>}
                   {enMarcha.some((k) => k.startsWith('foto:' + n.id + ':')) && (
                     <span className="pill ai">⏳ {t('nb.analysing')}</span>
                   )}

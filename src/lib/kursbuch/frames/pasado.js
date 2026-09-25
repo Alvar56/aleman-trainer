@@ -18,13 +18,29 @@ export const PASADO = {
       { s: 'Ich ___ gestern Kopfschmerzen.', a: 'hatte', d: ['war', 'bin'], t: 'Ayer me dolía la cabeza.', e: '"Kopfschmerzen haben" en pasado: ich hatte.' },
       { s: 'Wo ___ du am Wochenende?', a: 'warst', d: ['hattest', 'bist'], t: '¿Dónde estuviste el fin de semana?', e: 'Estar en un sitio → sein: du warst.' },
       { s: 'Wir ___ gestern viel Spaß.', a: 'hatten', d: ['waren', 'haben'], t: 'Ayer nos divertimos mucho.', e: '"Spaß haben" en pasado: wir hatten.' },
-      { s: 'Mein Opa ___ Lehrer von Beruf.', a: 'war', d: ['hatte', 'ist'], t: 'Mi abuelo era profesor.', e: 'Las profesiones van con sein: er war.' }
+      { s: 'Mein Opa ___ Lehrer von Beruf.', a: 'war', d: ['hatte', 'ist'], t: 'Mi abuelo era profesor.', e: 'Las profesiones van con sein: er war.' },
+      { s: 'Als Kind ___ ich oft bei meiner Oma.', a: 'war', d: ['hatte', 'bin'], t: 'De niño estaba a menudo en casa de mi abuela.', e: 'Estar en un sitio en pasado → sein: ich war.' },
+      { s: '___ ihr gestern viel Arbeit?', a: 'Hattet', d: ['Wart', 'Habt'], t: '¿Tuvisteis ayer mucho trabajo?', e: 'haben en Präteritum con ihr: hattet.' },
+      { s: 'Das Konzert ___ wirklich toll.', a: 'war', d: ['hatte', 'ist'], t: 'El concierto estuvo genial.', e: 'Valorar algo pasado → war.' },
+      { s: 'Wir ___ gestern keinen Strom.', a: 'hatten', d: ['waren', 'haben'], t: 'Ayer no tuvimos luz.', e: 'haben en Präteritum con wir: hatten.' },
+      { s: '___ du schon mal in Berlin?', a: 'Warst', d: ['Hattest', 'Bist'], t: '¿Has estado alguna vez en Berlín?', e: 'Con sein se prefiere el Präteritum: warst du.' },
+      { s: 'Meine Kollegin ___ letzte Woche krank.', a: 'war', d: ['hatte', 'ist'], t: 'Mi compañera estuvo enferma la semana pasada.', e: 'Estado en pasado → war.' },
+      { s: 'Ich ___ als Kind viele Freunde.', a: 'hatte', d: ['war', 'habe'], t: 'De niño tenía muchos amigos.', e: 'Tener en pasado → hatte.' },
+      { s: '___ Sie gestern im Büro?', a: 'Waren', d: ['Hatten', 'Sind'], t: '¿Estuvo usted ayer en la oficina?', e: 'Forma de cortesía de sein en Präteritum: Waren Sie.' },
+      { s: 'Nach der Arbeit ___ ich gestern sehr müde.', a: 'war', d: ['bin', 'hatte'], t: 'Ayer después del trabajo estaba muy cansado.', e: 'sein en Präteritum: ich war.' },
+      { s: 'Wir ___ letzte Woche keine Zeit.', a: 'hatten', d: ['haben', 'waren'], t: 'La semana pasada no tuvimos tiempo.', e: 'haben en Präteritum, plural: hatten.' },
+      { s: '___ du gestern im Kurs?', a: 'Warst', d: ['Bist', 'Hattest'], t: '¿Estuviste ayer en clase?', e: 'du warst.' },
+      { s: 'Meine Eltern ___ bei der Hochzeit sehr jung.', a: 'waren', d: ['sind', 'hatten'], t: 'Mis padres eran muy jóvenes en la boda.', e: 'sein en plural: waren.' },
+      { s: 'Er ___ gestern starke Kopfschmerzen.', a: 'hatte', d: ['hat', 'war'], t: 'Ayer le dolía mucho la cabeza.', e: 'haben en Präteritum: er hatte.' }
     ],
     orders: [
-      { sol: ['Gestern', 'war', 'ich', 'sehr', 'müde'], t: 'Ayer estaba muy cansado.', e: 'Complemento (1), verbo (2), sujeto (3).' },
+      { sol: ['Gestern', 'war', 'ich', 'sehr', 'müde'], alt: [['Ich', 'war', 'gestern', 'sehr', 'müde']], t: 'Ayer estaba muy cansado.', e: 'Complemento (1), verbo (2), sujeto (3).' },
       { sol: ['Wir', 'hatten', 'letztes', 'Jahr', 'kein', 'Auto'], t: 'El año pasado no teníamos coche.', e: 'hatten en 2ª posición.' },
       { sol: ['Wo', 'warst', 'du', 'am', 'Wochenende?'], t: '¿Dónde estuviste el fin de semana?', e: 'W-Frage con warst.' },
       { sol: ['Als', 'Kind', 'hatte', 'ich', 'einen', 'Hund'], t: 'De niño tenía un perro.', e: 'Complemento inicial → inversión (hatte ich).' }
+    ],
+    clozes: [
+      { txt: 'Gestern ___ ich sehr müde, denn ich ___ viel Arbeit. Meine Kollegen ___ auch im Büro, aber sie ___ mehr Zeit als ich.', a: ['war', 'hatte', 'waren', 'hatten'], extra: ['bin', 'habe', 'sind'], t: 'Ayer estaba muy cansado, porque tenía mucho trabajo. Mis compañeros también estaban en la oficina, pero tenían más tiempo que yo.', e: 'sein y haben en Präteritum, en singular y en plural: war/waren frente a hatte/hatten.' }
     ]
   },
 
@@ -45,18 +61,22 @@ export const PASADO = {
       { s: 'Warum ___ du gestern nicht in der Schule?', a: 'warst', d: ['hattest', 'bist'], t: '¿Por qué no estuviste ayer en el colegio?', e: 'Estar en un sitio en pasado: du warst.' },
       { s: 'Mein Opa ___ früher Lehrer.', a: 'war', d: ['hatte', 'ist'], t: 'Mi abuelo era maestro.', e: 'Profesiones en el pasado usan sein: er war.' },
       { s: 'Ich ___ keine Zeit für Hausaufgaben.', a: 'hatte', d: ['war', 'habe'], t: 'No tuve tiempo para los deberes.', e: 'Pasado de Zeit haben: ich hatte.' },
-      { s: 'Es ___ einmal ein König...', a: 'war', d: ['hatte', 'ist'], t: 'Érase una vez un rey...', e: 'Así empiezan los cuentos de hadas en alemán: Es war einmal...' }
+      { s: 'Es ___ einmal ein König...', a: 'war', d: ['hatte', 'ist'], t: 'Érase una vez un rey...', e: 'Así empiezan los cuentos de hadas en alemán: Es war einmal...' },
+      { s: 'Im ersten Winter ___ ich großes Heimweh.', a: 'hatte', d: ['habe', 'war'], t: 'El primer invierno tenía mucha morriña.', e: 'haben en Präteritum: ich hatte.' },
+      { s: 'Damals ___ hier alles sehr fremd.', a: 'war', d: ['ist', 'hatte'], t: 'Entonces aquí todo era muy extraño.', e: 'sein en Präteritum: es war.' },
+      { s: 'Wir ___ am Anfang keine Freunde hier.', a: 'hatten', d: ['haben', 'waren'], t: 'Al principio no teníamos amigos aquí.', e: 'Plural en Präteritum: hatten.' }
     ],
     orders: [
       { sol: ['Ich', 'war', 'gestern', 'Abend', 'sehr', 'müde'], t: 'Ayer por la noche estaba muy cansado.', e: 'Verbo "war" en segunda posición.' },
       { sol: ['Wir', 'hatten', 'damals', 'eine', 'kleine', 'Wohnung'], t: 'En aquel entonces teníamos un piso pequeño.', e: 'Verbo "hatten" en segunda posición.' },
       { sol: ['Warst', 'du', 'schon', 'einmal', 'in', 'Wien?'], t: '¿Has estado alguna vez en Viena?', e: 'Pregunta de sí/no con warst.' },
-      { sol: ['Am', 'Anfang', 'hatte', 'ich', 'großes', 'Heimweh'], t: 'Al principio echaba mucho de menos mi tierra.', e: 'Complemento inicial → hatte ich.' }
+      { sol: ['Am', 'Anfang', 'hatte', 'ich', 'großes', 'Heimweh'], alt: [['Ich', 'hatte', 'am', 'Anfang', 'großes', 'Heimweh']], t: 'Al principio echaba mucho de menos mi tierra.', e: 'Complemento inicial → hatte ich.' }
     ]
   },
 
   // ---------- A1.2 L9: Perfekt con haben o sein ----------
   'perfekt-mit-haben-und-sein': {
+    reserva: ['war', 'hatte', 'seid'],
     picks: [
       { s: 'Ich ___ viel gearbeitet.', a: 'habe', d: ['bin', 'war'], t: 'He trabajado mucho.', e: 'La mayoría de los verbos forman el Perfekt con haben.' },
       { s: 'Ich ___ nach Wien gefahren.', a: 'bin', d: ['habe', 'war'], t: 'He ido a Viena.', e: 'fahren es movimiento → auxiliar sein.' },
@@ -69,13 +89,32 @@ export const PASADO = {
       { s: 'Wir ___ am Sonntag zu Hause geblieben.', a: 'sind', d: ['haben', 'waren'], t: 'El domingo nos quedamos en casa.', e: 'bleiben es una excepción: siempre con sein.' },
       { s: 'Was ___ du am Wochenende gemacht?', a: 'hast', d: ['bist', 'warst'], t: '¿Qué hiciste el fin de semana?', e: 'machen va con haben.' },
       { s: 'Das Kind ___ sofort eingeschlafen.', a: 'ist', d: ['hat', 'war'], t: 'El niño se durmió enseguida.', e: 'einschlafen es cambio de estado → sein.' },
-      { s: 'Ich ___ gestern noch nie so viel gelacht.', a: 'habe', d: ['bin', 'war'], t: 'Ayer nunca me había reído tanto.', e: 'lachen va con haben.' }
+      { s: 'Ich ___ gestern noch nie so viel gelacht.', a: 'habe', d: ['bin', 'war'], t: 'Ayer nunca me había reído tanto.', e: 'lachen va con haben.' },
+      { s: 'Wir ___ gestern zwei Stunden spazieren gegangen.', a: 'sind', d: ['haben', 'waren'], t: 'Ayer estuvimos dos horas paseando.', e: 'gehen es movimiento con cambio de lugar → sein.' },
+      { s: 'Ich ___ den ganzen Nachmittag gelernt.', a: 'habe', d: ['bin', 'war'], t: 'He estudiado toda la tarde.', e: 'lernen no es movimiento → haben.' },
+      { s: 'Der Zug ___ pünktlich angekommen.', a: 'ist', d: ['hat', 'war'], t: 'El tren ha llegado puntual.', e: 'ankommen es llegar a un sitio → sein.' },
+      { s: '___ du gestern ferngesehen?', a: 'Hast', d: ['Bist', 'Warst'], t: '¿Viste ayer la tele?', e: 'fernsehen → haben.' },
+      { s: 'Meine Eltern ___ letztes Jahr nach Wien gezogen.', a: 'sind', d: ['haben', 'waren'], t: 'Mis padres se mudaron a Viena el año pasado.', e: 'umziehen implica cambio de lugar → sein.' },
+      { s: 'Ich ___ heute früh aufgewacht.', a: 'bin', d: ['habe', 'war'], t: 'Hoy me he despertado pronto.', e: 'aufwachen es cambio de estado → sein.' },
+      { s: 'Wir ___ gestern Abend Pizza bestellt.', a: 'haben', d: ['sind', 'waren'], t: 'Ayer por la noche pedimos pizza.', e: 'bestellen → haben.' },
+      { s: 'Der Unfall ___ am Morgen passiert.', a: 'ist', d: ['hat', 'war'], t: 'El accidente ocurrió por la mañana.', e: 'passieren siempre con sein.' },
+      { s: 'Am Freitag ___ ich ins Kino gegangen.', a: 'bin', d: ['habe', 'war'], t: 'El viernes fui al cine.', e: 'Los verbos de movimiento forman el Perfekt con sein.' },
+      { s: 'Wir ___ den ganzen Tag gearbeitet.', a: 'haben', d: ['sind', 'waren'], t: 'Hemos trabajado todo el día.', e: 'arbeiten forma el Perfekt con haben.' },
+      { s: '___ du schon gefrühstückt?', a: 'Hast', d: ['Bist', 'Warst'], t: '¿Ya has desayunado?', e: 'frühstücken va con haben.' },
+      { s: 'Der Zug ___ ausnahmsweise pünktlich angekommen.', a: 'ist', d: ['hat', 'war'], t: 'El tren ha llegado puntual por una vez.', e: 'ankommen es verbo de movimiento: con sein.' },
+      { s: 'Sie ___ mir gestern geschrieben.', a: 'hat', d: ['ist', 'war'], t: 'Ella me escribió ayer.', e: 'schreiben va con haben.' }
     ],
     orders: [
       { sol: ['Ich', 'habe', 'gestern', 'viel', 'gearbeitet'], t: 'Ayer trabajé mucho.', e: 'haben (2) + participio (final).' },
       { sol: ['Wir', 'sind', 'am', 'Samstag', 'nach', 'Wien', 'gefahren'], t: 'El sábado fuimos a Viena.', e: 'Movimiento → sein.' },
       { sol: ['Hast', 'du', 'den', 'Film', 'schon', 'gesehen?'], t: '¿Ya has visto la película?', e: 'Auxiliar primero en la pregunta.' },
-      { sol: ['Sie', 'ist', 'sehr', 'früh', 'aufgestanden'], t: 'Se levantó muy pronto.', e: 'aufstehen con sein.' }
+      { sol: ['Sie', 'ist', 'sehr', 'früh', 'aufgestanden'], t: 'Se levantó muy pronto.', e: 'aufstehen con sein.' },
+      { sol: ['Gestern', 'bin', 'ich', 'früh', 'aufgestanden'], alt: [['Ich', 'bin', 'gestern', 'früh', 'aufgestanden']], t: 'Ayer me levanté pronto.', e: 'Auxiliar en 2ª posición y participio al final.' },
+      { sol: ['Wir', 'haben', 'den', 'ganzen', 'Tag', 'gearbeitet'], t: 'Hemos trabajado todo el día.', e: 'haben + participio al final.' },
+      { sol: ['Der', 'Zug', 'ist', 'pünktlich', 'angekommen'], t: 'El tren ha llegado puntual.', e: 'ankommen va con sein.' }
+    ],
+    clozes: [
+      { txt: 'Gestern ___ ich lange geschlafen, dann ___ ich in die Stadt gefahren. Dort ___ ich meine Freundin getroffen und wir ___ ins Kino gegangen.', a: ['habe', 'bin', 'habe', 'sind'], extra: ['hat', 'ist', 'war'], t: 'Ayer dormí hasta tarde, luego fui a la ciudad. Allí me encontré con mi amiga y fuimos al cine.', e: 'Los verbos de movimiento con cambio de lugar (fahren, gehen) van con "sein"; los demás con "haben".' }
     ]
   },
 
@@ -93,13 +132,21 @@ export const PASADO = {
       { s: 'Wann bist du heute ___?', a: 'aufgestanden', d: ['gestanden auf', 'aufstehen'], t: '¿A qué hora te has levantado hoy?', e: 'aufstehen: auf + ge + standen, con sein.' },
       { s: 'Er hat den Brief ___.', a: 'mitgebracht', d: ['gebracht mit', 'mitbringen'], t: 'Ha traído la carta.', e: 'mitbringen → mit + ge + bracht.' },
       { s: 'Ich habe die Wohnung ___.', a: 'aufgeräumt', d: ['geräumt auf', 'aufräumen'], t: 'He ordenado la casa.', e: 'aufräumen → auf + ge + räumt.' },
-      { s: 'Sie haben das Projekt gut ___.', a: 'organisiert', d: ['georganisiert', 'organisieren'], t: 'Han organizado bien el proyecto.', e: 'organisieren → organisiert, sin ge-.' }
+      { s: 'Sie haben das Projekt gut ___.', a: 'organisiert', d: ['georganisiert', 'organisieren'], t: 'Han organizado bien el proyecto.', e: 'organisieren → organisiert, sin ge-.' },
+      { s: 'Ich habe die Kollegin gestern ___.', a: 'angerufen', d: ['anrufen', 'geanrufen'], t: 'Ayer llamé a la compañera.', e: 'Los separables llevan ge- en medio: angerufen.' },
+      { s: 'Wir haben den Vertrag schon ___.', a: 'unterschrieben', d: ['geunterschrieben', 'unterschreiben'], t: 'Ya hemos firmado el contrato.', e: 'Los prefijos inseparables no llevan ge-.' },
+      { s: 'Er hat mich über alles ___.', a: 'informiert', d: ['geinformiert', 'informieren'], t: 'Me informó de todo.', e: 'Los verbos en -ieren no llevan ge-.' },
+      { s: 'Sie ist gestern Abend hier ___.', a: 'angekommen', d: ['ankommen', 'geankommen'], t: 'Llegó aquí ayer por la tarde.', e: 'ankommen: participio angekommen, con sein.' },
+      { s: 'Ich habe den letzten Zug ___.', a: 'verpasst', d: ['geverpasst', 'verpassen'], t: 'He perdido el último tren.', e: 'ver- es inseparable: sin ge-.' }
     ],
     orders: [
       { sol: ['Ich', 'habe', 'heute', 'im', 'Supermarkt', 'eingekauft'], t: 'Hoy he hecho la compra en el súper.', e: 'El participio del separable cierra la frase.' },
       { sol: ['Er', 'hat', 'gestern', 'mit', 'dem', 'Amt', 'telefoniert'], t: 'Ayer habló por teléfono con la oficina.', e: 'telefoniert, sin ge-.' },
       { sol: ['Hast', 'du', 'das', 'Formular', 'schon', 'ausgefüllt?'], t: '¿Ya has rellenado el formulario?', e: 'ausgefüllt al final de la pregunta.' },
       { sol: ['Ich', 'habe', 'dich', 'gestern', 'Abend', 'angerufen'], t: 'Ayer por la tarde te llamé.', e: 'angerufen cierra la frase.' }
+    ],
+    clozes: [
+      { txt: 'Gestern bin ich um sechs ___ (aufstehen) und habe schnell ___ (frühstücken). Dann habe ich meine Kollegin ___ (anrufen) und wir haben den Termin ___ (organisieren).', a: ['aufgestanden', 'gefrühstückt', 'angerufen', 'organisiert'], extra: ['aufgestehen', 'frühstückt', 'geanrufen', 'georganisiert'], t: 'Ayer me levanté a las seis y desayuné rápido. Luego llamé a mi compañera y organizamos la cita.', e: 'Tres reglas en un texto: el separable mete el -ge- en medio (aufgestanden, angerufen), el regular lo pone delante (gefrühstückt) y los verbos en -ieren NO llevan ge- (organisiert).' }
     ]
   },
 
@@ -117,13 +164,27 @@ export const PASADO = {
       { s: 'Ich habe das Buch schon ___.', a: 'gelesen', d: ['lesen', 'liest'], t: 'Ya he leído el libro.', e: 'lesen → gelesen.' },
       { s: 'Sie hat mir alles ___.', a: 'erklärt', d: ['geerklärt', 'erklären'], t: 'Me lo ha explicado todo.', e: 'erklären lleva prefijo er-: sin ge-.' },
       { s: 'Wann ___ du gestern nach Hause gekommen?', a: 'bist', d: ['hast', 'warst'], t: '¿Cuándo llegaste ayer a casa?', e: 'kommen va con sein.' },
-      { s: 'Wir haben den ganzen Tag ___.', a: 'gearbeitet', d: ['arbeiten', 'arbeitet'], t: 'Hemos trabajado todo el día.', e: 'arbeiten → gearbeitet (raíz en -t: se añade -et).' }
+      { s: 'Wir haben den ganzen Tag ___.', a: 'gearbeitet', d: ['arbeiten', 'arbeitet'], t: 'Hemos trabajado todo el día.', e: 'arbeiten → gearbeitet (raíz en -t: se añade -et).' },
+      { s: 'Ich ___ gestern meine Sachen gepackt.', a: 'habe', d: ['bin', 'war'], t: 'Ayer hice las maletas.', e: 'packen no es movimiento → haben.' },
+      { s: 'Wir ___ im Mai umgezogen.', a: 'sind', d: ['haben', 'waren'], t: 'Nos mudamos en mayo.', e: 'umziehen es cambio de lugar → sein.' },
+      { s: '___ du dich schon eingelebt?', a: 'Hast', d: ['Bist', 'Warst'], t: '¿Ya te has adaptado?', e: 'Los reflexivos van con haben.' },
+      { s: 'Meine Familie ___ mich im Sommer besucht.', a: 'hat', d: ['ist', 'war'], t: 'Mi familia me visitó en verano.', e: 'besuchen → haben.' },
+      { s: 'Der Brief ___ gestern angekommen.', a: 'ist', d: ['hat', 'war'], t: 'La carta llegó ayer.', e: 'ankommen → sein.' },
+      { s: 'Ich ___ am Anfang viel geweint.', a: 'habe', d: ['bin', 'war'], t: 'Al principio lloré mucho.', e: 'weinen → haben.' },
+      { s: 'Wir ___ lange in Spanien geblieben.', a: 'sind', d: ['haben', 'waren'], t: 'Nos quedamos mucho tiempo en España.', e: 'bleiben va con sein aunque no haya movimiento.' },
+      { s: '___ ihr euch schon an das Wetter gewöhnt?', a: 'Habt', d: ['Seid', 'Wart'], t: '¿Os habéis acostumbrado ya al tiempo?', e: 'sich gewöhnen → haben.' },
+      { s: 'Ich ___ mich erstaunlich schnell eingelebt.', a: 'habe', d: ['bin', 'war'], t: 'Me adapté sorprendentemente rápido.', e: 'sich einleben va con haben.' },
+      { s: 'Sie ___ vor fünf Jahren ausgewandert.', a: 'ist', d: ['hat', 'war'], t: 'Emigró hace cinco años.', e: 'auswandern es de movimiento: con sein.' },
+      { s: 'Wir ___ viel über das Land gelernt.', a: 'haben', d: ['sind', 'waren'], t: 'Hemos aprendido mucho sobre el país.', e: 'lernen va con haben.' }
     ],
     orders: [
       { sol: ['Ich', 'habe', 'am', 'Wochenende', 'meine', 'Familie', 'besucht'], t: 'El fin de semana visité a mi familia.', e: 'Auxiliar (2) + participio (final).' },
       { sol: ['Wir', 'sind', 'gestern', 'ins', 'Kino', 'gegangen'], t: 'Ayer fuimos al cine.', e: 'gehen con sein.' },
       { sol: ['Habt', 'ihr', 'schon', 'gegessen?'], t: '¿Ya habéis comido?', e: 'Auxiliar primero en la pregunta.' },
       { sol: ['Sie', 'ist', 'um', 'sieben', 'Uhr', 'aufgestanden'], t: 'Se ha levantado a las siete.', e: 'Separable: aufgestanden.' }
+    ],
+    clozes: [
+      { txt: 'Vor drei Jahren ___ ich nach Wien gekommen. Am Anfang ___ ich fast niemanden gekannt und ___ oft allein geblieben. Dann ___ ich einen Kurs gemacht und dort ___ ich viele Leute kennengelernt.', a: ['bin', 'habe', 'bin', 'habe', 'habe'], extra: ['habe', 'bin', 'war', 'war'], t: 'Hace tres años vine a Viena. Al principio no conocía casi a nadie y me quedaba mucho solo. Luego hice un curso y allí conocí a mucha gente.', e: 'kommen y bleiben van con sein; kennen, machen y kennenlernen van con haben. Los cinco en el mismo relato.' }
     ]
   },
 
@@ -141,7 +202,26 @@ export const PASADO = {
       { s: 'Bist du gestern lange wach ___?', a: 'geblieben', d: ['gebleibt', 'bleiben'], t: '¿Te quedaste despierto hasta tarde ayer?', e: 'Participio de bleiben: geblieben.' },
       { s: 'Er ___ schon in Berlin gewesen.', a: 'ist', d: ['hat', 'war'], t: 'Él ya ha estado en Berlín.', e: 'Perfekt de sein con er: ist gewesen.' },
       { s: 'Wo ___ du letzten Sommer gewesen?', a: 'bist', d: ['hast', 'warst'], t: '¿Dónde estuviste el verano pasado?', e: 'sein en Perfekt: bist … gewesen.' },
-      { s: 'Auf der Autobahn ___ ein Unfall passiert.', a: 'ist', d: ['hat', 'war'], t: 'En la autopista ha ocurrido un accidente.', e: 'passieren siempre con sein.' }
+      { s: 'Auf der Autobahn ___ ein Unfall passiert.', a: 'ist', d: ['hat', 'war'], t: 'En la autopista ha ocurrido un accidente.', e: 'passieren siempre con sein.' },
+      { s: 'Ich ___ gestern zu Hause geblieben.', a: 'bin', d: ['habe', 'war'], t: 'Ayer me quedé en casa.', e: 'bleiben siempre con sein, aunque no haya movimiento.' },
+      { s: 'Wo ___ du gestern gewesen?', a: 'bist', d: ['hast', 'warst'], t: '¿Dónde estuviste ayer?', e: 'sein en Perfekt: bist … gewesen.' },
+      { s: 'Was ___ denn hier passiert?', a: 'ist', d: ['hat', 'war'], t: '¿Qué ha pasado aquí?', e: 'passieren siempre con sein.' },
+      { s: 'Wir ___ nur eine Stunde geblieben.', a: 'sind', d: ['haben', 'waren'], t: 'Nos quedamos solo una hora.', e: 'bleiben → sein.' },
+      { s: 'Sie ___ letztes Jahr in Italien gewesen.', a: 'ist', d: ['hat', 'war'], t: 'Estuvo el año pasado en Italia.', e: 'sein en Perfekt lleva sein.' },
+      { s: 'Mir ___ nichts passiert, keine Sorge.', a: 'ist', d: ['hat', 'war'], t: 'No me ha pasado nada, tranquilo.', e: 'passieren → sein.' },
+      { s: '___ ihr lange auf der Party geblieben?', a: 'Seid', d: ['Habt', 'Wart'], t: '¿Os quedasteis mucho en la fiesta?', e: 'bleiben con ihr: seid … geblieben.' },
+      { s: 'Der Unfall ___ am Morgen geschehen.', a: 'ist', d: ['hat', 'war'], t: 'El accidente ocurrió por la mañana.', e: 'geschehen, como passieren, va con sein.' },
+      { s: 'Ich ___ drei Jahre in Graz geblieben.', a: 'bin', d: ['habe', 'war'], t: 'Me quedé tres años en Graz.', e: 'bleiben forma el Perfekt con sein.' },
+      { s: 'Was ___ denn gestern passiert?', a: 'ist', d: ['hat', 'war'], t: '¿Qué pasó ayer?', e: 'passieren siempre con sein.' },
+      { s: 'Er ___ noch nie in Spanien gewesen.', a: 'ist', d: ['hat', 'war'], t: 'Él nunca ha estado en España.', e: 'sein forma su propio Perfekt con sein: ist gewesen.' },
+      { s: 'Was ist gestern Abend eigentlich ___?', a: 'passiert', d: ['gepassiert', 'passierte'], t: '¿Qué pasó anoche, en realidad?', e: 'passieren no lleva ge-: passiert, y va con sein.' },
+      { s: 'Wir ___ am Wochenende einfach zu Hause geblieben.', a: 'sind', d: ['haben', 'waren'], t: 'El fin de semana nos quedamos en casa sin más.', e: 'bleiben forma el Perfekt con sein.' },
+      { s: 'Ich ___ noch nie in Berlin gewesen, stell dir vor.', a: 'bin', d: ['habe', 'war'], t: 'Nunca he estado en Berlín, fíjate.', e: 'sein forma su Perfekt con sein: bin gewesen.' },
+      { s: 'Sie ist zwei Stunden im Café ___ und hat gelesen.', a: 'geblieben', d: ['gebleibt', 'bleibte'], t: 'Se quedó dos horas en la cafetería leyendo.', e: 'Participio irregular: geblieben.' },
+      { s: 'Auf der Autobahn ___ heute früh ein Unfall passiert.', a: 'ist', d: ['hat', 'war'], t: 'Esta mañana ha habido un accidente en la autopista.', e: 'passieren va con sein: ist passiert.' },
+      { s: 'Wo ___ ihr letzten Sommer gewesen?', a: 'seid', d: ['habt', 'wart'], t: '¿Dónde estuvisteis el verano pasado?', e: 'gewesen va con sein: seid gewesen.' },
+      { s: 'Alle sind gegangen, nur er ___ bis zum Schluss geblieben.', a: 'ist', d: ['hat', 'war'], t: 'Se fueron todos, solo él se quedó hasta el final.', e: 'bleiben con sein.' },
+      { s: 'Mir ___ heute etwas ziemlich Komisches passiert.', a: 'ist', d: ['hat', 'war'], t: 'Hoy me ha pasado algo bastante raro.', e: 'passieren con sein, también con dativo de persona.' }
     ],
     orders: [
       { sol: ['Der', 'Unfall', 'ist', 'gestern', 'Abend', 'passiert'], t: 'El accidente ocurrió ayer por la tarde.', e: '"passieren" con SEIN: ist … passiert, con el participio al final.' },
@@ -172,6 +252,38 @@ export const PASADO = {
       { sol: ['Hast', 'du', 'meine', 'Frage', 'nicht', 'verstanden?'], t: '¿No has entendido mi pregunta?', e: 'Participio "verstanden" al final.' },
       { sol: ['Er', 'hat', 'mir', 'die', 'Regel', 'genau', 'erklärt'], t: 'Me ha explicado la regla con detalle.', e: '"erklärt" (sin ge-) al final.' },
       { sol: ['Wir', 'haben', 'das', 'Auto', 'letzte', 'Woche', 'verkauft'], t: 'Vendimos el coche la semana pasada.', e: 'verkauft cierra la frase.' }
+    ],
+    clozes: [
+      { txt: 'Ich ___ die Stelle ___ (bekommen) und habe sofort ___ (telefonieren) mit meinen Eltern. Sie ___ mich sehr ___ (verstehen).', a: ['habe', 'bekommen', 'telefoniert', 'haben', 'verstanden'], extra: ['bin', 'gebekommen', 'getelefoniert', 'sind'], t: 'Conseguí el puesto y llamé enseguida a mis padres. Me entendieron muy bien.', e: 'Ni los prefijos inseparables (be-, ver-) ni los verbos en -ieren llevan ge-.' },
+      { txt: 'Ich ___ die Wohnung ___ (bekommen) und sofort meine Eltern ___ (informieren). Sie ___ mich gut ___ (verstehen).', a: ['habe', 'bekommen', 'informiert', 'haben', 'verstanden'], extra: ['bin', 'gebekommen', 'geinformiert', 'sind'], t: 'Conseguí el piso e informé enseguida a mis padres. Me entendieron bien.', e: 'Ni los prefijos inseparables (be-, ver-) ni los verbos en -ieren llevan ge- en el participio.' }
+    ]
+  },
+  'partizip-ii-regelmaessig': {
+    picks: [
+      { s: 'Gestern habe ich viel ___.', a: 'gearbeitet', d: ['arbeitet', 'gearbeitetet'], t: 'Ayer trabajé mucho.', e: 'Regular: ge- + raíz + -t.' },
+      { s: 'Am Abend habe ich einen Film ___.', a: 'gesehen', d: ['gesehet', 'geseht'], t: 'Por la noche vi una película.', e: 'sehen es irregular: gesehen, con -en.' },
+      { s: 'Ich habe mit dem Chef ___.', a: 'telefoniert', d: ['getelefoniert', 'telefonierte'], t: 'Hablé por teléfono con el jefe.', e: 'Los verbos en -ieren no llevan ge-.' },
+      { s: 'Wir haben das Zimmer ___.', a: 'aufgeräumt', d: ['geaufräumt', 'aufräumt'], t: 'Ordenamos la habitación.', e: 'En los separables el ge- va DENTRO.' },
+      { s: 'Sie hat den ganzen Tag ___.', a: 'geschlafen', d: ['geschlaft', 'schlafen'], t: 'Durmió todo el día.', e: 'schlafen es irregular: geschlafen.' },
+      { s: 'Was hast du gestern ___?', a: 'gemacht', d: ['machte', 'gemachtet'], t: '¿Qué hiciste ayer?', e: 'machen es regular: gemacht.' },
+      { s: 'Er hat das Formular ___.', a: 'unterschrieben', d: ['geunterschrieben', 'unterschriebt'], t: 'Firmó el formulario.', e: 'Los inseparables (unter-, be-, ver-) no llevan ge-.' },
+      { s: 'Ich habe die Tabletten ___.', a: 'genommen', d: ['genehmt', 'genommt'], t: 'Me tomé las pastillas.', e: 'nehmen → genommen, irregular.' },
+      { s: 'Wir haben lange ___.', a: 'gewartet', d: ['wartet', 'gewartetet'], t: 'Esperamos mucho rato.', e: 'warten es regular pero pide -et: gewartet.' },
+      { s: 'Sie hat die Wohnung ___.', a: 'renoviert', d: ['gerenoviert', 'renovierte'], t: 'Reformó el piso.', e: 'renovieren acaba en -ieren: sin ge-.' }
+    ]
+  },
+  'perfekt-oder-praeteritum': {
+    picks: [
+      { s: 'Gestern ___ ich lange geschlafen.', a: 'habe', d: ['war', 'hatte'], t: 'Ayer dormí hasta tarde.', e: 'Un verbo normal en pasado: Perfekt.' },
+      { s: 'Ich ___ den ganzen Tag müde.', a: 'war', d: ['bin gewesen', 'habe gewesen'], t: 'Estuve cansado todo el día.', e: 'sein se dice en Präteritum: war.' },
+      { s: 'Wir ___ leider keine Zeit.', a: 'hatten', d: ['haben gehabt', 'sind gehabt'], t: 'No tuvimos tiempo.', e: 'haben también en Präteritum: hatten.' },
+      { s: 'Am Montag ___ ich zum Arzt gegangen.', a: 'bin', d: ['habe', 'war'], t: 'El lunes fui al médico.', e: 'gehen forma el Perfekt con sein.' },
+      { s: 'Ich ___ gestern arbeiten.', a: 'musste', d: ['habe gemusst', 'bin gemusst'], t: 'Ayer tuve que trabajar.', e: 'Los modales van en Präteritum.' },
+      { s: 'Sie ___ das Formular ausgefüllt.', a: 'hat', d: ['war', 'ist'], t: 'Rellenó el formulario.', e: 'Perfekt normal con haben.' },
+      { s: 'Wo ___ du gestern?', a: 'warst', d: ['bist gewesen', 'hast gewesen'], t: '¿Dónde estuviste ayer?', e: 'sein en pasado: warst.' },
+      { s: 'Er ___ nach Hause fahren.', a: 'wollte', d: ['hat gewollt', 'ist gewollt'], t: 'Quería irse a casa.', e: 'wollen en Präteritum: wollte.' },
+      { s: 'Wir ___ am Wochenende zu Hause geblieben.', a: 'sind', d: ['haben', 'waren'], t: 'El fin de semana nos quedamos en casa.', e: 'bleiben con sein en el Perfekt.' },
+      { s: 'Die Stimmung ___ gestern ausgezeichnet.', a: 'war', d: ['ist gewesen', 'hat gewesen'], t: 'El ambiente de ayer fue excelente.', e: 'Otra vez sein: war.' }
     ]
   }
 };

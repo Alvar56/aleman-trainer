@@ -1,18 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Sugerencias from './Sugerencias.jsx';
 import { suggestSong, savedSongs, toggleSave, isSaved, ytId, GENRES, getNota, setNota, tieneNota } from '../lib/lieder.js';
 import { aiAvailable } from '../lib/settings.js';
 import { t, getLang } from '../lib/i18n.js';
 import { runJob, setJobResult, clearJob } from '../lib/aiJobs.js';
 import NotaRica from './NotaRica.jsx';
+import Escuchar from './Escuchar.jsx';
 import { useAiJob } from '../lib/useAiJob.js';
 import Buscando from './Buscando.jsx';
 
 const JOB = 'lieder';
 
 // Atajos para no tener que escribir: artistas que se cantan claro y se estudian bien.
+// Mas nombres de los que caben a la vez: se enseña un puñado distinto cada
+// vez que entras, para no acabar pidiendo siempre los mismos diez.
 const ARTISTAS = [
   'Nena', 'Andreas Bourani', 'AnnenMayKantereit', 'Wir sind Helden',
-  'Herbert Grönemeyer', 'Wanda', 'Bilderbuch', 'Silbermond', 'Mark Forster', 'Falco'
+  'Herbert Grönemeyer', 'Wanda', 'Bilderbuch', 'Silbermond', 'Mark Forster', 'Falco',
+  'Die Ärzte', 'Die Toten Hosen', 'Cro', 'Clueso', 'Sportfreunde Stiller',
+  'Juli', 'Revolverheld', 'Max Giesinger', 'LEA', 'Bausa',
+  'Seiler und Speer', 'Christina Stürmer', 'Rammstein', 'Peter Fox',
+  'Element of Crime', 'Sarah Connor', 'Udo Jürgens', 'Voxxclub'
 ];
 
 export default function Lieder() {
@@ -103,15 +111,17 @@ export default function Lieder() {
           </button>
         </div>
 
-        <div className="lied-sug">
-          {ARTISTAS.map((a) => (
-            <button key={a} className="ask-chip" onClick={() => { setQ(a); pedir(a); }} disabled={!aiOn || busy}>
-              {a}
-            </button>
-          ))}
-        </div>
-
-        <div className="lied-random">
+        {/* Ideas, filtros y "otra canción" van en la MISMA fila. Antes eran
+            dos bloques y cada etiqueta se ponia encima de su desplegable, o
+            sea cuatro renglones para cuatro controles. El panel de las ideas,
+            cuando se abre, sigue cayendo debajo de todo: se lo da .ask-pies
+            con flex-basis 100% y order 1. */}
+        <div className="ask-pies lied-pies">
+          <Sugerencias
+            opciones={ARTISTAS}
+            disabled={!aiOn || busy}
+            onElegir={(a) => { setQ(a); pedir(a); }}
+          />
           <label className="lied-field">
             {t('lieder.filterGenre')}
             <select value={genre} onChange={(e) => setGenre(e.target.value)}>
@@ -153,13 +163,15 @@ export default function Lieder() {
       {song && !busy && (
         <div className="stack" style={{ marginTop: 18 }}>
           <div className="card lied-head">
-            <div style={{ flex: 1, minWidth: 0 }}>
+            <div className="lied-head-txt">
               <h2 className="lied-titel">{song.titel}</h2>
               <div className="lied-artist">{song.artist}</div>
               <div className="lied-meta">
+                {/* Primero las cortas, juntas: si no, la del genero las separa
+                    y al estrechar la ventana el año se queda solo en una fila. */}
                 {song.jahr && <span className="pill">{song.jahr}</span>}
-                {song.genre && <span className="lk-pill k">{song.genre}</span>}
                 {song.land && <span className="pill">{song.land}</span>}
+                {song.genre && <span className="lk-pill k">{song.genre}</span>}
                 {song.niveau && <span className="lk-pill g">{song.niveau}</span>}
               </div>
             </div>
@@ -236,6 +248,51 @@ export default function Lieder() {
             <div className="card">
               <div className="lk-block-title">🎧 {t('lieder.about')}</div>
               <p className="lk-expl" style={{ marginBottom: 0 }}>{song.worumGehtEs}</p>
+            </div>
+          )}
+
+          {song.kontext && (
+            <div className="card">
+              <div className="lk-block-title">🕰️ {t('lieder.kontext')}</div>
+              <p className="lk-expl" style={{ marginBottom: 0 }}>{song.kontext}</p>
+            </div>
+          )}
+
+          {/* La pronunciación, arriba del todo y antes que el vocabulario: es
+              lo único que una canción da y el resto de la app no. Vocabulario
+              y gramática ya los tienes en Wortschatz y Grammatik; alemán
+              cantado por un nativo, en ningún otro sitio. */}
+          {song.aussprache && (
+            <div className="card">
+              <div className="lk-block-title">🗣️ {t('lieder.aussprache')}</div>
+              {song.aussprache.acento && (
+                <p className="lk-expl">{song.aussprache.acento}</p>
+              )}
+              {song.aussprache.puntos.length > 0 && (
+                <div className="stack lied-pron" style={{ gap: 10, marginTop: 4 }}>
+                  {song.aussprache.puntos.map((p, i) => (
+                    <div key={i} className="lied-pron-fila">
+                      <div className="lpf-par">
+                        <span className="lpf-de">{p.de}</span>
+                        <span className="lpf-flecha">→</span>
+                        <span className="lpf-suena">{p.suena}</span>
+                        <Escuchar texto={p.de} className="lpf-say" frase />
+                      </div>
+                      {p.porque && <p className="lpf-porque">{p.porque}</p>}
+                    </div>
+                  ))}
+                </div>
+              )}
+              {song.aussprache.imitar.length > 0 && (
+                <>
+                  <div className="lk-block-title" style={{ marginTop: 14, fontSize: '0.86rem' }}>
+                    🔁 {t('lieder.imitar')}
+                  </div>
+                  <ul className="pitfalls" style={{ marginTop: 6 }}>
+                    {song.aussprache.imitar.map((x, i) => <li key={i}>{x}</li>)}
+                  </ul>
+                </>
+              )}
             </div>
           )}
 
@@ -320,7 +377,7 @@ export default function Lieder() {
             {saved.map((s) => (
               <div className="card topic-open lied-guardada" key={s.id} onClick={() => abrirGuardada(s)} role="button" tabIndex={0}
                 onKeyDown={(ev) => ev.key === 'Enter' && abrirGuardada(s)}>
-                <div style={{ flex: 1, minWidth: 0 }}>
+                <div className="flex-min">
                   <div className="t-title">{s.titel}</div>
                   <div className="t-blurb">
                     {tieneNota(s.id) && <span title={t('lieder.notes')}>📝 </span>}

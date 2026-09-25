@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
-import { t } from '../lib/i18n.js';
+import { t, pick } from '../lib/i18n.js';
+import { getStarredItems, useStars } from '../lib/stars.js';
+import { SIN_IA, PORTABLE } from '../lib/modo.js';
 import { topicMastery, weakConcepts, conceptosQueFaltan, UMBRAL_TERMINAR } from '../lib/progress.js';
 import { aiAvailable } from '../lib/settings.js';
+import { deleteUserGrammarTopic } from '../lib/userGrammar.js';
 import CoronaPanel, { BarrasTema } from './ProgresoTema.jsx';
+import Desplegable from './Desplegable.jsx';
+import TextoAleman from './TextoAleman.jsx';
+import Escuchar from './Escuchar.jsx';
+import FotosVocab from './FotosVocab.jsx';
 
 function Examples({ list }) {
   if (!list || !list.length) return null;
@@ -41,7 +48,11 @@ function TheorySection({ s }) {
   const [open, setOpen] = useState(false);
   const extraExamples = (s.examples || []).length > 2;
   const canExpand = !!(s.detail || s.more || s.table || extraExamples);
-  const shownExamples = open ? s.examples : (s.examples || []).slice(0, 2);
+  // Los dos primeros ejemplos siempre; el resto, dentro del desplegable, para
+  // que crezcan con él. Si se quedaran fuera, la lista pegaría el salto que
+  // justamente se ha quitado del detalle.
+  const primeros = (s.examples || []).slice(0, 2);
+  const restantes = (s.examples || []).slice(2);
 
   return (
     <div className={'panel theory-sec' + (open ? ' open' : '')}>
@@ -55,25 +66,35 @@ function TheorySection({ s }) {
         {canExpand && <span className="sec-toggle">{open ? t('gr.less') : t('gr.more')}</span>}
       </button>
 
-      {s.body && <p className="muted sec-body">{s.body}</p>}
+      {s.body && <p className="muted sec-body"><TextoAleman texto={s.body} /></p>}
 
-      <Examples list={shownExamples} />
+      <Examples list={primeros} />
 
-      {open && (
-        <div className="theory-detail">
-          {s.detail &&
-            String(s.detail)
-              .split('\n\n')
-              .map((p, i) => <p key={i}>{p}</p>)}
-          {s.more && (
-            <>
-              {s.more.title && <h3>{s.more.title}</h3>}
-              <Examples list={s.more.examples} />
-            </>
-          )}
-          <MiniTable table={s.table} />
-        </div>
-      )}
+      <Desplegable abierto={open}>
+        {restantes.length > 0 && <Examples list={restantes} />}
+        {/* La caja del detalle lleva una raya arriba: si no hay detalle, ni
+            tabla, ni bloque extra, lo unico que se veria es la raya y un
+            hueco debajo del ultimo ejemplo. */}
+        {(s.detail || s.more || s.table) && (
+          <div className="theory-detail">
+            {s.detail &&
+              String(s.detail)
+                .split('\n\n')
+                .map((parrafo, i) => (
+                  <p key={i}>
+                    <TextoAleman texto={parrafo} />
+                  </p>
+                ))}
+            {s.more && (
+              <>
+                {s.more.title && <h3>{s.more.title}</h3>}
+                <Examples list={s.more.examples} />
+              </>
+            )}
+            <MiniTable table={s.table} />
+          </div>
+        )}
+      </Desplegable>
 
       {canExpand && !open && (
         <button className="link-btn sec-more-link" onClick={() => setOpen(true)}>
@@ -98,20 +119,81 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
   const m = topicMastery(ids);
   const weak = weakConcepts(ids);
   const aiOn = aiAvailable();
+  useStars();
+  const topicLektionId = topic.lektionId || (topic.id?.startsWith('kb-') ? topic.id.replace('kb-', '') : null);
+  const topicIdClean = topic.id?.replace(/^kb-/, '');
+
+  const starred = getStarredItems('grammar').filter((i) => {
+    // 1. Direct topicId match (with or without 'kb-' prefix)
+    if (i.topicId) {
+      if (i.topicId === topic.id) return true;
+      if (topicIdClean && (i.topicId === topicIdClean || i.topicId === `kb-${topicIdClean}`)) return true;
+    }
+
+    // 2. Lektion ID match
+    if (topicLektionId) {
+      if (i.lektionId === topicLektionId) return true;
+      if (i.topicId === topicLektionId || i.topicId === `kb-${topicLektionId}`) return true;
+      if (i.conceptId) {
+        const cStr = String(i.conceptId);
+        if (cStr.startsWith(`${topicLektionId}:`) || cStr.startsWith(`kb-${topicLektionId}:`)) return true;
+      }
+      if (i.id) {
+        const idStr = String(i.id);
+        if (idStr.includes(`-${topicLektionId}-`) || idStr.includes(`:${topicLektionId}:`)) return true;
+      }
+    }
+
+    // 3. Topic name match
+    if (i.topicName && (i.topicName === topic.nameEs || i.topicName === topic.name)) return true;
+
+    // 4. Concept ID match against topic concepts
+    if (i.conceptId && topic.concepts?.length) {
+      const cStr = String(i.conceptId);
+      const match = topic.concepts.some((c) => {
+        if (!c.id) return false;
+        if (c.id === i.conceptId) return true;
+        if (c.id.endsWith(`:${i.conceptId}`) || cStr.endsWith(`:${c.id}`)) return true;
+        if (c.name && cStr.includes(c.name)) return true;
+        return false;
+      });
+      if (match) return true;
+    }
+
+    return false;
+  });
   const th = topic.theory || {};
 
   return (
     <div>
       <div className="topbar">
-        <div style={{ minWidth: 0 }}>
-          <h1>{topic.nameEs}</h1>
+        <div className="min0">
+          <h1>{topic.emoji && <span style={{ marginRight: 8 }}>{topic.emoji}</span>}{topic.nameEs}</h1>
           <p className="muted" style={{ marginTop: 4, fontSize: '0.9rem' }}>
             {topic.name} · {topic.blurb}
+            {topic.custom && <span className="pill" style={{ marginLeft: 8, fontSize: '0.75rem' }}>✨ Creado con IA</span>}
           </p>
         </div>
-        <button className="link-btn" onClick={onBack} style={{ flexShrink: 0 }}>
-          ← Grammatik
-        </button>
+        <div className="row" style={{ gap: 8, flexShrink: 0, alignItems: 'center' }}>
+          {topic.custom && (
+            <button
+              className="btn-ghost btn-sm"
+              style={{ color: 'var(--bad)', borderColor: 'var(--bad-border)' }}
+              onClick={() => {
+                if (confirm(pick(`¿Eliminar el tema "${topic.nameEs || topic.name}"?`, `Delete topic "${topic.nameEs || topic.name}"?`))) {
+                  deleteUserGrammarTopic(topic.id);
+                  onBack();
+                }
+              }}
+              title={pick('Eliminar este tema creado con IA', 'Delete this AI-generated topic')}
+            >
+              🗑️ {pick('Eliminar tema', 'Delete topic')}
+            </button>
+          )}
+          <button className="link-btn" onClick={onBack}>
+            <span className="fl-atras">◂</span> Grammatik
+          </button>
+        </div>
       </div>
 
       {/* Lo dominado del tema, en una línea y arriba del todo: la misma que en
@@ -127,6 +209,11 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
         <button className={'tab' + (tab === 'ejercicios' ? ' active' : '')} onClick={() => setTab('ejercicios')}>
           {t('gr.exercises')}
         </button>
+        {!PORTABLE && (
+          <button className={'tab' + (tab === 'fotos' ? ' active' : '')} onClick={() => setTab('fotos')}>
+            📸 {pick('Fotos', 'Photos')}
+          </button>
+        )}
       </div>
 
       {tab === 'teoria' && (
@@ -134,6 +221,32 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
           {th.intro && (
             <div className="panel intro-panel">
               <p>{th.intro}</p>
+            </div>
+          )}
+
+          {/* Tarjetas de teoría y estructuras clave (estilo vocabulario) */}
+          {topic.cards?.length > 0 && (
+            <div className="panel">
+              <h2 style={{ margin: '0 0 12px' }}>🃏 {pick(`Tarjetas de teoría (${topic.cards.length})`, `Theory flashcards (${topic.cards.length})`)}</h2>
+              <div className="card-list-grid">
+                {topic.cards.map((c, i) => (
+                  <div className="card-mini" key={i} style={{ position: 'relative' }}>
+                    <div className="row spread" style={{ alignItems: 'flex-start' }}>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontWeight: 600, fontSize: '0.98rem' }}>{c.de}</div>
+                        <div className="muted" style={{ fontSize: '0.84rem', marginTop: 2 }}>{c.es}</div>
+                        {c.ex && (
+                          <div style={{ marginTop: 6, fontSize: '0.82rem', borderLeft: '2px solid var(--accent)', paddingLeft: 8 }}>
+                            <div style={{ fontWeight: 500 }}>{c.ex}</div>
+                            {c.exEs && <div className="muted" style={{ fontSize: '0.78rem' }}>{c.exEs}</div>}
+                          </div>
+                        )}
+                      </div>
+                      <Escuchar texto={c.ex || c.de} />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
@@ -170,6 +283,16 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
             </div>
           )}
 
+          {th.merksatz && (
+            <div className="panel ask-merk" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+              <span className="ask-merk-ico" style={{ fontSize: '1.4rem' }}>🧠</span>
+              <div>
+                <strong>{t('ask.remember')}</strong>
+                <p style={{ marginTop: 2 }}>{th.merksatz}</p>
+              </div>
+            </div>
+          )}
+
           <button className="btn-primary" style={{ alignSelf: 'flex-start' }} onClick={() => setTab('ejercicios')}>
             {t('gr.toExercises')}
           </button>
@@ -180,53 +303,86 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
         <div className="stack">
           <div className="panel">
               <h2 style={{ margin: '0 0 14px' }}>{t('gr.practise')}</h2>
+              {topic.userItems?.length > 0 && (
+                <p className="muted" style={{ fontSize: '0.84rem', margin: '-6px 0 14px' }}>
+                  ✨ {pick(`${topic.userItems.length} ejercicios interactivos preparados con IA para este tema.`, `${topic.userItems.length} interactive exercises ready for this topic.`)}
+                </p>
+              )}
 
               {topic.aiOnly ? (
                 <>
-                  <div className="gametype-label">{t('gr.lessonEx')}</div>
-                  <button
-                    className="btn-primary"
-                    style={{ width: '100%' }}
-                    onClick={() => onStart(topic.id, 'ai', 'mixed')}
-                    disabled={!aiOn}
-                  >
-                    {t('gr.genAi')}
-                  </button>
-                  <p className="muted" style={{ fontSize: '0.78rem', marginTop: 10 }}>
-                    {aiOn
-                      ? t('gr.aiOnly')
-                      : t('gr.aiOnlyOff')}
-                  </p>
+                  {/* Estas lecciones no traen ejercicios escritos: los generaba
+                      la IA. Sin ella no hay boton que ofrecer, solo decirlo. */}
+                  {SIN_IA ? (
+                    <p className="muted" style={{ fontSize: '0.78rem', margin: 0 }}>
+                      {t('gr.sinEjercicios')}
+                    </p>
+                  ) : (
+                    <>
+                      <div className="gametype-label">{t('gr.lessonEx')}</div>
+                      <button
+                        className="btn-primary"
+                        style={{ width: '100%' }}
+                        onClick={() => onStart(topic.id, 'ai', 'mixed')}
+                        disabled={!aiOn}
+                      >
+                        {t('gr.genAi')}
+                      </button>
+                      <p className="muted" style={{ fontSize: '0.78rem', marginTop: 10 }}>
+                        {aiOn ? t('gr.aiOnly') : t('gr.aiOnlyOff')}
+                      </p>
+                    </>
+                  )}
                 </>
               ) : (
               <>
               <div className="gametype-label">{t('gr.pickGame')}</div>
               <div className="gametype-grid">
                 <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'mc')}>
-                  ✅ <span>{t('home.gTest')}</span>
-                  <small>{t('home.gTestSub')}</small>
+                  <span className="gt-ico">✅</span>
+                  <span className="gt-txt">
+                    <span>{t('home.gTest')}</span>
+                    <small>{t('home.gTestSub')}</small>
+                  </span>
                 </button>
                 <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'write')}>
-                  ⌨️ <span>{t('gr.gWrite')}</span>
-                  <small>{t('gr.gWriteSub')}</small>
+                  <span className="gt-ico">⌨️</span>
+                  <span className="gt-txt">
+                    <span>{t('gr.gWrite')}</span>
+                    <small>{t('gr.gWriteSub')}</small>
+                  </span>
                 </button>
                 <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'order')}>
-                  🔀 <span>{t('home.gOrder')}</span>
-                  <small>{t('home.gOrderSub')}</small>
+                  <span className="gt-ico">🔀</span>
+                  <span className="gt-txt">
+                    <span>{t('home.gOrder')}</span>
+                    <small>{t('home.gOrderSub')}</small>
+                  </span>
                 </button>
                 <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'judge')}>
-                  ⚖️ <span>{t('home.gJudge')}</span>
-                  <small>{t('home.gJudgeSub')}</small>
+                  <span className="gt-ico">⚖️</span>
+                  <span className="gt-txt">
+                    <span>{t('home.gJudge')}</span>
+                    <small>{t('home.gJudgeSub')}</small>
+                  </span>
                 </button>
               </div>
 
               {/* De dónde sale el material: la duda razonable de cualquiera que
                   vea un botón que pone "IA" al lado de otros que no. */}
               <p className="muted" style={{ fontSize: '0.78rem', marginTop: 12 }}>
-                {aiOn ? t('gr.mixSource') : t('gr.mixSourceOff')}
+                {SIN_IA ? t('gr.soloPlantillas') : aiOn ? t('gr.mixSource') : t('gr.mixSourceOff')}
               </p>
 
               <div className="btn-row" style={{ marginTop: 12 }}>
+                {starred.length > 0 && (
+                  <button
+                    className="btn-ghost btn-sm"
+                    onClick={() => onStart(topic.id, 'mixed', 'mixed', starred)}
+                  >
+                    ⭐ Repasar marcados ({starred.length})
+                  </button>
+                )}
                 {weak.length > 0 && (
                   <button
                     className="btn-ghost btn-sm"
@@ -267,7 +423,7 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
               )}
               </>
               )}
-              {!aiOn && !topic.aiOnly && (
+              {!SIN_IA && !aiOn && !topic.aiOnly && (
                 <p className="muted" style={{ fontSize: '0.78rem', marginTop: 10 }}>
                   {t('gr.aiHint')}
                 </p>
@@ -278,6 +434,10 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
               <CoronaPanel topicId={topic.id} pct={m.pct} />
           </div>
         </div>
+      )}
+
+      {!PORTABLE && tab === 'fotos' && (
+        <FotosVocab ownerId={`grammatik:${topic.id}`} nombre={topic.nameEs || topic.name} />
       )}
     </div>
   );

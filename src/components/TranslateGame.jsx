@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t, pick } from '../lib/i18n.js';
+import { tc } from '../lib/contenido/index.js';
 import { elegirFrases, corregir, pistas as pistasDe, apuntar, xpDe } from '../lib/uebersetzen.js';
 import { explainTranslation } from '../lib/ai.js';
 import { aiAvailable } from '../lib/settings.js';
@@ -9,14 +11,22 @@ import { playAudio } from '../lib/audio.js';
 import { bumpSessions, recordAnswer } from '../lib/progress.js';
 import { saveRun, guardarParcial } from '../lib/leaderboard.js';
 import { getSettings } from '../lib/settings.js';
+import { apuntarRespuesta, currentStreak } from '../lib/rachas.js';
+import { useTeclas } from '../lib/teclas.js';
+import Reloj from './Reloj.jsx';
+import RachaPill from './RachaPill.jsx';
+import StarButton from './StarButton.jsx';
+import Umlaut from './Umlaut.jsx';
 
 // Traducir frases del libro en las dos direcciones. Puedes pedir pistas de una
 // en una antes de contestar, y al corregir la IA te explica en qué has fallado.
-export default function TranslateGame({ onExit, onFinish, lektionId = null, dir = 'mix', nivel = 'all' }) {
+export default function TranslateGame({ onExit, onFinish, lektionId = null, dir = 'mix', nivel = 'all', cartasFijas = null }) {
+  const fox = useFox();
+  // Sin suelo: lo que digas en Ajustes es lo que sale.
   const cuantas = getSettings().sessionSize || 10;
   const frases = useMemo(
-    () => elegirFrases(Math.max(cuantas, 8), { lektionId, direccion: dir, nivel }),
-    [lektionId, dir, nivel]
+    () => cartasFijas || elegirFrases(cuantas, { lektionId, direccion: dir, nivel }),
+    [lektionId, dir, nivel, cuantas, cartasFijas]
   );
   const [idx, setIdx] = useState(0);
   const [texto, setTexto] = useState('');
@@ -27,6 +37,10 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
   const [pidiendo, setPidiendo] = useState(false);
   const resultados = useRef([]);
   const monedas = useRef(0); // lo ganado en esta tanda, para el resumen
+  // Aciertos seguidos: aqui no se contaban, asi que una frase mal no
+  // rompia la racha y una bien no la subia.
+  const [seguidas, setSeguidas] = useState(() => currentStreak());
+  const mejorSeguidas = useRef(0);
   const empezado = useRef(Date.now());
   const inputRef = useRef(null);
   const aiOn = aiAvailable();
@@ -45,16 +59,39 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
   }
 
   const cur = frases[idx];
-  const origen = cur.dir === 'de-es' ? cur.de : cur.es;
-  const buena = cur.dir === 'de-es' ? cur.es : cur.de;
-  const listaPistas = pistasDe(cur);
+  const buena = cur.dir === 'de-es' ? tc(cur.es) : cur.de;
+  const origen = cur.dir === 'de-es' ? cur.de : tc(cur.es);
+  const listaPistas = pistasDe(cur, buena);
   const corregido = fallo !== null;
+
+  function pedirPistaTranslate() {
+    if (!corregido && nPistas < listaPistas.length) {
+      setNPistas((n) => n + 1);
+    }
+  }
+
+  useTeclas(
+    corregido
+      ? { Enter: siguiente, ' ': siguiente, Escape: onExit }
+      : {
+          p: pedirPistaTranslate,
+          P: pedirPistaTranslate,
+          h: pedirPistaTranslate,
+          H: pedirPistaTranslate,
+          Escape: onExit
+        },
+    frases.length > 0
+  );
 
   function comprobar() {
     if (corregido || !texto.trim()) return;
     const r = corregir(texto, buena);
     setFallo(r);
+    fox.acierto(r.estado === 'bien');
     apuntar(cur.de, r.estado === 'bien');
+    const rSeg = apuntarRespuesta(r.estado === 'bien');
+    setSeguidas(rSeg.seguidas);
+    if (rSeg.seguidas > mejorSeguidas.current) mejorSeguidas.current = rSeg.seguidas;
     // Las frases que salen de una regla suman también en Gramática. Las de
     // Kommunikation no traen concepto: allí el porcentaje va por funciones
     // completadas, no por aciertos sueltos, y mezclarlo mentiría.
@@ -93,6 +130,7 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
   }
 
   function siguiente() {
+    fox.sigue();
     if (idx + 1 < frases.length) {
       setIdx(idx + 1);
       setTexto('');
@@ -103,6 +141,20 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
     } else {
       terminar();
     }
+  }
+
+  function atras() {
+    if (idx === 0) return;
+    const prev = resultados.current[idx - 1];
+    if (!prev) return;
+    resultados.current.pop();
+    setIdx(idx - 1);
+    setTexto(prev.tuya);
+    setNPistas(prev.pistas || 0);
+    setGanadas(0);
+    setFallo({ estado: prev.estado });
+    setExplicacion(null);
+    fox.sigue();
   }
 
   // Las frases de una tanda salen de lecciones distintas. Para que la SEGUNDA
@@ -187,14 +239,34 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
         <div className="bar">
           <span style={{ width: ((idx + (corregido ? 1 : 0)) / frases.length) * 100 + '%' }} />
         </div>
+        {idx > 0 && resultados.current[idx - 1] && (
+          <button className="btn-ghost ses-atras ses-icon-btn" onClick={atras} title={t('ses.prev')}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
         <span className="timer">{idx + 1}/{frases.length}</span>
       </div>
 
+      <div className="ctx-fila">
+        <span className="pill ctx-tema">🔁 {pick('Traducir frases', 'Translate phrases')}</span>
+        <span className="row" style={{ gap: 8 }}>
+          <StarButton item={{ ...cur, id: 'ueb:' + cur.de }} />
+          <RachaPill n={seguidas} />
+          <Reloj desde={empezado.current} />
+        </span>
+      </div>
+
       <div className="fc-wrap">
+        {/* La instrucción y de dónde sale la frase, en dos renglones. Juntos en
+            uno, el apartado ("nach dem Weg fragen und den Fußweg beschreiben")
+            se leía como una segunda frase en alemán justo encima de la que hay
+            que traducir. */}
         <div className="ueb-dir">
           {cur.dir === 'de-es' ? t('ueb.deEs') : t('ueb.esDe')}
-          {cur.de_donde && <span className="ueb-fuente"> · {cur.de_donde}</span>}
         </div>
+        {cur.de_donde && <div className="ueb-fuente">{tc(cur.de_donde)}</div>}
 
         <div className="ueb-origen">{origen}</div>
 
@@ -209,8 +281,12 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
               </div>
             ))}
             {nPistas < listaPistas.length && (
-              <button className="btn-ghost btn-sm" onClick={() => setNPistas(nPistas + 1)}>
-                💡 {t('ueb.pedirPista', { n: listaPistas.length - nPistas })}
+              <button
+                className="btn-ghost btn-sm"
+                onClick={pedirPistaTranslate}
+                title="Atajo: Alt+P o P"
+              >
+                💡 {t('ueb.pedirPista', { n: listaPistas.length - nPistas })} <span className="op-tecla" style={{ marginLeft: 4 }}>Alt+P</span>
               </button>
             )}
           </div>
@@ -226,11 +302,20 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
             if (e.key === 'Enter' && !e.shiftKey) {
               e.preventDefault();
               corregido ? siguiente() : comprobar();
+            } else if (
+              ((e.ctrlKey || e.altKey) && (e.key === 'p' || e.key === 'P' || e.key === 'h' || e.key === 'H')) ||
+              e.key === 'F2'
+            ) {
+              e.preventDefault();
+              pedirPistaTranslate();
             }
           }}
           placeholder={cur.dir === 'de-es' ? t('ueb.phEs') : t('ueb.phDe')}
           disabled={corregido}
         />
+        {!corregido && cur.dir !== 'de-es' && (
+          <Umlaut campo={inputRef} onTexto={setTexto} />
+        )}
 
         {corregido && (
           <div className="ueb-resultado">
@@ -289,7 +374,7 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
 
         <button
           className="btn-primary"
-          style={{ width: '100%', marginTop: 14 }}
+          style={{ display: 'block', width: '100%', maxWidth: 320, margin: '14px auto 0' }}
           onClick={corregido ? siguiente : comprobar}
           disabled={!corregido && !texto.trim()}
         >
@@ -305,6 +390,7 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
             {pick('No hace falta clavar tildes ni puntuación.', 'Accents and punctuation do not have to be exact.')}
           </p>
         )}
+      <FoxOverlay fox={fox} mudo={!!corregido} racha={seguidas} />
       </div>
     </div>
   );

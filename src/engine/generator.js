@@ -84,12 +84,50 @@ function toJudge(rng, it) {
   };
 }
 
+// Convierte un item de opción múltiple en uno de ordenar: se rellena el hueco
+// y la frase entera pasa a ser la solución. Hace falta porque la IA solo
+// devuelve opción múltiple, y "Ordenar" filtraba por type === 'order': con
+// material de IA la tanda se quedaba vacía.
+function toOrder(rng, it) {
+  if (it.type === 'order') return it;
+  if (it.type !== 'mc' || !it.sentence || !it.answer) return null;
+  const frase = String(it.sentence).replace('___', it.answer).replace(/\s+/g, ' ').trim();
+  const solution = frase.split(' ').filter(Boolean);
+  // Menos de tres piezas no es un puzle, y más de doce es un castigo.
+  if (solution.length < 3 || solution.length > 12) return null;
+  let tokens = shuffle(rng, solution);
+  let guard = 0;
+  while (tokens.join('') === solution.join('') && guard++ < 10) {
+    tokens = shuffle(rng, solution);
+  }
+  return {
+    id: it.id,
+    type: 'order',
+    conceptId: it.conceptId,
+    prompt: it.prompt,
+    tokens,
+    solution,
+    sentence: frase,
+    translation: it.translation,
+    explanation: it.explanation,
+    source: it.source
+  };
+}
+
 // Filtra/transforma el pool según el tipo de juego elegido.
 function applyGameType(rng, items, gameType) {
   if (!gameType || gameType === 'mixed') return items;
   if (gameType === 'mc') return items.filter((it) => it.type === 'mc');
-  if (gameType === 'order') return items.filter((it) => it.type === 'order');
-  if (gameType === 'judge') return items.map((it) => toJudge(rng, it));
+  if (gameType === 'order') {
+    const nativos = items.filter((it) => it.type === 'order');
+    if (nativos.length) return nativos;
+    return items.map((it) => toOrder(rng, it)).filter(Boolean);
+  }
+  // Un texto con varios huecos no se puede convertir en "¿correcto o no?": no
+  // hay UNA palabra que enseñar bien o mal. Se quedan fuera, y toJudge sigue
+  // viendo solo lo que sabe convertir (sin este filtro reventaba al leer
+  // it.options, que un cloze no tiene).
+  if (gameType === 'judge') return items.filter((it) => it.type !== 'cloze').map((it) => toJudge(rng, it));
   // Escribir y contrarreloj no necesitan material nuevo: son los mismos huecos
   // de test, uno sin las opciones y el otro con un reloj encima.
   if (gameType === 'write') {
@@ -142,6 +180,12 @@ export function buildSession(topic, { size = 10, mode = 'mixed', gameType = 'mix
 
   const chosen = [];
   const used = new Set();
+  // Un texto con varios huecos es UN frame entre cientos, así que al azar no
+  // salía casi nunca aunque esté escrito. Como es el ejercicio que más se
+  // parece al examen, en las tandas mixtas se reserva un sitio: uno por tanda
+  // si el tema tiene alguno. Con juegos concretos (Test, Ordenar…) no aplica,
+  // porque ahí el cloze ni siquiera está en el pool.
+  const RESERVA_CLOZE = 1;
   // Coge hasta `n` items distintos de `arr` (sin repetir lo ya elegido).
   const take = (arr, n) => {
     for (const it of shuffle(rng, arr)) {
@@ -153,10 +197,15 @@ export function buildSession(topic, { size = 10, mode = 'mixed', gameType = 'mix
     }
   };
 
+  // El sitio reservado, antes de repartir el resto.
+  if (gameType === 'mixed' && size >= 4) {
+    take(uniq.filter((it) => it.type === 'cloze'), RESERVA_CLOZE);
+  }
+
   if (mode === 'faltan') {
     // Solo lo que impide llegar al 100%, y lo que menos aciertos lleva primero.
-    const pendientes = uniq.filter((it) => faltan.has(it.conceptId));
-    take(pendientes, size);
+    const loQueFalta = uniq.filter((it) => faltan.has(it.conceptId));
+    take(loQueFalta, size);
   } else if (mode === 'learn') {
     take([...fItems, ...rItems], size);
   } else if (mode === 'random') {
@@ -168,6 +217,32 @@ export function buildSession(topic, { size = 10, mode = 'mixed', gameType = 'mix
   // Rellena hasta `size` con lo que quede, sin repetir.
   take(rItems, size - chosen.length);
   take([...wItems, ...fItems], size - chosen.length);
+
+  // En tandas mixtas ("De todo un poco"), diversifica los ejercicios para que
+  // haya una mezcla real de tipos: test, ordenar, escribir y cazar el error.
+  if (gameType === 'mixed' && chosen.length >= 4) {
+    const mcIndices = [];
+    chosen.forEach((it, idx) => {
+      if (it.type === 'mc' && it.sentence && it.answer && !it.sentence.startsWith('—')) {
+        mcIndices.push(idx);
+      }
+    });
+    const shuffled = shuffle(rng, mcIndices);
+    if (shuffled.length >= 1) {
+      const idx = shuffled[0];
+      const j = toJudge(rng, chosen[idx]);
+      if (j) chosen[idx] = j;
+    }
+    if (shuffled.length >= 2) {
+      const idx = shuffled[1];
+      const ord = toOrder(rng, chosen[idx]);
+      if (ord) chosen[idx] = ord;
+    }
+    if (shuffled.length >= 3) {
+      const idx = shuffled[2];
+      chosen[idx] = { ...chosen[idx], type: 'write' };
+    }
+  }
 
   return shuffle(rng, chosen).slice(0, size).map(stripInternal);
 }
@@ -196,11 +271,24 @@ const ESPERA_RETO = 180000;
 const ESPERA_MEZCLA = 30000;
 
 export async function buildSessionSmart(topic, opts = {}) {
+  const gt = opts.gameType || 'mixed';
+  const size = opts.size || 10;
+
+  // Tema de usuario generado con IA: usa directamente sus ejercicios guardados
+  if (topic.custom && topic.userItems?.length) {
+    const rng = makeRng(randomSeed());
+    const listos = applyGameType(rng, topic.userItems, gt);
+    const finalItems = listos.length ? listos : topic.userItems;
+    return {
+      items: shuffleArray(finalItems).slice(0, size),
+      aiUsed: true,
+      aiCount: finalItems.length
+    };
+  }
+
   const aiMode = opts.mode === 'ai';
   const base = buildSession(topic, { ...opts, mode: aiMode ? 'weak' : opts.mode });
   const s = getSettings();
-  const gt = opts.gameType || 'mixed';
-  const size = opts.size || base.length || 10;
 
   // Lección del libro sin plantillas propias: todo el material viene de la IA,
   // generado a partir de las reglas de esa Lektion.
@@ -243,8 +331,11 @@ export async function buildSessionSmart(topic, opts = {}) {
   // hacer nada.
   const share = aiMode ? Math.max(0.6, s.aiShare ?? 0.3) : s.aiShare ?? 0.3;
 
-  if (!aiAvailable() || share <= 0 || (gt !== 'mixed' && gt !== 'mc') || (topic.id === 'mix' && !aiMode)) {
-    // (escribir, ordenar y cazar el error salen de las plantillas ya convertidas)
+  // El mando vale para los CUATRO juegos de gramática, no solo para el test.
+  // La IA devuelve opción múltiple y de ahí salen los demás: escribir es el
+  // mismo hueco sin opciones, cazar el error enseña la frase con una pieza
+  // cambiada y ordenar reparte la frase entera en piezas.
+  if (!aiAvailable() || share <= 0 || (topic.id === 'mix' && !aiMode)) {
     return { items: aiMode ? buildSession(topic, { ...opts, mode: 'weak' }) : base, aiUsed: false };
   }
 
@@ -276,10 +367,15 @@ export async function buildSessionSmart(topic, opts = {}) {
       new Promise((res) => setTimeout(() => res([]), aiMode ? ESPERA_RETO : ESPERA_MEZCLA))
     ]);
     if (!aiItems.length) return { items: base, aiUsed: false };
+    // Al juego pedido antes de mezclar: si no, en "Escribir" salían con
+    // opciones y en "Ordenar" no salían en absoluto.
+    const rng = makeRng(randomSeed());
+    const aiListos = applyGameType(rng, aiItems, gt);
+    if (!aiListos.length) return { items: base, aiUsed: false };
     // Sustituye los ultimos `n` items base por los de IA.
-    const n = Math.max(0, Math.min(aiItems.length, want, base.length - 1));
+    const n = Math.max(0, Math.min(aiListos.length, want, base.length - 1));
     if (n === 0) return { items: base, aiUsed: false };
-    const merged = [...base.slice(0, base.length - n), ...aiItems.slice(0, n)];
+    const merged = [...base.slice(0, base.length - n), ...aiListos.slice(0, n)];
     return { items: shuffleArray(merged), aiUsed: true, aiCount: n };
   } catch (e) {
     console.warn('IA no disponible:', e.message);

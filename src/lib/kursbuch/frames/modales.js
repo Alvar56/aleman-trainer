@@ -18,13 +18,38 @@ export const MODALES = {
       { s: '___ Sie mir helfen?', a: 'Können', d: ['Könnt', 'Kann'], t: '¿Puede ayudarme?', e: 'Forma formal: Können Sie.' },
       { s: 'Sie ___ sehr gut kochen.', a: 'kann', d: ['kannst', 'könnt'], t: 'Ella sabe cocinar muy bien.', e: 'er/sie/es → kann.' },
       { s: 'Wir ___ nächstes Jahr nach Wien ziehen.', a: 'wollen', d: ['will', 'wollt'], t: 'Queremos mudarnos a Viena el año que viene.', e: 'wollen con wir.' },
-      { s: 'Du ___ wirklich gut Deutsch!', a: 'kannst', d: ['kann', 'könnt'], t: '¡Sabes muy bien alemán!', e: 'können con du: kannst.' }
+      { s: 'Du ___ wirklich gut Deutsch!', a: 'kannst', d: ['kann', 'könnt'], t: '¡Sabes muy bien alemán!', e: 'können con du: kannst.' },
+      { s: '___ du am Samstag mitkommen?', a: 'Kannst', d: ['Kann', 'Könnt'], t: '¿Puedes venir el sábado?', e: 'können con du: kannst.' },
+      { s: 'Wir ___ im Sommer nach Italien fahren.', a: 'wollen', d: ['will', 'wollt'], t: 'Queremos ir a Italia en verano.', e: 'wollen con wir: wollen.' },
+      { s: 'Mein Sohn ___ noch nicht schwimmen.', a: 'kann', d: ['kannst', 'können'], t: 'Mi hijo todavía no sabe nadar.', e: '"können" también es saber hacer algo.' },
+      { s: '___ ihr heute Abend Zeit?', a: 'Könnt', d: ['Kann', 'Können'], t: '¿Podéis esta noche?', e: 'können con ihr: könnt.' },
+      { s: 'Ich ___ heute nicht arbeiten, ich bin krank.', a: 'kann', d: ['will', 'können'], t: 'Hoy no puedo trabajar, estoy enfermo.', e: 'Imposibilidad → können.' },
+      { s: 'Sie ___ Lehrerin werden.', a: 'will', d: ['willst', 'wollen'], t: 'Quiere ser profesora.', e: 'Intención → wollen; sujeto singular → will.' },
+      { s: '___ Sie mir bitte die Rechnung bringen?', a: 'Können', d: ['Kannst', 'Könnt'], t: '¿Me trae la cuenta, por favor?', e: 'Petición cortés con Sie → Können Sie…?' },
+      { s: 'Was ___ ihr am Wochenende machen?', a: 'wollt', d: ['will', 'wollen'], t: '¿Qué queréis hacer el fin de semana?', e: 'wollen con ihr: wollt.' },
+      { s: 'Er ___ sehr gut Klavier spielen.', a: 'kann', d: ['will', 'könnt'], t: 'Toca muy bien el piano.', e: 'Habilidad → können.' },
+      { s: 'Ich ___ heute lieber zu Hause bleiben.', a: 'will', d: ['kann', 'wollen'], t: 'Hoy prefiero quedarme en casa.', e: 'Voluntad → wollen.' },
+      { s: 'Die Kinder ___ noch nicht lesen.', a: 'können', d: ['kann', 'könnt'], t: 'Los niños todavía no saben leer.', e: 'Plural → können.' },
+      { s: '___ du am Sonntag mit uns wandern?', a: 'Willst', d: ['Kannst', 'Wollt'], t: '¿Quieres venir a caminar con nosotros el domingo?', e: 'Intención → wollen; con du: willst.' },
+      { s: 'Ich ___ nächstes Jahr einen Tanzkurs machen.', a: 'will', d: ['willst', 'wollen'], t: 'El año que viene quiero hacer un curso de baile.', e: 'ich will, sin terminación.' },
+      { s: '___ du eigentlich Gitarre spielen?', a: 'Kannst', d: ['Kann', 'Könnt'], t: '¿Sabes tocar la guitarra?', e: 'du kannst.' },
+      { s: 'Wir ___ am Sonntag klettern gehen.', a: 'wollen', d: ['will', 'wollt'], t: 'El domingo queremos ir a escalar.', e: 'wir wollen.' },
+      { s: 'Sie ___ sehr gut fotografieren.', a: 'kann', d: ['kannst', 'können'], t: 'Ella sabe hacer muy buenas fotos.', e: '3ª del singular: kann.' },
+      { s: '___ ihr im Sommer mit ins Freibad?', a: 'Wollt', d: ['Will', 'Wollen'], t: '¿Queréis venir a la piscina en verano?', e: 'ihr wollt.' },
+      { s: 'Man ___ hier auch ohne Verein trainieren.', a: 'kann', d: ['kannst', 'können'], t: 'Aquí se puede entrenar también sin club.', e: 'man lleva la forma de er/sie/es: kann.' },
+      { s: 'Ich ___ leider nicht schwimmen.', a: 'kann', d: ['kannst', 'können'], t: 'Por desgracia no sé nadar.', e: 'ich kann.' }
     ],
     orders: [
       { sol: ['Ich', 'kann', 'sehr', 'gut', 'schwimmen'], t: 'Sé nadar muy bien.', e: 'Modal (2) + infinitivo (final).' },
       { sol: ['Willst', 'du', 'am', 'Samstag', 'mitkommen?'], t: '¿Quieres venir el sábado?', e: 'Pregunta: modal primero, infinitivo al final.' },
       { sol: ['Wir', 'wollen', 'im', 'Sommer', 'ans', 'Meer', 'fahren'], t: 'En verano queremos ir al mar.', e: 'wollen … fahren.' },
-      { sol: ['Meine', 'Kinder', 'können', 'schon', 'Rad', 'fahren'], t: 'Mis hijos ya saben ir en bici.', e: 'können … fahren.' }
+      { sol: ['Meine', 'Kinder', 'können', 'schon', 'Rad', 'fahren'], t: 'Mis hijos ya saben ir en bici.', e: 'können … fahren.' },
+      { sol: ['Ich', 'kann', 'am', 'Wochenende', 'leider', 'nicht', 'kommen'], t: 'El fin de semana por desgracia no puedo venir.', e: 'Modal en 2ª posición, infinitivo al final.' },
+      { sol: ['Wir', 'wollen', 'im', 'Sommer', 'nach', 'Italien', 'fahren'], t: 'Queremos ir a Italia en verano.', e: 'El modal abre el paréntesis y el infinitivo lo cierra.' }
+    ],
+    clozes: [
+      { txt: '– ___ du am Samstag mitkommen? – Ich ___ schon, aber ich ___ nicht: Ich muss arbeiten. – Schade! Wir ___ grillen.', a: ['Willst', 'will', 'kann', 'wollen'], extra: ['Kannst', 'kann', 'will', 'können'], t: '– ¿Quieres venir el sábado? – Querer sí quiero, pero no puedo: tengo que trabajar. – ¡Qué pena! Íbamos a hacer una barbacoa.', e: 'El diálogo entero está para separar "querer" de "poder": wollen es la intención y können es la posibilidad.' },
+      { txt: 'Ich ___ gut schwimmen, aber ich ___ lieber klettern. Am Wochenende ___ wir in die Berge fahren – ___ du mitkommen?', a: ['kann', 'will', 'wollen', 'kannst'], extra: ['will', 'kann', 'können', 'willst'], t: 'Sé nadar bien, pero prefiero escalar. El fin de semana queremos ir a la montaña — ¿puedes venir?', e: 'Los cuatro alternan saber hacer algo (können) con querer hacerlo (wollen), que es donde se confunden.' }
     ]
   },
 
@@ -42,18 +67,48 @@ export const MODALES = {
       { s: '___ ich Sie etwas fragen?', a: 'Darf', d: ['Muss', 'Dürft'], t: '¿Puedo preguntarle algo?', e: 'Pedir permiso con cortesía: Darf ich…?' },
       { s: 'Ihr ___ die Hausaufgaben machen.', a: 'müsst', d: ['muss', 'müssen'], t: 'Tenéis que hacer los deberes.', e: 'müssen con ihr: müsst.' },
       { s: 'Im Museum ___ man nicht fotografieren.', a: 'darf', d: ['muss', 'dürft'], t: 'En el museo no se puede fotografiar.', e: 'Prohibición → nicht dürfen.' },
-      { s: 'Du ___ noch ein Jahr warten.', a: 'musst', d: ['muss', 'müsst'], t: 'Tienes que esperar un año más.', e: 'du musst.' }
+      { s: 'Du ___ noch ein Jahr warten.', a: 'musst', d: ['muss', 'müsst'], t: 'Tienes que esperar un año más.', e: 'du musst.' },
+      { s: 'Auf der Autobahn ___ man 130 fahren.', a: 'darf', d: ['muss', 'dürfen'], t: 'En la autopista se puede ir a 130.', e: '"dürfen" es tener permiso; "man" lleva siempre la forma de er/sie/es.' },
+      { s: 'Ich ___ heute leider länger bleiben.', a: 'muss', d: ['darf', 'müssen'], t: 'Hoy por desgracia tengo que quedarme más.', e: 'Obligación → müssen.' },
+      { s: '___ wir hier fotografieren?', a: 'Dürfen', d: ['Müssen', 'Darf'], t: '¿Se puede hacer fotos aquí?', e: 'Pedir permiso en plural → Dürfen wir…?' },
+      { s: 'Du ___ vor der Prüfung nichts essen.', a: 'darfst', d: ['musst', 'dürfen'], t: 'Antes de la prueba no puedes comer nada.', e: '"nicht dürfen" es prohibición; "nicht müssen" sería que no hace falta.' },
+      { s: 'Der Chef sagt, ihr ___ den Bericht heute abgeben.', a: 'müsst', d: ['dürft', 'müssen'], t: 'El jefe dice que tenéis que entregar el informe hoy.', e: 'müssen con ihr: müsst.' },
+      { s: '___ ich Ihnen helfen?', a: 'Darf', d: ['Muss', 'Dürfen'], t: '¿Me permite ayudarle?', e: 'Ofrecerse con cortesía → Darf ich…?' },
+      { s: 'Man ___ im Krankenhaus leise sein.', a: 'muss', d: ['darf', 'müssen'], t: 'En el hospital hay que estar en silencio.', e: 'Regla general con "man" → muss.' },
+      { s: 'Die Kinder ___ nach acht nicht mehr fernsehen.', a: 'dürfen', d: ['müssen', 'darf'], t: 'Los niños no pueden ver la tele después de las ocho.', e: 'Prohibición en plural → dürfen nicht.' },
+      { s: 'Wir ___ noch Brot kaufen.', a: 'müssen', d: ['dürfen', 'muss'], t: 'Todavía tenemos que comprar pan.', e: 'Obligación con wir → müssen.' },
+      { s: '___ man hier mit Karte zahlen?', a: 'Darf', d: ['Muss', 'Dürfen'], t: '¿Se puede pagar aquí con tarjeta?', e: 'Preguntar si está permitido → Darf man…?' },
+      { s: 'Sie ___ das Medikament nur einmal am Tag nehmen.', a: 'dürfen', d: ['müssen', 'darf'], t: 'Solo puede tomar el medicamento una vez al día.', e: 'Permiso limitado con Sie → dürfen.' },
+      { s: 'Ich ___ morgen früh aufstehen.', a: 'muss', d: ['darf', 'müssen'], t: 'Mañana tengo que levantarme pronto.', e: 'Obligación con ich → muss.' },
+      { s: '___ du schon Auto fahren?', a: 'Darfst', d: ['Musst', 'Dürft'], t: '¿Ya puedes conducir?', e: 'Permiso por edad → dürfen.' },
+      { s: 'Im Zug ___ man nicht telefonieren.', a: 'darf', d: ['muss', 'dürfen'], t: 'En el tren no se puede hablar por teléfono.', e: 'Prohibición con "man" → darf nicht.' },
+      { s: 'Wir ___ keine Angst haben, es ist harmlos.', a: 'müssen', d: ['dürfen', 'muss'], t: 'No tenemos por qué asustarnos, es inofensivo.', e: '"nicht müssen" = no hace falta, no que esté prohibido.' },
+      { s: '___ ich mich hier hinsetzen?', a: 'Darf', d: ['Muss', 'Dürfen'], t: '¿Puedo sentarme aquí?', e: 'Pedir permiso → Darf ich…?' },
+      { s: 'Ich ___ morgen unbedingt aufs Amt.', a: 'muss', d: ['musst', 'müssen'], t: 'Mañana tengo que ir sin falta a la administración.', e: 'ich muss, sin terminación.' },
+      { s: '___ ich hier eigentlich parken?', a: 'Darf', d: ['Darfst', 'Dürfen'], t: '¿Puedo aparcar aquí?', e: 'ich darf.' },
+      { s: 'Du ___ das Formular noch unterschreiben.', a: 'musst', d: ['muss', 'müsst'], t: 'Todavía tienes que firmar el formulario.', e: 'du musst.' },
+      { s: 'Kinder ___ hier leider nicht spielen.', a: 'dürfen', d: ['darf', 'dürft'], t: 'Los niños no pueden jugar aquí.', e: 'Plural: dürfen.' },
+      { s: 'Wir ___ bis Freitag warten.', a: 'müssen', d: ['muss', 'müsst'], t: 'Tenemos que esperar hasta el viernes.', e: 'wir müssen.' },
+      { s: '___ man hier fotografieren?', a: 'Darf', d: ['Dürfen', 'Darfst'], t: '¿Se pueden hacer fotos aquí?', e: 'man lleva la forma de er/sie/es: darf.' }
     ],
     orders: [
       { sol: ['Ich', 'muss', 'heute', 'das', 'Formular', 'ausfüllen'], t: 'Hoy tengo que rellenar el formulario.', e: 'Modal (2) … infinitivo (final).' },
-      { sol: ['Hier', 'darf', 'man', 'nicht', 'rauchen'], t: 'Aquí no se puede fumar.', e: '"nicht" justo delante del infinitivo.' },
+      { sol: ['Hier', 'darf', 'man', 'nicht', 'rauchen'], alt: [['Man', 'darf', 'hier', 'nicht', 'rauchen']], t: 'Aquí no se puede fumar.', e: '"nicht" justo delante del infinitivo.' },
       { sol: ['Musst', 'du', 'am', 'Wochenende', 'arbeiten?'], t: '¿Tienes que trabajar el fin de semana?', e: 'Pregunta: modal primero.' },
-      { sol: ['Darf', 'ich', 'hier', 'parken?'], t: '¿Puedo aparcar aquí?', e: 'Permiso con dürfen.' }
+      { sol: ['Darf', 'ich', 'hier', 'parken?'], t: '¿Puedo aparcar aquí?', e: 'Permiso con dürfen.' },
+      { sol: ['Ich', 'muss', 'das', 'Formular', 'heute', 'ausfüllen'], t: 'Tengo que rellenar el formulario hoy.', e: 'Modal en 2ª posición, infinitivo al final.' },
+      { sol: ['Im', 'Zug', 'darf', 'man', 'nicht', 'telefonieren'], alt: [['Man', 'darf', 'im', 'Zug', 'nicht', 'telefonieren']], t: 'En el tren no se puede hablar por teléfono.', e: 'El complemento abre, el modal va segundo y «man» detrás.' },
+      { sol: ['Dürfen', 'wir', 'hier', 'fotografieren?'], t: '¿Podemos hacer fotos aquí?', e: 'Pregunta de permiso: el modal abre.' }
+    ],
+    clozes: [
+      { txt: 'Im Schwimmbad gelten Regeln: Man ___ vor dem Schwimmen duschen und man ___ nicht ins Wasser springen. Kinder unter sechs ___ nur mit einem Erwachsenen kommen. Ab 20 Uhr ___ alle Gäste das Becken verlassen.', a: ['muss', 'darf', 'dürfen', 'müssen'], extra: ['musst', 'dürft', 'darfst'], t: 'En la piscina hay normas: hay que ducharse antes de nadar y no se puede saltar al agua. Los menores de seis solo pueden entrar con un adulto. A partir de las 20:00 todos los usuarios tienen que salir del vaso.', e: 'Fíjate en la diferencia: "muss" y "müssen" son obligación, "darf nicht" es prohibición y "dürfen" a secas es permiso.' },
+      { txt: 'Im Amt ___ man einen Termin haben. Ohne Ausweis ___ man nicht hinein, und fotografieren ___ man dort auch nicht.', a: ['muss', 'darf', 'darf'], extra: ['müsst', 'dürft', 'müssen'], t: 'En la oficina hay que tener cita. Sin documento no se puede entrar, y allí tampoco se pueden hacer fotos.', e: '"muss" es obligación y "darf nicht" es prohibición: son cosas distintas aunque en español las dos se digan con «tener que» o «poder».' }
     ]
   },
 
   // ---------- A1.2 L13: sollen ----------
   'modalverb-sollen': {
+    reserva: ['sollt', 'sollte', 'sollen'],
     picks: [
       { s: 'Was ___ ich machen?', a: 'soll', d: ['sollst', 'sollen'], t: '¿Qué debo hacer?', e: 'sollen con ich: soll.' },
       { s: 'Du ___ viel trinken, sagt der Arzt.', a: 'sollst', d: ['soll', 'sollt'], t: 'Dice el médico que debes beber mucho.', e: 'sollen con du: sollst. Es un consejo de otra persona.' },
@@ -66,7 +121,46 @@ export const MODALES = {
       { s: '___ ich das Fenster aufmachen?', a: 'Soll', d: ['Sollst', 'Sollen'], t: '¿Abro la ventana?', e: 'Ofrecerse a hacer algo: Soll ich…?' },
       { s: 'Du ___ nicht so viel Kaffee trinken.', a: 'sollst', d: ['soll', 'sollen'], t: 'No deberías beber tanto café.', e: 'Consejo en negativo.' },
       { s: 'Der Chef sagt, ich ___ den Bericht heute schreiben.', a: 'soll', d: ['sollst', 'sollen'], t: 'El jefe dice que debo escribir el informe hoy.', e: 'Orden de otra persona → sollen.' },
-      { s: 'Was ___ wir mitbringen?', a: 'sollen', d: ['soll', 'sollt'], t: '¿Qué llevamos?', e: 'wir sollen.' }
+      { s: 'Was ___ wir mitbringen?', a: 'sollen', d: ['soll', 'sollt'], t: '¿Qué llevamos?', e: 'wir sollen.' },
+      { s: '___ ich dich vom Bahnhof abholen?', a: 'Soll', d: ['Sollst', 'Sollen'], t: '¿Voy a buscarte a la estación?', e: 'Ofrecerse a hacer algo: Soll ich…?' },
+      { s: 'Die Kinder ___ um acht im Bett sein.', a: 'sollen', d: ['soll', 'sollt'], t: 'Los niños tienen que estar en la cama a las ocho.', e: 'Sujeto en plural → sollen.' },
+      { s: 'Die Ärztin sagt, du ___ eine Woche zu Hause bleiben.', a: 'sollst', d: ['soll', 'sollt'], t: 'La médica dice que debes quedarte una semana en casa.', e: 'sollen repite la orden de otra persona; con du: sollst.' },
+      { s: '___ wir den Termin verschieben?', a: 'Sollen', d: ['Soll', 'Sollt'], t: '¿Cambiamos la cita de día?', e: 'Propuesta en primera persona del plural: Sollen wir…?' },
+      { s: 'Ihr ___ nicht so lange in der Sonne bleiben.', a: 'sollt', d: ['sollen', 'soll'], t: 'No deberíais estar tanto tiempo al sol.', e: 'sollen con ihr: sollt.' },
+      { s: 'Mein Vater sagt, ich ___ mehr schlafen.', a: 'soll', d: ['sollst', 'sollen'], t: 'Mi padre dice que debo dormir más.', e: 'Consejo de otro contado en estilo indirecto → sollen.' },
+      { s: 'Was ___ ich dem Arzt sagen?', a: 'soll', d: ['sollst', 'sollen'], t: '¿Qué le digo al médico?', e: 'Pedir instrucciones sobre uno mismo: Was soll ich…?' },
+      { s: 'Du ___ das Rezept in der Apotheke abgeben.', a: 'sollst', d: ['soll', 'sollen'], t: 'Tienes que entregar la receta en la farmacia.', e: 'Encargo dirigido a du: sollst.' },
+      { s: 'Der Zahnarzt sagt, die Kinder ___ weniger Süßes essen.', a: 'sollen', d: ['soll', 'sollt'], t: 'El dentista dice que los niños deben comer menos dulces.', e: 'Sujeto en plural → sollen.' },
+      { s: '___ ich dir eine Tablette holen?', a: 'Soll', d: ['Sollst', 'Sollen'], t: '¿Te traigo una pastilla?', e: 'Ofrecerse a hacer algo: Soll ich…?' },
+      { s: 'Sie ___ dreimal täglich eine Tablette nehmen.', a: 'sollen', d: ['soll', 'sollst'], t: 'Debe tomar una pastilla tres veces al día.', e: 'Forma de cortesía Sie → sollen.' },
+      { s: 'Wir ___ um acht in der Praxis sein.', a: 'sollen', d: ['soll', 'sollt'], t: 'Tenemos que estar en la consulta a las ocho.', e: 'wir sollen.' },
+      { s: 'Wann ___ ich das Medikament nehmen?', a: 'soll', d: ['sollst', 'sollt'], t: '¿Cuándo debo tomar el medicamento?', e: 'W-Frage con el modal en segunda posición.' },
+      { s: 'Du ___ bei Fieber nicht arbeiten.', a: 'sollst', d: ['soll', 'sollen'], t: 'Con fiebre no debes trabajar.', e: 'Consejo en negativo, dirigido a du.' },
+      { s: '___ ich den Krankenschein mitbringen?', a: 'Soll', d: ['Sollst', 'Sollen'], t: '¿Llevo el justificante médico?', e: 'Preguntar qué se espera de uno: Soll ich…?' },
+      { s: 'Meine Kollegin sagt, wir ___ heute früher gehen.', a: 'sollen', d: ['soll', 'sollt'], t: 'Mi compañera dice que hoy debemos irnos antes.', e: 'wir sollen, repitiendo lo que dice otra persona.' },
+      { s: 'Ihr ___ viel Tee mit Honig trinken.', a: 'sollt', d: ['sollen', 'soll'], t: 'Debéis beber mucho té con miel.', e: 'sollen con ihr: sollt.' },
+      { s: 'Er ___ nach der Operation viel spazieren gehen.', a: 'soll', d: ['sollst', 'sollt'], t: 'Después de la operación debe pasear mucho.', e: 'Sujeto singular → soll.' },
+      { s: '___ wir dich zum Krankenhaus fahren?', a: 'Sollen', d: ['Soll', 'Sollt'], t: '¿Te llevamos al hospital?', e: 'Ofrecimiento en plural: Sollen wir…?' },
+      { s: 'Der Physiotherapeut sagt, ich ___ jeden Tag üben.', a: 'soll', d: ['sollst', 'sollen'], t: 'El fisioterapeuta dice que debo hacer los ejercicios a diario.', e: 'Orden de otra persona en primera persona: ich soll.' },
+      { s: 'Wo ___ ich mich anmelden?', a: 'soll', d: ['sollst', 'sollen'], t: '¿Dónde tengo que registrarme?', e: 'Pedir instrucciones: Wo soll ich…?' },
+      { s: 'Die Patienten ___ im Wartezimmer Platz nehmen.', a: 'sollen', d: ['soll', 'sollt'], t: 'Los pacientes deben sentarse en la sala de espera.', e: 'Sujeto en plural → sollen.' },
+      { s: 'Du ___ das nicht allein tragen.', a: 'sollst', d: ['soll', 'sollen'], t: 'Eso no deberías llevarlo tú solo.', e: 'Consejo con du en negativo.' },
+      { s: '___ ich einen Termin für dich machen?', a: 'Soll', d: ['Sollst', 'Sollen'], t: '¿Te pido cita?', e: 'Ofrecerse: Soll ich…?' },
+      { s: 'Ihr ___ die Wunde jeden Tag sauber machen.', a: 'sollt', d: ['sollen', 'soll'], t: 'Tenéis que limpiar la herida todos los días.', e: 'ihr sollt.' },
+      { s: 'Meine Schwester sagt, ich ___ mit dem Rauchen aufhören.', a: 'soll', d: ['sollst', 'sollen'], t: 'Mi hermana dice que debo dejar de fumar.', e: 'ich soll: consejo de otra persona.' },
+      { s: 'Was ___ wir dem Chef sagen?', a: 'sollen', d: ['soll', 'sollt'], t: '¿Qué le decimos al jefe?', e: 'wir sollen en pregunta.' },
+      { s: 'Sie ___ das Formular bitte unterschreiben.', a: 'sollen', d: ['soll', 'sollst'], t: 'Debe firmar el formulario, por favor.', e: 'Instrucción cortés con Sie → sollen.' },
+      { s: 'Der Arzt sagt, du ___ dich ausruhen.', a: 'sollst', d: ['soll', 'sollt'], t: 'El médico dice que descanses.', e: 'sollen con du, repitiendo una orden.' },
+      { s: 'Was ___ ich zur Feier mitbringen?', a: 'soll', d: ['sollst', 'sollen'], t: '¿Qué llevo a la fiesta?', e: 'ich soll.' },
+      { s: 'Du ___ viel mehr Wasser trinken.', a: 'sollst', d: ['soll', 'sollt'], t: 'Deberías beber mucha más agua.', e: 'du sollst.' },
+      { s: '___ ich den Arzt für dich anrufen?', a: 'Soll', d: ['Sollst', 'Sollen'], t: '¿Llamo al médico por ti?', e: 'En la pregunta de sí/no el modal abre la frase.' },
+      { s: 'Wir ___ endlich mehr Sport machen.', a: 'sollen', d: ['soll', 'sollt'], t: 'Deberíamos hacer por fin más deporte.', e: 'wir sollen.' },
+      { s: 'Sie ___ drei Tage zu Hause bleiben.', a: 'soll', d: ['sollst', 'sollt'], t: 'Ella debe quedarse tres días en casa.', e: '3ª del singular: soll.' },
+      { s: '___ wir dich vom Bahnhof abholen?', a: 'Sollen', d: ['Soll', 'Sollt'], t: '¿Te recogemos en la estación?', e: 'wir sollen; en la pregunta el verbo va primero.' },
+      { s: 'Der Arzt sagt, ich ___ weniger rauchen.', a: 'soll', d: ['sollst', 'sollen'], t: 'El médico dice que debo fumar menos.', e: 'ich soll.' },
+      { s: 'Ihr ___ die Tabletten nach dem Essen nehmen.', a: 'sollt', d: ['soll', 'sollen'], t: 'Debéis tomar las pastillas después de comer.', e: 'ihr sollt.' },
+      { s: 'Was ___ man bei Fieber machen?', a: 'soll', d: ['sollst', 'sollen'], t: '¿Qué se debe hacer con fiebre?', e: 'man lleva la forma de er/sie/es: soll.' },
+      { s: 'Wie lange ___ ich die Salbe benutzen?', a: 'soll', d: ['sollst', 'sollen'], t: '¿Cuánto tiempo debo usar la pomada?', e: 'ich soll.' }
     ],
     orders: [
       { sol: ['Was', 'soll', 'ich', 'jetzt', 'machen?'], t: '¿Qué debo hacer ahora?', e: 'Modal (2), infinitivo al final.' },
@@ -74,7 +168,16 @@ export const MODALES = {
       { sol: ['Soll', 'ich', 'das', 'Fenster', 'aufmachen?'], t: '¿Abro la ventana?', e: 'Ofrecimiento: el modal abre la pregunta.' },
       { sol: ['Der', 'Arzt', 'sagt,', 'ich', 'soll', 'im', 'Bett', 'bleiben'], t: 'El médico dice que debo quedarme en la cama.', e: 'La segunda frase mantiene modal (2) + infinitivo (final).' },
       { sol: ['Wir', 'sollen', 'mehr', 'Gemüse', 'essen'], t: 'Deberíamos comer más verdura.', e: 'wir sollen + infinitivo al final.' },
-      { sol: ['Wann', 'soll', 'ich', 'wiederkommen?'], t: '¿Cuándo debo volver?', e: 'W-Frage con el modal en 2ª posición.' }
+      { sol: ['Wann', 'soll', 'ich', 'wiederkommen?'], t: '¿Cuándo debo volver?', e: 'W-Frage con el modal en 2ª posición.' },
+      { sol: ['Soll', 'ich', 'dich', 'vom', 'Bahnhof', 'abholen?'], t: '¿Voy a buscarte a la estación?', e: 'Ofrecimiento: el modal abre la pregunta y el infinitivo va al final.' },
+      { sol: ['Der', 'Arzt', 'sagt,', 'du', 'sollst', 'dich', 'ausruhen'], t: 'El médico dice que descanses.', e: 'En la segunda frase el modal sigue en 2ª posición y el infinitivo va al final.' },
+      { sol: ['Sollen', 'wir', 'dich', 'zum', 'Krankenhaus', 'fahren?'], t: '¿Te llevamos al hospital?', e: 'Ofrecimiento: el modal abre la pregunta.' },
+      { sol: ['Ihr', 'sollt', 'viel', 'Tee', 'trinken'], t: 'Debéis beber mucho té.', e: 'ihr sollt + infinitivo al final.' },
+      { sol: ['Wann', 'soll', 'ich', 'das', 'Medikament', 'nehmen?'], t: '¿Cuándo debo tomar el medicamento?', e: 'W-Frage: partícula (1), modal (2), infinitivo al final.' }
+    ],
+    clozes: [
+      { txt: 'Ich war gestern beim Arzt. Er sagt, ich ___ eine Woche zu Hause bleiben und ___ viel Tee trinken. Meine Frau fragt: „___ ich dir etwas aus der Apotheke holen?“', a: ['soll', 'soll', 'Soll'], extra: ['sollst', 'sollen', 'sollt'], t: 'Ayer estuve en el médico. Dice que debo quedarme una semana en casa y beber mucho té. Mi mujer pregunta: «¿Te traigo algo de la farmacia?».', e: 'Las tres son de la misma persona pero con distinta función: las dos primeras repiten la orden del médico (ich soll), la tercera es un ofrecimiento (Soll ich…?).' },
+      { txt: 'Die Ärztin sagt, ich ___ eine Woche zu Hause bleiben. Und du? – Ich ___ mehr Wasser trinken. ___ wir zusammen zum Arzt gehen?', a: ['soll', 'soll', 'Sollen'], extra: ['sollst', 'sollen', 'Soll'], t: 'La médica dice que debo quedarme una semana en casa. ¿Y tú? – Yo tengo que beber más agua. ¿Vamos juntos al médico?', e: 'Las tres son sollen, pero la última es una propuesta: Sollen wir…? Las otras dos repiten lo que ha dicho otra persona.' }
     ]
   },
 
@@ -92,13 +195,43 @@ export const MODALES = {
       { s: 'Ich ___ gern mehr Zeit haben.', a: 'würde', d: ['werde', 'wäre'], t: 'Me gustaría tener más tiempo.', e: 'Deseo con würde.' },
       { s: 'Sie ___ gern länger schlafen.', a: 'würden', d: ['werden', 'wären'], t: 'Les gustaría dormir más.', e: 'Plural / forma formal: würden.' },
       { s: 'Würdest du bitte das Licht ___?', a: 'ausmachen', d: ['ausmachst', 'ausgemacht'], t: '¿Apagarías la luz, por favor?', e: 'Verbo separable entero, en infinitivo, al final.' },
-      { s: 'Wir ___ lieber morgen kommen.', a: 'würden', d: ['werden', 'wären'], t: 'Preferiríamos venir mañana.', e: 'würden + infinitivo final.' }
+      { s: 'Wir ___ lieber morgen kommen.', a: 'würden', d: ['werden', 'wären'], t: 'Preferiríamos venir mañana.', e: 'würden + infinitivo final.' },
+      { s: '___ Sie mir bitte die Tür aufhalten?', a: 'Würden', d: ['Würdest', 'Würde'], t: '¿Me sujeta la puerta, por favor?', e: 'Petición cortés con Sie → Würden Sie…?' },
+      { s: 'Ich ___ das an deiner Stelle nicht machen.', a: 'würde', d: ['würdest', 'würden'], t: 'Yo en tu lugar no lo haría.', e: 'Consejo con "an deiner Stelle" + würde.' },
+      { s: '___ ihr uns kurz helfen?', a: 'Würdet', d: ['Würden', 'Würde'], t: '¿Nos echáis una mano un momento?', e: 'Konjunktiv II con ihr: würdet.' },
+      { s: 'Wir ___ am liebsten sofort losfahren.', a: 'würden', d: ['würde', 'würdet'], t: 'Lo que más nos apetecería es salir ya.', e: 'wir würden + infinitivo al final.' },
+      { s: 'Ich würde gern einen Tisch ___.', a: 'reservieren', d: ['reserviert', 'reservierte'], t: 'Quería reservar una mesa.', e: 'Detrás de "würde" siempre va el infinitivo.' },
+      { s: '___ du das für mich erledigen?', a: 'Würdest', d: ['Würdet', 'Würde'], t: '¿Me harías esto?', e: 'Petición informal con du → Würdest du…?' },
+      { s: 'An Ihrer Stelle ___ ich noch einmal anrufen.', a: 'würde', d: ['würden', 'würdest'], t: 'Yo en su lugar volvería a llamar.', e: 'El sujeto es "ich" aunque el consejo sea para otro.' },
+      { s: 'Sie ___ gern in einer größeren Wohnung wohnen.', a: 'würde', d: ['würdest', 'würdet'], t: 'A ella le gustaría vivir en un piso más grande.', e: 'Sujeto singular → würde.' },
+      { s: 'Würden Sie bitte das Formular ___?', a: 'ausfüllen', d: ['ausgefüllt', 'füllen aus'], t: '¿Podría rellenar el formulario?', e: 'El separable se escribe junto al ir al final.' },
+      { s: '___ es Ihnen etwas ausmachen, das Fenster zu schließen?', a: 'Würde', d: ['Würden', 'Würdest'], t: '¿Le importaría cerrar la ventana?', e: '"es" es el sujeto → würde.' },
+      { s: 'Ich ___ lieber mit dem Zug fahren.', a: 'würde', d: ['würdest', 'würden'], t: 'Yo preferiría ir en tren.', e: 'Preferencia con "lieber" + würde.' },
+      { s: 'Was ___ du machen, wenn du Zeit hättest?', a: 'würdest', d: ['würdet', 'würden'], t: '¿Qué harías si tuvieras tiempo?', e: 'Konjunktiv II con du: würdest.' },
+      { s: 'Die Kinder ___ gern länger draußen bleiben.', a: 'würden', d: ['würde', 'würdet'], t: 'A los niños les gustaría quedarse fuera más rato.', e: 'Plural → würden.' },
+      { s: '___ du mir bitte deine Nummer geben?', a: 'Würdest', d: ['Würden', 'Würde'], t: '¿Me das tu número, por favor?', e: 'Petición con du.' },
+      { s: 'Ich ___ das gern noch einmal hören.', a: 'würde', d: ['würdest', 'würden'], t: 'Me gustaría volver a oírlo.', e: 'ich würde + infinitivo.' },
+      { s: 'Wir ___ uns über eine Antwort freuen.', a: 'würden', d: ['würde', 'würdet'], t: 'Nos alegraría recibir una respuesta.', e: 'Fórmula de cortesía en cartas: wir würden uns freuen.' },
+      { s: '___ Sie mir bitte kurz helfen?', a: 'Würden', d: ['Wurden', 'Werden'], t: '¿Me podría ayudar un momento?', e: 'Würden Sie + infinitivo, para pedir con cortesía.' },
+      { s: 'Ich ___ gern einmal nach Japan reisen.', a: 'würde', d: ['wurde', 'werde'], t: 'Me gustaría viajar alguna vez a Japón.', e: 'ich würde + infinitivo.' },
+      { s: '___ du mir das bitte erklären?', a: 'Würdest', d: ['Wurdest', 'Wirst'], t: '¿Me lo explicarías, por favor?', e: 'du würdest.' },
+      { s: 'An deiner Stelle ___ ich früher losfahren.', a: 'würde', d: ['wurde', 'werde'], t: 'Yo en tu lugar saldría antes.', e: 'ich würde, para dar un consejo.' },
+      { s: 'Wir ___ am liebsten eine Woche bleiben.', a: 'würden', d: ['wurden', 'werden'], t: 'Lo ideal sería quedarnos una semana.', e: 'wir würden.' },
+      { s: '___ ihr im Sommer mit uns kommen?', a: 'Würdet', d: ['Wurdet', 'Werdet'], t: '¿Vendríais con nosotros en verano?', e: 'ihr würdet.' }
     ],
     orders: [
       { sol: ['Ich', 'würde', 'gern', 'nach', 'Italien', 'fahren'], t: 'Me gustaría ir a Italia.', e: 'würde (2) … fahren (final).' },
       { sol: ['Würdest', 'du', 'mir', 'bitte', 'helfen?'], t: '¿Me ayudarías, por favor?', e: 'El infinitivo cierra la petición.' },
-      { sol: ['An', 'deiner', 'Stelle', 'würde', 'ich', 'zum', 'Arzt', 'gehen'], t: 'Yo en tu lugar iría al médico.', e: 'Complemento (1), würde (2), sujeto (3), infinitivo (final).' },
-      { sol: ['Wir', 'würden', 'gern', 'ein', 'Zimmer', 'reservieren'], t: 'Querríamos reservar una habitación.', e: 'würden … reservieren.' }
+      { sol: ['An', 'deiner', 'Stelle', 'würde', 'ich', 'zum', 'Arzt', 'gehen'], alt: [['Ich', 'würde', 'an', 'deiner', 'Stelle', 'zum', 'Arzt', 'gehen']], t: 'Yo en tu lugar iría al médico.', e: 'Complemento (1), würde (2), sujeto (3), infinitivo (final).' },
+      { sol: ['Wir', 'würden', 'gern', 'ein', 'Zimmer', 'reservieren'], t: 'Querríamos reservar una habitación.', e: 'würden … reservieren.' },
+      { sol: ['Würden', 'Sie', 'bitte', 'das', 'Formular', 'ausfüllen?'], t: '¿Podría rellenar el formulario?', e: 'El Konjunktiv abre la pregunta y el infinitivo la cierra.' },
+      { sol: ['An', 'Ihrer', 'Stelle', 'würde', 'ich', 'noch', 'einmal', 'anrufen'], alt: [['Ich', 'würde', 'an', 'Ihrer', 'Stelle', 'noch', 'einmal', 'anrufen']], t: 'Yo en su lugar volvería a llamar.', e: 'El complemento abre → inversión: würde ich.' },
+      { sol: ['Ich', 'würde', 'gern', 'einen', 'Tisch', 'reservieren'], t: 'Quería reservar una mesa.', e: 'würde en 2ª posición, infinitivo al final.' },
+      { sol: ['Was', 'würdest', 'du', 'an', 'meiner', 'Stelle', 'tun?'], t: '¿Qué harías tú en mi lugar?', e: 'W-Frage: partícula (1), Konjunktiv (2), infinitivo al final.' }
+    ],
+    clozes: [
+      { txt: 'Guten Tag! Ich ___ gern einen Tisch für vier Personen ___. ___ Sie uns einen Platz am Fenster geben? Und ___ es Ihnen etwas ausmachen, wenn wir den Hund mitbringen?', a: ['würde', 'reservieren', 'Würden', 'würde'], extra: ['würden', 'reserviert', 'Würdest', 'würdest'], t: '¡Buenos días! Quería reservar una mesa para cuatro. ¿Nos daría un sitio junto a la ventana? ¿Y le importaría que trajéramos al perro?', e: 'Los cuatro son el mismo verbo pero cambian de forma según el sujeto: ich würde, Sie würden, es würde. Y detrás siempre el infinitivo.' },
+      { txt: '___ Sie mir bitte helfen? Ich ___ gern wissen, wann der Kurs anfängt. An Ihrer Stelle ___ ich früher kommen.', a: ['Würden', 'würde', 'würde'], extra: ['Wurden', 'wurde', 'werden'], t: '¿Me podría ayudar? Me gustaría saber cuándo empieza el curso. Yo en su lugar vendría antes.', e: 'La misma forma con tres sujetos: Sie würden, ich würde. Y siempre con el infinitivo al final.' }
     ]
   },
 
@@ -116,7 +249,12 @@ export const MODALES = {
       { s: 'Wenn ich du ___, würde ich nachfragen.', a: 'wäre', d: ['bin', 'hätte'], t: 'Si yo fuera tú, preguntaría.', e: '"Si yo fuera…" → wäre.' },
       { s: 'Wir ___ gern einen Tisch für zwei.', a: 'hätten', d: ['haben', 'wären'], t: 'Querríamos una mesa para dos.', e: 'Pedir en un restaurante: wir hätten gern.' },
       { s: 'Das ___ sehr nett von Ihnen.', a: 'wäre', d: ['ist', 'hätte'], t: 'Eso sería muy amable por su parte.', e: 'sein en Konjunktiv II: wäre.' },
-      { s: 'Ich ___ gern ein Glas Wasser.', a: 'hätte', d: ['habe', 'wäre'], t: 'Querría un vaso de agua.', e: '"ich hätte gern" es la forma habitual de pedir algo.' }
+      { s: 'Ich ___ gern ein Glas Wasser.', a: 'hätte', d: ['habe', 'wäre'], t: 'Querría un vaso de agua.', e: '"ich hätte gern" es la forma habitual de pedir algo.' },
+      { s: '___ Sie so nett, mir kurz zu helfen?', a: 'Wären', d: ['Waren', 'Werden'], t: '¿Sería tan amable de ayudarme un momento?', e: 'wären: Konjunktiv II de sein.' },
+      { s: 'Ich ___ gern ein Nichtraucherzimmer.', a: 'hätte', d: ['habe', 'hatte'], t: 'Quisiera una habitación de no fumadores.', e: 'hätte: Konjunktiv II de haben.' },
+      { s: '___ es Ihnen recht, wenn wir später kommen?', a: 'Wäre', d: ['War', 'Wird'], t: '¿Le parecería bien si llegamos más tarde?', e: 'wäre para una pregunta cortés.' },
+      { s: 'Wir ___ gern zwei Plätze im Ruhebereich.', a: 'hätten', d: ['haben', 'hatten'], t: 'Quisiéramos dos plazas en la zona de silencio.', e: 'hätten, plural del Konjunktiv II.' },
+      { s: 'Das ___ wirklich sehr nett von Ihnen.', a: 'wäre', d: ['war', 'wird'], t: 'Eso sería muy amable por su parte.', e: 'wäre expresa algo hipotético.' }
     ],
     orders: [
       { sol: ['Ich', 'würde', 'gern', 'einen', 'Platz', 'am', 'Fenster', 'reservieren'], t: 'Me gustaría reservar un asiento junto a la ventana.', e: 'Satzklammer: "würde" en 2ª posición, el infinitivo "reservieren" al final.' },
@@ -124,6 +262,163 @@ export const MODALES = {
       { sol: ['Hätten', 'Sie', 'noch', 'ein', 'Zimmer', 'frei?'], t: '¿Le quedaría alguna habitación libre?', e: 'hätten + Sie para preguntar con cortesía.' },
       { sol: ['Ich', 'hätte', 'gern', 'einen', 'Kaffee'], t: 'Querría un café.', e: 'La fórmula más útil para pedir: ich hätte gern.' },
       { sol: ['Wenn', 'ich', 'mehr', 'Zeit', 'hätte,', 'würde', 'ich', 'reisen'], t: 'Si tuviera más tiempo, viajaría.', e: 'Condición con hätte al final; la principal empieza por würde.' }
+    ],
+    clozes: [
+      { txt: '___ ich mehr Zeit, ___ ich öfter mit dem Rad fahren. Und ___ das Wetter besser, ___ es noch schöner.', a: ['hätte', 'würde', 'wäre', 'wäre'], extra: ['habe', 'werde', 'ist', 'ist'], t: 'Si tuviera más tiempo, iría más a menudo en bici. Y si el tiempo fuera mejor, sería aún mejor.', e: 'hätte y wäre son las formas propias de haben y sein; los demás verbos usan würde + infinitivo.' }
+    ]
+  },
+  'hoeflich-fragen-koennen': {
+    picks: [
+      { s: '___ Sie das bitte buchstabieren?', a: 'Können', d: ['Kann', 'Könnt'], t: '¿Me lo puede deletrear, por favor?', e: 'Con Sie el verbo va en plural: können.' },
+      { s: 'Kannst du bitte langsamer ___?', a: 'sprechen', d: ['sprichst', 'gesprochen'], t: '¿Puedes hablar más despacio?', e: 'Detrás de un modal va el infinitivo, y al final.' },
+      { s: '___ Sie mir bitte helfen?', a: 'Können', d: ['Kannst', 'Könnt'], t: '¿Me puede ayudar, por favor?', e: 'La forma de cortesía es können Sie.' },
+      { s: 'Können Sie das bitte noch einmal ___?', a: 'wiederholen', d: ['wiederholt', 'wiederhole'], t: '¿Lo puede repetir otra vez?', e: 'El infinitivo cierra la frase.' },
+      { s: '___ du mir kurz deinen Kuli geben?', a: 'Kannst', d: ['Können', 'Könnt'], t: '¿Me das un momento tu boli?', e: 'Con du la forma es kannst.' },
+      { s: 'Können Sie bitte die Tür ___?', a: 'aufmachen', d: ['aufmacht', 'machen auf'], t: '¿Puede abrir la puerta, por favor?', e: 'El separable va entero al final, sin partirse.' },
+      { s: '___ ihr bitte etwas leiser sein?', a: 'Könnt', d: ['Können', 'Kannst'], t: '¿Podéis bajar un poco la voz?', e: 'Con ihr la forma es könnt.' },
+      { s: 'Können Sie mir sagen, wo die Post ___?', a: 'ist', d: ['sein', 'ist sie'], t: '¿Me puede decir dónde está correos?', e: 'La segunda parte es subordinada: el verbo al final.' },
+      { s: 'Könnten Sie das bitte ___?', a: 'aufschreiben', d: ['aufgeschrieben', 'schreiben auf'], t: '¿Me lo podría apuntar?', e: 'könnten es aún más educado que können.' },
+      { s: 'Kannst du mir bitte die Adresse ___?', a: 'geben', d: ['gibst', 'gegeben'], t: '¿Me puedes dar la dirección?', e: 'Infinitivo al final detrás del modal.' }
+    ]
+  },
+  'koennen-faehigkeit-moeglichkeit': {
+    picks: [
+      { s: 'Ich ___ ganz passabel schwimmen.', a: 'kann', d: ['darf', 'muss'], t: 'Nado bastante bien.', e: 'Saber hacer algo: können.' },
+      { s: 'Heute ___ ich leider nicht mitkommen.', a: 'kann', d: ['darf', 'soll'], t: 'Hoy no puedo acompañaros.', e: 'No tener la posibilidad: también können.' },
+      { s: '___ du Gitarre spielen?', a: 'Kannst', d: ['Darfst', 'Musst'], t: '¿Sabes tocar la guitarra?', e: 'Habilidad, con du: kannst.' },
+      { s: 'Er ___ noch nicht gut Deutsch.', a: 'kann', d: ['darf', 'will'], t: 'Todavía no sabe bien alemán.', e: 'Con idiomas, können sin infinitivo.' },
+      { s: 'Am Samstag ___ wir nicht, wir arbeiten.', a: 'können', d: ['dürfen', 'müssen'], t: 'El sábado no podemos, trabajamos.', e: 'Posibilidad, en plural: können.' },
+      { s: 'Meine Oma ___ hervorragend kochen.', a: 'kann', d: ['muss', 'soll'], t: 'Mi abuela cocina de maravilla.', e: 'Habilidad.' },
+      { s: '___ ihr am Freitag ins Kino gehen?', a: 'Könnt', d: ['Dürft', 'Müsst'], t: '¿Podéis ir al cine el viernes?', e: 'Con ihr: könnt.' },
+      { s: 'Mit dem Bein ___ ich gerade nicht laufen.', a: 'kann', d: ['darf', 'will'], t: 'Con la pierna así ahora no puedo correr.', e: 'Imposibilidad física.' },
+      { s: 'Nach dem Kurs ___ ich schon telefonieren.', a: 'kann', d: ['muss', 'soll'], t: 'Después del curso ya sé hablar por teléfono.', e: 'Habilidad conseguida.' },
+      { s: 'Wir ___ das Spiel leider nicht sehen.', a: 'konnten', d: ['durften', 'mussten'], t: 'No pudimos ver el partido.', e: 'En pasado: konnten, sin Umlaut.' }
+    ]
+  },
+  'nicht-duerfen-nicht-muessen': {
+    picks: [
+      { s: 'Hier ___ Sie nicht parken, das ist verboten.', a: 'dürfen', d: ['müssen', 'können'], t: 'Aquí no se puede aparcar, está prohibido.', e: 'Prohibición: nicht dürfen.' },
+      { s: 'Sie ___ das Formular nicht heute abgeben.', a: 'müssen', d: ['dürfen', 'sollen'], t: 'No hace falta que entregue el formulario hoy.', e: 'No es obligatorio: nicht müssen.' },
+      { s: 'Im Wartezimmer ___ man nicht telefonieren.', a: 'darf', d: ['muss', 'will'], t: 'En la sala de espera no se puede hablar por teléfono.', e: 'Está prohibido: darf nicht.' },
+      { s: 'Du ___ nicht kommen, wenn du keine Zeit hast.', a: 'musst', d: ['darfst', 'sollst'], t: 'No tienes que venir si no tienes tiempo.', e: 'Sin obligación: musst nicht.' },
+      { s: 'Kinder ___ hier nicht allein spielen.', a: 'dürfen', d: ['müssen', 'können'], t: 'Los niños no pueden jugar aquí solos.', e: 'Prohibido: dürfen nicht.' },
+      { s: 'Wir ___ nicht warten, der Termin ist erst um drei.', a: 'müssen', d: ['dürfen', 'sollen'], t: 'No hace falta esperar, la cita es a las tres.', e: 'No es necesario: müssen nicht.' },
+      { s: 'Am Schalter ___ man nicht rauchen.', a: 'darf', d: ['muss', 'mag'], t: 'En la ventanilla no se puede fumar.', e: 'Prohibición.' },
+      { s: 'Sie ___ das nicht unterschreiben, es ist freiwillig.', a: 'müssen', d: ['dürfen', 'sollen'], t: 'No tiene que firmarlo, es voluntario.', e: 'Voluntario: müssen nicht.' },
+      { s: 'Ohne Ausweis ___ Sie nicht hinein.', a: 'dürfen', d: ['müssen', 'wollen'], t: 'Sin documento no puede entrar.', e: 'No está permitido.' },
+      { s: 'Du ___ dich nicht beeilen, wir haben Zeit.', a: 'musst', d: ['darfst', 'kannst'], t: 'No hace falta que te des prisa, tenemos tiempo.', e: 'Sin urgencia: musst nicht.' }
+    ]
+  },
+  'hoefliche-bitte-koennten-wuerden': {
+    picks: [
+      { s: '___ Sie mir bitte kurz zuhören?', a: 'Könnten', d: ['Können Sie können', 'Konnten'], t: '¿Me podría escuchar un momento?', e: 'könnten es más educado que können.' },
+      { s: '___ Sie das bitte noch einmal erklären?', a: 'Würden', d: ['Werden', 'Wurden'], t: '¿Me lo explicaría otra vez?', e: 'würden + infinitivo para pedir con educación.' },
+      { s: '___ ich Sie kurz etwas fragen?', a: 'Dürfte', d: ['Durfte', 'Darf ich dürfte'], t: '¿Le podría preguntar algo?', e: 'dürfte es la versión suave de darf.' },
+      { s: 'Ich ___ gern einen Termin vereinbaren.', a: 'würde', d: ['werde', 'wurde'], t: 'Querría concertar una cita.', e: 'ich würde gern, la fórmula habitual.' },
+      { s: '___ Sie so freundlich sein und warten?', a: 'Könnten', d: ['Konnten', 'Können werden'], t: '¿Sería tan amable de esperar?', e: 'Fórmula muy educada con könnten.' },
+      { s: 'Ich ___ eine kurze Frage zum Antrag.', a: 'hätte', d: ['habe', 'hatte'], t: 'Tendría una pregunta sobre la solicitud.', e: 'ich hätte suena más suave que ich habe.' },
+      { s: '___ es möglich, den Termin zu verschieben?', a: 'Wäre', d: ['War', 'Wird'], t: '¿Sería posible cambiar la cita?', e: 'wäre para preguntar con delicadeza.' },
+      { s: '___ Sie mir die Unterlagen schicken?', a: 'Könnten', d: ['Konnten', 'Können würden'], t: '¿Me podría enviar la documentación?', e: 'könnten Sie + infinitivo.' },
+      { s: 'Wir ___ gern früher kommen, wenn es passt.', a: 'würden', d: ['werden', 'wurden'], t: 'Vendríamos antes si viene bien.', e: 'würden en plural.' },
+      { s: '___ ich Sie um Ihre Unterschrift bitten?', a: 'Dürfte', d: ['Durfte', 'Darf würde'], t: '¿Le podría pedir su firma?', e: 'Máxima cortesía: dürfte ich.' }
+    ]
+  },
+  'sollte-ratschlag': {
+    picks: [
+      { s: 'Du ___ mehr schlafen.', a: 'solltest', d: ['sollst', 'musst'], t: 'Deberías dormir más.', e: 'sollte es el consejo suave.' },
+      { s: 'Sie ___ zwei Tage zu Hause bleiben.', a: 'sollten', d: ['sollen', 'müssen'], t: 'Debería quedarse dos días en casa.', e: 'Con Sie: sollten.' },
+      { s: 'Ich ___ weniger Kaffee trinken.', a: 'sollte', d: ['soll', 'muss'], t: 'Debería tomar menos café.', e: 'Consejo a uno mismo.' },
+      { s: 'Wir ___ öfter spazieren gehen.', a: 'sollten', d: ['sollen', 'wollen'], t: 'Deberíamos pasear más a menudo.', e: 'Plural: sollten.' },
+      { s: 'Was ___ ich gegen Husten tun?', a: 'sollte', d: ['soll', 'muss'], t: '¿Qué debería hacer contra la tos?', e: 'Pidiendo consejo.' },
+      { s: 'Du ___ das dem Arzt sagen.', a: 'solltest', d: ['sollst', 'darfst'], t: 'Deberías decírselo al médico.', e: 'Consejo, no orden.' },
+      { s: 'Er ___ sich eine Woche schonen.', a: 'sollte', d: ['soll', 'will'], t: 'Debería cuidarse una semana.', e: 'Recomendación médica.' },
+      { s: 'Ihr ___ mehr Wasser trinken.', a: 'solltet', d: ['sollt', 'müsst'], t: 'Deberíais beber más agua.', e: 'Con ihr: solltet.' },
+      { s: 'Man ___ nicht mit leerem Magen laufen.', a: 'sollte', d: ['soll', 'muss'], t: 'No se debería correr en ayunas.', e: 'Con man: sollte.' },
+      { s: 'Du ___ das nicht auf die leichte Schulter nehmen.', a: 'solltest', d: ['sollst', 'kannst'], t: 'No deberías tomártelo a la ligera.', e: 'Consejo con negación.' }
+    ]
+  },
+  'moegen-moechten-wollen': {
+    picks: [
+      { s: 'Ich ___ Bergwandern sehr.', a: 'mag', d: ['möchte', 'will'], t: 'Me gusta mucho el senderismo de montaña.', e: 'Gustar en general: mögen.' },
+      { s: 'Ich ___ ein Zimmer für zwei Nächte.', a: 'möchte', d: ['mag', 'will'], t: 'Querría una habitación para dos noches.', e: 'Pedir con educación: möchten.' },
+      { s: '___ du einen Kaffee?', a: 'Möchtest', d: ['Magst', 'Willst'], t: '¿Quieres un café?', e: 'Ofrecer: möchten.' },
+      { s: 'Er ___ unbedingt nach Berlin ziehen.', a: 'will', d: ['mag', 'möchte'], t: 'Quiere mudarse a Berlín como sea.', e: 'Decisión firme: wollen.' },
+      { s: '___ Sie Fisch?', a: 'Mögen', d: ['Möchten Sie mögen', 'Wollen mögen'], t: '¿Le gusta el pescado?', e: 'Gusto general: mögen.' },
+      { s: 'Wir ___ gern die Rechnung, bitte.', a: 'möchten', d: ['mögen', 'wollen'], t: 'Querríamos la cuenta, por favor.', e: 'En un local, siempre möchten.' },
+      { s: 'Ich ___ keine Zwiebeln, danke.', a: 'mag', d: ['möchte will', 'will mag'], t: 'No me gusta la cebolla, gracias.', e: 'Gusto: mögen.' },
+      { s: 'Was ___ ihr trinken?', a: 'möchtet', d: ['mögt', 'wollt'], t: '¿Qué queréis beber?', e: 'Con ihr: möchtet.' },
+      { s: 'Sie ___ auf keinen Fall umziehen.', a: 'will', d: ['mag', 'möchte'], t: 'No quiere mudarse de ninguna manera.', e: 'Voluntad fuerte: wollen.' },
+      { s: 'In einem Geschäft klingt „ich will“ ___.', a: 'unhöflich', d: ['höflich', 'normal'], t: 'En una tienda «ich will» suena brusco.', e: 'Mejor ich möchte.' }
+    ]
+  },
+  'moechten-anbieten-nehmen': {
+    picks: [
+      { s: '___ Sie noch ein Stück Kuchen?', a: 'Möchten', d: ['Wollen', 'Mögen'], t: '¿Quiere otro trozo de tarta?', e: 'Ofrecer: möchten.' },
+      { s: 'Ja, ___, aber nur ein kleines.', a: 'gern', d: ['danke', 'bitte nicht'], t: 'Sí, gracias, pero pequeño.', e: 'Para aceptar: gern o ja, bitte.' },
+      { s: 'Noch Kaffee? – ___, ich habe genug.', a: 'Danke', d: ['Gern', 'Bitte'], t: '¿Más café? – No, gracias, ya tengo bastante.', e: 'danke a secas significa NO.' },
+      { s: '___ Sie ein Glas Wein?', a: 'Nehmen', d: ['Nimmst', 'Nehmt'], t: '¿Toma una copa de vino?', e: 'Ofrecer también con nehmen.' },
+      { s: 'Möchtest du etwas trinken? – Ja, ___.', a: 'bitte', d: ['danke', 'nein'], t: '¿Quieres beber algo? – Sí, por favor.', e: 'ja, bitte para aceptar.' },
+      { s: 'Greifen Sie ___, es ist genug da.', a: 'zu', d: ['an', 'auf'], t: 'Sírvase, hay de sobra.', e: 'zugreifen: el prefijo al final.' },
+      { s: '___ Ihnen noch etwas bringen?', a: 'Darf ich', d: ['Will ich', 'Mag ich'], t: '¿Le traigo algo más?', e: 'Darf ich …? para ofrecer con educación.' },
+      { s: 'Nein, ___, ich bin wirklich satt.', a: 'danke', d: ['gern', 'bitte'], t: 'No, gracias, estoy lleno de verdad.', e: 'Rechazar con danke.' },
+      { s: '___ ihr noch Nachtisch?', a: 'Möchtet', d: ['Mögt', 'Wollt'], t: '¿Queréis postre?', e: 'Con ihr: möchtet.' },
+      { s: 'Ein Stück Torte? – ___, sehr gern.', a: 'Ja', d: ['Danke', 'Nein danke'], t: '¿Un trozo de tarta? – Sí, con mucho gusto.', e: 'ja + gern deja claro que aceptas.' }
+    ]
+  },
+  'konjunktiv-ii-hoeflich-einladen': {
+    picks: [
+      { s: '___ du Lust, am Samstag zu kommen?', a: 'Hättest', d: ['Hast', 'Hattest'], t: '¿Te apetecería venir el sábado?', e: 'hättest suena a invitación, no a examen.' },
+      { s: '___ Freitag auch möglich?', a: 'Wäre', d: ['War', 'Ist'], t: '¿Sería posible también el viernes?', e: 'wäre para proponer sin presionar.' },
+      { s: '___ Sie am Sonntag Zeit?', a: 'Hätten', d: ['Hatten', 'Haben'], t: '¿Tendría tiempo el domingo?', e: 'Con Sie: hätten.' },
+      { s: 'Ich ___ euch gern einladen.', a: 'würde', d: ['werde', 'wurde'], t: 'Me gustaría invitaros.', e: 'würde + infinitivo, muy suave.' },
+      { s: '___ ihr vielleicht mitkommen?', a: 'Würdet', d: ['Werdet', 'Wurdet'], t: '¿Os vendríais quizá?', e: 'Con ihr: würdet.' },
+      { s: '___ es dir passen, wenn wir um acht essen?', a: 'Würde', d: ['Wird', 'Wurde'], t: '¿Te vendría bien si comemos a las ocho?', e: 'Preguntar por la conveniencia.' },
+      { s: 'Wir ___ uns sehr freuen, wenn du kommst.', a: 'würden', d: ['werden', 'wurden'], t: 'Nos alegraría mucho que vinieras.', e: 'Fórmula habitual en una invitación.' },
+      { s: '___ ich jemanden mitbringen?', a: 'Dürfte', d: ['Durfte', 'Darf ich dürfte'], t: '¿Podría llevar a alguien?', e: 'dürfte, la versión educada.' },
+      { s: 'Es ___ schön, wenn ihr alle kommt.', a: 'wäre', d: ['war', 'ist'], t: 'Sería bonito que vinierais todos.', e: 'wäre en la parte principal.' },
+      { s: '___ Sie so nett, uns Bescheid zu geben?', a: 'Wären', d: ['Waren', 'Sind'], t: '¿Sería tan amable de avisarnos?', e: 'Máxima cortesía.' }
+    ]
+  },
+  'im-restaurant-konjunktiv-bestellen': {
+    picks: [
+      { s: 'Ich ___ gern die Suppe, bitte.', a: 'hätte', d: ['habe', 'will'], t: 'Querría la sopa, por favor.', e: 'Ich hätte gern, la fórmula normal.' },
+      { s: 'Für mich ___ ein Mineralwasser.', a: 'bitte', d: ['will', 'muss'], t: 'Para mí un agua mineral, por favor.', e: 'Für mich bitte + lo que quieras.' },
+      { s: 'Ich ___ das Schnitzel.', a: 'nehme', d: ['will', 'muss'], t: 'Yo tomo el escalope.', e: 'Ich nehme es igual de normal que hätte gern.' },
+      { s: '„Ich will einen Kaffee“ klingt im Lokal ___.', a: 'unhöflich', d: ['höflich', 'normal'], t: '«Ich will einen Kaffee» suena brusco en un local.', e: 'Mejor hätte gern o nehme.' },
+      { s: '___ wir bitte zahlen?', a: 'Könnten', d: ['Wollen', 'Müssen'], t: '¿Nos cobra, por favor?', e: 'könnten para pedir la cuenta.' },
+      { s: '___ Sie mir etwas empfehlen?', a: 'Könnten', d: ['Wollen', 'Sollen'], t: '¿Me podría recomendar algo?', e: 'Pregunta educada al camarero.' },
+      { s: 'Wir ___ gern draußen sitzen.', a: 'würden', d: ['werden', 'wollen'], t: 'Nos gustaría sentarnos fuera.', e: 'würden gern, muy suave.' },
+      { s: '___ ich noch ein Glas Wasser haben?', a: 'Dürfte', d: ['Durfte', 'Will'], t: '¿Me podría traer otro vaso de agua?', e: 'dürfte, muy educado.' },
+      { s: 'Ich ___ gern reservieren, für vier Personen.', a: 'würde', d: ['werde', 'will'], t: 'Querría reservar para cuatro personas.', e: 'Reservando por teléfono.' },
+      { s: '___ es möglich, den Tisch zu wechseln?', a: 'Wäre', d: ['War', 'Wird'], t: '¿Sería posible cambiar de mesa?', e: 'wäre para pedir con delicadeza.' }
+    ]
+  },
+  'hoefliche-frage-am-arbeitsplatz': {
+    picks: [
+      { s: 'Ich ___ eine kurze Frage zum Vertrag.', a: 'hätte', d: ['habe', 'will'], t: 'Tendría una pregunta rápida sobre el contrato.', e: 'ich hätte suena más suave.' },
+      { s: '___ ich kurz stören?', a: 'Dürfte', d: ['Durfte', 'Will'], t: '¿Le podría molestar un momento?', e: 'dürfte, la versión educada de darf.' },
+      { s: '___ Sie mir das bitte zeigen?', a: 'Könnten', d: ['Konnten', 'Wollen'], t: '¿Me lo podría enseñar?', e: 'könnten para pedir.' },
+      { s: 'Ich ___ vorschlagen, dass wir morgen weitermachen.', a: 'würde', d: ['werde', 'will'], t: 'Propondría que sigamos mañana.', e: 'ich würde vorschlagen, muy habitual.' },
+      { s: '___ es Ihnen recht, wenn ich früher gehe?', a: 'Wäre', d: ['War', 'Ist'], t: '¿Le parecería bien si me voy antes?', e: 'wäre para pedir permiso.' },
+      { s: '___ Sie so freundlich, das weiterzuleiten?', a: 'Wären', d: ['Waren', 'Sind'], t: '¿Sería tan amable de reenviarlo?', e: 'Fórmula muy educada.' },
+      { s: 'Ich ___ gern früher Feierabend machen.', a: 'würde', d: ['werde', 'will'], t: 'Me gustaría salir antes hoy.', e: 'würde gern, sin exigir.' },
+      { s: '___ wir das kurz besprechen?', a: 'Könnten', d: ['Konnten', 'Müssen'], t: '¿Lo podríamos comentar un momento?', e: 'könnten wir, para proponer.' },
+      { s: '___ ich Sie um einen Gefallen bitten?', a: 'Dürfte', d: ['Durfte', 'Muss'], t: '¿Le podría pedir un favor?', e: 'dürfte ich, máxima cortesía.' },
+      { s: 'Im Büro ___ man fast alles im Konjunktiv II.', a: 'fragt', d: ['fragen', 'fragst'], t: 'En la oficina casi todo se pregunta en Konjunktiv II.', e: 'Con man, tercera del singular.' }
+    ]
+  },
+  'praeteritum-modalverben': {
+    picks: [
+      { s: 'Ich ___ gestern nicht kommen.', a: 'konnte', d: ['könnte', 'kann'], t: 'Ayer no pude venir.', e: 'können → konnte, sin Umlaut.' },
+      { s: 'Wir ___ die Schularbeit wiederholen.', a: 'mussten', d: ['müssten', 'müssen'], t: 'Tuvimos que repetir el examen.', e: 'müssen → mussten.' },
+      { s: 'Er ___ als Kind nicht allein rausgehen.', a: 'durfte', d: ['dürfte', 'darf'], t: 'De niño no podía salir solo.', e: 'dürfen → durfte.' },
+      { s: 'Sie ___ schon immer Lehrerin werden.', a: 'wollte', d: ['will', 'wollten'], t: 'Siempre quiso ser profesora.', e: 'wollen → wollte.' },
+      { s: 'Ich ___ das Buch bis Freitag lesen.', a: 'sollte', d: ['soll', 'sollten'], t: 'Tenía que leer el libro para el viernes.', e: 'sollen → sollte.' },
+      { s: 'Als Kind ___ ich keinen Spinat.', a: 'mochte', d: ['möchte', 'mag'], t: 'De niño no me gustaban las espinacas.', e: 'mögen → mochte.' },
+      { s: 'Die Modalverben im Präteritum verlieren ___.', a: 'den Umlaut', d: ['die Endung', 'das t'], t: 'Los modales en Präteritum pierden el Umlaut.', e: 'musste, konnte, durfte, mochte.' },
+      { s: '___ ihr gestern lange arbeiten?', a: 'Musstet', d: ['Müsstet', 'Müsst'], t: '¿Tuvisteis que trabajar mucho ayer?', e: 'Con ihr: musstet.' },
+      { s: 'Wir ___ das Klassenzimmer nicht betreten.', a: 'durften', d: ['dürften', 'dürfen'], t: 'No podíamos entrar en el aula.', e: 'dürfen en plural: durften.' },
+      { s: 'Statt „ich habe gekonnt“ sagt man ___.', a: 'ich konnte', d: ['ich habe können', 'ich bin gekonnt'], t: 'En vez de «ich habe gekonnt» se dice «ich konnte».', e: 'Los modales no van en Perfekt al hablar.' }
     ]
   }
 };

@@ -3,7 +3,7 @@
 
 import { aiAvailable } from './settings.js';
 import { runLLM, extractJson } from './ai.js';
-import { getLang, langName } from './i18n.js';
+import { getLang, langName, t } from './i18n.js';
 
 // Lo que el examen escribe PARA el alumno (la instruccion traducida, el
 // contexto, las correcciones) sale en el idioma de la interfaz. El aleman de
@@ -99,10 +99,10 @@ En "aufgaben" pon 6 afirmaciones con "optionen": ["richtig", "falsch"], todas pa
 };
 
 export async function generateExamAufgabe({ teil, typ }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para generar el examen.');
+  if (!aiAvailable()) throw new Error(t('err.aiExam'));
   const clave = `${teil}:${typ}`;
   const tarea = TAREAS[clave];
-  if (!tarea) throw new Error('Ese tipo de tarea todavía no está disponible.');
+  if (!tarea) throw new Error(t('err.taskNotYet'));
 
   const prompt = `Eres examinador de alemán y preparas una tarea de examen. ${NIVEL}
 
@@ -118,7 +118,7 @@ ${FORMATO()}`;
 
   const raw = extractJson(await runLLM(prompt, { timeoutMs: 300000 }));
   if (!raw || !Array.isArray(raw.aufgaben) || !raw.aufgaben.length) {
-    throw new Error('No se pudo generar la tarea. Inténtalo otra vez.');
+    throw new Error(t('err.taskFailed'));
   }
   const aufgaben = raw.aufgaben
     .map((a) => ({
@@ -130,7 +130,7 @@ ${FORMATO()}`;
       falle: String(a.falle || '').trim()
     }))
     .filter((a) => a.frage && a.optionen.length >= 2 && a.loesung < a.optionen.length);
-  if (!aufgaben.length) throw new Error('La tarea llegó incompleta. Inténtalo otra vez.');
+  if (!aufgaben.length) throw new Error(t('err.taskIncomplete'));
 
   return {
     teil,
@@ -155,7 +155,7 @@ ${FORMATO()}`;
 // ---------- Schreiben ----------
 
 export async function generateSchreibenAufgabe({ typ }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para generar la tarea.');
+  if (!aiAvailable()) throw new Error(t('err.aiTask'));
   const detalle =
     typ === 'sms'
       ? `Tarea de mensaje corto (SMS/WhatsApp), 20-30 palabras. Da una situación cotidiana
@@ -184,7 +184,7 @@ Sin texto fuera del JSON.`;
 
   const raw = extractJson(await runLLM(prompt, { timeoutMs: 300000 }));
   if (!raw || !Array.isArray(raw.punkte) || !raw.punkte.length) {
-    throw new Error('No se pudo generar la tarea. Inténtalo otra vez.');
+    throw new Error(t('err.taskFailed'));
   }
   return {
     typ,
@@ -198,8 +198,8 @@ Sin texto fuera del JSON.`;
 }
 
 export async function correctSchreiben({ aufgabe, text }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para corregir.');
-  if (!text?.trim()) throw new Error('Escribe tu respuesta primero.');
+  if (!aiAvailable()) throw new Error(t('err.aiCorrect'));
+  if (!text?.trim()) throw new Error(t('err.writeAnswer'));
 
   const prompt = `Eres examinador de alemán corrigiendo una tarea de Schreiben. ${NIVEL}
 
@@ -237,7 +237,7 @@ Devuelve SOLO un objeto JSON:
 Sin texto fuera del JSON.`;
 
   const raw = extractJson(await runLLM(prompt, { timeoutMs: 300000 }));
-  if (!raw) throw new Error('No se pudo leer la corrección. Inténtalo otra vez.');
+  if (!raw) throw new Error(t('err.readCorrection'));
   return {
     punkte: (Array.isArray(raw.punkte) ? raw.punkte : []).map((p) => ({
       punkt: String(p.punkt || '').trim(),
@@ -268,7 +268,7 @@ Sin texto fuera del JSON.`;
 // ---------- Sprechen ----------
 
 export async function generateSprechenAufgabe({ typ }) {
-  if (!aiAvailable()) throw new Error('Activa la IA en el menú lateral para generar la tarea.');
+  if (!aiAvailable()) throw new Error(t('err.aiTask'));
 
   const detalle = {
     vorstellen: `Teil 1: presentarse. Da 6 preguntas personales que le hará el examinador
@@ -282,7 +282,7 @@ En "karten" pon los 4-5 puntos que hay que acordar (cuándo, dónde, qué llevar
 En "musterdialog" pon un intercambio modelo de 10-12 turnos donde se proponga, se rechace
 con alternativa y se llegue a un acuerdo.`
   }[typ];
-  if (!detalle) throw new Error('Ese tipo de tarea no existe.');
+  if (!detalle) throw new Error(t('err.taskUnknown'));
 
   const prompt = `Eres examinador de alemán. ${NIVEL}
 Prepara una tarea de expresión oral que se hace EN PAREJA.
@@ -303,7 +303,7 @@ Devuelve SOLO un objeto JSON:
 Incluye 6-8 "redemittel" y 3-4 puntos en "bewertung". Sin texto fuera del JSON.`;
 
   const raw = extractJson(await runLLM(prompt, { timeoutMs: 300000 }));
-  if (!raw) throw new Error('No se pudo generar la tarea. Inténtalo otra vez.');
+  if (!raw) throw new Error(t('err.taskFailed'));
   return {
     typ,
     titel: String(raw.titel || '').trim(),

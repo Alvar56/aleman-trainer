@@ -8,7 +8,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "portable": "node scripts/empaquetar.mjs"
+    "portable": "node scripts/empaquetar.mjs",
+    "pruebas": "node scripts/pruebas.mjs",
+    "traducciones": "node scripts/revision-traducciones.mjs",
+    "contenido": "node scripts/revision-contenido.mjs",
+    "estado": "node scripts/estado-lecciones.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

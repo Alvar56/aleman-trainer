@@ -1,8 +1,16 @@
 import React from 'react';
-import { t, pick } from '../lib/i18n.js';
+import { t, pick, codigoIdioma } from '../lib/i18n.js';
+import { tc } from '../lib/contenido/index.js';
+import TextoAleman from './TextoAleman.jsx';
+import Premios from './Premios.jsx';
 
-export default function Summary({ data, onRepeat, onWeak, onHome, onLeaderboard, onTeoria, onEjercicios }) {
-  const { correctCount, total, accuracy, seconds, xp, streak, rank, mistakes, rachaMax, rachaRecord, monedas, bonoDia } = data;
+// A partir de aqui la tanda se da por buena: el mismo 80% con el que se
+// aprueba un apartado de Kommunikation, para no tener dos listones.
+const APROBADO = 80;
+
+export default function Summary({ data, onRepeat, onRepetirFallos, onHome, onTema }) {
+  const { topic, correctCount, total, accuracy, seconds, xp, streak, rank, mistakes, rachaMax, rachaRecord, monedas, bonoDia } = data;
+  const fallos = data.fallos || [];
   const pct = Math.round(accuracy * 100);
   const mm = Math.floor(seconds / 60);
   const ss = seconds % 60;
@@ -10,11 +18,18 @@ export default function Summary({ data, onRepeat, onWeak, onHome, onLeaderboard,
 
   const streakEvent = streak?.events?.find((e) => ['up', 'start', 'freeze-used'].includes(e.type));
 
+  // Subir de nivel es lo mas gordo que puede pasar al terminar una tanda y
+  // era lo unico que no se decia: te enterabas al volver a la portada.
+  const subida = streak?.events?.find((e) => e.type === 'level');
+
   return (
     <div className="stack reading">
       <div className="card center stack">
-        <div className="confetti-badge">{perfect ? '🏆' : pct >= 70 ? '🎉' : '💪'}</div>
-        <h2>{perfect ? t('sum.perfect') : pct >= 70 ? t('sum.good') : t('sum.keep')}</h2>
+        <div className="confetti-badge">{perfect ? '🏆' : pct >= APROBADO ? '🎉' : '💪'}</div>
+        <h2>{perfect ? t('sum.perfect') : pct >= APROBADO ? t('sum.good') : t('sum.keep')}</h2>
+        {/* De que iba la tanda, con la misma pastilla que se lleva arriba
+            mientras la haces. */}
+        {topic?.nameEs && <span className="pill ctx-tema">📖 {topic.nameEs}</span>}
         <div className="stat-grid">
           <div className="card">
             <div className="big-stat">{pct}%</div>
@@ -33,35 +48,17 @@ export default function Summary({ data, onRepeat, onWeak, onHome, onLeaderboard,
             <div className="muted">{t('sum.time')}</div>
           </div>
         </div>
-        <div className="row" style={{ justifyContent: 'center', gap: 18, marginTop: 24 }}>
-          <span className="pill">➕ {xp} XP</span>
-          {/* De dónde salen las monedas, desglosado: los ejercicios, las
-              rachas de tres y el día nuevo van cada uno por su lado. */}
-          {monedas > 0 && (
-            <span className="pill monedas">🪙 +{monedas} {pick('por los ejercicios', 'from exercises')}</span>
-          )}
-          {bonoDia > 0 && (
-            <span className="pill monedas">
-              📅 +{bonoDia} {pick('por el día nuevo', 'new day')}
-            </span>
-          )}
-        {rachaMax >= 2 && (
-          <span className={'pill racha' + (rachaRecord?.nuevo ? ' fuego' : '')}>
-            {rachaRecord?.nuevo ? '🏆 ' + t('ses.streakRecord', { n: rachaMax })
-              : '⚡ ' + t('ses.streakBest') + ': ' + rachaMax}
-          </span>
-        )}
-          {streakEvent && (
-            <span className="pill">
-              ⭐ {t('sum.streak')} {streak.state.current} {streakEvent.type === 'freeze-used' ? t('sum.freezeUsed') : ''}
-            </span>
-          )}
-          {rank?.rank > 0 && (
-            <span className="pill">
-              🏅 {t('sum.rank')} {rank.rank}/{rank.total}
-            </span>
-          )}
-        </div>
+        <Premios
+          subida={subida}
+          xp={xp}
+          monedas={monedas}
+          bonoDia={bonoDia}
+          rachaMax={rachaMax}
+          rachaRecord={rachaRecord}
+          dias={streak?.state?.current || 0}
+          congelador={streakEvent?.type === 'freeze-used'}
+          rank={rank}
+        />
       </div>
 
       <div className="card stack">
@@ -85,10 +82,11 @@ export default function Summary({ data, onRepeat, onWeak, onHome, onLeaderboard,
                      })()}
                 </div>
                 <div className="muted" style={{ fontSize: '0.88rem', marginTop: 4 }}>
-                  <span className="lang-tag">ES</span>{it.translation}
+                  <span className="lang-tag">{codigoIdioma()}</span>{tc(it.translation)}
                 </div>
                 <div className="muted" style={{ fontSize: '0.86rem', marginTop: 4 }}>
-                  <span className="lang-tag">{t('fb.why')}</span>{it.explanation}
+                  <span className="lang-tag">{t('fb.why')}</span>
+                  <TextoAleman texto={tc(it.explanation)} />
                 </div>
               </div>
             ))}
@@ -96,30 +94,27 @@ export default function Summary({ data, onRepeat, onWeak, onHome, onLeaderboard,
         ))}
       </div>
 
+      {/* Los mismos tres que al acabar una tanda de vocabulario: otra vez,
+          volver a lo que estabas y inicio. Habia seis (teoria, ejercicios,
+          solo fallos, Bestenliste...) y acabar un ejercicio se convertia en
+          elegir entre seis cosas. La tanda mixta no sale de ningun tema, asi
+          que ahi el de volver no se pinta. */}
       <div className="btn-row">
-        <button className="btn-primary" onClick={onRepeat}>
+        {/* Lo que acabas de fallar, otra vez y nada más: es lo que apetece
+            cuando terminas y ves que se te han escapado dos. */}
+        {onRepetirFallos && fallos.length > 0 && (
+          <button className="btn-primary" onClick={onRepetirFallos}>
+            {t('sum.retryFails', { n: fallos.length })}
+          </button>
+        )}
+        <button className={onRepetirFallos && fallos.length > 0 ? 'btn-ghost' : 'btn-primary'} onClick={onRepeat}>
           {t('sum.again')}
         </button>
-        {mistakes.length > 0 && (
-          <button className="btn-ghost" onClick={onWeak}>
-            {t('sum.onlyWeak')}
+        {onTema && (
+          <button className="btn-ghost" onClick={onTema}>
+            {t('sum.backTema')}
           </button>
         )}
-        {/* Al acabar es cuando de verdad quieres releer la regla que has
-            fallado, y desde aqui solo se podia ir a Inicio y navegar a mano. */}
-        {onTeoria && (
-          <button className="btn-ghost" onClick={onTeoria}>
-            {t('sum.theory')}
-          </button>
-        )}
-        {onEjercicios && (
-          <button className="btn-ghost" onClick={onEjercicios}>
-            {t('sum.exercises')}
-          </button>
-        )}
-        <button className="btn-ghost" onClick={onLeaderboard}>
-          Leaderboard
-        </button>
         <button className="btn-ghost" onClick={onHome}>
           {t('sum.home')}
         </button>

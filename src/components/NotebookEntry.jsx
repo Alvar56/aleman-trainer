@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cobrarUnaVezAlDia, MONEDAS_NOTIZBUCH } from '../lib/monedas.js';
-import { t } from '../lib/i18n.js';
+import { t, pick, getLang, esOtroIdioma } from '../lib/i18n.js';
+import { SIN_IA } from '../lib/modo.js';
 import { getNote, updateNote, deleteNote, fotosDeNota as listaFotos } from '../lib/notebook.js';
 import { BAENDE, bandLabel, getLektion, lektionLabel } from '../lib/kursbuch/index.js';
 import { cleanNotes, generateNotebookItems } from '../lib/ai.js';
@@ -14,6 +15,7 @@ export default function NotebookEntry({ noteId, onBack, onDeleted, onReview }) {
   const [note, setNote] = useState(() => getNote(noteId));
   const [raw, setRaw] = useState(note?.raw || '');
   const [title, setTitle] = useState(note?.title || '');
+  const [showBookInfo, setShowBookInfo] = useState(false);
   // Pasar a limpio y generar ejercicios tardan un par de minutos, y antes
   // vivian en el estado de esta pantalla: irte a otra seccion la desmontaba y
   // te quedabas sin saber si seguia o no. Ahora van por el gestor de trabajos,
@@ -36,7 +38,7 @@ export default function NotebookEntry({ noteId, onBack, onDeleted, onReview }) {
   // corre en cuanto vuelves. Y se cierra el trabajo, para que no se reaplique.
   useEffect(() => {
     if (jobClean.status !== 'done' || !jobClean.result) return;
-    setNote(updateNote(noteId, { clean: jobClean.result, cleanAt: Date.now() }));
+    setNote(updateNote(noteId, { clean: jobClean.result, cleanAt: Date.now(), cleanLang: getLang() }));
     // La moneda, solo la primera limpieza de esta nota y una vez al dia.
     if (jobClean.meta?.primera) cobrarUnaVezAlDia('notizbuch', MONEDAS_NOTIZBUCH);
     clearJob(JOB_CLEAN);
@@ -44,7 +46,7 @@ export default function NotebookEntry({ noteId, onBack, onDeleted, onReview }) {
 
   useEffect(() => {
     if (jobItems.status !== 'done' || !jobItems.result) return;
-    setNote(updateNote(noteId, { items: jobItems.result, itemsAt: Date.now() }));
+    setNote(updateNote(noteId, { items: jobItems.result, itemsAt: Date.now(), itemsLang: getLang() }));
     clearJob(JOB_ITEMS);
   }, [jobItems.status, JOB_ITEMS]);
 
@@ -114,7 +116,7 @@ export default function NotebookEntry({ noteId, onBack, onDeleted, onReview }) {
   return (
     <div className="reading stack">
       <button className="link-btn volver-arriba" onClick={onBack}>
-        ← Notizbuch
+        <span className="fl-atras">◂</span> Notizbuch
       </button>
 
       <input
@@ -132,7 +134,8 @@ export default function NotebookEntry({ noteId, onBack, onDeleted, onReview }) {
         </label>
         <label className="nb-field">
           {t('nb.lesson')}
-          <select value={note.lektionId} onChange={(e) => persist({ lektionId: e.target.value })}>
+          <select value={note.lektionId || ''} onChange={(e) => persist({ lektionId: e.target.value })}>
+            <option value="">{t('nb.noLesson')}</option>
             {BAENDE.map((b) => (
               <optgroup key={b.id} label={bandLabel(b)}>
                 {b.lektionen.map((l) => (
@@ -144,24 +147,69 @@ export default function NotebookEntry({ noteId, onBack, onDeleted, onReview }) {
             ))}
           </select>
         </label>
+        {/* Borrar, en la fila de la fecha y a la derecha. Estaba al final de
+            la página, donde en la versión sin IA se quedaba solo en una fila
+            entera para él y había que bajar hasta abajo para verlo. */}
+        <button className="btn-ghost btn-sm nb-borrar" onClick={remove}>{t('delete')}</button>
       </div>
 
       {lektion && (lektion.grammatik.length > 0 || lektion.woerter.length > 0) && (
-        <div className="card">
-          <div className="muted" style={{ fontSize: '0.78rem', marginBottom: 8 }}>
-            {t('nb.fromBook', { band: lektion.bandName })}
+        <div
+          className="card"
+          style={{
+            padding: showBookInfo ? '14px 16px' : '10px 16px',
+            margin: '12px 0',
+            transition: 'all 0.2s ease',
+            cursor: showBookInfo ? 'default' : 'pointer'
+          }}
+          onClick={!showBookInfo ? () => setShowBookInfo(true) : undefined}
+        >
+          <div
+            style={{
+              fontSize: '0.84rem',
+              fontWeight: 500,
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: 16,
+              userSelect: 'none'
+            }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'var(--text-2)', flexWrap: 'wrap' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span>📖</span>
+                <span>{t('nb.fromBook', { band: lektion.bandName })}</span>
+              </span>
+              {!showBookInfo && (
+                <span className="ask-chip" style={{ fontSize: '0.74rem', padding: '3px 10px', margin: '0 8px', opacity: 0.85 }}>
+                  {lektion.woerter.length + lektion.grammatik.length + (lektion.kommunikation?.length || 0)} {pick('contenidos', 'items')}
+                </span>
+              )}
+            </span>
+            <button
+              className="btn-ghost btn-sm"
+              style={{ padding: '3px 12px', fontSize: '0.78rem', height: 'auto', minHeight: 'auto', margin: 0, marginLeft: 'auto', flexShrink: 0 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowBookInfo(!showBookInfo);
+              }}
+            >
+              {showBookInfo ? t('voc.hide') : t('voc.show')}
+            </button>
           </div>
-          <div className="nb-chips">
-            {lektion.woerter.map((w, i) => (
-              <span className="nb-chip voc" key={'w' + i}>📚 {w.thema}</span>
-            ))}
-            {lektion.grammatik.map((g, i) => (
-              <span className="nb-chip gram" key={'g' + i}>📖 {g.regel}</span>
-            ))}
-            {lektion.kommunikation.map((k, i) => (
-              <span className="nb-chip komm" key={'k' + i}>💬 {k.funktion}</span>
-            ))}
-          </div>
+          {showBookInfo && (
+            <div className="nb-chips" style={{ marginTop: 12 }}>
+              {lektion.woerter.map((w, i) => (
+                <span className="nb-chip voc" key={'w' + i}>📚 {w.thema}</span>
+              ))}
+              {lektion.grammatik.map((g, i) => (
+                <span className="nb-chip gram" key={'g' + i}>📖 {g.regel}</span>
+              ))}
+              {lektion.kommunikation.map((k, i) => (
+                <span className="nb-chip komm" key={'k' + i}>💬 {k.funktion}</span>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
@@ -183,18 +231,21 @@ export default function NotebookEntry({ noteId, onBack, onDeleted, onReview }) {
         <Umlaut campo={area} onTexto={onRawChange} />
       </div>
 
-      <div className="row" style={{ gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
-        <button className="btn-primary" onClick={doClean} disabled={!aiOn || !raw.trim() || busy !== ''}>
-          {busy === 'clean' ? t('nb.cleaning') : t('nb.doClean')}
-        </button>
-        <button className="btn-ghost" onClick={doItems} disabled={!aiOn || !raw.trim() || busy !== ''}>
-          {busy === 'items' ? t('generating') : t('nb.doItems')}
-        </button>
-        <button className="btn-ghost" onClick={remove} style={{ marginLeft: 'auto' }}>
-          {t('delete')}
-        </button>
-      </div>
-      {!aiOn && (
+
+      {/* Pasar a limpio y generar ejercicios los hace la IA; escribir y
+          guardar los apuntes, no. Sin IA no queda ningún botón, así que la
+          fila entera se va: si no, dejaba un hueco vacío al final. */}
+      {!SIN_IA && (
+        <div className="row" style={{ gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
+          <button className="btn-primary" onClick={doClean} disabled={!aiOn || !raw.trim() || busy !== ''}>
+            {busy === 'clean' ? t('nb.cleaning') : t('nb.doClean')}
+          </button>
+          <button className="btn-ghost" onClick={doItems} disabled={!aiOn || !raw.trim() || busy !== ''}>
+            {busy === 'items' ? t('generating') : t('nb.doItems')}
+          </button>
+        </div>
+      )}
+      {!SIN_IA && !aiOn && (
         <p className="muted" style={{ fontSize: '0.83rem', marginTop: -4 }}>
           {t('nb.offBoth')}
         </p>
@@ -216,6 +267,9 @@ export default function NotebookEntry({ noteId, onBack, onDeleted, onReview }) {
               {t('nb.regen')}
             </button>
           </div>
+          {esOtroIdioma(note.cleanLang) && (
+            <p className="aviso-idioma">⚠ {t('otroIdioma')}</p>
+          )}
           <pre className="nb-clean-text">{note.clean}</pre>
         </div>
       )}
@@ -238,21 +292,28 @@ export default function NotebookEntry({ noteId, onBack, onDeleted, onReview }) {
           </button>
         </div>
       )}
-      <NotePhoto
-        noteId={note.id}
-        modo="aufgabe"
-        lektion={lektion}
-        analisis={listaFotos(note, 'aufgabe')}
-        onCambio={(lista) => persist({ fotoAufgaben: lista, fotoAufgabe: null, fotoAnalyse: null })}
-      />
+      {/* Los dos bloques de foto -resolver un ejercicio fotografiado y
+          describir una imagen- necesitan que alguien MIRE la foto. Sin IA no
+          hay quien, asi que no se pintan ni viajan en el fichero. */}
+      {!SIN_IA && (
+        <>
+          <NotePhoto
+            noteId={note.id}
+            modo="aufgabe"
+            lektion={lektion}
+            analisis={listaFotos(note, 'aufgabe')}
+            onCambio={(lista) => persist({ fotoAufgaben: lista, fotoAufgabe: null, fotoAnalyse: null })}
+          />
 
-      <NotePhoto
-        noteId={note.id}
-        modo="bild"
-        lektion={lektion}
-        analisis={listaFotos(note, 'bild')}
-        onCambio={(lista) => persist({ fotoBilder: lista, fotoBild: null, fotoAnalyse: null })}
-      />
+          <NotePhoto
+            noteId={note.id}
+            modo="bild"
+            lektion={lektion}
+            analisis={listaFotos(note, 'bild')}
+            onCambio={(lista) => persist({ fotoBilder: lista, fotoBild: null, fotoAnalyse: null })}
+          />
+        </>
+      )}
 
     </div>
   );

@@ -5,6 +5,7 @@
 // terminar una tanda entera para ver algo.
 
 import { storage } from './storage.js';
+import { playAudio } from './audio.js';
 
 const KEY = 'monedas';
 
@@ -73,9 +74,51 @@ export const MONEDAS_EXAMEN = 30;
 export const MONEDAS_TAGEBUCH = 25;
 export const MONEDAS_NOTIZBUCH = 15;
 
-// Con pistas la palabra te la han dado medio hecha: con las tres, no paga.
+// Cuanto paga un ejercicio: lo que TE EXIGE, menos lo que te han ayudado.
+//
+// Antes todo pagaba 1, sin mirar que fuera. Acertar un test de tres opciones
+// valia lo mismo que escribir una frase entera de memoria, y eso no solo es
+// injusto: empuja a pasar la tarde en el juego mas facil, que es justo lo
+// contrario de lo que le conviene a nadie.
+//
+// Tres niveles, y el nombre dice el criterio:
+//
+//   RECONOCER    eliges entre opciones que ya tienes delante.  1
+//   RECONSTRUIR  te dan las piezas y tu las colocas.           2
+//   PRODUCIR     lo escribes de cero, sin nada delante.        4
+//
+// Las tarjetas se quedan en RECONOCER aunque parezcan duras: alli la nota te
+// la pones tu, y lo que no se puede comprobar no se puede pagar caro.
+//
+// Cada pista gastada resta una moneda, pero acertar siempre garantiza al menos
+// 1 moneda de suelo si la respuesta es correcta.
+export const RECONOCER = 1;
+export const RECONSTRUIR = 2;
+export const PRODUCIR = 4;
+export const FRASES = 4;
+
+export function monedasDe({ nivel = RECONOCER, pistas = 0, minimo = 1 } = {}) {
+  const p = Math.max(0, pistas);
+  if (p === 0) return nivel;
+  return Math.max(minimo, nivel - p);
+}
+
+// El cobro de un ejercicio, con su nivel y las pistas que hayas gastado en EL.
+export function cobrarEjercicio(correcto, { nivel = RECONOCER, pistas = 0, minimo = 1 } = {}) {
+  playAudio(correcto);
+  const premio = correcto ? monedasDe({ nivel, pistas, minimo }) : 0;
+  if (premio > 0) ganar(premio);
+  return premio;
+}
+
+// Compatibilidad: los dos que ya llamaban asi (el ahorcado y traducir) son de
+// RECONSTRUIR y PRODUCIR respectivamente, y se lo pasan ellos.
 export function monedasConPistas(pistas = 0) {
-  return pistas >= 3 ? 0 : MONEDAS_EJERCICIO;
+  return monedasDe({ nivel: FRASES, pistas, minimo: 1 });
+}
+
+export function cobrarConPistas(correcto, pistas = 0) {
+  return cobrarEjercicio(correcto, { nivel: FRASES, pistas, minimo: 1 });
 }
 
 // De donde sale el premio de un ejercicio. Se sigue devolviendo separado en
@@ -118,8 +161,6 @@ export function cobrarUnaVezAlDia(clave, cuanto) {
   ganar(cuanto);
   return cuanto;
 }
-
-import { playAudio } from './audio.js';
 
 // Cobra un ejercicio suelto. La racha la saca de los resultados que ya llevas,
 // así cada juego solo tiene que decir si se ha acertado y de qué tipo era.

@@ -4,6 +4,7 @@ import { aiAvailable } from '../lib/settings.js';
 import { allRuns } from '../lib/leaderboard.js';
 import { bestStreak } from '../lib/rachas.js';
 import { t, pick } from '../lib/i18n.js';
+import { SIN_IA } from '../lib/modo.js';
 import FoxCard from './FoxCard.jsx';
 
 const WD_ES = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
@@ -17,7 +18,7 @@ function recentRunsStats(limit) {
   return { acc: Math.round(acc * 100), count: runs.length };
 }
 
-export default function Dashboard({ onStart, onNavigate, onFox }) {
+export default function Dashboard({ onStart, onNavigate, onFox, onFlashcards }) {
   const [monthOffset, setMonthOffset] = useState(0);
 
   const s = liveStreak();
@@ -43,14 +44,17 @@ export default function Dashboard({ onStart, onNavigate, onFox }) {
       {onFox && <FoxCard onAbrir={onFox} />}
 
       <div className="statcards">
-        <div className="card statcard">
+        {/* La de nivel es la que ocupa la fila entera en el movil: va marcada
+            aqui y no con :first-child, que se colaba en las otras rejillas de
+            statcards (el examen, el diario) y les descuadraba el reparto. */}
+        <div className="card statcard statcard-ancha">
           <div className="n">{t('home.levelN', { n: lvl.level })}</div>
-          <div style={{ flex: 1, minWidth: 0 }}>
+          <div className="flex-min">
             <div className="l" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 4 }}>
               <span>{t('home.xpTotal', { n: lvl.totalXp })}</span>
               <span className="sub" style={{ margin: 0 }}>{lvl.xpInto}/{lvl.xpNeeded}</span>
             </div>
-            <div className="mini-bar" style={{ margin: 0, maxWidth: 'none' }}>
+            <div className="mini-bar mini-bar-ancha">
               <span style={{ width: lvl.pct + '%' }} />
             </div>
           </div>
@@ -84,23 +88,19 @@ export default function Dashboard({ onStart, onNavigate, onFox }) {
           <div className="n">{allRuns().length}</div>
           <div>
             <div className="l">{t('home.sessionsTotal')}</div>
-            <div className="sub">{aiOn ? t('home.aiOn') : t('home.aiOff')}</div>
+            {/* "modo plantillas" solo se entendia por contraste con "IA on".
+                Sin el otro modo no dice nada, asi que va el dato util. */}
+            <div className="sub">{SIN_IA ? t('home.sesionesSub') : aiOn ? t('home.aiOn') : t('home.aiOff')}</div>
           </div>
         </div>
       </div>
 
       <div className="dash-cols">
         <div className="panel">
-          <div className="row spread" style={{ marginBottom: 4 }}>
-            <h2 style={{ margin: 0 }}>{t('home.streakTitle')}</h2>
-            <span className="pill">
-              <span className={'flame' + (s.current > 0 ? '' : ' cold')} style={{ fontSize: '1rem' }}>
-                {s.current > 0 ? '⭐' : '🧊'}
-              </span>
-              {s.current} {s.current === 1 ? t('home.day') : t('home.days')}
-            </span>
-          </div>
-          <div className="row spread" style={{ marginBottom: 12 }}>
+          {/* Sin titulo ni pastilla de dias seguidos: la tarjeta de datos de
+              justo arriba ya lleva ese nombre y ese numero. Aqui manda el mes,
+              que es lo unico que esta tarjeta anade. */}
+          <div className="row spread" style={{ marginBottom: 8 }}>
             <div className="cal-label" style={{ marginBottom: 0 }}>{cal.label}</div>
             <div className="row" style={{ gap: 8 }}>
               <button className="btn btn-sm" style={{ padding: '2px 8px' }} onClick={() => setMonthOffset(m => m - 1)}>&lt;</button>
@@ -130,60 +130,83 @@ export default function Dashboard({ onStart, onNavigate, onFox }) {
               )
             )}
           </div>
-          <div className="muted" style={{ fontSize: '0.78rem', marginTop: 10 }}>
+          <div className="muted cal-pie">
             {t('home.calMonth', { a: cal.activeThisMonth, b: cal.daysInMonth })}
-            {s.atRisk ? t('home.atRisk') : ''}
+            {s.atRisk && (
+              <>
+                {' · '}
+                <span className="cal-aviso" title={t('home.atRiskWhy')}>{t('home.atRisk')}</span>
+              </>
+            )}
           </div>
         </div>
 
         <div className="panel">
           <h2>{t('home.practice')}</h2>
+
           <p className="muted" style={{ fontSize: '0.83rem', marginBottom: 12 }}>
             {pick(
-              <>Gramática y vocabulario mezclados: test, ordenar frases, cazar el error, artículos, anagramas y traducciones.</>,
-              <>Grammar and vocabulary mixed: quiz, sentence order, spot the mistake, articles, anagrams and translations.</>
+              <>Gramática, vocabulario y comunicación mezclados: test, ordenar frases, cazar el error, artículos, diálogos y traducciones.</>,
+              <>Grammar, vocabulary and communication mixed: quiz, sentence order, spot the mistake, articles, dialogues and translations.</>
             )}
           </p>
-          <button className="btn-primary" style={{ width: '100%', marginBottom: 10 }} onClick={() => onStart('mix', 'mixed', 'todo')}>
-            {t('home.random')}
+          <button className="btn-primary home-todo" onClick={() => onStart('mix', 'mixed', 'todo')}>
+            {/* El emoji, aparte del texto, para que en el movil entre en la
+                misma pastilla que el resto de opciones. En el escritorio se
+                pinta igual que cuando iba dentro de la cadena traducida. */}
+            <span className="gt-ico">🎲</span>
+            <span className="gt-txt">{t('home.random')}</span>
           </button>
-          {/* Solo los dos que se practican a diario y no salen en la tanda
-              mixta: el artículo y traducir. El resto (test, ordenar, cazar el
-              error, tus fallos) ya entran en "De todo un poco", y tenerlos aquí
-              además solo llenaba la portada de botones. Tienen pantalla propia,
-              así que se navega a ellos en vez de arrancar una sesión. */}
+          {/* La portada se queda con tres cosas y ninguna mas: la tanda mixta,
+              las tarjetas y el repaso con IA. El juego de der/die/das y el de
+              traducir tienen su sitio en Wortschatz y en Kommunikation, y
+              repetirlos aqui solo llenaba la pagina de botones.
+
+              Las tarjetas van con el sentido elegido a mano, que no es un
+              detalle: el color que gana la palabra sale de ahi. Por que, esta
+              explicado en Ajustes -> Como funciona, no debajo de cada boton:
+              aqui se viene a pulsar, no a leer. */}
           <div className="gametype-grid" style={{ marginBottom: 12 }}>
-            <button className="gametype" onClick={() => onNavigate('gender')}>
-              <span style={{ fontSize: '1.2rem' }}>🎯</span>
-              <div>
-                <span>{t('home.gGender')}</span><br/>
-                <small>{t('home.gGenderSub')}</small>
-              </div>
+            <button className="gametype gt-centro" onClick={() => onFlashcards('de-es')}>
+              <span className="gt-ico">🃏</span>
+              <span className="gt-txt">
+                <span>{t('voc.deToEs')}</span>
+              </span>
             </button>
-            <button className="gametype" onClick={() => onNavigate('komm')}>
-              <span style={{ fontSize: '1.2rem' }}>🔁</span>
-              <div>
-                <span>{t('home.gUeb')}</span><br/>
-                <small>{t('home.gUebSub')}</small>
-              </div>
+            <button className="gametype gt-centro" onClick={() => onFlashcards('es-de')}>
+              <span className="gt-ico">🃏</span>
+              <span className="gt-txt">
+                <span>{t('voc.esToDe')}</span>
+              </span>
             </button>
           </div>
+          {/* La clase es solo para el movil: alli se le da el aspecto de las
+              tarjetas de arriba, porque centrado y de una linea parecia un
+              cacho roto pegado al final de la lista. En el escritorio se queda
+              como esta. */}
           {aiOn && (
-            <button className="btn-ghost btn-sm" style={{ width: '100%', marginBottom: 12 }} onClick={() => onStart('mix', 'ai', 'mixed')}>
-              {t('home.aiReview')}
+            <button className="btn-ghost btn-sm home-ai-repaso" onClick={() => onStart('mix', 'ai', 'mixed')}>
+              {/* El emoji, separado del texto: asi en el movil entra en la
+                  misma pastilla que los iconos de las tarjetas de arriba. En
+                  el escritorio se pinta igual que cuando iba dentro de la
+                  cadena traducida. */}
+              <span className="gt-ico">✨</span>
+              <span className="gt-txt">{t('home.aiReview')}</span>
             </button>
           )}
           <div className="home-practica-pies">
             <button className="link-btn" style={{ padding: 0, fontSize: '0.84rem' }} onClick={() => onNavigate('grammar')}>
-              {t('home.pickTopic')}
+              {t('home.pickTopic')} <span className="fl-arr">▸</span>
             </button>
             {/* El ahorcado y los demás juegos de mazo necesitan que elijas uno,
                 así que desde aquí solo se puede llevar a Wortschatz. */}
             <button className="link-btn" style={{ padding: 0, fontSize: '0.84rem' }} onClick={() => onNavigate('vocab')}>
-              {t('home.moreGames')}
+              {t('home.moreGames')} <span className="fl-arr">▸</span>
             </button>
           </div>
-          <p className="muted home-practica-nota">{t('home.practiceNote')}</p>
+          <p className="muted home-practica-nota">
+            {t(SIN_IA ? 'home.practiceNoteSinIA' : 'home.practiceNote')}
+          </p>
         </div>
       </div>
     </div>

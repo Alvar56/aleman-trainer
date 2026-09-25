@@ -18,7 +18,18 @@ export const FRASE = {
       { s: 'Wo ___ deine Schwester? – In Madrid.', a: 'wohnt', d: ['wohnen', 'wohnst'], t: '¿Dónde vive tu hermana? – En Madrid.', e: 'En la W-Frage el verbo va en 2ª posición y concuerda con el sujeto (sie wohnt).' },
       { s: '___ viel kostet das Ticket?', a: 'Wie', d: ['Was', 'Wo'], t: '¿Cuánto cuesta el billete?', e: 'La cantidad se pregunta con "wie viel".' },
       { s: '___ Sprachen sprechen Sie?', a: 'Welche', d: ['Wer', 'Wohin'], t: '¿Qué idiomas habla usted?', e: '"welche" pregunta eligiendo dentro de un grupo.' },
-      { s: '___ gehst du nach dem Kurs? – Nach Hause.', a: 'Wohin', d: ['Wo', 'Woher'], t: '¿A dónde vas después del curso? – A casa.', e: 'La respuesta "nach Hause" indica destino → wohin.' }
+      { s: '___ gehst du nach dem Kurs? – Nach Hause.', a: 'Wohin', d: ['Wo', 'Woher'], t: '¿A dónde vas después del curso? – A casa.', e: 'La respuesta "nach Hause" indica destino → wohin.' },
+      { s: '___ kommt deine Kollegin? – Aus Polen.', a: 'Woher', d: ['Wo', 'Wohin'], t: '¿De dónde es tu compañera? – De Polonia.', e: 'El origen se pregunta con «woher».' },
+      { s: '___ arbeitest du? – In einem Büro.', a: 'Wo', d: ['Woher', 'Wohin'], t: '¿Dónde trabajas? – En una oficina.', e: 'El lugar, sin movimiento → wo.' },
+      { s: '___ heißt du?', a: 'Wie', d: ['Was', 'Wer'], t: '¿Cómo te llamas?', e: 'El nombre se pregunta con "wie", no con "was".' },
+      { s: '___ ist das? – Meine Schwester.', a: 'Wer', d: ['Was', 'Wie'], t: '¿Quién es esa? – Mi hermana.', e: 'Personas → wer.' },
+      { s: '___ machst du beruflich?', a: 'Was', d: ['Wer', 'Wie'], t: '¿A qué te dedicas?', e: 'Cosas y actividades → was.' },
+      { s: '___ gehst du jetzt? – Nach Hause.', a: 'Wohin', d: ['Wo', 'Woher'], t: '¿Adónde vas ahora? – A casa.', e: 'Con movimiento hacia un sitio → wohin.' },
+      { s: '___ alt bist du?', a: 'Wie', d: ['Was', 'Wer'], t: '¿Cuántos años tienes?', e: 'La edad: wie alt.' },
+      { s: '___ beginnt der Kurs? – Um neun.', a: 'Wann', d: ['Wo', 'Wie'], t: '¿Cuándo empieza el curso? – A las nueve.', e: 'El tiempo → wann.' },
+      { s: '___ heißt deine Schwester?', a: 'Wie', d: ['Wo', 'Was'], t: '¿Cómo se llama tu hermana?', e: 'Wie pregunta por el nombre.' },
+      { s: '___ wohnst du genau?', a: 'Wo', d: ['Woher', 'Wohin'], t: '¿Dónde vives exactamente?', e: 'Wo pregunta por el lugar donde estás.' },
+      { s: '___ kommt dieser Kaffee?', a: 'Woher', d: ['Wo', 'Wann'], t: '¿De dónde viene este café?', e: 'Woher pregunta por el origen.' }
     ],
     orders: [
       { sol: ['Woher', 'kommen', 'Sie?'], t: '¿De dónde es usted?', e: 'W-Frage: palabra interrogativa (1) + verbo (2) + sujeto.' },
@@ -26,6 +37,9 @@ export const FRASE = {
       { sol: ['Wann', 'beginnt', 'der', 'Deutschkurs?'], t: '¿Cuándo empieza el curso de alemán?', e: 'Wann (1) + beginnt (2) + sujeto.' },
       { sol: ['Wie', 'heißt', 'der', 'Mann', 'da?'], t: '¿Cómo se llama ese hombre?', e: 'El verbo siempre en 2ª posición, también en preguntas con W.' },
       { sol: ['Was', 'machst', 'du', 'am', 'Wochenende?'], t: '¿Qué haces el fin de semana?', e: 'Was (1) + machst (2) + du.' }
+    ],
+    clozes: [
+      { txt: '– ___ heißt du? – Lena. – ___ kommst du? – Aus Polen. – Und ___ wohnst du jetzt? – In Wien. – ___ alt bist du? – Sechsundzwanzig.', a: ['Wie', 'Woher', 'wo', 'Wie'], extra: ['Was', 'Wo', 'wohin', 'Wer'], t: '– ¿Cómo te llamas? – Lena. – ¿De dónde eres? – De Polonia. – ¿Y dónde vives ahora? – En Viena. – ¿Cuántos años tienes? – Veintiséis.', e: 'Las cuatro preguntas básicas de una presentación, y la trampa está en que el nombre y la edad van con "wie", no con "was".' }
     ]
   },
 
@@ -43,14 +57,33 @@ export const FRASE = {
       { s: '___ ihr schon Deutsch gelernt?', a: 'Habt', d: ['Ihr habt', 'Haben'], t: '¿Ya habéis aprendido algo de alemán?', e: 'Perfekt: el auxiliar "habt" abre la pregunta y el participio va al final.' },
       { s: '___ er in Wien? – Ja, seit zwei Jahren.', a: 'Wohnt', d: ['Er wohnt', 'Wohnen'], t: '¿Vive él en Viena? – Sí, desde hace dos años.', e: 'Verbo (1) + sujeto (2).' },
       { s: 'Trinkst du Kaffee? – ___, nur Tee.', a: 'Nein', d: ['Ja', 'Doch'], t: '¿Bebes café? – No, solo té.', e: 'Se rechaza la pregunta → nein.' },
-      { s: '___ das Zimmer noch frei?', a: 'Ist', d: ['Das ist', 'Sind'], t: '¿La habitación sigue libre?', e: 'Pregunta sin palabra interrogativa: empieza por el verbo.' }
+      { s: '___ das Zimmer noch frei?', a: 'Ist', d: ['Das ist', 'Sind'], t: '¿La habitación sigue libre?', e: 'Pregunta sin palabra interrogativa: empieza por el verbo.' },
+      { s: '___ du aus Spanien?', a: 'Kommst', d: ['Du kommst', 'Woher kommst'], t: '¿Eres de España?', e: 'En la pregunta de sí/no el verbo abre la frase.' },
+      { s: '___ Sie hier?', a: 'Wohnen', d: ['Sie wohnen', 'Wo wohnen'], t: '¿Vive usted aquí?', e: 'Verbo + sujeto, sin partícula interrogativa.' },
+      { s: '___ ihr Englisch?', a: 'Sprecht', d: ['Ihr sprecht', 'Wie sprecht'], t: '¿Habláis inglés?', e: 'El verbo en primera posición.' },
+      { s: '___ du Geschwister?', a: 'Hast', d: ['Du hast', 'Wie hast'], t: '¿Tienes hermanos?', e: 'haben en pregunta de sí/no: Hast du…?' },
+      { s: '___ das deine Schwester?', a: 'Ist', d: ['Das ist', 'Wer ist'], t: '¿Es esa tu hermana?', e: 'sein abre la pregunta.' },
+      { s: '___ ihr morgen Zeit?', a: 'Habt', d: ['Ihr habt', 'Wann habt'], t: '¿Tenéis tiempo mañana?', e: 'habt ihr…?' },
+      { s: '___ Sie Herr Meier?', a: 'Sind', d: ['Sie sind', 'Wer sind'], t: '¿Es usted el señor Meier?', e: 'Sind Sie…?' },
+      { s: '___ du in Wien?', a: 'Arbeitest', d: ['Du arbeitest', 'Wo arbeitest'], t: '¿Trabajas en Viena?', e: 'El verbo primero.' },
+      { s: '___ Sie hier in Wien?', a: 'Wohnen', d: ['Wo', 'Wer'], t: '¿Vive usted aquí en Viena?', e: 'En la pregunta de sí/no el verbo abre la frase.' },
+      { s: '___ du eine große Familie?', a: 'Hast', d: ['Wie', 'Was'], t: '¿Tienes una familia grande?', e: 'El verbo va primero; no hay partícula interrogativa.' },
+      { s: '___ ihr schon lange in Österreich?', a: 'Seid', d: ['Wann', 'Wo'], t: '¿Lleváis mucho en Austria?', e: 'seid abre la frase: pregunta de sí/no.' },
+      { s: '___ Ihr Mann auch Deutsch?', a: 'Spricht', d: ['Wer', 'Warum'], t: '¿Su marido también habla alemán?', e: 'Verbo en primera posición.' },
+      { s: '___ das Ihre Adresse?', a: 'Ist', d: ['Wie', 'Wo'], t: '¿Es esta su dirección?', e: 'ist abre la pregunta de sí/no.' }
     ],
     orders: [
       { sol: ['Sprechen', 'Sie', 'auch', 'Englisch?'], t: '¿Habla usted también inglés?', e: 'Ja-/Nein-Frage: el verbo va el primero.' },
       { sol: ['Hast', 'du', 'heute', 'Abend', 'Zeit?'], t: '¿Tienes tiempo esta tarde?', e: 'Verbo (1) + sujeto (2) + resto.' },
       { sol: ['Kommt', 'ihr', 'aus', 'der', 'Türkei?'], t: '¿Sois de Turquía?', e: 'Con ihr el verbo hace -t y abre la pregunta.' },
       { sol: ['Ist', 'das', 'dein', 'Handy?'], t: '¿Es este tu móvil?', e: '"Ist" en la posición 1 porque se espera sí o no.' },
-      { sol: ['Wohnen', 'Sie', 'schon', 'lange', 'in', 'Wien?'], t: '¿Lleva usted mucho tiempo viviendo en Viena?', e: 'Verbo primero; el resto en el orden normal.' }
+      { sol: ['Wohnen', 'Sie', 'schon', 'lange', 'in', 'Wien?'], t: '¿Lleva usted mucho tiempo viviendo en Viena?', e: 'Verbo primero; el resto en el orden normal.' },
+      { sol: ['Kommst', 'du', 'aus', 'Österreich?'], t: '¿Eres de Austria?', e: 'En la pregunta de sí/no el verbo abre la frase.' },
+      { sol: ['Sind', 'Sie', 'Frau', 'Meier?'], t: '¿Es usted la señora Meier?', e: 'El verbo primero, también con la forma de cortesía.' }
+    ],
+    clozes: [
+      { txt: '– ___ du aus Österreich? – Nein, aus Ungarn. – ___ ihr schon lange hier? – Seit drei Jahren. – ___ Sie auch im Kurs? – Ja, seit September.', a: ['Kommst', 'Seid', 'Sind'], extra: ['Woher', 'Wo', 'Wer'], t: '– ¿Eres de Austria? – No, de Hungría. – ¿Lleváis mucho aquí? – Tres años. – ¿Usted también está en el curso? – Sí, desde septiembre.', e: 'En las tres el verbo abre la frase, y cambia con la persona: kommst du, seid ihr, sind Sie.' },
+      { txt: '– ___ Sie Herr Weber? – Ja. – ___ Sie hier in Wien? – Nein, in Linz. – ___ Sie Kinder? – Zwei.', a: ['Sind', 'Wohnen', 'Haben'], extra: ['Wer', 'Wo', 'Wie viele'], t: '– ¿Es usted el señor Weber? – Sí. – ¿Vive aquí en Viena? – No, en Linz. – ¿Tiene hijos? – Dos.', e: 'Las tres son preguntas de sí/no: el verbo abre la frase y no hay partícula interrogativa.' }
     ]
   },
 
@@ -68,14 +101,40 @@ export const FRASE = {
       { s: 'Ich trinke ___ Kaffee.', a: 'keinen', d: ['nicht', 'nicht den'], t: 'No bebo café.', e: 'Sustantivo masculino en acusativo sin artículo → keinen.' },
       { s: 'Heute gehe ich ___ ins Kino.', a: 'nicht', d: ['kein', 'keine'], t: 'Hoy no voy al cine.', e: '"nicht" delante del complemento de lugar que se niega.' },
       { s: 'Sie ist ___ meine Schwester, sie ist meine Cousine.', a: 'nicht', d: ['kein', 'keine'], t: 'No es mi hermana, es mi prima.', e: 'Con posesivo → nicht.' },
-      { s: 'Ich kann heute ___ kommen.', a: 'nicht', d: ['kein', 'nichts'], t: 'Hoy no puedo venir.', e: 'Con modal, "nicht" va antes del infinitivo final.' }
+      { s: 'Ich kann heute ___ kommen.', a: 'nicht', d: ['kein', 'nichts'], t: 'Hoy no puedo venir.', e: 'Con modal, "nicht" va antes del infinitivo final.' },
+      { s: 'Ich arbeite ___ am Wochenende.', a: 'nicht', d: ['kein', 'keine'], t: 'No trabajo los fines de semana.', e: 'Para negar el verbo se usa nicht, no kein.' },
+      { s: 'Der Drucker funktioniert heute ___.', a: 'nicht', d: ['kein', 'nichts'], t: 'Hoy la impresora no funciona.', e: 'nicht va al final cuando niega toda la frase.' },
+      { s: 'Sie ist ___ meine Chefin, sondern meine Kollegin.', a: 'nicht', d: ['keine', 'kein'], t: 'Ella no es mi jefa, sino mi compañera.', e: 'Delante de un posesivo se usa nicht, no kein.' },
+      { s: 'Ich habe ___ Zeit für so etwas.', a: 'keine', d: ['nicht', 'kein'], t: 'No tengo tiempo para eso.', e: 'Delante de un sustantivo sin artículo se usa kein-, no nicht.' },
+      { s: 'Das ist ___ mein Rucksack.', a: 'nicht', d: ['kein', 'keine'], t: 'Esa no es mi mochila.', e: 'Delante de un posesivo se usa nicht.' },
+      { s: 'Er hat ___ Bruder, nur eine Schwester.', a: 'keinen', d: ['nicht', 'kein'], t: 'No tiene hermanos, solo una hermana.', e: 'der Bruder en acusativo → keinen.' },
+      { s: 'Der Kuli schreibt heute ___.', a: 'nicht', d: ['kein', 'keine'], t: 'Hoy el boli no escribe.', e: 'Para negar el verbo, nicht al final.' },
+      { s: 'Ich trinke ___ Kaffee mehr.', a: 'keinen', d: ['nicht', 'kein'], t: 'Ya no bebo café.', e: 'Sustantivo sin artículo → keinen.' },
+      { s: 'Das Büro ist ___ im zweiten Stock.', a: 'nicht', d: ['kein', 'keine'], t: 'La oficina no está en el segundo piso.', e: 'nicht delante del complemento que se niega.' },
+      { s: 'Wir haben ___ Drucker im Büro.', a: 'keinen', d: ['nicht', 'kein'], t: 'En la oficina no tenemos impresora.', e: 'der Drucker en acusativo → keinen.' },
+      { s: 'Sie arbeitet ___ hier, sondern in Linz.', a: 'nicht', d: ['kein', 'keine'], t: 'Ella no trabaja aquí, sino en Linz.', e: 'nicht delante de lo que se contrapone.' },
+      { s: 'Er hat mir ___ gesagt, kein einziges Wort.', a: 'nichts', d: ['nicht', 'kein'], t: 'No me dijo nada, ni una palabra.', e: 'nichts niega la cosa entera; nicht solo niega el verbo.' },
+      { s: 'Um sieben war ___ mehr im Büro.', a: 'niemand', d: ['nicht', 'kein'], t: 'A las siete ya no había nadie en la oficina.', e: 'niemand es la persona: nadie.' },
+      { s: 'Der Aufzug funktioniert heute wieder ___.', a: 'nicht', d: ['kein', 'nichts'], t: 'Hoy el ascensor vuelve a no funcionar.', e: 'Para negar el verbo, nicht va al final.' },
+      { s: 'Das ist ___ mein Mantel, meiner ist blau.', a: 'nicht', d: ['kein', 'keine'], t: 'Ese no es mi abrigo, el mío es azul.', e: 'Delante de un posesivo se usa nicht.' },
+      { s: 'Sie hat heute ___ Lust auf Kino.', a: 'keine', d: ['nicht', 'nichts'], t: 'Hoy no tiene ganas de cine.', e: 'Sustantivo sin artículo: keine Lust.' },
+      { s: 'Ich fahre ___ mit dem Auto, sondern mit der Bahn.', a: 'nicht', d: ['kein', 'nichts'], t: 'No voy en coche, sino en tren.', e: 'nicht delante de lo que se contrapone.' },
+      { s: 'Von dem Vortrag habe ich ehrlich gesagt ___ verstanden.', a: 'nichts', d: ['nicht', 'keinen'], t: 'De la conferencia, sinceramente, no entendí nada.', e: 'nichts cuando no se entiende nada de nada.' },
+      { s: 'Er kommt seit Januar ___ mehr zum Training.', a: 'nicht', d: ['kein', 'nichts'], t: 'Desde enero ya no viene a entrenar.', e: 'nicht mehr significa ya no.' },
+      { s: 'Auf dem Bahnsteig darf man ___ rauchen.', a: 'nicht', d: ['kein', 'nichts'], t: 'En el andén no se puede fumar.', e: 'Con un modal, nicht va delante del infinitivo.' },
+      { s: 'Ich habe ___ Ahnung, wo der Schlüssel ist.', a: 'keine', d: ['nicht', 'nichts'], t: 'No tengo ni idea de dónde está la llave.', e: 'keine Ahnung: sustantivo sin artículo.' },
+      { s: 'Das Handy war ___ teuer, es hat 80 Euro gekostet.', a: 'nicht', d: ['kein', 'nichts'], t: 'El móvil no era caro, costó 80 euros.', e: 'nicht delante del adjetivo que se niega.' },
+      { s: 'Ich habe ___ einziges Wort verstanden.', a: 'kein', d: ['nicht', 'nichts'], t: 'No entendí ni una sola palabra.', e: 'Delante del sustantivo: kein Wort.' }
     ],
     orders: [
       { sol: ['Ich', 'verstehe', 'das', 'Wort', 'nicht'], t: 'No entiendo esa palabra.', e: '"nicht" cierra la frase cuando se niega el verbo.' },
       { sol: ['Das', 'ist', 'nicht', 'mein', 'Platz'], t: 'Ese no es mi sitio.', e: 'Delante de un posesivo se usa "nicht".' },
-      { sol: ['Heute', 'arbeite', 'ich', 'nicht'], t: 'Hoy no trabajo.', e: 'Complemento de tiempo (1), verbo (2), sujeto, y "nicht" al final.' },
+      { sol: ['Heute', 'arbeite', 'ich', 'nicht'], alt: [['Ich', 'arbeite', 'heute', 'nicht']], t: 'Hoy no trabajo.', e: 'Complemento de tiempo (1), verbo (2), sujeto, y "nicht" al final.' },
       { sol: ['Der', 'Bus', 'fährt', 'am', 'Sonntag', 'nicht'], t: 'El domingo el autobús no circula.', e: '"nicht" al final de la frase.' },
       { sol: ['Ich', 'kann', 'heute', 'leider', 'nicht', 'kommen'], t: 'Hoy lamentablemente no puedo venir.', e: 'Con modal: "nicht" va justo antes del infinitivo.' }
+    ],
+    clozes: [
+      { txt: 'Ich arbeite heute ___. Der Kuli schreibt ___ mehr. Das ist ___ mein Rucksack, das ist ___ Tasche von Tom.', a: ['nicht', 'nicht', 'nicht', 'die'], extra: ['kein', 'kein', 'kein', 'eine'], t: 'Hoy no trabajo. El boli ya no escribe. Esta no es mi mochila, es el bolso de Tom.', e: '"nicht" niega verbos y cosas con posesivo o artículo determinado; con un artículo indeterminado se usaría "kein".' }
     ]
   },
 
@@ -93,7 +152,17 @@ export const FRASE = {
       { s: 'Ich komme aus Spanien ___ wohne in Wien.', a: 'und', d: ['oder', 'denn'], t: 'Soy de España y vivo en Viena.', e: 'El sujeto no se repite tras "und".' },
       { s: 'Das Zimmer ist klein, ___ es ist sehr hell.', a: 'aber', d: ['und', 'oder'], t: 'La habitación es pequeña, pero muy luminosa.', e: '"aber" marca contraste, y tampoco cambia el orden.' },
       { s: 'Trinkst du Wasser ___ Saft?', a: 'oder', d: ['und', 'aber'], t: '¿Bebes agua o zumo?', e: 'Elección entre dos → oder.' },
-      { s: 'Sie ist müde, ___ sie geht noch nicht schlafen.', a: 'aber', d: ['und', 'oder'], t: 'Está cansada, pero todavía no se va a dormir.', e: 'Las dos ideas se oponen → aber.' }
+      { s: 'Sie ist müde, ___ sie geht noch nicht schlafen.', a: 'aber', d: ['und', 'oder'], t: 'Está cansada, pero todavía no se va a dormir.', e: 'Las dos ideas se oponen → aber.' },
+      { s: 'Kommst du allein ___ mit deiner Frau?', a: 'oder', d: ['und', 'aber'], t: '¿Vienes solo o con tu mujer?', e: '"oder" ofrece una alternativa.' },
+      { s: 'Meine Oma ___ mein Opa wohnen zusammen.', a: 'und', d: ['oder', 'aber'], t: 'Mi abuela y mi abuelo viven juntos.', e: 'Dos sujetos unidos por "und" → verbo en plural.' },
+      { s: 'Möchtest du lieber Tee ___ Kaffee?', a: 'oder', d: ['und', 'aber'], t: '¿Prefieres té o café?', e: 'oder pone dos cosas a elegir.' },
+      { s: 'Ich lerne Deutsch ___ arbeite nebenbei im Café.', a: 'und', d: ['oder', 'aber'], t: 'Estudio alemán y además trabajo en una cafetería.', e: 'und suma dos cosas.' },
+      { s: 'Es ist schon spät, ___ ich bleibe noch eine Runde.', a: 'aber', d: ['und', 'oder'], t: 'Ya es tarde, pero me quedo una ronda más.', e: 'aber marca el contraste.' },
+      { s: 'Wir fangen nicht heute an, ___ erst nächste Woche.', a: 'sondern', d: ['aber', 'oder'], t: 'No empezamos hoy, sino la semana que viene.', e: 'Después de una negación se usa sondern, no aber.' },
+      { s: 'Sie kocht ___ er deckt in Ruhe den Tisch.', a: 'und', d: ['oder', 'aber'], t: 'Ella cocina y él pone tranquilamente la mesa.', e: 'und une dos frases enteras.' },
+      { s: 'Der Kurs ist wirklich gut, ___ er kostet ein Vermögen.', a: 'aber', d: ['und', 'oder'], t: 'El curso está muy bien, pero cuesta un dineral.', e: 'aber introduce lo que choca con lo anterior.' },
+      { s: 'Kommst du jetzt mit ___ bleibst du noch hier?', a: 'oder', d: ['und', 'aber'], t: '¿Te vienes ya o te quedas aquí?', e: 'oder en una pregunta con dos opciones.' },
+      { s: 'Ich nehme keinen Nachtisch, ___ ich bin pappsatt.', a: 'denn', d: ['sondern', 'oder'], t: 'No tomo postre, porque estoy lleno hasta arriba.', e: 'denn da el motivo y no cambia el orden de la frase.' }
     ],
     orders: [
       { sol: ['Ich', 'heiße', 'Ana', 'und', 'ich', 'komme', 'aus', 'Peru'], t: 'Me llamo Ana y soy de Perú.', e: 'Tras "und" la frase sigue con su orden normal (sujeto + verbo).' },
@@ -118,14 +187,32 @@ export const FRASE = {
       { s: 'Im Sommer ___ wir immer ans Meer.', a: 'fahren', d: ['wir fahren', 'fährt'], t: 'En verano vamos siempre al mar.', e: 'Complemento (1) + verbo (2) + sujeto (3).' },
       { s: 'Jeden Tag ___ sie eine Stunde Deutsch.', a: 'lernt', d: ['sie lernt', 'lernen'], t: 'Todos los días estudia una hora de alemán.', e: 'La expresión de frecuencia ocupa la posición 1.' },
       { s: 'Am Abend ___ ich fern.', a: 'sehe', d: ['ich sehe', 'fernsehe'], t: 'Por la tarde veo la tele.', e: 'fernsehen se separa: "sehe" en 2ª posición y "fern" al final.' },
-      { s: 'Zuerst ___ ich einen Kaffee.', a: 'trinke', d: ['ich trinke', 'trinkt'], t: 'Primero me tomo un café.', e: 'Tras "zuerst" el verbo va inmediatamente después.' }
+      { s: 'Zuerst ___ ich einen Kaffee.', a: 'trinke', d: ['ich trinke', 'trinkt'], t: 'Primero me tomo un café.', e: 'Tras "zuerst" el verbo va inmediatamente después.' },
+      { s: 'Am Samstag ___ wir immer lange.', a: 'schlafen', d: ['wir schlafen', 'schlafen wir nicht'], t: 'Los sábados dormimos siempre mucho.', e: 'El complemento abre la frase, así que el verbo va segundo y el sujeto detrás.' },
+      { s: 'Ich ___ um sieben auf.', a: 'stehe', d: ['aufstehe', 'stehe auf um sieben'], t: 'Me levanto a las siete.', e: 'Sujeto (1), verbo (2); el prefijo del separable cierra la frase.' },
+      { s: 'Heute Abend ___ ich zu Hause.', a: 'bleibe', d: ['ich bleibe', 'bleibe nicht ich'], t: 'Esta noche me quedo en casa.', e: 'Con complemento delante hay inversión: bleibe ich.' },
+      { s: 'Um acht ___ der Kurs an.', a: 'fängt', d: ['anfängt', 'fängt an der Kurs'], t: 'El curso empieza a las ocho.', e: 'Verbo en 2ª posición y prefijo al final.' },
+      { s: 'Danach ___ wir einkaufen.', a: 'gehen', d: ['wir gehen', 'gehen wir nicht'], t: 'Después vamos a la compra.', e: 'Inversión tras el adverbio.' },
+      { s: 'Meine Schwester ___ jeden Tag Sport.', a: 'macht', d: ['macht jeden Tag', 'jeden Tag macht'], t: 'Mi hermana hace deporte todos los días.', e: 'Sujeto (1), verbo (2), complementos detrás.' },
+      { s: 'Am Wochenende ___ ich nicht.', a: 'arbeite', d: ['ich arbeite', 'arbeite nicht ich'], t: 'Los fines de semana no trabajo.', e: 'El complemento de tiempo abre y el verbo va segundo.' },
+      { s: 'Um halb elf ___ ich schlafen.', a: 'gehe', d: ['ich gehe', 'schlafen gehe'], t: 'A las diez y media me voy a dormir.', e: 'Inversión: gehe ich.' },
+      { s: 'Morgen ___ ich nach Salzburg.', a: 'fahre', d: ['ich fahre', 'fahren'], t: 'Mañana voy a Salzburgo.', e: 'Con un complemento delante, el verbo va segundo y el sujeto detrás.' },
+      { s: 'Um sieben ___ meine Frau auf.', a: 'steht', d: ['aufsteht', 'steht auf'], t: 'A las siete se levanta mi mujer.', e: 'El verbo conjugado va segundo y el prefijo al final.' },
+      { s: 'Am Abend ___ wir meistens fern.', a: 'sehen', d: ['fernsehen', 'sehen fern'], t: 'Por la tarde solemos ver la tele.', e: 'Verbo en 2ª posición, prefijo al final.' },
+      { s: '___ ich am Montag anrufen?', a: 'Soll', d: ['Ich soll', 'Sollen'], t: '¿Llamo el lunes?', e: 'En la pregunta de sí/no el verbo abre la frase.' },
+      { s: 'Zuerst ___ ich, dann gehe ich zur Arbeit.', a: 'frühstücke', d: ['ich frühstücke', 'frühstücken'], t: 'Primero desayuno y luego voy al trabajo.', e: 'Zuerst ocupa la 1ª posición, así que el verbo va 2º.' },
+      { s: 'Heute ___ der Kurs später an.', a: 'fängt', d: ['anfängt', 'fängt an'], t: 'Hoy el curso empieza más tarde.', e: 'fängt en 2ª posición, an al final.' },
+      { s: 'Danach ___ wir einen Kaffee.', a: 'trinken', d: ['wir trinken', 'trinkt'], t: 'Después nos tomamos un café.', e: 'Danach delante, así que el verbo va segundo y el sujeto tercero.' }
     ],
     orders: [
       { sol: ['Um', 'acht', 'Uhr', 'beginnt', 'der', 'Unterricht'], t: 'La clase empieza a las ocho.', e: 'La hora ocupa la posición 1 y el verbo la 2.' },
-      { sol: ['Am', 'Wochenende', 'schlafe', 'ich', 'lange'], t: 'El fin de semana duermo hasta tarde.', e: 'Complemento (1) + verbo (2) + sujeto (3).' },
+      { sol: ['Am', 'Wochenende', 'schlafe', 'ich', 'lange'], alt: [['Ich', 'schlafe', 'am', 'Wochenende', 'lange']], t: 'El fin de semana duermo hasta tarde.', e: 'Complemento (1) + verbo (2) + sujeto (3).' },
       { sol: ['Ich', 'stehe', 'jeden', 'Tag', 'um', 'sechs', 'Uhr', 'auf'], t: 'Me levanto todos los días a las seis.', e: 'Verbo separable: "stehe" el segundo, "auf" al final.' },
-      { sol: ['Heute', 'Abend', 'sehe', 'ich', 'fern'], t: 'Esta noche veo la tele.', e: 'Aunque el complemento sean dos palabras, cuenta como posición 1.' },
-      { sol: ['Meine', 'Freundin', 'kommt', 'morgen', 'nach', 'Wien'], t: 'Mi amiga viene mañana a Viena.', e: 'Sujeto (1) + verbo (2): el orden más normal.' }
+      { sol: ['Heute', 'Abend', 'sehe', 'ich', 'fern'], alt: [['Ich', 'sehe', 'heute', 'Abend', 'fern']], t: 'Esta noche veo la tele.', e: 'Aunque el complemento sean dos palabras, cuenta como posición 1.' },
+      { sol: ['Meine', 'Freundin', 'kommt', 'morgen', 'nach', 'Wien'], t: 'Mi amiga viene mañana a Viena.', e: 'Sujeto (1) + verbo (2): el orden más normal.' },
+      { sol: ['Am', 'Samstag', 'schlafen', 'wir', 'immer', 'lange'], alt: [['Wir', 'schlafen', 'am', 'Samstag', 'immer', 'lange']], t: 'Los sábados dormimos siempre mucho.', e: 'El complemento en 1ª posición obliga a poner el verbo en 2ª y el sujeto detrás.' },
+      { sol: ['Um', 'acht', 'fängt', 'der', 'Kurs', 'an'], t: 'El curso empieza a las ocho.', e: 'Separable: fängt … an.' },
+      { sol: ['Zuerst', 'frühstücke', 'ich', 'und', 'dann', 'gehe', 'ich', 'zur', 'Arbeit'], alt: [['Ich', 'frühstücke', 'zuerst', 'und', 'dann', 'gehe', 'ich', 'zur', 'Arbeit']], t: 'Primero desayuno y luego me voy al trabajo.', e: 'Los dos adverbios abren su frase, así que en las dos hay inversión.' }
     ]
   },
 
@@ -143,13 +230,24 @@ export const FRASE = {
       { s: '___ gehe ich duschen, dann frühstücke ich.', a: 'Zuerst', d: ['Danach', 'Zuletzt'], t: 'Primero me ducho, luego desayuno.', e: 'La primera acción de la serie → zuerst.' },
       { s: 'Nachher ___ ich noch einkaufen.', a: 'gehe', d: ['ich gehe', 'geht'], t: 'Luego voy todavía a comprar.', e: '"nachher" en posición 1 obliga a invertir: gehe ich.' },
       { s: 'Dann ___ ich mit dem Bus zur Arbeit.', a: 'fahre', d: ['ich fahre', 'fährt'], t: 'Luego voy en autobús al trabajo.', e: 'Inversión tras el adverbio inicial.' },
-      { s: '___ ich schlafen gehe, lese ich noch ein bisschen.', a: 'Bevor', d: ['Vorher', 'Danach'], t: 'Antes de irme a dormir leo un poco.', e: 'El verbo "gehe" está al final → hace falta el subordinante "bevor", no el adverbio "vorher".' }
+      { s: '___ ich schlafen gehe, lese ich noch ein bisschen.', a: 'Bevor', d: ['Vorher', 'Danach'], t: 'Antes de irme a dormir leo un poco.', e: 'El verbo "gehe" está al final → hace falta el subordinante "bevor", no el adverbio "vorher".' },
+      { s: '___ frühstücke ich, dann gehe ich zur Arbeit.', a: 'Zuerst', d: ['Nachher', 'Dann'], t: 'Primero desayuno y luego me voy al trabajo.', e: '"zuerst" abre la secuencia.' },
+      { s: 'Ich dusche, und ___ ziehe ich mich an.', a: 'dann', d: ['zuerst', 'endlich'], t: 'Me ducho y luego me visto.', e: '"dann" enlaza el paso siguiente.' },
+      { s: 'Wir essen jetzt, und ___ sehen wir einen Film.', a: 'nachher', d: ['zuerst', 'vorher'], t: 'Comemos ahora y luego vemos una película.', e: '"nachher" es "más tarde".' },
+      { s: '___ mache ich die Hausaufgaben, danach ruhe ich mich aus.', a: 'Zuerst', d: ['Nachher', 'Endlich'], t: 'Primero hago los deberes y después descanso.', e: 'Secuencia: zuerst … danach.' },
+      { s: 'Er kommt später, ___ hat er einen Termin.', a: 'vorher', d: ['nachher', 'dann'], t: 'Viene más tarde, porque antes tiene una cita.', e: '"vorher" es lo que ocurre antes.' },
+      { s: '___ war ich sehr müde, jetzt geht es.', a: 'Vorher', d: ['Nachher', 'Zuerst'], t: 'Antes estaba muy cansado, ahora ya estoy bien.', e: '"vorher" mira hacia atrás.' },
+      { s: 'Wir treffen uns um sechs und ___ gehen wir essen.', a: 'dann', d: ['zuerst', 'vorher'], t: 'Quedamos a las seis y luego vamos a cenar.', e: '"dann" para el paso siguiente.' },
+      { s: 'Ich rufe dich ___ an, jetzt bin ich im Kurs.', a: 'nachher', d: ['vorher', 'zuerst'], t: 'Te llamo luego, ahora estoy en clase.', e: '"nachher" = más tarde hoy.' }
     ],
     orders: [
-      { sol: ['Zuerst', 'frühstücke', 'ich', 'und', 'dann', 'fahre', 'ich', 'zur', 'Arbeit'], t: 'Primero desayuno y luego voy al trabajo.', e: 'Tanto tras "zuerst" como tras "dann" el verbo va justo detrás.' },
-      { sol: ['Danach', 'gehe', 'ich', 'mit', 'dem', 'Hund', 'spazieren'], t: 'Después saco a pasear al perro.', e: 'Adverbio (1) + verbo (2) + sujeto (3).' },
-      { sol: ['Am', 'Abend', 'sehe', 'ich', 'zuerst', 'die', 'Nachrichten'], t: 'Por la tarde veo primero las noticias.', e: '"zuerst" también puede ir dentro de la frase, detrás del sujeto.' },
+      { sol: ['Zuerst', 'frühstücke', 'ich', 'und', 'dann', 'fahre', 'ich', 'zur', 'Arbeit'], alt: [['Ich', 'frühstücke', 'zuerst', 'und', 'dann', 'fahre', 'ich', 'zur', 'Arbeit']], t: 'Primero desayuno y luego voy al trabajo.', e: 'Tanto tras "zuerst" como tras "dann" el verbo va justo detrás.' },
+      { sol: ['Danach', 'gehe', 'ich', 'mit', 'dem', 'Hund', 'spazieren'], alt: [['Ich', 'gehe', 'danach', 'mit', 'dem', 'Hund', 'spazieren']], t: 'Después saco a pasear al perro.', e: 'Adverbio (1) + verbo (2) + sujeto (3).' },
+      { sol: ['Am', 'Abend', 'sehe', 'ich', 'zuerst', 'die', 'Nachrichten'], alt: [['Ich', 'sehe', 'am', 'Abend', 'zuerst', 'die', 'Nachrichten']], t: 'Por la tarde veo primero las noticias.', e: '"zuerst" también puede ir dentro de la frase, detrás del sujeto.' },
       { sol: ['Zuletzt', 'putze', 'ich', 'mir', 'die', 'Zähne'], t: 'Por último me lavo los dientes.', e: 'Con "zuletzt" en posición 1 el verbo le sigue.' }
+    ],
+    clozes: [
+      { txt: '___ stehe ich um sieben auf, ___ frühstücke ich und ___ fahre ich zur Arbeit. ___ mache ich noch Sport.', a: ['Zuerst', 'dann', 'danach', 'Nachher'], extra: ['Vorher', 'zuerst', 'nachher', 'Dann'], t: 'Primero me levanto a las siete, luego desayuno y después me voy al trabajo. Más tarde hago deporte.', e: 'Los cuatro marcan el orden del día, y fíjate en que todos abren la frase: detrás va el verbo y luego el sujeto.' }
     ]
   },
 
@@ -167,14 +265,37 @@ export const FRASE = {
       { s: 'Ich kann heute leider nicht ___.', a: 'arbeiten', d: ['arbeite', 'gearbeitet'], t: 'Hoy lamentablemente no puedo trabajar.', e: '"nicht" va justo delante del infinitivo final.' },
       { s: 'Sie will Ärztin ___.', a: 'werden', d: ['wird', 'geworden'], t: 'Quiere ser médica.', e: 'werden en infinitivo, al final.' },
       { s: 'Was ___ du am Wochenende machen?', a: 'willst', d: ['will', 'wollen'], t: '¿Qué quieres hacer el fin de semana?', e: 'wollen con du: willst, en 2ª posición tras "was".' },
-      { s: 'Hier ___ man nicht parken.', a: 'kann', d: ['kannst', 'können'], t: 'Aquí no se puede aparcar.', e: '"man" lleva siempre 3ª persona singular: kann.' }
+      { s: 'Hier ___ man nicht parken.', a: 'kann', d: ['kannst', 'können'], t: 'Aquí no se puede aparcar.', e: '"man" lleva siempre 3ª persona singular: kann.' },
+      { s: 'Ich möchte am Sonntag lange ___.', a: 'schlafen', d: ['schlafe', 'geschlafen'], t: 'El domingo quiero dormir mucho.', e: 'El infinitivo cierra el paréntesis, al final del todo.' },
+      { s: 'Wir müssen morgen früh ___.', a: 'aufstehen', d: ['stehen auf', 'aufgestanden'], t: 'Mañana tenemos que levantarnos pronto.', e: 'El separable va junto cuando es infinitivo al final.' },
+      { s: '___ du mir mit dem Koffer helfen?', a: 'Kannst', d: ['Kann', 'Könnt'], t: '¿Me ayudas con la maleta?', e: 'El modal abre el paréntesis desde la primera posición.' },
+      { s: 'Er will nächstes Jahr in Wien ___.', a: 'studieren', d: ['studiert', 'studierte'], t: 'El año que viene quiere estudiar en Viena.', e: 'Infinitivo al final.' },
+      { s: 'Ich ___ heute Abend nicht kochen.', a: 'möchte', d: ['möchten', 'möchtest'], t: 'Esta noche no me apetece cocinar.', e: 'El modal ocupa la 2ª posición.' },
+      { s: 'Wollt ihr heute ins Schwimmbad ___?', a: 'gehen', d: ['geht', 'gegangen'], t: '¿Queréis ir hoy a la piscina?', e: 'Infinitivo al final de la pregunta.' },
+      { s: 'Man darf hier nicht ___.', a: 'rauchen', d: ['raucht', 'geraucht'], t: 'Aquí no se puede fumar.', e: 'El infinitivo cierra.' },
+      { s: 'Wir ___ am Wochenende die Wohnung putzen.', a: 'müssen', d: ['muss', 'müsst'], t: 'El fin de semana tenemos que limpiar el piso.', e: 'El modal en 2ª posición y el infinitivo al final.' },
+      { s: 'Kannst du das bitte noch einmal ___?', a: 'erklären', d: ['erklärst', 'erklärt'], t: '¿Puedes explicarlo otra vez?', e: 'Infinitivo al final.' },
+      { s: 'Sie will morgen früh ___.', a: 'losfahren', d: ['fährt los', 'losgefahren'], t: 'Mañana quiere salir pronto.', e: 'Separable en infinitivo: junto y al final.' },
+      { s: 'Ich ___ dich heute Abend anrufen.', a: 'will', d: ['wollen', 'wollt'], t: 'Esta noche te quiero llamar.', e: 'El modal segundo, el infinitivo al final.' },
+      { s: 'Ich will im Sommer einen Kurs ___.', a: 'machen', d: ['mache', 'gemacht'], t: 'En verano quiero hacer un curso.', e: 'El modal va segundo y el infinitivo al final.' },
+      { s: 'Wir können am Wochenende klettern ___.', a: 'gehen', d: ['gehe', 'gegangen'], t: 'El fin de semana podemos ir a escalar.', e: 'El infinitivo cierra la frase.' },
+      { s: 'Kannst du mir das Instrument kurz ___?', a: 'zeigen', d: ['zeigst', 'gezeigt'], t: '¿Me puedes enseñar un momento el instrumento?', e: 'kannst en 2ª posición, zeigen al final.' },
+      { s: 'Er will nächstes Jahr am Turnier ___.', a: 'teilnehmen', d: ['nimmt teil', 'teilgenommen'], t: 'El año que viene quiere participar en el torneo.', e: 'El infinitivo separable va entero al final.' },
+      { s: 'Wollt ihr euch für den Kurs ___?', a: 'anmelden', d: ['meldet an', 'angemeldet'], t: '¿Os queréis apuntar al curso?', e: 'anmelden entero al final.' },
+      { s: 'Ich kann am Dienstag leider nicht ___.', a: 'kommen', d: ['komme', 'gekommen'], t: 'El martes por desgracia no puedo ir.', e: 'El infinitivo cierra la frase.' },
+      { s: 'Wir wollen den Abend zusammen ___.', a: 'verbringen', d: ['verbringe', 'verbracht'], t: 'Queremos pasar la tarde juntos.', e: 'wollen … verbringen forman el paréntesis.' }
     ],
     orders: [
       { sol: ['Ich', 'kann', 'am', 'Samstag', 'Tennis', 'spielen'], t: 'El sábado puedo jugar al tenis.', e: 'Satzklammer: "kann" el segundo, "spielen" al final.' },
       { sol: ['Wir', 'wollen', 'im', 'Sommer', 'nach', 'Kroatien', 'fahren'], t: 'En verano queremos ir a Croacia.', e: 'El infinitivo cierra la frase.' },
       { sol: ['Kannst', 'du', 'mir', 'bitte', 'helfen?'], t: '¿Me puedes ayudar, por favor?', e: 'En la pregunta el modal abre y el infinitivo cierra.' },
       { sol: ['Er', 'will', 'heute', 'Abend', 'nicht', 'fernsehen'], t: 'Esta tarde no quiere ver la tele.', e: '"nicht" justo antes del infinitivo final.' },
-      { sol: ['Meine', 'Tochter', 'kann', 'schon', 'sehr', 'gut', 'lesen'], t: 'Mi hija ya sabe leer muy bien.', e: 'Modal (2) … infinitivo (final).' }
+      { sol: ['Meine', 'Tochter', 'kann', 'schon', 'sehr', 'gut', 'lesen'], t: 'Mi hija ya sabe leer muy bien.', e: 'Modal (2) … infinitivo (final).' },
+      { sol: ['Wir', 'müssen', 'morgen', 'früh', 'aufstehen'], t: 'Mañana tenemos que levantarnos pronto.', e: 'Modal (2) e infinitivo (final): entre los dos va todo lo demás.' },
+      { sol: ['Ich', 'möchte', 'am', 'Sonntag', 'lange', 'schlafen'], t: 'El domingo quiero dormir mucho.', e: 'El paréntesis del alemán: modal y verbo abrazan la frase.' }
+    ],
+    clozes: [
+      { txt: 'Am Samstag ___ wir früh ___, denn wir ___ um acht ___. Am Sonntag dagegen ___ ich lange schlafen.', a: ['müssen', 'aufstehen', 'wollen', 'losfahren', 'möchte'], extra: ['müsst', 'stehen auf', 'will', 'fahren los'], t: 'El sábado tenemos que levantarnos pronto, porque queremos salir a las ocho. El domingo, en cambio, quiero dormir mucho.', e: 'Dos paréntesis seguidos: el modal en segunda posición y el infinitivo al final, con todo lo demás en medio. Y el separable, junto.' }
     ]
   },
 
@@ -192,14 +313,30 @@ export const FRASE = {
       { s: 'Der Kurs hat um neun Uhr ___.', a: 'begonnen', d: ['beginnt', 'beginnen'], t: 'El curso empezó a las nueve.', e: 'beginnen → begonnen (sin ge- extra: los verbos con prefijo inseparable no lo llevan).' },
       { s: 'Ich ___ meine Hausaufgaben schon gemacht.', a: 'habe', d: ['bin', 'hatte'], t: 'Ya he hecho los deberes.', e: 'machen va con haben.' },
       { s: 'Am Sonntag sind wir lange ___.', a: 'geblieben', d: ['bleiben', 'bleibt'], t: 'El domingo nos quedamos mucho rato.', e: 'bleiben usa sein y su participio es geblieben.' },
-      { s: 'Wie lange hast du gestern ___?', a: 'geschlafen', d: ['schläfst', 'schlafen'], t: '¿Cuánto dormiste ayer?', e: 'schlafen → geschlafen, al final de la pregunta.' }
+      { s: 'Wie lange hast du gestern ___?', a: 'geschlafen', d: ['schläfst', 'schlafen'], t: '¿Cuánto dormiste ayer?', e: 'schlafen → geschlafen, al final de la pregunta.' },
+      { s: 'Ich habe gestern den ganzen Bericht ___.', a: 'geschrieben', d: ['schreiben', 'schreibe'], t: 'Ayer escribí el informe entero.', e: 'El participio cierra la frase.' },
+      { s: 'Wir sind am Wochenende nach Salzburg ___.', a: 'gefahren', d: ['fahren', 'fuhren'], t: 'El fin de semana fuimos a Salzburgo.', e: 'Participio al final, detrás de todos los complementos.' },
+      { s: '___ du mit ihr über das Problem gesprochen?', a: 'Hast', d: ['Bist', 'Warst'], t: '¿Has hablado con ella del problema?', e: 'En pregunta el auxiliar abre y el participio cierra.' },
+      { s: 'Sie hat mir den Weg genau ___.', a: 'erklärt', d: ['erklären', 'geerklärt'], t: 'Me explicó el camino con detalle.', e: 'erklären lleva prefijo inseparable: sin ge-.' },
+      { s: 'Wir haben gestern lange über dich ___.', a: 'geredet', d: ['reden', 'redeten'], t: 'Ayer estuvimos hablando mucho de ti.', e: 'El participio, el último.' },
+      { s: 'Ich bin heute mit dem Rad zur Arbeit ___.', a: 'gefahren', d: ['fahren', 'gegangen'], t: 'Hoy he ido al trabajo en bici.', e: 'Con "mit dem Rad" el verbo es fahren.' },
+      { s: 'Hast du die Mail schon ___?', a: 'abgeschickt', d: ['abschicken', 'schickte ab'], t: '¿Has mandado ya el correo?', e: 'Separable en participio: ab + ge + schickt, todo junto.' },
+      { s: 'Wir haben uns lange nicht ___.', a: 'gesehen', d: ['sehen', 'sahen'], t: 'Hace mucho que no nos vemos.', e: 'El participio cierra aunque haya reflexivo y negación.' },
+      { s: 'Ich habe gestern einen guten Film ___.', a: 'gesehen', d: ['sehen', 'sah'], t: 'Ayer vi una buena película.', e: 'El participio cierra la frase.' },
+      { s: 'Wir sind am Wochenende nach Graz ___.', a: 'gefahren', d: ['fahren', 'fuhren'], t: 'El fin de semana fuimos a Graz.', e: 'El participio va al final, detrás de todo.' },
+      { s: 'Er hat den Bus leider ___.', a: 'verpasst', d: ['verpassen', 'verpasste'], t: 'Por desgracia perdió el autobús.', e: 'El participio cierra la frase.' },
+      { s: 'Hast du den Bericht schon ___?', a: 'geschrieben', d: ['schreiben', 'schrieb'], t: '¿Ya has escrito el informe?', e: 'haben en 2ª posición, participio al final.' },
+      { s: 'Sie ist heute um sieben Uhr ___.', a: 'aufgestanden', d: ['aufstehen', 'stand auf'], t: 'Hoy se levantó a las siete.', e: 'El participio de los separables lleva ge- en medio: aufgestanden.' }
     ],
     orders: [
-      { sol: ['Am', 'Montag', 'habe', 'ich', 'meine', 'Familie', 'besucht'], t: 'El lunes visité a mi familia.', e: 'Complemento (1), auxiliar (2), participio al final.' },
+      { sol: ['Am', 'Montag', 'habe', 'ich', 'meine', 'Familie', 'besucht'], alt: [['Ich', 'habe', 'am', 'Montag', 'meine', 'Familie', 'besucht']], t: 'El lunes visité a mi familia.', e: 'Complemento (1), auxiliar (2), participio al final.' },
       { sol: ['Wann', 'bist', 'du', 'nach', 'Hause', 'gekommen?'], t: '¿Cuándo llegaste a casa?', e: 'Wann (1), auxiliar (2), participio al final.' },
       { sol: ['Wir', 'haben', 'gestern', 'einen', 'Film', 'gesehen'], t: 'Ayer vimos una película.', e: 'La grapa: haben … gesehen.' },
       { sol: ['Ich', 'bin', 'um', 'sieben', 'Uhr', 'aufgestanden'], t: 'Me levanté a las siete.', e: 'Verbo separable en Perfekt: el ge- va en medio (aufgestanden).' },
       { sol: ['Was', 'habt', 'ihr', 'am', 'Wochenende', 'gemacht?'], t: '¿Qué habéis hecho el fin de semana?', e: 'El participio cierra siempre la frase.' }
+    ],
+    clozes: [
+      { txt: 'Ich ___ den ganzen Tag im Büro ___ (arbeiten). Am Abend ___ wir noch essen ___ (gehen).', a: ['habe', 'gearbeitet', 'sind', 'gegangen'], extra: ['bin', 'arbeiten', 'haben', 'gehen'], t: 'He estado todo el día trabajando en la oficina. Por la noche salimos a cenar.', e: 'El auxiliar en 2ª posición y el participio al final: entre los dos va todo lo demás.' }
     ]
   },
 
@@ -217,7 +354,67 @@ export const FRASE = {
       { s: 'Sie freut sich, ___ morgen ist ihr Geburtstag.', a: 'denn', d: ['weil', 'dass'], t: 'Está contenta, porque mañana es su cumpleaños.', e: 'La segunda frase es principal ("ist" el segundo) → denn.' },
       { s: 'Wir essen jetzt, ___ wir haben Hunger.', a: 'denn', d: ['weil', 'obwohl'], t: 'Comemos ya, porque tenemos hambre.', e: 'denn no toca el orden de palabras.' },
       { s: 'Der Unterricht fällt aus, ___ die Lehrerin ist krank.', a: 'denn', d: ['weil', 'deswegen'], t: 'La clase se suspende, porque la profesora está enferma.', e: 'Verbo en 2ª posición tras el conector → denn.' },
-      { s: 'Ich rufe dich morgen an, ___ heute geht es nicht.', a: 'denn', d: ['weil', 'dass'], t: 'Te llamo mañana, porque hoy no puede ser.', e: 'denn + frase principal completa.' }
+      { s: 'Ich rufe dich morgen an, ___ heute geht es nicht.', a: 'denn', d: ['weil', 'dass'], t: 'Te llamo mañana, porque hoy no puede ser.', e: 'denn + frase principal completa.' },
+      { s: 'Wir bleiben heute zu Hause, ___ es regnet den ganzen Tag.', a: 'denn', d: ['weil', 'dass'], t: 'Hoy nos quedamos en casa, porque llueve todo el día.', e: '"denn" une dos frases principales: detrás va sujeto + verbo.' },
+      { s: 'Sie kauft das Kleid nicht, denn es ___ zu teuer.', a: 'ist', d: ['sei', 'sein'], t: 'No se compra el vestido, porque es demasiado caro.', e: 'Detrás de "denn" el verbo se queda en 2ª posición.' },
+      { s: 'Ich gehe früh schlafen, ___ morgen stehe ich um fünf auf.', a: 'denn', d: ['weil', 'obwohl'], t: 'Me acuesto pronto, porque mañana me levanto a las cinco.', e: '"denn" no cambia el orden de la frase que sigue.' },
+      { s: 'Er lernt jeden Tag, ___ er will die Prüfung bestehen.', a: 'denn', d: ['weil', 'dass'], t: 'Estudia todos los días, porque quiere aprobar el examen.', e: 'Con "denn" el modal se queda en 2ª posición.' },
+      { s: 'Wir nehmen ein Taxi, ___ der letzte Bus ist schon weg.', a: 'denn', d: ['weil', 'wenn'], t: 'Cogemos un taxi, porque el último autobús ya se ha ido.', e: '"denn" + frase principal normal.' },
+      { s: 'Sie ist müde, denn sie ___ schlecht geschlafen.', a: 'hat', d: ['habe', 'haben'], t: 'Está cansada, porque ha dormido mal.', e: 'El auxiliar se queda en 2ª posición detrás de "denn".' },
+      { s: 'Ich rufe ihn nicht an, ___ es ist schon spät.', a: 'denn', d: ['weil', 'damit'], t: 'No le llamo, porque ya es tarde.', e: 'Detrás de "denn": sujeto, verbo, resto.' },
+      { s: 'Er kommt zu spät, ___ er den Zug verpasst hat.', a: 'weil', d: ['denn', 'und'], t: 'Llega tarde porque ha perdido el tren.', e: 'Aquí el verbo va al final: eso es "weil", no "denn".' },
+      { s: 'Das Geschäft ist zu, ___ heute ist Feiertag.', a: 'denn', d: ['weil', 'obwohl'], t: 'La tienda está cerrada, porque hoy es festivo.', e: '"denn" + frase con el verbo en 2ª posición.' },
+      { s: 'Wir freuen uns, denn die Kinder ___ nach Hause.', a: 'kommen', d: ['kommt', 'kommst'], t: 'Estamos contentos, porque los niños vuelven a casa.', e: 'Sujeto plural → verbo en plural, en 2ª posición.' },
+      { s: 'Sie nimmt den Mantel mit, ___ es wird kalt.', a: 'denn', d: ['weil', 'dass'], t: 'Se lleva el abrigo, porque va a hacer frío.', e: '"denn" mantiene el orden de la principal.' },
+      { s: 'Ich verstehe ihn gut, ___ er spricht sehr langsam.', a: 'denn', d: ['weil', 'wenn'], t: 'Le entiendo bien, porque habla muy despacio.', e: '"denn" + sujeto + verbo.' },
+      { s: 'Er geht zum Arzt, denn er ___ seit Tagen Schmerzen.', a: 'hat', d: ['habe', 'haben'], t: 'Va al médico, porque lleva días con dolores.', e: 'Verbo en 2ª posición detrás de "denn".' },
+      { s: 'Wir essen im Restaurant, ___ der Kühlschrank ist leer.', a: 'denn', d: ['weil', 'damit'], t: 'Comemos en el restaurante, porque la nevera está vacía.', e: 'Dos frases principales unidas por "denn".' },
+      { s: 'Sie fährt mit dem Rad, ___ das Wetter schön ist.', a: 'weil', d: ['denn', 'aber'], t: 'Va en bici porque hace buen tiempo.', e: 'El verbo cierra la frase → "weil".' },
+      { s: 'Ich kann nicht kommen, ___ ich habe schon etwas vor.', a: 'denn', d: ['weil', 'dass'], t: 'No puedo ir, porque ya tengo planes.', e: '"denn" + frase principal.' },
+      { s: 'Er ist zufrieden, denn die Arbeit ___ fertig.', a: 'ist', d: ['sei', 'sind'], t: 'Está contento, porque el trabajo está terminado.', e: 'Sujeto singular → ist, en 2ª posición.' },
+      { s: 'Wir machen eine Pause, ___ wir arbeiten seit vier Stunden.', a: 'denn', d: ['weil', 'obwohl'], t: 'Hacemos una pausa, porque llevamos cuatro horas trabajando.', e: '"denn" no manda el verbo al final.' },
+      { s: 'Sie lernt Deutsch, ___ sie in Wien arbeiten möchte.', a: 'weil', d: ['denn', 'und'], t: 'Aprende alemán porque quiere trabajar en Viena.', e: 'El modal va al final → "weil".' },
+      { s: 'Der Kurs fällt aus, ___ zu wenige Leute sind angemeldet.', a: 'denn', d: ['weil', 'wenn'], t: 'El curso se suspende, porque hay poca gente apuntada.', e: '"denn" + orden normal.' },
+      { s: 'Ich nehme den Regenschirm, ___ der Himmel ist grau.', a: 'denn', d: ['weil', 'dass'], t: 'Cojo el paraguas, porque el cielo está gris.', e: 'Dos principales con "denn".' },
+      { s: 'Sie bleibt im Büro, denn sie ___ den Bericht noch schreiben.', a: 'muss', d: ['müssen', 'musst'], t: 'Se queda en la oficina, porque todavía tiene que escribir el informe.', e: 'El modal ocupa la 2ª posición detrás de "denn".' },
+      { s: 'Wir gratulieren ihm, ___ er hat die Prüfung bestanden.', a: 'denn', d: ['weil', 'damit'], t: 'Le damos la enhorabuena, porque ha aprobado el examen.', e: '"denn" + Perfekt con el auxiliar en 2ª posición.' },
+      { s: 'Er trinkt keinen Kaffee mehr, ___ er sonst nicht schlafen kann.', a: 'weil', d: ['denn', 'und'], t: 'Ya no toma café porque si no no puede dormir.', e: 'Verbo conjugado al final → "weil".' },
+      { s: 'Das Fest ist im Garten, ___ das Wohnzimmer ist zu klein.', a: 'denn', d: ['weil', 'obwohl'], t: 'La fiesta es en el jardín, porque el salón es demasiado pequeño.', e: '"denn" une dos principales.' },
+      { s: 'Sie ruft an, denn sie ___ die Adresse nicht.', a: 'kennt', d: ['kennen', 'kennst'], t: 'Llama, porque no se sabe la dirección.', e: 'Verbo en 2ª posición.' },
+      { s: 'Ich gehe einkaufen, ___ wir haben nichts mehr im Haus.', a: 'denn', d: ['weil', 'dass'], t: 'Voy a la compra, porque ya no queda nada en casa.', e: '"denn" + sujeto + verbo.' },
+      { s: 'Wir laden ihn ein, ___ er bald Geburtstag hat.', a: 'weil', d: ['denn', 'aber'], t: 'Le invitamos porque pronto es su cumpleaños.', e: 'El verbo cierra la subordinada → "weil".' },
+      { s: 'Wir feiern draußen, ___ die Wohnung ist zu klein.', a: 'denn', d: ['weil', 'dass'], t: 'Lo celebramos fuera, porque el piso es demasiado pequeño.', e: 'Detrás de denn el verbo se queda en 2ª posición.' },
+      { s: 'Ich komme erst um neun, ___ ich muss noch arbeiten.', a: 'denn', d: ['weil', 'obwohl'], t: 'No llego hasta las nueve, porque todavía tengo que trabajar.', e: 'denn no manda el verbo al final.' },
+      { s: 'Sie bleibt heute zu Hause, ___ sie ist krank.', a: 'denn', d: ['weil', 'dass'], t: 'Hoy se queda en casa, porque está enferma.', e: 'Con denn el orden de la frase no cambia.' },
+      { s: 'Wir nehmen ein Taxi, ___ es regnet stark.', a: 'denn', d: ['weil', 'wenn'], t: 'Cogemos un taxi, porque llueve mucho.', e: 'denn une dos frases principales.' },
+      { s: 'Er kauft Blumen, ___ heute ist ihr Geburtstag.', a: 'denn', d: ['weil', 'dass'], t: 'Compra flores, porque hoy es su cumpleaños.', e: 'Detrás de denn la frase mantiene su orden.' },
+      { s: 'Ich trinke abends keinen Kaffee, ___ ich schlafe sonst schlecht.', a: 'denn', d: ['weil', 'obwohl'], t: 'Por la tarde no bebo café, porque si no duermo mal.', e: 'denn + frase con el verbo en 2ª posición.' },
+      { s: 'Wir gehen früh, ___ morgen stehen wir zeitig auf.', a: 'denn', d: ['weil', 'damit'], t: 'Nos vamos pronto, porque mañana madrugamos.', e: 'denn no cambia el orden de la frase.' },
+      { s: 'Das Fest fällt aus, ___ der Saal ist nicht frei.', a: 'denn', d: ['weil', 'wenn'], t: 'La fiesta se cancela, porque la sala no está libre.', e: 'denn une dos oraciones principales.' },
+      { s: 'Bring einen Pullover mit, ___ abends wird es kühl.', a: 'denn', d: ['weil', 'dass'], t: 'Trae un jersey, porque por la tarde refresca.', e: 'Detrás de denn el verbo va segundo.' },
+      { s: 'Sie freut sich sehr, ___ alle sind gekommen.', a: 'denn', d: ['weil', 'obwohl'], t: 'Ella está muy contenta, porque han venido todos.', e: 'denn mantiene el orden normal de la frase.' },
+      { s: 'Ich bleibe zu Hause, denn ich ___ krank.', a: 'bin', d: ['sein', 'bin ich'], t: 'Me quedo en casa, porque estoy enfermo.', e: 'Detrás de denn empieza una frase normal: sujeto primero, verbo segundo.' },
+      { s: 'Wir nehmen ein Taxi, denn es ___ sehr stark.', a: 'regnet', d: ['regnen', 'regnet es'], t: 'Cogemos un taxi, porque llueve mucho.', e: 'denn no cambia el orden: sujeto, verbo.' },
+      { s: 'Er kommt später, denn er ___ noch arbeiten.', a: 'muss', d: ['müssen', 'muss er'], t: 'Viene más tarde, porque todavía tiene que trabajar.', e: 'El modal va en 2ª posición, no al final como con weil.' },
+      { s: 'Sie ist müde, denn sie ___ gestern lange gearbeitet.', a: 'hat', d: ['haben', 'hat sie'], t: 'Está cansada, porque ayer trabajó mucho.', e: 'Con denn el auxiliar va segundo y el participio al final.' },
+      { s: 'Ich rufe an, denn ich ___ eine kurze Frage.', a: 'habe', d: ['haben', 'habe ich'], t: 'Llamo, porque tengo una pregunta rápida.', e: 'Sujeto y verbo en el orden normal.' },
+      { s: 'Wir gehen früh, denn morgen ___ wir zeitig auf.', a: 'stehen', d: ['aufstehen', 'stehen wir'], t: 'Nos vamos pronto, porque mañana madrugamos.', e: 'Detrás de denn va otra frase normal: morgen primero, verbo segundo.' },
+      { s: 'Das Fest fällt aus, denn der Saal ___ nicht frei.', a: 'ist', d: ['sein', 'ist er'], t: 'La fiesta se cancela, porque la sala no está libre.', e: 'Orden normal detrás de denn.' },
+      { s: 'Bring eine Jacke mit, denn abends ___ es kühl.', a: 'wird', d: ['werden', 'wird es'], t: 'Trae una chaqueta, porque por la tarde refresca.', e: 'abends ocupa la 1ª posición y el verbo la segunda.' },
+      { s: 'Sie freut sich, denn alle ___ pünktlich gekommen.', a: 'sind', d: ['sein', 'sind alle'], t: 'Está contenta, porque todos llegaron puntuales.', e: 'El auxiliar va segundo y el participio al final.' },
+      { s: 'Ich trinke keinen Kaffee, denn ich ___ sonst schlecht.', a: 'schlafe', d: ['schlafen', 'schlafe ich'], t: 'No bebo café, porque si no duermo mal.', e: 'Orden normal, verbo en 2ª posición.' },
+      { s: 'Wir müssen los, denn der Zug ___ in zehn Minuten.', a: 'fährt', d: ['fahren', 'fährt er'], t: 'Tenemos que irnos, porque el tren sale en diez minutos.', e: 'Detrás de denn, sujeto y verbo en el orden normal.' },
+      { s: 'Zieh dich warm an, denn draußen ___ es null Grad.', a: 'hat', d: ['haben', 'hat es'], t: 'Abrígate, porque fuera hace cero grados.', e: 'draußen va primero y el verbo, segundo.' },
+      { s: 'Sie war enttäuscht, denn niemand ___ ihr gratuliert.', a: 'hatte', d: ['hat', 'hatten'], t: 'Estaba decepcionada, porque nadie la había felicitado.', e: 'niemand es singular: hatte.' },
+      { s: 'Ich mache das Fenster zu, denn es ___ mir zu kalt.', a: 'wird', d: ['werden', 'wird es'], t: 'Cierro la ventana, porque estoy cogiendo frío.', e: 'Verbo en 2ª posición detrás de denn.' },
+      { s: 'Er lernt jeden Tag, denn im Mai ___ die Prüfung.', a: 'ist', d: ['sein', 'ist sie'], t: 'Estudia todos los días, porque el examen es en mayo.', e: 'im Mai ocupa la 1ª posición y el verbo la segunda.' },
+      { s: 'Nimm den Schirm mit, denn es ___ gleich regnen.', a: 'wird', d: ['werden', 'wird es'], t: 'Llévate el paraguas, porque va a llover en nada.', e: 'El auxiliar de futuro va segundo, el infinitivo al final.' },
+      { s: 'Wir essen später, denn die Gäste ___ erst um acht.', a: 'kommen', d: ['kommt', 'kommen sie'], t: 'Comemos más tarde, porque los invitados no llegan hasta las ocho.', e: 'die Gäste es plural: kommen.' },
+      { s: 'Sie ruft nicht an, denn sie ___ deine Nummer verloren.', a: 'hat', d: ['ist', 'haben'], t: 'No llama, porque ha perdido tu número.', e: 'verlieren va con haben: hat verloren.' },
+      { s: 'Das Konzert fällt aus, denn der Sänger ___ krank geworden.', a: 'ist', d: ['hat', 'war'], t: 'El concierto se cancela, porque el cantante se ha puesto enfermo.', e: 'werden forma el Perfekt con sein: ist geworden.' },
+      { s: 'Ich bleibe noch, denn mein Bus ___ erst um elf.', a: 'geht', d: ['gehen', 'geht er'], t: 'Me quedo un rato, porque mi autobús no sale hasta las once.', e: 'Orden normal: sujeto y después el verbo.' },
+      { s: 'Wir nehmen das Rad, denn die Straßen ___ heute voll.', a: 'sind', d: ['ist', 'sein'], t: 'Cogemos la bici, porque hoy las calles están llenas.', e: 'die Straßen es plural: sind.' },
+      { s: 'Er sagt nichts, denn er ___ den Chef nicht ärgern.', a: 'will', d: ['wollen', 'will er'], t: 'No dice nada, porque no quiere enfadar al jefe.', e: 'Con denn el modal va segundo, no al final.' }
     ],
     orders: [
       { sol: ['Ich', 'komme', 'später,', 'denn', 'ich', 'muss', 'noch', 'arbeiten'], t: 'Llego más tarde, porque todavía tengo que trabajar.', e: 'Tras "denn" el orden es el normal: sujeto + verbo.' },
@@ -225,7 +422,15 @@ export const FRASE = {
       { sol: ['Er', 'isst', 'nichts,', 'denn', 'er', 'hat', 'keinen', 'Hunger'], t: 'No come nada, porque no tiene hambre.', e: 'Dos frases principales unidas por denn.' },
       { sol: ['Ich', 'nehme', 'den', 'Zug,', 'denn', 'das', 'Auto', 'ist', 'kaputt'], t: 'Cojo el tren, porque el coche está averiado.', e: 'Sujeto + verbo también después de denn.' },
       { sol: ['Sie', 'lernt', 'viel,', 'denn', 'sie', 'hat', 'bald', 'eine', 'Prüfung'], t: 'Estudia mucho, porque pronto tiene un examen.', e: 'denn + frase principal completa.' },
-      { sol: ['Ich', 'kaufe', 'das', 'nicht,', 'denn', 'es', 'ist', 'zu', 'teuer'], t: 'No lo compro, porque es demasiado caro.', e: 'El orden no cambia tras denn.' }
+      { sol: ['Ich', 'kaufe', 'das', 'nicht,', 'denn', 'es', 'ist', 'zu', 'teuer'], t: 'No lo compro, porque es demasiado caro.', e: 'El orden no cambia tras denn.' },
+      { sol: ['Wir', 'nehmen', 'ein', 'Taxi,', 'denn', 'der', 'Bus', 'ist', 'weg'], t: 'Cogemos un taxi, porque el autobús se ha ido.', e: 'Detrás de "denn" empieza una frase principal entera: sujeto y verbo.' },
+      { sol: ['Ich', 'gehe', 'früh', 'schlafen,', 'denn', 'ich', 'bin', 'müde'], t: 'Me acuesto pronto, porque estoy cansado.', e: '"denn" no cambia el orden: el verbo sigue en 2ª posición.' },
+      { sol: ['Sie', 'nimmt', 'den', 'Mantel', 'mit,', 'denn', 'es', 'wird', 'kalt'], t: 'Se lleva el abrigo, porque va a hacer frío.', e: 'Separable en la primera frase, principal normal detrás de "denn".' },
+      { sol: ['Das', 'Geschäft', 'ist', 'zu,', 'denn', 'heute', 'ist', 'Feiertag'], t: 'La tienda está cerrada, porque hoy es festivo.', e: 'Detrás de "denn" puede ir un complemento primero, pero el verbo sigue en 2ª.' }
+    ],
+    clozes: [
+      { txt: 'Ich komme heute später, ___ ich ___ noch arbeiten. Wir feiern trotzdem, ___ Anna ___ Geburtstag.', a: ['denn', 'muss', 'denn', 'hat'], extra: ['weil', 'müssen', 'weil'], t: 'Hoy llego más tarde, porque todavía tengo que trabajar. Aun así lo celebramos, porque es el cumpleaños de Anna.', e: 'Detrás de "denn" empieza una frase principal entera: sujeto y luego el verbo en 2ª posición, no al final.' },
+      { txt: 'Wir feiern draußen, ___ die Wohnung ___ zu klein. Komm ruhig später, ___ wir ___ bis spät.', a: ['denn', 'ist', 'denn', 'bleiben'], extra: ['weil', 'sei', 'obwohl'], t: 'Lo celebramos fuera, porque el piso es demasiado pequeño. Ven tranquilo más tarde, porque nos quedamos hasta tarde.', e: 'Detrás de "denn" el verbo se queda en 2ª posición; con "weil" se habría ido al final.' }
     ]
   },
 
@@ -243,14 +448,73 @@ export const FRASE = {
       { s: 'Ich nehme das Fahrrad, weil der Bus zu lange ___.', a: 'braucht', d: ['braucht er', 'brauchen'], t: 'Cojo la bici porque el autobús tarda demasiado.', e: 'Verbo al final de la subordinada.' },
       { s: 'Warum kommst du nicht? – ___ ich keine Lust habe.', a: 'Weil', d: ['Denn', 'Deswegen'], t: '¿Por qué no vienes? – Porque no tengo ganas.', e: 'La respuesta a "warum" empieza por "weil" (nunca por "denn").' },
       { s: 'Sie ist müde, weil sie gestern lange ___ hat.', a: 'gearbeitet', d: ['arbeitet', 'arbeiten'], t: 'Está cansada porque ayer trabajó hasta tarde.', e: 'Perfekt en subordinada: participio + auxiliar al final.' },
-      { s: 'Weil wir umgezogen ___, haben wir viel zu tun.', a: 'sind', d: ['sind wir', 'haben'], t: 'Como nos hemos mudado, tenemos mucho que hacer.', e: 'umziehen usa sein; el auxiliar cierra la subordinada.' }
+      { s: 'Weil wir umgezogen ___, haben wir viel zu tun.', a: 'sind', d: ['sind wir', 'haben'], t: 'Como nos hemos mudado, tenemos mucho que hacer.', e: 'umziehen usa sein; el auxiliar cierra la subordinada.' },
+      { s: 'Ich komme nicht mit, ___ ich noch arbeiten muss.', a: 'weil', d: ['denn', 'deswegen'], t: 'No voy con vosotros porque todavía tengo que trabajar.', e: 'Con "weil" el verbo conjugado (el modal) se va al final.' },
+      { s: 'Sie bleibt zu Hause, weil ihr Kind krank ___.', a: 'ist', d: ['ist es', 'sein'], t: 'Se queda en casa porque su hijo está enfermo.', e: 'ist cierra la subordinada.' },
+      { s: 'Wir nehmen ein Taxi, ___ es schon spät ist.', a: 'weil', d: ['denn', 'trotzdem'], t: 'Cogemos un taxi porque ya es tarde.', e: 'El verbo al final delata que es "weil".' },
+      { s: 'Er lernt viel, weil er die Prüfung bestehen ___.', a: 'will', d: ['will er', 'wollen'], t: 'Estudia mucho porque quiere aprobar el examen.', e: 'Con modal: infinitivo y luego el modal, al final.' },
+      { s: 'Ich rufe dich später an, ___ ich jetzt keine Zeit habe.', a: 'weil', d: ['denn', 'deswegen'], t: 'Te llamo luego porque ahora no tengo tiempo.', e: 'habe cierra la frase.' },
+      { s: 'Sie freut sich, weil sie die Stelle bekommen ___.', a: 'hat', d: ['hat sie', 'haben'], t: 'Está contenta porque ha conseguido el puesto.', e: 'En Perfekt el auxiliar va el último.' },
+      { s: 'Wir gehen nicht schwimmen, ___ das Wasser zu kalt ist.', a: 'weil', d: ['denn', 'obwohl'], t: 'No vamos a nadar porque el agua está demasiado fría.', e: '"weil" + verbo al final.' },
+      { s: 'Er ist zu spät gekommen, weil der Zug Verspätung ___.', a: 'hatte', d: ['hatte er', 'haben'], t: 'Llegó tarde porque el tren se retrasó.', e: 'hatte cierra la subordinada.' },
+      { s: 'Ich nehme den Mantel mit, ___ es kalt wird.', a: 'weil', d: ['denn', 'trotzdem'], t: 'Me llevo el abrigo porque va a hacer frío.', e: 'wird al final → "weil".' },
+      { s: 'Sie kann nicht kommen, weil sie ihre Eltern ___.', a: 'besucht', d: ['besucht sie', 'besuchen'], t: 'No puede venir porque visita a sus padres.', e: 'besucht cierra la frase.' },
+      { s: 'Wir feiern draußen, ___ die Wohnung zu klein ist.', a: 'weil', d: ['denn', 'deswegen'], t: 'Lo celebramos fuera porque el piso es demasiado pequeño.', e: '"weil" manda el verbo al final.' },
+      { s: 'Er sagt ab, weil er sich nicht wohl ___.', a: 'fühlt', d: ['fühlt er', 'fühlen'], t: 'Lo cancela porque no se encuentra bien.', e: 'El reflexivo va antes y el verbo al final.' },
+      { s: 'Ich gehe früh ins Bett, ___ ich morgen um fünf aufstehen muss.', a: 'weil', d: ['denn', 'trotzdem'], t: 'Me acuesto pronto porque mañana tengo que levantarme a las cinco.', e: 'Infinitivo + modal, los dos al final.' },
+      { s: 'Sie ist glücklich, weil ihre Freundin sie ___ hat.', a: 'eingeladen', d: ['eingeladen hat sie', 'einladen'], t: 'Está contenta porque su amiga la ha invitado.', e: 'Participio y después el auxiliar.' },
+      { s: 'Er bringt einen Kuchen mit, ___ er gern backt.', a: 'weil', d: ['denn', 'deswegen'], t: 'Trae un bizcocho porque le gusta hacer repostería.', e: 'backt al final.' },
+      { s: 'Ich bestelle das nicht, ___ es ist mir zu teuer.', a: 'denn', d: ['weil', 'obwohl'], t: 'No lo pido, porque me resulta demasiado caro.', e: 'Aquí el verbo va en 2ª posición: eso es «denn».' },
+      { s: 'Wir laden ihn ein, weil er uns immer ___.', a: 'hilft', d: ['hilft er', 'helfen'], t: 'Le invitamos porque siempre nos ayuda.', e: 'hilft cierra la subordinada.' },
+      { s: 'Sie lernt Deutsch, ___ sie in Wien bleiben möchte.', a: 'weil', d: ['denn', 'trotzdem'], t: 'Aprende alemán porque quiere quedarse en Viena.', e: 'El modal cierra la frase.' },
+      { s: 'Er kommt zu Fuß, weil sein Auto kaputt ___.', a: 'ist', d: ['ist es', 'sein'], t: 'Viene andando porque tiene el coche roto.', e: 'ist al final.' },
+      { s: 'Ich bringe Blumen mit, ___ das hier üblich ist.', a: 'weil', d: ['denn', 'deswegen'], t: 'Llevo flores porque aquí es lo habitual.', e: '"weil" + verbo al final.' },
+      { s: 'Sie ruft an, weil sie die Adresse nicht ___.', a: 'findet', d: ['findet sie', 'finden'], t: 'Llama porque no encuentra la dirección.', e: 'findet cierra la frase.' },
+      { s: 'Wir bleiben länger, ___ es so gemütlich ist.', a: 'weil', d: ['denn', 'obwohl'], t: 'Nos quedamos más rato porque se está muy a gusto.', e: 'ist al final → "weil".' },
+      { s: 'Er hat abgesagt, weil er krank geworden ___.', a: 'ist', d: ['ist er', 'sein'], t: 'Lo canceló porque se puso enfermo.', e: 'werden va con sein; el auxiliar, el último.' },
+      { s: 'Ich schreibe ihr, ___ ich mich bedanken möchte.', a: 'weil', d: ['denn', 'trotzdem'], t: 'Le escribo porque quiero darle las gracias.', e: 'Reflexivo, infinitivo y modal: el modal cierra.' },
+      { s: 'Sie kommt später, weil der Bus nur einmal pro Stunde ___.', a: 'fährt', d: ['fährt er', 'fahren'], t: 'Viene más tarde porque el autobús pasa una vez por hora.', e: 'fährt al final.' },
+      { s: 'Wir machen das Fest im Garten, ___ das Wetter schön ist.', a: 'weil', d: ['denn', 'deswegen'], t: 'Hacemos la fiesta en el jardín porque hace buen tiempo.', e: '"weil" + verbo al final.' },
+      { s: 'Er isst kein Fleisch, weil er Vegetarier ___.', a: 'ist', d: ['ist er', 'sein'], t: 'No come carne porque es vegetariano.', e: 'ist cierra la subordinada.' },
+      { s: 'Ich nehme das Geschenk mit, ___ sie Geburtstag hat.', a: 'weil', d: ['denn', 'obwohl'], t: 'Me llevo el regalo porque es su cumpleaños.', e: 'hat al final.' },
+      { s: 'Ich komme später, weil ich noch arbeiten ___.', a: 'muss', d: ['muss ich', 'musse'], t: 'Vengo más tarde porque todavía tengo que trabajar.', e: 'Con weil el verbo conjugado va al final.' },
+      { s: 'Wir bleiben zu Hause, weil es stark ___.', a: 'regnet', d: ['regnet es', 'regne'], t: 'Nos quedamos en casa porque llueve mucho.', e: 'weil manda el verbo al final.' },
+      { s: 'Sie isst das nicht, weil sie allergisch ___.', a: 'ist', d: ['ist sie', 'sein'], t: 'Ella no come eso porque es alérgica.', e: 'El verbo cierra la frase con weil.' },
+      { s: 'Ich lerne Deutsch, weil ich hier ___.', a: 'arbeite', d: ['arbeite ich', 'arbeiten'], t: 'Aprendo alemán porque trabajo aquí.', e: 'weil + verbo al final.' },
+      { s: 'Er kommt heute nicht, weil er krank ___.', a: 'ist', d: ['ist er', 'sein'], t: 'Hoy no viene porque está enfermo.', e: 'ist cierra la frase.' },
+      { s: 'Wir nehmen ein Taxi, weil der Bus nicht mehr ___.', a: 'fährt', d: ['fährt er', 'fahren'], t: 'Cogemos un taxi porque el autobús ya no pasa.', e: 'weil manda fährt al final.' },
+      { s: 'Ich rufe an, weil ich eine Frage ___.', a: 'habe', d: ['habe ich', 'haben'], t: 'Llamo porque tengo una pregunta.', e: 'habe va al final.' },
+      { s: 'Sie freut sich, weil alle gekommen ___.', a: 'sind', d: ['sind alle', 'sein'], t: 'Ella está contenta porque han venido todos.', e: 'Con el Perfekt, el auxiliar va al final del todo.' },
+      { s: 'Wir feiern draußen, weil die Wohnung zu klein ___.', a: 'ist', d: ['ist sie', 'sein'], t: 'Lo celebramos fuera porque el piso es demasiado pequeño.', e: 'ist cierra la frase subordinada.' },
+      { s: 'Ich gehe früh schlafen, weil ich morgen früh ___.', a: 'aufstehe', d: ['stehe auf', 'aufstehen'], t: 'Me acuesto pronto porque mañana madrugo.', e: 'Con weil los separables no se separan: aufstehe.' },
+      { s: 'Ich bin müde, weil ich bis Mitternacht gearbeitet ___.', a: 'habe', d: ['bin', 'hat'], t: 'Estoy cansado porque trabajé hasta medianoche.', e: 'En el Perfekt con weil el auxiliar va al final del todo, detrás del participio.' },
+      { s: 'Sie ist zu spät, weil sie den Bus verpasst ___.', a: 'hat', d: ['ist', 'habe'], t: 'Llega tarde porque perdió el autobús.', e: 'El auxiliar cierra la frase: verpasst hat.' },
+      { s: 'Wir sind müde, weil wir früh aufgestanden ___.', a: 'sind', d: ['haben', 'ist'], t: 'Estamos cansados porque nos levantamos temprano.', e: 'aufstehen va con sein: aufgestanden sind.' },
+      { s: 'Er kommt heute nicht, weil er gestern ___.', a: 'gearbeitet hat', d: ['hat gearbeitet', 'gearbeitet ist'], t: 'Hoy no viene porque ayer trabajó.', e: 'Participio primero y auxiliar al final: gearbeitet hat.' },
+      { s: 'Ich rufe jetzt an, weil ich morgen früh ___.', a: 'aufstehen muss', d: ['muss aufstehen', 'aufstehe muss'], t: 'Llamo ahora porque mañana tengo que madrugar.', e: 'Con un modal: primero el infinitivo y el modal al final.' },
+      { s: 'Sie bleibt zu Hause, weil sie das Kind ___.', a: 'abholen muss', d: ['muss abholen', 'abholt muss'], t: 'Se queda en casa porque tiene que recoger al niño.', e: 'El modal cierra la frase, detrás del infinitivo.' },
+      { s: 'Wir gehen früher, weil wir den Zug ___.', a: 'erreichen wollen', d: ['wollen erreichen', 'erreichen wollten'], t: 'Nos vamos antes porque queremos coger el tren.', e: 'Infinitivo y luego el modal, en ese orden, al final.' },
+      { s: 'Ich lerne so viel, weil ich die Prüfung ___.', a: 'bestehen will', d: ['will bestehen', 'bestehe will'], t: 'Estudio tanto porque quiero aprobar el examen.', e: 'El modal va el último de todos.' },
+      { s: 'Er ist zufrieden, weil alles gut ___.', a: 'gelaufen ist', d: ['ist gelaufen', 'gelaufen hat'], t: 'Está contento porque todo salió bien.', e: 'laufen forma el Perfekt con sein: gelaufen ist.' },
+      { s: 'Sie freut sich, weil sie die Stelle ___.', a: 'bekommen hat', d: ['hat bekommen', 'bekommen ist'], t: 'Está contenta porque consiguió el puesto.', e: 'Participio y después el auxiliar.' },
+      { s: 'Ich komme später, weil ich vorher noch ___.', a: 'einkaufen gehe', d: ['gehe einkaufen', 'einkaufe gehe'], t: 'Vengo más tarde porque antes voy a comprar.', e: 'Con weil el verbo conjugado cierra la frase.' },
+      { s: 'Wir bleiben hier, weil das Wetter schlechter ___.', a: 'geworden ist', d: ['ist geworden', 'geworden hat'], t: 'Nos quedamos aquí porque el tiempo ha empeorado.', e: 'werden forma el Perfekt con sein: geworden ist.' }
     ],
     orders: [
       { sol: ['weil', 'ich', 'morgen', 'früh', 'arbeiten', 'muss'], t: '…porque mañana tengo que trabajar temprano.', e: 'En la subordinada: infinitivo + verbo conjugado ("muss") al final.' },
       { sol: ['weil', 'das', 'Essen', 'sehr', 'gut', 'geschmeckt', 'hat'], t: '…porque la comida estaba muy buena.', e: 'Perfekt en subordinada: participio + auxiliar ("hat") al final.' },
       { sol: ['Weil', 'ich', 'Kopfschmerzen', 'habe,', 'gehe', 'ich', 'schlafen'], t: 'Como me duele la cabeza, me voy a dormir.', e: 'Estructura subordinada + principal (verbo antes del sujeto).' },
       { sol: ['Ich', 'bleibe', 'zu', 'Hause,', 'weil', 'ich', 'krank', 'bin'], t: 'Me quedo en casa porque estoy enfermo.', e: 'Principal + weil-subordinada con el verbo al final.' },
-      { sol: ['Weil', 'der', 'Zug', 'Verspätung', 'hatte,', 'kam', 'ich', 'zu', 'spät'], t: 'Como el tren llevaba retraso, llegué tarde.', e: 'Subordinada delante: la principal empieza por el verbo.' }
+      { sol: ['Weil', 'der', 'Zug', 'Verspätung', 'hatte,', 'kam', 'ich', 'zu', 'spät'], t: 'Como el tren llevaba retraso, llegué tarde.', e: 'Subordinada delante: la principal empieza por el verbo.' },
+      { sol: ['Ich', 'komme', 'nicht', 'mit,', 'weil', 'ich', 'arbeiten', 'muss'], t: 'No voy porque tengo que trabajar.', e: 'Con "weil": infinitivo y después el modal, al final de todo.' },
+      { sol: ['Sie', 'bleibt', 'zu', 'Hause,', 'weil', 'ihr', 'Kind', 'krank', 'ist'], t: 'Se queda en casa porque su hijo está enfermo.', e: 'El verbo conjugado cierra la subordinada.' },
+      { sol: ['Sie', 'freut', 'sich,', 'weil', 'sie', 'die', 'Stelle', 'bekommen', 'hat'], t: 'Está contenta porque ha conseguido el puesto.', e: 'Participio y luego el auxiliar, en ese orden.' },
+      { sol: ['Wir', 'feiern', 'draußen,', 'weil', 'die', 'Wohnung', 'zu', 'klein', 'ist'], t: 'Lo celebramos fuera porque el piso es pequeño.', e: 'ist, el último.' },
+      { sol: ['Er', 'kommt', 'zu', 'Fuß,', 'weil', 'sein', 'Auto', 'kaputt', 'ist'], t: 'Viene andando porque tiene el coche roto.', e: 'El adjetivo delante del verbo final.' }
+    ],
+    clozes: [
+      { txt: 'Hallo Tom! Ich kann am Samstag leider nicht kommen, ___ meine Schwester Geburtstag ___. Ich bringe dir das Geschenk am Sonntag vorbei, ___ ich dann frei habe. Es tut mir leid, ___ ich mich so spät melde!', a: ['weil', 'hat', 'weil', 'dass'], extra: ['denn', 'hat sie', 'trotzdem', 'ob'], t: '¡Hola, Tom! El sábado no puedo ir porque es el cumpleaños de mi hermana. Te llevo el regalo el domingo, porque entonces tengo libre. ¡Siento avisar tan tarde!', e: 'Los tres conectores mandan el verbo al final (hat, habe, melde). Con "denn" el verbo se habría quedado en segunda posición.' },
+      { txt: 'Ich kann am Samstag nicht kommen, ___ meine Schwester Geburtstag ___. Und am Sonntag? – Auch nicht, ___ ich arbeiten ___.', a: ['weil', 'hat', 'weil', 'muss'], extra: ['denn', 'hat sie', 'trotzdem'], t: 'El sábado no puedo ir porque es el cumpleaños de mi hermana. ¿Y el domingo? – Tampoco, porque tengo que trabajar.', e: 'Con "weil" el verbo conjugado cierra la frase: hat al final, y con modal el infinitivo va antes y el modal el último.' }
     ]
   },
 
@@ -268,13 +532,38 @@ export const FRASE = {
       { s: 'Ich rufe dich an, wenn ich zu Hause ___.', a: 'bin', d: ['bin ich', 'sein'], t: 'Te llamo cuando esté en casa.', e: 'Verbo al final; en alemán se usa presente donde el español usa subjuntivo.' },
       { s: 'Sag mir Bescheid, ___ du fertig bist.', a: 'wenn', d: ['wann', 'als'], t: 'Avísame cuando termines.', e: 'El verbo "bist" está al final → wenn.' },
       { s: 'Wenn ich mehr Geld ___, würde ich reisen.', a: 'hätte', d: ['habe ich', 'haben'], t: 'Si tuviera más dinero, viajaría.', e: 'Condición irreal: Konjunktiv II "hätte", igualmente al final.' },
-      { s: 'Weißt du, ___ der Zug ankommt?', a: 'wann', d: ['wenn', 'als'], t: '¿Sabes cuándo llega el tren?', e: 'Pregunta indirecta por el momento → wann.' }
+      { s: 'Weißt du, ___ der Zug ankommt?', a: 'wann', d: ['wenn', 'als'], t: '¿Sabes cuándo llega el tren?', e: 'Pregunta indirecta por el momento → wann.' },
+      { s: '___ ich Zeit habe, rufe ich dich an.', a: 'Wenn', d: ['Als', 'Dass'], t: 'Cuando tenga tiempo te llamo.', e: '"wenn" manda el verbo al final de su frase.' },
+      { s: 'Ruf mich an, ___ du angekommen bist.', a: 'wenn', d: ['als', 'dass'], t: 'Llámame cuando hayas llegado.', e: 'wenn + auxiliar al final.' },
+      { s: '___ es regnet, bleiben wir zu Hause.', a: 'Wenn', d: ['Als', 'Denn'], t: 'Si llueve nos quedamos en casa.', e: 'La principal empieza por el verbo porque la subordinada ocupa la 1ª posición.' },
+      { s: 'Ich helfe dir, ___ du willst.', a: 'wenn', d: ['als', 'dass'], t: 'Te ayudo si quieres.', e: 'wenn + modal al final.' },
+      { s: '___ ich nach Hause komme, koche ich immer.', a: 'Wenn', d: ['Als', 'Dass'], t: 'Cuando llego a casa siempre cocino.', e: 'Costumbre repetida → wenn.' },
+      { s: 'Sag Bescheid, ___ du fertig bist.', a: 'wenn', d: ['als', 'denn'], t: 'Avisa cuando hayas terminado.', e: 'wenn + bist al final.' },
+      { s: '___ du müde bist, mach eine Pause.', a: 'Wenn', d: ['Als', 'Dass'], t: 'Si estás cansado, haz una pausa.', e: 'wenn abre y el imperativo cierra la principal.' },
+      { s: 'Wir fahren los, ___ alle da sind.', a: 'wenn', d: ['als', 'denn'], t: 'Salimos cuando estén todos.', e: 'wenn + sind al final.' },
+      { s: 'Sag Bescheid, wenn du Hilfe ___.', a: 'brauchst', d: ['brauchst du', 'brauchen'], t: 'Avisa si necesitas ayuda.', e: 'wenn manda el verbo al final.' },
+      { s: 'Wenn der Druck zu hoch ___, rede mit der Chefin.', a: 'wird', d: ['wird er', 'werden'], t: 'Si la presión sube demasiado, habla con la jefa.', e: 'wird cierra la frase con wenn.' },
+      { s: 'Ich helfe dir, wenn ich Zeit ___.', a: 'habe', d: ['habe ich', 'haben'], t: 'Te ayudo si tengo tiempo.', e: 'habe va al final.' },
+      { s: 'Wenn du den Bericht ___, schick ihn mir.', a: 'fertig hast', d: ['hast fertig', 'fertig haben'], t: 'Cuando tengas listo el informe, mándamelo.', e: 'El verbo conjugado cierra la frase subordinada.' },
+      { s: 'Wenn es regnet, ___ ich mit der U-Bahn.', a: 'fahre', d: ['ich fahre', 'fahren'], t: 'Si llueve, voy en metro.', e: 'Detrás de la subordinada el verbo principal va primero.' },
+      { s: 'Ruf mich an, wenn du angekommen ___.', a: 'bist', d: ['hast', 'sind'], t: 'Llámame cuando hayas llegado.', e: 'ankommen va con sein: angekommen bist.' },
+      { s: 'Wenn ich das früher ___, wäre alles anders.', a: 'gewusst hätte', d: ['hätte gewusst', 'wusste hätte'], t: 'Si lo hubiera sabido antes, todo sería distinto.', e: 'El auxiliar cierra la frase subordinada.' },
+      { s: 'Wenn du den Zug ___, nimm ein Taxi.', a: 'verpasst hast', d: ['hast verpasst', 'verpasst bist'], t: 'Si has perdido el tren, coge un taxi.', e: 'Participio y auxiliar al final.' },
+      { s: 'Wenn es morgen ___, bleiben wir zu Hause.', a: 'regnen sollte', d: ['sollte regnen', 'regnet sollte'], t: 'Si mañana lloviera, nos quedamos en casa.', e: 'El modal cierra la subordinada.' },
+      { s: 'Wenn ihr früher ___, warten wir auf euch.', a: 'kommen wollt', d: ['wollt kommen', 'kommt wollt'], t: 'Si queréis venir antes, os esperamos.', e: 'Infinitivo y modal al final.' },
+      { s: 'Wenn er sich nicht ___, kommen wir zu spät.', a: 'beeilt', d: ['beeilt sich', 'beeilen'], t: 'Si no se da prisa, llegaremos tarde.', e: 'El verbo conjugado cierra la frase; sich va antes.' }
     ],
     orders: [
       { sol: ['wenn', 'ich', 'mit', 'der', 'Arbeit', 'fertig', 'bin'], t: '…cuando termine el trabajo.', e: 'Subordinada con "wenn": el verbo conjugado ("bin") va al final.' },
       { sol: ['Wenn', 'es', 'regnet,', 'bleiben', 'wir', 'zu', 'Hause'], t: 'Si llueve, nos quedamos en casa.', e: 'Subordinada primero → la principal empieza por el verbo.' },
       { sol: ['Ruf', 'mich', 'an,', 'wenn', 'du', 'Zeit', 'hast'], t: 'Llámame cuando tengas tiempo.', e: 'La principal es imperativa; en la subordinada "hast" cierra.' },
-      { sol: ['Wenn', 'ich', 'müde', 'bin,', 'trinke', 'ich', 'einen', 'Kaffee'], t: 'Cuando estoy cansado, me tomo un café.', e: 'Verbo al final en la subordinada, inversión en la principal.' }
+      { sol: ['Wenn', 'ich', 'müde', 'bin,', 'trinke', 'ich', 'einen', 'Kaffee'], t: 'Cuando estoy cansado, me tomo un café.', e: 'Verbo al final en la subordinada, inversión en la principal.' },
+      { sol: ['Wenn', 'ich', 'Zeit', 'habe,', 'rufe', 'ich', 'dich', 'an'], t: 'Cuando tenga tiempo te llamo.', e: 'La subordinada ocupa la 1ª posición, así que la principal empieza por el verbo.' },
+      { sol: ['Ruf', 'mich', 'an,', 'wenn', 'du', 'angekommen', 'bist'], t: 'Llámame cuando hayas llegado.', e: 'Aquí la subordinada va detrás y el verbo cierra.' }
+    ],
+    clozes: [
+      { txt: '___ ich morgens ins Büro komme, trinke ich zuerst einen Kaffee. Und ___ viel zu tun ___, bleibe ich auch mal länger.', a: ['Wenn', 'wenn', 'ist'], extra: ['Als', 'als', 'sind'], t: 'Cuando llego a la oficina por la mañana, lo primero que hago es un café. Y cuando hay mucho que hacer, a veces me quedo más rato.', e: '"wenn" manda el verbo al final de su frase, y la principal empieza entonces por el verbo.' },
+      { txt: '___ ich morgens ins Büro komme, trinke ich zuerst einen Kaffee. Und ___ viel zu tun ___, bleibe ich länger. Ruf mich an, ___ du Fragen ___.', a: ['Wenn', 'wenn', 'ist', 'wenn', 'hast'], extra: ['Als', 'denn', 'sind', 'dass'], t: 'Cuando llego a la oficina por la mañana, lo primero es un café. Y cuando hay mucho que hacer me quedo más rato. Llámame si tienes dudas.', e: 'Tres «wenn» y en los tres el verbo se va al final de su frase: ist, hast. La principal empieza por el verbo cuando la subordinada va delante.' }
     ]
   },
 
@@ -292,7 +581,53 @@ export const FRASE = {
       { s: 'Ich habe gehört, dass du umgezogen ___.', a: 'bist', d: ['bist du', 'sein'], t: 'He oído que te has mudado.', e: 'El auxiliar "bist" cierra la subordinada.' },
       { s: '___ Buch, das ich lese, ist sehr gut.', a: 'Das', d: ['Dass', 'Ob'], t: 'El libro que estoy leyendo es muy bueno.', e: 'Aquí "das" es artículo, no conjunción: se escribe con una sola s.' },
       { s: 'Meine Lehrerin sagt, dass ich mehr sprechen ___.', a: 'soll', d: ['soll ich', 'sollen'], t: 'Mi profesora dice que debo hablar más.', e: 'El modal conjugado cierra la subordinada, detrás del infinitivo.' },
-      { s: 'Ich denke, ___ wir pünktlich ankommen.', a: 'dass', d: ['das', 'weil'], t: 'Creo que llegaremos puntuales.', e: 'Completiva tras un verbo de opinión → dass.' }
+      { s: 'Ich denke, ___ wir pünktlich ankommen.', a: 'dass', d: ['das', 'weil'], t: 'Creo que llegaremos puntuales.', e: 'Completiva tras un verbo de opinión → dass.' },
+      { s: 'Ich glaube, ___ er heute nicht mehr kommt.', a: 'dass', d: ['weil', 'denn'], t: 'Creo que hoy ya no viene.', e: '"dass" abre una subordinada: el verbo conjugado se va al final.' },
+      { s: 'Es tut mir leid, dass ich zu spät ___.', a: 'bin', d: ['bin ich', 'sein'], t: 'Siento llegar tarde.', e: 'En la subordinada con "dass" el verbo cierra la frase.' },
+      { s: 'Sie hofft, ___ das Wetter am Wochenende schön wird.', a: 'dass', d: ['ob', 'wenn'], t: 'Espera que haga buen tiempo el fin de semana.', e: '"hoffen, dass…" con el verbo al final.' },
+      { s: 'Ich weiß, dass du viel zu tun ___.', a: 'hast', d: ['hast du', 'haben'], t: 'Sé que tienes mucho que hacer.', e: 'El verbo conjugado, el último de la subordinada.' },
+      { s: 'Er sagt, ___ er den Bus verpasst hat.', a: 'dass', d: ['weil', 'denn'], t: 'Dice que ha perdido el autobús.', e: 'En Perfekt el auxiliar va al final: … verpasst hat.' },
+      { s: 'Wir finden, dass der Film sehr gut ___.', a: 'war', d: ['war er', 'gewesen'], t: 'Nos parece que la película estuvo muy bien.', e: 'war cierra la subordinada.' },
+      { s: 'Sie ist froh, ___ sie die Stelle bekommen hat.', a: 'dass', d: ['ob', 'weil'], t: 'Está contenta de haber conseguido el puesto.', e: 'Tras un adjetivo de sentimiento se usa "dass".' },
+      { s: 'Ich denke, dass wir uns ___ sollten.', a: 'beeilen', d: ['beeilen wir', 'uns beeilen sollten'], t: 'Creo que deberíamos darnos prisa.', e: 'Con modal, el infinitivo va antes y el modal cierra: beeilen sollten.' },
+      { s: 'Es ist schade, ___ du nicht mitkommen kannst.', a: 'dass', d: ['weil', 'denn'], t: 'Es una pena que no puedas venir.', e: '"Es ist schade, dass…" + verbo al final.' },
+      { s: 'Er erzählt, dass er in Wien ___ hat.', a: 'studiert', d: ['studiert er', 'studieren'], t: 'Cuenta que estudió en Viena.', e: 'Participio y después el auxiliar, los dos al final.' },
+      { s: 'Ich hoffe, ___ ihr gut angekommen seid.', a: 'dass', d: ['ob', 'wenn'], t: 'Espero que hayáis llegado bien.', e: '"dass" + Perfekt con el auxiliar al final.' },
+      { s: 'Sie hat gesagt, dass sie später ___.', a: 'anruft', d: ['anruft sie', 'ruft an'], t: 'Ha dicho que llama luego.', e: 'El verbo separable se junta al final: anruft.' },
+      { s: 'Ich bin sicher, ___ das die richtige Adresse ist.', a: 'dass', d: ['ob', 'weil'], t: 'Estoy seguro de que esa es la dirección correcta.', e: '"sicher sein, dass…".' },
+      { s: 'Er fragt, ___ wir am Samstag Zeit haben.', a: 'ob', d: ['dass', 'wenn'], t: 'Pregunta si tenemos tiempo el sábado.', e: 'Una pregunta indirecta de sí/no va con "ob", no con "dass".' },
+      { s: 'Es freut mich, dass es dir besser ___.', a: 'geht', d: ['geht es', 'gehen'], t: 'Me alegro de que estés mejor.', e: 'geht cierra la subordinada.' },
+      { s: 'Wir glauben, ___ die Wohnung zu teuer ist.', a: 'dass', d: ['denn', 'weil'], t: 'Creemos que el piso es demasiado caro.', e: '"glauben, dass…".' },
+      { s: 'Ich habe gehört, dass ihr umgezogen ___.', a: 'seid', d: ['seid ihr', 'sein'], t: 'He oído que os habéis mudado.', e: 'umziehen va con sein; el auxiliar cierra la frase.' },
+      { s: 'Sie ist überzeugt, ___ sie die Prüfung schafft.', a: 'dass', d: ['ob', 'wenn'], t: 'Está convencida de que aprobará el examen.', e: '"überzeugt sein, dass…".' },
+      { s: 'Der Arzt meint, dass ich mehr schlafen ___.', a: 'soll', d: ['soll ich', 'sollen'], t: 'El médico dice que debo dormir más.', e: 'El modal es el verbo conjugado: va el último.' },
+      { s: 'Ich finde es gut, ___ du einen Kurs machst.', a: 'dass', d: ['weil', 'denn'], t: 'Me parece bien que hagas un curso.', e: '"Ich finde es gut, dass…".' },
+      { s: 'Er weiß nicht, ___ der Zug pünktlich kommt.', a: 'ob', d: ['dass', 'weil'], t: 'No sabe si el tren llegará puntual.', e: 'Duda de sí/no → "ob".' },
+      { s: 'Wir hoffen, dass die Kinder bald ___ werden.', a: 'gesund', d: ['gesund sind', 'sein gesund'], t: 'Esperamos que los niños se pongan buenos pronto.', e: 'El adjetivo delante y el verbo conjugado al final.' },
+      { s: 'Es ärgert mich, ___ er nie antwortet.', a: 'dass', d: ['ob', 'wenn'], t: 'Me fastidia que nunca conteste.', e: '"Es ärgert mich, dass…".' },
+      { s: 'Sie erzählt, dass sie früher in Berlin ___ hat.', a: 'gewohnt', d: ['gewohnt hat sie', 'wohnen'], t: 'Cuenta que antes vivía en Berlín.', e: 'Participio + auxiliar, en ese orden, al final.' },
+      { s: 'Ich bin froh, ___ wir uns wiedersehen.', a: 'dass', d: ['ob', 'weil'], t: 'Me alegro de que volvamos a vernos.', e: '"froh sein, dass…".' },
+      { s: 'Er hat versprochen, dass er pünktlich ___.', a: 'kommt', d: ['kommt er', 'kommen'], t: 'Ha prometido que vendrá puntual.', e: 'kommt cierra la subordinada.' },
+      { s: 'Ich glaube nicht, ___ das eine gute Idee ist.', a: 'dass', d: ['ob', 'denn'], t: 'No creo que sea buena idea.', e: 'La negación va en la principal, y "dass" abre igual.' },
+      { s: 'Wir wissen, dass ihr euch gut ___ habt.', a: 'vorbereitet', d: ['vorbereitet habt ihr', 'vorbereiten'], t: 'Sabemos que os habéis preparado bien.', e: 'Participio y auxiliar al final, en ese orden.' },
+      { s: 'Ich glaube, dass die Quelle glaubwürdig ___.', a: 'ist', d: ['ist sie', 'sein'], t: 'Creo que la fuente es creíble.', e: 'dass manda el verbo al final.' },
+      { s: 'Es ist schade, dass du nicht kommen ___.', a: 'kannst', d: ['kannst du', 'können'], t: 'Es una pena que no puedas venir.', e: 'El verbo conjugado cierra la frase.' },
+      { s: 'Ich finde, dass der Artikel übertrieben ___.', a: 'ist', d: ['ist er', 'sein'], t: 'Me parece que el artículo es exagerado.', e: 'dass + verbo al final.' },
+      { s: 'Sie sagt, dass sie kaum noch ___.', a: 'fernsieht', d: ['sieht fern', 'fernsehen'], t: 'Dice que ya casi no ve la tele.', e: 'Con dass los separables no se separan.' },
+      { s: 'Ich hoffe, dass die Serie noch ___.', a: 'läuft', d: ['läuft sie', 'laufen'], t: 'Espero que la serie siga en emisión.', e: 'läuft cierra la frase.' },
+      { s: 'Es stimmt, dass viele Leute die Schlagzeile ___.', a: 'glauben', d: ['glauben sie', 'glaubt'], t: 'Es verdad que mucha gente se cree el titular.', e: 'El verbo va al final con dass.' },
+      { s: 'Er meint, dass der Algorithmus schuld ___.', a: 'ist', d: ['ist er', 'sein'], t: 'Él opina que la culpa es del algoritmo.', e: 'dass + verbo final.' },
+      { s: 'Ich bin sicher, dass wir das zusammen ___.', a: 'schaffen', d: ['schaffen wir', 'schafft'], t: 'Estoy seguro de que lo conseguimos juntos.', e: 'schaffen cierra la subordinada.' },
+      { s: 'Schön, dass du wieder mehr Zeit ___.', a: 'hast', d: ['hast du', 'haben'], t: 'Qué bien que vuelvas a tener más tiempo.', e: 'hast va al final.' },
+      { s: 'Es ärgert mich, dass er nie ___.', a: 'zuhört', d: ['hört zu', 'zuhören'], t: 'Me molesta que nunca escuche.', e: 'zuhören no se separa con dass.' },
+      { s: 'Ich glaube, dass er den Zug ___.', a: 'verpasst hat', d: ['hat verpasst', 'verpasst ist'], t: 'Creo que ha perdido el tren.', e: 'Participio y auxiliar al final, en ese orden.' },
+      { s: 'Schade, dass ihr gestern nicht ___.', a: 'kommen konntet', d: ['konntet kommen', 'kommen könnt'], t: 'Es una pena que ayer no pudierais venir.', e: 'El modal cierra la frase subordinada.' },
+      { s: 'Es stimmt, dass sie nach Graz ___.', a: 'gezogen ist', d: ['ist gezogen', 'gezogen hat'], t: 'Es verdad que se mudó a Graz.', e: 'ziehen es de movimiento: con sein.' },
+      { s: 'Ich hoffe, dass du dich gut ___.', a: 'erholt hast', d: ['hast erholt', 'erholt bist'], t: 'Espero que hayas descansado bien.', e: 'sich erholen va con haben: erholt hast.' },
+      { s: 'Er sagt, dass er morgen früher ___.', a: 'kommen kann', d: ['kann kommen', 'kommt kann'], t: 'Dice que mañana puede venir antes.', e: 'Infinitivo y modal al final.' },
+      { s: 'Ich finde es gut, dass du dich schon ___.', a: 'angemeldet hast', d: ['hast angemeldet', 'angemeldet bist'], t: 'Me parece bien que ya te hayas apuntado.', e: 'Un separable en Perfekt: angemeldet hast.' },
+      { s: 'Sie glaubt, dass wir zu spät ___.', a: 'losgefahren sind', d: ['sind losgefahren', 'losgefahren haben'], t: 'Cree que salimos demasiado tarde.', e: 'losfahren va con sein.' },
+      { s: 'Es ist klar, dass er das nicht ___.', a: 'machen wollte', d: ['wollte machen', 'macht wollte'], t: 'Está claro que no quería hacerlo.', e: 'El modal en Präteritum cierra la frase.' }
     ],
     orders: [
       { sol: ['dass', 'die', 'Serie', 'viel', 'zu', 'lang', 'ist'], t: '…que la serie es demasiado larga.', e: 'Tras "dass" el verbo ("ist") cierra la frase.' },
@@ -300,7 +635,15 @@ export const FRASE = {
       { sol: ['Ich', 'glaube,', 'dass', 'er', 'heute', 'nicht', 'kommt'], t: 'Creo que hoy no viene.', e: 'Principal + dass-subordinada con el verbo al final.' },
       { sol: ['Es', 'ist', 'schade,', 'dass', 'du', 'nicht', 'mitkommen', 'kannst'], t: 'Es una pena que no puedas venir.', e: 'Infinitivo + modal conjugado cierran la subordinada.' },
       { sol: ['Ich', 'finde,', 'dass', 'man', 'zu', 'viel', 'fernsieht'], t: 'Creo que se ve demasiada tele.', e: 'El verbo cierra la subordinada.' },
-      { sol: ['Wusstest', 'du,', 'dass', 'er', 'heute', 'Geburtstag', 'hat?'], t: '¿Sabías que hoy es su cumpleaños?', e: '"hat" al final de la subordinada.' }
+      { sol: ['Wusstest', 'du,', 'dass', 'er', 'heute', 'Geburtstag', 'hat?'], t: '¿Sabías que hoy es su cumpleaños?', e: '"hat" al final de la subordinada.' },
+      { sol: ['Ich', 'glaube,', 'dass', 'er', 'heute', 'nicht', 'mehr', 'kommt'], t: 'Creo que hoy ya no viene.', e: 'Tras "dass" el verbo conjugado se va al final de la frase.' },
+      { sol: ['Es', 'tut', 'mir', 'leid,', 'dass', 'ich', 'zu', 'spät', 'bin'], t: 'Siento llegar tarde.', e: 'La principal conserva su orden; la subordinada manda el verbo al final.' },
+      { sol: ['Sie', 'hat', 'gesagt,', 'dass', 'sie', 'später', 'anruft'], t: 'Ha dicho que llama luego.', e: 'El separable se escribe junto cuando va al final: anruft.' },
+      { sol: ['Der', 'Arzt', 'meint,', 'dass', 'ich', 'mehr', 'schlafen', 'soll'], t: 'El médico dice que debo dormir más.', e: 'Con modal: infinitivo y después el modal, los dos al final.' }
+    ],
+    clozes: [
+      { txt: 'Lisa schreibt mir: „Ich glaube, ___ ich heute später komme. Der Chef hat gesagt, ___ wir die Präsentation noch ___ müssen. Es tut mir leid, ___ wir uns erst um acht sehen.“', a: ['dass', 'dass', 'beenden', 'dass'], extra: ['ob', 'weil', 'beenden wir', 'denn'], t: 'Lisa me escribe: «Creo que hoy llegaré más tarde. El jefe ha dicho que todavía tenemos que terminar la presentación. Siento que no nos veamos hasta las ocho».', e: 'Tres "dass" y un infinitivo: fíjate en que en los tres casos el verbo conjugado (komme, müssen, sehen) es lo último de su frase.' },
+      { txt: 'Ich glaube, ___ der Film gut ___. Es ist schade, ___ du ihn nicht sehen ___. Aber ich bin sicher, ___ er nächste Woche noch läuft.', a: ['dass', 'ist', 'dass', 'kannst', 'dass'], extra: ['ob', 'sei', 'weil', 'kannst du'], t: 'Creo que la película es buena. Es una pena que no puedas verla. Pero estoy seguro de que la semana que viene sigue en cartel.', e: 'En las tres el verbo conjugado cierra su frase: ist, kannst, läuft.' }
     ]
   },
 
@@ -318,15 +661,79 @@ export const FRASE = {
       { s: 'Ich bin nicht gekommen, ___ ich krank war.', a: 'weil', d: ['deswegen', 'trotzdem'], t: 'No vine porque estaba enfermo.', e: 'Aquí el verbo "war" está al final → hace falta "weil", no "deswegen".' },
       { s: 'Das Geschäft ist geschlossen. ___ kaufe ich online.', a: 'Deswegen', d: ['Weil', 'Obwohl'], t: 'La tienda está cerrada. Por eso compro por internet.', e: 'Adverbio en posición 1 + verbo inmediatamente después.' },
       { s: 'Wir haben wenig Platz, ___ verkaufen wir das Sofa.', a: 'deswegen', d: ['weil', 'dass'], t: 'Tenemos poco sitio, por eso vendemos el sofá.', e: 'Inversión: verkaufen wir.' },
-      { s: 'Sie spricht sehr gut Deutsch, ___ hat sie den Job bekommen.', a: 'deswegen', d: ['weil', 'obwohl'], t: 'Habla muy bien alemán, por eso consiguió el trabajo.', e: 'El auxiliar va justo detrás del adverbio.' }
+      { s: 'Sie spricht sehr gut Deutsch, ___ hat sie den Job bekommen.', a: 'deswegen', d: ['weil', 'obwohl'], t: 'Habla muy bien alemán, por eso consiguió el trabajo.', e: 'El auxiliar va justo detrás del adverbio.' },
+      { s: 'Der Bus hatte Verspätung, ___ bin ich zu spät gekommen.', a: 'deswegen', d: ['weil', 'denn'], t: 'El autobús llegó tarde, por eso llegué tarde yo.', e: '"deswegen" ocupa la 1ª posición, así que detrás va el verbo y luego el sujeto.' },
+      { s: 'Es regnet stark. Deswegen ___ wir zu Hause.', a: 'bleiben', d: ['wir bleiben', 'bleiben wir nicht'], t: 'Llueve mucho. Por eso nos quedamos en casa.', e: 'Tras "deswegen" el verbo va inmediatamente: Deswegen bleiben wir.' },
+      { s: 'Mein Sohn ist krank, ___ muss ich heute zu Hause bleiben.', a: 'deswegen', d: ['obwohl', 'dass'], t: 'Mi hijo está enfermo, por eso hoy tengo que quedarme en casa.', e: '"deswegen" introduce la consecuencia.' },
+      { s: 'Sie hat die Prüfung bestanden. ___ feiert sie heute Abend.', a: 'Deswegen', d: ['Weil', 'Obwohl'], t: 'Ha aprobado el examen. Por eso lo celebra esta noche.', e: 'Empieza la frase: Deswegen + verbo + sujeto.' },
+      { s: 'Der Aufzug ist kaputt, ___ nehmen wir die Treppe.', a: 'deswegen', d: ['denn', 'weil'], t: 'El ascensor está roto, por eso subimos por la escalera.', e: 'Con «denn» o «weil» el orden sería otro; «deswegen» invierte.' },
+      { s: 'Die Schule fängt früh an. Deswegen ___ die Kinder um sechs auf.', a: 'stehen', d: ['stehen sie', 'aufstehen'], t: 'El colegio empieza pronto. Por eso los niños se levantan a las seis.', e: 'Verbo separable: el conjugado va detrás de "deswegen" y el prefijo al final.' },
+      { s: 'Er hat seinen Schlüssel verloren, ___ konnte er nicht in die Wohnung.', a: 'deswegen', d: ['weil', 'dass'], t: 'Perdió la llave, por eso no pudo entrar en el piso.', e: 'Consecuencia con inversión: deswegen konnte er.' },
+      { s: 'Wir haben keine Milch mehr. ___ gehe ich schnell einkaufen.', a: 'Deswegen', d: ['Denn', 'Aber'], t: 'No nos queda leche. Por eso voy rápido a la compra.', e: '"Deswegen" en 1ª posición → verbo en 2ª.' },
+      { s: 'Der Kurs war voll, ___ habe ich mich für den Abendkurs angemeldet.', a: 'deswegen', d: ['obwohl', 'damit'], t: 'El curso estaba lleno, por eso me apunté al de tarde.', e: 'El auxiliar va detrás de "deswegen".' },
+      { s: 'Sie spricht sehr gut Deutsch, ___ sie viel liest.', a: 'weil', d: ['deswegen', 'trotzdem'], t: 'Habla muy bien alemán porque lee mucho.', e: 'Aquí el verbo va al final: eso es "weil", no "deswegen".' },
+      { s: 'Die Lehrerin ist krank. Deswegen ___ der Unterricht heute aus.', a: 'fällt', d: ['ausfällt', 'fällt er'], t: 'La profesora está enferma. Por eso hoy no hay clase.', e: 'ausfallen: fällt … aus, con el prefijo al final.' },
+      { s: 'Ich hatte gestern Kopfschmerzen, ___ bin ich früher gegangen.', a: 'deswegen', d: ['denn', 'weil'], t: 'Ayer me dolía la cabeza, por eso me fui antes.', e: 'Perfekt tras "deswegen": bin ich … gegangen.' },
+      { s: 'Er wohnt weit weg. ___ sehen wir ihn selten.', a: 'Deswegen', d: ['Weil', 'Dass'], t: 'Vive lejos. Por eso le vemos poco.', e: 'Consecuencia al principio de la frase.' },
+      { s: 'Das Wetter war schlecht, ___ sind wir nicht wandern gegangen.', a: 'deswegen', d: ['obwohl', 'trotzdem'], t: 'Hacía mal tiempo, por eso no fuimos de senderismo.', e: '"trotzdem" diría lo contrario: que fuimos a pesar de todo.' },
+      { s: 'Sie hat zwei kleine Kinder, ___ arbeitet sie nur halbtags.', a: 'deswegen', d: ['denn', 'und'], t: 'Tiene dos hijos pequeños, por eso trabaja solo media jornada.', e: 'deswegen + verbo + sujeto.' },
+      { s: 'Der Zug war sehr voll. Deswegen ___ wir die ganze Fahrt.', a: 'standen', d: ['wir standen', 'gestanden'], t: 'El tren iba lleno. Por eso fuimos de pie todo el viaje.', e: 'El verbo conjugado justo detrás de "deswegen".' },
+      { s: 'Ich verstehe die Aufgabe nicht, ___ frage ich die Lehrerin.', a: 'deswegen', d: ['weil', 'dass'], t: 'No entiendo el ejercicio, por eso le pregunto a la profesora.', e: 'Consecuencia con inversión.' },
+      { s: 'Er lernt jeden Tag, ___ macht er schnelle Fortschritte.', a: 'deswegen', d: ['obwohl', 'denn'], t: 'Estudia todos los días, por eso avanza rápido.', e: 'deswegen en 1ª posición.' },
+      { s: 'Die Wohnung ist zu teuer. ___ suchen wir weiter.', a: 'Deswegen', d: ['Weil', 'Damit'], t: 'El piso es demasiado caro. Por eso seguimos buscando.', e: 'Consecuencia con verbo en 2ª posición.' },
+      { s: 'Mein Handy war kaputt, ___ konnte ich dich nicht anrufen.', a: 'deswegen', d: ['denn', 'weil'], t: 'Tenía el móvil roto, por eso no pude llamarte.', e: 'El modal se coloca detrás de "deswegen".' },
+      { s: 'Sie kommt später, ___ sie noch arbeiten muss.', a: 'weil', d: ['deswegen', 'trotzdem'], t: 'Viene más tarde porque todavía tiene que trabajar.', e: 'El modal cierra la frase → "weil".' },
+      { s: 'Es gab einen Stau. Deswegen ___ der Termin verschoben.', a: 'wurde', d: ['wurde er', 'worden'], t: 'Hubo un atasco. Por eso se aplazó la cita.', e: 'El verbo conjugado va en 2ª posición aunque la frase sea pasiva.' },
+      { s: 'Ich habe die Hausaufgaben vergessen, ___ war die Lehrerin sauer.', a: 'deswegen', d: ['weil', 'obwohl'], t: 'Se me olvidaron los deberes, por eso la profesora se enfadó.', e: 'Consecuencia: deswegen war…' },
+      { s: 'Der Kindergarten ist geschlossen, ___ bleibt mein Mann heute zu Hause.', a: 'deswegen', d: ['denn', 'dass'], t: 'La guardería está cerrada, por eso hoy se queda mi marido en casa.', e: 'deswegen + verbo + sujeto.' },
+      { s: 'Wir wohnen im Erdgeschoss. ___ haben wir keinen Aufzug nötig.', a: 'Deswegen', d: ['Weil', 'Obwohl'], t: 'Vivimos en la planta baja. Por eso no necesitamos ascensor.', e: 'Consecuencia al principio.' },
+      { s: 'Sie hat kein Zeugnis dabei, ___ kann sie sich heute nicht anmelden.', a: 'deswegen', d: ['weil', 'damit'], t: 'No trae el certificado, por eso hoy no puede matricularse.', e: 'El modal detrás de "deswegen".' },
+      { s: 'Die Kinder waren müde. Deswegen ___ wir früher nach Hause.', a: 'gingen', d: ['wir gingen', 'gegangen'], t: 'Los niños estaban cansados. Por eso nos fuimos antes a casa.', e: 'Verbo en 2ª posición detrás de "deswegen".' },
+      { s: 'Ich kenne die Stadt nicht gut, ___ nehme ich das Handy mit.', a: 'deswegen', d: ['obwohl', 'denn'], t: 'No conozco bien la ciudad, por eso me llevo el móvil.', e: 'Consecuencia con inversión.' },
+      { s: 'Mein Sohn war krank, ___ konnte er nicht in die Schule.', a: 'deswegen', d: ['weil', 'obwohl'], t: 'Mi hijo estaba enfermo, por eso no pudo ir al colegio.', e: 'deswegen ocupa la 1ª posición: detrás va el verbo.' },
+      { s: 'Es hat stark geschneit, ___ fahren wir nicht.', a: 'deswegen', d: ['weil', 'dass'], t: 'Ha nevado mucho, por eso no vamos.', e: 'Detrás de deswegen va el verbo y luego el sujeto.' },
+      { s: 'Sie hat die Prüfung bestanden, ___ feiern wir heute.', a: 'deswegen', d: ['weil', 'obwohl'], t: 'Ha aprobado el examen, por eso lo celebramos hoy.', e: 'deswegen manda el verbo justo detrás.' },
+      { s: 'Der Bus hatte Verspätung, ___ kam ich zu spät.', a: 'deswegen', d: ['weil', 'wenn'], t: 'El autobús llegó tarde, por eso llegué tarde.', e: 'deswegen + verbo + sujeto.' },
+      { s: 'Ich hatte kein Geld, ___ bin ich zu Hause geblieben.', a: 'deswegen', d: ['weil', 'obwohl'], t: 'No tenía dinero, por eso me quedé en casa.', e: 'deswegen abre la frase, el auxiliar va segundo.' },
+      { s: 'Er versteht den Dialekt nicht, ___ fragt er oft nach.', a: 'deswegen', d: ['weil', 'dass'], t: 'No entiende el dialecto, por eso pregunta a menudo.', e: 'deswegen en 1ª posición.' },
+      { s: 'Die Wohnung war zu teuer, ___ suchen wir weiter.', a: 'deswegen', d: ['weil', 'wenn'], t: 'El piso era demasiado caro, por eso seguimos buscando.', e: 'deswegen manda el verbo justo detrás.' },
+      { s: 'Wir haben viel geübt, ___ war die Prüfung leicht.', a: 'deswegen', d: ['weil', 'obwohl'], t: 'Practicamos mucho, por eso el examen fue fácil.', e: 'deswegen + verbo en 2ª posición.' },
+      { s: 'Sie arbeitet in Wien, ___ ist sie umgezogen.', a: 'deswegen', d: ['weil', 'dass'], t: 'Trabaja en Viena, por eso se mudó.', e: 'deswegen abre la frase.' },
+      { s: 'Das Kind hat Fieber, ___ bleibt es heute zu Hause.', a: 'deswegen', d: ['weil', 'obwohl'], t: 'El niño tiene fiebre, por eso hoy se queda en casa.', e: 'deswegen + verbo justo detrás.' },
+      { s: 'Der Bus hatte Verspätung, deswegen ___ ich zu spät.', a: 'kam', d: ['ich kam', 'kommen'], t: 'El autobús llegó tarde, por eso llegué tarde.', e: 'Detrás de deswegen va el verbo y después el sujeto.' },
+      { s: 'Es hat stark geschneit, deswegen ___ wir nicht.', a: 'fahren', d: ['wir fahren', 'fahrt'], t: 'Ha nevado mucho, por eso no vamos.', e: 'deswegen ocupa la 1ª posición: el verbo va segundo.' },
+      { s: 'Ich war krank, deswegen ___ ich zu Hause geblieben.', a: 'bin', d: ['ich bin', 'habe'], t: 'Estaba enfermo, por eso me quedé en casa.', e: 'El auxiliar va justo detrás de deswegen.' },
+      { s: 'Sie hat bestanden, deswegen ___ wir heute Abend.', a: 'feiern', d: ['wir feiern', 'feiert'], t: 'Ha aprobado, por eso lo celebramos esta noche.', e: 'Verbo detrás de deswegen y el sujeto después.' },
+      { s: 'Die Wohnung war zu teuer, deswegen ___ wir weiter.', a: 'suchen', d: ['wir suchen', 'sucht'], t: 'El piso era demasiado caro, por eso seguimos buscando.', e: 'deswegen, verbo, sujeto.' },
+      { s: 'Er versteht den Dialekt nicht, deswegen ___ er oft nach.', a: 'fragt', d: ['er fragt', 'nachfragt'], t: 'No entiende el dialecto, por eso pregunta a menudo.', e: 'El verbo conjugado va segundo y el prefijo al final.' },
+      { s: 'Wir haben viel geübt, deswegen ___ die Prüfung leicht.', a: 'war', d: ['die Prüfung war', 'sein'], t: 'Practicamos mucho, por eso el examen fue fácil.', e: 'Verbo justo detrás de deswegen.' },
+      { s: 'Das Kind hat Fieber, deswegen ___ es heute zu Hause.', a: 'bleibt', d: ['es bleibt', 'bleiben'], t: 'El niño tiene fiebre, por eso hoy se queda en casa.', e: 'deswegen + verbo + sujeto.' },
+      { s: 'Der Aufzug ist kaputt, deswegen ___ wir zu Fuß.', a: 'gehen', d: ['wir gehen', 'geht'], t: 'El ascensor está roto, por eso vamos a pie.', e: 'Detrás de deswegen va el verbo y luego el sujeto.' },
+      { s: 'Sie hat die Stelle bekommen, deswegen ___ sie so gute Laune.', a: 'hat', d: ['sie hat', 'haben'], t: 'Ha conseguido el puesto, por eso está de tan buen humor.', e: 'Verbo justo detrás de deswegen.' },
+      { s: 'Es war stundenlang Stau, deswegen ___ wir erst um zehn an.', a: 'kamen', d: ['wir kamen', 'ankamen'], t: 'Hubo atasco durante horas, por eso no llegamos hasta las diez.', e: 'El verbo va segundo y el prefijo an al final.' },
+      { s: 'Ich habe den Wecker überhört, deswegen ___ alles schiefgegangen.', a: 'ist', d: ['ich bin', 'hat'], t: 'No oí el despertador, por eso salió todo mal.', e: 'El auxiliar va justo detrás de deswegen.' },
+      { s: 'Ich habe mich zu spät angemeldet, deswegen ___ der Kurs voll.', a: 'war', d: ['der Kurs war', 'sein'], t: 'Me apunté demasiado tarde, por eso el curso estaba lleno.', e: 'deswegen, verbo, sujeto.' },
+      { s: 'Sie spricht fünf Sprachen, deswegen ___ man sie ständig.', a: 'fragt', d: ['man fragt', 'fragen'], t: 'Habla cinco idiomas, por eso le preguntan sin parar.', e: 'Verbo detrás de deswegen y el sujeto después.' },
+      { s: 'Das Kind hat schlecht geschlafen, deswegen ___ es so quengelig.', a: 'ist', d: ['es ist', 'sind'], t: 'El niño ha dormido mal, por eso está tan quejica.', e: 'deswegen + verbo + sujeto.' },
+      { s: 'Wir hatten keinen Zucker, deswegen ___ ich noch mal einkaufen.', a: 'musste', d: ['ich musste', 'müssen'], t: 'No teníamos azúcar, por eso tuve que volver a la compra.', e: 'El modal va justo detrás de deswegen.' },
+      { s: 'Die Miete steigt jedes Jahr, deswegen ___ wir wieder um.', a: 'ziehen', d: ['wir ziehen', 'umziehen'], t: 'El alquiler sube cada año, por eso nos volvemos a mudar.', e: 'El verbo conjugado va segundo y um al final.' },
+      { s: 'Er trinkt abends keinen Kaffee mehr, deswegen ___ er besser.', a: 'schläft', d: ['er schläft', 'schlafen'], t: 'Ya no toma café por la noche, por eso duerme mejor.', e: 'Verbo justo detrás de deswegen.' }
     ],
     orders: [
       { sol: ['Ich', 'war', 'krank,', 'deswegen', 'bin', 'ich', 'nicht', 'gekommen'], t: 'Estaba enfermo, por eso no vine.', e: 'Tras "deswegen" va el verbo y luego el sujeto.' },
       { sol: ['Es', 'regnet,', 'deswegen', 'nehme', 'ich', 'den', 'Bus'], t: 'Llueve, por eso cojo el autobús.', e: 'Adverbio (1), verbo (2), sujeto (3).' },
-      { sol: ['Deswegen', 'gehe', 'ich', 'heute', 'früher', 'nach', 'Hause'], t: 'Por eso hoy me voy antes a casa.', e: '"Deswegen" abre la frase y el verbo le sigue.' },
+      { sol: ['Deswegen', 'gehe', 'ich', 'heute', 'früher', 'nach', 'Hause'], alt: [['Ich', 'gehe', 'deswegen', 'heute', 'früher', 'nach', 'Hause']], t: 'Por eso hoy me voy antes a casa.', e: '"Deswegen" abre la frase y el verbo le sigue.' },
       { sol: ['Der', 'Kurs', 'war', 'voll,', 'deswegen', 'habe', 'ich', 'gewartet'], t: 'El curso estaba lleno, por eso he esperado.', e: 'El auxiliar "habe" viene justo después de deswegen.' },
       { sol: ['Ich', 'habe', 'kein', 'Auto,', 'deswegen', 'fahre', 'ich', 'Rad'], t: 'No tengo coche, por eso voy en bici.', e: 'Inversión tras deswegen.' },
-      { sol: ['Sie', 'hat', 'keine', 'Zeit,', 'deswegen', 'kommt', 'sie', 'nicht'], t: 'No tiene tiempo, por eso no viene.', e: 'deswegen + verbo + sujeto.' }
+      { sol: ['Sie', 'hat', 'keine', 'Zeit,', 'deswegen', 'kommt', 'sie', 'nicht'], t: 'No tiene tiempo, por eso no viene.', e: 'deswegen + verbo + sujeto.' },
+      { sol: ['Der', 'Bus', 'hatte', 'Verspätung,', 'deswegen', 'bin', 'ich', 'zu', 'spät', 'gekommen'], t: 'El autobús llegó tarde, por eso llegué tarde.', e: '"deswegen" cuenta como 1ª posición: detrás va el verbo y luego el sujeto.' },
+      { sol: ['Es', 'regnet,', 'deswegen', 'bleiben', 'wir', 'zu', 'Hause'], t: 'Llueve, por eso nos quedamos en casa.', e: 'Deswegen + verbo + sujeto.' },
+      { sol: ['Die', 'Lehrerin', 'ist', 'krank,', 'deswegen', 'fällt', 'der', 'Unterricht', 'aus'], t: 'La profesora está enferma, por eso no hay clase.', e: 'Separable detrás de "deswegen": fällt … aus.' },
+      { sol: ['Ich', 'habe', 'kein', 'Auto,', 'deswegen', 'fahre', 'ich', 'mit', 'dem', 'Rad'], t: 'No tengo coche, por eso voy en bici.', e: 'La inversión es obligatoria tras "deswegen".' }
+    ],
+    clozes: [
+      { txt: 'Mein Sohn war heute krank. ___ konnte er nicht in die Schule gehen. Ich habe in der Arbeit angerufen, ___ musste ich früher nach Hause. Am Nachmittag ging es ihm besser, ___ haben wir noch einen Spaziergang gemacht.', a: ['Deswegen', 'deswegen', 'deswegen'], extra: ['weil', 'obwohl', 'trotzdem'], t: 'Mi hijo estaba hoy enfermo. Por eso no pudo ir al colegio. Llamé al trabajo, por eso tuve que volver antes a casa. Por la tarde se encontraba mejor, por eso salimos a pasear.', e: 'Las tres veces "deswegen" abre la frase y obliga a poner el verbo justo detrás: konnte er, musste ich, haben wir.' },
+      { txt: 'Mein Sohn war krank, ___ konnte er nicht in die Schule. Die Lehrerin hat angerufen, ___ musste ich eine Entschuldigung schreiben.', a: ['deswegen', 'deswegen'], extra: ['weil', 'obwohl', 'trotzdem'], t: 'Mi hijo estaba enfermo, por eso no pudo ir al colegio. La profesora llamó, por eso tuve que escribir un justificante.', e: '"deswegen" ocupa la 1ª posición: detrás va el verbo y luego el sujeto (konnte er, musste ich).' }
     ]
   },
 
@@ -344,15 +751,79 @@ export const FRASE = {
       { s: 'Sie ist krank. ___ geht sie arbeiten.', a: 'Trotzdem', d: ['Obwohl', 'Weil'], t: 'Está enferma. Aun así va a trabajar.', e: 'Adverbio en posición 1 con inversión.' },
       { s: 'Obwohl der Bus Verspätung ___, war ich pünktlich.', a: 'hatte', d: ['hatte er', 'haben'], t: 'Aunque el autobús llevaba retraso, llegué puntual.', e: 'Tras "obwohl" el verbo va al final.' },
       { s: 'Wir haben wenig Platz, ___ laden wir alle ein.', a: 'trotzdem', d: ['obwohl', 'deswegen'], t: 'Tenemos poco sitio, aun así invitamos a todos.', e: 'Contraste + inversión → trotzdem.' },
-      { s: 'Das Essen war teuer. ___ war es nicht gut.', a: 'Trotzdem', d: ['Obwohl', 'Denn'], t: 'La comida era cara. Aun así no estaba buena.', e: 'Trotzdem (1) + war (2).' }
+      { s: 'Das Essen war teuer. ___ war es nicht gut.', a: 'Trotzdem', d: ['Obwohl', 'Denn'], t: 'La comida era cara. Aun así no estaba buena.', e: 'Trotzdem (1) + war (2).' },
+      { s: 'Es hat geregnet. ___ sind wir spazieren gegangen.', a: 'Trotzdem', d: ['Deswegen', 'Weil'], t: 'Llovió. Aun así salimos a pasear.', e: '"trotzdem" dice que pasó lo contrario de lo esperado, y lleva el verbo detrás.' },
+      { s: 'Der Film war langweilig, ___ sind wir bis zum Ende geblieben.', a: 'trotzdem', d: ['deswegen', 'denn'], t: 'La película era aburrida, aun así nos quedamos hasta el final.', e: 'Contraste: trotzdem + verbo + sujeto.' },
+      { s: 'Sie ist müde. Trotzdem ___ sie noch eine Stunde.', a: 'lernt', d: ['sie lernt', 'lernen'], t: 'Está cansada. Aun así estudia una hora más.', e: 'El verbo conjugado va justo detrás de "trotzdem".' },
+      { s: 'Ich hatte keine Zeit, ___ habe ich ihm geholfen.', a: 'trotzdem', d: ['deswegen', 'weil'], t: 'No tenía tiempo, aun así le ayudé.', e: '"deswegen" diría que por eso NO le ayudé.' },
+      { s: 'Das Zimmer ist klein. ___ gefällt es mir.', a: 'Trotzdem', d: ['Deswegen', 'Denn'], t: 'La habitación es pequeña. Aun así me gusta.', e: 'Contraste al principio de la frase.' },
+      { s: 'Er hat wenig geübt, ___ hat er gut gespielt.', a: 'trotzdem', d: ['deswegen', 'obwohl'], t: 'Practicó poco, aun así tocó bien.', e: 'El auxiliar se coloca detrás de "trotzdem".' },
+      { s: '___ es kalt war, sind wir schwimmen gegangen.', a: 'Obwohl', d: ['Trotzdem', 'Deswegen'], t: 'Aunque hacía frío, fuimos a nadar.', e: 'Aquí el verbo va al final: eso es "obwohl", no "trotzdem".' },
+      { s: 'Die Wohnung ist teuer. Trotzdem ___ wir sie.', a: 'nehmen', d: ['wir nehmen', 'nehmen wir nicht'], t: 'El piso es caro. Aun así nos lo quedamos.', e: 'Trotzdem + verbo + sujeto.' },
+      { s: 'Ich kenne ihn kaum, ___ hat er mir geholfen.', a: 'trotzdem', d: ['deswegen', 'denn'], t: 'Apenas le conozco, aun así me ayudó.', e: 'Contraste con inversión.' },
+      { s: 'Sie hat viel Arbeit. ___ kommt sie zum Fest.', a: 'Trotzdem', d: ['Deswegen', 'Weil'], t: 'Tiene mucho trabajo. Aun así viene a la fiesta.', e: 'Lo esperado sería que no viniera.' },
+      { s: 'Der Bus war voll, ___ haben wir einen Platz gefunden.', a: 'trotzdem', d: ['deswegen', 'obwohl'], t: 'El autobús iba lleno, aun así encontramos sitio.', e: 'Perfekt tras "trotzdem": haben wir … gefunden.' },
+      { s: 'Es war schon spät. Trotzdem ___ er noch an.', a: 'rief', d: ['er rief', 'anrief'], t: 'Ya era tarde. Aun así llamó.', e: 'Verbo separable: rief … an.' },
+      { s: 'Ich habe schlecht geschlafen, ___ bin ich fit.', a: 'trotzdem', d: ['deswegen', 'denn'], t: 'He dormido mal, aun así estoy en forma.', e: 'Contraste, no consecuencia.' },
+      { s: 'Er verdient gut. ___ lebt er sehr einfach.', a: 'Trotzdem', d: ['Deswegen', 'Dass'], t: 'Gana bien. Aun así vive de forma muy sencilla.', e: 'Contraste al principio.' },
+      { s: 'Wir hatten keine Karten, ___ sind wir hingegangen.', a: 'trotzdem', d: ['deswegen', 'weil'], t: 'No teníamos entradas, aun así fuimos.', e: 'Perfekt con sein tras "trotzdem".' },
+      { s: 'Das Essen war nicht gut. Trotzdem ___ wir Trinkgeld.', a: 'gaben', d: ['wir gaben', 'gegeben'], t: 'La comida no estaba buena. Aun así dejamos propina.', e: 'Verbo en 2ª posición detrás de "trotzdem".' },
+      { s: 'Sie ist erkältet, ___ geht sie arbeiten.', a: 'trotzdem', d: ['deswegen', 'denn'], t: 'Está resfriada, aun así va a trabajar.', e: 'Lo lógico sería quedarse en casa: por eso "trotzdem".' },
+      { s: '___ er wenig Zeit hat, macht er Sport.', a: 'Obwohl', d: ['Trotzdem', 'Deswegen'], t: 'Aunque tiene poco tiempo, hace deporte.', e: 'Verbo al final → "obwohl".' },
+      { s: 'Der Kurs war schwer. ___ habe ich viel gelernt.', a: 'Trotzdem', d: ['Deswegen', 'Weil'], t: 'El curso era difícil. Aun así aprendí mucho.', e: 'Contraste con Perfekt.' },
+      { s: 'Ich mag keinen Fisch, ___ habe ich es probiert.', a: 'trotzdem', d: ['deswegen', 'und'], t: 'No me gusta el pescado, aun así lo probé.', e: 'trotzdem + auxiliar + sujeto.' },
+      { s: 'Es ist spät. Trotzdem ___ wir noch einen Kaffee.', a: 'trinken', d: ['wir trinken', 'getrunken'], t: 'Es tarde. Aun así nos tomamos otro café.', e: 'Verbo justo detrás de "trotzdem".' },
+      { s: 'Sie hat die Wohnung nicht gesehen, ___ hat sie sie gemietet.', a: 'trotzdem', d: ['deswegen', 'obwohl'], t: 'No vio el piso, aun así lo alquiló.', e: 'Contraste fuerte con Perfekt.' },
+      { s: 'Er ist der Jüngste. ___ ist er der Chef.', a: 'Trotzdem', d: ['Deswegen', 'Denn'], t: 'Es el más joven. Aun así es el jefe.', e: 'Contraste al principio de la frase.' },
+      { s: 'Wir waren früh da, ___ mussten wir warten.', a: 'trotzdem', d: ['deswegen', 'weil'], t: 'Llegamos pronto, aun así tuvimos que esperar.', e: 'El modal va detrás de "trotzdem".' },
+      { s: 'Das Hotel war billig. Trotzdem ___ das Zimmer sehr schön.', a: 'war', d: ['es war', 'gewesen'], t: 'El hotel era barato. Aun así la habitación era muy bonita.', e: 'war en 2ª posición.' },
+      { s: 'Ich habe ihm geschrieben, ___ hat er nicht geantwortet.', a: 'trotzdem', d: ['deswegen', 'denn'], t: 'Le escribí, aun así no contestó.', e: 'Contraste: lo esperado era una respuesta.' },
+      { s: 'Sie kennt die Stadt nicht. ___ findet sie immer den Weg.', a: 'Trotzdem', d: ['Deswegen', 'Weil'], t: 'No conoce la ciudad. Aun así siempre encuentra el camino.', e: 'Contraste al principio.' },
+      { s: 'Der Zug hatte Verspätung, ___ waren wir pünktlich.', a: 'trotzdem', d: ['deswegen', 'obwohl'], t: 'El tren llegó tarde, aun así fuimos puntuales.', e: '"deswegen" diría justo lo contrario.' },
+      { s: 'Der Film war langweilig, ___ sind wir geblieben.', a: 'trotzdem', d: ['deswegen', 'weil'], t: 'La película era aburrida, aun así nos quedamos.', e: 'trotzdem dice lo contrario de lo esperado y lleva el verbo detrás.' },
+      { s: 'Ich war müde, ___ habe ich noch gelesen.', a: 'trotzdem', d: ['deswegen', 'obwohl'], t: 'Estaba cansado, aun así leí un rato.', e: 'trotzdem abre la frase: verbo segundo.' },
+      { s: 'Es regnete stark, ___ sind wir spazieren gegangen.', a: 'trotzdem', d: ['deswegen', 'weil'], t: 'Llovía mucho, aun así fuimos a pasear.', e: 'trotzdem + verbo justo detrás.' },
+      { s: 'Die Kritiken waren schlecht, ___ war das Kino voll.', a: 'trotzdem', d: ['deswegen', 'dass'], t: 'Las críticas eran malas, aun así el cine estaba lleno.', e: 'trotzdem introduce lo inesperado.' },
+      { s: 'Er hat wenig geübt, ___ hat er bestanden.', a: 'trotzdem', d: ['deswegen', 'weil'], t: 'Practicó poco, aun así aprobó.', e: 'trotzdem en 1ª posición.' },
+      { s: 'Das Handy war teuer, ___ habe ich es gekauft.', a: 'trotzdem', d: ['deswegen', 'obwohl'], t: 'El móvil era caro, aun así lo compré.', e: 'trotzdem + verbo en 2ª posición.' },
+      { s: 'Sie kennt ihn kaum, ___ vertraut sie ihm.', a: 'trotzdem', d: ['deswegen', 'weil'], t: 'Apenas lo conoce, aun así confía en él.', e: 'trotzdem manda el verbo justo detrás.' },
+      { s: 'Die Sendung ist alt, ___ schaue ich sie gern.', a: 'trotzdem', d: ['deswegen', 'dass'], t: 'El programa es antiguo, aun así lo veo con gusto.', e: 'trotzdem abre la frase.' },
+      { s: 'Ich hatte kaum Zeit, ___ bin ich gekommen.', a: 'trotzdem', d: ['deswegen', 'weil'], t: 'Casi no tenía tiempo, aun así vine.', e: 'Detrás de trotzdem va el auxiliar.' },
+      { s: 'Der Podcast dauert zwei Stunden, ___ höre ich ihn ganz.', a: 'trotzdem', d: ['deswegen', 'obwohl'], t: 'El pódcast dura dos horas, aun así lo escucho entero.', e: 'trotzdem + verbo segundo.' },
+      { s: 'Der Film war langweilig, trotzdem ___ wir bis zum Ende.', a: 'blieben', d: ['wir blieben', 'bleiben wir'], t: 'La película era aburrida, aun así nos quedamos hasta el final.', e: 'Detrás de trotzdem va el verbo y luego el sujeto.' },
+      { s: 'Ich war müde, trotzdem ___ ich noch lange gelesen.', a: 'habe', d: ['ich habe', 'bin'], t: 'Estaba cansado, aun así leí un buen rato.', e: 'El auxiliar va justo detrás de trotzdem.' },
+      { s: 'Es regnete stark, trotzdem ___ wir spazieren.', a: 'gingen', d: ['wir gingen', 'gehen wir'], t: 'Llovía mucho, aun así fuimos a pasear.', e: 'trotzdem en 1ª posición: el verbo va segundo.' },
+      { s: 'Er hat wenig geübt, trotzdem ___ er bestanden.', a: 'hat', d: ['er hat', 'ist'], t: 'Practicó poco, aun así aprobó.', e: 'El auxiliar detrás de trotzdem.' },
+      { s: 'Das Handy war teuer, trotzdem ___ ich es gekauft.', a: 'habe', d: ['ich habe', 'bin'], t: 'El móvil era caro, aun así lo compré.', e: 'trotzdem, auxiliar, sujeto.' },
+      { s: 'Sie kennt ihn kaum, trotzdem ___ sie ihm völlig.', a: 'vertraut', d: ['sie vertraut', 'vertrauen'], t: 'Apenas lo conoce, aun así confía plenamente en él.', e: 'Verbo justo detrás de trotzdem.' },
+      { s: 'Die Sendung ist alt, trotzdem ___ ich sie gern.', a: 'schaue', d: ['ich schaue', 'schauen'], t: 'El programa es antiguo, aun así lo veo con gusto.', e: 'trotzdem manda el verbo justo detrás.' },
+      { s: 'Ich hatte kaum Zeit, trotzdem ___ ich gekommen.', a: 'bin', d: ['ich bin', 'habe'], t: 'Casi no tenía tiempo, aun así vine.', e: 'El auxiliar va en 2ª posición.' },
+      { s: 'Das Wetter war furchtbar, trotzdem ___ die Wanderung schön.', a: 'war', d: ['die Wanderung war', 'sein'], t: 'El tiempo era horrible, aun así la caminata fue bonita.', e: 'Detrás de trotzdem va el verbo y luego el sujeto.' },
+      { s: 'Sie hatte kaum geübt, trotzdem ___ ihr Vortrag alle.', a: 'überzeugte', d: ['ihr Vortrag überzeugte', 'überzeugen'], t: 'Apenas había ensayado, aun así su presentación convenció a todos.', e: 'Verbo justo detrás de trotzdem.' },
+      { s: 'Der Laden war schon zu, trotzdem ___ uns die Verkäuferin rein.', a: 'ließ', d: ['sie ließ', 'lassen'], t: 'La tienda ya estaba cerrada, aun así la dependienta nos dejó entrar.', e: 'El verbo va segundo y rein al final.' },
+      { s: 'Ich mag keine Oper, trotzdem ___ ich mitgekommen.', a: 'bin', d: ['ich bin', 'habe'], t: 'No me gusta la ópera, aun así fui con ellos.', e: 'mitkommen va con sein: bin mitgekommen.' },
+      { s: 'Es waren nur drei Grad, trotzdem ___ die Kinder baden.', a: 'wollten', d: ['die Kinder wollten', 'wollen'], t: 'Hacía solo tres grados, aun así los niños querían bañarse.', e: 'El modal va justo detrás de trotzdem.' },
+      { s: 'Der Zug war völlig voll, trotzdem ___ wir noch zwei Plätze.', a: 'fanden', d: ['wir fanden', 'finden'], t: 'El tren iba lleno del todo, aun así encontramos dos asientos.', e: 'trotzdem, verbo, sujeto.' },
+      { s: 'Wir hatten den Weg erklärt, trotzdem ___ er sich verfahren.', a: 'hat', d: ['er hat', 'ist'], t: 'Le habíamos explicado el camino, aun así se perdió conduciendo.', e: 'sich verfahren va con haben: hat sich verfahren.' },
+      { s: 'Die Wohnung ist winzig, trotzdem ___ sie ein Vermögen.', a: 'kostet', d: ['sie kostet', 'kosten'], t: 'El piso es diminuto, aun así cuesta un dineral.', e: 'Verbo detrás de trotzdem.' },
+      { s: 'Er isst kaum Gemüse, trotzdem ___ er kerngesund.', a: 'ist', d: ['er ist', 'sein'], t: 'Casi no come verdura, aun así está sanísimo.', e: 'trotzdem + verbo + sujeto.' },
+      { s: 'Ich hatte es aufgeschrieben, trotzdem ___ mir der Name nicht ein.', a: 'fiel', d: ['mir fiel', 'einfallen'], t: 'Lo tenía apuntado, aun así no me vino el nombre.', e: 'einfallen: el verbo va segundo y ein al final.' }
     ],
     orders: [
       { sol: ['Es', 'war', 'kalt,', 'trotzdem', 'sind', 'wir', 'schwimmen', 'gegangen'], t: 'Hacía frío, aun así fuimos a nadar.', e: 'Tras "trotzdem" va el auxiliar y luego el sujeto.' },
-      { sol: ['Trotzdem', 'habe', 'ich', 'viel', 'gelernt'], t: 'Aun así he aprendido mucho.', e: 'Adverbio (1), auxiliar (2), sujeto (3).' },
+      { sol: ['Trotzdem', 'habe', 'ich', 'viel', 'gelernt'], alt: [['Ich', 'habe', 'trotzdem', 'viel', 'gelernt']], t: 'Aun así he aprendido mucho.', e: 'Adverbio (1), auxiliar (2), sujeto (3).' },
       { sol: ['Obwohl', 'ich', 'müde', 'war,', 'bin', 'ich', 'gekommen'], t: 'Aunque estaba cansado, vine.', e: 'Con "obwohl" el verbo cierra la subordinada.' },
       { sol: ['Das', 'Zimmer', 'ist', 'klein,', 'trotzdem', 'gefällt', 'es', 'mir'], t: 'La habitación es pequeña, aun así me gusta.', e: 'trotzdem + verbo + sujeto.' },
       { sol: ['Sie', 'ist', 'krank,', 'trotzdem', 'geht', 'sie', 'arbeiten'], t: 'Está enferma, aun así va a trabajar.', e: 'Adverbio en posición 1 + inversión.' },
-      { sol: ['Obwohl', 'es', 'spät', 'war,', 'haben', 'wir', 'weitergeschaut'], t: 'Aunque era tarde, seguimos viendo.', e: 'Con obwohl el verbo cierra la subordinada.' }
+      { sol: ['Obwohl', 'es', 'spät', 'war,', 'haben', 'wir', 'weitergeschaut'], t: 'Aunque era tarde, seguimos viendo.', e: 'Con obwohl el verbo cierra la subordinada.' },
+      { sol: ['Es', 'hat', 'geregnet,', 'trotzdem', 'sind', 'wir', 'spazieren', 'gegangen'], t: 'Llovió, aun así salimos a pasear.', e: '"trotzdem" ocupa la 1ª posición: detrás el verbo, luego el sujeto.' },
+      { sol: ['Sie', 'ist', 'müde,', 'trotzdem', 'lernt', 'sie', 'noch'], t: 'Está cansada, aun así sigue estudiando.', e: 'Trotzdem + verbo + sujeto.' },
+      { sol: ['Die', 'Wohnung', 'ist', 'teuer,', 'trotzdem', 'nehmen', 'wir', 'sie'], t: 'El piso es caro, aun así nos lo quedamos.', e: 'El contraste obliga a invertir.' },
+      { sol: ['Es', 'war', 'spät,', 'trotzdem', 'rief', 'er', 'noch', 'an'], t: 'Era tarde, aun así llamó.', e: 'Separable tras "trotzdem": rief … an.' }
+    ],
+    clozes: [
+      { txt: 'Gestern war ein langer Tag. Ich hatte Kopfschmerzen, ___ bin ich ins Training gegangen. Der Trainer war streng, ___ hat es Spaß gemacht. ___ es schon spät war, sind wir danach noch essen gegangen.', a: ['trotzdem', 'trotzdem', 'Obwohl'], extra: ['deswegen', 'weil', 'Trotzdem'], t: 'Ayer fue un día largo. Me dolía la cabeza, aun así fui al entrenamiento. El entrenador era duro, aun así me lo pasé bien. Aunque ya era tarde, después fuimos a cenar.', e: 'Los dos primeros huecos van con "trotzdem" y el verbo detrás; el tercero manda el verbo al final (war), y eso solo lo hace "obwohl".' },
+      { txt: 'Der Film war langweilig, ___ sind wir bis zum Ende geblieben. Ich war müde, ___ habe ich danach noch gelesen.', a: ['trotzdem', 'trotzdem'], extra: ['deswegen', 'weil', 'obwohl'], t: 'La película era aburrida, aun así nos quedamos hasta el final. Estaba cansado, aun así después leí un rato.', e: '"trotzdem" dice que pasó lo contrario de lo esperado, y como abre la frase lleva el verbo justo detrás.' }
     ]
   },
 
@@ -370,13 +841,407 @@ export const FRASE = {
       { s: 'Ich würde nie so früh ___.', a: 'aufstehen', d: ['stehe auf', 'aufgestanden'], t: 'Yo nunca me levantaría tan pronto.', e: 'Infinitivo completo al final.' },
       { s: 'Was ___ ihr an meiner Stelle machen?', a: 'würdet', d: ['würde', 'werdet'], t: '¿Qué haríais en mi lugar?', e: 'würden con ihr: würdet.' },
       { s: 'Ich ___ gern ein Zimmer reservieren.', a: 'würde', d: ['will', 'werde'], t: 'Me gustaría reservar una habitación.', e: 'Más cortés que "ich will": würde … reservieren.' },
-      { s: 'Würden Sie bitte kurz ___?', a: 'warten', d: ['warten Sie', 'gewartet'], t: '¿Esperaría un momento, por favor?', e: 'El infinitivo cierra la petición.' }
+      { s: 'Würden Sie bitte kurz ___?', a: 'warten', d: ['warten Sie', 'gewartet'], t: '¿Esperaría un momento, por favor?', e: 'El infinitivo cierra la petición.' },
+      { s: 'Ich würde am liebsten mit dem Zug ___.', a: 'fahren', d: ['fahre', 'gefahren'], t: 'Lo que más me gustaría es ir en tren.', e: 'Detrás de "würde" siempre el infinitivo, y al final.' },
+      { s: '___ Sie mir bitte den Weg zeigen?', a: 'Würden', d: ['Würdest', 'Würde'], t: '¿Me indica el camino, por favor?', e: 'Petición cortés: Würden Sie…?' },
+      { s: 'Wir würden gern einen Sitzplatz ___.', a: 'reservieren', d: ['reservieren wir', 'reserviert'], t: 'Nos gustaría reservar asiento.', e: 'El infinitivo cierra la frase.' },
+      { s: 'An deiner Stelle ___ ich früher losfahren.', a: 'würde', d: ['würdest', 'würden'], t: 'Yo en tu lugar saldría antes.', e: 'El complemento abre → inversión: würde ich.' },
+      { s: '___ ihr auch mit dem Zug fahren?', a: 'Würdet', d: ['Würden', 'Würde'], t: '¿Vosotros también iríais en tren?', e: 'Konjunktiv con ihr: würdet.' },
+      { s: 'Ich würde dich gern ___.', a: 'besuchen', d: ['besuche', 'besucht'], t: 'Me gustaría visitarte.', e: 'Infinitivo al final.' },
+      { s: '___ du mir bitte beim Umsteigen helfen?', a: 'Würdest', d: ['Würden', 'Würde'], t: '¿Me ayudas con el transbordo?', e: 'Petición con du.' },
+      { s: 'Wir würden den Anschluss lieber nicht ___.', a: 'verpassen', d: ['verpasst', 'verpassen wir'], t: 'Preferiríamos no perder el enlace.', e: 'El infinitivo cierra, incluso con negación.' },
+      { s: 'Ich würde gern den Zug um acht ___.', a: 'nehmen', d: ['nehme', 'genommen'], t: 'Me gustaría coger el tren de las ocho.', e: 'würde en 2ª posición, infinitivo al final.' },
+      { s: 'Würden Sie mir bitte die Wegbeschreibung ___?', a: 'schicken', d: ['schicke', 'geschickt'], t: '¿Me mandaría las indicaciones, por favor?', e: 'El infinitivo cierra la frase.' },
+      { s: 'An Ihrer Stelle würde ich früher ___.', a: 'losfahren', d: ['fahre los', 'losgefahren'], t: 'Yo en su lugar saldría antes.', e: 'El infinitivo va al final del todo.' },
+      { s: 'Wir würden das Zimmer gern noch einmal ___.', a: 'sehen', d: ['sehe', 'gesehen'], t: 'Nos gustaría ver la habitación otra vez.', e: 'würden … sehen forman el paréntesis verbal.' },
+      { s: 'Würdest du am Bahnhof auf mich ___?', a: 'warten', d: ['wartest', 'gewartet'], t: '¿Me esperarías en la estación?', e: 'El infinitivo cierra la pregunta.' }
     ],
     orders: [
       { sol: ['Ich', 'würde', 'gern', 'einen', 'Sitzplatz', 'reservieren'], t: 'Me gustaría reservar un asiento.', e: 'würde (2) … reservieren (final).' },
       { sol: ['Würden', 'Sie', 'mir', 'bitte', 'den', 'Weg', 'zeigen?'], t: '¿Me indicaría el camino, por favor?', e: 'En la pregunta cortés, "Würden" abre y el infinitivo cierra.' },
       { sol: ['Wir', 'würden', 'lieber', 'mit', 'dem', 'Zug', 'fahren'], t: 'Preferiríamos ir en tren.', e: 'La grapa: würden … fahren.' },
       { sol: ['Würdest', 'du', 'das', 'Fenster', 'bitte', 'aufmachen?'], t: '¿Abrirías la ventana, por favor?', e: 'Verbo separable entero al final.' }
+    ],
+    clozes: [
+      { txt: '___ Sie mir bitte helfen? Ich ___ gern einen Sitzplatz ___. Und an Ihrer Stelle ___ ich früher ___, der Zug ist oft voll.', a: ['Würden', 'würde', 'reservieren', 'würde', 'losfahren'], extra: ['Würdest', 'würden', 'reserviert', 'würdet'], t: '¿Me podría ayudar? Quería reservar un asiento. Y yo en su lugar saldría antes, el tren suele ir lleno.', e: 'El paréntesis del Konjunktiv: würde en 2ª posición (o abriendo la pregunta) y el infinitivo al final del todo.' }
+    ]
+  },
+  'wortstellung-zeit-vor-ort': {
+    picks: [
+      { s: 'Ich fahre ___ nach Graz.', a: 'morgen', d: ['nach Graz morgen', 'dort morgen'], t: 'Mañana voy a Graz.', e: 'Primero el cuándo y después el dónde.' },
+      { s: 'Wir treffen uns um acht ___.', a: 'im Café', d: ['das Café', 'Café'], t: 'Quedamos a las ocho en la cafetería.', e: 'El lugar va detrás de la hora.' },
+      { s: 'Sie arbeitet seit Montag ___ Büro.', a: 'im', d: ['in', 'am'], t: 'Trabaja desde el lunes en la oficina.', e: 'Tiempo (seit Montag) y luego lugar (im Büro).' },
+      { s: '___ fahre ich mit dem Rad in die Arbeit.', a: 'Im Sommer', d: ['In die Arbeit', 'Mit dem Rad'], t: 'En verano voy en bici al trabajo.', e: 'El tiempo puede abrir la frase; el lugar va al final.' },
+      { s: 'Er kommt ___ nach Hause.', a: 'spät', d: ['nach Hause spät', 'Hause spät'], t: 'Llega tarde a casa.', e: 'spät es tiempo y va antes de nach Hause.' },
+      { s: 'Wir essen ___ im Gastgarten.', a: 'heute', d: ['im Gastgarten heute', 'dort heute'], t: 'Hoy comemos en la terraza.', e: 'heute (cuándo) antes de im Gastgarten (dónde).' },
+      { s: 'Ich gehe ___ ins Schwimmbad.', a: 'am Samstag', d: ['ins Schwimmbad am Samstag', 'Samstag ins'], t: 'El sábado voy a la piscina.', e: 'El complemento de tiempo va primero.' },
+      { s: 'Sie wartet ___ vor dem Kino.', a: 'seit zwanzig Minuten', d: ['vor dem Kino seit', 'zwanzig Minuten vor'], t: 'Lleva veinte minutos esperando delante del cine.', e: 'Duración antes de lugar.' },
+      { s: 'Die Kinder spielen ___ im Hof.', a: 'nachmittags', d: ['im Hof nachmittags', 'Hof nachmittags'], t: 'Por la tarde los niños juegan en el patio.', e: 'nachmittags es tiempo: va antes.' },
+      { s: 'Wir fliegen ___ nach Japan.', a: 'im Herbst', d: ['nach Japan im Herbst', 'Japan im Herbst'], t: 'En otoño volamos a Japón.', e: 'Tiempo y después destino.' }
+    ]
+  },
+  'wenn-satz-bedingung': {
+    picks: [
+      { s: 'Wenn es regnet, ___ wir zu Hause.', a: 'bleiben', d: ['wir bleiben', 'bleiben wir zu'], t: 'Si llueve, nos quedamos en casa.', e: 'Con la subordinada delante, la principal empieza por el verbo.' },
+      { s: 'Wir gehen schwimmen, wenn das Wetter schön ___.', a: 'ist', d: ['ist es', 'sein'], t: 'Vamos a nadar si hace buen tiempo.', e: 'En la subordinada el verbo va al final.' },
+      { s: '___ es morgen schneit, fahre ich mit der Bim.', a: 'Wenn', d: ['Denn', 'Aber'], t: 'Si mañana nieva, voy en tranvía.', e: 'wenn introduce la condición.' },
+      { s: 'Wenn du Zeit ___, komm doch vorbei.', a: 'hast', d: ['hast du', 'haben'], t: 'Si tienes tiempo, pásate.', e: 'Verbo al final de la parte del wenn.' },
+      { s: 'Wenn es kalt wird, ___ ich einen Mantel an.', a: 'ziehe', d: ['ich ziehe', 'anziehe'], t: 'Si hace frío, me pongo un abrigo.', e: 'Verbo primero, y el prefijo an al final.' },
+      { s: 'Ich nehme den Schirm mit, wenn es ___.', a: 'regnet', d: ['regnet es', 'regnen'], t: 'Me llevo el paraguas si llueve.', e: 'Subordinada detrás: el verbo igualmente al final.' },
+      { s: 'Wenn die Sonne ___, gehen wir in den Park.', a: 'scheint', d: ['scheint sie', 'scheinen'], t: 'Si hace sol, vamos al parque.', e: 'El verbo cierra la subordinada.' },
+      { s: 'Wenn es zu heiß ist, ___ ich nicht laufen.', a: 'gehe', d: ['ich gehe', 'gehen'], t: 'Si hace demasiado calor, no salgo a correr.', e: 'Principal empezando por el verbo.' },
+      { s: '___ du willst, machen wir morgen einen Ausflug.', a: 'Wenn', d: ['Weil', 'Dass'], t: 'Si quieres, mañana hacemos una excursión.', e: 'wenn para la condición, no weil.' },
+      { s: 'Wenn wir früh ___, sehen wir den Sonnenaufgang.', a: 'aufstehen', d: ['stehen auf', 'aufstehen wir'], t: 'Si nos levantamos pronto, vemos el amanecer.', e: 'En subordinada el separable NO se parte.' }
+    ]
+  },
+  'haeufigkeit-adverbien': {
+    picks: [
+      { s: 'Ich gehe ___ am Montag ins Training.', a: 'immer', d: ['nie immer', 'immer nicht'], t: 'Siempre voy a entrenar los lunes.', e: 'El adverbio va detrás del verbo conjugado.' },
+      { s: 'Sie spielt ___ Tennis, höchstens im Sommer.', a: 'selten', d: ['oft', 'immer'], t: 'Juega poco al tenis, como mucho en verano.', e: 'selten = pocas veces.' },
+      { s: 'Er kommt ___ zu spät.', a: 'nie', d: ['niemals nicht', 'nicht nie'], t: 'Nunca llega tarde.', e: 'nie ya es negativo: no lleva nicht.' },
+      { s: 'Wir gehen ___ ins Schwimmbad.', a: 'oft', d: ['viel mal', 'mehrmal'], t: 'Vamos a menudo a la piscina.', e: 'oft = a menudo.' },
+      { s: '___ koche ich, manchmal mein Mann.', a: 'Meistens', d: ['Nie', 'Selten'], t: 'Normalmente cocino yo, a veces mi marido.', e: 'meistens = casi siempre.' },
+      { s: 'Ich treibe ___ Sport, etwa einmal im Monat.', a: 'selten', d: ['immer', 'meistens'], t: 'Hago deporte pocas veces, una al mes.', e: 'Una vez al mes es selten.' },
+      { s: 'Sie ist ___ pünktlich, das ist bekannt.', a: 'immer', d: ['nie', 'selten'], t: 'Siempre es puntual, es sabido.', e: 'immer, lo más frecuente.' },
+      { s: '___ gehe ich laufen, aber nicht regelmäßig.', a: 'Manchmal', d: ['Immer', 'Nie'], t: 'A veces salgo a correr, pero sin regularidad.', e: 'manchmal está en el medio de la escala.' },
+      { s: 'Er hat ___ Zeit am Wochenende.', a: 'immer', d: ['nie nicht', 'immer kein'], t: 'Siempre tiene tiempo el fin de semana.', e: 'El adverbio detrás del verbo.' },
+      { s: 'Wir sehen uns ___, etwa zweimal im Jahr.', a: 'selten', d: ['oft', 'immer'], t: 'Nos vemos poco, unas dos veces al año.', e: 'Dos veces al año: selten.' }
+    ]
+  },
+  'zeitadverbien-reihenfolge': {
+    picks: [
+      { s: '___ habe ich gefrühstückt.', a: 'Zuerst', d: ['Schließlich', 'Danach'], t: 'Primero desayuné.', e: 'zuerst abre la secuencia.' },
+      { s: 'Dann ___ ich in die Arbeit gefahren.', a: 'bin', d: ['ich bin', 'habe'], t: 'Luego fui al trabajo.', e: 'dann ocupa la posición 1: el verbo va detrás.' },
+      { s: '___ habe ich noch eingekauft.', a: 'Danach', d: ['Zuerst', 'Vorher'], t: 'Después hice la compra.', e: 'danach = a continuación.' },
+      { s: '___ bin ich völlig erschöpft ins Bett.', a: 'Schließlich', d: ['Zuerst', 'Danach'], t: 'Al final me metí en la cama agotado.', e: 'schließlich cierra la secuencia.' },
+      { s: 'Zuerst ___ wir die Kartons gepackt.', a: 'haben', d: ['wir haben', 'hatten wir'], t: 'Primero hicimos las cajas.', e: 'El verbo justo detrás de zuerst.' },
+      { s: '___ trinke ich einen Kaffee, dann fange ich an.', a: 'Zuerst', d: ['Schließlich', 'Danach'], t: 'Primero me tomo un café y luego empiezo.', e: 'La pareja zuerst … dann.' },
+      { s: 'Danach ___ wir zusammen gegessen.', a: 'haben', d: ['wir haben', 'hatten'], t: 'Después comimos juntos.', e: 'Verbo en 2ª posición.' },
+      { s: '___ war ich müde, aber zufrieden.', a: 'Am Ende', d: ['Zuerst', 'Danach'], t: 'Al final estaba cansado pero contento.', e: 'am Ende también cierra.' },
+      { s: 'Später ___ ich meine Schwester angerufen.', a: 'habe', d: ['ich habe', 'hatte ich'], t: 'Más tarde llamé a mi hermana.', e: 'später en posición 1.' },
+      { s: 'Zuerst der Kurs, ___ das Training.', a: 'danach', d: ['zuerst', 'vorher'], t: 'Primero el curso, después el entrenamiento.', e: 'danach para lo que viene detrás.' }
+    ]
+  },
+  'imperativ-wegbeschreibung': {
+    picks: [
+      { s: '___ Sie geradeaus bis zur Ampel.', a: 'Gehen', d: ['Geht', 'Gehst'], t: 'Siga recto hasta el semáforo.', e: 'Imperativo de Sie: verbo + Sie.' },
+      { s: 'Biegen Sie an der Kreuzung rechts ___.', a: 'ab', d: ['aus', 'an'], t: 'Gire a la derecha en el cruce.', e: 'abbiegen es separable: el prefijo al final.' },
+      { s: '___ Sie die zweite Straße links.', a: 'Nehmen', d: ['Nimm', 'Nehmt'], t: 'Coja la segunda calle a la izquierda.', e: 'Con Sie el verbo va en infinitivo aparente.' },
+      { s: 'Gehen Sie am Rathaus ___.', a: 'vorbei', d: ['vor', 'über'], t: 'Pase por delante del ayuntamiento.', e: 'vorbeigehen an: el prefijo cierra la frase.' },
+      { s: '___ Sie bitte über die Straße.', a: 'Gehen', d: ['Geht', 'Gehe'], t: 'Cruce la calle, por favor.', e: 'Cortesía: Gehen Sie.' },
+      { s: 'Fahren Sie bis zur Endstation und steigen Sie dort ___.', a: 'aus', d: ['ab', 'auf'], t: 'Vaya hasta el final y bájese allí.', e: 'aussteigen: prefijo al final.' },
+      { s: '___ Sie an der dritten Haltestelle um.', a: 'Steigen', d: ['Steigt', 'Steig'], t: 'Haga transbordo en la tercera parada.', e: 'umsteigen, con Sie y el um al final.' },
+      { s: 'Gehen Sie ___ zum Bahnhof, das ist schneller.', a: 'zu Fuß', d: ['Fuß', 'mit Fuß'], t: 'Vaya andando a la estación, es más rápido.', e: 'zu Fuß es expresión fija.' },
+      { s: '___ Sie mir bitte den Weg?', a: 'Zeigen', d: ['Zeigt', 'Zeig'], t: '¿Me indica el camino?', e: 'También en pregunta se usa la forma de Sie.' },
+      { s: 'Halten Sie sich ___, dann sehen Sie die Kirche.', a: 'links', d: ['die Links', 'zu links'], t: 'Manténgase a la izquierda y verá la iglesia.', e: 'sich links halten: sin artículo.' }
+    ]
+  },
+  'indirekte-frage-ob': {
+    picks: [
+      { s: 'Ich weiß nicht, ___ das Amt heute offen ist.', a: 'ob', d: ['dass', 'wenn'], t: 'No sé si la oficina está abierta hoy.', e: 'Pregunta de sí o no dentro de otra frase: ob.' },
+      { s: 'Können Sie mir sagen, ___ der Termin ist?', a: 'wann', d: ['ob', 'dass'], t: '¿Me puede decir cuándo es la cita?', e: 'Con pregunta de W- se mantiene la W-.' },
+      { s: 'Ich frage, ob das Formular vollständig ___.', a: 'ist', d: ['ist es', 'sein'], t: 'Pregunto si el formulario está completo.', e: 'El verbo al final de la subordinada.' },
+      { s: 'Wissen Sie, ___ ich hier warten muss?', a: 'ob', d: ['dass', 'wenn'], t: '¿Sabe si tengo que esperar aquí?', e: 'Sí o no: ob.' },
+      { s: 'Er fragt, ___ die Gebühr kostet.', a: 'wie viel', d: ['ob', 'dass'], t: 'Pregunta cuánto cuesta la tasa.', e: 'wie viel se mantiene.' },
+      { s: 'Ich weiß nicht, ob ich den Antrag ___ muss.', a: 'unterschreiben', d: ['unterschreibe', 'unterschrieben'], t: 'No sé si tengo que firmar la solicitud.', e: 'El modal cierra la frase, detrás del infinitivo.' },
+      { s: 'Sagen Sie mir bitte, ___ ich das abgeben kann.', a: 'wo', d: ['ob', 'dass'], t: 'Dígame dónde puedo entregar esto.', e: 'wo se mantiene.' },
+      { s: 'Ich bin nicht sicher, ___ das die richtige Nummer ist.', a: 'ob', d: ['dass', 'wenn'], t: 'No estoy seguro de si es el número correcto.', e: 'Duda de sí o no: ob.' },
+      { s: 'Fragen Sie bitte, ___ lange die Bearbeitung dauert.', a: 'wie', d: ['ob', 'dass'], t: 'Pregunte cuánto tarda la tramitación.', e: 'wie lange se mantiene.' },
+      { s: 'Wir wissen nicht, ob er heute ___.', a: 'kommt', d: ['kommt er', 'kommen'], t: 'No sabemos si viene hoy.', e: 'Verbo al final.' }
+    ]
+  },
+  'zu-infinitiv': {
+    picks: [
+      { s: 'Ich habe vergessen, das Hotel ___ buchen.', a: 'zu', d: ['den', 'um zu'], t: 'Se me olvidó reservar el hotel.', e: 'vergessen pide zu + infinitivo.' },
+      { s: 'Hast du Lust, ___?', a: 'mitzukommen', d: ['mitkommen zu', 'zu mitkommen'], t: '¿Te apetece venir?', e: 'En los separables el zu va DENTRO.' },
+      { s: 'Ich versuche, jeden Tag ___ lernen.', a: 'zu', d: ['um zu', 'das'], t: 'Intento estudiar cada día.', e: 'versuchen + zu.' },
+      { s: 'Wir haben angefangen, Deutsch ___ sprechen.', a: 'zu', d: ['um zu', 'das'], t: 'Hemos empezado a hablar alemán.', e: 'anfangen + zu.' },
+      { s: 'Ich muss heute früher ___.', a: 'gehen', d: ['zu gehen', 'um zu gehen'], t: 'Hoy tengo que irme antes.', e: 'Con los modales NO se pone zu.' },
+      { s: 'Es ist wichtig, genug ___ schlafen.', a: 'zu', d: ['um zu', 'das'], t: 'Es importante dormir lo suficiente.', e: 'Es ist wichtig, … zu.' },
+      { s: 'Hast du Zeit, mir kurz ___ helfen?', a: 'zu', d: ['um zu', 'das'], t: '¿Tienes tiempo de ayudarme un momento?', e: 'Zeit haben + zu.' },
+      { s: 'Er hat vor, im Sommer ___.', a: 'wegzufahren', d: ['wegfahren zu', 'zu wegfahren'], t: 'Tiene pensado irse en verano.', e: 'wegfahren es separable: el zu va dentro.' },
+      { s: 'Ich kann heute nicht ___.', a: 'kommen', d: ['zu kommen', 'um zu kommen'], t: 'Hoy no puedo venir.', e: 'können no lleva zu.' },
+      { s: 'Vergiss nicht, den Koffer ___ packen.', a: 'zu', d: ['um zu', 'das'], t: 'No olvides hacer la maleta.', e: 'vergessen + zu.' }
+    ]
+  },
+  'um-zu-final': {
+    picks: [
+      { s: 'Ich lerne Deutsch, ___ hier zu arbeiten.', a: 'um', d: ['damit', 'dass'], t: 'Estudio alemán para trabajar aquí.', e: 'Mismo sujeto en las dos partes: um … zu.' },
+      { s: 'Wir fahren früher los, um den Zug ___ erreichen.', a: 'zu', d: ['um zu', 'damit'], t: 'Salimos antes para coger el tren.', e: 'um … zu, con el zu delante del infinitivo.' },
+      { s: 'Er spart, ___ eine Reise zu machen.', a: 'um', d: ['damit', 'weil'], t: 'Ahorra para hacer un viaje.', e: 'Para qué: um … zu.' },
+      { s: 'Ich rufe an, um einen Termin ___ vereinbaren.', a: 'zu', d: ['um', 'damit'], t: 'Llamo para concertar una cita.', e: 'El zu cierra la construcción.' },
+      { s: 'Sie geht ins Studio, um fit ___ bleiben.', a: 'zu', d: ['um', 'damit'], t: 'Va al gimnasio para mantenerse en forma.', e: 'um … zu bleiben.' },
+      { s: 'Ich erkläre es noch mal, ___ alle es verstehen.', a: 'damit', d: ['um', 'dass'], t: 'Lo explico otra vez para que todos lo entiendan.', e: 'Cambia el sujeto: damit, no um … zu.' },
+      { s: 'Wir nehmen ein Taxi, um nicht zu spät ___.', a: 'zu kommen', d: ['kommen', 'um zu kommen'], t: 'Cogemos un taxi para no llegar tarde.', e: 'zu + infinitivo al final.' },
+      { s: 'Er steht früh auf, ___ in Ruhe zu frühstücken.', a: 'um', d: ['damit', 'weil'], t: 'Se levanta pronto para desayunar con calma.', e: 'Mismo sujeto: um … zu.' },
+      { s: 'Ich schreibe es auf, um es nicht ___.', a: 'zu vergessen', d: ['vergessen', 'um zu vergessen'], t: 'Lo apunto para no olvidarlo.', e: 'El infinitivo con zu cierra.' },
+      { s: 'Sie lernt viel, ___ die Prüfung zu bestehen.', a: 'um', d: ['damit', 'dass'], t: 'Estudia mucho para aprobar el examen.', e: 'Finalidad con el mismo sujeto.' }
+    ]
+  },
+  'wortstellung-nebensatz-wdh': {
+    picks: [
+      { s: 'Schade, dass du nicht kommen ___.', a: 'kannst', d: ['kannst du', 'können'], t: 'Qué pena que no puedas venir.', e: 'El modal cierra la subordinada.' },
+      { s: 'Ich freue mich, weil alle da ___.', a: 'sind', d: ['sind alle', 'sein'], t: 'Me alegro porque están todos.', e: 'Verbo al final.' },
+      { s: 'Er sagt, dass er später ___.', a: 'kommt', d: ['kommt er', 'kommen'], t: 'Dice que viene más tarde.', e: 'dass manda el verbo al final.' },
+      { s: 'Ich weiß nicht, ob sie eingeladen ___.', a: 'ist', d: ['ist sie', 'sein'], t: 'No sé si está invitada.', e: 'ob también manda el verbo al final.' },
+      { s: 'Wir bleiben, obwohl es schon spät ___.', a: 'ist', d: ['ist es', 'sein'], t: 'Nos quedamos aunque ya es tarde.', e: 'obwohl es subordinada.' },
+      { s: 'Sie ruft an, wenn sie angekommen ___.', a: 'ist', d: ['ist sie', 'sein'], t: 'Llama cuando haya llegado.', e: 'El auxiliar cierra la frase.' },
+      { s: 'Ich hoffe, dass ihr Zeit ___.', a: 'habt', d: ['habt ihr', 'haben'], t: 'Espero que tengáis tiempo.', e: 'Con ihr: habt, al final.' },
+      { s: 'Er kommt nicht, weil er arbeiten ___.', a: 'muss', d: ['muss er', 'müssen'], t: 'No viene porque tiene que trabajar.', e: 'Con dos verbos, el conjugado va el último.' },
+      { s: 'Sag mir, ob du mitkommen ___.', a: 'willst', d: ['willst du', 'wollen'], t: 'Dime si quieres venir.', e: 'El modal al final.' },
+      { s: 'Es freut mich, dass du gekommen ___.', a: 'bist', d: ['bist du', 'sein'], t: 'Me alegra que hayas venido.', e: 'El auxiliar cierra.' }
+    ]
+  },
+  'obwohl-gegensatz': {
+    picks: [
+      { s: '___ es spät war, sind wir geblieben.', a: 'Obwohl', d: ['Trotzdem', 'Deshalb'], t: 'Aunque era tarde, nos quedamos.', e: 'obwohl abre subordinada.' },
+      { s: 'Er ist gekommen, obwohl er krank ___.', a: 'war', d: ['war er', 'sein'], t: 'Vino aunque estaba enfermo.', e: 'Verbo al final.' },
+      { s: 'Es war spät, ___ sind wir geblieben.', a: 'trotzdem', d: ['obwohl', 'weil'], t: 'Era tarde, aun así nos quedamos.', e: 'trotzdem es adverbio: el verbo justo detrás.' },
+      { s: 'Obwohl sie wenig geübt ___, hat sie bestanden.', a: 'hat', d: ['hat sie', 'haben'], t: 'Aunque practicó poco, aprobó.', e: 'El auxiliar cierra la subordinada.' },
+      { s: 'Wir gehen spazieren, ___ es regnet.', a: 'obwohl', d: ['trotzdem', 'deshalb'], t: 'Vamos a pasear aunque llueve.', e: 'obwohl con la subordinada detrás.' },
+      { s: '___ ich müde bin, komme ich mit.', a: 'Obwohl', d: ['Trotzdem', 'Darum'], t: 'Aunque estoy cansado, voy con vosotros.', e: 'obwohl al principio.' },
+      { s: 'Obwohl das Essen teuer ___, war es gut.', a: 'war', d: ['war es', 'sein'], t: 'Aunque la comida era cara, estaba buena.', e: 'Verbo al final.' },
+      { s: 'Er hat wenig Zeit, ___ hilft er uns.', a: 'trotzdem', d: ['obwohl', 'weil'], t: 'Tiene poco tiempo, aun así nos ayuda.', e: 'trotzdem en posición 1.' },
+      { s: 'Obwohl wir uns kaum ___, verstehen wir uns gut.', a: 'kennen', d: ['kennen wir', 'kennt'], t: 'Aunque apenas nos conocemos, nos llevamos bien.', e: 'Verbo al final de la subordinada.' },
+      { s: 'obwohl und trotzdem sagen ___.', a: 'dasselbe', d: ['das Gegenteil', 'nichts Ähnliches'], t: 'obwohl y trotzdem dicen lo mismo.', e: 'Lo que cambia es el orden de la frase.' }
+    ]
+  },
+  'als-wann-wenn-vergangenheit': {
+    picks: [
+      { s: '___ ich nach Wien kam, war alles fremd.', a: 'Als', d: ['Wenn', 'Wann'], t: 'Cuando llegué a Viena, todo me resultaba ajeno.', e: 'Una vez concreta en pasado: als.' },
+      { s: 'Immer ___ ich Heimweh hatte, rief ich zu Hause an.', a: 'wenn', d: ['als', 'wann'], t: 'Cada vez que echaba de menos mi casa, llamaba.', e: 'Repetido: wenn, aunque sea pasado.' },
+      { s: '___ warst du zum ersten Mal hier?', a: 'Wann', d: ['Als', 'Wenn'], t: '¿Cuándo estuviste aquí por primera vez?', e: 'En una pregunta siempre wann.' },
+      { s: '___ ich klein war, wohnten wir am Meer.', a: 'Als', d: ['Wenn', 'Wann'], t: 'Cuando era pequeño vivíamos junto al mar.', e: 'Una etapa única del pasado: als.' },
+      { s: '___ es morgen regnet, bleibe ich zu Hause.', a: 'Wenn', d: ['Als', 'Wann'], t: 'Si mañana llueve, me quedo en casa.', e: 'En presente y futuro siempre wenn.' },
+      { s: 'Als ich den Brief ___, war ich erleichtert.', a: 'bekam', d: ['bekomme', 'bekommen'], t: 'Cuando recibí la carta, me sentí aliviado.', e: 'El verbo cierra la subordinada.' },
+      { s: 'Jedes Mal, ___ ich das höre, muss ich lachen.', a: 'wenn', d: ['als', 'wann'], t: 'Cada vez que oigo eso me río.', e: 'jedes Mal pide wenn.' },
+      { s: 'Weißt du, ___ der Kurs anfängt?', a: 'wann', d: ['als', 'wenn'], t: '¿Sabes cuándo empieza el curso?', e: 'Pregunta indirecta: wann.' },
+      { s: '___ ich den Job bekam, habe ich gefeiert.', a: 'Als', d: ['Wenn', 'Wann'], t: 'Cuando conseguí el trabajo, lo celebré.', e: 'Un momento único: als.' },
+      { s: 'Früher, ___ wir noch in Spanien wohnten, war alles anders.', a: 'als', d: ['wenn', 'wann'], t: 'Antes, cuando aún vivíamos en España, todo era distinto.', e: 'Un periodo del pasado: als.' }
+    ]
+  },
+  'wenn-satz-einladung': {
+    picks: [
+      { s: 'Wenn du Zeit hast, ___ doch vorbei.', a: 'komm', d: ['du kommst', 'kommst du'], t: 'Si tienes tiempo, pásate.', e: 'La principal empieza por el verbo.' },
+      { s: 'Weil ich arbeiten muss, ___ ich später.', a: 'komme', d: ['ich komme', 'komme ich nicht'], t: 'Como tengo que trabajar, llego más tarde.', e: 'Subordinada delante: verbo primero en la principal.' },
+      { s: 'Wenn ihr wollt, ___ wir zusammen kochen.', a: 'können', d: ['wir können', 'können wir nicht'], t: 'Si queréis, podemos cocinar juntos.', e: 'El modal abre la principal.' },
+      { s: 'Obwohl es spät ist, ___ ich noch.', a: 'bleibe', d: ['ich bleibe', 'bleibe ich nicht'], t: 'Aunque es tarde, me quedo un rato.', e: 'Mismo esquema con obwohl.' },
+      { s: 'Wenn das Wetter schön ist, ___ wir im Hof.', a: 'essen', d: ['wir essen', 'essen wir dort'], t: 'Si hace buen tiempo, comemos en el patio.', e: 'Verbo delante del sujeto.' },
+      { s: 'Da ich morgen frei habe, ___ ich lange schlafen.', a: 'kann', d: ['ich kann', 'kann ich lange'], t: 'Como mañana libro, puedo dormir hasta tarde.', e: 'da funciona como weil.' },
+      { s: 'Wenn du magst, ___ ich dich ab.', a: 'hole', d: ['ich hole', 'holst du'], t: 'Si quieres, te recojo.', e: 'abholen: el prefijo al final.' },
+      { s: 'Bevor die Gäste kommen, ___ wir noch auf.', a: 'räumen', d: ['wir räumen', 'räumen wir es'], t: 'Antes de que lleguen los invitados, ordenamos.', e: 'bevor también es subordinada.' },
+      { s: 'Wenn alle da sind, ___ wir an.', a: 'fangen', d: ['wir fangen', 'fangen wir es'], t: 'Cuando estén todos, empezamos.', e: 'anfangen, con an al final.' },
+      { s: 'Nachdem wir gegessen haben, ___ es einen Kuchen.', a: 'gibt', d: ['es gibt', 'gibt es einen'], t: 'Después de comer hay tarta.', e: 'nachdem, subordinada delante.' }
+    ]
+  },
+  'zweiteilige-konnektoren': {
+    picks: [
+      { s: 'Ich spiele sowohl Tennis ___ auch Fußball.', a: 'als', d: ['wie', 'und'], t: 'Juego tanto al tenis como al fútbol.', e: 'sowohl … als auch.' },
+      { s: '___ wir laufen oder wir gehen schwimmen.', a: 'Entweder', d: ['Sowohl', 'Weder'], t: 'O corremos o vamos a nadar.', e: 'entweder … oder.' },
+      { s: 'Er treibt weder Sport ___ geht er spazieren.', a: 'noch', d: ['oder', 'als'], t: 'Ni hace deporte ni sale a pasear.', e: 'weder … noch, y ya es negativo.' },
+      { s: 'Sie ist nicht nur schnell, ___ auch ausdauernd.', a: 'sondern', d: ['aber', 'und'], t: 'No solo es rápida, sino también resistente.', e: 'nicht nur … sondern auch.' },
+      { s: 'Entweder du kommst mit ___ du bleibst hier.', a: 'oder', d: ['und', 'aber'], t: 'O te vienes o te quedas aquí.', e: 'La segunda pieza es oder.' },
+      { s: 'Sowohl im Sommer ___ auch im Winter trainiert er.', a: 'als', d: ['wie', 'und'], t: 'Entrena tanto en verano como en invierno.', e: 'Siempre als auch, no wie auch.' },
+      { s: 'Weder der Trainer ___ die Mannschaft war zufrieden.', a: 'noch', d: ['oder', 'und'], t: 'Ni el entrenador ni el equipo quedaron contentos.', e: 'weder … noch.' },
+      { s: 'Das Training ist nicht nur hart, ___ auch lang.', a: 'sondern', d: ['aber', 'oder'], t: 'El entrenamiento no solo es duro, sino también largo.', e: 'Después de una negación: sondern.' },
+      { s: 'Er läuft ___ morgens als auch abends.', a: 'sowohl', d: ['entweder', 'weder'], t: 'Corre tanto por la mañana como por la tarde.', e: 'La primera pieza es sowohl.' },
+      { s: 'Ich habe keine Zeit, ___ auch keine Lust.', a: 'und', d: ['sondern', 'als'], t: 'No tengo tiempo, y tampoco ganas.', e: 'Aquí basta con und: no hay contraposición.' }
+    ]
+  },
+  'nebensatz-damit': {
+    picks: [
+      { s: 'Ich spreche lauter, ___ mich alle hören.', a: 'damit', d: ['um', 'dass'], t: 'Hablo más alto para que todos me oigan.', e: 'Cambia el sujeto: damit.' },
+      { s: 'Sie schreibt ein Protokoll, damit nichts vergessen ___.', a: 'wird', d: ['wird es', 'werden'], t: 'Escribe un acta para que no se olvide nada.', e: 'damit es subordinada: verbo al final.' },
+      { s: 'Ich rufe an, ___ einen Termin zu bekommen.', a: 'um', d: ['damit', 'dass'], t: 'Llamo para conseguir una cita.', e: 'Mismo sujeto: um … zu.' },
+      { s: 'Er spricht langsam, ___ ich ihn verstehe.', a: 'damit', d: ['um', 'weil'], t: 'Habla despacio para que yo le entienda.', e: 'Dos sujetos distintos: damit.' },
+      { s: 'Wir gehen früher, damit wir den Zug ___.', a: 'erreichen', d: ['erreichen wir', 'zu erreichen'], t: 'Nos vamos antes para coger el tren.', e: 'El verbo cierra la subordinada.' },
+      { s: 'Ich schicke die Mail heute, ___ du sie morgen hast.', a: 'damit', d: ['um', 'dass'], t: 'Mando el correo hoy para que lo tengas mañana.', e: 'Cambio de sujeto.' },
+      { s: 'Er übt täglich, ___ besser zu werden.', a: 'um', d: ['damit', 'dass'], t: 'Practica a diario para mejorar.', e: 'El sujeto no cambia: um … zu.' },
+      { s: 'Der Chef erklärt alles, damit es keine Fehler ___.', a: 'gibt', d: ['gibt es', 'geben'], t: 'El jefe lo explica todo para que no haya errores.', e: 'es gibt, con el verbo al final.' },
+      { s: 'Ich mache eine Liste, ___ ich nichts vergesse.', a: 'damit', d: ['um', 'weil'], t: 'Hago una lista para no olvidarme de nada.', e: 'Aunque el sujeto sea el mismo, con damit también vale.' },
+      { s: 'Er arbeitet abends, ___ mehr Geld zu verdienen.', a: 'um', d: ['damit', 'dass'], t: 'Trabaja por las noches para ganar más dinero.', e: 'Mismo sujeto: um … zu.' }
+    ]
+  },
+  'deshalb-darum-daher': {
+    picks: [
+      { s: 'Er war krank, deshalb ___ er in der Schule.', a: 'fehlte', d: ['er fehlte', 'fehlen'], t: 'Estaba enfermo, por eso faltó al colegio.', e: 'Detrás de deshalb va el verbo y luego el sujeto.' },
+      { s: 'Sie hat viel geübt, darum ___ die Schularbeit leicht.', a: 'war', d: ['die Schularbeit war', 'sein'], t: 'Practicó mucho, por eso el examen le resultó fácil.', e: 'darum funciona igual que deshalb.' },
+      { s: 'Der Bus kam nicht, ___ bin ich zu spät.', a: 'daher', d: ['weil', 'obwohl'], t: 'El autobús no llegó, por eso llego tarde.', e: 'daher también es adverbio.' },
+      { s: 'Es hat geschneit, deshalb ___ die Schule aus.', a: 'fällt', d: ['fällt sie', 'ausfallen'], t: 'Ha nevado, por eso no hay clase.', e: 'ausfallen: el verbo segundo y aus al final.' },
+      { s: 'Ich habe verschlafen, ___ komme ich später.', a: 'deshalb', d: ['weil', 'dass'], t: 'Me he quedado dormido, por eso llego más tarde.', e: 'Consecuencia: deshalb.' },
+      { s: 'Er lernt nicht gern, darum ___ er schlechte Noten.', a: 'hat', d: ['er hat', 'haben'], t: 'No le gusta estudiar, por eso saca malas notas.', e: 'Verbo justo detrás de darum.' },
+      { s: 'Die Klasse war laut, deshalb ___ die Lehrerin.', a: 'schimpfte', d: ['die Lehrerin schimpfte', 'schimpfen'], t: 'La clase estaba ruidosa, por eso la profesora regañó.', e: 'deshalb + verbo + sujeto.' },
+      { s: 'Ich habe den Stoff nicht verstanden, ___ nehme ich Nachhilfe.', a: 'daher', d: ['weil', 'obwohl'], t: 'No he entendido la materia, por eso voy a clases de refuerzo.', e: 'daher en posición 1.' },
+      { s: 'deshalb, darum und daher sagen ___.', a: 'dasselbe', d: ['etwas anderes', 'das Gegenteil'], t: 'deshalb, darum y daher dicen lo mismo.', e: 'Se pueden intercambiar.' },
+      { s: 'Sie hat die Matura, deshalb ___ sie studieren.', a: 'kann', d: ['sie kann', 'können'], t: 'Tiene el bachillerato, por eso puede estudiar.', e: 'El modal justo detrás.' }
+    ]
+  },
+  'weil-oder-deshalb': {
+    picks: [
+      { s: 'Er fehlt, ___ er krank ist.', a: 'weil', d: ['deshalb', 'trotzdem'], t: 'Falta porque está enfermo.', e: 'weil presenta la causa.' },
+      { s: 'Er ist krank, ___ fehlt er.', a: 'deshalb', d: ['weil', 'dass'], t: 'Está enfermo, por eso falta.', e: 'deshalb presenta la consecuencia.' },
+      { s: 'Weil ich müde ___, gehe ich früh ins Bett.', a: 'bin', d: ['bin ich', 'sein'], t: 'Como estoy cansado, me acuesto pronto.', e: 'Con weil el verbo va al final.' },
+      { s: 'Ich bin müde, deshalb ___ ich früh ins Bett.', a: 'gehe', d: ['ich gehe', 'gehen'], t: 'Estoy cansado, por eso me acuesto pronto.', e: 'Con deshalb el verbo va justo detrás.' },
+      { s: 'Sie hat bestanden, ___ sie viel gelernt hat.', a: 'weil', d: ['deshalb', 'darum'], t: 'Aprobó porque estudió mucho.', e: 'La causa va con weil.' },
+      { s: 'Sie hat viel gelernt, ___ hat sie bestanden.', a: 'deshalb', d: ['weil', 'obwohl'], t: 'Estudió mucho, por eso aprobó.', e: 'La consecuencia va con deshalb.' },
+      { s: 'Der Unterschied ist ___.', a: 'die Wortstellung', d: ['die Bedeutung', 'das Verb'], t: 'La diferencia está en el orden de la frase.', e: 'Dicen lo mismo, pero se colocan al revés.' },
+      { s: 'Weil der Bus Verspätung ___, kam ich zu spät.', a: 'hatte', d: ['hatte er', 'haben'], t: 'Como el autobús llegó tarde, llegué tarde.', e: 'Verbo al final con weil.' },
+      { s: 'Die Straßenbahn war voll, ___ bin ich gelaufen.', a: 'deshalb', d: ['weil', 'dass'], t: 'El tranvía iba lleno, por eso fui andando.', e: 'deshalb y el verbo detrás.' },
+      { s: 'Nach weil kommt ___.', a: 'ein Nebensatz', d: ['ein Hauptsatz', 'nichts'], t: 'Después de weil viene una subordinada.', e: 'Y por eso el verbo se va al final.' }
+    ]
+  },
+  'nebensatz-mit-wenn-schule': {
+    picks: [
+      { s: 'Wenn du krank ___, brauchst du eine Entschuldigung.', a: 'bist', d: ['bist du', 'sein'], t: 'Si estás enfermo, necesitas un justificante.', e: 'Verbo al final de la parte del wenn.' },
+      { s: 'Wenn die Note schlecht ist, ___ es eine Nachprüfung.', a: 'gibt', d: ['es gibt', 'geben'], t: 'Si la nota es mala, hay recuperación.', e: 'La principal empieza por el verbo.' },
+      { s: '___ du fehlst, ruf bitte in der Schule an.', a: 'Wenn', d: ['Als', 'Dass'], t: 'Si faltas, llama al colegio.', e: 'Condición: wenn.' },
+      { s: 'Wenn ihr die Hausübung ___, korrigieren wir sie morgen.', a: 'macht', d: ['macht ihr', 'machen'], t: 'Si hacéis los deberes, los corregimos mañana.', e: 'Con ihr: macht, al final.' },
+      { s: 'Wenn der Schüler zu oft fehlt, ___ die Eltern ein Schreiben.', a: 'bekommen', d: ['die Eltern bekommen', 'bekommt'], t: 'Si el alumno falta mucho, los padres reciben una carta.', e: 'Verbo delante del sujeto en la principal.' },
+      { s: 'Ich helfe dir, wenn du Zeit ___.', a: 'hast', d: ['hast du', 'haben'], t: 'Te ayudo si tienes tiempo.', e: 'Subordinada detrás: verbo igual al final.' },
+      { s: 'Wenn man krank ___, bleibt man zu Hause.', a: 'ist', d: ['ist man', 'sein'], t: 'Si uno está enfermo, se queda en casa.', e: 'man va con la tercera del singular.' },
+      { s: 'Wenn du die Matura ___, kannst du studieren.', a: 'machst', d: ['machst du', 'machen'], t: 'Si haces el bachillerato, puedes estudiar.', e: 'Verbo al final.' },
+      { s: '___ es einen Test gibt, lerne ich abends.', a: 'Wenn', d: ['Als', 'Weil'], t: 'Si hay examen, estudio por la noche.', e: 'Repetido y en presente: wenn.' },
+      { s: 'Wenn wir früher ___, gehen wir noch in den Park.', a: 'aufhören', d: ['hören auf', 'aufhören wir'], t: 'Si terminamos antes, vamos al parque.', e: 'En subordinada el separable NO se parte.' }
+    ]
+  },
+  'indirekte-rede-dass': {
+    picks: [
+      { s: 'Er sagt, dass die Serie sehr spannend ___.', a: 'ist', d: ['ist sie', 'sein'], t: 'Dice que la serie es muy interesante.', e: 'dass manda el verbo al final.' },
+      { s: 'Ich finde, dass die Werbung zu laut ___.', a: 'ist', d: ['ist sie', 'sein'], t: 'Me parece que la publicidad está muy alta.', e: 'Verbo al final.' },
+      { s: 'Sie meint, dass niemand das ___.', a: 'liest', d: ['liest es', 'lesen'], t: 'Cree que eso no lo lee nadie.', e: 'El verbo cierra la subordinada.' },
+      { s: 'Er sagt, die Serie ___ gut.', a: 'ist', d: ['sei sein', 'ist sie'], t: 'Dice que la serie está bien.', e: 'Sin dass, el orden es normal.' },
+      { s: 'Wir glauben, dass er recht ___.', a: 'hat', d: ['hat er', 'haben'], t: 'Creemos que tiene razón.', e: 'Verbo al final con dass.' },
+      { s: 'Sie behauptet, dass sie das nicht gesagt ___.', a: 'hat', d: ['hat sie', 'haben'], t: 'Afirma que ella no dijo eso.', e: 'El auxiliar cierra.' },
+      { s: 'Ich denke, dass wir das anders machen ___.', a: 'sollten', d: ['sollten wir', 'sollen'], t: 'Creo que deberíamos hacerlo de otra manera.', e: 'El modal va el último.' },
+      { s: 'Er erzählt, dass er die Doku gesehen ___.', a: 'hat', d: ['hat er', 'haben'], t: 'Cuenta que ha visto el documental.', e: 'Perfekt en subordinada: el auxiliar al final.' },
+      { s: 'Im Alltag kann man das dass ___.', a: 'weglassen', d: ['nie weglassen', 'verdoppeln'], t: 'En el día a día se puede quitar el «dass».', e: 'Y entonces el orden vuelve a ser normal.' },
+      { s: 'Sie sagt, dass sie keine Zeit ___.', a: 'hat', d: ['hat sie', 'haben'], t: 'Dice que no tiene tiempo.', e: 'Verbo al final.' }
+    ]
+  },
+  'meinung-ausdruecken': {
+    picks: [
+      { s: 'Meiner Meinung nach ___ das übertrieben.', a: 'ist', d: ['es ist', 'sein'], t: 'En mi opinión eso es exagerado.', e: 'La expresión ocupa la posición 1: el verbo va detrás.' },
+      { s: 'Ich ___ diese Sendung ziemlich langweilig.', a: 'finde', d: ['finde es', 'finden'], t: 'Esta emisión me parece bastante aburrida.', e: 'Ich finde + complemento + adjetivo.' },
+      { s: '___ Meinung nach lesen zu wenige Zeitung.', a: 'Meiner', d: ['Meine', 'Mein'], t: 'En mi opinión lee el periódico muy poca gente.', e: 'meiner Meinung nach, fijo.' },
+      { s: 'Ich ___, dass das nicht stimmt.', a: 'glaube', d: ['glaube es', 'glauben'], t: 'Creo que eso no es cierto.', e: 'Ich glaube, dass …' },
+      { s: '___ finde ich die Werbung nervig.', a: 'Ehrlich gesagt', d: ['Meiner Meinung', 'Ich finde nach'], t: 'Sinceramente, la publicidad me molesta.', e: 'Ehrlich gesagt en posición 1.' },
+      { s: 'Für mich ___ das kein Problem.', a: 'ist', d: ['es ist', 'sein'], t: 'Para mí eso no es un problema.', e: 'Für mich ocupa la posición 1.' },
+      { s: 'Ich bin der ___, dass wir mehr reden sollten.', a: 'Meinung', d: ['Meinen', 'Gedanke'], t: 'Soy de la opinión de que deberíamos hablar más.', e: 'Ich bin der Meinung, dass …' },
+      { s: 'Da ___ ich dir nicht zu.', a: 'stimme', d: ['stimme ich', 'stimmen'], t: 'En eso no te doy la razón.', e: 'zustimmen: el zu al final.' },
+      { s: '___ Ansicht nach ist das übertrieben.', a: 'Meiner', d: ['Meine', 'Mein'], t: 'A mi parecer eso es exagerado.', e: 'meiner Ansicht nach, igual que Meinung.' },
+      { s: 'Ich sehe das ___.', a: 'anders', d: ['andere', 'anderes'], t: 'Yo lo veo distinto.', e: 'anders es adverbio: no cambia.' }
+    ]
+  },
+  'relativsatz-nominativ': {
+    picks: [
+      { s: 'Das ist die Serie, ___ alle schauen.', a: 'die', d: ['der', 'das'], t: 'Esa es la serie que ve todo el mundo.', e: 'die Serie → die.' },
+      { s: 'Ich kenne einen Podcast, ___ wirklich gut ist.', a: 'der', d: ['die', 'das'], t: 'Conozco un pódcast que está muy bien.', e: 'der Podcast → der.' },
+      { s: 'Das ist ein Film, ___ mir gefallen hat.', a: 'der', d: ['die', 'das'], t: 'Es una película que me gustó.', e: 'der Film → der.' },
+      { s: 'Das Buch, ___ auf dem Tisch liegt, ist meins.', a: 'das', d: ['der', 'die'], t: 'El libro que está en la mesa es mío.', e: 'das Buch → das.' },
+      { s: 'Die Leute, ___ hier arbeiten, sind sehr nett.', a: 'die', d: ['der', 'das'], t: 'La gente que trabaja aquí es muy maja.', e: 'Plural → die.' },
+      { s: 'Im Relativsatz steht das Verb ___.', a: 'am Ende', d: ['an zweiter Stelle', 'am Anfang'], t: 'En la relativa el verbo va al final.', e: 'Como en toda subordinada.' },
+      { s: 'Der Moderator, ___ die Sendung macht, ist bekannt.', a: 'der', d: ['die', 'das'], t: 'El presentador que hace el programa es conocido.', e: 'der Moderator → der.' },
+      { s: 'Das Interview, ___ gestern lief, war spannend.', a: 'das', d: ['der', 'die'], t: 'La entrevista que emitieron ayer fue interesante.', e: 'das Interview → das.' },
+      { s: 'Das Relativpronomen sieht aus wie ___.', a: 'der Artikel', d: ['das Verb', 'das Nomen'], t: 'El pronombre relativo se parece al artículo.', e: 'der, die, das, die.' },
+      { s: 'Die Folge, ___ mir am besten gefällt, ist die erste.', a: 'die', d: ['der', 'das'], t: 'El capítulo que más me gusta es el primero.', e: 'die Folge → die.' }
+    ]
+  },
+  'nicht-nur-sondern-auch': {
+    picks: [
+      { s: 'Ich schaue nicht nur Serien, ___ auch Dokus.', a: 'sondern', d: ['aber', 'oder'], t: 'No solo veo series, sino también documentales.', e: 'Después de una negación: sondern.' },
+      { s: 'Das Buch ist nicht langweilig, ___ richtig spannend.', a: 'sondern', d: ['aber', 'und'], t: 'El libro no es aburrido, sino muy interesante.', e: 'Corrige lo negado: sondern.' },
+      { s: 'Der Film ist gut, ___ etwas zu lang.', a: 'aber', d: ['sondern', 'oder'], t: 'La película está bien, pero es algo larga.', e: 'Sin negación delante: aber.' },
+      { s: 'Nicht nur die Serie, ___ auch die Musik ist super.', a: 'sondern', d: ['aber', 'und'], t: 'No solo la serie, también la música es genial.', e: 'nicht nur … sondern auch.' },
+      { s: 'Er liest keine Zeitung, ___ nur Nachrichten am Handy.', a: 'sondern', d: ['aber', 'und'], t: 'No lee periódico, sino solo noticias en el móvil.', e: 'Después de keine: sondern.' },
+      { s: 'Sie ist müde, ___ sie schaut noch eine Folge.', a: 'aber', d: ['sondern', 'als'], t: 'Está cansada, pero ve otro capítulo.', e: 'Contraste sin negación: aber.' },
+      { s: 'sondern kommt immer nach ___.', a: 'einer Verneinung', d: ['einem Verb', 'einem Nomen'], t: '«sondern» va siempre después de una negación.', e: 'Si no hay negación, va aber.' },
+      { s: 'Das ist nicht mein Handy, ___ deins.', a: 'sondern', d: ['aber', 'oder'], t: 'Ese no es mi móvil, sino el tuyo.', e: 'Corrige: sondern.' },
+      { s: 'Er hört nicht nur Podcasts, ___ macht auch selbst welche.', a: 'sondern', d: ['aber', 'und'], t: 'No solo escucha pódcast, también hace los suyos.', e: 'nicht nur … sondern.' },
+      { s: 'Die Doku war informativ ___ unterhaltsam.', a: 'und', d: ['sondern', 'als'], t: 'El documental fue informativo y entretenido.', e: 'Sin negación ni contraste: und.' }
+    ]
+  },
+  'zu-infinitiv-medien': {
+    picks: [
+      { s: 'Ich habe aufgehört, abends ___.', a: 'fernzusehen', d: ['fernsehen zu', 'zu fernsehen'], t: 'He dejado de ver la tele por la noche.', e: 'En separables el zu va DENTRO.' },
+      { s: 'Er hat angefangen, Podcasts ___ hören.', a: 'zu', d: ['um zu', 'das'], t: 'Ha empezado a escuchar pódcast.', e: 'anfangen + zu.' },
+      { s: 'Ich versuche, weniger ___.', a: 'zu scrollen', d: ['scrollen', 'zu scrolle'], t: 'Intento hacer menos scroll.', e: 'versuchen + zu.' },
+      { s: 'Hast du Lust, eine Folge ___ schauen?', a: 'zu', d: ['um zu', 'das'], t: '¿Te apetece ver un capítulo?', e: 'Lust haben + zu.' },
+      { s: 'Ich habe vergessen, die Sendung ___.', a: 'aufzunehmen', d: ['aufnehmen zu', 'zu aufnehmen'], t: 'Se me olvidó grabar el programa.', e: 'aufnehmen es separable: aufzunehmen.' },
+      { s: 'Ich will heute Abend nicht ___.', a: 'fernsehen', d: ['zu fernsehen', 'fernzusehen'], t: 'Esta noche no quiero ver la tele.', e: 'Con un modal NO se pone zu.' },
+      { s: 'Es ist schwer, das Handy ___.', a: 'wegzulegen', d: ['weglegen zu', 'zu weglegen'], t: 'Cuesta soltar el móvil.', e: 'weglegen, separable.' },
+      { s: 'Sie hat beschlossen, das Abo ___.', a: 'zu kündigen', d: ['kündigen', 'zu kündige'], t: 'Ha decidido cancelar la suscripción.', e: 'beschließen + zu.' },
+      { s: 'Bei trennbaren Verben steht zu ___.', a: 'zwischen Vorsilbe und Verb', d: ['vor dem Verb', 'am Ende'], t: 'En los separables el «zu» va entre el prefijo y el verbo.', e: 'anzurufen, fernzusehen, aufzustehen.' },
+      { s: 'Ich habe keine Zeit, die Serie ___ Ende zu schauen.', a: 'zu', d: ['um zu', 'bis'], t: 'No tengo tiempo de ver la serie hasta el final.', e: 'zu Ende schauen, con el zu de la construcción al final.' }
+    ]
+  },
+  'imperativ-beim-helfen': {
+    picks: [
+      { s: '___ mir bitte kurz!', a: 'Hilf', d: ['Hilfe', 'Helfe'], t: '¡Ayúdame un momento, por favor!', e: 'helfen es irregular: du hilfst → Hilf!' },
+      { s: '___ mir bitte die Tasche!', a: 'Gib', d: ['Gebe', 'Gibst'], t: '¡Pásame la bolsa, por favor!', e: 'geben: du gibst → Gib!' },
+      { s: '___ Sie bitte kurz!', a: 'Warten', d: ['Wartet', 'Warte'], t: '¡Espere un momento, por favor!', e: 'Con Sie: infinitivo + Sie.' },
+      { s: '___ mal her!', a: 'Komm', d: ['Kommst', 'Kommen'], t: '¡Ven aquí!', e: 'Imperativo de du sin -st ni pronombre.' },
+      { s: '___ mir bitte beim Tragen!', a: 'Helft', d: ['Helfen', 'Hilf'], t: '¡Ayudadme a llevarlo!', e: 'Con ihr: la forma normal sin pronombre.' },
+      { s: '___ bitte die Tür zu!', a: 'Mach', d: ['Machst', 'Machen'], t: '¡Cierra la puerta, por favor!', e: 'Separable: zu al final.' },
+      { s: '___ Sie mir bitte!', a: 'Helfen', d: ['Hilf', 'Helft'], t: '¡Ayúdeme, por favor!', e: 'Cortés: Helfen Sie mir bitte.' },
+      { s: '___ ruhig, ich mache das.', a: 'Bleib', d: ['Bleibst', 'Bleiben'], t: 'Quédate tranquilo, ya lo hago yo.', e: 'bleiben → Bleib!' },
+      { s: 'Mit bitte klingt der Imperativ ___.', a: 'freundlicher', d: ['härter', 'gleich'], t: 'Con «bitte» el imperativo suena más amable.', e: 'Casi siempre se añade bitte.' },
+      { s: '___ dir keine Sorgen!', a: 'Mach', d: ['Machst', 'Machen'], t: '¡No te preocupes!', e: 'Mach dir keine Sorgen, frase hecha.' }
+    ]
+  },
+  'lassen-etwas-machen-lassen': {
+    picks: [
+      { s: 'Ich ___ mir die Haare schneiden.', a: 'lasse', d: ['lassen', 'lässt'], t: 'Me corto el pelo (me lo cortan).', e: 'lassen = que otro lo haga por mí.' },
+      { s: 'Er ___ das Auto reparieren.', a: 'lässt', d: ['lasst', 'lassen'], t: 'Lleva el coche a arreglar.', e: 'er/sie/es lässt, con Umlaut.' },
+      { s: 'Wir ___ die Wohnung putzen.', a: 'lassen', d: ['lässt', 'lasst'], t: 'Mandamos limpiar el piso.', e: 'wir lassen.' },
+      { s: 'Das Verb nach lassen steht ___.', a: 'im Infinitiv', d: ['im Partizip', 'mit zu'], t: 'El verbo detrás de «lassen» va en infinitivo.', e: 'Y se coloca al final.' },
+      { s: 'Lässt du die Hose ___?', a: 'ändern', d: ['geändert', 'zu ändern'], t: '¿Vas a mandar arreglar el pantalón?', e: 'Infinitivo al final.' },
+      { s: 'Ich repariere das Fahrrad ___.', a: 'selbst', d: ['lassen', 'lasse'], t: 'Arreglo la bici yo mismo.', e: 'Aquí no hay lassen: lo hago yo.' },
+      { s: 'Sie ___ sich ein Kleid machen.', a: 'lässt', d: ['lasst', 'lassen'], t: 'Se manda hacer un vestido.', e: 'sie (singular) lässt.' },
+      { s: '___ ihr das Essen liefern?', a: 'Lasst', d: ['Lässt', 'Lassen'], t: '¿Os traen la comida a casa?', e: 'ihr lasst.' },
+      { s: 'Ich ___ das Fenster reparieren.', a: 'muss', d: ['müsse', 'musst'], t: 'Tengo que mandar arreglar la ventana.', e: 'Con modal: muss … reparieren lassen.' },
+      { s: 'lassen kann auch ___ heißen.', a: 'liegen lassen', d: ['machen', 'gehen'], t: '«lassen» también puede significar dejar algo.', e: 'Ich habe den Schlüssel liegen lassen.' }
+    ]
+  },
+  'indirekte-frage-hoeflich-reisen': {
+    picks: [
+      { s: 'Können Sie mir sagen, wann der Zug ___?', a: 'abfährt', d: ['fährt ab', 'abfahren'], t: '¿Me puede decir cuándo sale el tren?', e: 'En la pregunta indirecta el separable NO se parte.' },
+      { s: 'Wissen Sie, wo der Bahnhof ___?', a: 'ist', d: ['ist er', 'sein'], t: '¿Sabe dónde está la estación?', e: 'Verbo al final.' },
+      { s: 'Ich möchte wissen, ___ der Bus hier hält.', a: 'ob', d: ['dass', 'wenn'], t: 'Quisiera saber si el autobús para aquí.', e: 'Sin palabra interrogativa: ob.' },
+      { s: 'Können Sie mir sagen, wie viel die Fahrkarte ___?', a: 'kostet', d: ['kostet sie', 'kosten'], t: '¿Me puede decir cuánto cuesta el billete?', e: 'Verbo al final.' },
+      { s: 'Weißt du, ___ wir umsteigen müssen?', a: 'wo', d: ['ob wo', 'dass'], t: '¿Sabes dónde tenemos que hacer transbordo?', e: 'Con palabra interrogativa: wo.' },
+      { s: 'Darf ich fragen, ___ hier noch frei ist?', a: 'ob', d: ['dass', 'wenn'], t: '¿Puedo preguntar si aquí está libre?', e: 'Pregunta de sí/no → ob.' },
+      { s: 'Die indirekte Frage ist ___ als die direkte.', a: 'höflicher', d: ['kürzer', 'gleich'], t: 'La pregunta indirecta es más cortés que la directa.', e: 'Por eso se usa mucho viajando.' },
+      { s: 'Wissen Sie, wann das Hotel ___?', a: 'aufmacht', d: ['macht auf', 'aufmachen'], t: '¿Sabe cuándo abre el hotel?', e: 'Separable sin partir.' },
+      { s: 'Können Sie mir sagen, wo ich ein Ticket ___ kann?', a: 'kaufen', d: ['kaufe', 'gekauft'], t: '¿Me puede decir dónde puedo comprar un billete?', e: 'El modal cierra: kaufen kann.' },
+      { s: 'Ich weiß nicht, ___ der Flug pünktlich ist.', a: 'ob', d: ['dass', 'wenn'], t: 'No sé si el vuelo va puntual.', e: 'ob para sí/no.' }
+    ]
+  },
+  'wenn-dann-reise': {
+    picks: [
+      { s: 'Wenn der Zug Verspätung hat, ___ wir den Anschluss.', a: 'verpassen', d: ['wir verpassen', 'verpasst'], t: 'Si el tren llega tarde, perdemos el enlace.', e: 'Después de la subordinada, el verbo abre la principal.' },
+      { s: 'Wenn es regnet, ___ wir im Hotel.', a: 'bleiben', d: ['wir bleiben', 'bleibt'], t: 'Si llueve, nos quedamos en el hotel.', e: 'Verbo justo detrás de la coma.' },
+      { s: 'Wenn wir früh ___, sind wir um zehn da.', a: 'losfahren', d: ['fahren los', 'losfahren wir'], t: 'Si salimos pronto, llegamos a las diez.', e: 'En la subordinada el separable no se parte.' },
+      { s: 'Wenn du willst, ___ können wir länger bleiben.', a: 'dann', d: ['so', 'also'], t: 'Si quieres, podemos quedarnos más tiempo.', e: 'dann se puede poner y no cambia nada.' },
+      { s: 'Ich rufe dich an, wenn ich angekommen ___.', a: 'bin', d: ['bin ich', 'sein'], t: 'Te llamo cuando llegue.', e: 'Verbo al final de la subordinada.' },
+      { s: 'Wenn das Hotel voll ist, ___ wir etwas anderes.', a: 'suchen', d: ['wir suchen', 'sucht'], t: 'Si el hotel está lleno, buscamos otra cosa.', e: 'Verbo, luego sujeto.' },
+      { s: 'Wenn ihr Zeit ___, kommt doch mit!', a: 'habt', d: ['habt ihr', 'haben'], t: 'Si tenéis tiempo, ¡venid!', e: 'Con ihr: habt, al final.' },
+      { s: 'Wenn wir in Wien ___, besuchen wir Oma.', a: 'sind', d: ['sind wir', 'sein'], t: 'Cuando estemos en Viena, visitamos a la abuela.', e: 'Verbo al final.' },
+      { s: 'Nach dem wenn-Satz kommt zuerst ___.', a: 'das Verb', d: ['das Subjekt', 'das Nomen'], t: 'Después de la frase con wenn viene primero el verbo.', e: 'Porque la subordinada ocupa la posición 1.' },
+      { s: 'Wenn du müde bist, ___ eine Pause!', a: 'mach', d: ['machst', 'machen'], t: 'Si estás cansado, ¡haz una pausa!', e: 'En la principal también puede ir un imperativo.' }
+    ]
+  },
+  'konjunktiv-ii-beschwerde': {
+    picks: [
+      { s: '___ Sie das bitte noch einmal prüfen?', a: 'Könnten', d: ['Konnten', 'Können'], t: '¿Podría comprobarlo otra vez, por favor?', e: 'könnten, más suave que können.' },
+      { s: 'Ich ___ gern ein anderes Zimmer.', a: 'hätte', d: ['hatte', 'habe'], t: 'Querría otra habitación.', e: 'Ich hätte gern, fórmula fija.' },
+      { s: 'Das ___ so nicht sein.', a: 'dürfte', d: ['durfte', 'darf'], t: 'Esto no debería ser así.', e: 'Queja suave con dürfte.' },
+      { s: '___ es möglich, das zu ändern?', a: 'Wäre', d: ['War', 'Ist'], t: '¿Sería posible cambiarlo?', e: 'wäre, de sein.' },
+      { s: 'Ich ___ mich gern beschweren.', a: 'würde', d: ['wurde', 'werde'], t: 'Querría presentar una queja.', e: 'würde + infinitivo.' },
+      { s: '___ Sie mir bitte den Chef holen?', a: 'Würden', d: ['Wurden', 'Werden'], t: '¿Podría avisar al encargado, por favor?', e: 'Würden Sie …?, muy cortés.' },
+      { s: 'Der Konjunktiv II klingt ___.', a: 'höflicher', d: ['härter', 'gleich'], t: 'El Konjunktiv II suena más cortés.', e: 'Por eso se usa para quejarse.' },
+      { s: 'Ich ___ das anders gemacht.', a: 'hätte', d: ['hatte', 'habe'], t: 'Yo lo habría hecho de otra manera.', e: 'hätte + participio.' },
+      { s: '___ Sie so nett und rufen Sie an?', a: 'Wären', d: ['Waren', 'Sind'], t: '¿Sería tan amable de llamar?', e: 'Wären Sie so nett …?' },
+      { s: 'Ich ___ sagen, das war nicht in Ordnung.', a: 'muss', d: ['müsste', 'musste'], t: 'Tengo que decir que eso no estuvo bien.', e: 'Aquí sí es directo: muss.' }
     ]
   }
 };

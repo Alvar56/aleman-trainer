@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
+import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t } from '../lib/i18n.js';
 import Cargando from './Cargando.jsx';
 import { runJob } from '../lib/aiJobs.js';
 import { useAiJob } from '../lib/useAiJob.js';
 import { generateSprechenAufgabe } from '../lib/pruefungAi.js';
 import { getTyp } from '../lib/pruefung.js';
+import Desplegable from './Desplegable.jsx';
 
 export default function ExamSprechen({ typ, onBack }) {
+  const fox = useFox();
   // La tarea, en el gestor de trabajos: tarda y no debe perderse al salir.
   const JOB = `examen:sprechen:${typ}`;
   const job = useAiJob(JOB);
@@ -64,7 +67,7 @@ export default function ExamSprechen({ typ, onBack }) {
   if (busy) {
     return (
       <div className="reading stack">
-        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>← Prüfung</button>
+        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}><span className="fl-atras">←</span> Prüfung</button>
         <Cargando
           icono="📝"
           titulo={t('wait.exTitle')}
@@ -77,7 +80,7 @@ export default function ExamSprechen({ typ, onBack }) {
   if (err) {
     return (
       <div className="reading stack">
-        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>← Prüfung</button>
+        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}><span className="fl-atras">←</span> Prüfung</button>
         <div className="card" style={{ borderColor: 'var(--bad)', background: 'var(--bad-bg)' }}>{err}</div>
         <button className="btn-primary" style={{ alignSelf: 'flex-start' }} onClick={cargar}>{t('retry')}</button>
       </div>
@@ -89,7 +92,7 @@ export default function ExamSprechen({ typ, onBack }) {
   if (!aufgabe) {
     return (
       <div className="reading stack">
-        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>← Prüfung</button>
+        <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}><span className="fl-atras">←</span> Prüfung</button>
         <Cargando
           icono="🗣️"
           titulo={t('wait.exTitle')}
@@ -104,7 +107,7 @@ export default function ExamSprechen({ typ, onBack }) {
   return (
     <div className="reading stack">
       <button className="link-btn" style={{ padding: 0, alignSelf: 'flex-start' }} onClick={onBack}>
-        ← Prüfung
+        <span className="fl-atras">←</span> Prüfung
       </button>
 
       <div className="page-head" style={{ marginBottom: 0 }}>
@@ -188,7 +191,7 @@ export default function ExamSprechen({ typ, onBack }) {
               {verModelo ? t('ex.hide') : t('ex.tryFirst')}
             </span>
           </button>
-          {verModelo && (
+          <Desplegable abierto={verModelo}>
             <div className="dialog" style={{ marginTop: 12 }}>
               {aufgabe.musterdialog.map((turn, i) => (
                 <div className={'dlg-turn ' + (i % 2 === 0 ? 'a' : 'b')} key={i}>
@@ -203,7 +206,7 @@ export default function ExamSprechen({ typ, onBack }) {
                 </div>
               ))}
             </div>
-          )}
+          </Desplegable>
         </div>
       )}
 
@@ -212,6 +215,7 @@ export default function ExamSprechen({ typ, onBack }) {
         <button className="btn-ghost" onClick={onBack}>{t('ex.backBtn')}</button>
       </div>
 
+      <FoxOverlay fox={fox} />
       <p className="muted" style={{ fontSize: '0.8rem' }}>
         {t('ex.sprechenNote')}
       </p>

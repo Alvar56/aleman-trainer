@@ -12,9 +12,8 @@ import { colorDe } from '../lib/fuchs.js';
 const W = 28;
 const H = 30;
 const ALTO_CABEZA = 19; // sin cuerpo, el dibujo se recorta aquí
-// Aire alrededor del bicho para que las partículas tengan dónde flotar sin
-// que las recorte el borde del SVG.
-const MARGEN = 5;
+// (Aqui vivia MARGEN, el aire que se le anadia al viewBox para las chispas.
+//  Se lo llevaba del tamano del zorro; ahora las chispas se salen del cuadro.)
 // Cuanto se agranda el objeto de la mano respecto a la rejilla del zorro.
 const ESCALA_OBJETO = 1.3;
 
@@ -112,6 +111,21 @@ function colaPato(g) {
   bloque(g, 24, 26, 4, 6, 'm');
 }
 
+// Erizo: un rabito corto, que lo suyo son las puas.
+function colaErizo(g) {
+  bloque(g, 24, 26, 5, 7, 'd');
+}
+
+// Mapache: gorda como la del zorro y a rayas, que es su sena de identidad.
+function colaMapache(g) {
+  bloque(g, 22, 27, 3, 8, 'f');
+  bloque(g, 16, 21, 2, 7, 'f');
+  bloque(g, 12, 15, 3, 8, 'f');
+  bloque(g, 25, 27, 3, 8, 'p');
+  bloque(g, 19, 21, 2, 7, 'p');
+  bloque(g, 13, 15, 3, 8, 'p');
+}
+
 const COLAS = {
   zorro: colaZorro,
   gato: colaGato,
@@ -120,7 +134,9 @@ const COLAS = {
   conejo: colaConejo,
   buho: null,
   rana: null,
-  pato: colaPato
+  pato: colaPato,
+  erizo: colaErizo,
+  mapache: colaMapache
 };
 
 function dibujarCola(especie = 'zorro') {
@@ -315,6 +331,40 @@ function orejasPato(g) {
   px(g, 16, 0, 'f');
 }
 
+// Erizo: las puas asoman por encima del craneo, en pico, y las orejitas
+// redondas se quedan casi escondidas debajo.
+function puasErizo(g) {
+  espejo(g, 3, 7, 9, 'p');
+  espejo(g, 2, 9, 12, 'p');
+  espejo(g, 1, 11, 13, 'p');
+  fila(g, 0, 12, 15, 'p');
+  espejo(g, 4, 5, 12, 'd');
+}
+function marcasErizo(g) {
+  espejo(g, 5, 4, 6, 'f');
+  espejo(g, 6, 4, 5, 'd');
+}
+
+// Mapache: orejas redondas y pequenas, a los lados.
+function orejasMapache(g) {
+  espejo(g, 2, 6, 9, 'f');
+  espejo(g, 3, 5, 10, 'f');
+  espejo(g, 4, 5, 11, 'f');
+  espejo(g, 5, 5, 12, 'f');
+  espejo(g, 3, 7, 9, 'l');
+  espejo(g, 4, 7, 10, 'l');
+}
+// Y el antifaz, que es lo que lo hace mapache: banda oscura sobre los ojos,
+// ceja clara por encima y el morro tambien claro.
+function marcasMapache(g) {
+  bloque(g, 5, 6, 6, 21, 'l');
+  bloque(g, 7, 11, 4, 11, 'p');
+  bloque(g, 7, 11, 16, 23, 'p');
+  fila(g, 6, 4, 8, 'p');
+  fila(g, 6, 19, 23, 'p');
+  bloque(g, 7, 10, 12, 15, 'l');
+}
+
 const BICHOS = {
   zorro: { detras: orejasZorro },
   gato: { detras: orejasGato, delante: marcasGato },
@@ -323,7 +373,9 @@ const BICHOS = {
   conejo: { detras: orejasConejo },
   buho: { detras: orejasBuho, delante: marcasBuho },
   rana: { detras: orejasRana, delante: marcasRana },
-  pato: { detras: orejasPato }
+  pato: { detras: orejasPato },
+  erizo: { detras: puasErizo, marcas: marcasErizo },
+  mapache: { detras: orejasMapache, marcas: marcasMapache }
 };
 
 export const ESPECIES = Object.keys(BICHOS);
@@ -465,6 +517,19 @@ function bocaLado(g) {
   fila(g, 16, 13, 16, 'o');
   px(g, 12, 15, 'o');
 }
+// Cejas caidas hacia la nariz. Es lo unico que distingue el enfado: con la
+// misma boca y sin cejas, la cara de enfadado y la de triste son la misma.
+function cejasEnfado(g) {
+  espejoPx(g, OJO_X, 8, 'o');
+  espejoPx(g, OJO_X + 1, 8, 'o');
+  espejoPx(g, OJO_X + 2, 9, 'o');
+}
+// Dos lagrimones cayendo por debajo de cada ojo.
+function lagrimas(g) {
+  espejoPx(g, OJO_X + 1, 12, 'a');
+  espejoPx(g, OJO_X + 1, 13, 'a');
+  espejoPx(g, OJO_X + 1, 14, 'a');
+}
 function rubor(g) {
   espejo(g, 12, 6, 7, 'r');
   espejo(g, 13, 6, 7, 'r');
@@ -478,6 +543,8 @@ const GESTOS = {
   guino: (g) => { ojosNormales(g); ojoGuinando(g, true); nariz(g); bocaAncha(g); },
   sorpresa: (g) => { ojosGrandes(g); nariz(g); bocaAbierta(g); },
   triste: (g) => { ojosCaidos(g); nariz(g); bocaTriste(g); },
+  enfadado: (g) => { ojosNormales(g); cejasEnfado(g); nariz(g); bocaTriste(g); },
+  llorando: (g) => { ojosCerrados(g); lagrimas(g); nariz(g); bocaAbierta(g); },
   parpadeo: (g) => { ojosCerrados(g); nariz(g); bocaSonrisa(g); }
 };
 
@@ -630,6 +697,10 @@ const EXTRAS = {
   // --- objetos: se sostienen con la pata derecha ---
   balon: {
     a: '#f5f5f5', b: '#33333f', c: '#c9a227',
+    // La pelota bota y el pie se queda quieto. `anima` marca qué píxeles son
+    // la parte que se mueve: sin esto había que animar el complemento entero
+    // y el trofeo daba saltitos, que no es lo que hace un trofeo.
+    anima: (x, y) => y <= 25,
     px: [
       ...rect(21, 22, 24, 25, 'a'),
       [22, 22, 'b'], [23, 23, 'b'], [21, 24, 'b'], [24, 24, 'b'], [22, 25, 'b'],
@@ -761,6 +832,240 @@ const EXTRAS = {
       ...rect(10, 19, 11, 24, 'b'), ...rect(16, 19, 17, 24, 'b'),
       [11, 25, 'c'], [11, 27, 'c'], [16, 25, 'c'], [16, 27, 'c'],
       ...rect(7, 28, 20, 28, 'b')
+    ]
+  },
+  // --- el equipo de reina (con coronas) ---
+  // La diadema: mas fina que la corona del rey, con tres piedras.
+  diadema: {
+    a: '#e8e8f0', b: '#a9a9bb', c: '#e8558f',
+    px: [
+      ...rect(7, 6, 20, 7, 'a'), ...rect(7, 8, 20, 8, 'b'),
+      ...rect(9, 4, 9, 5, 'a'), ...rect(13, 3, 14, 5, 'a'), ...rect(18, 4, 18, 5, 'a'),
+      [9, 3, 'c'], [18, 3, 'c'], [13, 2, 'c'], [14, 2, 'c'],
+      [11, 7, 'c'], [16, 7, 'c']
+    ]
+  },
+  // El collar: dos vueltas de perlas y la piedra gorda en medio.
+  collarReina: {
+    a: '#e8e8f0', b: '#a9a9bb', c: '#e8558f',
+    px: [
+      ...rect(9, 18, 18, 18, 'b'), ...rect(8, 19, 19, 19, 'a'),
+      [8, 19, 'b'], [10, 19, 'b'], [12, 19, 'b'], [15, 19, 'b'], [17, 19, 'b'], [19, 19, 'b'],
+      ...rect(12, 20, 15, 22, 'c'), ...rect(13, 21, 14, 21, 'a')
+    ]
+  },
+  // El vestido: falda larga, cuerpo claro y el ribete de plata.
+  vestidoReina: {
+    a: '#b5397a', b: '#8a2259', c: '#f0e6f5',
+    px: [
+      ...rect(9, 18, 18, 18, 'b'), ...rect(8, 19, 19, 19, 'a'),
+      ...rect(8, 20, 19, 23, 'a'), ...rect(6, 24, 21, 28, 'a'),
+      ...rect(18, 20, 19, 23, 'b'), ...rect(19, 24, 21, 28, 'b'),
+      ...rect(11, 19, 16, 22, 'c'), ...rect(6, 28, 21, 28, 'c'),
+      [12, 24, 'c'], [15, 26, 'c'], [9, 26, 'c'], [18, 25, 'c']
+    ]
+  },
+  // Zapatos de cristal: casi transparentes, con el brillo arriba.
+  cristal: {
+    a: '#cfeffd', b: '#8ec9e6', c: '#ffffff',
+    px: [
+      ...rect(7, 27, 11, 28, 'a'), ...rect(16, 27, 20, 28, 'a'),
+      ...rect(7, 29, 11, 29, 'b'), ...rect(16, 29, 20, 29, 'b'),
+      [8, 27, 'c'], [17, 27, 'c'], [10, 28, 'c'], [19, 28, 'c']
+    ]
+  },
+  // El orbe: la bola con la cruz, en la manita.
+  orbe: {
+    a: '#e8e8f0', b: '#a9a9bb', c: '#e8558f',
+    px: [
+      ...rect(21, 23, 25, 27, 'a'),
+      ...rect(21, 26, 25, 27, 'b'), [22, 24, 'c'], [24, 25, 'c'],
+      ...rect(22, 25, 24, 25, 'b'),
+      ...rect(23, 20, 23, 22, 'a'), ...rect(22, 21, 24, 21, 'a'), [23, 19, 'c']
+    ]
+  },
+  // --- cabeza (añadidos) ---
+  paja: {
+    a: '#e3c37a', b: '#c49a4a', c: '#8a5a3b',
+    px: [
+      ...rect(8, 3, 19, 3, 'a'), ...rect(7, 4, 20, 6, 'a'),
+      ...rect(7, 7, 20, 7, 'c'),
+      ...rect(3, 8, 24, 8, 'a'), ...rect(3, 9, 24, 9, 'b')
+    ]
+  },
+  cocinero: {
+    a: '#ffffff', b: '#dfe4ea', c: '#c8cdd4',
+    px: [
+      ...rect(7, 0, 20, 1, 'a'), ...rect(6, 2, 21, 4, 'a'),
+      [8, 0, 'b'], [13, 0, 'b'], [18, 0, 'b'], [7, 3, 'b'], [20, 3, 'b'],
+      ...rect(7, 5, 20, 7, 'a'), ...rect(7, 7, 20, 7, 'b'),
+      ...rect(6, 8, 21, 8, 'c')
+    ]
+  },
+  navidad: {
+    a: '#c0392b', b: '#8e2a1e', c: '#ffffff',
+    px: [
+      ...rect(20, 0, 22, 2, 'c'),
+      ...rect(16, 2, 20, 3, 'a'), ...rect(12, 3, 18, 5, 'a'),
+      ...rect(7, 5, 15, 7, 'a'), ...rect(7, 7, 18, 7, 'b'),
+      ...rect(5, 8, 22, 9, 'c')
+    ]
+  },
+
+  // --- ojos (añadidos) ---
+  gafasNerd: {
+    a: '#2b2b33', b: '#eaf4ff', c: '#f4f6f7',
+    px: [
+      ...marco(5, 8, 12, 14), ...marco(15, 8, 22, 14),
+      ...rect(6, 9, 11, 13, 'b'), ...rect(16, 9, 21, 13, 'b'),
+      ...rect(13, 10, 14, 12, 'c')
+    ]
+  },
+  gafasEsqui: {
+    a: '#2c3e50', b: '#7bd8ff', c: '#ecf0f1',
+    px: [
+      ...rect(4, 8, 23, 8, 'a'), ...rect(5, 9, 22, 13, 'a'),
+      ...rect(7, 10, 20, 12, 'b'), ...rect(7, 10, 9, 10, 'c'),
+      ...rect(3, 9, 4, 11, 'a'), ...rect(23, 9, 24, 11, 'a')
+    ]
+  },
+  gafas3d: {
+    a: '#f4f6f7', b: '#e74c3c', c: '#3ac6e0',
+    px: [
+      ...rect(6, 9, 12, 9, 'a'), ...rect(6, 13, 12, 13, 'a'),
+      ...rect(6, 10, 6, 12, 'a'), ...rect(12, 10, 12, 12, 'a'),
+      ...rect(7, 10, 11, 12, 'b'),
+      ...rect(15, 9, 21, 9, 'a'), ...rect(15, 13, 21, 13, 'a'),
+      ...rect(15, 10, 15, 12, 'a'), ...rect(21, 10, 21, 12, 'a'),
+      ...rect(16, 10, 20, 12, 'c'), ...rect(13, 11, 14, 11, 'a')
+    ]
+  },
+  antifaz: {
+    a: '#8e44ad', b: '#f1c40f', c: '#5b2c6f',
+    px: [
+      ...rect(4, 8, 23, 8, 'c'), ...rect(5, 9, 22, 13, 'a'),
+      ...rect(7, 10, 11, 12, 'c'), ...rect(16, 10, 20, 12, 'c'),
+      [5, 9, 'b'], [22, 9, 'b'], ...rect(13, 9, 14, 9, 'b')
+    ]
+  },
+
+  // --- cuello (añadidos) ---
+  cordon: {
+    a: '#6e4b2a', b: '#4a3119', c: '#c9a227',
+    px: [
+      ...rect(9, 18, 18, 18, 'a'), ...rect(8, 19, 19, 19, 'b'),
+      ...rect(13, 20, 14, 21, 'c'), [13, 22, 'b']
+    ]
+  },
+  panuelo: {
+    a: '#c0392b', b: '#8e2a1e', c: '#f4f6f7',
+    px: [
+      ...rect(9, 18, 18, 18, 'a'), ...rect(8, 19, 19, 19, 'a'),
+      ...rect(10, 20, 17, 21, 'a'), ...rect(12, 22, 15, 23, 'b'),
+      [11, 20, 'c'], [16, 21, 'c'], [13, 19, 'c']
+    ]
+  },
+  perlas: {
+    a: '#f4f6f7', b: '#cfd6dd', c: '#d9a520',
+    px: [
+      ...rect(9, 18, 18, 18, 'b'),
+      [9, 18, 'a'], [11, 18, 'a'], [13, 19, 'a'], [14, 19, 'a'], [16, 18, 'a'], [18, 18, 'a'],
+      ...rect(12, 19, 15, 19, 'b'), ...rect(13, 20, 14, 21, 'c')
+    ]
+  },
+
+  // --- ropa (añadidos) ---
+  camisa: {
+    a: '#eaf2fb', b: '#c7d6e6', c: '#2f61a0',
+    px: [
+      ...rect(9, 18, 18, 18, 'b'), ...rect(8, 19, 19, 19, 'a'),
+      ...rect(7, 20, 20, 27, 'a'), ...rect(19, 20, 20, 27, 'b'),
+      ...rect(10, 19, 11, 22, 'c'), ...rect(16, 19, 17, 22, 'c'),
+      [13, 22, 'b'], [13, 25, 'b'], ...rect(7, 27, 20, 27, 'b')
+    ]
+  },
+  rebeca: {
+    a: '#8d6e63', b: '#5d4037', c: '#d7ccc8',
+    px: [
+      ...rect(9, 18, 18, 18, 'b'), ...rect(8, 19, 19, 19, 'a'),
+      ...rect(7, 20, 20, 28, 'a'), ...rect(12, 19, 15, 28, 'c'),
+      ...rect(19, 20, 20, 28, 'b'),
+      [13, 21, 'b'], [13, 24, 'b'], [13, 27, 'b']
+    ]
+  },
+  chubasquero: {
+    a: '#f1c40f', b: '#c49a0a', c: '#2c3e50',
+    px: [
+      ...rect(9, 18, 18, 18, 'b'), ...rect(8, 19, 19, 19, 'a'),
+      ...rect(7, 20, 20, 28, 'a'), ...rect(19, 20, 20, 28, 'b'),
+      ...rect(13, 19, 14, 28, 'c'), ...rect(7, 24, 20, 24, 'b')
+    ]
+  },
+  peto: {
+    a: '#3f6fa8', b: '#2b4f79', c: '#e8c98f',
+    px: [
+      ...rect(10, 18, 11, 21, 'a'), ...rect(16, 18, 17, 21, 'a'),
+      ...rect(9, 21, 18, 28, 'a'), ...rect(17, 21, 18, 28, 'b'),
+      ...rect(9, 28, 18, 28, 'b'), [11, 22, 'c'], [16, 22, 'c']
+    ]
+  },
+
+  // --- pies (añadidos) ---
+  pantuflas: {
+    a: '#b5838d', b: '#6d4c5b', c: '#ffe8ee',
+    px: [
+      ...rect(7, 27, 11, 29, 'a'), ...rect(16, 27, 20, 29, 'a'),
+      ...rect(7, 29, 12, 29, 'b'), ...rect(15, 29, 20, 29, 'b'),
+      ...rect(8, 27, 10, 27, 'c'), ...rect(17, 27, 19, 27, 'c'),
+      [7, 26, 'c'], [20, 26, 'c']
+    ]
+  },
+  sandalias: {
+    a: '#c9a227', b: '#8a6d14', c: '#e8c98f',
+    px: [
+      ...rect(7, 28, 11, 29, 'a'), ...rect(16, 28, 20, 29, 'a'),
+      ...rect(7, 29, 12, 29, 'b'), ...rect(15, 29, 20, 29, 'b'),
+      [8, 27, 'c'], [10, 27, 'c'], [17, 27, 'c'], [19, 27, 'c']
+    ]
+  },
+  katiuskas: {
+    a: '#2e86c1', b: '#1b4f72', c: '#f4f6f7',
+    px: [
+      ...rect(7, 24, 11, 29, 'a'), ...rect(16, 24, 20, 29, 'a'),
+      ...rect(7, 29, 12, 29, 'b'), ...rect(15, 29, 20, 29, 'b'),
+      ...rect(7, 25, 11, 25, 'c'), ...rect(16, 25, 20, 25, 'c')
+    ]
+  },
+  patines: {
+    a: '#ecf0f1', b: '#aeb6bf', c: '#e74c3c',
+    px: [
+      ...rect(7, 25, 11, 28, 'a'), ...rect(16, 25, 20, 28, 'a'),
+      ...rect(7, 28, 12, 28, 'b'), ...rect(15, 28, 20, 28, 'b'),
+      [7, 29, 'c'], [9, 29, 'c'], [11, 29, 'c'],
+      [16, 29, 'c'], [18, 29, 'c'], [20, 29, 'c']
+    ]
+  },
+
+  // --- objetos (añadidos) ---
+  mochila: {
+    a: '#2f6b45', b: '#1f4a2f', c: '#c9a227',
+    px: [
+      ...rect(21, 21, 25, 27, 'a'), ...rect(21, 27, 25, 28, 'b'),
+      ...rect(22, 22, 24, 23, 'c'), [20, 22, 'b'], [20, 25, 'b']
+    ]
+  },
+  camara: {
+    a: '#33333f', b: '#1b1b22', c: '#7bd8ff',
+    px: [
+      ...rect(20, 22, 25, 27, 'a'), ...rect(22, 23, 24, 26, 'c'),
+      [23, 24, 'b'], [23, 25, 'b'], ...rect(21, 21, 23, 21, 'b')
+    ]
+  },
+  guitarra: {
+    a: '#b5533f', b: '#8d3c2c', c: '#e8c98f',
+    px: [
+      ...rect(21, 24, 25, 28, 'a'), ...rect(22, 25, 24, 27, 'b'),
+      ...rect(23, 19, 24, 23, 'c'), ...rect(22, 18, 25, 18, 'c')
     ]
   },
   // --- cabeza (con monedas) ---
@@ -962,33 +1267,153 @@ const EXTRAS = {
   }
 };
 
-// Las partículas van por fuera de la silueta y suben flotando. Cada nivel
-// mete más y más vivas: es el premio a encadenar aciertos.
-const PARTICULAS = {
-  p1: { n: 4, color: '#ffd76e', tam: 1, seg: 3.4 },
-  p2: { n: 7, color: '#ffc93c', tam: 1, seg: 3.0 },
-  p3: { n: 10, color: '#ff9f43', tam: 1, seg: 2.6 },
-  p4: { n: 13, color: '#ff6b35', tam: 2, seg: 2.2 },
-  p5: { n: 17, color: '#7bd8ff', tam: 2, seg: 1.8 }
+// Las particulas, de cerca.
+//
+// Antes cada una era UN cuadradito de color plano que aparecia y se apagaba,
+// y las de los siete niveles eran la misma mota. Luego cada TIPO tuvo su
+// dibujo, que ya era algo, pero seguia habiendo siete niveles y cuatro
+// dibujos: "Aura" y "Aura ++" eran la misma cruz con dos chispas mas y un
+// naranja un punto mas rojo. Eso, a este tamano, no se distingue.
+//
+// Ahora cada nivel es una ESCENA -una o varias capas- y sube como sube un
+// aura de dibujos animados: chispas sueltas, chispas con estela, llamas
+// pegadas al cuerpo, llamas mas altas, piedras que se levantan del suelo,
+// rayos crepitando y por fin las tres cosas a la vez.
+
+// Cada forma, en pixeles del dibujo relativos a su centro. 'a' es el color
+// de siempre, 'b' el nucleo claro y 'c' la sombra.
+const FORMAS = {
+  // una chispa: el pixel y su brillo encima
+  chispa: [[0, 0, 'a'], [0, -1, 'b']],
+  // chispa con cola: la cola la deja detras al subir
+  estela: [[0, -1, 'b'], [0, 0, 'a'], [0, 1, 'a'], [0, 2, 'c']],
+  // lengua de fuego: ancha abajo y en punta arriba, con el centro claro
+  llama: [
+    [0, -2, 'b'], [0, -1, 'b'], [-1, -1, 'a'], [1, -1, 'a'],
+    [-1, 0, 'a'], [0, 0, 'a'], [1, 0, 'a'], [0, 1, 'c']
+  ],
+  // cascote que se levanta del suelo
+  roca: [[0, 0, 'a'], [1, 0, 'a'], [-1, 1, 'c'], [0, 1, 'c'], [1, 1, 'c']],
+  // rayo en zigzag
+  rayo: [[0, -3, 'a'], [0, -2, 'a'], [-1, -1, 'a'], [0, -1, 'b'], [1, 0, 'a'], [1, 1, 'a'], [0, 2, 'a']],
+  // el destello de toda la vida, para el remate de arriba
+  destello: [[0, 0, 'b'], [-1, 0, 'a'], [1, 0, 'a'], [0, -1, 'a'], [0, 1, 'a']]
 };
 
-// Reparto fijo (no aleatorio en cada pintado, o parpadearían al repintar) y
-// en anillo por FUERA del bicho: dentro quedaban tapadas por el cuerpo.
-function motas(cfg, alto) {
+// Donde se colocan:
+//   anillo  alrededor del bicho, repartidas por todo el borde
+//   aura    pegadas a la silueta, alternando lado y de abajo arriba
+//   suelo   en la base, para lo que se levanta del suelo
+//   lados   a media altura, a izquierda y derecha: los rayos
+//
+// Como se mueven (son clases de CSS):
+//   flota     sube poquito girando y se apaga
+//   sube      sale disparada hacia arriba, estirandose
+//   crepita   no se mueve: parpadea como un chispazo
+const PARTICULAS = {
+  p1: [
+    { n: 5, forma: 'chispa', donde: 'anillo', mov: 'flota', a: '#ffd76e', b: '#fff6d5', seg: 3.2 }
+  ],
+  p2: [
+    { n: 7, forma: 'estela', donde: 'anillo', mov: 'sube', a: '#ffc93c', b: '#fff8d8', c: '#e09a12', seg: 2.4 }
+  ],
+  p3: [
+    { n: 7, forma: 'llama', donde: 'aura', mov: 'sube', a: '#ff9f43', b: '#ffe8b8', c: '#d4651a', seg: 1.6 }
+  ],
+  p4: [
+    { n: 10, forma: 'llama', donde: 'aura', mov: 'sube', a: '#ff7a1f', b: '#fff3c9', c: '#c43c08', seg: 1.2 },
+    { n: 4, forma: 'chispa', donde: 'anillo', mov: 'flota', a: '#ffd76e', b: '#fff6d5', seg: 2.2 }
+  ],
+  p5: [
+    { n: 8, forma: 'llama', donde: 'aura', mov: 'sube', a: '#ff9f43', b: '#ffe8b8', c: '#d4651a', seg: 1.5 },
+    { n: 5, forma: 'roca', donde: 'suelo', mov: 'sube', a: '#9a8876', b: '#c4b4a2', c: '#5f5245', seg: 2.6 }
+  ],
+  p6: [
+    { n: 8, forma: 'llama', donde: 'aura', mov: 'sube', a: '#5fc8ff', b: '#eaf9ff', c: '#1f7fc4', seg: 1.4 },
+    { n: 4, forma: 'rayo', donde: 'lados', mov: 'crepita', a: '#9fe6ff', b: '#ffffff', c: '#4aa8e0', seg: 1.8 }
+  ],
+  p7: [
+    { n: 11, forma: 'llama', donde: 'aura', mov: 'sube', a: '#ffcf3a', b: '#fffbe6', c: '#ff8c00', seg: 1.0 },
+    { n: 4, forma: 'rayo', donde: 'lados', mov: 'crepita', a: '#fff3a8', b: '#ffffff', c: '#ffae00', seg: 1.5 },
+    { n: 4, forma: 'roca', donde: 'suelo', mov: 'sube', a: '#9a8876', b: '#c4b4a2', c: '#5f5245', seg: 2.2 },
+    { n: 3, forma: 'destello', donde: 'anillo', mov: 'flota', a: '#ffd54a', b: '#ffffff', c: '#ffb300', seg: 2.0 }
+  ]
+};
+
+// Desde cuantos aciertos seguidos se enciende el efecto y con cuantos llega a
+// su tope. El dos es el mismo numero con el que sale el rayito de la
+// cabecera: las dos cosas aparecen a la vez.
+export const EMPIEZA = 2;
+const TOPE = 20;
+
+// Reparto FIJO: si fuera aleatorio se recolocarian en cada repintado y el
+// aura parpadearia entera cada vez que cambias de ejercicio.
+//
+// Y por fuera del cuadro de verdad: antes, para hacerles sitio, se ensanchaba
+// el viewBox cinco unidades sobre veintiocho. Como el ancho en pantalla no
+// cambiaba, el zorro se dibujaba un 18% mas pequeno por llevar chispas
+// puestas. Ahora el viewBox no se toca y se salen (overflow: visible en
+// .fox-face), asi que el zorro mide lo mismo lleve lo que lleve.
+function motas(capa, alto) {
   const out = [];
   const cx = W / 2;
   const cy = alto / 2;
-  for (let i = 0; i < cfg.n; i++) {
-    const ang = i * 2.399963; // ángulo áureo: se reparten sin agruparse
-    const r = 0.5 + ((i * 0.618034) % 1) * 0.09; // justo fuera de la silueta
-    const x = Math.round(cx + Math.cos(ang) * (W + MARGEN) * r);
-    const y = Math.round(cy + Math.sin(ang) * (alto + MARGEN) * r * 0.95);
-    out.push({ x, y, retraso: ((i * 0.37) % 1) * cfg.seg });
+  for (let i = 0; i < capa.n; i++) {
+    const t = capa.n > 1 ? i / (capa.n - 1) : 0.5;
+    const retraso = ((i * 0.37) % 1) * capa.seg;
+    let x;
+    let y;
+    if (capa.donde === 'aura') {
+      // Dos columnas, una a cada lado del bicho, de abajo arriba, y abiertas
+      // hacia fuera segun suben.
+      //
+      // Iban mas cerca del centro y quedaban ENCIMA del zorro -las particulas
+      // se pintan despues del cuerpo-, asi que en vez de un aura parecian
+      // manchas en la tripa. Desde 0.46 de ancho ya caen fuera de la silueta,
+      // que ocupa de 4 a 24 sobre 28.
+      const lado = i % 2 ? 1 : -1;
+      x = Math.round(cx + lado * (W * 0.46 + t * W * 0.07));
+      y = Math.round(alto * (0.95 - t * 0.78));
+    } else if (capa.donde === 'suelo') {
+      x = Math.round(cx + (((i * 0.618034) % 1) - 0.5) * W * 1.05);
+      y = Math.round(alto * (0.9 + (i % 3) * 0.04));
+    } else if (capa.donde === 'lados') {
+      const lado = i % 2 ? 1 : -1;
+      x = Math.round(cx + lado * W * 0.5);
+      y = Math.round(alto * (0.28 + ((i >> 1) % 2) * 0.34));
+    } else {
+      const ang = i * 2.399963; // angulo aureo: se reparten sin agruparse
+      const r = 0.54 + ((i * 0.618034) % 1) * 0.1;
+      x = Math.round(cx + Math.cos(ang) * W * r);
+      y = Math.round(cy + Math.sin(ang) * alto * r * 0.95);
+    }
+    out.push({ x, y, retraso });
   }
   return out;
 }
 
 function paleta(c) {
+  const id = c?.id || '';
+  if (id.startsWith('galaxy')) {
+    const suf = id.replace('galaxy-', '');
+    return {
+      o: suf === 'red' ? '#3d1205' : suf === 'blue' ? '#141738' : '#052e16',
+      f: `url(#galaxy-${suf}-fur)`,
+      d: `url(#galaxy-${suf}-fur)`,
+      h: `url(#galaxy-${suf}-fur)`,
+      l: suf === 'red' ? '#fff7ed' : suf === 'blue' ? '#f0f4ff' : '#f0fdf4',
+      m: suf === 'red' ? '#fed7aa' : suf === 'blue' ? '#c7d2fe' : '#bbf7d0',
+      w: '#ffffff',
+      p: suf === 'red' ? '#240a02' : suf === 'blue' ? '#0c0e24' : '#022c22',
+      s: '#ffffff',
+      n: suf === 'red' ? '#240a02' : suf === 'blue' ? '#0c0e24' : '#022c22',
+      k: suf === 'red' ? '#f97316' : suf === 'blue' ? '#38bdf8' : '#22c55e',
+      j: suf === 'red' ? '#ea580c' : suf === 'blue' ? '#4f46e5' : '#15803d',
+      r: suf === 'red' ? '#fb923c' : suf === 'blue' ? '#c084fc' : '#4ade80',
+      t: suf === 'red' ? '#c2410c' : suf === 'blue' ? '#7c3aed' : '#166534',
+      a: suf === 'red' ? '#f97316' : suf === 'blue' ? '#c084fc' : '#22c55e'
+    };
+  }
   return {
     o: '#211a16',
     f: c.fur,
@@ -1003,7 +1428,8 @@ function paleta(c) {
     k: '#f5a623',
     j: '#c97e12',
     r: '#ff9ab5',
-    t: '#c9526b'
+    t: '#c9526b',
+    a: '#7bd8ff'
   };
 }
 
@@ -1013,6 +1439,14 @@ export default function FoxFace({
   size = 96,
   parpadea = true,
   conCuerpo = false,
+  // Las chispas SOLO salen cuando estas en racha de aciertos. Sueltas, en la
+  // portada, eran un zorro rodeado de purpurina todo el rato: si estan
+  // siempre no premian nada. La tienda las ensena igual, que si no compras a
+  // ciegas.
+  chispeando = false,
+  // Aciertos seguidos que llevas: el efecto aprieta segun sube. Lo que llevas
+  // puesto elige QUE se ve; la racha, cuanto arde.
+  racha = 0,
   className = ''
 }) {
   const [cerrando, setCerrando] = useState(false);
@@ -1037,7 +1471,22 @@ export default function FoxFace({
   const yaCerrados = ['feliz', 'muyfeliz', 'guino', 'parpadeo'];
   const gestoFinal = cerrando && !yaCerrados.includes(gesto) ? 'parpadeo' : gesto;
   const alto = conCuerpo ? H : ALTO_CABEZA;
-  const chispas = PARTICULAS[fuchs?.particulas] || null;
+  const colorId = c?.id || '';
+  let pId = fuchs?.particulas;
+  if (colorId === 'bronce') pId = 'p1';
+  if (colorId === 'plata') pId = 'p4';
+  if (colorId === 'dorado') pId = 'p7';
+  if (colorId.startsWith('galaxy')) pId = null;
+  const autoP = ['bronce', 'plata', 'dorado'].includes(colorId);
+  const base = (chispeando || autoP) ? PARTICULAS[pId] || null : null;
+  const empuje = autoP ? 1 : Math.max(0, Math.min(1, (racha - 2) / (10 - 2)));
+  const chispas =
+    base &&
+    base.map((capa) => ({
+      ...capa,
+      n: Math.round(capa.n * (1 + 0.7 * empuje)),
+      seg: +(capa.seg * (1 - 0.4 * empuje)).toFixed(2)
+    }));
   const especie = ESPECIES.includes(fuchs?.especie) ? fuchs.especie : 'zorro';
 
   const celdas = useMemo(() => {
@@ -1072,7 +1521,7 @@ export default function FoxFace({
       // de rejilla se quedaba en un manchurron de cinco pixeles y no se
       // distinguia un libro de una taza. Crece desde su base, que es donde lo
       // agarra, asi que sigue apoyado en la patita.
-      return ex ? { ex, escala: i === 5 ? ex.escala ?? ESCALA_OBJETO : 1 } : null;
+      return ex ? { id, ex, escala: i === 5 ? ex.escala ?? ESCALA_OBJETO : 1 } : null;
     })
     .filter(Boolean);
 
@@ -1081,15 +1530,177 @@ export default function FoxFace({
       className={`fox-face fox-${gestoFinal} ${className}`}
       width={size}
       height={(size / W) * alto}
-      viewBox={
-        chispas
-          ? `${-MARGEN / 2} ${-MARGEN / 2} ${W + MARGEN} ${alto + MARGEN}`
-          : `0 0 ${W} ${alto}`
-      }
+      viewBox={`0 0 ${W} ${alto}`}
       shapeRendering="crispEdges"
       role="img"
       aria-label={fuchs?.nombre || 'Fuchs'}
     >
+      <defs>
+        {/* Galaxia Verde / Esmeralda / Aurora Cósmica (Verde auténtico con flujo descendente) */}
+        <radialGradient id="galaxy-green-fur" gradientUnits="userSpaceOnUse" cx="14" cy="13" r="16" fx="14" fy="13">
+          <animate attributeName="cx" values="15;14.87;14.5;14;13.5;13.13;13;13.13;13.5;14;14.5;14.87;15" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="cy" values="13;12.5;12.13;12;12.13;12.5;13;13.5;13.87;14;13.87;13.5;13" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="fx" values="16;15.73;15;14;13;12.27;12;12.27;13;14;15;15.73;16" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="fy" values="13;12;11.27;11;11.27;12;13;14;14.73;15;14.73;14;13" dur="6s" repeatCount="indefinite" />
+          <stop offset="0%" stopColor="#bbf7d0">
+            <animate attributeName="stopColor" values="#bbf7d0;#86efac;#4ade80;#bbf7d0" dur="3s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="25%" stopColor="#22c55e">
+            <animate attributeName="stopColor" values="#22c55e;#10b981;#34d399;#22c55e" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="55%" stopColor="#15803d">
+            <animate attributeName="stopColor" values="#15803d;#059669;#16a34a;#15803d" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="80%" stopColor="#14532d">
+            <animate attributeName="stopColor" values="#14532d;#064e3b;#166534;#14532d" dur="5s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#052e16" />
+        </radialGradient>
+        <radialGradient id="galaxy-green-shadow" gradientUnits="userSpaceOnUse" cx="14" cy="14" r="16">
+          <animate attributeName="cx" values="14.8;14;13.2;14;14.8" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="cy" values="14;14.8;14;13.2;14" dur="6s" repeatCount="indefinite" />
+          <stop offset="0%" stopColor="#15803d">
+            <animate attributeName="stopColor" values="#15803d;#047857;#15803d" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="60%" stopColor="#14532d">
+            <animate attributeName="stopColor" values="#14532d;#064e3b;#14532d" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#022c22" />
+        </radialGradient>
+        <linearGradient id="galaxy-green-light" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="24" y2="24">
+          <animate attributeName="x1" values="0;6;0" dur="4.5s" repeatCount="indefinite" />
+          <animate attributeName="y1" values="0;14;0" dur="5s" repeatCount="indefinite" />
+          <animate attributeName="y2" values="24;34;24" dur="5s" repeatCount="indefinite" />
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="50%" stopColor="#dcfce7">
+            <animate attributeName="stopColor" values="#dcfce7;#ecfdf5;#dcfce7" dur="3s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#4ade80" />
+        </linearGradient>
+        <radialGradient id="galaxy-green-wave" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#4ade80" stopOpacity="0.85">
+            <animate attributeName="stopColor" values="#4ade80;#34d399;#86efac;#4ade80" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="50%" stopColor="#16a34a" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#14532d" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="galaxy-green-wave2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#bbf7d0" stopOpacity="0.7">
+            <animate attributeName="stopColor" values="#bbf7d0;#6ee7b7;#bbf7d0" dur="3.5s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#15803d" stopOpacity="0" />
+        </radialGradient>
+
+        {/* Galaxia Azul / Violeta / Astral (Nebulosa cósmica con flujo descendente) */}
+        <radialGradient id="galaxy-blue-fur" gradientUnits="userSpaceOnUse" cx="14" cy="13" r="16" fx="14" fy="13">
+          <animate attributeName="cx" values="15;14.87;14.5;14;13.5;13.13;13;13.13;13.5;14;14.5;14.87;15" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="cy" values="13;12.5;12.13;12;12.13;12.5;13;13.5;13.87;14;13.87;13.5;13" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="fx" values="16;15.73;15;14;13;12.27;12;12.27;13;14;15;15.73;16" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="fy" values="13;12;11.27;11;11.27;12;13;14;14.73;15;14.73;14;13" dur="6s" repeatCount="indefinite" />
+          <stop offset="0%" stopColor="#c4b5fd">
+            <animate attributeName="stopColor" values="#c4b5fd;#7dd3fc;#a5b4fc;#c4b5fd" dur="3s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="25%" stopColor="#38bdf8">
+            <animate attributeName="stopColor" values="#38bdf8;#818cf8;#c084fc;#38bdf8" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="55%" stopColor="#6366f1">
+            <animate attributeName="stopColor" values="#6366f1;#3b82f6;#7c3aed;#6366f1" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="80%" stopColor="#4338ca">
+            <animate attributeName="stopColor" values="#4338ca;#3730a3;#4c1d95;#4338ca" dur="5s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#1e1b4b" />
+        </radialGradient>
+        <radialGradient id="galaxy-blue-shadow" gradientUnits="userSpaceOnUse" cx="14" cy="14" r="16">
+          <animate attributeName="cx" values="14.8;14;13.2;14;14.8" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="cy" values="14;14.8;14;13.2;14" dur="6s" repeatCount="indefinite" />
+          <stop offset="0%" stopColor="#4f46e5">
+            <animate attributeName="stopColor" values="#4f46e5;#2563eb;#4f46e5" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="60%" stopColor="#312e81">
+            <animate attributeName="stopColor" values="#312e81;#1e3a8a;#312e81" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#17153b" />
+        </radialGradient>
+        <linearGradient id="galaxy-blue-light" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="24" y2="24">
+          <animate attributeName="x1" values="0;6;0" dur="4.5s" repeatCount="indefinite" />
+          <animate attributeName="y1" values="0;14;0" dur="5s" repeatCount="indefinite" />
+          <animate attributeName="y2" values="24;34;24" dur="5s" repeatCount="indefinite" />
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="50%" stopColor="#e0e7ff">
+            <animate attributeName="stopColor" values="#e0e7ff;#c7d2fe;#e0e7ff" dur="3s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#a78bfa" />
+        </linearGradient>
+        <radialGradient id="galaxy-blue-wave" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#818cf8" stopOpacity="0.85">
+            <animate attributeName="stopColor" values="#818cf8;#38bdf8;#c084fc;#818cf8" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="50%" stopColor="#4f46e5" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#312e81" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="galaxy-blue-wave2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.7">
+            <animate attributeName="stopColor" values="#38bdf8;#c084fc;#38bdf8" dur="3.5s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#4338ca" stopOpacity="0" />
+        </radialGradient>
+
+        {/* Galaxia Roja / Magma / Fuego Solar (Anaranjada y cálida con flujo descendente) */}
+        <radialGradient id="galaxy-red-fur" gradientUnits="userSpaceOnUse" cx="14" cy="13" r="16" fx="14" fy="13">
+          <animate attributeName="cx" values="15;14.87;14.5;14;13.5;13.13;13;13.13;13.5;14;14.5;14.87;15" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="cy" values="13;12.5;12.13;12;12.13;12.5;13;13.5;13.87;14;13.87;13.5;13" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="fx" values="16;15.73;15;14;13;12.27;12;12.27;13;14;15;15.73;16" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="fy" values="13;12;11.27;11;11.27;12;13;14;14.73;15;14.73;14;13" dur="6s" repeatCount="indefinite" />
+          <stop offset="0%" stopColor="#fef08a">
+            <animate attributeName="stopColor" values="#fef08a;#fed7aa;#fde047;#fef08a" dur="3s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="25%" stopColor="#fb923c">
+            <animate attributeName="stopColor" values="#fb923c;#f97316;#ea580c;#fb923c" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="55%" stopColor="#ea580c">
+            <animate attributeName="stopColor" values="#ea580c;#dc2626;#c2410c;#ea580c" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="80%" stopColor="#9a3412">
+            <animate attributeName="stopColor" values="#9a3412;#991b1b;#7c2d12;#9a3412" dur="5s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#451a03" />
+        </radialGradient>
+        <radialGradient id="galaxy-red-shadow" gradientUnits="userSpaceOnUse" cx="14" cy="14" r="16">
+          <animate attributeName="cx" values="14.8;14;13.2;14;14.8" dur="6s" repeatCount="indefinite" />
+          <animate attributeName="cy" values="14;14.8;14;13.2;14" dur="6s" repeatCount="indefinite" />
+          <stop offset="0%" stopColor="#c2410c">
+            <animate attributeName="stopColor" values="#c2410c;#b91c1c;#c2410c" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="60%" stopColor="#7c2d12">
+            <animate attributeName="stopColor" values="#7c2d12;#6c1d0c;#7c2d12" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#3d1205" />
+        </radialGradient>
+        <linearGradient id="galaxy-red-light" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="24" y2="24">
+          <animate attributeName="x1" values="0;6;0" dur="4.5s" repeatCount="indefinite" />
+          <animate attributeName="y1" values="0;14;0" dur="5s" repeatCount="indefinite" />
+          <animate attributeName="y2" values="24;34;24" dur="5s" repeatCount="indefinite" />
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="50%" stopColor="#ffedd5">
+            <animate attributeName="stopColor" values="#ffedd5;#fef3c7;#ffedd5" dur="3s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#fb923c" />
+        </linearGradient>
+        <radialGradient id="galaxy-red-wave" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#fb923c" stopOpacity="0.85">
+            <animate attributeName="stopColor" values="#fb923c;#f97316;#f59e0b;#fb923c" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="50%" stopColor="#ea580c" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#7c2d12" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="galaxy-red-wave2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#fed7aa" stopOpacity="0.7">
+            <animate attributeName="stopColor" values="#fed7aa;#fde047;#fed7aa" dur="3.5s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#c2410c" stopOpacity="0" />
+        </radialGradient>
+      </defs>
       {celdasCola && (
         <g className="fox-cola">
           {celdasCola.map((f, y) =>
@@ -1109,7 +1720,7 @@ export default function FoxFace({
             )
           )
         )}
-        {extras.map(({ ex, escala }, i) => {
+        {extras.map(({ id, ex, escala }, i) => {
           const vis = ex.px.filter(([, y]) => y < alto);
           // El ancla es la base del propio dibujo. Y cada pixel se coloca ya
           // escalado en vez de meterlo todo en un <g transform>: asi los
@@ -1129,32 +1740,91 @@ export default function FoxFace({
           // Y lo mismo por arriba: nada puede quedar por encima del lienzo.
           const arriba = cy + (Math.min(...vis.map((q) => q[1])) - cy) * escala;
           const ajusteY = arriba < 0 ? -arriba : 0;
-          return vis.map(([x, y, k], j) => (
-            <rect
-              key={`e${i}-${j}`}
-              x={escala === 1 ? x : cx + (x - cx) * escala + ajuste}
-              y={escala === 1 ? y : cy + (y - cy) * escala + ajusteY}
-              width={escala}
-              height={escala}
-              fill={k === 'a' ? ex.a : k === 'b' ? ex.b : ex.c}
-            />
-          ));
+          // Cada complemento en su grupo, con su id de clase: asi el CSS le
+          // puede dar vida a uno solo (el globo flota, el paraguas se mece).
+          return (
+            <g key={`e${i}`} className={`fox-extra fox-x-${id}`}>
+              {vis.map(([x, y, k], j) => (
+                <rect
+                  key={j}
+                  className={ex.anima && ex.anima(x, y) ? 'fox-px-mueve' : undefined}
+                  x={escala === 1 ? x : cx + (x - cx) * escala + ajuste}
+                  y={escala === 1 ? y : cy + (y - cy) * escala + ajusteY}
+                  width={escala}
+                  height={escala}
+                  fill={k === 'a' ? ex.a : k === 'b' ? ex.b : ex.c}
+                />
+              ))}
+            </g>
+          );
         })}
       </g>
-      {chispas && (
-        <g className="fox-particulas" aria-hidden="true">
-          {motas(chispas, alto).map((m, i) => (
-            <rect
-              key={`p${i}`}
-              className="fox-mota"
-              x={m.x}
-              y={m.y}
-              width={chispas.tam}
-              height={chispas.tam}
-              fill={chispas.color}
-              style={{ animationDelay: `${m.retraso}s`, animationDuration: `${chispas.seg}s` }}
-            />
+      {colorId.startsWith('galaxy') && (
+        <g className="fox-galaxy-effects" aria-hidden="true" style={{ pointerEvents: 'none' }}>
+          {/* Olas cósmicas luminosas centradas en el cuerpo y cara */}
+          <g style={{ mixBlendMode: 'screen' }}>
+            <ellipse cx="14" cy="13" rx="6" ry="6" fill={`url(#galaxy-${colorId.replace('galaxy-', '')}-wave)`} opacity="0.8">
+              <animateTransform
+                attributeName="transform"
+                type="translate"
+                values="1.2,0; 1.04,-0.6; 0.6,-1.04; 0,-1.2; -0.6,-1.04; -1.04,-0.6; -1.2,0; -1.04,0.6; -0.6,1.04; 0,1.2; 0.6,1.04; 1.04,0.6; 1.2,0"
+                dur="6s"
+                repeatCount="indefinite"
+              />
+            </ellipse>
+            <ellipse cx="14" cy="13" rx="4.5" ry="4.5" fill={`url(#galaxy-${colorId.replace('galaxy-', '')}-wave2)`} opacity="0.65">
+              <animateTransform
+                attributeName="transform"
+                type="translate"
+                values="-0.9,0; -0.78,0.45; -0.45,0.78; 0,0.9; 0.45,0.78; 0.78,0.45; 0.9,0; 0.78,-0.45; 0.45,-0.78; 0,-0.9; -0.45,-0.78; -0.78,-0.45; -0.9,0"
+                dur="6s"
+                repeatCount="indefinite"
+              />
+            </ellipse>
+          </g>
+
+          {/* Estrellas titilantes que se mueven y brillan con la nebulosa */}
+          {[
+            { x: 7.5, y: 8.5, r: 0.45, d: '1.6s', v: '0.2;1;0.2', dx: 0.3, dy: -0.2 },
+            { x: 19.5, y: 8.5, r: 0.45, d: '2.2s', v: '1;0.2;1', dx: -0.3, dy: 0.2 },
+            { x: 10.5, y: 11.5, r: 0.35, d: '1.4s', v: '0.3;1;0.3', dx: 0.2, dy: 0.3 },
+            { x: 16.5, y: 11.5, r: 0.5, d: '1.9s', v: '0.9;0.1;0.9', dx: -0.2, dy: -0.3 },
+            { x: 13.5, y: 9.5, r: 0.4, d: '1.7s', v: '0.4;1;0.4', dx: 0.3, dy: -0.2 },
+            { x: 9.0, y: 14.5, r: 0.35, d: '2.5s', v: '0.1;0.9;0.1', dx: 0.2, dy: 0.2 },
+            { x: 18.0, y: 14.5, r: 0.4, d: '1.8s', v: '0.8;0.2;0.8', dx: -0.3, dy: 0.2 },
+            { x: 11.5, y: 18.5, r: 0.45, d: '1.5s', v: '0.2;1;0.2', dx: 0.2, dy: -0.2 },
+            { x: 15.5, y: 19.5, r: 0.4, d: '2.1s', v: '1;0.2;1', dx: -0.2, dy: 0.2 }
+          ].map((st, i) => (
+            <circle key={i} cx={st.x} cy={st.y} r={st.r} fill="#ffffff">
+              <animate attributeName="opacity" values={st.v} dur={st.d} repeatCount="indefinite" />
+              <animate attributeName="cx" values={`${st.x};${st.x + st.dx};${st.x - st.dx};${st.x}`} dur={`${parseFloat(st.d) * 2.2}s`} repeatCount="indefinite" />
+              <animate attributeName="cy" values={`${st.y};${st.y + st.dy};${st.y - st.dy};${st.y}`} dur={`${parseFloat(st.d) * 2.8}s`} repeatCount="indefinite" />
+            </circle>
           ))}
+        </g>
+      )}
+      {chispas && !colorId.startsWith('galaxy') && (
+        <g className="fox-particulas" aria-hidden="true">
+          {chispas.map((capa, c) =>
+            motas(capa, alto).map((m, i) => (
+              <g
+                key={`p${c}-${i}`}
+                className={'fox-mota ' + capa.mov}
+                style={{ animationDelay: `${m.retraso}s`, animationDuration: `${capa.seg}s` }}
+              >
+                {FORMAS[capa.forma].map(([dx, dy, k], j) => (
+                  <rect
+                    key={j}
+                    x={m.x + dx}
+                    y={m.y + dy}
+                    width={1}
+                    height={1}
+                    fill={k === 'a' ? capa.a : k === 'b' ? capa.b : capa.c || capa.a}
+                  />
+                ))}
+              </g>
+            ))
+          )}
         </g>
       )}
     </svg>

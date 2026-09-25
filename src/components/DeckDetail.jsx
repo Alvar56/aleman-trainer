@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import { deckStats, deleteUserDeck, vocabModes, cartasFalladas, cartasQueFaltan, getCardColor, setCardColor } from '../lib/vocab.js';
-import { t } from '../lib/i18n.js';
+import { conjugar } from '../lib/conjugador.js';
+import { SIN_IA, PORTABLE } from '../lib/modo.js';
+import { deckStats, deleteUserDeck, vocabModes, cartasFalladas, cartasQueFaltan, getCardColor, setCardColor, colorVisible, esVerbo } from '../lib/vocab.js';
+import { t, pick } from '../lib/i18n.js';
+import { getStarredItems, useStars } from '../lib/stars.js';
 import { aiAvailable } from '../lib/settings.js';
 import { generateConjugation } from '../lib/ai.js';
 import CoronaPanel, { BarrasTema } from './ProgresoTema.jsx';
 import AmpliarTema from './AmpliarTema.jsx';
 import { UMBRAL_TERMINAR } from '../lib/progress.js';
 import Escuchar from './Escuchar.jsx';
+import PuntoColor from './PuntoColor.jsx';
+import ModalConjugacion from './ModalConjugacion.jsx';
+import FotosVocab from './FotosVocab.jsx';
 
 // Mismas dos pestañas que en Grammatik: primero te lees las palabras, luego
 // juegas. Antes salía todo de corrido y los juegos tapaban la lista, que es
@@ -16,11 +22,28 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
   const [showText, setShowText] = useState(true);
   const [loadingVerb, setLoadingVerb] = useState(null);
   const [conjugation, setConjugation] = useState(null);
+  useStars();
   const st = deckStats(deck);
   const fallos = cartasFalladas(deck);
   const aiOn = aiAvailable();
+  const allStarredVocab = getStarredItems('vocab');
+  const starred = allStarredVocab.filter(i =>
+    deck.cards?.some(c =>
+      (c.id || c.de).toLowerCase() ===
+      (i.de || i.id || String(i.id).replace('vocab:', '')).toLowerCase()
+    )
+  );
 
-  const handleConjugate = async (verb) => {
+  const handleConjugate = async (verb, traduccion) => {
+    // Primero el conjugador local: es instantaneo, va sin red y acierta con
+    // todo lo que hay en el libro. La IA queda de respaldo para lo que no
+    // cubra, y en la version sin IA simplemente no se ofrece el boton.
+    const local = conjugar(verb, traduccion);
+    if (local) {
+      setConjugation({ ...local, translation: traduccion || local.infinitivo });
+      return;
+    }
+    if (SIN_IA) return;
     setLoadingVerb(verb);
     try {
       const data = await generateConjugation({ verb });
@@ -34,14 +57,16 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
   return (
     <div>
       <div className="topbar">
-        <div style={{ minWidth: 0 }}>
+        <div className="min0">
           <h1>{deck.emoji} {deck.name}</h1>
           <p className="muted" style={{ marginTop: 4, fontSize: '0.9rem' }}>
             {t('voc.deckStats', { total: st.total, known: st.known, pct: st.pct, mastered: st.mastered })}
             {deck.builtin ? '' : deck.source === 'ai' ? t('voc.aiCreated') : t('voc.importedLabel')}
           </p>
         </div>
-        <button className="link-btn" onClick={onBack} style={{ flexShrink: 0 }}>← Wortschatz</button>
+        <button className="link-btn" onClick={onBack} style={{ flexShrink: 0 }}>
+          <span className="fl-atras">◂</span> {deck.lektionName ? deck.lektionName : 'Wortschatz'}
+        </button>
       </div>
 
       <BarrasTema topicId={'vocab:' + deck.id} pct={st.pct} />
@@ -56,6 +81,11 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
         >
           {t('gr.exercises')}
         </button>
+        {!PORTABLE && (
+          <button className={'tab' + (tab === 'fotos' ? ' active' : '')} onClick={() => setTab('fotos')}>
+            📸 {pick('Fotos', 'Photos')}
+          </button>
+        )}
       </div>
 
       {tab === 'teoria' && (
@@ -97,11 +127,13 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
           <div className="panel" style={{ marginTop: 8, marginBottom: 16 }}>
             <h2 style={{ margin: '0 0 14px' }}>{t('voc.cards')}</h2>
             <div className="row" style={{ gap: 8 }}>
-              <button className="gametype" style={{ flex: 1, textAlign: 'left', display: 'flex', alignItems: 'center' }} onClick={() => onStart(deck.id, 'flashcards', false, 'de-es')}>
-                🃏 <span style={{ marginLeft: 12 }}>{t('voc.deToEs')}</span>
+              <button className="gametype" style={{ flex: 1 }} onClick={() => onStart(deck.id, 'flashcards', false, 'de-es')}>
+                <span className="gt-ico">🃏</span>
+                <span className="gt-txt"><span>{t('voc.deToEs')}</span></span>
               </button>
-              <button className="gametype" style={{ flex: 1, textAlign: 'left', display: 'flex', alignItems: 'center' }} onClick={() => onStart(deck.id, 'flashcards', false, 'es-de')}>
-                🃏 <span style={{ marginLeft: 12 }}>{t('voc.esToDe')}</span>
+              <button className="gametype" style={{ flex: 1 }} onClick={() => onStart(deck.id, 'flashcards', false, 'es-de')}>
+                <span className="gt-ico">🃏</span>
+                <span className="gt-txt"><span>{t('voc.esToDe')}</span></span>
               </button>
             </div>
           </div>
@@ -110,28 +142,29 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
               campo a la IA. Al final, después de la lista y de las tarjetas. */}
           <AmpliarTema deck={deck} onCreado={onBack} />
 
-          <button
-            className="btn-primary"
-            style={{ alignSelf: 'flex-start' }}
-            onClick={() => setTab('ejercicios')}
-          >
-            {t('gr.toExercises')}
-          </button>
-
-          {!deck.builtin && (
+          <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
             <button
-              className="btn-ghost btn-sm"
-              style={{ alignSelf: 'flex-start', color: 'var(--bad)', borderColor: 'var(--bad-border)' }}
-              onClick={() => {
-                if (confirm(t('voc.confirmDeleteDeck', { name: deck.name }))) {
-                  deleteUserDeck(deck.id);
-                  onDeleted();
-                }
-              }}
+              className="btn-primary"
+              onClick={() => setTab('ejercicios')}
             >
-              {t('voc.deleteDeck')}
+              {t('gr.toExercises')}
             </button>
-          )}
+
+            {!deck.builtin && (
+              <button
+                className="btn-ghost btn-sm"
+                style={{ color: 'var(--bad)', borderColor: 'var(--bad-border)' }}
+                onClick={() => {
+                  if (confirm(t('voc.confirmDeleteDeck', { name: deck.name }))) {
+                    deleteUserDeck(deck.id);
+                    onDeleted();
+                  }
+                }}
+              >
+                {t('voc.deleteDeck')}
+              </button>
+            )}
+          </div>
         </div>
       )}
 
@@ -143,22 +176,36 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
             <div className="gametype-grid">
               {vocabModes().filter(m => m.id !== 'flashcards').map((m) => (
                 <button className="gametype" key={m.id} onClick={() => onStart(deck.id, m.id)}>
-                  {m.emoji} <span>{m.label}</span>
-                  <small>{m.hint}</small>
+                  <span className="gt-ico">{m.emoji}</span>
+                  <span className="gt-txt">
+                    <span>{m.label}</span>
+                    <small>{m.hint}</small>
+                  </span>
                 </button>
               ))}
             </div>
 
             <p className="muted" style={{ fontSize: '0.78rem', marginTop: 12 }}>
-              {aiOn ? t('voc.source') : t('voc.sourceOff')}
+              {aiOn ? t('voc.source') : t(SIN_IA ? 'voc.sourceSinIA' : 'voc.sourceOff')}
             </p>
 
             <div className="btn-row" style={{ marginTop: 12 }}>
-              {fallos.length > 0 && (
-                <button className="btn-ghost btn-sm" onClick={() => onStart(deck.id, 'quiz', true)}>
-                  {t('gr.reviewWeak')}
+              {starred.length > 0 && (
+                <button
+                  className="btn-ghost btn-sm"
+                  onClick={() => onStart(deck.id, 'quiz', false, null, starred)}
+                >
+                  ⭐ Repasar marcados ({starred.length})
                 </button>
               )}
+              <button
+                className="btn-ghost btn-sm"
+                onClick={() => onStart(deck.id, 'quiz', true)}
+                disabled={fallos.length === 0}
+                title={fallos.length ? t('gr.reviewWeakHint') : t('gr.reviewWeakNone')}
+              >
+                {fallos.length ? t('gr.reviewWeakN', { n: fallos.length }) : t('gr.reviewWeak')}
+              </button>
               {/* Solo del 70% para arriba: por debajo falta casi todo y esto
                   seria la sesion normal con otro nombre. */}
               {/* Se ve siempre por debajo del 100%, pero apagado hasta el 70%:
@@ -194,81 +241,33 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
         </div>
       )}
 
-      {conjugation && (
-        <div className="modal-overlay" onClick={() => setConjugation(null)}>
-          <div className="modal card modal-conj" onClick={(e) => e.stopPropagation()}>
-            <div className="row spread" style={{ marginBottom: 16 }}>
-              <h2 style={{ margin: 0 }}>
-                {conjugation.verb} <span className="muted" style={{ fontSize: '1rem', fontWeight: 'normal' }}>— {conjugation.translation}</span>
-              </h2>
-              <button className="link-btn" onClick={() => setConjugation(null)}>{t('voc.close')}</button>
-            </div>
-            <div className="conj-grid">
-              {conjugation.tenses.map((tense, idx) => (
-                <div key={idx} className="conj-card">
-                  <h3 className="conj-title">{tense.name}</h3>
-                  <table className="conj-table">
-                    <tbody>
-                      {tense.conjugations.map((c, i) => (
-                        <tr key={i}>
-                          <td className="conj-pronoun">{c.pronoun}</td>
-                          <td className="conj-form">{c.form}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              ))}
-            </div>
-            
-            {conjugation.examples && conjugation.examples.length > 0 && (
-              <div className="conj-examples">
-                <h3 className="conj-title" style={{ border: 'none', marginBottom: 16 }}>{t('voc.examples')}</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                  {conjugation.examples.map((ex, idx) => (
-                    <div key={idx} className="conj-example">
-                      <div className="ce-tense">{ex.tense}</div>
-                      <div className="ce-de">{ex.de}</div>
-                      <div className="ce-es">{ex.es}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
+      {!PORTABLE && tab === 'fotos' && (
+        <FotosVocab ownerId={`deck:${deck.id}`} nombre={deck.name} />
       )}
+
+      <ModalConjugacion conjugation={conjugation} onClose={() => setConjugation(null)} />
     </div>
   );
 }
 
-const COLORS = ['transparent', '#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6'];
-
 function VocabCard({ card, deckId, onConjugate, loadingVerb }) {
-  const [color, setColor] = useState(() => getCardColor(deckId, card.de) || 'transparent');
-  const [showPalette, setShowPalette] = useState(false);
+  const [color, setColor] = useState(() => getCardColor(card.de) || 'transparent');
 
-  // Determinamos si parece un verbo (termina en en, eln, ern, o es irregular, y empieza en minúscula)
   const word = card.de.split(' ')[0].replace(/[^a-zA-ZäöüÄÖÜß]/g, '');
-  const isVerb = 
-    (/^[a-zäöüß]+(en|eln|ern)$/.test(word) || word === 'sein' || word === 'tun') && 
-    !['sieben', 'neun', 'zehn', 'morgen', 'gestern', 'vorgestern', 'oben', 'unten', 'innen', 'außen', 'gegen'].includes(word);
+  const isVerb = esVerbo(card.de);
 
   const handleColor = (c) => {
     setColor(c);
-    setCardColor(deckId, card.de, c === 'transparent' ? null : c);
-    setShowPalette(false);
+    setCardColor(card.de, c === 'transparent' ? null : c);
   };
 
+  // Igual que en la lista: el color no pinta la tarjeta, vive en el punto de
+  // la derecha, y ahi se ve tanto el que marcas a mano como el que sale de
+  // practicar (colorVisible).
+  const computedColor = color !== 'transparent' ? color : (colorVisible(card.de) || 'transparent');
+
   return (
-    <div 
-      className="card-mini" 
-      style={{ 
-        position: 'relative', 
-        borderLeft: color !== 'transparent' ? '4px solid ' + color : undefined,
-        paddingLeft: color !== 'transparent' ? 12 : undefined
-      }}
-    >
+    <div className="card-mini" style={{ position: 'relative' }}>
       <div className="row spread" style={{ alignItems: 'flex-start' }}>
         <div>
           <div style={{ fontWeight: 600 }}>{card.de}</div>
@@ -277,9 +276,8 @@ function VocabCard({ card, deckId, onConjugate, loadingVerb }) {
         <div className="row" style={{ gap: 8 }}>
           {isVerb && (
             <button 
-              className="btn-ghost btn-sm" 
-              style={{ padding: '2px 6px', fontSize: '0.75rem', height: 'auto', minHeight: 0 }}
-              onClick={() => onConjugate(word)}
+              className="btn-ghost btn-conjugar" 
+              onClick={() => onConjugate(word, card.es)}
               disabled={loadingVerb === word}
             >
               {loadingVerb === word ? t('loading') : t('voc.conjugate')}
@@ -288,40 +286,7 @@ function VocabCard({ card, deckId, onConjugate, loadingVerb }) {
           {/* El altavoz, pegado al punto de color: los dos son cosas que le
               haces a esa palabra concreta. */}
           <Escuchar texto={card.de} />
-          <div style={{ position: 'relative' }}>
-            <button 
-              className="color-dot"
-              style={{ 
-                width: 16, height: 16, borderRadius: '50%', 
-                background: color === 'transparent' ? '#e2e8f0' : color, 
-                border: 'none', cursor: 'pointer', padding: 0 
-              }}
-              onClick={() => setShowPalette(!showPalette)}
-              title={t('voc.markColour')}
-            />
-            {showPalette && (
-              <div 
-                style={{ 
-                  position: 'absolute', top: 24, right: 0, background: 'var(--bg)', 
-                  border: '1px solid var(--border)', borderRadius: 8, padding: 8, 
-                  display: 'flex', gap: 6, zIndex: 10, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' 
-                }}
-              >
-                {COLORS.map(c => (
-                  <button 
-                    key={c}
-                    style={{ 
-                      width: 20, height: 20, borderRadius: '50%', 
-                      background: c === 'transparent' ? 'repeating-linear-gradient(45deg, #eee, #eee 4px, #fff 4px, #fff 8px)' : c,
-                      border: c === 'transparent' ? '1px solid #ccc' : 'none',
-                      cursor: 'pointer', padding: 0 
-                    }}
-                    onClick={() => handleColor(c)}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
+          <PuntoColor color={computedColor} onElegir={handleColor} />
         </div>
       </div>
     </div>

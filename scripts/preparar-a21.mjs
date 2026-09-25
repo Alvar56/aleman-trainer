@@ -1,0 +1,1113 @@
+// Mapeo de Kommunikation para A2.1 (lecciones 1 a 8).
+// 8 funciones de 10 frases exactamente por lección.
+import fs from 'node:fs';
+
+export const a21data = {
+  "a21-l1": [
+    {
+      "funktion": "Wünsche und Sehnsüchte ausdrücken",
+      "es": "Expresar deseos y anhelos",
+      "esEn": "Expressing wishes and longings",
+      "toma": [
+        "Ich würde gern öfter nach Hause fahren.",
+        "Mein größter Wunsch ist ein sicherer Job.",
+        "Ich hätte gern mehr Ruhe im Alltag.",
+        "Am liebsten hätte ich etwas mehr Freiheit bei der Arbeit.",
+        "Ich wünsche mir, dass die Kinder es leichter haben.",
+        "Ich wünschte, ich hätte früher angefangen.",
+        "Am liebsten würde ich ein Jahr Pause machen.",
+        "Ich hoffe auf eine feste Stelle im Herbst.",
+        "Ich will das Risiko diesmal eingehen.",
+        "Diese Chance lasse ich nicht vorbeigehen."
+      ]
+    },
+    {
+      "funktion": "über die Vergangenheit und den Anfang berichten",
+      "es": "Contar sobre el pasado y el comienzo",
+      "esEn": "Talking about the past and the beginning",
+      "toma": [
+        "Damals bin ich nach Österreich gekommen.",
+        "Am Anfang war alles fremd für mich.",
+        "Mit der Zeit habe ich mich daran gewöhnt.",
+        "Damals habe ich kein Wort Deutsch gesprochen.",
+        "Die ersten zwei Jahre waren die schwersten.",
+        "Ich habe zuerst bei einem Freund gewohnt.",
+        "Nach und nach habe ich mich daran gewöhnt.",
+        "Ich habe damals jeden Abend gelernt.",
+        "Meine erste Wohnung war winzig und kalt.",
+        "Ich habe die Entscheidung nie bereut."
+      ]
+    },
+    {
+      "funktion": "über Wendepunkte und Krisen sprechen",
+      "es": "Hablar de puntos de inflexión y crisis",
+      "esEn": "Talking about turning points and crises",
+      "toma": [
+        "Vor fünf Jahren war hier alles anders.",
+        "Das Praktikum war für mich der Wendepunkt.",
+        "Nach der Krise ging es langsam aufwärts.",
+        "Damals habe ich sehr an mir gezweifelt.",
+        "Wie lange hat der ganze Prozess gedauert?",
+        "Was hast du vorher gemacht?",
+        "Hat sich der Aufwand gelohnt?",
+        "Wann hast du dich entschieden?",
+        "Was hat dir damals am meisten geholfen?",
+        "Wie hast du die Trennung damals verkraftet?"
+      ]
+    },
+    {
+      "funktion": "nachfragen und Interesse zeigen",
+      "es": "Preguntar y mostrar interés",
+      "esEn": "Inquiring and showing interest",
+      "toma": [
+        "Und wie ging es dann weiter?",
+        "Das kann ich gut verstehen.",
+        "Wie hast du dich dabei gefühlt?",
+        "Und wie ist es dir dabei gegangen?",
+        "Erzähl weiter, das interessiert mich wirklich.",
+        "Das kann ich gut nachvollziehen.",
+        "Und wie ist es danach weitergegangen?",
+        "Hast du Vorurteile erlebt?",
+        "Und wie ging es dir damit?",
+        "Erzähl doch mal, wie es weiterging."
+      ]
+    },
+    {
+      "funktion": "Mitgefühl und Verständnis ausdrücken",
+      "es": "Expresar empatía y comprensión",
+      "esEn": "Expressing empathy and understanding",
+      "toma": [
+        "Das tut mir leid für dich.",
+        "Das muss sehr schwer gewesen sein.",
+        "Und wie war das für dich gefühlsmäßig?",
+        "Das tut mir wirklich leid für dich.",
+        "Das muss viel Mut gekostet haben.",
+        "Das muss hart gewesen sein.",
+        "Ich hatte lange Angst, Fehler zu machen.",
+        "Das Heimweh kommt meistens im Winter.",
+        "Mir fehlt manchmal meine Familie.",
+        "Ohne Zuversicht hätte ich aufgegeben."
+      ]
+    },
+    {
+      "funktion": "eigene Fehler korrigieren",
+      "es": "Corregir los propios errores",
+      "esEn": "Correcting one's own mistakes",
+      "toma": [
+        "Entschuldigung, ich meine …",
+        "Nein, warte – das stimmt nicht ganz.",
+        "Also, noch einmal von vorne.",
+        "Entschuldigung, ich meine natürlich Dienstag.",
+        "Nein, warte, das stimmt so nicht ganz.",
+        "Ich fange lieber noch einmal von vorne an.",
+        "Ich habe mich versprochen, sorry.",
+        "Das habe ich falsch ausgedrückt.",
+        "Moment, ich korrigiere mich kurz.",
+        "Halt, das habe ich falsch gesagt."
+      ]
+    },
+    {
+      "funktion": "über das Ankommen und Einleben sprechen",
+      "es": "Hablar de la llegada y la integración",
+      "esEn": "Talking about arriving and settling in",
+      "toma": [
+        "Am Anfang war alles fremd.",
+        "Ich habe mich schnell eingelebt.",
+        "Ich fühle mich hier inzwischen zu Hause.",
+        "Ich war stolz, als ich das erste Mal telefoniert habe.",
+        "Inzwischen habe ich das Gefühl dazuzugehören.",
+        "Der Zusammenhalt im Kurs hat mir geholfen.",
+        "Heute fühle ich mich hier stark.",
+        "Wie hast du dich in der ersten Woche gefühlt?",
+        "Hattest du Heimweh?",
+        "Wann hast du dich hier zu Hause gefühlt?"
+      ]
+    },
+    {
+      "funktion": "über Zukunftspläne sprechen",
+      "es": "Hablar de planes de futuro",
+      "esEn": "Talking about future plans",
+      "toma": [
+        "Was sind deine Pläne für die nächsten Jahre?",
+        "Ich will hierbleiben, zumindest vorerst.",
+        "Vielleicht mache ich noch eine Ausbildung.",
+        "Ich möchte irgendwann ein eigenes Geschäft haben.",
+        "Nächstes Jahr ziehen wir in eine größere Wohnung.",
+        "Ich habe vor, den Führerschein zu machen.",
+        "Langfristig möchte ich zurück nach Spanien.",
+        "Erst mal will ich mich einfach hier einleben.",
+        "Wo siehst du dich in fünf Jahren?",
+        "Was ist dein nächstes großes Ziel?"
+      ]
+    }
+  ],
+  "a21-l2": [
+    {
+      "funktion": "eine Einladung aussprechen",
+      "es": "Hacer una invitación",
+      "esEn": "Extending an invitation",
+      "toma": [
+        "Hast du Lust, vorbeizukommen?",
+        "Hast du Lust, morgen vorbeizukommen?",
+        "Wollen wir am Sonntag zusammen kochen?",
+        "Ich lade euch alle zum Kaffee ein.",
+        "Wir grillen am Samstag, seid ihr dabei?",
+        "Möchtest du uns am Wochenende besuchen?",
+        "Du bist jederzeit willkommen bei uns.",
+        "Magst du am Sonntag zum Frühstück kommen?",
+        "Komm doch einfach ins Lokal, wir sind schon dort.",
+        "Wir grillen im Garten, kommt ihr dazu?"
+      ]
+    },
+    {
+      "funktion": "auf private Einladungen reagieren",
+      "es": "Responder a invitaciones privadas",
+      "esEn": "Responding to private invitations",
+      "toma": [
+        "Ich möchte dich zum Essen einladen.",
+        "Soll ich etwas mitbringen?",
+        "Sehr gern, ich komme!",
+        "Kommt doch am Wochenende zu uns.",
+        "Bring ruhig jemanden mit, es ist genug da.",
+        "Was soll ich zum Essen beisteuern?",
+        "Wir feiern nichts Großes, nur ein paar Freunde.",
+        "Leider schaffe ich es diesmal nicht.",
+        "Komm einfach vorbei, wenn du Zeit hast.",
+        "Wir würden uns sehr freuen, wenn ihr kommt."
+      ]
+    },
+    {
+      "funktion": "Besuche und Gastfreundschaft organisieren",
+      "es": "Organizar visitas y hospitalidad",
+      "esEn": "Organizing visits and hospitality",
+      "toma": [
+        "Wir servieren um acht, kommt ihr vorher?",
+        "Ich habe etwas Spanisches gekocht.",
+        "Bei uns gibt es nur eine Kleinigkeit.",
+        "Kommt ihr am Sonntag zum Essen?",
+        "Bring ruhig deine Mitbewohnerin mit.",
+        "Zieht ihr drinnen die Schuhe aus?",
+        "Wir haben leider nur wenig Platz.",
+        "Hättet ihr Lust auf einen Grillabend?",
+        "Kommt doch nächstes Wochenende zu uns.",
+        "Ich möchte dich am Freitag zum Essen einladen."
+      ]
+    },
+    {
+      "funktion": "im Restaurant bestellen und bezahlen",
+      "es": "Pedir y pagar en el restaurante",
+      "esEn": "Ordering and paying in a restaurant",
+      "toma": [
+        "Wir hätten gern die Speisekarte.",
+        "Ich nehme das Schnitzel mit Erdäpfelsalat.",
+        "Zahlen, bitte! – Getrennt oder zusammen?",
+        "Haben Sie noch einen Tisch für zwei frei?",
+        "Was können Sie heute empfehlen?",
+        "Für mich bitte das Schnitzel mit Salat.",
+        "Könnten wir bitte noch Wasser bekommen?",
+        "Das war ausgezeichnet, danke schön.",
+        "Zahlen bitte, getrennt.",
+        "Stimmt so, der Rest ist für Sie."
+      ]
+    },
+    {
+      "funktion": "Wünsche und Vorlieben im Lokal äußern",
+      "es": "Expresar preferencias y peticiones en el local",
+      "esEn": "Expressing preferences and requests at the venue",
+      "toma": [
+        "Ist in dem Gericht Fleisch drin?",
+        "Entschuldigung, das habe ich nicht bestellt.",
+        "Können wir draußen im Gastgarten sitzen?",
+        "Ist in dem Gericht eine Nuss drin?",
+        "Können Sie mir etwas Würziges empfehlen?",
+        "Haben Sie einen Tisch für vier Personen?",
+        "Können wir draußen sitzen?",
+        "Können Sie das ohne Zwiebeln machen?",
+        "Könnten wir bitte zahlen?",
+        "Das Essen war ausgezeichnet, danke."
+      ]
+    },
+    {
+      "funktion": "jemanden beruhigen und ermutigen",
+      "es": "Tranquilizar y animar a alguien",
+      "esEn": "Reassuring and encouraging someone",
+      "toma": [
+        "Keine Sorge, das schaffst du!",
+        "An deiner Stelle würde ich …",
+        "Das ist doch halb so schlimm.",
+        "Keine Sorge, das wird schon klappen.",
+        "An deiner Stelle würde ich einfach anrufen.",
+        "So schlimm ist das gar nicht.",
+        "Mach dir keinen Stress, wir haben genug Zeit.",
+        "Das kann jedem passieren, ehrlich.",
+        "Probier es einfach, du kannst nichts verlieren.",
+        "Nimm dir einfach etwas mehr Zeit dafür."
+      ]
+    },
+    {
+      "funktion": "Essgewohnheiten und Regionen vergleichen",
+      "es": "Comparar hábitos de comida y regiones",
+      "esEn": "Comparing eating habits and regions",
+      "toma": [
+        "Bei uns isst man das ganz anders.",
+        "In Spanien gibt es das auch, aber mit Fisch.",
+        "Das kenne ich von zu Hause nicht.",
+        "Bei uns isst man viel später am Abend.",
+        "So etwas gibt es bei uns auch, nur mit Fisch.",
+        "Das kenne ich von zu Hause gar nicht.",
+        "Bei uns ist das Brot ganz anders.",
+        "In meiner Heimat trinkt man kaum Bier.",
+        "Bei uns kocht man mit viel mehr Olivenöl.",
+        "Die Portionen sind hier viel größer."
+      ]
+    },
+    {
+      "funktion": "Überraschung und Staunen ausdrücken",
+      "es": "Expresar sorpresa y asombro",
+      "esEn": "Expressing surprise and amazement",
+      "toma": [
+        "Wirklich? Das wusste ich nicht!",
+        "Das ist ja unglaublich!",
+        "Echt jetzt?",
+        "Wirklich? Das wusste ich überhaupt nicht.",
+        "Das glaube ich jetzt nicht!",
+        "Echt jetzt? Das kann nicht sein.",
+        "Damit hätte ich nie gerechnet.",
+        "Was? Das gibt es doch nicht!",
+        "Das überrascht mich ehrlich gesagt.",
+        "Das ist alles hausgemacht? Wirklich?"
+      ]
+    }
+  ],
+  "a21-l3": [
+    {
+      "funktion": "einen sportlichen Vorschlag machen",
+      "es": "Hacer una propuesta deportiva",
+      "esEn": "Making a sports-related suggestion",
+      "toma": [
+        "Machen wir nächste Woche beim Lauf mit?",
+        "Sollen wir uns vorher kurz aufwärmen?",
+        "Gehen wir morgen ins Hallenbad?",
+        "Sollen wir uns für den Lauf anmelden?",
+        "Wie wäre es mit einem Ruhetag?",
+        "Wie wäre es, wenn wir zusammen trainieren?",
+        "Ich schlage vor, wir treffen uns im Park.",
+        "Sollen wir es einfach mal ausprobieren?",
+        "Wollen wir statt Kino lieber schwimmen gehen?",
+        "Wollen wir am Samstag joggen gehen?"
+      ]
+    },
+    {
+      "funktion": "Vorschläge annehmen",
+      "es": "Aceptar una propuesta",
+      "esEn": "Accepting a proposal",
+      "toma": [
+        "Super Idee, machen wir!",
+        "Ja, gern. Wann treffen wir uns?",
+        "Da bin ich dabei!",
+        "Super Idee, das machen wir!",
+        "Ja, gern. Wann und wo treffen wir uns?",
+        "Da bin ich auf jeden Fall dabei.",
+        "Klingt gut, ich sage zu.",
+        "Genau darauf hatte ich Lust.",
+        "Warum eigentlich nicht? Machen wir.",
+        "Einverstanden, ich bin beim Wettkampf dabei."
+      ]
+    },
+    {
+      "funktion": "Vorschläge ablehnen und begründen",
+      "es": "Rechazar una propuesta de forma razonada",
+      "esEn": "Declining a proposal with reasons",
+      "toma": [
+        "Das ist nichts für mich.",
+        "Lieber ein anderes Mal.",
+        "Tut mir leid, da kann ich nicht.",
+        "Das ist wirklich nichts für mich.",
+        "Lieber ein anderes Mal, heute bin ich kaputt.",
+        "Tut mir leid, an dem Tag geht es nicht.",
+        "Das ist mir ehrlich gesagt zu anstrengend.",
+        "Ich habe leider gerade kein Geld dafür.",
+        "Ohne mich, ich hasse Mannschaftssport.",
+        "Ohne mich, ich bin noch verletzt."
+      ]
+    },
+    {
+      "funktion": "Sportarten und Aktivitäten bewerten",
+      "es": "Valorar deportes y actividades",
+      "esEn": "Evaluating sports and activities",
+      "toma": [
+        "Joggen ist super, aber das Fitnessstudio finde ich langweilig.",
+        "Das ist mir zu anstrengend.",
+        "Ich finde das ziemlich gesund.",
+        "Joggen finde ich auf Dauer langweilig.",
+        "Das Fitnessstudio ist mir zu teuer.",
+        "Schwimmen finde ich richtig gesund.",
+        "Das Training war heute zu leicht.",
+        "Ich halte Yoga für unterschätzt.",
+        "Die Halle ist zu klein für so viele Leute.",
+        "Ich finde den Beitrag ziemlich fair."
+      ]
+    },
+    {
+      "funktion": "Vorlieben beim Sport ausdrücken",
+      "es": "Expresar preferencias deportivas",
+      "esEn": "Expressing sporting preferences",
+      "toma": [
+        "Ich mag Mannschaftssport lieber als Einzelsport.",
+        "Am liebsten trainiere ich früh am Morgen.",
+        "Im Team trainiere ich lieber als allein.",
+        "Mir ist das Training in der Früh am liebsten.",
+        "Im Winter laufe ich lieber drinnen.",
+        "Mir gefällt Radfahren besser als Laufen.",
+        "Ich trainiere am liebsten allein.",
+        "Klettern finde ich spannender als Fußball.",
+        "Ich bewege mich lieber in der Natur.",
+        "Ohne Musik kann ich nicht trainieren."
+      ]
+    },
+    {
+      "funktion": "über Trainingsgewohnheiten sprechen",
+      "es": "Hablar de hábitos de entrenamiento",
+      "esEn": "Talking about workout habits",
+      "toma": [
+        "Treibst du regelmäßig Sport?",
+        "Wo trainierst du?",
+        "Machst du regelmäßig Sport?",
+        "Wo trainierst du im Winter?",
+        "Hast du dich schon einmal verletzt?",
+        "Wie lange trainierst du am Stück?",
+        "Achtest du auch auf die Ernährung?",
+        "Gehst du nach dem Training duschen?",
+        "Seit wann bist du in diesem Verein?",
+        "Seit wann läufst du regelmäßig?"
+      ]
+    },
+    {
+      "funktion": "über Wettkämpfe und Ergebnisse sprechen",
+      "es": "Hablar de competiciones y resultados",
+      "esEn": "Talking about competitions and results",
+      "toma": [
+        "Das Spiel gestern war eine Katastrophe.",
+        "Das Spiel war absolut fair.",
+        "Der Erfolg kommt nicht von allein.",
+        "Wie war das Spiel am Wochenende?",
+        "Wie viele Zuschauer waren im Stadion?",
+        "Wie war der Start beim Marathon?",
+        "Habt ihr in der Halbzeit geführt?",
+        "Wie lange bist du schon verletzt?",
+        "Läufst du lieber morgens oder abends?",
+        "Wie oft trainierst du in der Woche?"
+      ]
+    },
+    {
+      "funktion": "über Fitness und Motivation sprechen",
+      "es": "Hablar de forma física y motivación",
+      "esEn": "Talking about fitness and motivation",
+      "toma": [
+        "Heute fehlt mir einfach die Kraft.",
+        "Dafür fehlt mir gerade die Energie.",
+        "Diese Übung ist nur Kraft, keine Technik.",
+        "Der Kurs hat sich wirklich gelohnt.",
+        "Beweglichkeit ist mir wichtiger als Kraft.",
+        "Am liebsten trainiere ich ohne Gegner.",
+        "Hast du heute Muskelkater?",
+        "Was machst du gegen den inneren Schweinehund?",
+        "Tut dir nach dem Training oft etwas weh?",
+        "Das war die beste Entscheidung seit Langem."
+      ]
+    }
+  ],
+  "a21-l4": [
+    {
+      "funktion": "sich und neue Kollegen formell vorstellen",
+      "es": "Presentarse y presentar a nuevos compañeros formalmente",
+      "esEn": "Formally introducing oneself and new colleagues",
+      "toma": [
+        "Darf ich mich vorstellen? Mein Name ist …",
+        "Das ist Frau Berger, unsere neue Kollegin.",
+        "Freut mich, Sie kennenzulernen.",
+        "Ich bin für die Buchhaltung zuständig.",
+        "Darf ich Ihnen Frau Berger vorstellen?",
+        "Ich bin die neue Kollegin aus dem Büro nebenan.",
+        "Ich fange heute bei Ihnen an.",
+        "Wir sehen uns bei der Besprechung.",
+        "Darf ich mich kurz vorstellen? Mein Name ist Pascual.",
+        "Die Buchhaltung gehört zu meinem Bereich."
+      ]
+    },
+    {
+      "funktion": "Zuständigkeiten und Positionen im Betrieb klären",
+      "es": "Aclarar competencias y puestos en la empresa",
+      "esEn": "Clarifying responsibilities and positions at work",
+      "toma": [
+        "Ich stelle Ihnen Frau Berger vor, sie ist neu bei uns.",
+        "Heute ist mein erster Arbeitstag hier.",
+        "Freut mich, Sie persönlich kennenzulernen.",
+        "Ich komme aus der Abteilung nebenan.",
+        "Wer ist hier mein Ansprechpartner?",
+        "Wir sehen uns bei der Besprechung um zehn.",
+        "Ich bin der neue Praktikant in Ihrer Abteilung.",
+        "Das Projekt fällt in meine Zuständigkeit.",
+        "Darf ich Ihnen unseren neuen Kollegen vorstellen?",
+        "Das ist Frau Wolf, unsere Abteilungsleiterin."
+      ]
+    },
+    {
+      "funktion": "etwas nicht verstehen und nachfragen",
+      "es": "No entender algo y pedir aclaraciones",
+      "esEn": "Not understanding and asking for clarification",
+      "toma": [
+        "Entschuldigung, das habe ich nicht verstanden.",
+        "Können Sie das bitte noch einmal erklären?",
+        "Was bedeutet das genau?",
+        "Habe ich das richtig verstanden: …?",
+        "Das habe ich nicht ganz verstanden.",
+        "Können Sie das bitte wiederholen?",
+        "Wie meinen Sie das?",
+        "Habe ich das richtig verstanden?",
+        "Entschuldigung, das habe ich nicht ganz mitbekommen.",
+        "Habe ich das richtig verstanden: bis Freitag?"
+      ]
+    },
+    {
+      "funktion": "Arbeitsanweisungen und Details absichern",
+      "es": "Confirmar instrucciones de trabajo y detalles",
+      "esEn": "Confirming work instructions and details",
+      "toma": [
+        "Was bedeutet diese Abkürzung?",
+        "Wie meinen Sie das genau?",
+        "Könnten Sie mir das an einem Beispiel zeigen?",
+        "Ich bin mir nicht sicher, ob das stimmt.",
+        "Zu wem gehe ich, wenn ich nicht weiterweiß?",
+        "Darf ich noch einmal nachfragen?",
+        "War das eine feste Absprache oder nur eine Idee?",
+        "Wie lange soll die Präsentation dauern?",
+        "Gilt das Homeoffice auch in der Probezeit?",
+        "Sprechen Sie bitte etwas lauter?"
+      ]
+    },
+    {
+      "funktion": "über Aufgaben und Arbeitsabläufe sprechen",
+      "es": "Hablar de tareas y procesos de trabajo",
+      "esEn": "Talking about tasks and workflow",
+      "toma": [
+        "Wer übernimmt das Protokoll heute?",
+        "Wann ist der Abgabetermin für den Bericht?",
+        "Ich arbeite mich gerade noch ein.",
+        "Diese Aufgabe schaffe ich bis Mittwoch.",
+        "Unter Zeitdruck mache ich mehr Fehler.",
+        "Wie läuft das hier normalerweise ab?",
+        "Kann ich das an jemanden weitergeben?",
+        "Die Zusammenarbeit mit dem Team klappt gut.",
+        "Welche Vorschriften muss ich hier beachten?",
+        "Ich hätte gern ehrliches Feedback zu meiner Arbeit."
+      ]
+    },
+    {
+      "funktion": "im Vorstellungsgespräch Auskunft geben",
+      "es": "Dar información en la entrevista de trabajo",
+      "esEn": "Providing information in a job interview",
+      "toma": [
+        "Ich möchte mich auf die Stelle bewerben.",
+        "Welche Unterlagen brauchen Sie von mir?",
+        "Ich habe fünf Jahre Erfahrung in der Branche.",
+        "Wann könnten Sie bei uns anfangen?",
+        "Wie sind die Arbeitszeiten geregelt?",
+        "Gibt es eine Probezeit?",
+        "Zahlt die Firma auch Fortbildungen?",
+        "Mein Deutsch ist noch nicht perfekt.",
+        "Wann bekomme ich eine Rückmeldung?",
+        "Vielen Dank für das Gespräch."
+      ]
+    },
+    {
+      "funktion": "Anforderungen und Arbeitsbedingungen erfragen",
+      "es": "Preguntar por requisitos y condiciones",
+      "esEn": "Inquiring about requirements and conditions",
+      "toma": [
+        "Welche Qualifikationen erwarten Sie?",
+        "Zahlt der Arbeitgeber auch Fortbildungen?",
+        "Wie ist das Betriebsklima bei Ihnen?",
+        "Ich bin zeitlich sehr flexibel.",
+        "Warum möchten Sie gerade bei uns arbeiten?",
+        "Welche Erfahrung bringen Sie mit?",
+        "Was sind Ihre größten Schwächen?",
+        "Wann könnten Sie anfangen?",
+        "Haben Sie noch Fragen an uns?",
+        "Wer übernimmt das Projekt nach dem Sommer?"
+      ]
+    },
+    {
+      "funktion": "Probleme am Arbeitsplatz ansprechen",
+      "es": "Plantear problemas y desacuerdos laborales",
+      "esEn": "Addressing workplace issues and disagreements",
+      "toma": [
+        "Ich habe einen Fehler gemacht, es tut mir leid.",
+        "Ich schaffe die Arbeit in der Zeit nicht.",
+        "Können wir kurz unter vier Augen sprechen?",
+        "Mit dem neuen Ablauf komme ich nicht zurecht.",
+        "Ich fühle mich im Team nicht wohl.",
+        "Die Vorschriften werden hier oft ignoriert.",
+        "Ich mache seit Wochen zu viele Überstunden.",
+        "Könnten wir meinen Vertrag besprechen?",
+        "Der Kunde war am Telefon sehr unfreundlich.",
+        "Ich möchte zum Monatsende kündigen."
+      ]
+    }
+  ],
+  "a21-l5": [
+    {
+      "funktion": "organisatorische Fragen in der Schule klären",
+      "es": "Aclarar cuestiones organizativas en la escuela",
+      "esEn": "Clarifying organizational questions at school",
+      "toma": [
+        "Wann bekommen wir das Zeugnis?",
+        "Mein Sohn war krank.",
+        "Wie läuft es in der Klasse?",
+        "Gibt es Hausaufgaben über die Ferien?",
+        "Wann bekommen die Kinder das Zeugnis?",
+        "Mein Sohn war gestern krank.",
+        "Wie kommt mein Kind in der Klasse zurecht?",
+        "Bekommen die Kinder Aufgaben für die Ferien?",
+        "Braucht mein Kind Nachhilfe?",
+        "Wann ist der nächste Elternsprechtag?"
+      ]
+    },
+    {
+      "funktion": "den Schulalltag und Kosten besprechen",
+      "es": "Hablar de la vida escolar y gastos",
+      "esEn": "Discussing school life and expenses",
+      "toma": [
+        "Welche Schulbücher müssen wir kaufen?",
+        "Wie viel kostet die Nachmittagsbetreuung?",
+        "Darf mein Kind allein nach Hause gehen?",
+        "Ist die Schularbeit schon korrigiert?",
+        "Was kostet die Klassenfahrt insgesamt?",
+        "Wann ist die Einschreibung für nächstes Jahr?",
+        "Gibt es an dieser Schule Schulgeld?",
+        "Wie läuft es bei meinem Sohn im Unterricht?",
+        "Wann sind die nächsten Schularbeiten?",
+        "Braucht sie zusätzliche Unterstützung?"
+      ]
+    },
+    {
+      "funktion": "mit der Lehrkraft über Lernschwierigkeiten sprechen",
+      "es": "Hablar con el profesor sobre dificultades de aprendizaje",
+      "esEn": "Talking with the teacher about learning difficulties",
+      "toma": [
+        "Mein Kind hat Schwierigkeiten mit der Sprache.",
+        "Er kann sich in der Klasse schlecht konzentrieren.",
+        "Wie kann ich zu Hause besser helfen?",
+        "Ist meine Tochter im Unterricht aktiv?",
+        "Seine Noten haben sich stark verbessert.",
+        "Gibt es Probleme mit den Mitschülern?",
+        "Sollten wir die Schule wechseln?",
+        "Welchen Abschluss kann er später machen?",
+        "Er ist begabt, aber ziemlich faul.",
+        "Vielen Dank für Ihre Geduld mit ihm."
+      ]
+    },
+    {
+      "funktion": "Unterstützung und Förderung zu Hause besprechen",
+      "es": "Acordar apoyo y refuerzo en casa",
+      "esEn": "Discussing support and study at home",
+      "toma": [
+        "Wie ist sein Verhalten in der Klasse?",
+        "Hilft Loben bei ihm mehr als Schimpfen?",
+        "Was können wir für sein Selbstvertrauen tun?",
+        "Können wir einen Termin vereinbaren?",
+        "Mein Sohn hat gestern gefehlt.",
+        "Er tut sich mit den Artikeln sehr schwer.",
+        "Was können wir zu Hause üben?",
+        "Wie viele Stunden hat er am Freitag?",
+        "Gibt es dieses Jahr einen Ausflug?",
+        "Ich melde mich nächste Woche wieder."
+      ]
+    },
+    {
+      "funktion": "um sprachliche Hilfe bitten und Hilfen anbieten",
+      "es": "Pedir ayuda lingüística y ofrecer apoyos",
+      "esEn": "Asking for language assistance and offering support",
+      "toma": [
+        "Können Sie bitte langsamer sprechen?",
+        "Soll ich es Ihnen aufschreiben?",
+        "Ich erkläre es Ihnen gern noch einmal.",
+        "Könnten Sie bitte etwas langsamer sprechen?",
+        "Soll ich Ihnen das aufschreiben?",
+        "Ich kann es Ihnen gern noch einmal erklären.",
+        "Mein Deutsch ist noch nicht so gut.",
+        "Habe ich das richtig verstanden?",
+        "Gibt es das auch auf Spanisch?",
+        "Sagen Sie es bitte mit einfachen Worten."
+      ]
+    },
+    {
+      "funktion": "Unsicherheit und Zweifel ausdrücken",
+      "es": "Expresar inseguridad y dudas",
+      "esEn": "Expressing uncertainty and doubts",
+      "toma": [
+        "Ich bin mir nicht sicher.",
+        "Ich glaube schon, aber ich weiß es nicht genau.",
+        "Vielleicht, das kann ich nicht sagen.",
+        "Ich bin mir da nicht ganz sicher.",
+        "Ich denke ja, sicher bin ich mir aber nicht.",
+        "Das kann ich leider nicht sagen.",
+        "Vielleicht, vielleicht auch nicht.",
+        "Ich müsste das erst nachlesen.",
+        "Ehrlich gesagt habe ich keine Ahnung.",
+        "Ich weiß nicht, ob Nachhilfe wirklich hilft."
+      ]
+    },
+    {
+      "funktion": "Gleichgültigkeit ausdrücken",
+      "es": "Expresar indiferencia",
+      "esEn": "Expressing indifference",
+      "toma": [
+        "Das ist mir egal.",
+        "Mir ist beides recht.",
+        "Wie du willst.",
+        "Das ist mir ehrlich gesagt egal.",
+        "Von mir aus beides, such du aus.",
+        "Mach einfach, wie du willst.",
+        "Das spielt für mich keine Rolle.",
+        "Von mir aus gern, aber es muss nicht sein.",
+        "Ist mir eigentlich ziemlich gleich.",
+        "Ob Mathe oder Deutsch, ist mir gleich."
+      ]
+    },
+    {
+      "funktion": "ein Elterngespräch abschließen",
+      "es": "Concluir una reunión de padres y profesores",
+      "esEn": "Concluding a parent-teacher conference",
+      "toma": [
+        "Ich denke, wir haben alles besprochen.",
+        "Schönen Tag noch und auf Wiedersehen.",
+        "Dann probieren wir es bis zum Semesterende so.",
+        "Ich denke, wir sind uns einig.",
+        "Sagen Sie mir Bescheid, wenn sich etwas ändert.",
+        "Dann hätten wir alles besprochen.",
+        "Bitte unterbrechen Sie mich, wenn etwas unklar ist.",
+        "Können Sie mir den Lernstoff kurz zusammenfassen?",
+        "Ich verstehe das Schulsystem hier noch nicht ganz.",
+        "Ich kann es Ihnen auch zeigen."
+      ]
+    }
+  ],
+  "a21-l6": [
+    {
+      "funktion": "über den Feierabend sprechen",
+      "es": "Hablar del descanso tras el trabajo",
+      "esEn": "Talking about evening leisure after work",
+      "toma": [
+        "Was machst du nach der Arbeit meistens?",
+        "Ich brauche nach der Arbeit erst einmal Ruhe.",
+        "Gehst du unter der Woche aus?",
+        "Heute faulenze ich einfach.",
+        "Hast du Lust, heute noch wegzugehen?",
+        "Am Freitag bleibe ich prinzipiell zu Hause.",
+        "Wie schaltest du nach einem harten Tag ab?",
+        "Nach der Spätschicht bin ich zu nichts zu gebrauchen.",
+        "Schaffst du es, abends wirklich abzuschalten?",
+        "Was ist für dich die größte Ablenkung?"
+      ]
+    },
+    {
+      "funktion": "jemanden überreden und animieren",
+      "es": "Convencer y animar a alguien",
+      "esEn": "Persuading and encouraging someone",
+      "toma": [
+        "Komm schon, das wird bestimmt lustig!",
+        "Nur eine Folge, bitte!",
+        "Sei doch nicht so!",
+        "Jetzt komm mit, das wird sicher lustig!",
+        "Eine Folge noch, bitte!",
+        "Sei doch nicht so, das macht Spaß.",
+        "Probier es wenigstens einmal.",
+        "Alle anderen kommen auch mit.",
+        "Du bereust es sicher nicht.",
+        "Es dauert doch nur eine halbe Stunde."
+      ]
+    },
+    {
+      "funktion": "etwas versprechen",
+      "es": "Hacer una promesa",
+      "esEn": "Making a promise",
+      "toma": [
+        "Ich verspreche dir, dass ich morgen früh aufstehe.",
+        "Darauf kannst du dich verlassen.",
+        "Ich verspreche dir, morgen stehe ich früh auf.",
+        "Darauf kannst du dich hundertprozentig verlassen.",
+        "Ich schwöre, ich habe es nicht gelöscht.",
+        "Ich mache es heute Abend, ganz sicher.",
+        "Ich halte immer, was ich verspreche.",
+        "Ich verspreche dir, ich prüfe künftig die Quelle.",
+        "Ab morgen reduziere ich meine Bildschirmzeit.",
+        "Darauf kannst du dich verlassen, ich teile nichts."
+      ]
+    },
+    {
+      "funktion": "auf ein Versprechen reagieren",
+      "es": "Reaccionar a una promesa",
+      "esEn": "Responding to a promise",
+      "toma": [
+        "Versprochen? – Versprochen!",
+        "Ist das ein Versprechen?",
+        "Ich schaue nur eine Folge, versprochen.",
+        "Ich kümmere mich morgen darum, versprochen.",
+        "Verlass dich drauf, das vergesse ich nicht.",
+        "Ich stehe dir jederzeit zur Verfügung.",
+        "Wann hast du das letzte Mal etwas Neues probiert?",
+        "Lies wenigstens den Artikel zu Ende.",
+        "Komm schon, einmal offline schadet dir nicht.",
+        "Hör dir den Podcast an, nur eine Folge."
+      ]
+    },
+    {
+      "funktion": "eine eigene Meinung äußern",
+      "es": "Expresar una opinión propia",
+      "esEn": "Expressing one's own opinion",
+      "toma": [
+        "Meiner Meinung nach ist die Serie überbewertet.",
+        "Ich finde, dass …",
+        "Ich halte die Serie für überbewertet.",
+        "Ich finde, dass zu viel Werbung läuft.",
+        "Ich halte diese Nachricht für falsch.",
+        "Für mich ist das nur ein Gerücht.",
+        "Der Hauptdarsteller spielt hervorragend.",
+        "Ich bin der Meinung, dass man weniger Handy nutzen sollte.",
+        "Diese Schlagzeile finde ich übertrieben.",
+        "Meiner Meinung nach ist die Quelle glaubwürdig."
+      ]
+    },
+    {
+      "funktion": "die Meinung anderer wiedergeben",
+      "es": "Transmitir la opinión de otros",
+      "esEn": "Reporting the opinion of others",
+      "toma": [
+        "Er sagt, dass er lieber Dokus schaut.",
+        "Er meint, Dokus seien ihm lieber.",
+        "Sie meint, das Ende war unlogisch.",
+        "Sie sagt, der Bericht sei völlig neutral.",
+        "Für mich ist das reine Unterhaltung.",
+        "Wie stehst du zu dem Thema?",
+        "Was sagen deine Kollegen dazu?",
+        "Sie behauptet, das sei längst entschieden.",
+        "Meiner Meinung nach ist das der falsche Weg.",
+        "Was hältst du von dem Interview?"
+      ]
+    },
+    {
+      "funktion": "sich über Fernsehserien und Medien austauschen",
+      "es": "Hablar de series y consumo de medios",
+      "esEn": "Discussing TV series and media habits",
+      "toma": [
+        "Wie viel Zeit verbringst du am Handy?",
+        "Ich schaue kaum fern, aber ich höre viele Podcasts.",
+        "Am Abend lese ich lieber.",
+        "Was schaust du gerade?",
+        "Siehst du viel fern?",
+        "Hörst du Podcasts?",
+        "Wie findest du die Serie?",
+        "Wo hast du das gelesen?",
+        "Schaltest du abends ab?",
+        "Welche Serie schaust du im Moment?"
+      ]
+    },
+    {
+      "funktion": "über Informationsquellen und Handyzeit sprechen",
+      "es": "Hablar de fuentes de información y uso del móvil",
+      "esEn": "Talking about news sources and screentime",
+      "toma": [
+        "Wie viel Zeit verbringst du täglich am Handy?",
+        "Siehst du überhaupt noch fern?",
+        "Hörst du Podcasts beim Pendeln?",
+        "Wo informierst du dich über Nachrichten?",
+        "Schaust du mit oder ohne Untertitel?",
+        "Hast du das Abo eigentlich gekündigt?",
+        "Bist du in sozialen Medien aktiv?",
+        "Wie findest du die neue Staffel?",
+        "Schaltest du am Abend wirklich ab?",
+        "Wie hoch ist deine Bildschirmzeit pro Tag?"
+      ]
+    }
+  ],
+  "a21-l7": [
+    {
+      "funktion": "beim Umzug anpacken und organisieren",
+      "es": "Colaborar y organizar la mudanza",
+      "esEn": "Helping out and organizing the move",
+      "toma": [
+        "Kannst du mir beim Umzug helfen?",
+        "Kannst du mir am Samstag beim Umzug helfen?",
+        "Wir schleppen schon seit sechs Uhr Kisten.",
+        "Wo soll diese Kiste hin?",
+        "Das Sofa passt nicht in den Lift.",
+        "Hast du den Umzugswagen schon reserviert?",
+        "Vergiss nicht, die Adresse umzumelden.",
+        "Die Übergabe der alten Wohnung ist am Montag.",
+        "Danke, dass ihr alle gekommen seid!",
+        "In welche Kiste kommen die Gläser?"
+      ]
+    },
+    {
+      "funktion": "Vorschläge beim Umzug machen",
+      "es": "Hacer propuestas durante la mudanza",
+      "esEn": "Making suggestions during the move",
+      "toma": [
+        "Fangen wir mit der Küche an?",
+        "Was hältst du davon, morgen weiterzumachen?",
+        "Wir könnten die alten Möbel verschenken.",
+        "Lass uns die Kisten gleich beschriften.",
+        "Ich schlage vor, wir mieten einen Wagen.",
+        "Sollen wir die Handwerker kommen lassen?",
+        "Werfen wir die Hälfte einfach weg?",
+        "Bringen wir den alten Schrank zum Mistplatz?",
+        "Ich schlage vor, wir räumen zuerst die Küche ein.",
+        "Sollen wir zuerst die schweren Sachen tragen?"
+      ]
+    },
+    {
+      "funktion": "zögernd zustimmen oder ablehnen",
+      "es": "Aceptar o rechazar con reservas",
+      "esEn": "Hesitantly agreeing or declining",
+      "toma": [
+        "Na gut, von mir aus.",
+        "Hmm, ich weiß nicht so recht …",
+        "Lieber nicht, ehrlich gesagt.",
+        "Na gut, von mir aus machen wir es so.",
+        "Hmm, ich weiß nicht so recht.",
+        "Ehrlich gesagt wäre mir das nicht recht.",
+        "Einverstanden, aber nur unter einer Bedingung.",
+        "Wenn es sein muss, mache ich mit.",
+        "Da bin ich mir noch nicht sicher.",
+        "Na gut, dann eben provisorisch."
+      ]
+    },
+    {
+      "funktion": "Aufträge und Aufgaben annehmen",
+      "es": "Aceptar encargos y tareas",
+      "esEn": "Accepting assignments and tasks",
+      "toma": [
+        "Klar, mache ich!",
+        "Das übernehme ich.",
+        "Geht in Ordnung.",
+        "Klar, das mache ich gern.",
+        "Das übernehme ich bis Freitag.",
+        "Geht in Ordnung, verlass dich auf mich.",
+        "Kein Problem, ich bringe das Werkzeug mit.",
+        "Das kriege ich hin, keine Sorge.",
+        "Ich kümmere mich um den Müll.",
+        "Ich kümmere mich um den Nachsendeauftrag."
+      ]
+    },
+    {
+      "funktion": "um Vorsicht bitten",
+      "es": "Pedir precaución",
+      "esEn": "Asking for caution",
+      "toma": [
+        "Vorsicht, das ist schwer!",
+        "Pass auf, nicht fallen lassen!",
+        "Langsam, langsam!",
+        "Vorsicht, die Kiste ist sehr schwer!",
+        "Vorsicht, lass es nicht fallen!",
+        "Langsam, hier ist eine Stufe.",
+        "Achte bitte auf die frische Farbe.",
+        "Stell das nicht auf den neuen Boden.",
+        "Halt die Leiter fest, bitte.",
+        "Vorsicht, diese Kiste ist zerbrechlich!"
+      ]
+    },
+    {
+      "funktion": "einen Raum einrichten und Möbel platzieren",
+      "es": "Amueblar y colocar cosas en la habitación",
+      "esEn": "Furnishing a room and placing furniture",
+      "toma": [
+        "Das Sofa kommt an die Wand und der Tisch in die Mitte.",
+        "Stell das Regal bitte neben die Tür.",
+        "Das Sofa kommt an die Wand beim Fenster.",
+        "Das Regal stellen wir am besten neben die Tür.",
+        "Wohin hängen wir den Spiegel?",
+        "Der Tisch soll in die Mitte.",
+        "Die Lampe hängen wir über den Esstisch.",
+        "Der Teppich passt farblich gar nicht.",
+        "Wir brauchen mehr Steckdosen hier.",
+        "Die Vorhänge machen den Raum gemütlich."
+      ]
+    },
+    {
+      "funktion": "Wichtigkeit und Prioritäten ausdrücken",
+      "es": "Expresar importancia y prioridades",
+      "esEn": "Expressing importance and priorities",
+      "toma": [
+        "Das ist mir sehr wichtig.",
+        "Hauptsache, es ist bis Freitag fertig.",
+        "Das ist mir wirklich sehr wichtig.",
+        "Wichtig ist nur, dass es Freitag fertig ist.",
+        "Für mich zählt vor allem die Ruhe.",
+        "Wichtiger als die Farbe ist das Licht.",
+        "Das kann warten, es eilt nicht.",
+        "Entscheidend ist, dass die Kinder ein Zimmer haben.",
+        "Das Wichtigste ist, dass nichts kaputtgeht.",
+        "Hier herrscht noch das totale Chaos."
+      ]
+    },
+    {
+      "funktion": "Umzugskartons und Details koordinieren",
+      "es": "Coordinar cajas y detalles del traslado",
+      "esEn": "Coordinating boxes and moving details",
+      "toma": [
+        "Wo schaffen wir den meisten Stauraum?",
+        "Stellen wir das Bett provisorisch hierher?",
+        "Diese Lösung finde ich sehr praktisch.",
+        "Wohin stellen wir das Regal am besten?",
+        "Passt das Bett überhaupt an diese Wand?",
+        "Soll der Schreibtisch ans Fenster?",
+        "Wie wollen wir die Küche einräumen?",
+        "Wer macht die Endreinigung der alten Wohnung?",
+        "Kannst du am Samstag mit anpacken?",
+        "Nimmst du bitte das andere Ende?"
+      ]
+    }
+  ],
+  "a21-l8": [
+    {
+      "funktion": "sich nach dem Fahrplan erkundigen",
+      "es": "Consultar horarios de transporte",
+      "esEn": "Asking about travel timetables",
+      "toma": [
+        "Wann fährt der nächste Zug nach Salzburg?",
+        "Muss ich umsteigen? – Ja, in Linz.",
+        "Von welchem Gleis fährt der Zug ab?",
+        "Wann fährt der nächste Zug nach Graz?",
+        "Muss ich unterwegs umsteigen?",
+        "Auf welchem Gleis steht der Zug?",
+        "Gibt es eine Ermäßigung für Studenten?",
+        "Was kostet eine Rückfahrkarte?",
+        "Wie lange dauert die Fahrt ungefähr?",
+        "Fährt am Sonntag auch ein Nachtzug?"
+      ]
+    },
+    {
+      "funktion": "Zugauskunft und Anschlüsse klären",
+      "es": "Aclarar detalles del tren y conexiones",
+      "esEn": "Clarifying train details and connections",
+      "toma": [
+        "Ist die Ankunftszeit realistisch?",
+        "Was stand gerade in der Durchsage?",
+        "Lohnt sich eine Sitzplatzreservierung?",
+        "Bekomme ich bei Verspätung eine Entschädigung?",
+        "Wann geht der letzte Zug zurück?",
+        "Fährt heute etwas anders als sonst?",
+        "Wie oft fährt die Bahn am Abend?",
+        "Muss ich für diese Strecke umsteigen?",
+        "Der Bahnhof ist zu Fuß gut erreichbar.",
+        "Ist der Weg ausgeschildert?"
+      ]
+    },
+    {
+      "funktion": "höflich um Hilfe bitten",
+      "es": "Pedir ayuda con cortesía",
+      "esEn": "Politely asking for assistance",
+      "toma": [
+        "Könnten Sie mir bitte helfen?",
+        "Würden Sie so nett sein und …?",
+        "Könnten Sie mir bitte mit dem Koffer helfen?",
+        "Würden Sie so nett sein und kurz aufpassen?",
+        "Dürfte ich kurz vorbei?",
+        "Hätten Sie vielleicht einen Stift für mich?",
+        "Wären Sie so freundlich, das Fenster zu schließen?",
+        "Könnten Sie mir das bitte erklären?",
+        "Könnten Sie im Ruhebereich bitte leiser sprechen?",
+        "Dürfte ich Ihren Gepäckwagen kurz haben?"
+      ]
+    },
+    {
+      "funktion": "auf höfliche Bitten reagieren",
+      "es": "Responder a peticiones educadas",
+      "esEn": "Responding to polite requests",
+      "toma": [
+        "Aber gern! · Kein Problem.",
+        "Vielen Dank, das ist sehr freundlich.",
+        "Entschuldigen Sie die Störung.",
+        "Wären Sie so nett, mir beim Koffer zu helfen?",
+        "Wären Sie so freundlich, mir zu helfen?",
+        "Dürfte ich Sie kurz stören?",
+        "Könnten Sie das bitte kurz halten?",
+        "Soll ich Sie ein Stück begleiten?",
+        "Ich schicke Ihnen eine Wegbeschreibung aufs Handy.",
+        "Sie können den Weg gar nicht verfehlen."
+      ]
+    },
+    {
+      "funktion": "nach freien Plätzen fragen",
+      "es": "Preguntar por asientos libres",
+      "esEn": "Asking about available seats",
+      "toma": [
+        "Entschuldigung, ist der Platz noch frei?",
+        "Ja, bitte sehr. / Nein, der ist leider besetzt.",
+        "Verzeihung, ist hier noch ein Platz frei?",
+        "Sitzt hier schon jemand?",
+        "Ist der Platz reserviert?",
+        "Darf ich mich hier hinsetzen?",
+        "Könnten wir tauschen? Ich sitze gern am Fenster.",
+        "Ist dieser Platz reserviert?",
+        "Sind hier im Ruhebereich noch Plätze frei?",
+        "Darf ich mich zu Ihnen setzen?"
+      ]
+    },
+    {
+      "funktion": "gute Wünsche aussprechen",
+      "es": "Expresar buenos deseos de viaje",
+      "esEn": "Wishing well for the journey",
+      "toma": [
+        "Gute Reise! · Gute Fahrt!",
+        "Schönen Aufenthalt!",
+        "Kommen Sie gut an!",
+        "Gute Reise und kommen Sie gut an!",
+        "Schönen Aufenthalt in Wien!",
+        "Gute Fahrt und pass auf dich auf!",
+        "Ich wünsche Ihnen einen angenehmen Flug.",
+        "Erhol dich gut im Urlaub!",
+        "Viel Spaß beim Stadtrundgang!",
+        "Einen schönen Aufenthalt bei uns!"
+      ]
+    },
+    {
+      "funktion": "den Weg in der Stadt beschreiben",
+      "es": "Describir el camino en la ciudad",
+      "esEn": "Describing directions in the city",
+      "toma": [
+        "Gehen Sie geradeaus bis zur Brücke, dann links.",
+        "Das ist gleich um die Ecke.",
+        "Es sind ungefähr zehn Minuten zu Fuß.",
+        "Immer geradeaus bis zur Brücke und dann links.",
+        "Das liegt direkt um die Ecke.",
+        "Zu Fuß braucht man etwa zehn Minuten.",
+        "Nehmen Sie die Fußgängerzone, das ist kürzer.",
+        "An der zweiten Ampel rechts abbiegen.",
+        "Wie lang ist der Fußweg zum Hotel?",
+        "Komme ich zu Fuß zur Innenstadt?"
+      ]
+    },
+    {
+      "funktion": "an der Hotelrezeption ein- und auschecken",
+      "es": "Registrarse y pagar en la recepción del hotel",
+      "esEn": "Checking in and out at hotel reception",
+      "toma": [
+        "Ich habe ein Zimmer auf den Namen … reserviert.",
+        "Um wie viel Uhr gibt es Frühstück?",
+        "Ich würde gern auschecken.",
+        "Ich habe ein Doppelzimmer auf den Namen Pascual reserviert.",
+        "Ab wann wird das Frühstück serviert?",
+        "Ich möchte jetzt auschecken.",
+        "Im Bad fehlt ein Handtuch.",
+        "Kann ich das Gepäck bis nachmittags hierlassen?",
+        "Haben Sie einen Stadtplan für mich?",
+        "Ab wann kann ich das Zimmer beziehen?"
+      ]
+    }
+  ]
+};
+
+fs.writeFileSync('scripts/k-a21.json', JSON.stringify(a21data, null, 2));
+console.log('k-a21.json generado con éxito.');

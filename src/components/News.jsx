@@ -29,6 +29,15 @@ const FUENTES = {
   wetter: ['ZAMG / GeoSphere', 'ORF Wetter', 'wetter.at']
 };
 
+// Las pestañas de arriba. El orden es el de siempre.
+const PESTANAS = [
+  { id: 'news', ico: '📰', clave: 'news.tabNews' },
+  { id: 'wissen', ico: '🔬', clave: 'news.tabWissen' },
+  { id: 'events', ico: '🎪', clave: 'news.tabEvents' },
+  { id: 'sport', ico: '⚽', clave: 'news.tabSport' },
+  { id: 'wetter', ico: '🌤️', clave: 'news.tabWeather' }
+];
+
 function vistasDe(seccion) {
   const todo = storage.get(VISTAS, {});
   return Array.isArray(todo?.[seccion]) ? todo[seccion] : [];
@@ -298,8 +307,11 @@ export default function News() {
   // animación de búsqueda, dos avisos de lo mismo en la misma pestaña sobran.
   const cuenta = (s) => {
     if (jobs[s]?.status === 'running') return <i className="tab-buscando" />;
-    if (s === 'wetter') return wetter ? wetter.tage.length + ' ' + t('home.days') : '—';
-    return secs[s]?.items?.length ?? '—';
+    // Devuelve null y no un guion cuando no hay nada: ahora el dato va dentro
+    // de una pastilla, y una pastilla con un guion parece una etiqueta vacía.
+    // Un cero sí que se pinta: significa que se buscó y no había.
+    if (s === 'wetter') return wetter ? wetter.tage.length + ' ' + t('home.days') : null;
+    return secs[s]?.items?.length ?? null;
   };
 
   const botones = {
@@ -334,23 +346,25 @@ export default function News() {
 
       {/* "lk-tabs-fila": aquí el dato de al lado es un número corto (4, 5 días) y
           se lee mejor a la derecha del nombre que colgando debajo. En el diario
-          la misma clase lleva subtítulos largos, y ahí sí van en dos líneas. */}
-      <div className="lk-tabs-fila news-tabs-grid">
-        <button className={'lk-tab' + (tab === 'news' ? ' on' : '')} onClick={() => setTab('news')}>
-          <span>📰 {t('news.tabNews')}</span><small>{cuenta('news')}</small>
-        </button>
-        <button className={'lk-tab' + (tab === 'wissen' ? ' on' : '')} onClick={() => setTab('wissen')}>
-          <span>🔬 {t('news.tabWissen')}</span><small>{cuenta('wissen')}</small>
-        </button>
-        <button className={'lk-tab' + (tab === 'events' ? ' on' : '')} onClick={() => setTab('events')}>
-          <span>🎪 {t('news.tabEvents')}</span><small>{cuenta('events')}</small>
-        </button>
-        <button className={'lk-tab' + (tab === 'sport' ? ' on' : '')} onClick={() => setTab('sport')}>
-          <span>⚽ {t('news.tabSport')}</span><small>{cuenta('sport')}</small>
-        </button>
-        <button className={'lk-tab' + (tab === 'wetter' ? ' on' : '')} onClick={() => setTab('wetter')}>
-          <span>🌤️ {t('news.tabWeather')}</span><small>{cuenta('wetter')}</small>
-        </button>
+          la misma clase lleva subtítulos largos, y ahí sí van en dos líneas.
+
+          Las cinco iban escritas una a una y con el emoji pegado al nombre
+          dentro del mismo <span>, así que no se le podía dar forma propia. */}
+      <div className="lk-tabs-fila news-tabs-grid tira-resumen">
+        {PESTANAS.map((p) => {
+          const n = cuenta(p.id);
+          return (
+            <button
+              key={p.id}
+              className={'lk-tab' + (tab === p.id ? ' on' : '')}
+              onClick={() => setTab(p.id)}
+            >
+              <span className="nt-ico">{p.ico}</span>
+              <span className="nt-nombre">{t(p.clave)}</span>
+              {n != null && <small>{n}</small>}
+            </button>
+          );
+        })}
       </div>
 
       <div className="row" style={{ gap: 10, marginBottom: 18, flexWrap: 'wrap', alignItems: 'center' }}>
@@ -395,7 +409,10 @@ export default function News() {
 
       {tab === 'wetter' && (
         <div className="card wetter-ciudad">
-          <label className="lied-field" style={{ flex: '1 1 220px' }}>
+          {/* El `flex: 1 1 220px` que llevaba aquí escrito a mano era lo que
+              estiraba la caja hasta comerse la tarjeta. El reparto lo hace
+              ahora .wetter-ciudad, en el css, junto al resto de la fila. */}
+          <label className="lied-field">
             {t('news.city')}
             <input
               className="ask-input"

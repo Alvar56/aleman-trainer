@@ -234,6 +234,7 @@ export default {
   id: 'kasus',
   name: 'Kasus & Deklination',
   nameEs: 'Los casos y la declinación',
+  emoji: '🎭',
   blurb: 'Nominativ, Akkusativ, Dativ (y Genitiv): artículos, pronombres, verbos con dativo y orden',
   theory,
   concepts: [

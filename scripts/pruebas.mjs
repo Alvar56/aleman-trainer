@@ -1,0 +1,238 @@
+// Las cuentas de la app, comprobadas.
+//
+// Los otros dos scripts (smoke-sesiones, smoke-komm) miran que SALGAN
+// ejercicios. Este mira que los numeros esten bien: la racha, los
+// congeladores, los porcentajes, el reinicio y la fusion entre aparatos.
+//
+// Existe porque todos los fallos que comprueba han pasado de verdad:
+// congeladores que no perdonaban dos dias, "Reiniciar progreso" que no
+// reiniciaba, el porcentaje de Kommunikation a saltos de veinte, y una
+// sincronizacion que se llevaba por delante lo del otro aparato.
+//
+//   node scripts/pruebas.mjs
+
+const mem = new Map();
+globalThis.localStorage = {
+  getItem: (k) => (mem.has(k) ? mem.get(k) : null),
+  setItem: (k, v) => mem.set(k, String(v)),
+  removeItem: (k) => mem.delete(k)
+};
+globalThis.window = { addEventListener() {} };
+globalThis.fetch = async () => ({ ok: false, status: 0, json: async () => ({}) });
+
+const RealDate = Date;
+function enElDia(iso) {
+  const fijo = new RealDate(iso + 'T12:00:00');
+  globalThis.Date = class extends RealDate {
+    constructor(...a) { return a.length ? new RealDate(...a) : fijo; }
+    static now() { return fijo.getTime(); }
+  };
+}
+function relojNormal() {
+  globalThis.Date = RealDate;
+}
+
+let hechas = 0;
+let fallos = 0;
+const grupos = [];
+
+function grupo(nombre) {
+  grupos.push(nombre);
+  console.log('\n' + nombre);
+}
+
+function comprobar(que, cierto, detalle = '') {
+  hechas += 1;
+  if (cierto) {
+    console.log('   ok   ' + que);
+  } else {
+    fallos += 1;
+    console.log('   MAL  ' + que + (detalle ? '  ->  ' + detalle : ''));
+  }
+}
+
+const iguales = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+// ---------------------------------------------------------------------------
+const streak = await import('../src/lib/streak.js');
+const progress = await import('../src/lib/progress.js');
+const vocab = await import('../src/lib/vocab.js');
+const { fusionarClave } = await import('../src/lib/fusion.js');
+
+// ---------------------------------------------------------------------------
+grupo('Racha de dias y congeladores');
+{
+  const jugar = (dias) => {
+    mem.clear();
+    for (const d of dias) { enElDia(d); streak.recordActivity(10); }
+    relojNormal();
+    return streak.getStreak();
+  };
+
+  const seguido = jugar(['2026-09-01', '2026-09-02', '2026-09-03']);
+  comprobar('tres dias seguidos son racha de 3', seguido.current === 3, 'sale ' + seguido.current);
+
+  const unHueco = jugar(['2026-09-01', '2026-09-02', '2026-09-04']);
+  comprobar('faltar un dia gasta un congelador y la racha sigue',
+    unHueco.current === 3 && unHueco.freezes === 1,
+    'racha ' + unHueco.current + ', congeladores ' + unHueco.freezes);
+
+  const dosHuecos = jugar(['2026-09-01', '2026-09-02', '2026-09-05']);
+  comprobar('faltar DOS dias gasta dos congeladores y la racha sigue',
+    dosHuecos.current === 3 && dosHuecos.freezes === 0,
+    'racha ' + dosHuecos.current + ', congeladores ' + dosHuecos.freezes);
+
+  const demasiado = jugar(['2026-09-01', '2026-09-02', '2026-09-06']);
+  comprobar('faltar mas dias que congeladores rompe la racha', demasiado.current === 1,
+    'sale ' + demasiado.current);
+
+  const cinco = jugar(['01', '02', '03', '04', '05'].map((d) => '2026-09-' + d));
+  comprobar('a los 5 dias seguidos cae un congelador', cinco.freezes === 3,
+    'congeladores ' + cinco.freezes);
+
+  const largo = jugar(Array.from({ length: 12 }, (_, i) => `2026-09-${String(i + 1).padStart(2, '0')}`));
+  comprobar('el tope de congeladores es 3', largo.freezes === streak.MAX_FREEZES);
+  comprobar('el record no baja', largo.longest === 12, 'sale ' + largo.longest);
+
+  const atras = jugar(['2026-09-10', '2026-09-11', '2026-09-05']);
+  comprobar('el reloj hacia atras no suma un dia de regalo', atras.current === 2,
+    'sale ' + atras.current);
+}
+
+// ---------------------------------------------------------------------------
+grupo('Los porcentajes suben acierto a acierto');
+{
+  const reglas = ['r1', 'r2', 'r3', 'r4'];
+  const pasos = [];
+  for (const n of [0, 1, 2, 15, 30]) {
+    mem.clear();
+    for (let i = 0; i < n; i++) progress.recordAnswer('r1', true);
+    pasos.push(progress.topicMastery(reglas).pct);
+  }
+  comprobar('gramatica: 4 reglas x 30 aciertos', iguales(pasos, [0, 1, 2, 13, 25]), pasos.join(','));
+
+  const funcs = ['a', 'b', 'c', 'd'].map((f) => ({ funktion: f }));
+  const komm = [];
+  for (const n of [0, 1, 2, 10, 30]) {
+    mem.clear();
+    for (let i = 0; i < n; i++) progress.recordKommPracticed('L', 'a', 1, 1);
+    komm.push(progress.kommMastery('L', funcs).pct);
+  }
+  comprobar('kommunikation: 4 apartados x 30 aciertos', iguales(komm, [0, 1, 2, 8, 25]), komm.join(','));
+
+  const mazo = { id: 'm', cards: Array.from({ length: 10 }, (_, i) => ({ de: 'w' + i })) };
+  const voc = [];
+  for (const n of [0, 1, 2, 5]) {
+    mem.clear();
+    for (let i = 0; i < n; i++) vocab.recordCard('w0', true);
+    voc.push(vocab.deckStats(mazo).pct);
+  }
+  comprobar('vocabulario: 10 palabras x 2 aciertos', iguales(voc, [0, 5, 10, 10]), voc.join(','));
+}
+
+// ---------------------------------------------------------------------------
+grupo('Reiniciar el progreso lo deja vacio');
+{
+  mem.clear();
+  for (let i = 0; i < 5; i++) progress.recordAnswer('modal:muessen', true);
+  progress.recordKommPracticed('L', 'a', 3, 3);
+  progress.resetProgress();
+  const guardado = JSON.parse(mem.get('dtrainer:progress'));
+  comprobar('no quedan conceptos', Object.keys(guardado.concepts).length === 0);
+  comprobar('no quedan apartados', Object.keys(guardado.kommPracticed).length === 0);
+  comprobar('el concepto vuelve a cero', progress.getConcept('modal:muessen').correct === 0);
+}
+
+// ---------------------------------------------------------------------------
+grupo('El vocabulario va por palabra, no por mazo');
+{
+  mem.clear();
+  const enLeccion = { id: 'kb-x-t1', cards: [{ de: 'das Brot' }, { de: 'die Milch' }] };
+  const suelto = { id: 'comida', cards: [{ de: 'das Brot' }, { de: 'der Kaese' }] };
+  vocab.recordCard('das Brot', true);
+  vocab.recordCard('das Brot', true);
+  comprobar('el acierto cuenta en el mazo de la leccion', vocab.deckStats(enLeccion).pct === 50);
+  comprobar('y tambien en el mazo suelto', vocab.deckStats(suelto).pct === 50);
+
+  mem.clear();
+  mem.set('dtrainer:vocab:progress', JSON.stringify({
+    'kb-x-t1::das Brot': { correct: 1, wrong: 0, strength: 2, lastSeen: 100, due: 200 },
+    'comida::das Brot': { correct: 1, wrong: 1, strength: 1, lastSeen: 300, due: 400, color: 'verde' }
+  }));
+  const fus = vocab.cardProg('das Brot');
+  comprobar('lo guardado de antes se junta sin perder nada',
+    fus.correct === 2 && fus.wrong === 1 && fus.strength === 2 && fus.color === 'verde',
+    JSON.stringify(fus));
+}
+
+// ---------------------------------------------------------------------------
+grupo('Sincronizar entre dos aparatos no pierde nada');
+{
+  const movil = { 'w::A': { correct: 2, wrong: 0, strength: 2, lastSeen: 10, due: 20 },
+                  'w::C': { correct: 1, wrong: 0, strength: 1, lastSeen: 30, due: 40 } };
+  const orden = { 'w::A': { correct: 1, wrong: 1, strength: 1, lastSeen: 50, due: 60 },
+                  'w::B': { correct: 3, wrong: 0, strength: 3, lastSeen: 70, due: 80 } };
+  const j = fusionarClave('vocab:progress', orden, movil);
+  comprobar('estan las palabras de los dos', iguales(Object.keys(j).sort(), ['w::A', 'w::B', 'w::C']),
+    Object.keys(j).join(','));
+  comprobar('de la palabra repetida se queda lo mas alto',
+    j['w::A'].correct === 2 && j['w::A'].wrong === 1);
+  comprobar('juntar dos veces da lo mismo (no se infla)',
+    iguales(fusionarClave('vocab:progress', j, movil), j));
+  comprobar('da igual el orden',
+    iguales(fusionarClave('vocab:progress', movil, orden), j));
+
+  const notasA = [{ id: 1, updatedAt: 100, title: 'vieja' }, { id: 2, updatedAt: 200, title: 'solo aqui' }];
+  const notasB = [{ id: 1, updatedAt: 300, title: 'nueva' }, { id: 3, updatedAt: 400, title: 'solo alli' }];
+  const n = fusionarClave('notebook:notes', notasA, notasB);
+  comprobar('estan los apuntes de los dos aparatos', n.length === 3, 'salen ' + n.length);
+  comprobar('de la nota tocada en los dos se queda la ultima',
+    n.find((x) => x.id === 1).title === 'nueva');
+
+  const rachaA = { current: 3, longest: 5, freezes: 1, totalXp: 100, lastDay: '2026-09-10', history: { '2026-09-10': 30 } };
+  const rachaB = { current: 2, longest: 8, freezes: 3, totalXp: 80, lastDay: '2026-09-09', history: { '2026-09-09': 20 } };
+  const r = fusionarClave('streak', rachaA, rachaB);
+  comprobar('el historial de dias se junta', Object.keys(r.history).length === 2);
+  comprobar('el record se queda con el mas alto', r.longest === 8);
+  comprobar('los congeladores se quedan con el mas bajo (se gastan)', r.freezes === 1);
+
+  comprobar('una clave sin forma de juntarse se deja al que llama',
+    fusionarClave('monedas', 10, 20) === undefined);
+}
+
+// ---------------------------------------------------------------------------
+grupo('Con la app en ingles, las respuestas tambien');
+{
+  mem.clear();
+  // setLang y no escribir la clave a mano: i18n guarda el idioma en una
+  // variable del modulo al cargarse, asi que tocar localStorage despues no
+  // cambia nada.
+  const { setLang } = await import('../src/lib/i18n.js');
+  setLang('en');
+  const resp = await import('../src/lib/kursbuch/respuestas.js');
+
+  // Las traducciones estaban en en.js desde siempre, pero nadie llamaba a
+  // tc(): en un test de "que significa" salian dos opciones en ingles -las del
+  // libro- y dos en castellano, las de aqui. Con dos idiomas en la misma lista
+  // la respuesta buena canta sola.
+  const castellano = /[óíáéúñ¿¡]/;
+  const frase = 'Ich würde gern wieder nach Hause fahren.';
+
+  const r = resp.respuestaDe(frase);
+  comprobar('la respuesta no sale en castellano', !!r && !castellano.test(r.es), r ? r.es : '(ninguna)');
+
+  const turnos = resp.conversacionDe(frase);
+  comprobar('los turnos de la conversacion tampoco',
+    turnos.length > 0 && turnos.every((x) => !castellano.test(x.es)),
+    turnos.map((x) => x.es).join(' | '));
+
+  const seg = resp.seguimientoDe(frase);
+  comprobar('y los turnos de seguimiento',
+    seg.every((x) => !castellano.test(x.es)),
+    seg.map((x) => x.es).join(' | '));
+}
+
+// ---------------------------------------------------------------------------
+console.log('\n' + '-'.repeat(60));
+console.log(`${hechas} comprobaciones · ${fallos} mal`);
+if (fallos) process.exitCode = 1;

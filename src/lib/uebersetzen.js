@@ -7,6 +7,8 @@
 import { BAENDE, getLektion, ruleConceptId } from './kursbuch/index.js';
 import { storage } from './storage.js';
 import { GENDER_NIVELES } from './vocab.js';
+import { tc } from './contenido/index.js';
+import { pick } from './i18n.js';
 
 const KEY = 'uebersetzen:progreso';
 const ULTIMAS = 'uebersetzen:ultimas';
@@ -45,7 +47,14 @@ export function frases({ lektionId = null } = {}) {
       for (const w of k.wendungen || []) {
         if (!util(w.de, w.es) || vistas.has(w.de)) continue;
         vistas.add(w.de);
-        out.push({ de: w.de.trim(), es: w.es.trim(), de_donde: k.funktion, lektion: l.name, band: l.bandName });
+        // El rótulo de dónde sale la frase va en el idioma de la interfaz. Con
+        // el `funktion` alemán ("nach dem Weg fragen…") parecía una segunda
+        // frase en alemán justo encima de la que hay que traducir.
+        out.push({
+          de: w.de.trim(), es: w.es.trim(),
+          de_donde: k.es || k.funktion,
+          lektion: l.name, band: l.bandName
+        });
       }
     }
     // ejemplos de las reglas
@@ -64,6 +73,27 @@ export function frases({ lektionId = null } = {}) {
       }
     }
   }
+
+  // Exactamente 2000 ejercicios en el juego global, podando las frases más
+  // repetitivas (mismos prefijos repetidos en exceso o de 3 palabras).
+  if (!lektionId && out.length > 2000) {
+    const prefCounts = {};
+    out.forEach((x) => {
+      const p = x.de.split(/\s+/).slice(0, 2).join(' ').toLowerCase();
+      prefCounts[p] = (prefCounts[p] || 0) + 1;
+    });
+    const scored = out.map((x, idx) => {
+      const words = x.de.split(/\s+/).length;
+      const p = x.de.split(/\s+/).slice(0, 2).join(' ').toLowerCase();
+      let penalty = 0;
+      if (words <= 3) penalty += 5;
+      if (prefCounts[p] > 8) penalty += prefCounts[p] - 8;
+      return { x, idx, penalty };
+    });
+    scored.sort((a, b) => a.penalty - b.penalty || a.idx - b.idx);
+    return scored.slice(0, 2000).sort((a, b) => a.idx - b.idx).map((s) => s.x);
+  }
+
   return out;
 }
 
@@ -100,10 +130,18 @@ export function estadisticas({ lektionId = null, nivel = 'all' } = {}) {
   }
   const p = progreso();
   let sabidas = 0;
+  let empezadas = 0;
   pool.forEach((f) => {
-    if (p[f.de]?.fuerza >= 3) sabidas += 1;
+    // Dominada es fuerza 2; empezada es haberla visto aunque se falle.
+    if (p[f.de]) empezadas += 1;
+    if (p[f.de]?.fuerza >= 2) sabidas += 1;
   });
-  return { total: pool.length, sabidas, pct: Math.round((sabidas / Math.max(1, pool.length)) * 100) };
+  return {
+    total: pool.length,
+    sabidas,
+    empezadas,
+    pct: Math.round((sabidas / Math.max(1, pool.length)) * 100)
+  };
 }
 
 function barajar(a) {
@@ -153,7 +191,7 @@ export function elegirFrases(cuantas = 10, { lektionId = null, direccion = 'mix'
       if (!out.some((x) => x.de === f.de)) out.push(f);
     }
   };
-  meter(tocan.slice(0, Math.max(1, Math.round(cuantas * 0.4))).map((x) => x.f));
+  meter(tocan.map((x) => x.f));
   meter(barajar(evitar(nuevas)));
   meter(barajar(evitar(resto)));
   meter(barajar(pool));
@@ -182,16 +220,66 @@ export function normalizar(s) {
     .trim();
 }
 
+export function similitud(s1, s2) {
+  if (s1 === s2) return 1;
+  if (!s1 || !s2) return 0;
+  const l1 = s1.length;
+  const l2 = s2.length;
+  const maxL = Math.max(l1, l2);
+  if (maxL === 0) return 1;
+
+  let prev = new Array(l2 + 1);
+  let curr = new Array(l2 + 1);
+  for (let j = 0; j <= l2; j++) prev[j] = j;
+
+  for (let i = 1; i <= l1; i++) {
+    curr[0] = i;
+    for (let j = 1; j <= l2; j++) {
+      const cost = s1[i - 1] === s2[j - 1] ? 0 : 1;
+      curr[j] = Math.min(
+        prev[j] + 1,
+        curr[j - 1] + 1,
+        prev[j - 1] + cost
+      );
+    }
+    const temp = prev;
+    prev = curr;
+    curr = temp;
+  }
+  const dist = prev[l2];
+  return (maxL - dist) / maxL;
+}
+
 // Además de "bien" y "mal" hay un "casi": una sola palabra distinta. Ahí no
 // tiene sentido tratarlo como si no supieras la frase.
+// Si la frase coincide en un 90% o más con la original, se da por correcta.
 export function corregir(tuya, buena) {
   const a = normalizar(tuya);
   const b = normalizar(buena);
   if (!a) return { estado: 'vacio', distintas: [] };
   if (a === b) return { estado: 'bien', distintas: [] };
 
-  const pa = a.split(' ');
-  const pb = b.split(' ');
+  const pa = a.split(' ').filter(Boolean);
+  const pb = b.split(' ').filter(Boolean);
+
+  const simCadena = similitud(a, b);
+
+  let matches = 0;
+  const pool = [...pb];
+  for (const w of pa) {
+    const idx = pool.indexOf(w);
+    if (idx !== -1) {
+      matches += 1;
+      pool.splice(idx, 1);
+    }
+  }
+  const simPalabras = pb.length > 0 ? matches / Math.max(pa.length, pb.length) : 0;
+
+  // Si coincide en un 90% o más (por caracteres o por palabras), se da por correcta
+  if (simCadena >= 0.90 || (pb.length >= 4 && simPalabras >= 0.90)) {
+    return { estado: 'bien', distintas: [] };
+  }
+
   const faltan = pb.filter((w) => !pa.includes(w));
   const sobran = pa.filter((w) => !pb.includes(w));
 
@@ -205,21 +293,60 @@ export function corregir(tuya, buena) {
   return { estado: 'mal', distintas: faltan };
 }
 
+function shuffleDeterminista(arr, semilla) {
+  let h = 0;
+  for (let i = 0; i < semilla.length; i++) {
+    h = (Math.imul(31, h) + semilla.charCodeAt(i)) | 0;
+  }
+  const res = [...arr];
+  for (let k = res.length - 1; k > 0; k--) {
+    h = (Math.imul(h ^ (h >>> 16), 0x45d9f3b) + 1013904223) | 0;
+    const j = Math.abs(h) % (k + 1);
+    [res[k], res[j]] = [res[j], res[k]];
+  }
+  return res;
+}
+
 // ---------- pistas ----------
-// Se dan de una en una y de menos a más: primero cuántas palabras hay, luego
-// la primera, luego la mitad. Pedir pista no invalida el acierto, solo cuenta
-// menos puntos.
-export function pistas(frase) {
-  const buena = frase.dir === 'de-es' ? frase.es : frase.de;
-  const palabras = buena.split(/\s+/);
-  const mitad = Math.max(1, Math.ceil(palabras.length / 2));
+// Las pistas se dan en posiciones aleatorias de la frase en lugar de siempre
+// en orden secuencial (primera palabra, primera mitad). Revela palabras
+// repartidas de forma determinista para la frase.
+export function pistas(frase, buenaCustom) {
+  const buena = buenaCustom || (frase.dir === 'de-es' ? tc(frase.es) : frase.de);
+  const palabras = buena.split(/\s+/).filter(Boolean);
+  if (!palabras.length) return [];
+
+  if (palabras.length === 1) {
+    const w = palabras[0];
+    return [
+      { tipo: 'pista1', texto: `${w.length} ${pick('letras', 'letters')}` },
+      { tipo: 'pista2', texto: `${w.charAt(0)}···` },
+      { tipo: 'pista3', texto: `${w.charAt(0)}${w.slice(1, -1).replace(/./g, '·')}${w.slice(-1)}` }
+    ];
+  }
+
+  // Barajar índices de palabras determinísticamente para esta frase
+  const indices = palabras.map((_, i) => i);
+  const shuffled = shuffleDeterminista(indices, buena);
+
+  // Pista 1: 1 palabra en posición aleatoria + longitud
+  const rev1 = new Set([shuffled[0]]);
+  const texto1 = `${palabras.map((w, i) => (rev1.has(i) ? w : '···')).join(' ')} (${palabras.length} ${pick('palabras', 'words')})`;
+
+  // Pista 2: 2 palabras (o ~40%) en posiciones aleatorias
+  const count2 = Math.min(palabras.length - 1, Math.max(2, Math.round(palabras.length * 0.4)));
+  const rev2 = new Set(shuffled.slice(0, count2));
+  const texto2 = palabras.map((w, i) => (rev2.has(i) ? w : '···')).join(' ');
+
+  // Pista 3: mayoría de palabras (~75%) en posiciones aleatorias
+  const count3 = Math.min(palabras.length - 1, Math.max(count2 + 1, Math.round(palabras.length * 0.75)));
+  const rev3 = new Set(shuffled.slice(0, count3));
+  const texto3 = palabras.map((w, i) => (rev3.has(i) ? w : '···')).join(' ');
+
   return [
-    { tipo: 'largo', texto: `${palabras.length}` },
-    { tipo: 'inicio', texto: palabras[0] },
-    {
-      tipo: 'mitad',
-      texto: palabras.map((w, i) => (i < mitad ? w : '·'.repeat(Math.min(w.length, 5)))).join(' ')
-    }
+    { tipo: 'pista1', texto: texto1 },
+    { tipo: 'pista2', texto: texto2 },
+    { tipo: 'pista3', texto: texto3 }
   ];
 }
 

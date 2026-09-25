@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
+import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t } from '../lib/i18n.js';
 import MultipleChoice from './MultipleChoice.jsx';
 import WordOrder from './WordOrder.jsx';
@@ -7,12 +8,13 @@ import ClozeTest from './ClozeTest.jsx';
 import OpenQuestion from './OpenQuestion.jsx';
 import Feedback from './Feedback.jsx';
 import { recordActivity } from '../lib/streak.js';
-import { cobrar } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
 import { makeRng, randomSeed, shuffle } from '../lib/rng.js';
 
 export default function NotebookSession({ note, lektion, onExit, onFinish }) {
+  const fox = useFox();
   const items = useMemo(() => {
     const r = makeRng(randomSeed());
     return shuffle(r, [...(note?.items || [])]);
@@ -40,14 +42,16 @@ export default function NotebookSession({ note, lektion, onExit, onFinish }) {
   const item = items[idx];
 
   function handleAnswer(correct, chosen) {
-    monedas.current += cobrar(results.current, correct);
+    monedas.current += cobrarEjercicio(correct, { nivel: RECONOCER });
     results.current.push({ correct });
     setLastCorrect(correct);
     setLastChosen(chosen);
+    fox.acierto(correct);
     setPhase('feedback');
   }
 
   function next() {
+    fox.sigue();
     setRetries(0);
     if (idx + 1 < items.length) {
       setIdx(idx + 1);
@@ -132,6 +136,8 @@ export default function NotebookSession({ note, lektion, onExit, onFinish }) {
           onRetry={handleRetry}
         />
       )}
+
+      <FoxOverlay fox={fox} mudo={phase !== 'answer'} />
     </div>
   );
 }
