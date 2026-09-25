@@ -123,25 +123,6 @@ export default function Estadisticas() {
         </Bloque>
 
         <Bloque
-          titulo={pick('Por hora del día', 'By time of day')}
-          pista={pick('Minutos según la hora a la que sueles estudiar.',
-                      'Minutes by the time of day you study.')}
-        >
-          <BarrasDia
-            datos={horas.map((h) => ({
-              clave: String(h.hora),
-              etiqueta: h.hora + ':00',
-              etiquetaCorta: h.hora === 0 ? '0:00' : h.hora === 23 ? '23:00' : '',
-              minutos: h.minutos
-            }))}
-            valor={(d) => d.minutos}
-            unidad=" min"
-            etiqueta={pick('Por hora', 'By hour')}
-            alto={120}
-          />
-        </Bloque>
-
-        <Bloque
           titulo={pick('Por día de la semana', 'By day of the week')}
           pista={pick('Distribución del tiempo practicado en cada día.',
                       'Time practiced across days of the week.')}
@@ -162,6 +143,25 @@ export default function Estadisticas() {
               })}
             </div>
           </div>
+        </Bloque>
+
+        <Bloque
+          titulo={pick('Por hora del día', 'By time of day')}
+          pista={pick('Minutos según la hora a la que sueles estudiar.',
+                      'Minutes by the time of day you study.')}
+        >
+          <BarrasDia
+            datos={horas.map((h) => ({
+              clave: String(h.hora),
+              etiqueta: h.hora + ':00',
+              etiquetaCorta: h.hora === 0 ? '0:00' : h.hora === 23 ? '23:00' : '',
+              minutos: h.minutos
+            }))}
+            valor={(d) => d.minutos}
+            unidad=" min"
+            etiqueta={pick('Por hora', 'By hour')}
+            alto={120}
+          />
         </Bloque>
       </div>
     </div>
