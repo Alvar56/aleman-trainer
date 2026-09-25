@@ -629,7 +629,7 @@ const DICT = {
   'sum.accuracy': ['precisión', 'accuracy'],
   'sum.hits': ['aciertos', 'correct'],
   'sum.time': ['tiempo', 'time'],
-  'sum.streak': ['racha', 'streak'],
+  'sum.streak': ['Racha', 'Streak'],
   'sum.freezeUsed': ['(congelador usado)', '(freeze used)'],
   // Subir de nivel: se avisa al terminar la tanda, que es cuando pasa.
   'sum.levelUp': ['¡Nivel {n}!', 'Level {n}!'],
