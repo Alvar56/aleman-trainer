@@ -4183,107 +4183,148 @@ input.vs-respuesta { max-width: 460px; }
   .cf-tabla-juegos td:first-child { width: 42%; white-space: normal; }
 }
 
-/* ---------- Bestenliste · las gráficas ----------------------------------
+/* ---------- Estadísticas y Gráficas ----------------------------------
    Dibujadas a mano en SVG (ver Graficas.jsx): el HTML portable es un solo
    fichero y una librería de gráficas pesa más que toda la aplicación. Los
    colores salen de las variables del tema, así que el modo oscuro va solo. */
-/* Con tope de ancho y centrada: a pantalla completa las tarjetas se estiraban
-   hasta dejar las barras nadando y la mitad derecha en gris. */
 .est { max-width: 1080px; margin-inline: auto; width: 100%; }
 .est .stat-grid { grid-template-columns: repeat(4, 1fr); }
 .est-dato .big-stat { font-size: 1.5rem; }
 .est-tiras { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-/* Dos columnas cuando hay sitio: una grafica sola a todo lo ancho del panel
-   dejaba las barras perdidas en metro y medio de tarjeta. */
+
+/* Rejilla de estadísticas: 2x2 en escritorio, 1 columna en móvil */
 .est-rejilla {
-  display: grid; gap: 16px;
+  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
   align-items: stretch;
 }
 .est-rejilla > .est-bloque-ancho {
   grid-column: 1 / -1;
 }
+
 .est-bloque {
   margin-top: 0;
   display: flex;
   flex-direction: column;
-  padding: 18px 20px;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 14px;
 }
-/* Lo ultimo de la tarjeta se pega abajo: asi la linea del cero de dos graficas
-   vecinas coincide aunque sus explicaciones ocupen una linea o dos. */
-.est-bloque > .grafica:last-child { margin-top: auto; }
+
 .est-bloque-cabecera {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 6px;
 }
 .est-bloque-titulos {
   flex: 1 1 200px;
   min-width: 0;
 }
+.est-bloque-titulos h2 {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+.est-pista {
+  margin: 3px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
 .est-bloque-accion {
   flex-shrink: 0;
-  margin-top: 2px;
-}
-.est-bloque h2 { margin: 0 0 4px; font-size: 1.05rem; }
-.est-pista { font-size: 0.82rem; margin: 0 0 10px; line-height: 1.35; }
-.est-botones { display: inline-flex; gap: 6px; }
-
-/* Las dos listas largas -en que juego flojeas, por tema- se desplazan por
-   dentro en vez de estirar la tarjeta. Antes se cortaban a ocho filas y la
-   cola, que es lo que interesa mirar, no se veia.
-
-   Sin barra a la vista: es una tarjeta pequena dentro de una rejilla y una
-   barra gris permanente al lado de los porcentajes ensuciaba mas de lo que
-   ayudaba. Lo que avisa de que sigue habiendo cosas es el degradado de abajo,
-   y solo esta mientras quede algo por ver (.hay-mas lo pone el componente al
-   medir; una mascara fija seguiria desvaiendo la ultima fila al llegar al
-   final, justo cuando ya no hay nada que anunciar). */
-.est-lista {
-  /* 480 y no 300: las filas de "Tus records" llevan cuatro datos y miden mas
-     de cien pixeles, asi que con cuatro records ya se cortaba uno. En pixeles
-     y no en vh: con vh la altura depende de la ventana y en una pantalla baja
-     la lista se queda en nada. Si no cabe, se desplaza la pagina, que es lo
-     normal. */
-  max-height: 480px; overflow-y: auto; overscroll-behavior: contain;
-  scrollbar-width: none;
-}
-.est-lista::-webkit-scrollbar { width: 0; height: 0; }
-/* Los cuatro casos, porque la mascara es una sola propiedad y no se pueden
-   sumar dos reglas: solo abajo, solo arriba, las dos, o ninguna. Con el
-   degradado unicamente abajo, al bajar un poco la primera fila quedaba
-   cortada a cuchillo y el efecto parecia puesto al tuntun. */
-.est-lista.hay-mas {
-  mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent);
-  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent);
-}
-.est-lista.hay-antes {
-  mask-image: linear-gradient(to bottom, transparent, #000 28px);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 28px);
-}
-.est-lista.hay-antes.hay-mas {
-  mask-image: linear-gradient(to bottom, transparent, #000 28px, #000 calc(100% - 28px), transparent);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 28px, #000 calc(100% - 28px), transparent);
+  margin-top: 1px;
 }
 
-.grafica { width: 100%; }
-/* A tamano real: el svg mide lo que le dice el componente, en pixeles. Con
-   width:100% + height:auto se estiraba al ancho del panel y escalaba tambien
-   el texto, que en el escritorio salia enorme. */
-.gr-svg { display: block; max-width: 100%; overflow: visible; }
-.gr-rejilla { stroke: var(--border); stroke-width: 1; }
-.gr-eje { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
-.gr-barra { fill: var(--accent); }
-.gr-barra.vacia { fill: var(--border); }
-.gr-area { fill: var(--accent-soft); }
-.gr-linea { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-.gr-punto { fill: var(--border-strong); }
+.est-bloque-cuerpo {
+  width: 100%;
+  margin-top: auto;
+}
 
-/* Barras horizontales: nombre, barra y número. El nombre se corta antes que
-   dejar la barra sin sitio. */
+.est-botones {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--bg);
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+}
+.est-btn-dias {
+  padding: 4px 12px;
+  font-size: 0.76rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: none;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.est-btn-dias:hover {
+  color: var(--text);
+}
+.est-btn-dias.on {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.grafica {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.gr-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  overflow: visible;
+}
+.gr-rejilla {
+  stroke: var(--border);
+  stroke-dasharray: 4 4;
+}
+.gr-eje {
+  font-size: 0.72rem;
+  fill: var(--muted);
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+}
+.gr-barra {
+  fill: var(--accent);
+  transition: opacity 0.2s;
+}
+.gr-barra:hover {
+  opacity: 0.85;
+}
+.gr-barra.vacia {
+  fill: var(--border-strong);
+  opacity: 0.3;
+}
+.gr-area {
+  fill: var(--accent);
+  opacity: 0.12;
+}
+.gr-linea {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.gr-punto {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+/* Barras horizontales */
 .gr-hbarras { display: flex; flex-direction: column; gap: 9px; }
 .gr-hfila {
   display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) 3rem;
@@ -4299,33 +4340,120 @@ input.vs-respuesta { max-width: 460px; }
 .gr-hvalor { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
 .gr-hnota { grid-column: 2 / -1; min-width: 0; font-size: 0.74rem; color: var(--muted); margin-top: -4px; }
 
-/* Los siete días de la semana, en columnas equilibradas. */
+/* Los siete días de la semana, en columnas equilibradas */
 .est-semana-contenedor {
+  width: 100%;
   margin-top: auto;
+}
+.est-semana {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  height: 140px;
+  padding-bottom: 4px;
+}
+.est-dia {
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
   justify-content: flex-end;
-  min-height: 140px;
 }
-.est-semana { display: flex; gap: 8px; align-items: flex-end; height: 100%; padding-top: 8px; }
-.est-dia { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; height: 100%; justify-content: flex-end; }
 .est-dia-barra {
-  width: 100%; height: 95px; background: var(--surface-2); border-radius: 6px;
-  display: flex; align-items: flex-end; overflow: hidden;
+  flex: 1;
+  width: 100%;
+  max-width: 24px;
+  min-width: 8px;
+  background: var(--surface-2);
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
 }
-.est-dia-barra > span { width: 100%; background: var(--accent); border-radius: 6px 6px 0 0; transition: height 0.3s ease; }
-.est-dia-nombre { font-size: 0.76rem; color: var(--muted); font-weight: 500; }
-.est-dia-min { font-size: 0.7rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.est-dia-barra > span {
+  width: 100%;
+  background: var(--accent);
+  border-radius: 6px 6px 0 0;
+  transition: height 0.3s ease;
+}
+.est-dia-nombre {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+.est-dia-min {
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
 
+.est-lista {
+  max-height: 480px; overflow-y: auto; overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.est-lista::-webkit-scrollbar { width: 0; height: 0; }
+.est-lista.hay-mas {
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent);
+}
+.est-lista.hay-antes {
+  mask-image: linear-gradient(to bottom, transparent, #000 28px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 28px);
+}
+.est-lista.hay-antes.hay-mas {
+  mask-image: linear-gradient(to bottom, transparent, #000 28px, #000 calc(100% - 28px), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 28px, #000 calc(100% - 28px), transparent);
+}
 .est-records { display: flex; flex-direction: column; gap: 10px; }
 .est-record { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: baseline; }
 .est-rec-juego { font-weight: 600; font-size: 0.9rem; }
 .est-rec-seg { font-weight: 700; font-variant-numeric: tabular-nums; }
 .est-rec-det { grid-column: 1 / -1; font-size: 0.76rem; }
 
-@media (max-width: 720px) {
+/* Responsive móvil */
+@media (max-width: 768px) {
   .est .stat-grid { grid-template-columns: repeat(2, 1fr); }
-  .est-rejilla { grid-template-columns: minmax(0, 1fr); }
+  .est-rejilla {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .est-bloque {
+    padding: 16px 14px;
+    gap: 12px;
+  }
+  .est-bloque-cabecera {
+    gap: 8px;
+  }
+  .est-bloque-titulos h2 {
+    font-size: 1.05rem;
+  }
+  .est-pista {
+    font-size: 0.78rem;
+  }
+  .est-btn-dias {
+    padding: 4px 10px;
+    font-size: 0.74rem;
+  }
+  .est-semana {
+    height: 125px;
+    gap: 5px;
+  }
+  .est-dia-barra {
+    max-width: 20px;
+  }
+  .est-dia-nombre {
+    font-size: 0.72rem;
+  }
+  .est-dia-min {
+    font-size: 0.68rem;
+  }
   .gr-hfila { grid-template-columns: minmax(0, 6rem) minmax(0, 1fr) 2.6rem; font-size: 0.8rem; }
   .gr-hnota { font-size: 0.7rem; }
 }
@@ -4733,188 +4861,5 @@ input.vs-respuesta { max-width: 460px; }
   }
 }
 
-/* ---------- Estadísticas y Gráficas ---------- */
-.est-rejilla {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  align-items: stretch;
-}
-@media (max-width: 768px) {
-  .est-rejilla {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-.est-bloque {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 20px;
-}
-.est-bloque-cabecera {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-.est-bloque-titulos {
-  flex: 1 1 220px;
-  min-width: 0;
-}
-.est-bloque-titulos h2 {
-  margin: 0;
-  font-size: 1.15rem;
-  font-weight: 700;
-}
-.est-pista {
-  margin: 4px 0 0;
-  font-size: 0.82rem;
-  line-height: 1.4;
-}
-.est-bloque-accion {
-  align-self: flex-start;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.est-bloque-cuerpo {
-  width: 100%;
-  margin-top: 14px;
-}
-@media (max-width: 600px) {
-  .est-bloque {
-    padding: 16px 14px;
-    gap: 14px;
-  }
-  .est-bloque-cabecera {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-  .est-bloque-accion {
-    align-self: flex-start;
-  }
-  .est-bloque-cuerpo {
-    margin-top: 18px;
-  }
-}
-.est-botones {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  background: var(--bg);
-  padding: 3px;
-  border-radius: 999px;
-  border: 1px solid var(--border-strong);
-}
-.est-btn-dias {
-  padding: 5px 14px;
-  font-size: 0.78rem;
-  border-radius: 999px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  border: none;
-  background: none;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-.est-btn-dias:hover {
-  color: var(--text);
-}
-.est-btn-dias.on {
-  background: var(--accent);
-  color: var(--accent-ink);
-}
-.grafica {
-  width: 100%;
-  overflow: visible;
-}
-.gr-svg {
-  display: block;
-  overflow: visible;
-  width: 100%;
-}
-.gr-rejilla {
-  stroke: var(--border);
-  stroke-dasharray: 4 4;
-}
-.gr-eje {
-  font-size: 0.72rem;
-  fill: var(--muted);
-  font-family: inherit;
-}
-.gr-barra {
-  fill: var(--accent);
-  transition: opacity 0.2s;
-}
-.gr-barra:hover {
-  opacity: 0.85;
-}
-.gr-barra.vacia {
-  fill: var(--border-strong);
-  opacity: 0.3;
-}
-.gr-area {
-  fill: var(--accent);
-  opacity: 0.12;
-}
-.gr-linea {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 2.5;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-.gr-punto {
-  fill: var(--surface);
-  stroke: var(--accent);
-  stroke-width: 2;
-}
-.est-semana-contenedor {
-  padding-top: 8px;
-}
-.est-semana {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 8px;
-  height: 140px;
-  padding-bottom: 8px;
-}
-.est-dia {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  height: 100%;
-}
-.est-dia-barra {
-  flex: 1;
-  width: 100%;
-  max-width: 24px;
-  background: var(--surface-2);
-  border-radius: 6px;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-}
-.est-dia-barra span {
-  width: 100%;
-  background: var(--accent);
-  border-radius: 6px;
-  transition: height 0.3s ease;
-}
-.est-dia-nombre {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted);
-  text-transform: capitalize;
-}
-.est-dia-min {
-  font-size: 0.7rem;
-  color: var(--muted);
-}
 
 
