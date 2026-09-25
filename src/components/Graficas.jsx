@@ -17,7 +17,7 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 // sin tocar nada.
 
 // Lo que ocupa el texto del eje de la izquierda.
-const EJE = 36;
+const EJE = 52;
 // Margen derecho para que las barras, líneas y fechas no queden pegadas al borde derecho
 const MARGEN_DER = 4;
 
@@ -69,7 +69,7 @@ function Rejilla({ ancho, alto, max, unidad }) {
         return (
           <g key={f}>
             <line x1={EJE} y1={y} x2={finX} y2={y} className="gr-rejilla" />
-            <text x={EJE - 8} y={y + 3.5} textAnchor="end" className="gr-eje">
+            <text x={EJE - 6} y={y + 3.5} textAnchor="end" className="gr-eje">
               {bonito(max * f)}
               {f === 1 && unidad ? unidad : ''}
             </text>
