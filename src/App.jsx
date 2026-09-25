@@ -257,13 +257,13 @@ export default function App() {
   // se ha salido... salvo con las tarjetas, que se lanzan desde la teoría: allí
   // devolver a ejercicios dejaba al alumno en otra pantalla de la que estaba.
   const returnToDeck = (deckId, tab = 'ejercicios', origen = null) => {
-    // La mezcla de TODO el vocabulario devuelve a la sección desde donde se abrió
+    if (origen === 'home') {
+      go('home');
+      return;
+    }
+    // La mezcla de TODO el vocabulario devuelve a Wortschatz (vocabulario)
     if (String(deckId).startsWith('combi:')) {
-      if (origen === 'home') {
-        go('home');
-      } else {
-        go('vocab');
-      }
+      go('vocab');
       return;
     }
     const d = getDeck(deckId);
@@ -488,7 +488,7 @@ export default function App() {
                   key={view.k}
                   deck={mazo}
                   onExit={() => returnToDeck(view.deckId, 'ejercicios', view.origen)}
-                  onFinish={(data) => setView({ name: 'vsummary', data })}
+                  onFinish={(data) => setView({ name: 'vsummary', data: { ...data, origen: view.origen } })}
                 />
               ) : view.vmode === 'wortsalat' ? (
                 <WortsalatGame
@@ -496,7 +496,7 @@ export default function App() {
                   deck={mazo}
                   cartasFijas={view.cartasFijas}
                   onExit={() => returnToDeck(view.deckId, 'ejercicios', view.origen)}
-                  onFinish={(data) => setView({ name: 'vsummary', data })}
+                  onFinish={(data) => setView({ name: 'vsummary', data: { ...data, origen: view.origen } })}
                 />
               ) : view.vmode === 'hangman' ? (
                 <HangmanGame
@@ -504,7 +504,7 @@ export default function App() {
                   deck={mazo}
                   cartasFijas={view.cartasFijas}
                   onExit={() => returnToDeck(view.deckId, 'ejercicios', view.origen)}
-                  onFinish={(data) => setView({ name: 'vsummary', data })}
+                  onFinish={(data) => setView({ name: 'vsummary', data: { ...data, origen: view.origen } })}
                 />
               ) : view.vmode === 'blitz' ? (
                 <BlitzGame
@@ -512,7 +512,7 @@ export default function App() {
                   deck={mazo}
                   cartasFijas={view.cartasFijas}
                   onExit={() => returnToDeck(view.deckId, 'ejercicios', view.origen)}
-                  onFinish={(data) => setView({ name: 'vsummary', data })}
+                  onFinish={(data) => setView({ name: 'vsummary', data: { ...data, origen: view.origen } })}
                 />
               ) : (
                 <VocabSession
@@ -522,7 +522,7 @@ export default function App() {
                   dir={view.dir}
                   cartasFijas={view.cartasFijas}
                   onExit={() => volverDeJuego(view.deckId, view.vmode, view.origen)}
-                  onFinish={(data) => setView({ name: 'vsummary', data })}
+                  onFinish={(data) => setView({ name: 'vsummary', data: { ...data, origen: view.origen } })}
                 />
               )
             }
@@ -543,18 +543,19 @@ export default function App() {
                     vmode: view.data.mode,
                     dir: view.data.dir || null,
                     cartasFijas: view.data.missed,
+                    origen: view.data.origen,
                     k: Date.now()
                   })
               : null}
             onRepeat={() =>
               view.data.mode === 'gender'
                 ? setView({ name: 'gender', k: Date.now() })
-                : startVocab(view.data.deck.id, view.data.mode)
+                : startVocab(view.data.deck.id, view.data.mode, false, view.data.dir, null, view.data.origen)
             }
             onDeck={() =>
               view.data.mode === 'gender'
-                ? go('vocab')
-                : volverDeJuego(view.data.deck.id, view.data.mode)
+                ? (view.data.origen === 'home' ? go('home') : go('vocab'))
+                : volverDeJuego(view.data.deck.id, view.data.mode, view.data.origen)
             }
             onHome={() => go('home')}
           />
