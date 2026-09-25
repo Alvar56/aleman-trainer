@@ -4540,43 +4540,94 @@ input.vs-respuesta { max-width: 460px; }
 }
 
 /* La lista de secciones de la tienda: una fila por sección, con su icono, y
-   raya fina entre unas y otras. Antes eran títulos gordos con mucho aire, y
-   plegada parecía una pantalla de ajustes en vez de un armario. */
-.fox-bloque + .fox-bloque { border-top: 1px solid var(--border); }
-.fox-bloque.abierto { background: var(--surface-2); border-radius: 12px; padding: 0 10px 10px; }
-.fox-bloque.abierto + .fox-bloque { border-top: none; }
+   raya fina entre unas y otras. Espaciado compacto y limpio. */
+.fox-secciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 2px 0;
+}
+.fox-secciones .fox-bloque {
+  margin: 0;
+}
+.fox-secciones .fox-bloque + .fox-bloque {
+  border-top: 1px solid var(--border);
+}
+.fox-secciones .fox-bloque.abierto {
+  background: var(--surface-2);
+  border-radius: 12px;
+  padding: 0 10px 10px;
+  margin: 3px 0;
+  border-top: none;
+}
+.fox-secciones .fox-bloque.abierto + .fox-bloque {
+  border-top: 1px solid var(--border);
+}
 .fox-tirador {
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  width: 100%; background: none; border: none; padding: 11px 6px; cursor: pointer;
-  text-align: left; color: inherit; font: inherit; border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 7px 4px;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  border-radius: 8px;
+  transition: background 0.15s ease;
 }
 .fox-tirador:hover { background: var(--surface-2); }
 .fox-bloque.abierto .fox-tirador:hover { background: transparent; }
-.fox-tirador-izq { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.fox-tirador-izq { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
 .fox-ico {
-  width: 26px; height: 26px; flex-shrink: 0;
-  display: inline-flex; align-items: center; justify-content: center;
-  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-  font-size: 0.9rem;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.85rem;
 }
 .fox-bloque.abierto .fox-ico { border-color: var(--accent); }
-.fox-titulo { font-size: 0.92rem; font-weight: 600; }
+.fox-titulo { font-size: 0.9rem; font-weight: 600; }
 .fox-tirador-der { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
 /* Lo que llevas puesto en esa ranura, para no tener que abrirla. */
 .fox-puesta {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.8rem; color: var(--muted);
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 9.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 9.5rem;
 }
 .fox-puesta .fci-dot { flex-shrink: 0; margin-right: 2px; }
 /* Cuántas puedes comprar YA con lo que tienes. */
 .fox-atiro {
-  min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px;
-  display: inline-flex; align-items: center; justify-content: center;
-  background: var(--good-bg); border: 1px solid var(--good-border); color: var(--good);
-  font-size: 0.72rem; font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--good-bg);
+  border: 1px solid var(--good-border);
+  color: var(--good);
+  font-size: 0.7rem;
+  font-weight: 700;
 }
-.fox-tirador .chev { color: var(--muted); font-size: 0.8rem; }
+.fox-tirador .chev { color: var(--muted); font-size: 0.75rem; }
 
 /* ---- "Por temas": la gramática agrupada por asunto ------------------------
    Va debajo de las lecciones, en la misma pantalla. Los nueve temas existían

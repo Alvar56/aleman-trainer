@@ -247,64 +247,66 @@ export default function FoxAjustes({ onClose, onChange }) {
           </div>
         </label>
 
-        {/* Primero QUE eres y de que color: es lo que mas cambia al zorro. */}
-        <Bloque
-          titulo="Tier"
-          ico="🦊"
-          abierto={abierta === 'tier'}
-          onAbrir={() => setAbierta((x) => (x === 'tier' ? null : 'tier'))}
-          cosas={animalesDisponibles(f, l)}
-          esPuesta={(a) => f.especie === a.id}
-          monedas={monedas}
-          onPoner={(a) => cambiar({ especie: a.id })}
-          onComprar={(a) => pagar(a.id, null)}
-        />
-
-        <Bloque
-          titulo="Farbe"
-          ico="🎨"
-          abierto={abierta === 'farbe'}
-          onAbrir={() => setAbierta((x) => (x === 'farbe' ? null : 'farbe'))}
-          cosas={coloresDisponibles(l)}
-          esPuesta={(c) => f.color === c.id}
-          monedas={monedas}
-          dot={(c) => {
-            const esGalaxy = c?.id?.startsWith('galaxy');
-            return (
-              <span
-                className={`fci-dot ${esGalaxy ? `fci-dot-galaxy fci-dot-${c.id}` : ''}`}
-                style={{ background: c?.fur, borderColor: c?.sombra }}
-              />
-            );
-          }}
-          onPoner={(c) => cambiar({ color: c.id })}
-          onComprar={(c) => pagar(c.id, 'color')}
-        />
-
-        {/* Y luego se viste, de la cabeza a los pies. */}
-        {RANURAS.map((r) => (
+        <div className="fox-secciones">
+          {/* Primero QUE eres y de que color: es lo que mas cambia al zorro. */}
           <Bloque
-            key={r.id}
-            titulo={r.de}
-            ico={r.ico}
-            abierto={abierta === r.id}
-            onAbrir={() => setAbierta((x) => (x === r.id ? null : r.id))}
-            cosas={complementosDe(r.id, f, l)}
-            esPuesta={(c) => f[r.id] === c.id}
+            titulo="Tier"
+            ico="🦊"
+            abierto={abierta === 'tier'}
+            onAbrir={() => setAbierta((x) => (x === 'tier' ? null : 'tier'))}
+            cosas={animalesDisponibles(f, l)}
+            esPuesta={(a) => f.especie === a.id}
             monedas={monedas}
-            onPoner={(c) => cambiar({ [r.id]: c.id })}
-            onComprar={(c) => pagar(c.id, r.id)}
+            onPoner={(a) => cambiar({ especie: a.id })}
+            onComprar={(a) => pagar(a.id, null)}
           />
-        ))}
+
+          <Bloque
+            titulo="Farbe"
+            ico="🎨"
+            abierto={abierta === 'farbe'}
+            onAbrir={() => setAbierta((x) => (x === 'farbe' ? null : 'farbe'))}
+            cosas={coloresDisponibles(l)}
+            esPuesta={(c) => f.color === c.id}
+            monedas={monedas}
+            dot={(c) => {
+              const esGalaxy = c?.id?.startsWith('galaxy');
+              return (
+                <span
+                  className={`fci-dot ${esGalaxy ? `fci-dot-galaxy fci-dot-${c.id}` : ''}`}
+                  style={{ background: c?.fur, borderColor: c?.sombra }}
+                />
+              );
+            }}
+            onPoner={(c) => cambiar({ color: c.id })}
+            onComprar={(c) => pagar(c.id, 'color')}
+          />
+
+          {/* Y luego se viste, de la cabeza a los pies. */}
+          {RANURAS.map((r) => (
+            <Bloque
+              key={r.id}
+              titulo={r.de}
+              ico={r.ico}
+              abierto={abierta === r.id}
+              onAbrir={() => setAbierta((x) => (x === r.id ? null : r.id))}
+              cosas={complementosDe(r.id, f, l)}
+              esPuesta={(c) => f[r.id] === c.id}
+              monedas={monedas}
+              onPoner={(c) => cambiar({ [r.id]: c.id })}
+              onComprar={(c) => pagar(c.id, r.id)}
+            />
+          ))}
+        </div>
 
         {/* Próximamente */}
         <div
           style={{
             textAlign: 'center',
-            padding: '10px 14px',
-            marginTop: 14,
-            marginBottom: 6,
-            fontSize: '0.82rem',
+            padding: '8px 12px',
+            marginTop: 4,
+            marginBottom: 2,
+            fontSize: '0.8rem',
             color: 'var(--muted)',
             background: 'var(--surface-2)',
             borderRadius: 'var(--radius-sm)',
