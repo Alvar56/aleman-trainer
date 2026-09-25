@@ -194,6 +194,8 @@ export function liveStreak() {
 // Curva suave: cada nivel pide 25 XP más que el anterior (base 100 XP para nivel 2).
 // Nv 2 = 100 XP (+100) · Nv 3 = 225 XP (+125) · Nv 4 = 375 XP (+150) · Nv 5 = 550 XP (+175)
 // Nv 10 = 1.800 XP · Nv 50 = 34.300 XP · Nv 100 = 131.175 XP
+export const MAX_LEVEL = 100;
+
 function totalXpParaNivel(L) {
   if (L <= 1) return 0;
   return (L - 1) * 100 + (L - 2) * (L - 1) * 12.5;
@@ -201,15 +203,17 @@ function totalXpParaNivel(L) {
 
 export function levelFromXp(totalXp = 0) {
   let level = 1;
-  while (totalXpParaNivel(level + 1) <= totalXp) level++;
+  while (level < MAX_LEVEL && totalXpParaNivel(level + 1) <= totalXp) level++;
   const base = totalXpParaNivel(level);
-  const next = totalXpParaNivel(level + 1);
+  const next = totalXpParaNivel(Math.min(MAX_LEVEL, level + 1));
+  const isMax = level >= MAX_LEVEL;
   return {
     level,
     totalXp,
-    xpInto: totalXp - base,
-    xpNeeded: next - base,
-    pct: Math.min(100, Math.round(((totalXp - base) / (next - base)) * 100))
+    xpInto: isMax ? (totalXp - base) : (totalXp - base),
+    xpNeeded: isMax ? (next - totalXpParaNivel(MAX_LEVEL - 1)) : (next - base),
+    pct: isMax ? 100 : Math.min(100, Math.round(((totalXp - base) / (next - base)) * 100)),
+    isMax
   };
 }
 

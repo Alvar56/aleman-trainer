@@ -54,10 +54,16 @@ export default function Dashboard({ onStart, onNavigate, onFox, onFlashcards }) 
           <div className="flex-min">
             <div className="l" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 4 }}>
               <span>{t('home.xpTotal', { n: lvl.totalXp })}</span>
-              <span className="sub" style={{ margin: 0 }}>{lvl.xpInto}/{lvl.xpNeeded}</span>
+              <span className="sub" style={{ margin: 0 }}>
+                {lvl.isMax ? (
+                  <span className="num-dorado" style={{ fontWeight: 800, fontSize: '0.82rem' }}>MAX</span>
+                ) : (
+                  `${lvl.xpInto}/${lvl.xpNeeded}`
+                )}
+              </span>
             </div>
-            <div className="mini-bar mini-bar-ancha">
-              <span style={{ width: lvl.pct + '%' }} />
+            <div className={'mini-bar mini-bar-ancha' + (lvl.isMax ? ' mini-bar-dorada' : '')}>
+              <span style={{ width: (lvl.isMax ? 100 : lvl.pct) + '%' }} />
             </div>
           </div>
         </div>

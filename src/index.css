@@ -319,6 +319,18 @@ button.pill.star-pill.starred {
   animation: oro-pulso 2.8s ease-in-out infinite;
 }
 
+.mini-bar.mini-bar-dorada {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.mini-bar.mini-bar-dorada > span {
+  background: linear-gradient(90deg, #d97706, #fbbf24, #ffffff, #fbbf24, #d97706);
+  background-size: 200% auto;
+  animation: oro-shimmer 2.8s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+}
+
 /* ---------- Layout ---------- */
 .layout { display: flex; align-items: flex-start; min-height: 100%; }
 
