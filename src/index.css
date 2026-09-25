@@ -3647,15 +3647,16 @@ input.vs-respuesta { max-width: 460px; }
   transition: grid-template-rows 0.18s ease, opacity 0.18s ease, margin-top 0.18s ease;
 }
 .komm-chat .dlg-es > span { overflow: hidden; min-height: 0; }
+.komm-chat .dlg-bubble {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
 .komm-chat .dlg-bubble:hover .dlg-es,
-.komm-chat .dlg-bubble:focus-within .dlg-es {
+.komm-chat .dlg-bubble:focus-within .dlg-es,
+.komm-chat .dlg-bubble.revelada .dlg-es {
   grid-template-rows: 1fr;
   margin-top: 3px;
   opacity: 1;
-}
-/* Sin raton no hay "pasar por encima": en el movil van siempre a la vista. */
-@media (hover: none) {
-  .komm-chat .dlg-es { grid-template-rows: 1fr; margin-top: 3px; opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .komm-chat .dlg-es { transition-duration: 0.01ms; }

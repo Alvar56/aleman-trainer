@@ -231,6 +231,15 @@ function KommDetail({
   // En que idioma se genero la conversacion que estas mirando, si la has
   // abierto de las guardadas. null = la acabas de pedir, o sea tu idioma.
   const [abiertaLang, setAbiertaLang] = useState(null);
+  const [reveladas, setReveladas] = useState(() => new Set());
+  function toggleRevelada(id) {
+    setReveladas((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
   const busy = propBusy !== undefined ? propBusy : localBusy;
   const setBusy = propSetBusy || setLocalBusy;
   
@@ -485,10 +494,23 @@ function KommDetail({
                   // la vuelta que sigue. Una frase suelta no se usa sola: se
                   // usa porque alguien contesta y tu sigues.
                   const turnos = conversacionDe(w.de);
+                  const bubbleKeyA = `${i}-${wi}-a`;
+                  const revA = reveladas.has(bubbleKeyA);
                   return (
                     <div className="kc-par" key={wi}>
                       <div className="dlg-turn a">
-                        <div className="dlg-bubble">
+                        <div
+                          className={'dlg-bubble' + (revA ? ' revelada' : '')}
+                          onClick={() => toggleRevelada(bubbleKeyA)}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              toggleRevelada(bubbleKeyA);
+                            }
+                          }}
+                        >
                           <p className="dlg-de">
                             {w.de}
                             <Escuchar texto={w.de} className="dlg-say" frase />
@@ -496,17 +518,32 @@ function KommDetail({
                           <p className="dlg-es"><span>{w.es}</span></p>
                         </div>
                       </div>
-                      {turnos.map((turno, ti) => (
-                        <div className={'dlg-turn ' + (turno.quien === 'tu' ? 'a' : 'b')} key={ti}>
-                          <div className="dlg-bubble">
-                            <p className="dlg-de">
-                              {turno.de}
-                              <Escuchar texto={turno.de} className="dlg-say" frase />
-                            </p>
-                            <p className="dlg-es"><span>{tc(turno.es)}</span></p>
+                      {turnos.map((turno, ti) => {
+                        const bubbleKeyB = `${i}-${wi}-t-${ti}`;
+                        const revB = reveladas.has(bubbleKeyB);
+                        return (
+                          <div className={'dlg-turn ' + (turno.quien === 'tu' ? 'a' : 'b')} key={ti}>
+                            <div
+                              className={'dlg-bubble' + (revB ? ' revelada' : '')}
+                              onClick={() => toggleRevelada(bubbleKeyB)}
+                              role="button"
+                              tabIndex={0}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault();
+                                  toggleRevelada(bubbleKeyB);
+                                }
+                              }}
+                            >
+                              <p className="dlg-de">
+                                {turno.de}
+                                <Escuchar texto={turno.de} className="dlg-say" frase />
+                              </p>
+                              <p className="dlg-es"><span>{tc(turno.es)}</span></p>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   );
                 })}
