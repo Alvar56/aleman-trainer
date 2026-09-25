@@ -3650,13 +3650,19 @@ input.vs-respuesta { max-width: 460px; }
 .komm-chat .dlg-bubble {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
-.komm-chat .dlg-bubble:hover .dlg-es,
-.komm-chat .dlg-bubble:focus-within .dlg-es,
 .komm-chat .dlg-bubble.revelada .dlg-es {
   grid-template-rows: 1fr;
   margin-top: 3px;
   opacity: 1;
+}
+@media (hover: hover) {
+  .komm-chat .dlg-bubble:hover .dlg-es {
+    grid-template-rows: 1fr;
+    margin-top: 3px;
+    opacity: 1;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .komm-chat .dlg-es { transition-duration: 0.01ms; }
