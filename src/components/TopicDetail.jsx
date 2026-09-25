@@ -383,14 +383,14 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
                     ⭐ Repasar marcados ({starred.length})
                   </button>
                 )}
-                {weak.length > 0 && (
-                  <button
-                    className="btn-ghost btn-sm"
-                    onClick={() => onStart(topic.id, 'weak', 'mixed')}
-                  >
-                    {t('gr.reviewWeak')}
-                  </button>
-                )}
+                <button
+                  className="btn-ghost btn-sm"
+                  onClick={() => onStart(topic.id, 'weak', 'mixed')}
+                  disabled={weak.length === 0}
+                  title={weak.length ? t('gr.reviewWeakHint') : t('gr.reviewWeakNone')}
+                >
+                  {weak.length ? t('gr.reviewWeakN', { n: weak.length }) : t('gr.reviewWeak')}
+                </button>
                 {/* Solo del 70% para arriba. Debajo de eso falta casi todo y
                     seria la sesion normal con otro nombre. */}
                 {/* Visible siempre por debajo del 100%, apagado hasta el 70%. */}
