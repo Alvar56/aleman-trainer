@@ -311,12 +311,10 @@ export default function FoxAjustes({ onClose, onChange }) {
             border: '1px dashed var(--border)',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            gap: 6
+            justifyContent: 'center'
           }}
         >
-          <span>✨</span>
-          <span>Mehr Tiere &amp; Accessoires kommen bald… · More coming soon</span>
+          <span>Mehr Tiere &amp; Accessoires kommen bald…</span>
         </div>
 
         <button className="btn-primary" style={{ width: '100%', marginTop: 8 }} onClick={cerrar}>
