@@ -203,13 +203,14 @@ export default function Dashboard({ onStart, onNavigate, onFox, onFlashcards }) 
             </button>
           )}
           <div className="home-practica-pies">
-            <button className="link-btn" style={{ padding: 0, fontSize: '0.84rem' }} onClick={() => onNavigate('grammar')}>
+            <button className="link-btn" onClick={() => onNavigate('grammar')}>
               {t('home.pickTopic')} <span className="fl-arr">▸</span>
             </button>
-            {/* El ahorcado y los demás juegos de mazo necesitan que elijas uno,
-                así que desde aquí solo se puede llevar a Wortschatz. */}
-            <button className="link-btn" style={{ padding: 0, fontSize: '0.84rem' }} onClick={() => onNavigate('vocab')}>
+            <button className="link-btn" onClick={() => onNavigate('vocab')}>
               {t('home.moreGames')} <span className="fl-arr">▸</span>
+            </button>
+            <button className="link-btn" onClick={() => onNavigate('komm')}>
+              {t('home.kommTopic')} <span className="fl-arr">▸</span>
             </button>
           </div>
           <p className="muted home-practica-nota">

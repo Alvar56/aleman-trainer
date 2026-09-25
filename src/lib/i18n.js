@@ -489,6 +489,7 @@ const DICT = {
   ],
   // Dice a dónde lleva: el de al lado ya dice 'vocabulario' y este no decía nada.
   'home.pickTopic': ['O una lección de gramática', 'Or a grammar lesson'],
+  'home.kommTopic': ['O una lección de comunicación', 'Or a communication lesson'],
 
   // Wortschatz
   'voc.sub': [
