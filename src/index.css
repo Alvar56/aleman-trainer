@@ -4798,17 +4798,30 @@ input.vs-respuesta { max-width: 460px; }
 .est-botones {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  background: var(--surface-2);
+  gap: 2px;
+  background: var(--bg);
   padding: 3px;
-  border-radius: 9px;
-  border: 1px solid var(--border);
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
 }
-.est-botones .btn-sm {
-  padding: 5px 12px;
+.est-btn-dias {
+  padding: 5px 14px;
   font-size: 0.78rem;
-  border-radius: 7px;
-  font-weight: 600;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: none;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.est-btn-dias:hover {
+  color: var(--text);
+}
+.est-btn-dias.on {
+  background: var(--accent);
+  color: var(--accent-ink);
 }
 .grafica {
   width: 100%;

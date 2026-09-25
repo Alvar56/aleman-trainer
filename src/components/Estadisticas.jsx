@@ -91,7 +91,7 @@ export default function Estadisticas() {
               {[7, 30, 90].map((n) => (
                 <button
                   key={n}
-                  className={'btn-sm ' + (ventana === n ? 'btn-primary' : 'btn-ghost')}
+                  className={'est-btn-dias' + (ventana === n ? ' on' : '')}
                   onClick={() => setVentana(n)}
                 >
                   {n} {pick('días', 'days')}
