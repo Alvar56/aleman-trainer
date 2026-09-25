@@ -242,8 +242,8 @@ export default function App() {
   const traducir = (lektionId = null, dir = 'mix', nivel = 'all', cartasFijas = null) =>
     setViewProxy({ name: 'traducir', lektionId, dir, nivel, cartasFijas, k: Date.now() });
 
-  const start = (topicId, mode, game = 'mixed', itemsFijos = null) =>
-    setViewProxy({ name: 'session', topicId, mode, game, itemsFijos, k: Date.now() });
+  const start = (topicId, mode, game = 'mixed', itemsFijos = null, origen = null) =>
+    setViewProxy({ name: 'session', topicId, mode, game, itemsFijos, origen, k: Date.now() });
 
   // La teoria del tema que acabas de practicar. Devuelve null cuando no hay
   // ninguna (la tanda mixta), y asi el resumen no pinta el boton.
@@ -256,10 +256,14 @@ export default function App() {
   // Al salir de un juego se vuelve a la pestaña de ejercicios, que es de donde
   // se ha salido... salvo con las tarjetas, que se lanzan desde la teoría: allí
   // devolver a ejercicios dejaba al alumno en otra pantalla de la que estaba.
-  const returnToDeck = (deckId, tab = 'ejercicios') => {
-    // La mezcla de TODO el vocabulario devuelve a Wortschatz (vocabulario)
+  const returnToDeck = (deckId, tab = 'ejercicios', origen = null) => {
+    // La mezcla de TODO el vocabulario devuelve a la sección desde donde se abrió
     if (String(deckId).startsWith('combi:')) {
-      go('vocab');
+      if (origen === 'home') {
+        go('home');
+      } else {
+        go('vocab');
+      }
       return;
     }
     const d = getDeck(deckId);
@@ -270,13 +274,13 @@ export default function App() {
       openDeck(deckId);
     }
   };
-  const volverDeJuego = (deckId, vmode) =>
-    returnToDeck(deckId, vmode === 'flashcards' ? 'teoria' : 'ejercicios');
+  const volverDeJuego = (deckId, vmode, origen = null) =>
+    returnToDeck(deckId, vmode === 'flashcards' ? 'teoria' : 'ejercicios', origen);
   // fallos: la misma partida pero con un subconjunto del mazo.
   //   true / 'fallos' -> solo lo que has fallado
   //   'faltan'        -> solo lo que aun no cuenta para el porcentaje
-  const startVocab = (deckId, vmode, fallos = false, dir = null, cartasFijas = null) =>
-    setViewProxy({ name: 'vsession', deckId, vmode, fallos, dir, cartasFijas, k: Date.now() });
+  const startVocab = (deckId, vmode, fallos = false, dir = null, cartasFijas = null, origen = null) =>
+    setViewProxy({ name: 'vsession', deckId, vmode, fallos, dir, cartasFijas, origen, k: Date.now() });
   const startReto = (deckId) => setViewProxy({ name: 'vreto', deckId, k: Date.now() });
 
   // Tarjetas de TODO el vocabulario, sin pasar por Wortschatz. Los mazos del
@@ -287,7 +291,7 @@ export default function App() {
   // salia al azar, asi que no se podia practicar el lado dificil a proposito.
   const flashcardsDeTodo = (dir = null) => {
     const ids = mazosParaMezclar().map((d) => d.id);
-    if (ids.length) startVocab('combi:' + ids.join('|'), 'flashcards', false, dir);
+    if (ids.length) startVocab('combi:' + ids.join('|'), 'flashcards', false, dir, null, 'home');
   };
   // El mazo de "solo mis fallos" lleva el mismo id, así que el progreso de cada
   // palabra se sigue apuntando donde toca.
@@ -311,7 +315,7 @@ export default function App() {
       <main className="main">
         {view.name === 'home' && (
           <Dashboard
-            onStart={start}
+            onStart={(topicId, mode, game) => start(topicId, mode, game, null, 'home')}
             onNavigate={go}
             onFox={(abrirCon) => setView({ name: 'fox', abrirCon })}
             onFlashcards={flashcardsDeTodo}
@@ -363,7 +367,9 @@ export default function App() {
             game={view.game}
             itemsFijos={view.itemsFijos}
             onExit={() => {
-              if (!view.topicId || view.topicId === 'mix' || String(view.topicId).startsWith('mix:')) {
+              if (view.origen === 'home' || view.game === 'todo') {
+                go('home');
+              } else if (!view.topicId || view.topicId === 'mix' || String(view.topicId).startsWith('mix:')) {
                 go('grammar');
               } else {
                 openTopic(view.topicId, 'ejercicios');
@@ -481,7 +487,7 @@ export default function App() {
                 <MatchGame
                   key={view.k}
                   deck={mazo}
-                  onExit={() => returnToDeck(view.deckId)}
+                  onExit={() => returnToDeck(view.deckId, 'ejercicios', view.origen)}
                   onFinish={(data) => setView({ name: 'vsummary', data })}
                 />
               ) : view.vmode === 'wortsalat' ? (
@@ -489,7 +495,7 @@ export default function App() {
                   key={view.k}
                   deck={mazo}
                   cartasFijas={view.cartasFijas}
-                  onExit={() => returnToDeck(view.deckId)}
+                  onExit={() => returnToDeck(view.deckId, 'ejercicios', view.origen)}
                   onFinish={(data) => setView({ name: 'vsummary', data })}
                 />
               ) : view.vmode === 'hangman' ? (
@@ -497,7 +503,7 @@ export default function App() {
                   key={view.k}
                   deck={mazo}
                   cartasFijas={view.cartasFijas}
-                  onExit={() => returnToDeck(view.deckId)}
+                  onExit={() => returnToDeck(view.deckId, 'ejercicios', view.origen)}
                   onFinish={(data) => setView({ name: 'vsummary', data })}
                 />
               ) : view.vmode === 'blitz' ? (
@@ -505,7 +511,7 @@ export default function App() {
                   key={view.k}
                   deck={mazo}
                   cartasFijas={view.cartasFijas}
-                  onExit={() => returnToDeck(view.deckId)}
+                  onExit={() => returnToDeck(view.deckId, 'ejercicios', view.origen)}
                   onFinish={(data) => setView({ name: 'vsummary', data })}
                 />
               ) : (
@@ -515,7 +521,7 @@ export default function App() {
                   mode={view.vmode}
                   dir={view.dir}
                   cartasFijas={view.cartasFijas}
-                  onExit={() => volverDeJuego(view.deckId, view.vmode)}
+                  onExit={() => volverDeJuego(view.deckId, view.vmode, view.origen)}
                   onFinish={(data) => setView({ name: 'vsummary', data })}
                 />
               )
