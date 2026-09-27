@@ -52,7 +52,7 @@ export const COLORES = [
 // y el monoculo pedia mas coronas que la capa real, asi que la lista de "por
 // ganar" no era una escalera, era un monton. Ahora:
 //
-//   dias    20 chandal · 40 zapatillas · 60 gafas · 90 medalla ·
+//   dias    10 cinta · 20 chandal · 40 zapatillas · 60 gafas · 90 medalla ·
 //           150 trofeo balon · 365 copa de oro
 //   coronas 4 zapatos · 6 cristal · 8 monoculo · 10 capa · 12 collar ·
 //           14 traje · 16 vestido · 18 orbe · 20 cetro · 22 diadema ·
@@ -63,7 +63,6 @@ export const COLORES = [
 export const COMPLEMENTOS = [
   // ---- cabeza ----
   { id: 'nada', de: 'Nichts', ranura: 'cabeza', es: 'Sin nada', en: 'Nothing', precio: 0 },
-  { id: 'cinta', de: 'Stirnband', ranura: 'cabeza', es: 'Cinta del pelo', en: 'Headband', precio: 80 },
   { id: 'flor', de: 'Blume', ranura: 'cabeza', es: 'Flor', en: 'Flower', precio: 100 },
   { id: 'gorroLana', de: 'Wollmütze', ranura: 'cabeza', es: 'Gorro de lana', en: 'Wool beanie', precio: 130 },
   { id: 'gorra', de: 'Kappe', ranura: 'cabeza', es: 'Gorra', en: 'Cap', precio: 160 },
@@ -72,10 +71,12 @@ export const COMPLEMENTOS = [
   { id: 'boina', de: 'Baskenmütze', ranura: 'cabeza', es: 'Boina', en: 'Beret', precio: 250 },
   { id: 'cocinero', de: 'Kochmütze', ranura: 'cabeza', es: 'Gorro de cocinero', en: 'Chef hat', precio: 280 },
   { id: 'casco', de: 'Fahrradhelm', ranura: 'cabeza', es: 'Casco de ciclista', en: 'Cycling helmet', precio: 320 },
+  { id: 'sombreroElegante', de: 'Eleganter Hut', ranura: 'cabeza', es: 'Sombrero elegante', en: 'Elegant hat', precio: 340 },
   { id: 'navidad', de: 'Weihnachtsmütze', ranura: 'cabeza', es: 'Gorro de Navidad', en: 'Santa hat', precio: 360 },
   { id: 'tirolerhut', de: 'Tirolerhut', ranura: 'cabeza', es: 'Sombrero tirolés', en: 'Tyrolean hat', precio: 420 },
   { id: 'auriculares', de: 'Kopfhörer', ranura: 'cabeza', es: 'Auriculares', en: 'Headphones', precio: 460 },
   { id: 'chistera', de: 'Zylinder', ranura: 'cabeza', es: 'Chistera', en: 'Top hat', precio: 520 },
+  { id: 'cinta', de: 'Stirnband', ranura: 'cabeza', es: '🏃 Cinta del pelo', en: '🏃 Headband', req: { tipo: 'dias', n: 10 } },
   { id: 'diadema', de: 'Diadem', ranura: 'cabeza', es: '👑 Diadema de reina', en: '👑 Queen tiara', req: { tipo: 'coronas', n: 22 } },
   { id: 'corona', de: 'Königskrone', ranura: 'cabeza', es: '👑 Corona de rey', en: '👑 King crown', req: { tipo: 'coronas', n: 24 } },
 
@@ -115,6 +116,7 @@ export const COMPLEMENTOS = [
   { id: 'chaleco', de: 'Weste', ranura: 'ropa', es: 'Chaleco', en: 'Puffer vest', precio: 340 },
   { id: 'chubasquero', de: 'Regenjacke', ranura: 'ropa', es: 'Chubasquero', en: 'Rain jacket', precio: 380 },
   { id: 'abrigo', de: 'Mantel', ranura: 'ropa', es: 'Abrigo', en: 'Coat', precio: 440 },
+  { id: 'traje', de: 'Eleganter Anzug', ranura: 'ropa', es: 'Traje de vestir', en: 'Dress suit', precio: 480 },
   { id: 'tracht', de: 'Tracht', ranura: 'ropa', es: 'Traje típico', en: 'Traditional dress', precio: 500 },
   { id: 'peto', de: 'Latzhose', ranura: 'ropa', es: 'Peto', en: 'Dungarees', precio: 540 },
   { id: 'trachtenanzug', de: 'Trachtenanzug', ranura: 'ropa', es: 'Traje tirolés', en: 'Tyrolean suit', precio: 600 },
@@ -154,6 +156,7 @@ export const COMPLEMENTOS = [
   { id: 'taza', de: 'Kaffeetasse', ranura: 'objeto', es: 'Taza de café', en: 'Coffee mug', precio: 180 },
   { id: 'brezel', de: 'Brezel', ranura: 'objeto', es: 'Brezel', en: 'Pretzel', precio: 220 },
   { id: 'paraguas', de: 'Regenschirm', ranura: 'objeto', es: 'Paraguas', en: 'Umbrella', precio: 280 },
+  { id: 'baston', de: 'Spazierstock', ranura: 'objeto', es: 'Bastón', en: 'Walking stick', precio: 320 },
   { id: 'mochila', de: 'Rucksack', ranura: 'objeto', es: 'Mochila', en: 'Backpack', precio: 320 },
   { id: 'globo', de: 'Luftballon', ranura: 'objeto', es: 'Globo', en: 'Balloon', precio: 380 },
   { id: 'camara', de: 'Kamera', ranura: 'objeto', es: 'Cámara de fotos', en: 'Camera', precio: 450 },
