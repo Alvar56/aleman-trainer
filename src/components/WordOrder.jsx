@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { t } from '../lib/i18n.js';
+import { tc } from '../lib/contenido/index.js';
 import { useTeclas } from '../lib/teclas.js';
 
 // Ordenar la frase en la misma caja, de dos maneras que valen a la vez:
@@ -254,7 +255,7 @@ export default function WordOrder({ item, onAnswer }) {
 
   return (
     <div>
-      <div className="prompt-label">{item.prompt}</div>
+      <div className="prompt-label">{tc(item.prompt || item.anweisung || '')}</div>
 
       <div
         ref={boxRef}

@@ -9,6 +9,7 @@ import konnektoren from './konnektoren.js';
 import trennbar from './trennbar.js';
 import { KURSBUCH, BAENDE, getLektion, lektionTopic } from '../lib/kursbuch/index.js';
 import { tc, tcEjemplos, tcTabla, tcMas, tcLista } from '../lib/contenido/index.js';
+import { pick } from '../lib/i18n.js';
 import { getUserGrammarTopic, getUserGrammarTopics } from '../lib/userGrammar.js';
 import { respuestaDe } from '../lib/kursbuch/respuestas.js';
 
@@ -98,7 +99,7 @@ export function kommFrames(bandId = null) {
           answer: resp.de,
           options,
           translation: w.es + (resp.es ? ' → ' + tc(resp.es) : ''),
-          explanation: `Respuesta adecuada: "${resp.de}"`
+          explanation: pick(`Respuesta adecuada: "${resp.de}"`, `Appropriate response: "${resp.de}"`)
         };
       }
       const distractores = todasFrases
@@ -114,7 +115,7 @@ export function kommFrames(bandId = null) {
         id: `komm-q-${idx}`,
         type: 'mc',
         conceptId: `komm:${w.lektionId}`,
-        sentence: `¿Cómo se dice: "${w.es}"?`,
+        sentence: pick(`¿Cómo se dice: "${w.es}"?`, `How do you say: "${w.es}"?`),
         answer: w.de,
         options,
         translation: w.es,

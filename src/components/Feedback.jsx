@@ -79,7 +79,7 @@ export default function Feedback({ item, correct, chosen, onNext, onRetry, last 
 function deLine(item) {
   if (!item) return '';
   if (item.type === 'order' && item.solution) return item.solution.join(' ');
-  if (item.type === 'judge') return item.correctForm || '';
+  if (item.type === 'judge') return item.correctForm || item.display || item.sentence || '';
   if (item.type === 'cloze') {
     if (!item.clozeText) return '';
     let i = 0;
@@ -87,7 +87,10 @@ function deLine(item) {
   }
   if (item.type === 'open') return item.question || item.sentence || '';
   
-  const parts = String(item.answer || '___').split(/\s*\.\.\.\s*/);
-  let i = 0;
-  return String(item.sentence || '').replace(/___/g, () => parts[i++] || '___');
+  if (item.sentence && item.sentence.includes('___')) {
+    const parts = String(item.answer || '___').split(/\s*\.\.\.\s*/);
+    let i = 0;
+    return String(item.sentence).replace(/___/g, () => parts[i++] || '___');
+  }
+  return item.answer ? `${item.sentence ? item.sentence + ' → ' : ''}${item.answer}` : (item.sentence || '');
 }

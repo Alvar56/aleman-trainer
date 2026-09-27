@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { isStarred, toggleStar, onStarsChanged } from '../lib/stars.js';
+import { t } from '../lib/i18n.js';
 
 export default function StarButton({ item, className = '', onToggle }) {
   const [starred, setStarred] = useState(false);
@@ -25,8 +26,8 @@ export default function StarButton({ item, className = '', onToggle }) {
         setStarred(next);
         onToggle?.(next);
       }}
-      title={starred ? 'Quitar de favoritos' : 'Guardar en favoritos'}
-      aria-label={starred ? 'Quitar de favoritos' : 'Guardar en favoritos'}
+      title={starred ? t('star.remove') : t('star.add')}
+      aria-label={starred ? t('star.remove') : t('star.add')}
     >
       <svg
         width="14"

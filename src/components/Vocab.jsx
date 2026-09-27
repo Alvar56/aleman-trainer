@@ -19,6 +19,7 @@ import PuntoColor from './PuntoColor.jsx';
 import ModalConjugacion from './ModalConjugacion.jsx';
 import EtiquetaChip from './EtiquetaChip.jsx';
 import FotosVocab from './FotosVocab.jsx';
+import StarButton from './StarButton.jsx';
 function CustomDropdown({ options, value, onChange }) {
   const [open, setOpen] = useState(false);
   const selected = options.find((o) => o.value === value) || options[0];
@@ -406,7 +407,9 @@ function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onStartGramma
                   className="btn-ghost btn-sm"
                   onClick={() => onStart(todo.id, 'quiz', false, null, starredVocab)}
                 >
-                  ⭐ Repasar {starredGrammar.length > 0 ? 'vocabulario marcado' : 'marcados'} ({starredVocab.length})
+                  {starredGrammar.length > 0
+                    ? t('star.reviewVocab', { n: starredVocab.length })
+                    : t('star.review', { n: starredVocab.length })}
                 </button>
               )}
               {starredGrammar.length > 0 && (
@@ -416,7 +419,9 @@ function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onStartGramma
                     onStartGrammar?.(`kb-${lektion.id}`, 'mixed', 'mixed', starredGrammar)
                   }
                 >
-                  ⭐ Repasar {starredVocab.length > 0 ? 'gramática marcada' : 'marcados'} ({starredGrammar.length})
+                  {starredVocab.length > 0
+                    ? t('star.reviewGrammar', { n: starredGrammar.length })
+                    : t('star.review', { n: starredGrammar.length })}
                 </button>
               )}
               <button
@@ -698,6 +703,7 @@ function VocabTableRow({ c, deckId, lektionId, onConjugate, loadingVerb }) {
               </span>
             </button>
           )}
+          <StarButton item={{ ...c, id: 'vocab:' + (c.id || c.de), de: c.de, es: c.es, deckId, lektionId }} />
           {/* El altavoz, pegado al punto de color: los dos son cosas que le
               haces a esa palabra concreta. */}
           <Escuchar texto={c.de} />

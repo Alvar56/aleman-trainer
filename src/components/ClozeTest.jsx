@@ -1,8 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { t } from '../lib/i18n.js';
+import { tc } from '../lib/contenido/index.js';
 
 function normaliza(s) {
   return String(s || '').trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+function isGapCorrect(userVal, expected) {
+  const userNorm = normaliza(userVal);
+  const alts = String(expected || '').split(/\s*[\/|]\s*|\s+oder\s+/i);
+  return alts.some((alt) => userNorm === normaliza(alt));
 }
 
 export default function ClozeTest({ item, onAnswer }) {
@@ -40,7 +47,7 @@ export default function ClozeTest({ item, onAnswer }) {
     setHecho(true);
 
     // Evaluamos si todos los huecos están bien
-    const correct = answers.every((a, i) => normaliza(a) === normaliza(clozeAnswers[i]));
+    const correct = answers.every((a, i) => isGapCorrect(a, clozeAnswers[i]));
     onAnswer(correct, answers.join(', '));
   }
 
@@ -64,7 +71,7 @@ export default function ClozeTest({ item, onAnswer }) {
 
   return (
     <div>
-      <div className="prompt-label">{item.anweisung || t('ses.writeGap')}</div>
+      <div className="prompt-label">{tc(item.anweisung) || t('ses.writeGap')}</div>
 
       <div className="sentence cloze-frase" style={{ '--cloze-ancho': largo + 1.5 + 'ch' }}>
         {parts.map((p, i) => (
@@ -78,7 +85,7 @@ export default function ClozeTest({ item, onAnswer }) {
                   'cloze-hueco' +
                   (answers[i] ? ' puesto' : '') +
                   (!hecho && i === destino ? ' destino' : '') +
-                  (hecho ? (normaliza(answers[i]) === normaliza(clozeAnswers[i]) ? ' bien' : ' mal') : '')
+                  (hecho ? (isGapCorrect(answers[i], clozeAnswers[i]) ? ' bien' : ' mal') : '')
                 }
                 value={answers[i]}
                 onChange={(e) => handleChange(i, e.target.value)}

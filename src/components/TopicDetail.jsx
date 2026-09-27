@@ -5,6 +5,7 @@ import { SIN_IA, PORTABLE } from '../lib/modo.js';
 import { topicMastery, weakConcepts, conceptosQueFaltan, UMBRAL_TERMINAR } from '../lib/progress.js';
 import { aiAvailable } from '../lib/settings.js';
 import { deleteUserGrammarTopic } from '../lib/userGrammar.js';
+import { tc } from '../lib/contenido/index.js';
 import CoronaPanel, { BarrasTema } from './ProgresoTema.jsx';
 import Desplegable from './Desplegable.jsx';
 import TextoAleman from './TextoAleman.jsx';
@@ -18,7 +19,7 @@ function Examples({ list }) {
       {list.map((ex, j) => (
         <div className="ex" key={j}>
           <span className="ex-de">{ex.de}</span>
-          <span className="ex-es">{ex.es}</span>
+          <span className="ex-es">{tc(ex.es)}</span>
         </div>
       ))}
     </div>
@@ -29,14 +30,14 @@ function MiniTable({ table }) {
   if (!table) return null;
   return (
     <div className="scroll-x" style={{ marginTop: 12 }}>
-      {table.title && <h3 style={{ marginBottom: 8 }}>{table.title}</h3>}
+      {table.title && <h3 style={{ marginBottom: 8 }}>{tc(table.title)}</h3>}
       <table>
         <thead>
-          <tr>{table.headers.map((h, i) => <th key={i}>{h}</th>)}</tr>
+          <tr>{table.headers.map((h, i) => <th key={i}>{tc(h)}</th>)}</tr>
         </thead>
         <tbody>
           {table.rows.map((r, i) => (
-            <tr key={i}>{r.map((c, j) => <td key={j}>{c}</td>)}</tr>
+            <tr key={i}>{r.map((c, j) => <td key={j}>{tc(c)}</td>)}</tr>
           ))}
         </tbody>
       </table>
@@ -62,11 +63,11 @@ function TheorySection({ s }) {
         aria-expanded={open}
         disabled={!canExpand}
       >
-        <h2>{s.title}</h2>
+        <h2>{tc(s.title)}</h2>
         {canExpand && <span className="sec-toggle">{open ? t('gr.less') : t('gr.more')}</span>}
       </button>
 
-      {s.body && <p className="muted sec-body"><TextoAleman texto={s.body} /></p>}
+      {s.body && <p className="muted sec-body"><TextoAleman texto={tc(s.body)} /></p>}
 
       <Examples list={primeros} />
 
@@ -82,12 +83,12 @@ function TheorySection({ s }) {
                 .split('\n\n')
                 .map((parrafo, i) => (
                   <p key={i}>
-                    <TextoAleman texto={parrafo} />
+                    <TextoAleman texto={tc(parrafo)} />
                   </p>
                 ))}
             {s.more && (
               <>
-                {s.more.title && <h3>{s.more.title}</h3>}
+                {s.more.title && <h3>{tc(s.more.title)}</h3>}
                 <Examples list={s.more.examples} />
               </>
             )}
@@ -168,10 +169,10 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
     <div>
       <div className="topbar">
         <div className="min0">
-          <h1>{topic.emoji && <span style={{ marginRight: 8 }}>{topic.emoji}</span>}{topic.nameEs}</h1>
+          <h1>{topic.emoji && <span style={{ marginRight: 8 }}>{topic.emoji}</span>}{pick(topic.nameEs, topic.nameEn || topic.name)}</h1>
           <p className="muted" style={{ marginTop: 4, fontSize: '0.9rem' }}>
-            {topic.name} · {topic.blurb}
-            {topic.custom && <span className="pill" style={{ marginLeft: 8, fontSize: '0.75rem' }}>✨ Creado con IA</span>}
+            {topic.name} · {pick(topic.blurb, topic.blurbEn || tc(topic.blurb))}
+            {topic.custom && <span className="pill" style={{ marginLeft: 8, fontSize: '0.75rem' }}>✨ {pick('Creado con IA', 'Created with AI')}</span>}
           </p>
         </div>
         <div className="row" style={{ gap: 8, flexShrink: 0, alignItems: 'center' }}>
@@ -220,7 +221,7 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
         <div className="stack">
           {th.intro && (
             <div className="panel intro-panel">
-              <p>{th.intro}</p>
+              <p>{tc(th.intro)}</p>
             </div>
           )}
 
@@ -234,11 +235,11 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
                     <div className="row spread" style={{ alignItems: 'flex-start' }}>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ fontWeight: 600, fontSize: '0.98rem' }}>{c.de}</div>
-                        <div className="muted" style={{ fontSize: '0.84rem', marginTop: 2 }}>{c.es}</div>
+                        <div className="muted" style={{ fontSize: '0.84rem', marginTop: 2 }}>{tc(c.es)}</div>
                         {c.ex && (
                           <div style={{ marginTop: 6, fontSize: '0.82rem', borderLeft: '2px solid var(--accent)', paddingLeft: 8 }}>
                             <div style={{ fontWeight: 500 }}>{c.ex}</div>
-                            {c.exEs && <div className="muted" style={{ fontSize: '0.78rem' }}>{c.exEs}</div>}
+                            {c.exEs && <div className="muted" style={{ fontSize: '0.78rem' }}>{tc(c.exEs)}</div>}
                           </div>
                         )}
                       </div>
@@ -258,14 +259,14 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
 
           {th.table && (
             <div className="panel scroll-x">
-              <h2>{th.table.title || 'Resumen'}</h2>
+              <h2>{tc(th.table.title) || pick('Resumen', 'Summary')}</h2>
               <table>
                 <thead>
-                  <tr>{th.table.headers.map((h, i) => <th key={i}>{h}</th>)}</tr>
+                  <tr>{th.table.headers.map((h, i) => <th key={i}>{tc(h)}</th>)}</tr>
                 </thead>
                 <tbody>
                   {th.table.rows.map((r, i) => (
-                    <tr key={i}>{r.map((c, j) => <td key={j}>{c}</td>)}</tr>
+                    <tr key={i}>{r.map((c, j) => <td key={j}>{tc(c)}</td>)}</tr>
                   ))}
                 </tbody>
               </table>
@@ -277,7 +278,7 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
               <h2>{t('gr.pitfalls')}</h2>
               <ul className="pitfalls">
                 {th.pitfalls.map((p, i) => (
-                  <li key={i}>{p}</li>
+                  <li key={i}>{tc(p)}</li>
                 ))}
               </ul>
             </div>
@@ -288,7 +289,7 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
               <span className="ask-merk-ico" style={{ fontSize: '1.4rem' }}>🧠</span>
               <div>
                 <strong>{t('ask.remember')}</strong>
-                <p style={{ marginTop: 2 }}>{th.merksatz}</p>
+                <p style={{ marginTop: 2 }}>{tc(th.merksatz)}</p>
               </div>
             </div>
           )}
@@ -380,7 +381,7 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
                     className="btn-ghost btn-sm"
                     onClick={() => onStart(topic.id, 'mixed', 'mixed', starred)}
                   >
-                    ⭐ Repasar marcados ({starred.length})
+                    {t('star.review', { n: starred.length })}
                   </button>
                 )}
                 <button

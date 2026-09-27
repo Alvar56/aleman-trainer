@@ -647,7 +647,7 @@ function KommDetail({
                   })
                 }
               >
-                ⭐ Repasar marcados ({starredKomm.length})
+                {t('star.review', { n: starredKomm.length })}
               </button>
             )}
             <button

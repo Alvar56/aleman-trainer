@@ -1,5 +1,10 @@
 import React, { useMemo, useState } from 'react';
 import { useTeclas, teclasDeOpciones } from '../lib/teclas.js';
+import { tc } from '../lib/contenido/index.js';
+
+function norm(s) {
+  return String(s || '').trim().toLowerCase().replace(/\s+/g, ' ');
+}
 
 // Muestra la frase con el hueco y las opciones. Al elegir, bloquea y avisa.
 export default function MultipleChoice({ item, onAnswer }) {
@@ -9,7 +14,7 @@ export default function MultipleChoice({ item, onAnswer }) {
   function choose(opt) {
     if (done) return;
     setPicked(opt);
-    onAnswer(opt === item.answer, opt);
+    onAnswer(norm(opt) === norm(item.answer), opt);
   }
 
   // Deduplicación preventiva de opciones para evitar respuestas repetidas
@@ -18,12 +23,12 @@ export default function MultipleChoice({ item, onAnswer }) {
     const seen = new Set();
     const clean = [];
     for (const opt of raw) {
-      const key = String(opt || '').trim().toLowerCase().replace(/\s+/g, ' ');
+      const key = norm(opt);
       if (!key || seen.has(key)) continue;
       seen.add(key);
       clean.push(opt);
     }
-    if (item?.answer && !clean.some(o => String(o).trim().toLowerCase().replace(/\s+/g, ' ') === String(item.answer).trim().toLowerCase().replace(/\s+/g, ' '))) {
+    if (item?.answer && !clean.some(o => norm(o) === norm(item.answer))) {
       clean.unshift(item.answer);
     }
     return clean;
@@ -38,7 +43,7 @@ export default function MultipleChoice({ item, onAnswer }) {
 
   return (
     <div>
-      <div className="prompt-label">{item.prompt || item.anweisung || ''}</div>
+      <div className="prompt-label">{tc(item.prompt || item.anweisung || '')}</div>
       {/* `marco` enmarca la frase segun lo que sea: algo que te DICEN se
           pinta como un bocadillo y no como una frase suelta en negrita. Sin
           esto, el enunciado y la frase salian uno debajo del otro con la
@@ -49,7 +54,7 @@ export default function MultipleChoice({ item, onAnswer }) {
             {p}
             {i < parts.length - 1 && (
               <span className={'blank' + (done ? ' filled' : '')}>
-                {done ? (answerParts[i] || ' ') : ' '}
+                {done ? (answerParts[i] || ' ') : ' '}
               </span>
             )}
           </React.Fragment>
@@ -59,8 +64,8 @@ export default function MultipleChoice({ item, onAnswer }) {
         {safeOptions.map((opt, i) => {
           let cls = 'option';
           if (done) {
-            if (opt === item.answer) cls += ' correct';
-            else if (opt === picked) cls += ' wrong';
+            if (norm(opt) === norm(item.answer)) cls += ' correct';
+            else if (opt === picked || norm(opt) === norm(picked)) cls += ' wrong';
             else cls += ' dim';
           }
           return (

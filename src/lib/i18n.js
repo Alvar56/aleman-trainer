@@ -805,6 +805,12 @@ const DICT = {
     'This lesson only has AI exercises. Turn the AI on in the sidebar.'
   ],
   'gr.noTopic': ['No se encontró este tema.', 'Topic not found.'],
+  'star.add': ['Guardar en favoritos', 'Save to favorites'],
+  'star.remove': ['Quitar de favoritos', 'Remove from favorites'],
+  'star.review': ['⭐ Repasar marcados ({n})', '⭐ Review starred ({n})'],
+  'star.reviewVocab': ['⭐ Repasar vocabulario marcado ({n})', '⭐ Review starred vocabulary ({n})'],
+  'star.reviewGrammar': ['⭐ Repasar gramática marcada ({n})', '⭐ Review starred grammar ({n})'],
+  'oq.prompt': ['Responde a la pregunta', 'Answer the question'],
 
   // buscador de dudas
   'ask.title': ['Pregunta tu duda', 'Ask your question'],

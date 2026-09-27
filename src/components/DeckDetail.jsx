@@ -13,6 +13,7 @@ import Escuchar from './Escuchar.jsx';
 import PuntoColor from './PuntoColor.jsx';
 import ModalConjugacion from './ModalConjugacion.jsx';
 import FotosVocab from './FotosVocab.jsx';
+import StarButton from './StarButton.jsx';
 
 // Mismas dos pestañas que en Grammatik: primero te lees las palabras, luego
 // juegas. Antes salía todo de corrido y los juegos tapaban la lista, que es
@@ -195,7 +196,7 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
                   className="btn-ghost btn-sm"
                   onClick={() => onStart(deck.id, 'quiz', false, null, starred)}
                 >
-                  ⭐ Repasar marcados ({starred.length})
+                  {t('star.review', { n: starred.length })}
                 </button>
               )}
               <button
@@ -273,7 +274,7 @@ function VocabCard({ card, deckId, onConjugate, loadingVerb }) {
           <div style={{ fontWeight: 600 }}>{card.de}</div>
           <div className="muted" style={{ fontSize: '0.82rem' }}>{card.es}</div>
         </div>
-        <div className="row" style={{ gap: 8 }}>
+        <div className="row" style={{ gap: 8, alignItems: 'center' }}>
           {isVerb && (
             <button 
               className="btn-ghost btn-conjugar" 
@@ -283,6 +284,7 @@ function VocabCard({ card, deckId, onConjugate, loadingVerb }) {
               {loadingVerb === word ? t('loading') : t('voc.conjugate')}
             </button>
           )}
+          <StarButton item={{ ...card, id: 'vocab:' + (card.id || card.de), de: card.de, es: card.es, deckId }} />
           {/* El altavoz, pegado al punto de color: los dos son cosas que le
               haces a esa palabra concreta. */}
           <Escuchar texto={card.de} />

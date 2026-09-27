@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { t } from '../lib/i18n.js';
+import { useTeclas } from '../lib/teclas.js';
 
 // Juego "¿correcto o no?": se muestra una frase (a veces con un error)
 // y el usuario decide si está bien.
@@ -12,6 +13,16 @@ export default function JudgeCard({ item, onAnswer }) {
     setPicked(saysCorrect);
     onAnswer(saysCorrect === item.isCorrect, saysCorrect ? 'richtig' : 'falsch');
   }
+
+  useTeclas({
+    '1': () => choose(true),
+    '2': () => choose(false),
+    'r': () => choose(true),
+    'f': () => choose(false),
+    'j': () => choose(true),
+    'n': () => choose(false),
+    'y': () => choose(true)
+  }, !done);
 
   return (
     <div>

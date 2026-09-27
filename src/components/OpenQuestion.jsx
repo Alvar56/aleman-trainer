@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { t } from '../lib/i18n.js';
+import { tc } from '../lib/contenido/index.js';
 import { evaluateAnswer } from '../lib/ai.js';
 import { getLektion } from '../lib/kursbuch/index.js';
 
@@ -45,7 +46,7 @@ export default function OpenQuestion({ item, onAnswer, lektionId }) {
 
   return (
     <div>
-      <div className="prompt-label">{item.anweisung || 'Responde a la pregunta'}</div>
+      <div className="prompt-label">{tc(item.anweisung) || t('oq.prompt')}</div>
       
       {item.context && (
         <div style={{ marginBottom: 16, padding: 12, background: 'var(--surface-2)', borderRadius: 8, fontStyle: 'italic', fontSize: '0.95rem' }}>

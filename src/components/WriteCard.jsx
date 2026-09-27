@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { t } from '../lib/i18n.js';
+import { tc } from '../lib/contenido/index.js';
 import Umlaut from './Umlaut.jsx';
 import PistaLetras from './PistaLetras.jsx';
 
@@ -11,6 +12,12 @@ import PistaLetras from './PistaLetras.jsx';
 // la ß: escribir "grosse" por "große" es justo el fallo que hay que corregir.
 function normaliza(s) {
   return String(s || '').trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+function checkMatches(inputVal, answer) {
+  const userNorm = normaliza(inputVal);
+  const alts = String(answer || '').split(/\s*[\/|]\s*|\s+oder\s+/i);
+  return alts.some((alt) => userNorm === normaliza(alt.replace(/\s*\.\.\.\s*/g, ' ')));
 }
 
 export default function WriteCard({ item, onAnswer }) {
@@ -30,19 +37,19 @@ export default function WriteCard({ item, onAnswer }) {
   function comprobar() {
     if (hecho || !texto.trim()) return;
     setHecho(true);
-    const esperado = normaliza(String(item.answer || '').replace(/\s*\.\.\.\s*/g, ' '));
+    const isCorrect = checkMatches(texto, item.answer);
     // Las pistas van tambien: destapar letras abarata el ejercicio, igual
     // que en el juego de traducir.
-    onAnswer(normaliza(texto) === esperado, texto.trim(), pistas);
+    onAnswer(isCorrect, texto.trim(), pistas);
   }
 
   const parts = String(item.sentence).split('___');
   const answerParts = String(item.answer || '').split(/\s*\.\.\.\s*/);
-  const bien = hecho && normaliza(texto) === normaliza(String(item.answer || '').replace(/\s*\.\.\.\s*/g, ' '));
+  const bien = hecho && checkMatches(texto, item.answer);
 
   return (
     <div>
-      <div className="prompt-label">{item.anweisung || t('ses.writeGap')}</div>
+      <div className="prompt-label">{tc(item.anweisung) || t('ses.writeGap')}</div>
       <div className="sentence">
         {parts.map((p, i) => (
           <React.Fragment key={i}>
