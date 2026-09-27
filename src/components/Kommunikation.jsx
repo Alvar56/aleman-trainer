@@ -8,7 +8,7 @@ import Dialog from './Dialog.jsx';
 import KommAsk from './KommAsk.jsx';
 import Cargando from './Cargando.jsx';
 import LargoDialogo, { turnosDe, largoGuardado } from './LargoDialogo.jsx';
-import KommPractice from './KommPractice.jsx';
+import KommPractice, { TIPOS } from './KommPractice.jsx';
 import MezclaKomm, { frasesDe } from './MezclaKomm.jsx';
 import Desplegable from './Desplegable.jsx';
 import { estadisticas as ueStats } from '../lib/uebersetzen.js';
@@ -25,15 +25,11 @@ import BotonCopiar from './BotonCopiar.jsx';
 import { getStarredItems, useStars } from '../lib/stars.js';
 import FotosVocab from './FotosVocab.jsx';
 
-// Los tipos de pregunta que se pueden practicar sueltos.
-//
-// No están los seis: "todo mezclado" ya es lo que hace practicar un apartado
-// desde Teoría -y la mezcla de toda la comunicación está en la portada de la
-// sección-, y ordenar la frase se le da mal a este material: las frases del
-// libro son diálogos de dos intervenciones ("Wie geht's? – Danke, gut.") y
-// colocarlas en orden mide el guion, no el alemán. Sigue saliendo dentro de la
-// práctica de un apartado, donde se mezcla con las demás.
+// Los tipos de pregunta que se pueden practicar.
 const TIPOS_EJERCICIO = [
+  { id: 'todo', emoji: '🔀', tipos: TIPOS,
+    es: 'De todo un poco', en: 'A bit of everything',
+    subEs: 'Todas las frases y tipos mezclados', subEn: 'all phrases and exercise types mixed' },
   { id: 'decir', emoji: '✅', tipos: ['decir'],
     es: 'Elegir la frase', en: 'Pick the phrase',
     subEs: 'Del castellano al alemán', subEn: 'from your language into German' },
@@ -477,6 +473,18 @@ function KommDetail({
               ))}
           </div>
         </div>
+      )}
+
+      {todasLasFrases.length > 0 && (
+        <button
+          className="btn-primary"
+          style={{ width: '100%', justifyContent: 'center', gap: 8, padding: '10px 16px', marginBottom: 6 }}
+          onClick={() => setPractica({ funktion: todaLaLeccion, tipos: TIPOS, mezcla: true, volverA: 'teoria' })}
+        >
+          <span>🔀</span>
+          <span>{pick('Practicar toda la comunicación', 'Practise all communication')}</span>
+          <small style={{ opacity: 0.85 }}>({todasLasFrases.length} {t('komm.phrases')})</small>
+        </button>
       )}
 
       {funktionen.map((k, i) => (

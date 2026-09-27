@@ -67,7 +67,7 @@ function mezclar(a) {
 //              quiere decir. Es la que se contesta mas rapido, y por eso paga
 //              menos, pero hace falta: reconocer lo que te dicen es la mitad
 //              de una conversacion.
-const TIPOS = ['decir', 'contestar', 'entender', 'hueco', 'significado'];
+export const TIPOS = ['decir', 'contestar', 'entender', 'hueco', 'significado', 'ordenar'];
 
 // Preguntas por tanda. Una funcion del libro trae tres o cuatro frases, asi
 // que una pregunta por frase dejaba tandas de tres: se acababan antes de
