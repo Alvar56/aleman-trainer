@@ -202,72 +202,136 @@ function montadores(w, ajenas, otrasRespuestas, glosas, vuelta = 0) {
   };
 }
 
-// La tanda: hasta `objetivo` preguntas repartidas por rondas.
+// Espacia las preguntas para que nunca aparezcan dos de la misma frase
+// seguidas ni se concentren los mismos tipos de ejercicio.
+function espaciarPreguntas(lista) {
+  if (lista.length <= 2) return mezclar(lista);
+  const mezcladas = mezclar(lista);
+  const res = [];
+  const pendientes = [...mezcladas];
+
+  while (pendientes.length > 0) {
+    const ultimoDe = res.length > 0 ? res[res.length - 1].de : null;
+    const ultimoTipo = res.length > 0 ? res[res.length - 1].tipo : null;
+
+    // 1. Intentar encontrar candidato con distinta frase y distinto tipo
+    let idx = pendientes.findIndex((p) => p.de !== ultimoDe && p.tipo !== ultimoTipo);
+    // 2. Si no hay, al menos distinta frase
+    if (idx === -1) {
+      idx = pendientes.findIndex((p) => p.de !== ultimoDe);
+    }
+    // 3. Si no queda otra, el primero disponible
+    if (idx === -1) {
+      idx = 0;
+    }
+    res.push(pendientes.splice(idx, 1)[0]);
+  }
+  return res;
+}
+
+// La tanda: genera hasta `objetivo` preguntas con máxima variedad y sin
+// repeticiones innecesarias.
 //
-// Primero una de cada frase, luego la segunda de cada frase, y asi. De ese modo
-// entran TODAS las frases antes de repetir ninguna, y cuando una vuelve lo hace
-// con otro tipo de pregunta: si la primera vez la elegiste de una lista, la
-// segunda te toca ordenarla. Antes era una pregunta por frase y se acababa en
-// tres.
-// `tipos` limita a que clase de pregunta: la pestaña de ejercicios ofrece
-// practicar un solo tipo con TODAS las frases de la lección (solo elegir la
-// frase, solo ordenarla…), igual que en Wortschatz se elige el juego.
-function construir(wendungen, ajenas, otrasRespuestas = [], glosas = [], objetivo = POR_TANDA, tipos = TIPOS, lektionId = null) {
-  // Las frases del apartado MAS los turnos con los que sigue la conversacion:
-  // si una frase se ha alargado dos vueltas, esas dos frases tambien se
-  // practican. Heredan el apartado de la frase que las trae, para que cuenten
-  // donde tienen que contar.
-  const frases = mezclar(
+// Prioriza las frases del apartado elegido (con tipos distintos para cada
+// una), y si el apartado tiene pocas frases, complementa con otras frases de
+// la lección en vez de machacar las mismas 3 frases en un bucle repetitivo.
+function construir(wendungen, ajenas = [], otrasRespuestas = [], glosas = [], objetivo = POR_TANDA, tipos = TIPOS, lektionId = null) {
+  const frasesPrimarias = mezclar(
     wendungen.flatMap((w) => [
       w,
-      ...seguimientoDe(w.de).map((x) => ({ ...x, seccion: w.seccion }))
+      ...seguimientoDe(w.de).map((x) => ({ ...x, seccion: w.seccion || w.funktion }))
     ])
   );
-  const porFrase = frases.map(() => []);
 
-  // Se dan vueltas a las frases hasta juntar diez preguntas. Con los seis tipos
-  // basta la primera; practicando UN solo tipo, una leccion de cinco frases
-  // daba cinco preguntas y la tanda se quedaba a medias. Si una vuelta entera
-  // no aporta nada -ninguna frase admite ya ese tipo- se para ahi.
-  let hay = 0;
-  for (let k = 0; hay < objetivo && k < tipos.length + objetivo; k++) {
-    let nuevas = 0;
-    frases.forEach((w, i) => {
-      // Se vuelve a montar en cada vuelta: los distractores se barajan otra vez
-      // y el hueco se abre en otra palabra, asi que cuando una frase repite no
-      // es la misma pregunta clavada.
-      const monta = montadores(w, ajenas, otrasRespuestas, glosas, k);
-      // Cada frase estrena un tipo distinto: la primera empieza por 'decir', la
-      // segunda por 'ordenar'... Asi la tanda no son diez preguntas del mismo
-      // corte aunque todas las frases admitan los seis.
-      const p = monta[tipos[(i + k) % tipos.length]]();
-      // De qué apartado salió la frase, para saber qué marcar al final.
-      if (p) {
-        const id = `komm:${lektionId || ''}:${p.tipo || 'mc'}:${w.de}`;
-        porFrase[i].push({
-          ...p,
-          id,
-          seccion: w.seccion,
-          lektionId,
-          de: w.de,
-          es: w.es
-        });
-        nuevas++;
+  const ajenasTxt = ajenas.filter((txt) => !frasesPrimarias.some((p) => p.de === txt));
+  const frasesAjenas = ajenasTxt.map((txt) => {
+    const gIdx = ajenas.indexOf(txt);
+    const es = glosas[gIdx] || '';
+    return { de: txt, es, seccion: null };
+  });
+
+  if (!frasesPrimarias.length && !frasesAjenas.length) return [];
+
+  const tiposDisponibles = tipos.length ? tipos : TIPOS;
+  const candidatas = [];
+  const usadasPorFrase = new Map();
+
+  const intentarGenerar = (w, tipoForzado = null, vuelta = 0) => {
+    const tiposProbables = tipoForzado ? [tipoForzado] : mezclar([...tiposDisponibles]);
+    const monta = montadores(w, ajenas, otrasRespuestas, glosas, vuelta);
+    for (const t of tiposProbables) {
+      if (typeof monta[t] === 'function') {
+        const p = monta[t]();
+        if (p) {
+          return {
+            ...p,
+            id: `komm:${lektionId || ''}:${p.tipo || 'mc'}:${w.de}:${t}:${vuelta}`,
+            seccion: w.seccion,
+            lektionId,
+            de: w.de,
+            es: w.es,
+            _kommTipo: t
+          };
+        }
       }
-    });
-    if (!nuevas) break;
-    hay += nuevas;
-  }
+    }
+    return null;
+  };
 
-  const salida = [];
-  for (let ronda = 0; salida.length < objetivo; ronda++) {
-    if (!porFrase.some((lista) => lista.length > ronda)) break; // no queda nada
-    for (const lista of porFrase) {
-      if (lista.length > ronda) salida.push(lista[ronda]);
-      if (salida.length >= objetivo) break;
+  // Ronda 1: Al menos un ejercicio de cada frase primaria
+  for (const w of frasesPrimarias) {
+    const item = intentarGenerar(w, null, 0);
+    if (item) {
+      candidatas.push(item);
+      if (!usadasPorFrase.has(w.de)) usadasPorFrase.set(w.de, new Set());
+      usadasPorFrase.get(w.de).add(item._kommTipo);
     }
   }
-  return salida;
+
+  // Ronda 2: Si el apartado es corto, dar un 2º ejercicio con formato/tipo DISTINTO
+  if (candidatas.length < objetivo) {
+    for (const w of mezclar(frasesPrimarias)) {
+      if (candidatas.length >= objetivo) break;
+      const yaUsados = usadasPorFrase.get(w.de) || new Set();
+      const tiposRestantes = tiposDisponibles.filter((t) => !yaUsados.has(t));
+      const tipoElegido = tiposRestantes.length ? mezclar(tiposRestantes)[0] : null;
+      const item = intentarGenerar(w, tipoElegido, 1);
+      if (item) {
+        candidatas.push(item);
+        yaUsados.add(item._kommTipo);
+      }
+    }
+  }
+
+  // Ronda 3: Si todavía faltan preguntas (para no saturar con la misma frase),
+  // añadimos preguntas de repaso del resto de la lección
+  if (candidatas.length < objetivo && frasesAjenas.length > 0) {
+    for (const w of mezclar(frasesAjenas)) {
+      if (candidatas.length >= objetivo) break;
+      const item = intentarGenerar(w, null, 0);
+      if (item) {
+        candidatas.push(item);
+      }
+    }
+  }
+
+  // Ronda 4: Si no hay frases ajenas disponibles, completar con variación de salto
+  let vueltaExtra = 2;
+  while (candidatas.length < objetivo && vueltaExtra < 5) {
+    let anyAdded = false;
+    for (const w of mezclar(frasesPrimarias)) {
+      if (candidatas.length >= objetivo) break;
+      const item = intentarGenerar(w, null, vueltaExtra);
+      if (item) {
+        candidatas.push(item);
+        anyAdded = true;
+      }
+    }
+    if (!anyAdded) break;
+    vueltaExtra++;
+  }
+
+  return espaciarPreguntas(candidatas.slice(0, objetivo));
 }
 
 export default function KommPractice({

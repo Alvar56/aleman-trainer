@@ -186,14 +186,30 @@ export function buildSession(topic, { size = 10, mode = 'mixed', gameType = 'mix
   // si el tema tiene alguno. Con juegos concretos (Test, Ordenar…) no aplica,
   // porque ahí el cloze ni siquiera está en el pool.
   const RESERVA_CLOZE = 1;
-  // Coge hasta `n` items distintos de `arr` (sin repetir lo ya elegido).
+  // Coge hasta `n` items distintos de `arr` repartiendo equitativamente entre conceptos.
   const take = (arr, n) => {
+    const porConcepto = new Map();
     for (const it of shuffle(rng, arr)) {
-      if (chosen.length >= size || n <= 0) break;
       if (used.has(it._key)) continue;
-      used.add(it._key);
-      chosen.push(it);
-      n--;
+      const cid = it.conceptId || 'def';
+      if (!porConcepto.has(cid)) porConcepto.set(cid, []);
+      porConcepto.get(cid).push(it);
+    }
+    let added = 0;
+    while (added < n && chosen.length < size && porConcepto.size > 0) {
+      for (const [cid, items] of Array.from(porConcepto.entries())) {
+        if (added >= n || chosen.length >= size) break;
+        if (items.length === 0) {
+          porConcepto.delete(cid);
+          continue;
+        }
+        const it = items.pop();
+        if (!used.has(it._key)) {
+          used.add(it._key);
+          chosen.push(it);
+          added++;
+        }
+      }
     }
   };
 
@@ -211,16 +227,17 @@ export function buildSession(topic, { size = 10, mode = 'mixed', gameType = 'mix
   } else if (mode === 'random') {
     take([...wItems, ...fItems, ...rItems], size);
   } else {
-    take(wItems, weak.size ? Math.round(size * 0.4) : 0);
-    take(fItems, fresh.size ? Math.round(size * 0.25) : 0);
+    // Evita saturar con un único concepto débil limitando a máx 2 por concepto
+    take(wItems, weak.size ? Math.min(Math.round(size * 0.4), weak.size * 2) : 0);
+    take(fItems, fresh.size ? Math.min(Math.round(size * 0.25), fresh.size * 2) : 0);
   }
   // Rellena hasta `size` con lo que quede, sin repetir.
   take(rItems, size - chosen.length);
   take([...wItems, ...fItems], size - chosen.length);
 
   // En tandas mixtas ("De todo un poco"), diversifica los ejercicios para que
-  // haya una mezcla real de tipos: test, ordenar, escribir y cazar el error.
-  if (gameType === 'mixed' && chosen.length >= 4) {
+  // haya una mezcla real y equilibrada de tipos: test, ordenar, escribir y cazar el error.
+  if (gameType === 'mixed' && chosen.length >= 3) {
     const mcIndices = [];
     chosen.forEach((it, idx) => {
       if (it.type === 'mc' && it.sentence && it.answer && !it.sentence.startsWith('—')) {
@@ -228,23 +245,43 @@ export function buildSession(topic, { size = 10, mode = 'mixed', gameType = 'mix
       }
     });
     const shuffled = shuffle(rng, mcIndices);
-    if (shuffled.length >= 1) {
-      const idx = shuffled[0];
-      const j = toJudge(rng, chosen[idx]);
-      if (j) chosen[idx] = j;
+    const nWrite = Math.max(1, Math.floor(chosen.length * 0.25));
+    const nOrder = Math.max(1, Math.floor(chosen.length * 0.20));
+    const nJudge = Math.max(1, Math.floor(chosen.length * 0.20));
+
+    let pos = 0;
+    for (let w = 0; w < nWrite && pos < shuffled.length; w++) {
+      const idx = shuffled[pos++];
+      chosen[idx] = { ...chosen[idx], type: 'write' };
     }
-    if (shuffled.length >= 2) {
-      const idx = shuffled[1];
+    for (let o = 0; o < nOrder && pos < shuffled.length; o++) {
+      const idx = shuffled[pos++];
       const ord = toOrder(rng, chosen[idx]);
       if (ord) chosen[idx] = ord;
     }
-    if (shuffled.length >= 3) {
-      const idx = shuffled[2];
-      chosen[idx] = { ...chosen[idx], type: 'write' };
+    for (let j = 0; j < nJudge && pos < shuffled.length; j++) {
+      const idx = shuffled[pos++];
+      const jud = toJudge(rng, chosen[idx]);
+      if (jud) chosen[idx] = jud;
     }
   }
 
-  return shuffle(rng, chosen).slice(0, size).map(stripInternal);
+  // Espaciado inteligente para evitar que dos ejercicios del mismo tipo o concepto salgan seguidos
+  const espaciados = [];
+  const pendientes = shuffle(rng, chosen).slice(0, size);
+  while (pendientes.length > 0) {
+    const prev = espaciados[espaciados.length - 1];
+    let bestIdx = pendientes.findIndex((it) =>
+      (!prev || (it.conceptId !== prev.conceptId && it.type !== prev.type))
+    );
+    if (bestIdx === -1) {
+      bestIdx = pendientes.findIndex((it) => !prev || it.conceptId !== prev.conceptId);
+    }
+    if (bestIdx === -1) bestIdx = 0;
+    espaciados.push(pendientes.splice(bestIdx, 1)[0]);
+  }
+
+  return espaciados.map(stripInternal);
 }
 
 function stripInternal(it) {
