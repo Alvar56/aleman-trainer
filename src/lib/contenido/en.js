@@ -9,6 +9,7 @@
 //
 //   node scripts/extraer-textos.mjs --faltan   -> que queda por traducir
 export const EN = {
+  'Gramática básica': 'Basic grammar',
   '"aus" = procedencia (de dónde vienes), "in" = dónde vives. Países con artículo: aus der Schweiz, in der Türkei.': '"aus" = origin (where you come from), "in" = where you live. Countries with an article: aus der Schweiz, in der Türkei.',
   'ich, du, er/sie/es, wir, ihr, sie/Sie. "Sie" (con mayúscula) = usted/ustedes, formal.': 'ich, du, er/sie/es, wir, ihr, sie/Sie. "Sie" (capitalised) = formal you, singular or plural.',
   'Regulares: -e, -st, -t, -en, -t, -en. "sein" es irregular: bin, bist, ist, sind, seid, sind.': 'Regular endings: -e, -st, -t, -en, -t, -en. "sein" is irregular: bin, bist, ist, sind, seid, sind.',

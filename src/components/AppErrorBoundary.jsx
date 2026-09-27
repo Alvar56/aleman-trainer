@@ -1,4 +1,5 @@
 import React from 'react';
+import { pick } from '../lib/i18n.js';
 
 export class AppErrorBoundary extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ export class AppErrorBoundary extends React.Component {
               onClick={() => window.location.reload()}
               style={{ marginTop: '16px', background: '#3b82f6', color: '#fff', border: 'none', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer' }}
             >
-              Recargar la app
+              {pick('Recargar la app', 'Reload app')}
             </button>
           </div>
         </div>

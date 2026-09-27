@@ -33,7 +33,7 @@ export default function NotebookSession({ note, lektion, onExit, onFinish }) {
       <div className="card center stack">
         <p>{t('vs.noExercises')}</p>
         <button className="btn-ghost" onClick={onExit}>
-          Volver
+          {t('back')}
         </button>
       </div>
     );

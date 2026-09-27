@@ -173,6 +173,11 @@ const DICT = {
   'tp.glossPlain': ['{s} {v} {m}.', '{s} {v} {m}.'],
   'tp.auxHe': ['he', 'have'],
   'tp.auxHa': ['ha', 'has'],
+  'tp.perfAux.ich': ['he', 'have'],
+  'tp.perfAux.du': ['has', 'have'],
+  'tp.perfAux.er': ['ha', 'has'],
+  'tp.perfAux.wir': ['hemos', 'have'],
+  'tp.perfAux.sie': ['han', 'have'],
   'tp.wouldBeGood': ['Estaría bien {v} {m}.', 'It would be good to {v} {m}.'],
   'tp.becauseGloss': ['…porque {s}{v} {m}.', '…because {s}{v} {m}.'],
   // Enunciados de los ejercicios de src/topics.
@@ -375,6 +380,7 @@ const DICT = {
   'ueb.phEs': ['Escribe la frase en espa\u00f1ol\u2026', 'Write the sentence in English\u2026'],
   'ueb.phDe': ['Escribe la frase en alem\u00e1n\u2026', 'Write the sentence in German\u2026'],
   'ueb.pedirPista': ['Pista ({n} restantes)', 'Hint ({n} left)'],
+  'ueb.pista': ['💡 Pista', '💡 Hint'],
   'ueb.pista1': ['Estructura', 'Structure'],
   'ueb.pista2': ['Palabra clave', 'Keyword'],
   'ueb.pista3': ['Más palabras', 'More words'],
@@ -603,8 +609,8 @@ const DICT = {
   'ses.correctIs': ['Correcto', 'Correct'],
   'ses.alsoRight': ['Tu orden vale. También es correcto:', 'Your order works. This is also correct:'],
   'ses.dragHint': [
-    'Arrastra las palabras a su sitio, o toca una y luego dónde va. Después, Prüfen.',
-    'Drag the words into place, or tap one and then where it goes. Then hit Prüfen.'
+    'Arrastra las palabras a su sitio, o toca una y luego dónde va. Después, comprueba.',
+    'Drag the words into place, or tap one and then where it goes. Then check.'
   ],
   'ses.dragHint2': [
     'Ahora toca la palabra delante de la cual quieres ponerla.',
@@ -670,10 +676,8 @@ const DICT = {
   'ses.reviewing': ['Ya contestado', 'Already answered'],
   'ses.youAnswered': ['Contestaste:', 'You answered:'],
   'ses.writeGap': ['Escribe lo que falta', 'Type the missing word'],
-  // El hueco se rellena en alemán, así que el marcador va en alemán.
-  'ses.writePh': ['deine Antwort…', 'deine Antwort…'],
-  // Se pulsa para corregir algo escrito en alemán: el botón va en alemán.
-  'ses.check': ['Prüfen', 'Prüfen'],
+  'ses.writePh': ['tu respuesta…', 'your answer…'],
+  'ses.check': ['Comprobar', 'Check'],
   'gr.theory': ['📖 Teoría', '📖 Theory'],
   'gr.exercises': ['✏️ Ejercicios', '✏️ Exercises'],
   'gr.more': ['Más +', 'More +'],
@@ -888,7 +892,7 @@ const DICT = {
     'Puedes escribir y guardar apuntes sin IA. Para pasarlos a limpio y generar ejercicios, actívala en el menú lateral.',
     'You can write and save notes without AI. To tidy them up and generate exercises, turn it on in the sidebar.'
   ],
-  'nb.new': ['+ Neuer Eintrag', '+ Neuer Eintrag'],
+  'nb.new': ['+ Nueva entrada', '+ New entry'],
   'nb.withEx': ['{n} con ejercicios', '{n} with exercises'],
   'nb.empty': [
     'Aún no hay apuntes. Crea la primera entrada después de tu próxima clase.',
@@ -1132,14 +1136,14 @@ const DICT = {
   'set.resetDone': ['Progreso borrado ({n} cosas).', 'Progress deleted ({n} items).'],
 
   // Prüfung: pantallas de tarea
-  'ex.backToExam': ['← Prüfung', '← Prüfung'],
-  'ex.backBtn': ['Volver a Prüfung', 'Back to Prüfung'],
+  'ex.backToExam': ['← Examen', '← Exam'],
+  'ex.backBtn': ['Volver al examen', 'Back to exam'],
   'ex.preparing': ['Preparando la tarea de examen… (tarda un minuto)', 'Preparing the exam task… (takes a minute)'],
   'ex.preparingShort': ['Preparando la tarea…', 'Preparing the task…'],
   'ex.cantLoad': ['No se pudo cargar la tarea.', 'Could not load the task.'],
-  'ex.listen': ['▶ Hören', '▶ Hören'],
-  'ex.listenAgain': ['🔁 Nochmal hören', '🔁 Nochmal hören'],
-  'ex.stop': ['⏹ Stopp', '⏹ Stopp'],
+  'ex.listen': ['▶ Escuchar', '▶ Listen'],
+  'ex.listenAgain': ['🔁 Escuchar de nuevo', '🔁 Listen again'],
+  'ex.stop': ['⏹ Detener', '⏹ Stop'],
   'ex.listenNote': ['En el examen se oye 1 o 2 veces', 'In the exam you hear it once or twice'],
   'ex.listenedN': ['escuchado {n} veces', 'listened {n} times'],
   'ex.listenedOnce': ['escuchado 1 vez', 'listened once'],
@@ -1155,7 +1159,7 @@ const DICT = {
   'ex.showScript': ['Mostrar la transcripción', 'Show the transcript'],
   'ex.script': ['Transcripción', 'Transcript'],
   'ex.itsHere': ['Está aquí: ', 'It is here: '],
-  'ex.finish': ['Fertig — corregir', 'Fertig — check'],
+  'ex.finish': ['Terminar — corregir', 'Finish — check'],
   'ex.answered': ['{a}/{b} contestadas', '{a}/{b} answered'],
   'ex.sameAgain': ['🔄 Otra tarea del mismo tipo', '🔄 Another task of the same type'],
   'ex.otherTask': ['🔄 Otra tarea', '🔄 Another task'],
@@ -1164,7 +1168,7 @@ const DICT = {
   'ex.writeTo': ['Escribes a: {q}', 'You are writing to: {q}'],
   'ex.aboutWords': ['Unas {n} palabras. No olvides saludo y despedida.', 'About {n} words. Do not forget a greeting and a sign-off.'],
   'ex.mailGot': ['El correo que recibes', 'The email you receive'],
-  'ex.yourAnswer': ['Deine Antwort', 'Deine Antwort'],
+  'ex.yourAnswer': ['Tu respuesta', 'Your answer'],
   'ex.wordsTarget': ['{n} palabras · objetivo ~{o}', '{n} words · target ~{o}'],
   'ex.howScored': ['Cómo se ha puntuado', 'How it was scored'],
   'ex.critTask': ['Cumplimiento de la tarea', 'Task fulfilment'],

@@ -125,7 +125,7 @@ export default function DiaryEntry({ entryId, onBack, onDeleted }) {
 
       <input
         className="nb-title-input"
-        placeholder="Titel (optional)"
+        placeholder={pick('Título (opcional)', 'Title (optional)')}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         onBlur={() => title !== entry.title && persist({ title })}
@@ -133,7 +133,7 @@ export default function DiaryEntry({ entryId, onBack, onDeleted }) {
 
       <div className="nb-meta">
         <label className="nb-field">
-          Datum
+          {t('nb.date')}
           <input type="date" value={entry.date} onChange={(e) => persist({ date: e.target.value })} />
         </label>
         {/* Borrar, en la fila de la fecha y a la derecha. Estaba al final de
