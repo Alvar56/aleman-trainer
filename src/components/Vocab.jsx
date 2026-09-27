@@ -160,9 +160,9 @@ const TEMAS_EN = [
 ];
 const TEMAS_SUG = () => pick(TEMAS_ES, TEMAS_EN);
 
-export default function Vocab({ lektionId, tab, onTab, onOpenLektion, onOpen, onGenderGame, onBack, onChanged, onStart, onStartGrammar, onReto }) {
+export default function Vocab({ lektionId, tab, onTab, onOpenLektion, onOpen, onGenderGame, onBack, onChanged, onStart, onReto }) {
   if (lektionId) {
-    return <LektionVocab lektionId={lektionId} tab={tab} onTab={onTab} onStart={onStart} onStartGrammar={onStartGrammar} onReto={onReto} onBack={onBack} />;
+    return <LektionVocab lektionId={lektionId} tab={tab} onTab={onTab} onStart={onStart} onReto={onReto} onBack={onBack} />;
   }
   return (
     <VocabHome
@@ -185,7 +185,7 @@ function nivelDe(lektion) {
   return m ? `A${m[1]}.${m[2]}` : 'A2';
 }
 
-function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onStartGrammar, onReto, onBack }) {
+function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onReto, onBack }) {
   const [, forceUpdate] = React.useReducer(x => x + 1, 0);
   const setTab = (t) => onTab?.(t);
   const lektion = getLektion(lektionId);
@@ -214,19 +214,6 @@ function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onStartGramma
     )
   );
 
-  const allStarredGrammar = getStarredItems('grammar');
-  const starredGrammar = allStarredGrammar.filter((i) => {
-    if (i.lektionId && i.lektionId === lektion.id) return true;
-    if (i.topicId && i.topicId === `kb-${lektion.id}`) return true;
-    if (i.conceptId) {
-      if (String(i.conceptId).startsWith(`${lektion.id}:`)) return true;
-      if (lektion.legacyId && String(i.conceptId).startsWith(`${lektion.legacyId}:`)) return true;
-      if (lektion.grammatik) {
-        return lektion.grammatik.some((r) => i.conceptId.includes(r.id || r.regel));
-      }
-    }
-    return false;
-  });
   const [loadingVerb, setLoadingVerb] = useState(null);
   const [selectedDeckId, setSelectedDeckId] = useState('');
   const activeDeckId = selectedDeckId || (todo ? todo.id : null);
@@ -407,21 +394,7 @@ function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onStartGramma
                   className="btn-ghost btn-sm"
                   onClick={() => onStart(todo.id, 'quiz', false, null, starredVocab)}
                 >
-                  {starredGrammar.length > 0
-                    ? t('star.reviewVocab', { n: starredVocab.length })
-                    : t('star.review', { n: starredVocab.length })}
-                </button>
-              )}
-              {starredGrammar.length > 0 && (
-                <button
-                  className="btn-ghost btn-sm"
-                  onClick={() =>
-                    onStartGrammar?.(`kb-${lektion.id}`, 'mixed', 'mixed', starredGrammar)
-                  }
-                >
-                  {starredVocab.length > 0
-                    ? t('star.reviewGrammar', { n: starredGrammar.length })
-                    : t('star.review', { n: starredGrammar.length })}
+                  {t('star.review', { n: starredVocab.length })}
                 </button>
               )}
               <button
