@@ -3,7 +3,7 @@ import { t, pick, codigoIdioma } from '../lib/i18n.js';
 import { recordKommPracticed, bumpSessions, KOMM_APROBADO } from '../lib/progress.js';
 import { recordActivity } from '../lib/streak.js';
 import { saveRun, rankOfRun } from '../lib/leaderboard.js';
-import { cobrarEjercicio, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
+import { cobrarEjercicio, cobrarBono100, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
 import MultipleChoice from './MultipleChoice.jsx';
 import { respuestaDe, seguimientoDe } from '../lib/kursbuch/respuestas.js';
 import WordOrder from './WordOrder.jsx';
@@ -428,7 +428,8 @@ export default function KommPractice({
     // te salias a la mitad no contaba nada de lo que llevabas bien.
     const seccion = preguntas[i].seccion || (mezcla ? null : funktion.funktion);
     if (seccion) {
-      recordKommPracticed(lektionId, seccion, ok ? 1 : 0, 1);
+      const peso = (preguntas[i].tipo && preguntas[i].tipo !== 'test' && preguntas[i].tipo !== 'mc') ? 2 : 1;
+      recordKommPracticed(lektionId, seccion, ok ? peso : 0, 1);
       apuntados.current += 1;
     }
     const rSeg = apuntarRespuesta(ok);
@@ -473,6 +474,7 @@ export default function KommPractice({
     const acc = total ? aciertos.current / total : 0;
     let xp = aciertos.current * 10 + (total - aciertos.current) * 2;
     if (acc >= 0.9) xp += 5;
+    const bonoCien = (total > 0 && aciertos.current === total) ? cobrarBono100() : 0;
     bumpSessions();
     // Lo que devuelve dice si esta tanda ha subido de nivel.
     const racha = recordActivity(xp);
@@ -496,7 +498,8 @@ export default function KommPractice({
       aciertos: aciertos.current,
       total,
       xp,
-      monedas: monedas.current,
+      monedas: monedas.current + bonoCien,
+      bonoCien,
       bonoDia: racha.events.find((e) => e.type === 'coins')?.value || 0,
       dias: racha.state.current,
       rachaMax: mejorSeguidas.current,
@@ -568,6 +571,7 @@ export default function KommPractice({
           xp={fin.xp}
           monedas={fin.monedas}
           bonoDia={fin.bonoDia}
+          bonoCien={fin.bonoCien}
           rachaMax={fin.rachaMax}
           rachaRecord={fin.rachaRecord}
           dias={fin.dias}

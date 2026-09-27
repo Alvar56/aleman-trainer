@@ -6,7 +6,7 @@ import { elegirFrases, corregir, pistas as pistasDe, apuntar, xpDe } from '../li
 import { explainTranslation } from '../lib/ai.js';
 import { aiAvailable } from '../lib/settings.js';
 import { recordActivity } from '../lib/streak.js';
-import { ganar, monedasConPistas } from '../lib/monedas.js';
+import { ganar, monedasConPistas, cobrarBono100 } from '../lib/monedas.js';
 import { playAudio } from '../lib/audio.js';
 import { bumpSessions, recordAnswer } from '../lib/progress.js';
 import { saveRun, guardarParcial } from '../lib/leaderboard.js';
@@ -95,7 +95,7 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
     // Las frases que salen de una regla suman también en Gramática. Las de
     // Kommunikation no traen concepto: allí el porcentaje va por funciones
     // completadas, no por aciertos sueltos, y mezclarlo mentiría.
-    if (cur.conceptId) recordAnswer(cur.conceptId, r.estado === 'bien');
+    if (cur.conceptId) recordAnswer(cur.conceptId, r.estado === 'bien', { type: 'write', peso: 2 });
     // Mismo sistema que el ahorcado: dos monedas la frase, y menos segun las
     // pistas que hayas gastado. 'casi' y 'orden' cuentan como una pista de mas,
     // porque la has entendido pero te ha fallado la forma.
@@ -190,6 +190,7 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
     const seconds = Math.max(1, Math.round((Date.now() - empezado.current) / 1000));
     const bien = resultados.current.filter((r) => r.estado === 'bien').length;
     const total = resultados.current.length;
+    const bonoCien = (bien === total && total > 0) ? cobrarBono100() : 0;
     const acc = total ? bien / total : 0;
     const xp = resultados.current.reduce((s, r) => s + xpDe(r.estado, r.pistas), 0);
     bumpSessions();
@@ -214,7 +215,8 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
       seconds,
       xp,
       streak,
-      monedas: monedas.current,
+      monedas: monedas.current + bonoCien,
+      bonoCien,
       missed: resultados.current
         .filter((r) => r.estado !== 'bien')
         .map((r) => ({

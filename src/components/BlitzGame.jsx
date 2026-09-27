@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { recordCard } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, RECONOCER } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER, cobrarBono100 } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
 import { pick } from '../lib/i18n.js';
@@ -119,6 +119,8 @@ export default function BlitzGame({ deck, cartasFijas, onExit, onFinish }) {
     const total = results.current.length;
     const correct = aciertos;
     const esGanado = aciertos >= OBJETIVO;
+    const pleno = total > 0 && results.current.every((r) => r.ok) && esGanado;
+    const bonoCien = pleno ? cobrarBono100() : 0;
     const xp = Math.max(2, correct * 5 + (esGanado ? 20 : 0) + mejorRacha * 2);
     bumpSessions();
     const streak = recordActivity(xp);
@@ -144,7 +146,8 @@ export default function BlitzGame({ deck, cartasFijas, onExit, onFinish }) {
       seconds,
       xp,
       streak,
-      monedas: monedas.current,
+      monedas: monedas.current + bonoCien,
+      bonoCien,
       mejorRacha,
       missed: results.current.filter((r) => !r.ok).map((r) => ({ de: r.card.de, es: r.card.es }))
     });

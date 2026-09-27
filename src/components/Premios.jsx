@@ -21,6 +21,7 @@ export default function Premios({
   xp = 0,
   monedas = 0,
   bonoDia = 0,
+  bonoCien = 0,
   rachaMax = 0,
   rachaRecord = null,
   dias = 0,
@@ -33,6 +34,11 @@ export default function Premios({
       {subida && (
         <span className={'pill nivel-nuevo' + (subida.value >= 100 ? ' pill-dorada' : '')}>
           🆙 {t('sum.levelUp', { n: subida.value })} 🪙 +{subida.monedas}
+        </span>
+      )}
+      {bonoCien > 0 && (
+        <span className="pill monedas pill-dorada" style={{ fontWeight: 600 }}>
+          🌟 🪙 +{bonoCien} {pick('¡100% perfecto!', '100% perfect!')}
         </span>
       )}
       {rachaMax >= 2 && (

@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { pickCards, recordCard } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, RECONSTRUIR } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONSTRUIR, cobrarBono100 } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
 import { pick } from '../lib/i18n.js';
@@ -93,7 +93,7 @@ export default function WortsalatGame({ deck, cartasFijas, onExit, onFinish }) {
     if (!card || resuelto || rendido) return;
     if (letras.length && bien === objetivo.length) {
       setResuelto(true);
-      recordCard(card.de, true);
+      recordCard(card.de, true, { mode: 'order', peso: 2 });
       // Tienes las letras delante y las colocas: RECONSTRUIR.
       monedas.current += cobrarEjercicio(true, { nivel: RECONSTRUIR, pistas: pistasUsadas });
       results.current.push({ card, ok: true, pistas: pistasUsadas });
@@ -147,7 +147,7 @@ export default function WortsalatGame({ deck, cartasFijas, onExit, onFinish }) {
   function rendirse() {
     if (resuelto) return;
     setRendido(true);
-    recordCard(card.de, false);
+    recordCard(card.de, false, { mode: 'order', peso: 2 });
     results.current.push({ card, ok: false });
     setSeguidas(apuntarRespuesta(false).seguidas);
     fox.acierto(false);
@@ -183,6 +183,7 @@ export default function WortsalatGame({ deck, cartasFijas, onExit, onFinish }) {
     const seconds = Math.max(1, Math.round((Date.now() - started.current) / 1000));
     const correct = results.current.filter((r) => r.ok).length;
     const total = results.current.length || cards.length;
+    const bonoCien = (correct === total && total > 0) ? cobrarBono100() : 0;
     const xp = correct * 8;
     bumpSessions();
     const streak = recordActivity(xp);
@@ -205,7 +206,8 @@ export default function WortsalatGame({ deck, cartasFijas, onExit, onFinish }) {
       seconds,
       xp,
       streak,
-      monedas: monedas.current,
+      monedas: monedas.current + bonoCien,
+      bonoCien,
       missed: results.current.filter((r) => !r.ok).map((r) => ({ de: r.card.de, es: r.card.es }))
     });
   }

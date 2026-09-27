@@ -7,7 +7,7 @@ import { runJob } from '../lib/aiJobs.js';
 import { useAiJob } from '../lib/useAiJob.js';
 import { saveResult, veredicto, getTyp, BESTANDEN } from '../lib/pruefung.js';
 import { recordActivity } from '../lib/streak.js';
-import { ganar, MONEDAS_EXAMEN } from '../lib/monedas.js';
+import { ganar, MONEDAS_EXAMEN, cobrarBono100 } from '../lib/monedas.js';
 import BotonCopiar from './BotonCopiar.jsx';
 
 // Busca una voz alemana entre las instaladas en el sistema.
@@ -106,6 +106,7 @@ export default function ExamLesenHoeren({ teil, typ, onBack }) {
     recordActivity(correct * 10);
     // en proporción a los aciertos: contestar a boleo no paga
     ganar(Math.round((MONEDAS_EXAMEN * correct) / Math.max(1, total)));
+    if (correct === total && total > 0) cobrarBono100();
     // Aprobado del examen real: 60 %.
     fox.acierto(correct >= total * 0.6);
     setEnviado(true);

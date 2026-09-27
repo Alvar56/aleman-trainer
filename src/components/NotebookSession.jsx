@@ -8,7 +8,7 @@ import ClozeTest from './ClozeTest.jsx';
 import OpenQuestion from './OpenQuestion.jsx';
 import Feedback from './Feedback.jsx';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, RECONOCER } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER, cobrarBono100 } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
 import { makeRng, randomSeed, shuffle } from '../lib/rng.js';
@@ -91,6 +91,7 @@ export default function NotebookSession({ note, lektion, onExit, onFinish }) {
     const validResults = results.current.filter(Boolean);
     const correct = validResults.filter((r) => r.correct).length;
     const total = validResults.length || items.length;
+    const bonoCien = (correct === total && total > 0) ? cobrarBono100() : 0;
     const acc = total ? correct / total : 0;
     let xp = validResults.reduce((s, r) => s + (r.correct ? 10 : 2), 0);
     if (acc >= 0.9) xp += 5;
@@ -115,7 +116,8 @@ export default function NotebookSession({ note, lektion, onExit, onFinish }) {
       seconds,
       xp,
       streak,
-      monedas: monedas.current,
+      monedas: monedas.current + bonoCien,
+      bonoCien,
       missed: []
     });
   }

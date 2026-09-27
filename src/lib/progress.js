@@ -28,10 +28,12 @@ export function recordAnswer(conceptId, correct, extra = {}) {
     p.seenItems = p.seenItems || {};
     const c = { ...blank(), ...(p.concepts[conceptId] || {}) };
     const now = Date.now();
+    // Lo que no sea tipo test (mc) cuenta por dos para el progreso / porcentaje
+    const peso = extra.peso != null ? extra.peso : (extra.type && extra.type !== 'mc' ? 2 : 1);
     if (correct) {
-      c.correct += 1;
+      c.correct += peso;
       c.streak += 1;
-      c.strength = Math.min(6, c.strength + 1);
+      c.strength = Math.min(6, c.strength + peso);
     } else {
       c.wrong += 1;
       c.streak = 0;

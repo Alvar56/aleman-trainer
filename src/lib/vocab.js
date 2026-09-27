@@ -1373,14 +1373,16 @@ export function cardProg(de) {
   return progAll()[cardKey(de)];
 }
 
-export function recordCard(de, correct) {
+export function recordCard(de, correct, extra = {}) {
   storage.update(PROG_KEY, {}, (p) => {
     const k = cardKey(de);
     const c = { correct: 0, wrong: 0, strength: 0, lastSeen: 0, due: 0, ...(p[k] || {}) };
     const now = Date.now();
+    // Lo que no sea test (quiz / flashcards) cuenta por dos para el progreso
+    const peso = extra.peso != null ? extra.peso : (extra.mode && extra.mode !== 'quiz' && extra.mode !== 'flashcards' ? 2 : 1);
     if (correct) {
-      c.correct += 1;
-      c.strength = Math.min(6, c.strength + 1);
+      c.correct += peso;
+      c.strength = Math.min(6, c.strength + peso);
     } else {
       c.wrong += 1;
       c.strength = Math.max(0, c.strength - 1);

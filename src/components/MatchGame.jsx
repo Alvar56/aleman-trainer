@@ -3,7 +3,7 @@ import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t } from '../lib/i18n.js';
 import { pickCards, recordCard } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { ganar, monedasPorTanda } from '../lib/monedas.js';
+import { ganar, monedasPorTanda, cobrarBono100 } from '../lib/monedas.js';
 import { playAudio } from '../lib/audio.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
@@ -151,13 +151,14 @@ export default function MatchGame({ deck, onExit, onFinish }) {
   useEffect(() => {
     if (!done) return;
     const seconds = Math.max(1, Math.round((Date.now() - started.current) / 1000));
-    round.cards.forEach((c) => recordCard(c.de, mistakes < PAIRS));
+    round.cards.forEach((c) => recordCard(c.de, mistakes < PAIRS, { mode: 'match', peso: 2 }));
     const xp = Math.max(10, 40 - mistakes * 4 - Math.floor(seconds / 6));
     bumpSessions();
     // aqui no hay respuesta a respuesta que cobrar: se paga la partida entera
     // cada fallo se come una pareja del premio: emparejar a lo loco no renta
-    const monedas = monedasPorTanda({ aciertos: Math.max(1, PAIRS - mistakes) });
-    ganar(monedas);
+    const bonoCien = mistakes === 0 ? cobrarBono100() : 0;
+    const monedas = monedasPorTanda({ aciertos: Math.max(1, PAIRS - mistakes) }) + bonoCien;
+    ganar(monedasPorTanda({ aciertos: Math.max(1, PAIRS - mistakes) }));
     const streak = recordActivity(xp);
     // total = parejas + fallos, no parejas a secas. Aciertas las seis SIEMPRE
     // -la tanda no acaba hasta que estan todas-, asi que lo que mide cuanto
@@ -174,7 +175,7 @@ export default function MatchGame({ deck, onExit, onFinish }) {
       seconds,
       xp
     });
-    const timer = setTimeout(() => onFinish({ deck, mode: 'match', seconds, mistakes, xp, streak, monedas, correct: PAIRS, total: PAIRS, missed: [] }), 800);
+    const timer = setTimeout(() => onFinish({ deck, mode: 'match', seconds, mistakes, xp, streak, monedas, bonoCien, correct: PAIRS, total: PAIRS, missed: [] }), 800);
     return () => clearTimeout(timer);
   }, [done]);
 

@@ -3,7 +3,7 @@ import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t } from '../lib/i18n.js';
 import { pickCards, recordCard } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { ganar, monedasDe, RECONSTRUIR } from '../lib/monedas.js';
+import { ganar, monedasDe, RECONSTRUIR, cobrarBono100 } from '../lib/monedas.js';
 import { getSettings } from '../lib/settings.js';
 import { playAudio } from '../lib/audio.js';
 import { bumpSessions } from '../lib/progress.js';
@@ -96,7 +96,7 @@ export default function HangmanGame({ deck, cartasFijas, onExit, onFinish }) {
     if (!ganado && !perdido) return;
 
     setEstado(ganado ? 'ganado' : 'perdido');
-    recordCard(card.de, ganado);
+    recordCard(card.de, ganado, { mode: 'hangman', peso: 2 });
     // Adivinas letras sobre una palabra que ya esta ahi: 3 monedas base,
     // menos una por cada pista gastada (suelo de 1 moneda al acertar).
     const premio = ganado ? monedasDe({ nivel: 3, pistas: pistas.length }) : 0;
@@ -191,6 +191,7 @@ export default function HangmanGame({ deck, cartasFijas, onExit, onFinish }) {
     const seconds = Math.max(1, Math.round((Date.now() - started.current) / 1000));
     const correct = results.current.filter((r) => r.ok).length;
     const total = results.current.length || cards.length;
+    const bonoCien = (correct === total && total > 0) ? cobrarBono100() : 0;
     const xp = results.current.reduce((s, r) => s + (r.ok ? Math.max(4, 10 - r.pistas * 2) : 0), 0);
     bumpSessions();
     const streak = recordActivity(xp);
@@ -215,7 +216,8 @@ export default function HangmanGame({ deck, cartasFijas, onExit, onFinish }) {
       seconds,
       xp,
       streak,
-      monedas: monedas.current,
+      monedas: monedas.current + bonoCien,
+      bonoCien,
       missed: results.current.filter((r) => !r.ok).map((r) => ({ de: r.card.de, es: r.card.es }))
     });
   }

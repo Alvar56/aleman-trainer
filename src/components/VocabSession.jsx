@@ -3,7 +3,7 @@ import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t, codigoIdioma } from '../lib/i18n.js';
 import { pickCards, recordCard, setCardColor, getCardColor, colorSiguiente, allDecks } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, RECONOCER, PRODUCIR } from '../lib/monedas.js';
+import { cobrarEjercicio, cobrarBono100, RECONOCER, PRODUCIR } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { getSettings } from '../lib/settings.js';
 import { useTeclas, teclasDeOpciones } from '../lib/teclas.js';
@@ -249,7 +249,7 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
   }
 
   function gradeQA(ok, userChoiceOrText = null) {
-    recordCard(card.de, ok);
+    recordCard(card.de, ok, { mode, peso: mode === 'write' ? 2 : 1 });
     // Escribir la palabra de cero es PRODUCIR; el test es elegir entre
     // cuatro que ya tienes delante, o sea RECONOCER.
     // Las letras que hayas destapado abaratan la pregunta, como en traducir.
@@ -286,6 +286,8 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
     let streak = null;
     let run = null;
     let rank = null;
+    const bonoCien = (!isFlash && total > 0 && correct === total) ? cobrarBono100() : 0;
+
     if (!isFlash) {
       xp = validResults.reduce((s, r) => s + (r.ok ? 10 : 2), 0);
       if (acc >= 0.9) xp += 5;
@@ -303,7 +305,8 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
       seconds,
       xp,
       streak,
-      monedas: isFlash ? 0 : monedas.current,
+      monedas: isFlash ? 0 : monedas.current + bonoCien,
+      bonoCien,
       rachaMax: mejorSeguidas.current,
       rachaRecord: ultimaSeguidas.current,
       rank,

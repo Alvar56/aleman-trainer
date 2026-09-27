@@ -14,7 +14,7 @@ import { saveRun, rankOfRun } from '../lib/leaderboard.js';
 import { getSettings } from '../lib/settings.js';
 import { vocabMixItems, intercalar } from '../lib/mixItems.js';
 import { recordStreak, currentStreak, updateStreak } from '../lib/rachas.js';
-import { cobrarEjercicio, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
+import { cobrarEjercicio, cobrarBono100, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
 import { playAudio } from '../lib/audio.js';
 import { ensureJob, clearJob } from '../lib/aiJobs.js';
 import { useAiJob } from '../lib/useAiJob.js';
@@ -174,7 +174,11 @@ export default function Session({ topic, mode, game = 'mixed', itemsFijos = null
       chosen,
       item
     });
-    recordAnswer(item.conceptId, correct, { itemKey: itemKey(topic.id, item) });
+    recordAnswer(item.conceptId, correct, {
+      itemKey: itemKey(topic.id, item),
+      type: item.type,
+      peso: item.type === 'mc' ? 1 : 2
+    });
     const seguidos = correct ? racha + 1 : 0;
     // Se cobra ejercicio a ejercicio, segun lo que ese ejercicio te pida:
     // escribirlo de cero (write, cloze, open) vale mas que elegir entre
@@ -253,6 +257,9 @@ export default function Session({ topic, mode, game = 'mixed', itemsFijos = null
     let xp = results.current.reduce((s, r) => s + xpFor(r.correct), 0);
     if (accuracy >= 0.9) xp += 5;
 
+    // Bono de 20 monedas por sacar un 100% perfecto
+    const bonoCien = (total > 0 && correctCount === total) ? cobrarBono100() : 0;
+
     // fallos agrupados por concepto
     const mistakesByConcept = {};
     results.current
@@ -290,7 +297,8 @@ export default function Session({ topic, mode, game = 'mixed', itemsFijos = null
       seconds,
       xp,
       streak,
-      monedas: monedasGanadas.current,
+      monedas: monedasGanadas.current + bonoCien,
+      bonoCien,
       bonoDia,
       rachaMax: mejorRacha.current,
       rachaRecord: record,

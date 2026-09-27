@@ -73,6 +73,12 @@ export const MONEDAS_FELIX = 5;
 export const MONEDAS_EXAMEN = 30;
 export const MONEDAS_TAGEBUCH = 25;
 export const MONEDAS_NOTIZBUCH = 15;
+export const MONEDAS_BONO_100 = 20;
+
+export function cobrarBono100() {
+  ganar(MONEDAS_BONO_100);
+  return MONEDAS_BONO_100;
+}
 
 // Cuanto paga un ejercicio: lo que TE EXIGE, menos lo que te han ayudado.
 //

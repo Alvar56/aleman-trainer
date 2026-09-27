@@ -9,7 +9,7 @@ import Premios from './Premios.jsx';
 export default function VocabSummary({ data, onRepeat, onRepetirFallos, onDeck, onHome }) {
   const {
     deck, mode, correct, total, seconds, xp, mistakes, missed = [], streak,
-    monedas = 0, rachaMax = 0, rachaRecord = null, rank = null
+    monedas = 0, rachaMax = 0, rachaRecord = null, rank = null, bonoCien = 0
   } = data;
   const isMatch = mode === 'match';
   // Los mazos de una lección del libro vuelven a la pestaña de ejercicios;
@@ -52,6 +52,7 @@ export default function VocabSummary({ data, onRepeat, onRepetirFallos, onDeck, 
           xp={xp}
           monedas={monedas}
           bonoDia={bonoDia}
+          bonoCien={bonoCien}
           rachaMax={rachaMax}
           rachaRecord={rachaRecord}
           dias={streak?.state?.current || 0}
