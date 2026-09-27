@@ -25,11 +25,8 @@ import BotonCopiar from './BotonCopiar.jsx';
 import { getStarredItems, useStars } from '../lib/stars.js';
 import FotosVocab from './FotosVocab.jsx';
 
-// Los tipos de pregunta que se pueden practicar.
+// Los tipos de pregunta que se pueden practicar sueltos.
 const TIPOS_EJERCICIO = [
-  { id: 'todo', emoji: '🔀', tipos: TIPOS,
-    es: 'De todo un poco', en: 'A bit of everything',
-    subEs: 'Todas las frases y tipos mezclados', subEn: 'all phrases and exercise types mixed' },
   { id: 'decir', emoji: '✅', tipos: ['decir'],
     es: 'Elegir la frase', en: 'Pick the phrase',
     subEs: 'Del castellano al alemán', subEn: 'from your language into German' },
@@ -473,18 +470,6 @@ function KommDetail({
               ))}
           </div>
         </div>
-      )}
-
-      {todasLasFrases.length > 0 && (
-        <button
-          className="btn-primary"
-          style={{ width: '100%', justifyContent: 'center', gap: 8, padding: '10px 16px', marginBottom: 6 }}
-          onClick={() => setPractica({ funktion: todaLaLeccion, tipos: TIPOS, mezcla: true, volverA: 'teoria' })}
-        >
-          <span>🔀</span>
-          <span>{pick('Practicar toda la comunicación', 'Practise all communication')}</span>
-          <small style={{ opacity: 0.85 }}>({todasLasFrases.length} {t('komm.phrases')})</small>
-        </button>
       )}
 
       {funktionen.map((k, i) => (
