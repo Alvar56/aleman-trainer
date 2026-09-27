@@ -6,6 +6,15 @@ function norm(s) {
   return String(s || '').trim().toLowerCase().replace(/\s+/g, ' ');
 }
 
+function mezclarArray(arr) {
+  const x = [...arr];
+  for (let i = x.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [x[i], x[j]] = [x[j], x[i]];
+  }
+  return x;
+}
+
 // Muestra la frase con el hueco y las opciones. Al elegir, bloquea y avisa.
 export default function MultipleChoice({ item, onAnswer }) {
   const [picked, setPicked] = useState(null);
@@ -17,7 +26,7 @@ export default function MultipleChoice({ item, onAnswer }) {
     onAnswer(norm(opt) === norm(item.answer), opt);
   }
 
-  // Deduplicación preventiva de opciones para evitar respuestas repetidas
+  // Deduplicación preventiva de opciones y orden SIEMPRE aleatorio
   const safeOptions = useMemo(() => {
     const raw = item?.options || [];
     const seen = new Set();
@@ -28,11 +37,11 @@ export default function MultipleChoice({ item, onAnswer }) {
       seen.add(key);
       clean.push(opt);
     }
-    if (item?.answer && !clean.some(o => norm(o) === norm(item.answer))) {
-      clean.unshift(item.answer);
+    if (item?.answer && !clean.some((o) => norm(o) === norm(item.answer))) {
+      clean.push(item.answer);
     }
-    return clean;
-  }, [item?.options, item?.answer]);
+    return mezclarArray(clean);
+  }, [item?.id, item?.sentence, item?.prompt, item?.answer, (item?.options || []).join('||')]);
 
   // 1, 2, 3… eligen la opción en el orden en que se ven. El número va
   // pintado en el botón: un atajo que no se anuncia no lo usa nadie.
