@@ -38,7 +38,7 @@ export default function Premios({
       )}
       {bonoCien > 0 && (
         <span className="pill monedas pill-dorada" style={{ fontWeight: 600 }}>
-          🌟 🪙 +{bonoCien} {pick('¡100% perfecto!', '100% perfect!')}
+          🌟 🪙 +{bonoCien} {pick('¡100% completado!', '100% completed!')}
         </span>
       )}
       {rachaMax >= 2 && (

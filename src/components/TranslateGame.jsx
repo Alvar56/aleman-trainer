@@ -190,7 +190,6 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
     const seconds = Math.max(1, Math.round((Date.now() - empezado.current) / 1000));
     const bien = resultados.current.filter((r) => r.estado === 'bien').length;
     const total = resultados.current.length;
-    const bonoCien = (bien === total && total > 0) ? cobrarBono100() : 0;
     const acc = total ? bien / total : 0;
     const xp = resultados.current.reduce((s, r) => s + xpDe(r.estado, r.pistas), 0);
     bumpSessions();
@@ -215,8 +214,8 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
       seconds,
       xp,
       streak,
-      monedas: monedas.current + bonoCien,
-      bonoCien,
+      monedas: monedas.current,
+      bonoCien: 0,
       missed: resultados.current
         .filter((r) => r.estado !== 'bien')
         .map((r) => ({

@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
-import { recordCard } from '../lib/vocab.js';
+import { recordCard, deckStats } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, RECONOCER, cobrarBono100 } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER, verificarBono100 } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
 import { pick } from '../lib/i18n.js';
@@ -119,8 +119,7 @@ export default function BlitzGame({ deck, cartasFijas, onExit, onFinish }) {
     const total = results.current.length;
     const correct = aciertos;
     const esGanado = aciertos >= OBJETIVO;
-    const pleno = total > 0 && results.current.every((r) => r.ok) && esGanado;
-    const bonoCien = pleno ? cobrarBono100() : 0;
+    const bonoCien = deck ? verificarBono100(`deck:${deck.id}`, deckStats(deck).pct) : 0;
     const xp = Math.max(2, correct * 5 + (esGanado ? 20 : 0) + mejorRacha * 2);
     bumpSessions();
     const streak = recordActivity(xp);

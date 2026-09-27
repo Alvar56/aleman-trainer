@@ -6,6 +6,7 @@ import { topicMastery, weakConcepts, conceptosQueFaltan, UMBRAL_TERMINAR } from 
 import { aiAvailable } from '../lib/settings.js';
 import { deleteUserGrammarTopic } from '../lib/userGrammar.js';
 import { tc } from '../lib/contenido/index.js';
+import { verificarBono100 } from '../lib/monedas.js';
 import CoronaPanel, { BarrasTema } from './ProgresoTema.jsx';
 import Desplegable from './Desplegable.jsx';
 import TextoAleman from './TextoAleman.jsx';
@@ -118,6 +119,9 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
   }
   const ids = topic.concepts.map((c) => c.id);
   const m = topicMastery(ids);
+  if (m.pct >= 100) {
+    verificarBono100(`topic:${topic.id}`, m.pct);
+  }
   const weak = weakConcepts(ids);
   const aiOn = aiAvailable();
   useStars();

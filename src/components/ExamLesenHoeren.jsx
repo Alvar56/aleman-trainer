@@ -106,7 +106,6 @@ export default function ExamLesenHoeren({ teil, typ, onBack }) {
     recordActivity(correct * 10);
     // en proporción a los aciertos: contestar a boleo no paga
     ganar(Math.round((MONEDAS_EXAMEN * correct) / Math.max(1, total)));
-    if (correct === total && total > 0) cobrarBono100();
     // Aprobado del examen real: 60 %.
     fox.acierto(correct >= total * 0.6);
     setEnviado(true);

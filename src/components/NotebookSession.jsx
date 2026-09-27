@@ -91,7 +91,6 @@ export default function NotebookSession({ note, lektion, onExit, onFinish }) {
     const validResults = results.current.filter(Boolean);
     const correct = validResults.filter((r) => r.correct).length;
     const total = validResults.length || items.length;
-    const bonoCien = (correct === total && total > 0) ? cobrarBono100() : 0;
     const acc = total ? correct / total : 0;
     let xp = validResults.reduce((s, r) => s + (r.correct ? 10 : 2), 0);
     if (acc >= 0.9) xp += 5;
@@ -116,8 +115,8 @@ export default function NotebookSession({ note, lektion, onExit, onFinish }) {
       seconds,
       xp,
       streak,
-      monedas: monedas.current + bonoCien,
-      bonoCien,
+      monedas: monedas.current,
+      bonoCien: 0,
       missed: []
     });
   }

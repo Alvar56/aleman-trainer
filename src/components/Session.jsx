@@ -8,13 +8,13 @@ import ClozeTest from './ClozeTest.jsx';
 import OpenQuestion from './OpenQuestion.jsx';
 import Feedback from './Feedback.jsx';
 import { buildSessionSmart, conceptLabel, itemKey } from '../engine/generator.js';
-import { recordAnswer, bumpSessions } from '../lib/progress.js';
+import { recordAnswer, bumpSessions, topicMastery } from '../lib/progress.js';
 import { recordActivity } from '../lib/streak.js';
 import { saveRun, rankOfRun } from '../lib/leaderboard.js';
 import { getSettings } from '../lib/settings.js';
 import { vocabMixItems, intercalar } from '../lib/mixItems.js';
 import { recordStreak, currentStreak, updateStreak } from '../lib/rachas.js';
-import { cobrarEjercicio, cobrarBono100, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
+import { cobrarEjercicio, verificarBono100, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
 import { playAudio } from '../lib/audio.js';
 import { ensureJob, clearJob } from '../lib/aiJobs.js';
 import { useAiJob } from '../lib/useAiJob.js';
@@ -257,8 +257,14 @@ export default function Session({ topic, mode, game = 'mixed', itemsFijos = null
     let xp = results.current.reduce((s, r) => s + xpFor(r.correct), 0);
     if (accuracy >= 0.9) xp += 5;
 
-    // Bono de 20 monedas por sacar un 100% perfecto
-    const bonoCien = (total > 0 && correctCount === total) ? cobrarBono100() : 0;
+    // Bono de 20 monedas si el tema de gramática alcanza el 100% de dominio
+    let bonoCien = 0;
+    if (topic?.concepts?.length) {
+      const tm = topicMastery(topic.concepts.map((c) => c.id));
+      if (tm && tm.pct >= 100) {
+        bonoCien = verificarBono100(`topic:${topic.id}`, tm.pct);
+      }
+    }
 
     // fallos agrupados por concepto
     const mistakesByConcept = {};

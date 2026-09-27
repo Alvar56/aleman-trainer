@@ -1,9 +1,9 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t } from '../lib/i18n.js';
-import { pickCards, recordCard } from '../lib/vocab.js';
+import { pickCards, recordCard, deckStats } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { ganar, monedasPorTanda, cobrarBono100 } from '../lib/monedas.js';
+import { ganar, monedasPorTanda, verificarBono100 } from '../lib/monedas.js';
 import { playAudio } from '../lib/audio.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
@@ -156,7 +156,7 @@ export default function MatchGame({ deck, onExit, onFinish }) {
     bumpSessions();
     // aqui no hay respuesta a respuesta que cobrar: se paga la partida entera
     // cada fallo se come una pareja del premio: emparejar a lo loco no renta
-    const bonoCien = mistakes === 0 ? cobrarBono100() : 0;
+    const bonoCien = deck ? verificarBono100(`deck:${deck.id}`, deckStats(deck).pct) : 0;
     const monedas = monedasPorTanda({ aciertos: Math.max(1, PAIRS - mistakes) }) + bonoCien;
     ganar(monedasPorTanda({ aciertos: Math.max(1, PAIRS - mistakes) }));
     const streak = recordActivity(xp);

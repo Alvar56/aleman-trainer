@@ -3,6 +3,7 @@ import { BAENDE, getLektion, lektionLabel } from '../lib/kursbuch/index.js';
 import { lektionProgress, bandProgress } from '../lib/lektionProgress.js';
 import { pick, t } from '../lib/i18n.js';
 import { storage } from '../lib/storage.js';
+import { verificarBono100 } from '../lib/monedas.js';
 
 // Navegador común de las secciones del libro: pestañas de tomo + rejilla de
 // lecciones. `count(lektion)` devuelve el número que se muestra en cada tarjeta;
@@ -69,6 +70,12 @@ export default function BookNav({ title, subtitle, count, unit, onOpen, extra, a
             const n = count(l);
             const prog = lektionProgress(l);
             const pct = prog ? prog[progressKey] : null;
+            if (pct != null && pct >= 100) {
+              verificarBono100(`lektion:${progressKey}:${l.id}`, pct);
+            }
+            if (prog?.total != null && prog.total >= 100) {
+              verificarBono100(`lektion:total:${l.id}`, prog.total);
+            }
             const ancha = l.nr === 'Start';
             const barra = pct == null ? null : (
               <div className="mini-bar lk-bar">

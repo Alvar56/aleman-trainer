@@ -14,6 +14,7 @@ import PuntoColor from './PuntoColor.jsx';
 import ModalConjugacion from './ModalConjugacion.jsx';
 import FotosVocab from './FotosVocab.jsx';
 import StarButton from './StarButton.jsx';
+import { verificarBono100 } from '../lib/monedas.js';
 
 // Mismas dos pestañas que en Grammatik: primero te lees las palabras, luego
 // juegas. Antes salía todo de corrido y los juegos tapaban la lista, que es
@@ -25,6 +26,9 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
   const [conjugation, setConjugation] = useState(null);
   useStars();
   const st = deckStats(deck);
+  if (st.pct >= 100) {
+    verificarBono100(`deck:${deck.id}`, st.pct);
+  }
   const fallos = cartasFalladas(deck);
   const aiOn = aiAvailable();
   const allStarredVocab = getStarredItems('vocab');

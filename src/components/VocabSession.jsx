@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t, codigoIdioma } from '../lib/i18n.js';
-import { pickCards, recordCard, setCardColor, getCardColor, colorSiguiente, allDecks } from '../lib/vocab.js';
+import { pickCards, recordCard, setCardColor, getCardColor, colorSiguiente, allDecks, deckStats } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, cobrarBono100, RECONOCER, PRODUCIR } from '../lib/monedas.js';
+import { cobrarEjercicio, verificarBono100, RECONOCER, PRODUCIR } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { getSettings } from '../lib/settings.js';
 import { useTeclas, teclasDeOpciones } from '../lib/teclas.js';
@@ -286,7 +286,13 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
     let streak = null;
     let run = null;
     let rank = null;
-    const bonoCien = (!isFlash && total > 0 && correct === total) ? cobrarBono100() : 0;
+    let bonoCien = 0;
+    if (deck) {
+      const st = deckStats(deck);
+      if (st && st.pct >= 100) {
+        bonoCien = verificarBono100(`deck:${deck.id}`, st.pct);
+      }
+    }
 
     if (!isFlash) {
       xp = validResults.reduce((s, r) => s + (r.ok ? 10 : 2), 0);

@@ -18,6 +18,7 @@ import { guardados, borrarGuardado, otroIdioma } from '../lib/guardados.js';
 import { SIN_IA, PORTABLE } from '../lib/modo.js';
 import { aiAvailable } from '../lib/settings.js';
 import { kommMastery, recordKommPracticed, kommApartadosFallados, kommApartadosQueFaltan, UMBRAL_TERMINAR } from '../lib/progress.js';
+import { verificarBono100 } from '../lib/monedas.js';
 import { BarrasTema } from './ProgresoTema.jsx';
 import { GENDER_NIVELES } from '../lib/vocab.js';
 import EtiquetaChip from './EtiquetaChip.jsx';
@@ -267,6 +268,9 @@ function KommDetail({
     [funktionen]
   );
   const km = lektion ? kommMastery(lektion.id, lektion.kommunikation) : null;
+  if (km && km.pct >= 100) {
+    verificarBono100(`lektion:kommunikation:${lektion.id}`, km.pct);
+  }
   // Lo que se te ha resistido y lo que te falta para el 100%, por apartado.
   const kFallados = lektion ? kommApartadosFallados(lektion.id, lektion.kommunikation) : [];
   const kFaltan = lektion ? kommApartadosQueFaltan(lektion.id, lektion.kommunikation) : [];

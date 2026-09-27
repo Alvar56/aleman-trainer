@@ -1,9 +1,10 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { t, pick, codigoIdioma } from '../lib/i18n.js';
-import { recordKommPracticed, bumpSessions, KOMM_APROBADO } from '../lib/progress.js';
+import { recordKommPracticed, bumpSessions, KOMM_APROBADO, kommMastery } from '../lib/progress.js';
 import { recordActivity } from '../lib/streak.js';
 import { saveRun, rankOfRun } from '../lib/leaderboard.js';
-import { cobrarEjercicio, cobrarBono100, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
+import { cobrarEjercicio, verificarBono100, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
+import { getLektion } from '../lib/kursbuch/index.js';
 import MultipleChoice from './MultipleChoice.jsx';
 import { respuestaDe, seguimientoDe } from '../lib/kursbuch/respuestas.js';
 import WordOrder from './WordOrder.jsx';
@@ -474,7 +475,16 @@ export default function KommPractice({
     const acc = total ? aciertos.current / total : 0;
     let xp = aciertos.current * 10 + (total - aciertos.current) * 2;
     if (acc >= 0.9) xp += 5;
-    const bonoCien = (total > 0 && aciertos.current === total) ? cobrarBono100() : 0;
+    let bonoCien = 0;
+    if (lektionId && !String(lektionId).startsWith('mix')) {
+      const lek = getLektion(lektionId);
+      if (lek?.kommunikation) {
+        const km = kommMastery(lektionId, lek.kommunikation);
+        if (km && km.pct >= 100) {
+          bonoCien = verificarBono100(`lektion:kommunikation:${lektionId}`, km.pct);
+        }
+      }
+    }
     bumpSessions();
     // Lo que devuelve dice si esta tanda ha subido de nivel.
     const racha = recordActivity(xp);

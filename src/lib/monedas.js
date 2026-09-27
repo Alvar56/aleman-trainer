@@ -74,10 +74,34 @@ export const MONEDAS_EXAMEN = 30;
 export const MONEDAS_TAGEBUCH = 25;
 export const MONEDAS_NOTIZBUCH = 15;
 export const MONEDAS_BONO_100 = 20;
+const KEY_BONOS_100 = 'monedas:bonos100';
 
-export function cobrarBono100() {
+function getCobrados100() {
+  return storage.get(KEY_BONOS_100, {});
+}
+
+// Cobra el bono de 20 monedas por completar una lección/unidad/tema/mazo al 100%.
+// Guarda la clave para que cada hito alcanzado solo se pague una vez.
+export function cobrarBono100(idClave) {
+  if (!idClave) return 0;
+  const cobrados = getCobrados100();
+  if (cobrados[idClave]) return 0; // ya se cobró este hito
+
+  cobrados[idClave] = Date.now();
+  storage.set(KEY_BONOS_100, cobrados);
   ganar(MONEDAS_BONO_100);
   return MONEDAS_BONO_100;
+}
+
+export function bono100Cobrado(idClave) {
+  return !!getCobrados100()[idClave];
+}
+
+export function verificarBono100(idClave, pct) {
+  if (pct >= 100 && !bono100Cobrado(idClave)) {
+    return cobrarBono100(idClave);
+  }
+  return 0;
 }
 
 // Cuanto paga un ejercicio: lo que TE EXIGE, menos lo que te han ayudado.
