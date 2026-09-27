@@ -157,8 +157,8 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
 
   useTeclas(
     seenBack
-      ? { 1: () => rateFlash(false), 2: () => rateFlash(true) }
-      : { ' ': () => { setRevealed(true); setSeenBack(true); }, Enter: () => { setRevealed(true); setSeenBack(true); } },
+      ? { 1: () => rateFlash(false), 2: () => rateFlash(true), ArrowLeft: () => atras() }
+      : { ' ': () => { setRevealed(true); setSeenBack(true); }, Enter: () => { setRevealed(true); setSeenBack(true); }, ArrowLeft: () => atras() },
     mode === 'flashcards' && cards.length > 0 && !flash
   );
 
@@ -166,14 +166,14 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
   // opción, el 2 la segunda… Aquí no estaban y había que ir al ratón en cada
   // palabra, que es justo lo que este juego hace cuarenta veces seguidas.
   useTeclas(
-    teclasDeOpciones(quizOptions, (opt) => { setPicked(opt); gradeQA(opt === answer); }),
+    teclasDeOpciones(quizOptions, (opt) => { setPicked(opt); gradeQA(opt === answer, opt); }),
     mode === 'quiz' && phase === 'q' && cards.length > 0
   );
 
   // Y el Enter para pasar a la siguiente, una vez corregida. Valía para las
   // tarjetas y no para el test ni para escribir: había que buscar el botón.
   useTeclas(
-    { Enter: () => goNext(), ' ': () => goNext() },
+    { Enter: () => goNext(), ' ': () => goNext(), ArrowLeft: () => atras() },
     (mode === 'quiz' || mode === 'write') && phase === 'a'
   );
 
@@ -196,18 +196,40 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
   }
 
 
-  function goNext() {
+  function verEstado(i) {
     fox.sigue();
     advancing.current = false;
-    if (idx + 1 < cards.length) {
-      setIdx(idx + 1);
-      setPhase('q');
+    setIdx(i);
+    if (mode === 'flashcards') {
       setRevealed(false);
       setSeenBack(false);
       setFlash(null);
+      return;
+    }
+    const hecho = results.current[i];
+    if (hecho) {
+      setLastOk(hecho.ok);
+      setPicked(hecho.picked || null);
+      setInput(hecho.input || '');
+      setPhase('a');
+    } else {
+      setPhase('q');
       setInput('');
       setPistas(0);
       setPicked(null);
+      setLastOk(false);
+    }
+  }
+
+  function atras() {
+    if (idx === 0) return;
+    verEstado(idx - 1);
+  }
+
+  function goNext() {
+    advancing.current = false;
+    if (idx + 1 < cards.length) {
+      verEstado(idx + 1);
     } else {
       finish();
     }
@@ -220,13 +242,13 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
     // amarillo/verde). NO tocan la racha de aciertos seguidos ni el porcentaje
     // del mazo: son repaso visual, no práctica punteable.
     setCardColor(card.de, colorSiguiente(getCardColor(card.de), ok, deToEs));
-    results.current.push({ card, ok, deToEs });
+    results.current[idx] = { card, ok, deToEs };
     setFlash(ok ? 'ok' : 'no');
     fox.acierto(ok);
     setTimeout(goNext, 620);
   }
 
-  function gradeQA(ok) {
+  function gradeQA(ok, userChoiceOrText = null) {
     recordCard(card.de, ok);
     // Escribir la palabra de cero es PRODUCIR; el test es elegir entre
     // cuatro que ya tienes delante, o sea RECONOCER.
@@ -235,7 +257,13 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
       nivel: mode === 'write' ? PRODUCIR : RECONOCER,
       pistas: mode === 'write' ? pistas : 0
     });
-    results.current.push({ card, ok, deToEs });
+    results.current[idx] = {
+      card,
+      ok,
+      deToEs,
+      picked: mode === 'quiz' ? userChoiceOrText : null,
+      input: mode === 'write' ? userChoiceOrText : ''
+    };
     const rSeg = apuntarRespuesta(ok);
     if (rSeg.seguidas > mejorSeguidas.current) mejorSeguidas.current = rSeg.seguidas;
     setSeguidas(rSeg.seguidas);
@@ -247,8 +275,9 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
 
   function finish() {
     const seconds = Math.max(1, Math.round((Date.now() - started.current) / 1000));
-    const correct = results.current.filter((r) => r.ok).length;
-    const total = results.current.length;
+    const validResults = results.current.filter(Boolean);
+    const correct = validResults.filter((r) => r.ok).length;
+    const total = validResults.length || cards.length;
     const acc = total ? correct / total : 0;
     // Las flashcards no cuentan como práctica: solo son repaso visual.
     // No acumulan XP, no cuentan sesión, no aparecen en el leaderboard.
@@ -258,7 +287,7 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
     let run = null;
     let rank = null;
     if (!isFlash) {
-      xp = results.current.reduce((s, r) => s + (r.ok ? 10 : 2), 0);
+      xp = validResults.reduce((s, r) => s + (r.ok ? 10 : 2), 0);
       if (acc >= 0.9) xp += 5;
       bumpSessions();
       streak = recordActivity(xp);
@@ -278,7 +307,7 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
       rachaMax: mejorSeguidas.current,
       rachaRecord: ultimaSeguidas.current,
       rank,
-      missed: results.current.filter((r) => !r.ok).map((r) => r.card)
+      missed: validResults.filter((r) => !r.ok).map((r) => r.card)
     });
   }
 
@@ -287,8 +316,20 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
   return (
     <div className="vocab-session">
       <div className="progress-top">
-        <button className="btn-ghost" onClick={onExit} title="Salir">✕</button>
+        <button className="btn-ghost ses-icon-btn" onClick={onExit} title={t('ses.exit')}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
         <div className="bar"><span style={{ width: progressPct + '%' }} /></div>
+        {idx > 0 && (mode === 'flashcards' || results.current[idx - 1]) && (
+          <button className="btn-ghost ses-atras ses-icon-btn" onClick={atras} title={t('ses.prev')}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
         <span className="timer">{idx + 1}/{cards.length}</span>
       </div>
 
@@ -367,7 +408,7 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
                 else cls += ' dim';
               }
               return (
-                <button key={i} className={cls} disabled={phase === 'a'} onClick={() => { setPicked(opt); gradeQA(opt === answer); }}>
+                <button key={i} className={cls} disabled={phase === 'a'} onClick={() => { setPicked(opt); gradeQA(opt === answer, opt); }}>
                   {i < 9 && <span className="op-tecla">{i + 1}</span>}
                   {opt}
                 </button>
@@ -384,7 +425,7 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
           <div className="prompt-label">{t('vs.writeTranslation')} {deToEs ? t('vs.toEs') : t('vs.toDe')}</div>
           <div className="sentence">{prompt}</div>
           {phase === 'q' ? (
-            <form onSubmit={(e) => { e.preventDefault(); if (input.trim()) gradeQA(checkWritten(input, answer)); }}>
+            <form onSubmit={(e) => { e.preventDefault(); if (input.trim()) gradeQA(checkWritten(input, answer), input.trim()); }}>
               {/* La inicial de cada palabra delante. Sin ella hay que dar con
                   la palabra exacta a la primera, que no es lo que se practica
                   aquí. */}

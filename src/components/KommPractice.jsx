@@ -339,7 +339,7 @@ export default function KommPractice({
   }, [p, lektionId, funktion, i]);
 
   // Enter para pasar a la siguiente, como en gramática.
-  useTeclas({ Enter: () => siguiente(), ' ': () => siguiente() }, juzgada !== null && !fin);
+  useTeclas({ Enter: () => siguiente(), ' ': () => siguiente(), ArrowLeft: () => atras() }, juzgada !== null && !fin);
 
   if (!preguntas.length) return null;
 
@@ -357,7 +357,7 @@ export default function KommPractice({
           : RECONOCER,
       pistas
     });
-    resultados.current.push({ ok, seccion: preguntas[i].seccion, pregunta: preguntas[i] });
+    resultados.current[i] = { ok, seccion: preguntas[i].seccion, pregunta: preguntas[i] };
     // La barra de la leccion sube AQUI, en cada respuesta, igual que en
     // gramatica y en vocabulario. Antes se apuntaba todo junto al terminar la
     // tanda: la barra pegaba un salto de hasta veinte puntos de una vez, y si
@@ -375,11 +375,25 @@ export default function KommPractice({
     setJuzgada(ok);
   }
 
+  function verEstado(idx) {
+    setI(idx);
+    const hecho = resultados.current[idx];
+    if (hecho) {
+      setJuzgada(hecho.ok);
+    } else {
+      setJuzgada(null);
+    }
+    fox.sigue();
+  }
+
+  function atras() {
+    if (i === 0) return;
+    verEstado(i - 1);
+  }
+
   function siguiente() {
     if (i + 1 < preguntas.length) {
-      setI(i + 1);
-      setJuzgada(null);
-      fox.sigue();
+      verEstado(i + 1);
       return;
     }
     const pct = Math.round((aciertos.current / preguntas.length) * 100);
@@ -530,6 +544,13 @@ export default function KommPractice({
       <div className="progress-top">
         <button className="btn-ghost" onClick={onSalir} title={t('back')}>✕</button>
         <div className="bar"><span style={{ width: ((i + (juzgada !== null ? 1 : 0)) / preguntas.length) * 100 + '%' }} /></div>
+        {i > 0 && resultados.current[i - 1] && (
+          <button className="btn-ghost ses-atras ses-icon-btn" onClick={atras} title={t('ses.prev')}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
         <span className="timer">{i + 1}/{preguntas.length}</span>
       </div>
 
