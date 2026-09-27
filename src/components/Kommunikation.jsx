@@ -254,14 +254,32 @@ function KommDetail({
     return false;
   });
   // Las frases del libro, con la glosa ya en el idioma de la interfaz.
-  const funktionen = lektionKommunikation(lektion);
+  const funktionen = useMemo(() => lektionKommunikation(lektion), [lektion]);
+  const todasLasFrases = useMemo(() =>
+    funktionen.flatMap((x) =>
+      (x.wendungen || []).flatMap((w) => [w.de, ...seguimientoDe(w.de).map((y) => y.de)])
+    ),
+    [funktionen]
+  );
+  const todasLasRespuestas = useMemo(() =>
+    funktionen.flatMap((x) =>
+      (x.wendungen || []).map((w) => respuestaDe(w.de)?.de).filter(Boolean)
+    ),
+    [funktionen]
+  );
+  const todasLasGlosas = useMemo(() =>
+    funktionen.flatMap((x) =>
+      (x.wendungen || []).flatMap((w) => [w.es, ...seguimientoDe(w.de).map((y) => y.es)])
+    ),
+    [funktionen]
+  );
   const km = lektion ? kommMastery(lektion.id, lektion.kommunikation) : null;
   // Lo que se te ha resistido y lo que te falta para el 100%, por apartado.
   const kFallados = lektion ? kommApartadosFallados(lektion.id, lektion.kommunikation) : [];
   const kFaltan = lektion ? kommApartadosQueFaltan(lektion.id, lektion.kommunikation) : [];
   // Una "función" de mentira con TODAS las frases de la lección: es lo que
   // practican los tipos de ejercicio de la pestaña de al lado.
-  const todaLaLeccion = {
+  const todaLaLeccion = useMemo(() => ({
     funktion: lektion ? lektionLabel(lektion) : '',
     // Cada frase se lleva puesto de qué apartado salió: así una tanda de la
     // pestaña de ejercicios puede marcar como hechos los apartados que hayas
@@ -269,7 +287,7 @@ function KommDetail({
     wendungen: funktionen.flatMap((x) =>
       (x.wendungen || []).map((w) => ({ ...w, seccion: x.funktion }))
     )
-  };
+  }), [lektion, funktionen]);
   const hecho = km?.hechas || {};
 
   // Una tanda con las frases de UNOS apartados concretos: los fallados o los
@@ -337,15 +355,9 @@ function KommDetail({
         itemsFijos={practica.itemsFijos}
         mezcla={practica.mezcla}
         volverA={practica.volverA}
-        todasLasFrases={funktionen.flatMap((x) =>
-          (x.wendungen || []).flatMap((w) => [w.de, ...seguimientoDe(w.de).map((y) => y.de)])
-        )}
-        todasLasRespuestas={funktionen.flatMap((x) =>
-          (x.wendungen || []).map((w) => respuestaDe(w.de)?.de).filter(Boolean)
-        )}
-        todasLasGlosas={funktionen.flatMap((x) =>
-          (x.wendungen || []).flatMap((w) => [w.es, ...seguimientoDe(w.de).map((y) => y.es)])
-        )}
+        todasLasFrases={todasLasFrases}
+        todasLasRespuestas={todasLasRespuestas}
+        todasLasGlosas={todasLasGlosas}
         onHecho={() => setVuelta((v) => v + 1)}
         onSalir={() => setPractica(null)}
       />

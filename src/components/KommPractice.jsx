@@ -293,8 +293,8 @@ export default function KommPractice({
   // Las preguntas de "repetir los fallos": cuando las hay, la tanda son esas.
   const [fijas, setFijas] = useState(null);
   const generadas = useMemo(
-    () => construir(funktion.wendungen || [], todasLasFrases, todasLasRespuestas, todasLasGlosas, POR_TANDA, tipos, lektionId),
-    [funktion, todasLasFrases, todasLasRespuestas, todasLasGlosas, tipos, vuelta, lektionId]
+    () => construir(funktion?.wendungen || [], todasLasFrases, todasLasRespuestas, todasLasGlosas, POR_TANDA, tipos, lektionId),
+    [funktion?.funktion, (funktion?.wendungen || []).length, tipos, vuelta, lektionId]
   );
   const preguntas = fijas || itemsFijos || generadas;
   const [i, setI] = useState(0);
