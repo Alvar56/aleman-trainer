@@ -522,10 +522,10 @@ export default function KommPractice({
               {t('sum.retryFails', { n: fin.fallos })}
             </button>
           )}
-          <button className="btn-ghost" onClick={otraVez}>
+          <button className={fin.fallos > 0 ? 'btn-ghost' : 'btn-primary'} onClick={otraVez}>
             {t('komm.practiceAgain')}
           </button>
-          <button className={aprobado ? 'btn-primary' : 'btn-ghost'} onClick={onSalir}>
+          <button className="btn-ghost" onClick={onSalir}>
             {volverA === 'ejercicios'
               ? t('vsum.backExercises')
               : volverA === 'teoria'
