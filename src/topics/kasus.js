@@ -16,7 +16,19 @@ const ART = [
   { s: 'Seit dem Umzug wohnt sie bei ___ alten Freundin.', a: 'einer', d: ['eine', 'einem'], c: 'kasus:artikel', t: 'Desde la mudanza vive en casa de una vieja amiga.', e: 'Aquí toca dativo (femenino). Indefinido femenino en dativo: eine → einer.' },
   { s: 'Tut mir leid, heute habe ich wirklich ___ Zeit.', a: 'keine', d: ['kein', 'keinen'], c: 'kasus:kein-possessiv', t: 'Lo siento, hoy de verdad que no tengo tiempo.', e: '"Zeit" es femenino; objeto directo → acusativo. "kein" en femenino = "keine".' },
   { s: 'Er hat ___ Bruder eine Gitarre zum Geburtstag geschenkt.', a: 'seinem', d: ['seinen', 'sein'], c: 'kasus:kein-possessiv', t: 'Le regaló una guitarra a su hermano por su cumpleaños.', e: 'Destinatario → dativo. Los posesivos siguen a "ein": masculino dativo → "seinem".' },
-  { s: 'Ich habe ___ ganzen Nachmittag im Wartezimmer verbracht.', a: 'den', d: ['dem', 'der'], c: 'kasus:akkusativ', t: 'Me he pasado toda la tarde en la sala de espera.', e: 'Duración con "verbringen" → acusativo. Masculino: der → den ("den ganzen Nachmittag").' }
+  { s: 'Ich habe ___ ganzen Nachmittag im Wartezimmer verbracht.', a: 'den', d: ['dem', 'der'], c: 'kasus:akkusativ', t: 'Me he pasado toda la tarde en la sala de espera.', e: 'Duración con "verbringen" → acusativo. Masculino: der → den ("den ganzen Nachmittag").' },
+  { s: 'Haben Sie ___ neuen Reisepass dabei?', a: 'Ihren', d: ['Ihr', 'Ihrem'], c: 'kasus:kein-possessiv', t: '¿Lleva consigo su nuevo pasaporte?', e: '"Reisepass" es masculino; objeto directo → acusativo: "Ihren neuen Reisepass".' },
+  { s: 'Wir danken ___ Professor für seine ausführliche Erklärung.', a: 'dem', d: ['den', 'der'], c: 'kasus:dativ', t: 'Agradecemos al profesor su detallada explicación.', e: '"danken" rige dativo. Masculino: "dem Professor".' },
+  { s: 'Er sucht ___ Schlüsselbund schon seit einer halben Stunde.', a: 'seinen', d: ['seinem', 'sein'], c: 'kasus:kein-possessiv', t: 'Lleva media hora buscando su llavero.', e: '"suchen" lleva objeto directo → acusativo: "seinen Schlüsselbund".' },
+  { s: 'Ich antworte ___ Kollegin so schnell wie möglich.', a: 'der', d: ['die', 'den'], c: 'kasus:dativ', t: 'Le respondo a la compañera lo antes posible.', e: '"antworten" rige dativo. Femenino: "der Kollegin".' },
+  { s: 'Das Kind trinkt ___ kaltes Glas Milch.', a: 'ein', d: ['einen', 'einem'], c: 'kasus:artikel', t: 'El niño bebe un vaso frío de leche.', e: '"Glas" es neutro; objeto directo en acusativo: "ein Glas".' },
+  { s: 'Wir haben gestern ___ ganzen Abend draußen gesessen.', a: 'den', d: ['dem', 'der'], c: 'kasus:akkusativ', t: 'Ayer estuvimos sentados afuera toda la noche.', e: 'Complemento de duración en acusativo: "den ganzen Abend".' },
+  { s: 'Er schenkt ___ Eltern eine schöne Reise nach Italien.', a: 'seinen', d: ['seine', 'seinem'], c: 'kasus:kein-possessiv', t: 'Les regala a sus padres un bonito viaje a Italia.', e: 'Destinatario en plural → dativo: "seinen Eltern".' },
+  { s: 'Ich kenne ___ Arzt schon seit vielen Jahren.', a: 'diesen', d: ['diesem', 'dieser'], c: 'kasus:akkusativ', t: 'Conozco a este médico desde hace muchos años.', e: '"kennen" → objeto directo → acusativo: "diesen Arzt".' },
+  { s: 'Gefällt ___ Gästen das Essen im Restaurant?', a: 'den', d: ['die', 'der'], c: 'kasus:dativ', t: '¿Les gusta la comida del restaurante a los invitados?', e: '"gefallen" rige dativo; plural: "den Gästen".' },
+  { s: 'Sie hat gestern ___ neue Stelle im Krankenhaus angetreten.', a: 'ihre', d: ['ihrer', 'ihren'], c: 'kasus:kein-possessiv', t: 'Ayer se incorporó a su nuevo puesto en el hospital.', e: '"Stelle" es femenina; objeto directo → acusativo: "ihre neue Stelle".' },
+  { s: 'Der Lehrer erklärt ___ Schülern die schwere Grammatikregel.', a: 'den', d: ['die', 'der'], c: 'kasus:dativ', t: 'El profesor les explica a los alumnos la difícil regla de gramática.', e: 'Destinatario en plural → dativo: "den Schülern".' },
+  { s: 'Ich habe heute leider ___ einzigen Cent im Portemonnaie.', a: 'keinen', d: ['kein', 'keinem'], c: 'kasus:kein-possessiv', t: 'Hoy por desgracia no tengo ni un solo céntimo en la cartera.', e: '"Cent" es masculino; objeto directo → acusativo: "keinen einzigen Cent".' }
 ];
 
 // 2) Pronombres personales según el caso
@@ -28,7 +40,15 @@ const PRON = [
   { s: 'Wir danken ___ herzlich für die schöne Einladung. (a vosotros)', a: 'euch', d: ['ihr', 'euer'], c: 'kasus:pronomen', t: 'Os agradecemos de corazón la bonita invitación.', e: '"danken" rige dativo → "euch".' },
   { s: 'Gib ___ bitte die Fernbedienung, der Film fängt an. (a ella)', a: 'ihr', d: ['sie', 'ihn'], c: 'kasus:pronomen', t: 'Dale el mando, que empieza la película.', e: 'Destinatario de "geben" → dativo → "ihr".' },
   { s: 'Das große Paket auf dem Tisch ist für ___. (para ti)', a: 'dich', d: ['dir', 'du'], c: 'kasus:pronomen', t: 'El paquete grande de la mesa es para ti.', e: '"für" rige acusativo → "dich".' },
-  { s: 'Die neuen Schuhe passen ___ leider überhaupt nicht. (a mí)', a: 'mir', d: ['mich', 'ich'], c: 'kasus:pronomen', t: 'Los zapatos nuevos no me quedan nada bien.', e: '"passen" rige dativo → "mir".' }
+  { s: 'Die neuen Schuhe passen ___ leider überhaupt nicht. (a mí)', a: 'mir', d: ['mich', 'ich'], c: 'kasus:pronomen', t: 'Los zapatos nuevos no me quedan nada bien.', e: '"passen" rige dativo → "mir".' },
+  { s: 'Der Lehrer erklärt ___ die Grammatikregel ganz genau. (a nosotros)', a: 'uns', d: ['unser', 'wir'], c: 'kasus:pronomen', t: 'El profesor nos explica la regla gramatical con exactitud.', e: '"erklären" + dativo (destinatario) → "uns".' },
+  { s: 'Ich rufe ___ morgen früh um acht Uhr an. (a ti)', a: 'dich', d: ['dir', 'du'], c: 'kasus:pronomen', t: 'Te llamo mañana a las ocho de la mañana.', e: '"anrufen" lleva objeto directo → acusativo → "dich".' },
+  { s: 'Können Sie ___ bitte den Weg zum Bahnhof beschreiben? (a mí)', a: 'mir', d: ['mich', 'ich'], c: 'kasus:pronomen', t: '¿Puede describirme el camino a la estación, por favor?', e: '"beschreiben" + dativo (destinatario) → "mir".' },
+  { s: 'Wir haben ___ leider nicht auf der Feier getroffen. (a ellos)', a: 'sie', d: ['ihnen', 'ihr'], c: 'kasus:pronomen', t: 'Por desgracia no los encontramos en la fiesta.', e: '"treffen" lleva objeto directo → acusativo → "sie".' },
+  { s: 'Ich vertraue ___ vollkommen und erzähle dir alles. (a ti)', a: 'dir', d: ['dich', 'du'], c: 'kasus:pronomen', t: 'Confío plenamente en ti y te lo cuento todo.', e: '"vertrauen" rige dativo → "dir".' },
+  { s: 'Wie schmeckt ___ die Suppe? — Sehr lecker! (a vosotros)', a: 'euch', d: ['ihr', 'sie'], c: 'kasus:pronomen', t: '¿Qué tal os sabe la sopa? — ¡Muy rica!', e: '"schmecken" rige dativo → "euch".' },
+  { s: 'Er hat ___ einen wunderschönen Blumenstrauß mitgebracht. (a ella)', a: 'ihr', d: ['sie', 'ihn'], c: 'kasus:pronomen', t: 'Le trajo un precioso ramo de flores.', e: 'Destinatario de "mitbringen" → dativo → "ihr".' },
+  { s: 'Ich danke ___ sehr für Ihre freundliche Hilfe. (a usted)', a: 'Ihnen', d: ['Sie', 'Ihr'], c: 'kasus:pronomen', t: 'Le agradezco mucho su amable ayuda.', e: '"danken" rige dativo cortesía → "Ihnen".' }
 ];
 
 // 3) Elegir el sintagma bien declinado
@@ -37,7 +57,14 @@ const FORM = [
   { s: 'Sie sucht seit Wochen ___.', opts: ['einen ruhigen Job', 'einem ruhigen Job', 'ein ruhigen Job'], a: 'einen ruhigen Job', c: 'kasus:akkusativ', t: 'Lleva semanas buscando un trabajo tranquilo.', e: '"suchen" → acusativo. Masculino: "ein" → "einen".' },
   { s: 'Der Rucksack dort in der Ecke gehört ___.', opts: ['dem neuen Praktikanten', 'den neuen Praktikanten', 'der neue Praktikant'], a: 'dem neuen Praktikanten', c: 'kasus:dativ-verben', t: 'La mochila del rincón es del becario nuevo.', e: '"gehören" rige dativo. Masculino: "der" → "dem" ("Praktikant" añade -en).' },
   { s: 'Zum Schluss haben wir ___ für die viele Hilfe gedankt.', opts: ['den Nachbarn', 'die Nachbarn', 'der Nachbarn'], a: 'den Nachbarn', c: 'kasus:dativ-verben', t: 'Al final les dimos las gracias a los vecinos por tanta ayuda.', e: '"danken" + dativo; plural: "die" → "den" (y -n en el sustantivo).' },
-  { s: 'Im Bus sehe ich fast jeden Morgen ___.', opts: ['diesen netten Mann', 'diesem netten Mann', 'dieser nette Mann'], a: 'diesen netten Mann', c: 'kasus:akkusativ', t: 'En el autobús veo casi cada mañana a este hombre tan simpático.', e: 'Objeto directo → acusativo. Masculino: "dieser" → "diesen".' }
+  { s: 'Im Bus sehe ich fast jeden Morgen ___.', opts: ['diesen netten Mann', 'diesem netten Mann', 'dieser nette Mann'], a: 'diesen netten Mann', c: 'kasus:akkusativ', t: 'En el autobús veo casi cada mañana a este hombre tan simpático.', e: 'Objeto directo → acusativo. Masculino: "dieser" → "diesen".' },
+  { s: 'Der Chef gratuliert ___ zum großen Erfolg.', opts: ['allen Mitarbeitern', 'alle Mitarbeiter', 'aller Mitarbeiter'], a: 'allen Mitarbeitern', c: 'kasus:dativ-verben', t: 'El jefe felicita a todos los empleados por el gran éxito.', e: '"gratulieren" rige DATIVO. Plural: "allen Mitarbeitern".' },
+  { s: 'Wir vertrauen ___ in dieser wichtigen Angelegenheit.', opts: ['unserem Anwalt', 'unseren Anwalt', 'unser Anwalt'], a: 'unserem Anwalt', c: 'kasus:dativ-verben', t: 'Confiamos en nuestro abogado en este asunto tan importante.', e: '"vertrauen" rige DATIVO. Masculino: "unserem Anwalt".' },
+  { s: 'Ich kaufe ___ ein spannendes Jugendbuch.', opts: ['meiner Nichte', 'meine Nichte', 'meinen Nichte'], a: 'meiner Nichte', c: 'kasus:dativ', t: 'Le compro a mi sobrina un emocionante libro juvenil.', e: 'Destinatario (¿a quién?) → dativo. Femenino: "meiner Nichte".' },
+  { s: 'Der Kellner empfiehlt ___ die Spezialität des Hauses.', opts: ['den Gästen', 'die Gäste', 'der Gäste'], a: 'den Gästen', c: 'kasus:dativ', t: 'El camarero les recomienda a los comensales la especialidad de la casa.', e: 'Destinatario en plural → dativo: "den Gästen".' },
+  { s: 'Er trinkt jeden Morgen ___.', opts: ['einen heißen Kaffee', 'einem heißen Kaffee', 'ein heißer Kaffee'], a: 'einen heißen Kaffee', c: 'kasus:akkusativ', t: 'Se toma un café caliente todas las mañanas.', e: 'Objeto directo → acusativo masculino: "einen heißen Kaffee".' },
+  { s: 'Das neue Kleid steht ___ ausgezeichnet.', opts: ['deiner Schwester', 'deine Schwester', 'deinen Schwester'], a: 'deiner Schwester', c: 'kasus:dativ-verben', t: 'El vestido nuevo le sienta fenomenal a tu hermana.', e: '"stehen" (quedar bien una prenda) rige DATIVO. Femenino: "deiner Schwester".' },
+  { s: 'Wir beantworten ___ innerhalb von 24 Stunden.', opts: ['Ihre Anfrage', 'Ihrer Anfrage', 'Ihren Anfrage'], a: 'Ihre Anfrage', c: 'kasus:akkusativ', t: 'Respondemos a su solicitud en un plazo de 24 horas.', e: '"beantworten" lleva objeto directo → acusativo femenino: "Ihre Anfrage".' }
 ];
 
 // 4) Palabra interrogativa según el caso
@@ -45,7 +72,13 @@ const WFRAGE = [
   { s: '___ hast du gestern auf der Party getroffen? — Meinen alten Chef.', a: 'Wen', d: ['Wer', 'Wem'], c: 'kasus:akkusativ', t: '¿A quién te encontraste ayer en la fiesta? — A mi antiguo jefe.', e: 'Se pregunta por el objeto directo → "wen" (acusativo).' },
   { s: '___ gehört dieser schwarze Koffer? — Der Frau da vorne.', a: 'Wem', d: ['Wer', 'Wen'], c: 'kasus:dativ', t: '¿De quién es esta maleta negra? — De la señora de delante.', e: '"gehören" rige dativo → se pregunta con "wem".' },
   { s: '___ hat eigentlich diesen leckeren Kuchen gebacken? — Meine Oma.', a: 'Wer', d: ['Wen', 'Wem'], c: 'kasus:nominativ', t: '¿Quién ha hecho esta tarta tan rica? — Mi abuela.', e: 'Se pregunta por el sujeto → "wer" (nominativo).' },
-  { s: 'Mit ___ fährst du in den Urlaub? — Mit meinen Cousins.', a: 'wem', d: ['wen', 'wer'], c: 'kasus:dativ', t: '¿Con quién te vas de vacaciones? — Con mis primos.', e: '"mit" rige dativo, así que la pregunta es "mit wem?".' }
+  { s: 'Mit ___ fährst du in den Urlaub? — Mit meinen Cousins.', a: 'wem', d: ['wen', 'wer'], c: 'kasus:dativ', t: '¿Con quién te vas de vacaciones? — Con mis primos.', e: '"mit" rige dativo, así que la pregunta es "mit wem?".' },
+  { s: '___ lädst du zu deiner Geburtstagsfeier ein? — Meine engsten Freunde.', a: 'Wen', d: ['Wer', 'Wem'], c: 'kasus:akkusativ', t: '¿A quién invitas a tu fiesta de cumpleaños? — A mis amigos más cercanos.', e: '"einladen" pide objeto directo → acusativo: "wen?".' },
+  { s: '___ antwortest du gerade auf die E-Mail? — Dem Abteilungsleiter.', a: 'Wem', d: ['Wen', 'Wer'], c: 'kasus:dativ', t: '¿A quién le estás respondiendo al correo? — Al jefe de departamento.', e: '"antworten" rige dativo → "wem?".' },
+  { s: '___ holt die Kinder heute von der Schule ab? — Mein Mann.', a: 'Wer', d: ['Wen', 'Wem'], c: 'kasus:nominativ', t: '¿Quién recoge a los niños hoy del colegio? — Mi marido.', e: 'Se pregunta por el sujeto → "wer?".' },
+  { s: 'Für ___ hast du das schöne Geschenk gekauft? — Für meine Mutter.', a: 'wen', d: ['wem', 'wer'], c: 'kasus:akkusativ', t: '¿Para quién has comprado el bonito regalo? — Para mi madre.', e: '"für" rige acusativo → "für wen?".' },
+  { s: '___ vertraust du am meisten in schwierigen Situationen? — Meinen Eltern.', a: 'Wem', d: ['Wen', 'Wer'], c: 'kasus:dativ', t: '¿En quién confías más en situaciones difíciles? — En mis padres.', e: '"vertrauen" rige dativo → "wem?".' },
+  { s: '___ siehst du da drüben an der Bushaltestelle? — Meinen Nachbarn.', a: 'Wen', d: ['Wer', 'Wem'], c: 'kasus:akkusativ', t: '¿A quién ves allí en la parada de autobús? — A mi vecino.', e: '"sehen" rige acusativo → "wen?".' }
 ];
 
 // 5) Orden objeto indirecto (dativo) / objeto directo (acusativo)
@@ -53,7 +86,38 @@ const ORDERS = [
   { sol: ['Ich', 'schenke', 'meiner', 'Schwester', 'ein', 'Kochbuch'], t: 'Le regalo un libro de cocina a mi hermana.', e: 'Con dos objetos sustantivos: primero el DATIVO ("meiner Schwester"), luego el ACUSATIVO ("ein Kochbuch").', c: 'kasus:wortstellung' },
   { sol: ['Kannst', 'du', 'mir', 'bitte', 'den', 'Weg', 'zeigen'], t: '¿Me puedes indicar el camino, por favor?', e: 'Dativo ("mir") antes del acusativo ("den Weg").', c: 'kasus:wortstellung' },
   { sol: ['Der', 'Kellner', 'bringt', 'den', 'Gästen', 'die', 'Getränke'], t: 'El camarero les trae las bebidas a los clientes.', e: 'Dativo ("den Gästen") antes del acusativo ("die Getränke").', c: 'kasus:wortstellung' },
-  { sol: ['Ich', 'gebe', 'es', 'dir', 'morgen', 'zurück'], t: 'Te lo devuelvo mañana.', e: 'Si el objeto directo es un PRONOMBRE ("es"), va delante del dativo: pronombre-acusativo + dativo.', c: 'kasus:wortstellung' }
+  { sol: ['Ich', 'gebe', 'es', 'dir', 'morgen', 'zurück'], t: 'Te lo devuelvo mañana.', e: 'Si el objeto directo es un PRONOMBRE ("es"), va delante del dativo: pronombre-acusativo + dativo.', c: 'kasus:wortstellung' },
+  { sol: ['Der', 'Vater', 'kauft', 'seinem', 'Sohn', 'ein', 'neues', 'Fahrrad'], t: 'El padre le compra una bici nueva a su hijo.', e: 'Dos objetos sustantivos: primero DATIVO ("seinem Sohn"), luego ACUSATIVO ("ein neues Fahrrad").', c: 'kasus:wortstellung' },
+  { sol: ['Ich', 'habe', 'meiner', 'Mutter', 'die', 'gute', 'Nachricht', 'erzählt'], t: 'Le he contado la buena noticia a mi madre.', e: 'Dativo ("meiner Mutter") antes del acusativo ("die gute Nachricht").', c: 'kasus:wortstellung' },
+  { sol: ['Er', 'schickt', 'ihm', 'den', 'Vertrag', 'noch', 'heute', 'per', 'Mail'], t: 'Él le envía el contrato hoy mismo por correo.', e: 'Dativo pronombre ("ihm") antes del acusativo sustantivo ("den Vertrag").', c: 'kasus:wortstellung' },
+  { sol: ['Sie', 'schenkt', 'es', 'ihrer', 'Freundin', 'zum', 'Geburtstag'], t: 'Ella se lo regala a su amiga por su cumpleaños.', e: 'Pronombre acusativo ("es") va DELANTE del dativo ("ihrer Freundin").', c: 'kasus:wortstellung' },
+  { sol: ['Wir', 'bringen', 'unseren', 'Nachbarn', 'etwas', 'Kuchen', 'vorbei'], t: 'Les llevamos un poco de tarta a nuestros vecinos.', e: 'Dativo ("unseren Nachbarn") antes del objeto directo.', c: 'kasus:wortstellung' },
+  { sol: ['Kannst', 'du', 'ihr', 'den', 'Brief', 'bitte', 'geben'], t: '¿Puedes darle la carta a ella, por favor?', e: 'Dativo ("ihr") antes del acusativo ("den Brief").', c: 'kasus:wortstellung' },
+  { sol: ['Die', 'Oma', 'backt', 'ihren', 'Enkeln', 'einen', 'leckeren', 'Kuchen'], t: 'La abuela les hornea una rica tarta a sus nietos.', e: 'Dativo ("ihren Enkeln") antes de acusativo ("einen leckeren Kuchen").', c: 'kasus:wortstellung' },
+  { sol: ['Er', 'erklärt', 'den', 'neuen', 'Kollegen', 'das', 'Computerprogramm'], t: 'Él les explica el programa informático a los compañeros nuevos.', e: 'Dativo ("den neuen Kollegen") antes de acusativo ("das Computerprogramm").', c: 'kasus:wortstellung' },
+  { sol: ['Ich', 'habe', 'es', 'ihnen', 'gestern', 'schon', 'gesagt'], t: 'Ya se lo dije a ellos ayer.', e: 'Pronombre acusativo ("es") antes del pronombre dativo ("ihnen").', c: 'kasus:wortstellung' },
+  { sol: ['Wir', 'wünschen', 'allen', 'Gästen', 'einen', 'schönen', 'Aufenthalt'], t: 'Deseamos a todos los huéspedes una agradable estancia.', e: 'Dativo ("allen Gästen") antes de acusativo ("einen schönen Aufenthalt").', c: 'kasus:wortstellung' },
+  { sol: ['Sie', 'leiht', 'ihrer', 'Freundin', 'ein', 'schönes', 'Kleid'], t: 'Ella le presta un bonito vestido a su amiga.', e: 'Dativo ("ihrer Freundin") antes de acusativo ("ein schönes Kleid").', c: 'kasus:wortstellung' },
+  { sol: ['Gibst', 'du', 'mir', 'bitte', 'das', 'Salz'], t: '¿Me pasas la sal, por favor?', e: 'Dativo ("mir") antes del acusativo ("das Salz").', c: 'kasus:wortstellung' },
+  { sol: ['Er', 'schreibt', 'seinem', 'Chef', 'einen', 'ausführlichen', 'Bericht'], t: 'Le escribe un informe detallado a su jefe.', e: 'Dativo ("seinem Chef") antes de acusativo ("einen ausführlichen Bericht").', c: 'kasus:wortstellung' },
+  { sol: ['Ich', 'zeige', 'euch', 'gerne', 'unsere', 'neue', 'Wohnung'], t: 'Con mucho gusto os enseño nuestro piso nuevo.', e: 'Dativo ("euch") antes de acusativo ("unsere neue Wohnung").', c: 'kasus:wortstellung' },
+  { sol: ['Wir', 'haben', 'ihm', 'ein', 'Geschenk', 'aus', 'dem', 'Urlaub', 'mitgebracht'], t: 'Le trajimos un regalo de las vacaciones.', e: 'Dativo ("ihm") antes del objeto directo ("ein Geschenk").', c: 'kasus:wortstellung' },
+  { sol: ['Sie', 'bringt', 'dem', 'Patienten', 'ein', 'Glas', 'Wasser'], t: 'Ella le trae al paciente un vaso de agua.', e: 'Dativo ("dem Patienten") antes del acusativo ("ein Glas Wasser").', c: 'kasus:wortstellung' },
+  { sol: ['Der', 'Arzt', 'verschreibt', 'dem', 'Patienten', 'ein', 'wirksames', 'Medikament'], t: 'El médico le receta un medicamento eficaz al paciente.', e: 'Dativo ("dem Patienten") antes del acusativo.', c: 'kasus:wortstellung' },
+  { sol: ['Ich', 'habe', 'meinem', 'Bruder', 'das', 'Auto', 'geliehen'], t: 'Le he prestado el coche a mi hermano.', e: 'Dativo ("meinem Bruder") antes del acusativo.', c: 'kasus:wortstellung' },
+  { sol: ['Sie', 'bringt', 'den', 'Kindern', 'die', 'warmen', 'Jacken'], t: 'Ella les trae las chaquetas abrigadas a los niños.', e: 'Dativo ("den Kindern") antes del acusativo.', c: 'kasus:wortstellung' },
+  { sol: ['Er', 'beantwortet', 'dem', 'Kunden', 'alle', 'offenen', 'Fragen'], t: 'Él le responde al cliente todas las dudas pendientes.', e: 'Dativo ("dem Kunden") antes del acusativo.', c: 'kasus:wortstellung' },
+  { sol: ['Ich', 'schenke', 'ihr', 'ein', 'schönes', 'Buch', 'zu', 'Weihnachten'], t: 'Le regalo a ella un bonito libro por Navidad.', e: 'Dativo ("ihr") antes del acusativo ("ein schönes Buch").', c: 'kasus:wortstellung' },
+  { sol: ['Wir', 'empfehlen', 'unseren', 'Freunden', 'dieses', 'tolle', 'Hotel'], t: 'Les recomendamos este magnífico hotel a nuestros amigos.', e: 'Dativo ("unseren Freunden") antes del acusativo.', c: 'kasus:wortstellung' },
+  { sol: ['Er', 'gibt', 'dem', 'Kellner', 'ein', 'großzügiges', 'Trinkgeld'], t: 'Él le da al camarero una propina generosa.', e: 'Dativo ("dem Kellner") antes del acusativo.', c: 'kasus:wortstellung' },
+  { sol: ['Kannst', 'du', 'uns', 'bitte', 'den', 'Weg', 'erklären'], t: '¿Puedes explicarnos el camino, por favor?', e: 'Dativo ("uns") antes del acusativo ("den Weg").', c: 'kasus:wortstellung' },
+  { sol: ['Sie', 'schickt', 'ihren', 'Eltern', 'eine', 'Postkarte', 'aus', 'Italien'], t: 'Ella les envía a sus padres una postal desde Italia.', e: 'Dativo ("ihren Eltern") antes del acusativo.', c: 'kasus:wortstellung' },
+  { sol: ['Ich', 'habe', 'es', 'meinem', 'Chef', 'gestern', 'persönlich', 'übergeben'], t: 'Se lo entregué ayer personalmente a mi jefe.', e: 'Pronombre acusativo ("es") va antes del dativo ("meinem Chef").', c: 'kasus:wortstellung' },
+  { sol: ['Der', 'Lehrer', 'zeigt', 'den', 'Schülern', 'ein', 'interessantes', 'Experiment'], t: 'El profesor les muestra a los alumnos un experimento interesante.', e: 'Dativo ("den Schülern") antes del acusativo.', c: 'kasus:wortstellung' },
+  { sol: ['Wir', 'haben', 'ihnen', 'unsere', 'Hilfe', 'beim', 'Umzug', 'angeboten'], t: 'Les ofrecimos nuestra ayuda con la mudanza.', e: 'Dativo ("ihnen") antes del acusativo ("unsere Hilfe").', c: 'kasus:wortstellung' },
+  { sol: ['Er', 'kauft', 'seiner', 'Freundin', 'einen', 'wunderschönen', 'Ring'], t: 'Él le compra un precioso anillo a su novia.', e: 'Dativo ("seiner Freundin") antes del acusativo.', c: 'kasus:wortstellung' },
+  { sol: ['Geben', 'Sie', 'mir', 'bitte', 'Ihre', 'Telefonnummer'], t: 'Deme su número de teléfono, por favor.', e: 'Dativo ("mir") antes del acusativo.', c: 'kasus:wortstellung' },
+  { sol: ['Sie', 'erzählt', 'ihrer', 'Tochter', 'eine', 'schöne', 'Gute-Nacht-Geschichte'], t: 'Ella le cuenta a su hija un bonito cuento para dormir.', e: 'Dativo ("ihrer Tochter") antes del acusativo.', c: 'kasus:wortstellung' }
 ];
 
 const frames = [

@@ -18,7 +18,17 @@ const SEP = [
   { inf: 'aufräumen', pref: 'auf', ich: 'räume', er: 'räumt', mid: ['am', 'Wochenende', 'die', 'ganze', 'Wohnung'], midEs: 'toda la casa el finde', es: 'ordenar', part: 'aufgeräumt', zu: 'aufzuräumen', wrong: ['aufräumen', 'aufgeräumen'] },
   { inf: 'umsteigen', pref: 'um', ich: 'steige', er: 'steigt', mid: ['in', 'Frankfurt', 'in', 'den', 'Schnellzug'], midEs: 'en Fráncfort al tren rápido', es: 'hacer transbordo', part: 'umgestiegen', zu: 'umzusteigen', wrong: ['umsteigen', 'umgestiegt'] },
   { inf: 'einladen', pref: 'ein', ich: 'lade', er: 'lädt', mid: ['am', 'Freitag', 'ein', 'paar', 'Freunde', 'zum', 'Essen'], midEs: 'a unos amigos a cenar el viernes', es: 'invitar', part: 'eingeladen', zu: 'einzuladen', wrong: ['einladen', 'eingeladet'] },
-  { inf: 'losfahren', pref: 'los', ich: 'fahre', er: 'fährt', mid: ['morgen', 'schon', 'vor', 'dem', 'Frühstück'], midEs: 'mañana ya antes del desayuno', es: 'salir (en coche)', part: 'losgefahren', zu: 'loszufahren', wrong: ['losfahren', 'losgefahrt'] }
+  { inf: 'losfahren', pref: 'los', ich: 'fahre', er: 'fährt', mid: ['morgen', 'schon', 'vor', 'dem', 'Frühstück'], midEs: 'mañana ya antes del desayuno', es: 'salir (en coche)', part: 'losgefahren', zu: 'loszufahren', wrong: ['losfahren', 'losgefahrt'] },
+  { inf: 'fernsehen', pref: 'fern', ich: 'sehe', er: 'sieht', mid: ['am', 'Abend', 'noch', 'eine', 'Stunde'], midEs: 'una hora por la noche', es: 'ver la tele', part: 'ferngesehen', zu: 'fernzusehen', wrong: ['fernsehen', 'gefernsehen'] },
+  { inf: 'mitbringen', pref: 'mit', ich: 'bringe', er: 'bringt', mid: ['einen', 'selbstgebackenen', 'Kuchen', 'zur', 'Party'], midEs: 'una tarta casera a la fiesta', es: 'traer', part: 'mitgebracht', zu: 'mitzubringen', wrong: ['mitbringen', 'mitgebrachten'] },
+  { inf: 'aussteigen', pref: 'aus', ich: 'steige', er: 'steigt', mid: ['am', 'Hauptbahnhof', 'aus', 'dem', 'Zug'], midEs: 'del tren en la estación central', es: 'bajarse', part: 'ausgestiegen', zu: 'auszusteigen', wrong: ['aussteigen', 'ausgesteigt'] },
+  { inf: 'einsteigen', pref: 'ein', ich: 'steige', er: 'steigt', mid: ['an', 'der', 'nächsten', 'Haltestelle', 'in', 'den', 'Bus'], midEs: 'al autobús en la próxima parada', es: 'subirse', part: 'eingestiegen', zu: 'einzusteigen', wrong: ['einsteigen', 'eingesteigt'] },
+  { inf: 'anziehen', pref: 'an', ich: 'ziehe', er: 'zieht', mid: ['eine', 'warme', 'Winterjacke'], midEs: 'una chaqueta de invierno abrigada', es: 'ponerse ropa', part: 'angezogen', zu: 'anzuziehen', wrong: ['anziehen', 'angezieht'] },
+  { inf: 'ausfüllen', pref: 'aus', ich: 'fülle', er: 'füllt', mid: ['das', 'offizielle', 'Formular', 'sorgfältig'], midEs: 'el formulario oficial con cuidado', es: 'rellenar', part: 'ausgefüllt', zu: 'auszufüllen', wrong: ['ausfüllen', 'ausgefüllen'] },
+  { inf: 'kennenlernen', pref: 'kennen', ich: 'lerne', er: 'lernt', mid: ['auf', 'der', 'Reise', 'viele', 'nette', 'Leute'], midEs: 'a mucha gente simpática en el viaje', es: 'conocer', part: 'kennengelernt', zu: 'kennenzulernen', wrong: ['kennenlernen', 'kennenlernt'] },
+  { inf: 'zumachen', pref: 'zu', ich: 'mache', er: 'macht', mid: ['wegen', 'der', 'Kälte', 'das', 'Fenster'], midEs: 'la ventana por el frío', es: 'cerrar', part: 'zugemacht', zu: 'zuzumachen', wrong: ['zumachen', 'zuegemacht'] },
+  { inf: 'aufmachen', pref: 'auf', ich: 'mache', er: 'macht', mid: ['am', 'Morgen', 'erst', 'mal', 'die', 'Fenster'], midEs: 'las ventanas por la mañana', es: 'abrir', part: 'aufgemacht', zu: 'aufzumachen', wrong: ['aufmachen', 'aufgemachen'] },
+  { inf: 'zurückkommen', pref: 'zurück', ich: 'komme', er: 'kommt', mid: ['spät', 'in', 'der', 'Nacht', 'nach', 'Hause'], midEs: 'tarde por la noche a casa', es: 'volver', part: 'zurückgekommen', zu: 'zurückzukommen', wrong: ['zurückkommen', 'zurückgekommt'] }
 ];
 
 // Verbos INSEPARABLES: prefijo átono (be-, ge-, er-, ver-, ent-, emp-, zer-, miss-).
@@ -30,7 +40,15 @@ const INSEP = [
   { inf: 'bezahlen', ich: 'bezahle', er: 'bezahlt', mid: ['die', 'Miete', 'immer', 'am', 'Ersten'], midEs: 'el alquiler siempre el día uno', es: 'pagar', part: 'bezahlt', zu: 'zu bezahlen', wrong: ['bezahlen', 'gebezahlt'] },
   { inf: 'verkaufen', ich: 'verkaufe', er: 'verkauft', mid: ['sein', 'altes', 'Fahrrad', 'über', 'eine', 'App'], midEs: 'su bici vieja por una app', es: 'vender', part: 'verkauft', zu: 'zu verkaufen', wrong: ['verkaufen', 'geverkauft'] },
   { inf: 'erklären', ich: 'erkläre', er: 'erklärt', mid: ['dir', 'die', 'Regel', 'gern', 'noch', 'einmal'], midEs: 'la regla otra vez con gusto', es: 'explicar', part: 'erklärt', zu: 'zu erklären', wrong: ['erklären', 'geerklärt'] },
-  { inf: 'entscheiden', ich: 'entscheide', er: 'entscheidet', mid: ['das', 'meistens', 'ganz', 'spontan'], midEs: 'eso casi siempre de forma espontánea', es: 'decidir', part: 'entschieden', zu: 'zu entscheiden', wrong: ['entscheiden', 'geentschieden'] }
+  { inf: 'entscheiden', ich: 'entscheide', er: 'entscheidet', mid: ['das', 'meistens', 'ganz', 'spontan'], midEs: 'eso casi siempre de forma espontánea', es: 'decidir', part: 'entschieden', zu: 'zu entscheiden', wrong: ['entscheiden', 'geentschieden'] },
+  { inf: 'vergessen', ich: 'vergesse', er: 'vergisst', mid: ['leider', 'oft', 'die', 'Geburtstage'], midEs: 'a menudo los cumpleaños', es: 'olvidar', part: 'vergessen', zu: 'zu vergessen', wrong: ['vergisst', 'gevergesst'] },
+  { inf: 'empfehlen', ich: 'empfehle', er: 'empfiehlt', mid: ['dir', 'dieses', 'traditionelle', 'Restaurant'], midEs: 'este restaurante tradicional', es: 'recomendar', part: 'empfohlen', zu: 'zu empfehlen', wrong: ['empfehlt', 'geempfohlen'] },
+  { inf: 'beginnen', ich: 'beginne', er: 'beginnt', mid: ['morgen', 'einen', 'neuen', 'Lebensabschnitt'], midEs: 'una nueva etapa mañana', es: 'comenzar', part: 'begonnen', zu: 'zu beginnen', wrong: ['beginnt', 'gebeginnt'] },
+  { inf: 'verlieren', ich: 'verliere', er: 'verliert', mid: ['beim', 'Sport', 'oft', 'die', 'Geduld'], midEs: 'a menudo la paciencia al hacer deporte', es: 'perder', part: 'verloren', zu: 'zu verlieren', wrong: ['verliert', 'geverloren'] },
+  { inf: 'gefallen', ich: 'gefalle', er: 'gefällt', mid: ['den', 'vielen', 'Besuchern', 'sehr'], midEs: 'mucho a los numerosos visitantes', es: 'gustar', part: 'gefallen', zu: 'zu gefallen', wrong: ['gefällt', 'gegefallen'] },
+  { inf: 'bestellen', ich: 'bestelle', er: 'bestellt', mid: ['das', 'Buch', 'einfach', 'im', 'Internet'], midEs: 'el libro fácilmente por internet', es: 'pedir', part: 'bestellt', zu: 'zu bestellen', wrong: ['bestellen', 'gebestellt'] },
+  { inf: 'erwarten', ich: 'erwarte', er: 'erwartet', mid: ['heute', 'einen', 'wichtigen', 'Anruf'], midEs: 'una llamada importante hoy', es: 'esperar', part: 'erwartet', zu: 'zu erwarten', wrong: ['erwarten', 'geerwartet'] },
+  { inf: 'erleben', ich: 'erlebe', er: 'erlebt', mid: ['auf', 'dieser', 'Reise', 'viele', 'Abenteuer'], midEs: 'muchas aventuras en este viaje', es: 'vivir experiencias', part: 'erlebt', zu: 'zu erleben', wrong: ['erleben', 'geerlebt'] }
 ];
 
 const SUBJ = [

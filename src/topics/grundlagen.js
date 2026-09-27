@@ -14,7 +14,17 @@ const PRAES = [
   { s: 'Ich ___ aus Spanien, aus Sevilla.', a: 'komme', d: ['kommst', 'kommt'], c: 'basis:praesens', t: 'Soy de España, de Sevilla.', e: 'Para "ich" la terminación es -e → "komme".' },
   { s: 'Ihr ___ heute leider keine Zeit.', a: 'habt', d: ['habe', 'hat'], c: 'basis:praesens', t: 'Hoy no tenéis tiempo, por desgracia.', e: '"haben" con "ihr" → "habt".' },
   { s: 'Sie (Anna) ___ sehr gut Englisch.', a: 'spricht', d: ['sprichst', 'spreche'], c: 'basis:praesens', t: 'Ella (Anna) habla muy bien inglés.', e: '"sprechen" cambia la vocal en la 3ª persona: "sie spricht".' },
-  { s: 'Was ___ ihr am Sonntag?', a: 'macht', d: ['machst', 'mache'], c: 'basis:praesens', t: '¿Qué hacéis el domingo?', e: '"machen" con "ihr" → "macht".' }
+  { s: 'Was ___ ihr am Sonntag?', a: 'macht', d: ['machst', 'mache'], c: 'basis:praesens', t: '¿Qué hacéis el domingo?', e: '"machen" con "ihr" → "macht".' },
+  { s: 'Er ___ jeden Tag mit dem Fahrrad zur Uni.', a: 'fährt', d: ['fahrt', 'fahre'], c: 'basis:praesens', t: 'Él va todos los días en bici a la universidad.', e: '"fahren" cambia a-ä en 2ª y 3ª persona: "er fährt".' },
+  { s: '___ du abends gerne Romane oder Sachbücher?', a: 'Liest', d: ['Lest', 'Lese'], c: 'basis:praesens', t: '¿Te gusta leer novelas o libros de no ficción por la noche?', e: '"lesen" cambia e-ie: "du liest".' },
+  { s: 'Wir ___ heute Abend einen spannenden Film.', a: 'sehen', d: ['sieht', 'seht'], c: 'basis:praesens', t: 'Hoy por la noche vemos una película emocionante.', e: '"wir" lleva siempre la terminación regular -en: "wir sehen".' },
+  { s: 'Er ___ im Restaurant immer ein Schnitzel mit Pommes.', a: 'nimmt', d: ['nehmt', 'nehme'], c: 'basis:praesens', t: 'En el restaurante él siempre pide un escalope con patatas.', e: '"nehmen" cambia a "er nimmt" en la 3ª persona.' },
+  { s: 'Ich ___ schon seit drei Jahren in München.', a: 'lebe', d: ['lebst', 'lebt'], c: 'basis:praesens', t: 'Vivo en Múnich desde hace tres años.', e: 'Para "ich" la terminación es -e: "ich lebe".' },
+  { s: '___ du die Antwort auf diese schwierige Frage?', a: 'Weißt', d: ['Wisst', 'Weiß'], c: 'basis:praesens', t: '¿Sabes la respuesta a esta pregunta difícil?', e: '"wissen": ich weiß · du weißt · er weiß · wir wissen.' },
+  { s: 'Die Schüler ___ pünktlich um acht Uhr in der Schule an.', a: 'kommen', d: ['kommt', 'kommst'], c: 'basis:praesens', t: 'Los alumnos llegan puntuales al colegio a las ocho.', e: 'Sujeto en plural (die Schüler) → terminación -en: "kommen".' },
+  { s: 'Meine Eltern ___ am liebsten im Garten.', a: 'sitzen', d: ['sitzt', 'sitze'], c: 'basis:praesens', t: 'Mis padres prefieren sentarse en el jardín.', e: 'Sujeto plural → "sitzen".' },
+  { s: 'Wohin ___ ihr in den nächsten Sommerferien?', a: 'reist', d: ['reisen', 'reise'], c: 'basis:praesens', t: '¿Adónde viajáis en las próximas vacaciones de verano?', e: 'Para "ihr" la terminación es -t: "ihr reist".' },
+  { s: 'Er ___ seiner Großmutter beim Einkaufen.', a: 'hilft', d: ['helft', 'helfe'], c: 'basis:praesens', t: 'Él ayuda a su abuela con la compra.', e: '"helfen" cambia e-i en 2ª/3ª persona: "er hilft".' }
 ];
 
 // 2) Artículos (Nominativo / básico)
@@ -26,7 +36,15 @@ const ARTIKEL = [
   { s: '___ Wohnung hat drei Zimmer.', a: 'Die', d: ['Der', 'Das'], c: 'basis:artikel', t: 'El piso tiene tres habitaciones.', e: '"Wohnung" es femenino → "die Wohnung".' },
   { s: 'Wie viel kostet ___ Kaffee hier?', a: 'der', d: ['die', 'das'], c: 'basis:artikel', t: '¿Cuánto cuesta el café aquí?', e: '"Kaffee" es masculino → "der Kaffee".' },
   { s: 'Ich habe heute keine Zeit und ___ Geld.', a: 'kein', d: ['keine', 'keiner'], c: 'basis:artikel', t: 'Hoy no tengo tiempo ni dinero.', e: '"Geld" es neutro → "kein Geld".' },
-  { s: 'Er hat ___ Auto, er fährt immer Fahrrad.', a: 'kein', d: ['keine', 'keinen'], c: 'basis:artikel', t: 'No tiene coche, siempre va en bici.', e: '"Auto" es neutro; se niega con "kein".' }
+  { s: 'Er hat ___ Auto, er fährt immer Fahrrad.', a: 'kein', d: ['keine', 'keinen'], c: 'basis:artikel', t: 'No tiene coche, siempre va en bici.', e: '"Auto" es neutro; se niega con "kein".' },
+  { s: '___ Lampe auf dem Schreibtisch ist sehr hell.', a: 'Die', d: ['Der', 'Das'], c: 'basis:artikel', t: 'La lámpara del escritorio es muy luminosa.', e: '"Lampe" es femenino: "die Lampe".' },
+  { s: 'Wo liegt ___ neues Smartphone von dir?', a: 'das', d: ['der', 'die'], c: 'basis:artikel', t: '¿Dónde está tu smartphone nuevo?', e: '"Smartphone" es neutro: "das Smartphone".' },
+  { s: 'Das ist ___ super Idee für das Wochenende!', a: 'eine', d: ['ein', 'einer'], c: 'basis:artikel', t: '¡Es una idea fantástica para el fin de semana!', e: '"Idee" es femenino: "eine Idee".' },
+  { s: 'Wir haben heute leider ___ Unterricht.', a: 'keinen', d: ['kein', 'keine'], c: 'basis:artikel', t: 'Por desgracia hoy no tenemos clase.', e: '"Unterricht" es masculino (acusativo con haben): "keinen Unterricht".' },
+  { s: '___ Schlüssel liegt direkt neben der Tür.', a: 'Der', d: ['Die', 'Das'], c: 'basis:artikel', t: 'La llave está justo al lado de la puerta.', e: '"Schlüssel" es masculino: "der Schlüssel".' },
+  { s: 'Das ist ___ schönes Foto aus unserem Urlaub.', a: 'ein', d: ['eine', 'einen'], c: 'basis:artikel', t: 'Esta es una bonita foto de nuestras vacaciones.', e: '"Foto" es neutro: "ein schönes Foto".' },
+  { s: 'Sie hat ___ Schwester, sie ist Einzelkind.', a: 'keine', d: ['kein', 'keinen'], c: 'basis:artikel', t: 'No tiene hermanas, es hija única.', e: '"Schwester" es femenino: "keine Schwester".' },
+  { s: '___ Fenster im Wohnzimmer ist noch offen.', a: 'Das', d: ['Der', 'Die'], c: 'basis:artikel', t: 'La ventana del salón todavía está abierta.', e: '"Fenster" es neutro: "das Fenster".' }
 ];
 
 // 3) El verbo en 2ª posición / inversión
@@ -34,13 +52,51 @@ const POSITION = [
   { s: 'Heute ___.', a: 'gehe ich ins Kino', d: ['ich gehe ins Kino', 'ich ins Kino gehe'], c: 'basis:position2', t: 'Hoy voy al cine.', e: 'Si empiezas por un complemento ("Heute"), el verbo va en 2ª posición y el sujeto detrás.' },
   { s: 'Am Montag ___.', a: 'habe ich einen Termin', d: ['ich habe einen Termin', 'ich einen Termin habe'], c: 'basis:position2', t: 'El lunes tengo una cita.', e: 'Complemento + verbo (2ª posición) + sujeto: "Am Montag habe ich…".' },
   { s: 'Normalerweise ___ am Wochenende.', a: 'arbeite ich nicht', d: ['ich arbeite nicht', 'nicht ich arbeite'], c: 'basis:position2', t: 'Normalmente no trabajo los fines de semana.', e: 'El verbo conjugado siempre en 2ª posición: "Normalerweise arbeite ich…".' },
-  { s: 'Meine Eltern ___ in einem kleinen Dorf.', a: 'wohnen', d: ['wohnt', 'wohnst'], c: 'basis:position2', t: 'Mis padres viven en un pueblo pequeño.', e: 'Sujeto en plural → verbo con -en en 2ª posición.' }
+  { s: 'Meine Eltern ___ in einem kleinen Dorf.', a: 'wohnen', d: ['wohnt', 'wohnst'], c: 'basis:position2', t: 'Mis padres viven en un pueblo pequeño.', e: 'Sujeto en plural → verbo con -en en 2ª posición.' },
+  { s: 'Um sieben Uhr morgens ___ der Wecker.', a: 'klingelt', d: ['der Wecker klingelt', 'klingelt der'], c: 'basis:position2', t: 'A las siete de la mañana suena el despertador.', e: 'Complemento temporal en 1ª posición → verbo en 2ª posición ("klingelt").' },
+  { s: 'Nach der Arbeit ___ wir noch einkaufen.', a: 'gehen', d: ['wir gehen', 'gehen wir'], c: 'basis:position2', t: 'Después del trabajo vamos a hacer la compra.', e: 'Inversión tras complemento preposicional: "gehen wir".' },
+  { s: 'In Spanien ___ das Wetter meistens sehr sonnig.', a: 'ist', d: ['das Wetter ist', 'ist das Wetter'], c: 'basis:position2', t: 'En España el tiempo es casi siempre muy soleado.', e: 'Ubicación en pos. 1 → verbo en pos. 2: "In Spanien ist…".' },
+  { s: 'Jeden Samstag ___ er seine Großeltern.', a: 'besucht', d: ['er besucht', 'besucht er'], c: 'basis:position2', t: 'Todos los sábados visita a sus abuelos.', e: 'Temporal en pos. 1 → verbo en pos. 2: "besucht er".' },
+  { s: 'Im Sommer ___ viele Touristen nach Berlin.', a: 'reisen', d: ['viele Touristen reisen', 'reisen viele Touristen'], c: 'basis:position2', t: 'En verano viajan muchos turistas a Berlín.', e: 'Temporal en pos. 1 → verbo en pos. 2: "reisen".' },
+  { s: 'Leider ___ ich heute keine Zeit für Sport.', a: 'habe', d: ['ich habe', 'habe ich'], c: 'basis:position2', t: 'Lamentablemente hoy no tengo tiempo para hacer deporte.', e: 'Adverbio en pos. 1 → verbo en pos. 2: "habe ich".' }
 ];
 
 const ORDERS = [
   { sol: ['Am', 'Wochenende', 'spiele', 'ich', 'oft', 'Tennis'], t: 'Los fines de semana juego al tenis a menudo.', e: 'Complemento (1) + verbo (2) + sujeto (3): "Am Wochenende spiele ich…".', c: 'basis:position2' },
   { sol: ['Ich', 'trinke', 'morgens', 'immer', 'einen', 'Kaffee'], t: 'Por las mañanas siempre me tomo un café.', e: 'Orden normal: sujeto + verbo (2ª posición) + complementos.', c: 'basis:position2' },
-  { sol: ['Um', 'acht', 'Uhr', 'fängt', 'der', 'Unterricht', 'an'], t: 'La clase empieza a las ocho.', e: 'Complemento de tiempo + verbo (2ª posición); el prefijo "an" va al final.', c: 'basis:position2' }
+  { sol: ['Um', 'acht', 'Uhr', 'fängt', 'der', 'Unterricht', 'an'], t: 'La clase empieza a las ocho.', e: 'Complemento de tiempo + verbo (2ª posición); el prefijo "an" va al final.', c: 'basis:position2' },
+  { sol: ['Morgen', 'fahren', 'wir', 'mit', 'dem', 'Zug', 'nach', 'München'], t: 'Mañana nos vamos en tren a Múnich.', e: 'Tiempo (1) + verbo (2) + sujeto (3) + complementos.', c: 'basis:position2' },
+  { sol: ['Meine', 'Freunde', 'kommen', 'heute', 'Abend', 'zu', 'Besuch'], t: 'Mis amigos vienen de visita esta noche.', e: 'Sujeto + verbo en 2ª posición + complementos.', c: 'basis:position2' },
+  { sol: ['In', 'der', 'Mittagspause', 'essen', 'wir', 'gemeinsam', 'in', 'der', 'Kantine'], t: 'En la pausa del mediodía comemos juntos en la cantina.', e: 'Complemento temporal en 1ª posición → verbo en 2ª posición.', c: 'basis:position2' },
+  { sol: ['Am', 'Freitag', 'macht', 'sie', 'eine', 'große', 'Party'], t: 'El viernes ella celebra una gran fiesta.', e: 'Tiempo (1) + verbo (2) + sujeto (3) + objeto.', c: 'basis:position2' },
+  { sol: ['Er', 'steht', 'unter', 'der', 'Woche', 'sehr', 'früh', 'auf'], t: 'Entre semana él se levanta muy temprano.', e: 'Sujeto + verbo conjugado + complementos + prefijo separable al final.', c: 'basis:position2' },
+  { sol: ['Jeden', 'Sonntag', 'frühstücken', 'wir', 'sehr', 'gemütlich'], t: 'Todos los domingos desayunamos muy tranquilamente.', e: 'Complemento de tiempo en 1ª posición → verbo en 2ª posición.', c: 'basis:position2' },
+  { sol: ['Wir', 'haben', 'heute', 'leider', 'keine', 'Zeit', 'dafür'], t: 'Hoy por desgracia no tenemos tiempo para eso.', e: 'Sujeto + verbo conjugado + complementos.', c: 'basis:position2' },
+  { sol: ['Nach', 'dem', 'Sport', 'trinkt', 'er', 'immer', 'viel', 'Wasser'], t: 'Después de hacer deporte él siempre bebe mucha agua.', e: 'Complemento preposicional en 1ª posición → inversión (verbo en 2ª).', c: 'basis:position2' },
+  { sol: ['Meine', 'Schwester', 'wohnt', 'schon', 'lange', 'in', 'Berlin'], t: 'Mi hermana vive en Berlín desde hace mucho tiempo.', e: 'Sujeto + verbo en 2ª posición + complementos.', c: 'basis:position2' },
+  { sol: ['Um', 'sieben', 'Uhr', 'gehen', 'die', 'Kinder', 'ins', 'Bett'], t: 'A las siete los niños se van a la cama.', e: 'Hora en 1ª posición → verbo en 2ª posición.', c: 'basis:position2' },
+  { sol: ['Heute', 'Abend', 'koche', 'ich', 'ein', 'leckeres', 'Abendessen'], t: 'Esta noche cocino una cena deliciosa.', e: 'Tiempo en 1ª posición → verbo en 2ª posición.', c: 'basis:position2' },
+  { sol: ['Mein', 'Vater', 'liest', 'jeden', 'Tag', 'die', 'Zeitung'], t: 'Mi padre lee el periódico todos los días.', e: 'Sujeto + verbo (2ª pos.) + tiempo + objeto.', c: 'basis:position2' },
+  { sol: ['Im', 'Sommer', 'fliegen', 'wir', 'für', 'zwei', 'Wochen', 'nach', 'Spanien'], t: 'En verano volamos dos semanas a España.', e: 'Tiempo (1) + verbo (2) + sujeto (3) + complementos.', c: 'basis:position2' },
+  { sol: ['Er', 'lernt', 'seit', 'drei', 'Monaten', 'fleißig', 'Deutsch'], t: 'Lleva tres meses aprendiendo alemán aplicadamente.', e: 'Sujeto + verbo (2ª posición) + complementos.', c: 'basis:position2' },
+  { sol: ['Abends', 'sehen', 'wir', 'zusammen', 'einen', 'Film'], t: 'Por la noche vemos una película juntos.', e: 'Adverbio temporal en 1ª posición → verbo en 2ª posición.', c: 'basis:position2' },
+  { sol: ['Sie', 'kauft', 'am', 'Samstag', 'auf', 'dem', 'Markt', 'ein'], t: 'Los sábados ella hace la compra en el mercado.', e: 'Sujeto + verbo conjugado + complementos + prefijo "ein" al final.', c: 'basis:position2' },
+  { sol: ['Manchmal', 'gehen', 'wir', 'nach', 'der', 'Arbeit', 'spazieren'], t: 'A veces vamos a pasear después del trabajo.', e: 'Adverbio en 1ª posición → verbo en 2ª posición.', c: 'basis:position2' },
+  { sol: ['Wir', 'kaufen', 'frisches', 'Obst', 'im', 'Supermarkt'], t: 'Compramos fruta fresca en el supermercado.', e: 'Sujeto + verbo (2ª pos.) + objeto + lugar.', c: 'basis:position2' },
+  { sol: ['Am', 'Abend', 'liest', 'sie', 'ein', 'interessantes', 'Buch'], t: 'Por la tarde/noche ella lee un libro interesante.', e: 'Tiempo (1) + verbo (2) + sujeto (3) + objeto.', c: 'basis:position2' },
+  { sol: ['Meine', 'Kollegen', 'arbeiten', 'sehr', 'fleißig', 'im', 'Büro'], t: 'Mis compañeros trabajan muy aplicadamente en la oficina.', e: 'Sujeto + verbo (2ª pos.) + adverbio + lugar.', c: 'basis:position2' },
+  { sol: ['Morgens', 'trinke', 'ich', 'gerne', 'einen', 'grünen', 'Tee'], t: 'Por las mañanas me gusta tomar un té verde.', e: 'Tiempo (1) + verbo (2) + sujeto (3) + objeto.', c: 'basis:position2' },
+  { sol: ['Er', 'fährt', 'am', 'Wochenende', 'zu', 'seinen', 'Eltern'], t: 'Él va a casa de sus padres el fin de semana.', e: 'Sujeto + verbo (2ª pos.) + tiempo + dirección.', c: 'basis:position2' },
+  { sol: ['In', 'der', 'Küche', 'steht', 'ein', 'großer', 'Kühlschrank'], t: 'En la cocina hay una nevera grande.', e: 'Lugar (1) + verbo (2) + sujeto.', c: 'basis:position2' },
+  { sol: ['Wir', 'essen', 'mittags', 'meistens', 'in', 'der', 'Mensa'], t: 'Al mediodía casi siempre comemos en el comedor.', e: 'Sujeto + verbo + tiempo + lugar.', c: 'basis:position2' },
+  { sol: ['Heute', 'habe', 'ich', 'einen', 'sehr', 'langen', 'Arbeitstag'], t: 'Hoy tengo una jornada de trabajo muy larga.', e: 'Tiempo (1) + verbo (2) + sujeto (3) + objeto.', c: 'basis:position2' },
+  { sol: ['Sie', 'spricht', 'mit', 'ihrer', 'Freundin', 'am', 'Telefon'], t: 'Ella habla con su amiga por teléfono.', e: 'Sujeto + verbo + complementos.', c: 'basis:position2' },
+  { sol: ['Nach', 'der', 'Schule', 'spielen', 'die', 'Kinder', 'draußen'], t: 'Después del colegio los niños juegan afuera.', e: 'Preposicional (1) + verbo (2) + sujeto (3) + adverbio.', c: 'basis:position2' },
+  { sol: ['Ich', 'brauche', 'dringend', 'eine', 'neue', 'Brille'], t: 'Necesito urgentemente unas gafas nuevas.', e: 'Sujeto + verbo (2ª pos.) + adverbio + objeto.', c: 'basis:position2' },
+  { sol: ['Am', 'Nachmittag', 'trinken', 'wir', 'Kaffee', 'zusammen'], t: 'Por la tarde tomamos café juntos.', e: 'Tiempo (1) + verbo (2) + sujeto (3) + complementos.', c: 'basis:position2' },
+  { sol: ['Er', 'sucht', 'seinen', 'Schlüssel', 'in', 'der', 'Tasche'], t: 'Él busca su llave en la bolsa.', e: 'Sujeto + verbo + objeto + lugar.', c: 'basis:position2' },
+  { sol: ['Am', 'Dienstag', 'habe', 'ich', 'einen', 'wichtigen', 'Termin'], t: 'El martes tengo una cita importante.', e: 'Tiempo (1) + verbo (2) + sujeto (3) + objeto.', c: 'basis:position2' },
+  { sol: ['Wir', 'wohnen', 'in', 'einer', 'sehr', 'schönen', 'Wohnung'], t: 'Vivimos en un piso muy bonito.', e: 'Sujeto + verbo (2ª pos.) + lugar.', c: 'basis:position2' }
 ];
 
 // 4) Preguntas
@@ -51,7 +107,14 @@ const FRAGEN = [
   { s: '___ lernst du Deutsch? — Für meinen Job.', a: 'Warum', d: ['Was', 'Wie'], c: 'basis:fragen', t: '¿Por qué aprendes alemán? — Por mi trabajo.', e: '"warum?" pregunta por el motivo.' },
   { s: '___ ist das? — Das ist mein Bruder.', a: 'Wer', d: ['Was', 'Wie'], c: 'basis:fragen', t: '¿Quién es? — Es mi hermano.', e: '"wer?" pregunta por personas.' },
   { s: '___ du Kaffee oder Tee?', a: 'Trinkst', d: ['Du trinkst', 'Trinken'], c: 'basis:fragen', t: '¿Tomas café o té?', e: 'En preguntas de sí/no el verbo va PRIMERO: "Trinkst du…?".' },
-  { s: '___ ihr aus Österreich?', a: 'Kommt', d: ['Ihr kommt', 'Kommen'], c: 'basis:fragen', t: '¿Sois de Austria?', e: 'Pregunta de sí/no → verbo en 1ª posición: "Kommt ihr…?".' }
+  { s: '___ ihr aus Österreich?', a: 'Kommt', d: ['Ihr kommt', 'Kommen'], c: 'basis:fragen', t: '¿Sois de Austria?', e: 'Pregunta de sí/no → verbo en 1ª posición: "Kommt ihr…?".' },
+  { s: '___ gehst du heute Nachmittag? — In den Park.', a: 'Wohin', d: ['Wo', 'Woher'], c: 'basis:fragen', t: '¿Adónde vas esta tarde? — Al parque.', e: '"wohin?" pregunta por una dirección con movimiento.' },
+  { s: '___ kommst du ursprünglich? — Aus Kolumbien.', a: 'Woher', d: ['Wohin', 'Wo'], c: 'basis:fragen', t: '¿De dónde vienes originalmente? — De Colombia.', e: '"woher?" pregunta por la procedencia u origen.' },
+  { s: '___ lange dauert der Deutschkurs? — Zwei Monate.', a: 'Wie', d: ['Was', 'Wo'], c: 'basis:fragen', t: '¿Cuánto dura el curso de alemán? — Dos meses.', e: '"Wie lange...?" pregunta por la duración.' },
+  { s: '___ kostet dieses Buch hier? — Zwanzig Euro.', a: 'Wie viel', d: ['Wie viele', 'Was für'], c: 'basis:fragen', t: '¿Cuánto cuesta este libro? — Veinte euros.', e: '"Wie viel...?" pregunta por la cantidad/precio singular.' },
+  { s: '___ du morgen Zeit für ein Treffen?', a: 'Hast', d: ['Haben', 'Du hast'], c: 'basis:fragen', t: '¿Tienes tiempo mañana para vernos?', e: 'Pregunta de sí/no → verbo conjugado en 1ª posición: "Hast du...?".' },
+  { s: '___ ihr heute Abend mit ins Kino?', a: 'Kommt', d: ['Kommen', 'Ihr kommt'], c: 'basis:fragen', t: '¿Venís esta noche al cine?', e: 'Pregunta de sí/no con "ihr" → "Kommt ihr...?".' },
+  { s: '___ hat dir dieses Buch empfohlen? — Mein Kollege.', a: 'Wer', d: ['Wen', 'Wem'], c: 'basis:fragen', t: '¿Quién te recomendó este libro? — Mi compañero.', e: 'Pregunta por el sujeto → "wer?".' }
 ];
 
 // 5) Negación: nicht / kein
@@ -61,7 +124,13 @@ const NEGATION = [
   { s: 'Er kommt heute ___ zur Party.', a: 'nicht', d: ['kein', 'keine'], c: 'basis:negation', t: 'Hoy no viene a la fiesta.', e: '"nicht" niega el verbo / toda la frase.' },
   { s: 'Wir haben leider ___ Zeit.', a: 'keine', d: ['nicht', 'kein'], c: 'basis:negation', t: 'Por desgracia no tenemos tiempo.', e: '"Zeit" es femenino y va sin artículo → "keine Zeit".' },
   { s: 'Das ist ___ mein Koffer, das ist deiner.', a: 'nicht', d: ['kein', 'keine'], c: 'basis:negation', t: 'Esa no es mi maleta, es la tuya.', e: 'Con un posesivo ("mein") se usa "nicht", no "kein".' },
-  { s: 'Ich esse ___ Fleisch, ich bin Vegetarier.', a: 'kein', d: ['nicht', 'keine'], c: 'basis:negation', t: 'No como carne, soy vegetariano.', e: '"Fleisch" es neutro y sin artículo → "kein Fleisch".' }
+  { s: 'Ich esse ___ Fleisch, ich bin Vegetarier.', a: 'kein', d: ['nicht', 'keine'], c: 'basis:negation', t: 'No como carne, soy vegetariano.', e: '"Fleisch" es neutro y sin artículo → "kein Fleisch".' },
+  { s: 'Er versteht die Frage ___ ganz genau.', a: 'nicht', d: ['kein', 'keine'], c: 'basis:negation', t: 'Él no entiende la pregunta del todo bien.', e: '"nicht" niega el verbo o adverbio.' },
+  { s: 'Ich habe heute ___ Lust auf Kochen.', a: 'keine', d: ['nicht', 'kein'], c: 'basis:negation', t: 'Hoy no tengo ganas de cocinar.', e: '"Lust" es femenina y va sin artículo: "keine Lust".' },
+  { s: 'Die Suppe ist leider ___ heiß genug.', a: 'nicht', d: ['kein', 'keine'], c: 'basis:negation', t: 'Por desgracia la sopa no está suficientemente caliente.', e: '"nicht" niega el adjetivo ("heiß").' },
+  { s: 'Wir haben gestern ___ Brot mehr im Supermarkt bekommen.', a: 'kein', d: ['nicht', 'keine'], c: 'basis:negation', t: 'Ayer ya no conseguimos pan en el supermercado.', e: '"Brot" es neutro y va sin artículo: "kein Brot".' },
+  { s: 'Ich kenne ___ Peter, ich kenne nur seinen Bruder.', a: 'nicht', d: ['kein', 'keinen'], c: 'basis:negation', t: 'No conozco a Peter, solo a su hermano.', e: 'Los nombres propios se niegan con "nicht", no con "kein".' },
+  { s: 'Sie trinken abends ___ Alkohol.', a: 'keinen', d: ['nicht', 'kein'], c: 'basis:negation', t: 'No beben alcohol por la noche.', e: '"Alkohol" es masculino; objeto directo → acusativo: "keinen Alkohol".' }
 ];
 
 // 6) Plural
@@ -73,7 +142,15 @@ const PLURAL = [
   { s: 'der Apfel → die ___', a: 'Äpfel', d: ['Apfeln', 'Apfels'], c: 'basis:plural', t: 'la manzana → las manzanas', e: 'Algunos solo cambian con Umlaut: Apfel → Äpfel.' },
   { s: 'die Wohnung → die ___', a: 'Wohnungen', d: ['Wohnunge', 'Wohnungs'], c: 'basis:plural', t: 'el piso → los pisos', e: 'Los femeninos en -ung, -heit, -keit hacen el plural en -en.' },
   { s: 'das Buch → die ___', a: 'Bücher', d: ['Buchen', 'Buchs'], c: 'basis:plural', t: 'el libro → los libros', e: 'Buch → Bücher (-er + Umlaut).' },
-  { s: 'der Mann → die ___', a: 'Männer', d: ['Manns', 'Mannen'], c: 'basis:plural', t: 'el hombre → los hombres', e: 'Mann → Männer (-er + Umlaut).' }
+  { s: 'der Mann → die ___', a: 'Männer', d: ['Manns', 'Mannen'], c: 'basis:plural', t: 'el hombre → los hombres', e: 'Mann → Männer (-er + Umlaut).' },
+  { s: 'die Lampe → die ___', a: 'Lampen', d: ['Lampes', 'Lämpen'], c: 'basis:plural', t: 'la lámpara → las lámparas', e: 'La mayoría de palabras en -e añaden -n en plural: Lampe → Lampen.' },
+  { s: 'der Stuhl → die ___', a: 'Stühle', d: ['Stuhle', 'Stuhlen'], c: 'basis:plural', t: 'la silla → las sillas', e: 'Masculinos monosílabos suelen añadir -e y Umlaut: Stuhl → Stühle.' },
+  { s: 'das Bild → die ___', a: 'Bilder', d: ['Bilden', 'Bilds'], c: 'basis:plural', t: 'el cuadro → los cuadros', e: 'Neutros cortos suelen formar el plural con -er: Bild → Bilder.' },
+  { s: 'die Stadt → die ___', a: 'Städte', d: ['Stadten', 'Stadts'], c: 'basis:plural', t: 'la ciudad → las ciudades', e: 'Femenino irregular con Umlaut y -e: Stadt → Städte.' },
+  { s: 'das Foto → die ___', a: 'Fotos', d: ['Fotoes', 'Foten'], c: 'basis:plural', t: 'la foto → las fotos', e: 'Palabras terminadas en -o forman el plural con -s: Foto → Fotos.' },
+  { s: 'der Tag → die ___', a: 'Tage', d: ['Täge', 'Tagen'], c: 'basis:plural', t: 'el día → los días', e: 'Masculinos regulares con -e: Tag → Tage (sin Umlaut).' },
+  { s: 'die Sprache → die ___', a: 'Sprachen', d: ['Sprächer', 'Spraches'], c: 'basis:plural', t: 'el idioma → los idiomas', e: 'Femenino en -e añade -n: Sprache → Sprachen.' },
+  { s: 'das Haus → die ___', a: 'Häuser', d: ['Hauser', 'Häuse'], c: 'basis:plural', t: 'la casa → las casas', e: 'Neutro con Umlaut y -er: Haus → Häuser.' }
 ];
 
 const frames = [

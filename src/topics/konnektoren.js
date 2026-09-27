@@ -16,7 +16,19 @@ const PICK = [
   { s: 'Ich weiß noch nicht, ___ ich am Samstag Zeit habe.', a: 'ob', d: ['wenn', 'dass'], c: 'konn:dass', t: 'Todavía no sé si el sábado tengo tiempo.', e: '"ob" = "si" en preguntas indirectas de sí/no. "wenn" es condicional, no interrogativo.' },
   { s: 'Wir gehen heute nicht raus, ___ das Wetter zu schlecht ist.', a: 'weil', d: ['denn', 'trotzdem'], c: 'konn:kausal', t: 'Hoy no salimos porque hace demasiado mal tiempo.', e: 'El verbo "ist" está al final → conector subordinante "weil".' },
   { s: 'Das Wetter ist schlecht, ___ wir gehen trotzdem raus.', a: 'aber', d: ['obwohl', 'weil'], c: 'konn:koordinierend', t: 'Hace mal tiempo, pero salimos igualmente.', e: '"aber / und / oder / denn / sondern" son coordinantes: NO cambian el orden (posición 0, no cuentan). El verbo sigue en 2ª posición: "…, aber wir gehen…".' },
-  { s: 'Ich lerne jeden Tag Deutsch, ___ ich in Wien studieren möchte.', a: 'weil', d: ['damit', 'deshalb'], c: 'konn:kausal', t: 'Estudio alemán cada día porque quiero estudiar en Viena.', e: 'Mismo sujeto y motivo → "weil" (+ verbo al final). "damit" sería para un objetivo con sujeto distinto.' }
+  { s: 'Ich lerne jeden Tag Deutsch, ___ ich in Wien studieren möchte.', a: 'weil', d: ['damit', 'deshalb'], c: 'konn:kausal', t: 'Estudio alemán cada día porque quiero estudiar en Viena.', e: 'Mismo sujeto y motivo → "weil" (+ verbo al final). "damit" sería para un objetivo con sujeto distinto.' },
+  { s: 'Ich trinke keinen Kaffee mehr, ___ ich sonst nicht schlafen kann.', a: 'weil', d: ['denn', 'trotzdem'], c: 'konn:kausal', t: 'Ya no tomo café porque si no no puedo dormir.', e: '"weil" es subordinante y manda el verbo conjugado ("kann") al final.' },
+  { s: 'Er hatte viel Stress bei der Arbeit, ___ ist er früher nach Hause gegangen.', a: 'deshalb', d: ['weil', 'obwohl'], c: 'konn:konsekutiv', t: 'Tenía mucho estrés en el trabajo, por eso se fue antes a casa.', e: '"deshalb" ocupa la posición 1 y le sigue el verbo ("ist er").' },
+  { s: 'Weißt du, ___ der Bus sonntags auch fährt?', a: 'ob', d: ['dass', 'wenn'], c: 'konn:dass', t: '¿Sabes si el autobús también pasa los domingos?', e: '"ob" para preguntas indirectas de sí/no; el verbo ("fährt") va al final.' },
+  { s: '___ wir in Österreich im Urlaub waren, haben wir die Berge geliebt.', a: 'Als', d: ['Wenn', 'Wann'], c: 'konn:temporal', t: 'Cuando estuvimos de vacaciones en Austria nos encantaron las montañas.', e: '"als" para un periodo o momento concreto del pasado.' },
+  { s: 'Ich freue mich immer sehr, ___ meine Freunde mich besuchen.', a: 'wenn', d: ['als', 'wann'], c: 'konn:temporal', t: 'Siempre me alegro mucho cuando mis amigos me visitan.', e: 'Acción repetida o habitual → "wenn".' },
+  { s: '___ der Wecker laut geklingelt hat, bin ich nicht aufgewacht.', a: 'Obwohl', d: ['Trotzdem', 'Weil'], c: 'konn:konzessiv', t: 'Aunque el despertador sonó fuerte, no me desperté.', e: '"obwohl" es subordinante con el verbo al final ("geklingelt hat").' },
+  { s: 'Der Kurs war sehr anstrengend. ___ habe ich viel gelernt.', a: 'Trotzdem', d: ['Obwohl', 'Weil'], c: 'konn:konzessiv', t: 'El curso fue agotador. Aun así aprendí mucho.', e: '"trotzdem" une principales con inversión ("Trotzdem habe ich…").' },
+  { s: 'Sie hat mir erzählt, ___ sie eine neue Wohnung gefunden hat.', a: 'dass', d: ['das', 'weil'], c: 'konn:dass', t: 'Me contó que ha encontrado un piso nuevo.', e: '"dass" introduce oración subordinada sustantiva con el verbo al final.' },
+  { s: 'Wir wollten spazieren gehen, ___ es hat plötzlich angefangen zu regnen.', a: 'aber', d: ['obwohl', 'denn'], c: 'konn:koordinierend', t: 'Queríamos pasear, pero de repente empezó a llover.', e: '"aber" es coordinante y deja el orden normal en la siguiente frase.' },
+  { s: 'Er kommt nicht mit dem Auto, ___ mit dem Zug.', a: 'sondern', d: ['aber', 'oder'], c: 'konn:koordinierend', t: 'No viene en coche, sino en tren.', e: '"sondern" rectifica tras una negación.' },
+  { s: 'Wir müssen uns beeilen, ___ der Zug fährt in zehn Minuten ab.', a: 'denn', d: ['weil', 'deshalb'], c: 'konn:kausal', t: 'Tenemos que darnos prisa porque el tren sale en diez minutos.', e: '"denn" deja el orden normal (sujeto + verbo: "der Zug fährt…").' },
+  { s: 'Ich schicke dir eine Nachricht, ___ ich am Flughafen lande.', a: 'sobald', d: ['damit', 'obwohl'], c: 'konn:temporal', t: 'Te mando un mensaje tan pronto como aterrice en el aeropuerto.', e: '"sobald" (en cuanto / tan pronto como) es subordinante con verbo al final.' }
 ];
 
 // 2) Elegir la subordinada bien ordenada
@@ -25,7 +37,12 @@ const ORDERCHOICE = [
   { s: 'Er sagt, dass ___.', opts: ['er hat keine Zeit', 'er keine Zeit hat', 'hat er keine Zeit'], a: 'er keine Zeit hat', c: 'konn:wortstellung', t: 'Dice que no tiene tiempo.', e: 'Tras "dass" el verbo ("hat") va al final: "…, dass er keine Zeit hat".' },
   { s: 'Ich frage mich, ob ___.', opts: ['der Laden ist noch offen', 'der Laden noch offen ist', 'ist der Laden noch offen'], a: 'der Laden noch offen ist', c: 'konn:wortstellung', t: 'Me pregunto si la tienda todavía está abierta.', e: 'Tras "ob" el verbo ("ist") va al final.' },
   { s: 'Ruf an, wenn ___.', opts: ['du bist fertig', 'du fertig bist', 'bist du fertig'], a: 'du fertig bist', c: 'konn:wortstellung', t: 'Llama cuando estés listo.', e: 'Subordinada con "wenn" → verbo al final: "…, wenn du fertig bist".' },
-  { s: 'Obwohl ___, ist er zur Arbeit gegangen.', opts: ['er war krank', 'er krank war', 'war er krank'], a: 'er krank war', c: 'konn:wortstellung', t: 'Aunque estaba enfermo, fue a trabajar.', e: 'La subordinada va primero (verbo al final: "er krank war") y la principal invierte: "…, ist er…".' }
+  { s: 'Obwohl ___, ist er zur Arbeit gegangen.', opts: ['er war krank', 'er krank war', 'war er krank'], a: 'er krank war', c: 'konn:wortstellung', t: 'Aunque estaba enfermo, fue a trabajar.', e: 'La subordinada va primero (verbo al final: "er krank war") y la principal invierte: "…, ist er…".' },
+  { s: 'Ich weiß, dass ___.', opts: ['sie spricht drei Sprachen', 'sie drei Sprachen spricht', 'spricht sie drei Sprachen'], a: 'sie drei Sprachen spricht', c: 'konn:wortstellung', t: 'Sé que habla tres idiomas.', e: 'Verbo ("spricht") al final tras "dass".' },
+  { s: 'Er bleibt im Bett, weil ___.', opts: ['er hat hohes Fieber', 'er hohes Fieber hat', 'hat er hohes Fieber'], a: 'er hohes Fieber hat', c: 'konn:wortstellung', t: 'Se queda en la cama porque tiene fiebre alta.', e: 'Verbo ("hat") al final tras "weil".' },
+  { s: 'Sag mir bitte, ob ___.', opts: ['du kommst morgen mit', 'du morgen mitkommst', 'kommst du morgen mit'], a: 'du morgen mitkommst', c: 'konn:wortstellung', t: 'Dime por favor si vienes mañana.', e: 'Verbo separable unido y al final: "mitkommst".' },
+  { s: 'Wenn ___, trinke ich einen warmen Tee.', opts: ['ich habe Halsschmerzen', 'ich Halsschmerzen habe', 'habe ich Halsschmerzen'], a: 'ich Halsschmerzen habe', c: 'konn:wortstellung', t: 'Cuando me duele la garganta, me tomo un té caliente.', e: 'Subordinada inicial con verbo al final: "ich Halsschmerzen habe".' },
+  { s: 'Obwohl ___, war die Stimmung super.', opts: ['es hat den ganzen Tag geregnet', 'es den ganzen Tag geregnet hat', 'hat es den ganzen Tag geregnet'], a: 'es den ganzen Tag geregnet hat', c: 'konn:wortstellung', t: 'Aunque llovió todo el día, el ambiente fue genial.', e: 'En Perfekt: participio + auxiliar al final ("geregnet hat").' }
 ];
 
 // 3) Ordenar la subordinada
@@ -34,7 +51,22 @@ const ORDERS = [
   { sol: ['dass', 'sie', 'nächste', 'Woche', 'nach', 'Berlin', 'zieht'], t: '…que la semana que viene se muda a Berlín.', e: 'Tras "dass" el verbo conjugado ("zieht") va al final.', c: 'konn:dass' },
   { sol: ['obwohl', 'das', 'Hotel', 'ziemlich', 'teuer', 'war'], t: '…aunque el hotel era bastante caro.', e: 'Tras "obwohl" el verbo ("war") va al final.', c: 'konn:konzessiv' },
   { sol: ['wenn', 'du', 'am', 'Wochenende', 'Zeit', 'hast'], t: '…si tienes tiempo el fin de semana.', e: 'Subordinada con "wenn": verbo ("hast") al final.', c: 'konn:temporal' },
-  { sol: ['dass', 'er', 'den', 'letzten', 'Zug', 'verpasst', 'hat'], t: '…que ha perdido el último tren.', e: 'En Perfekt dentro de subordinada: participio + auxiliar ("hat") al final.', c: 'konn:dass' }
+  { sol: ['dass', 'er', 'den', 'letzten', 'Zug', 'verpasst', 'hat'], t: '…que ha perdido el último tren.', e: 'En Perfekt dentro de subordinada: participio + auxiliar ("hat") al final.', c: 'konn:dass' },
+  { sol: ['weil', 'er', 'den', 'Schlüssel', 'vergessen', 'hat'], t: '…porque se ha olvidado la llave.', e: 'Subordinada con "weil": participio + auxiliar ("hat") al final.', c: 'konn:kausal' },
+  { sol: ['dass', 'wir', 'uns', 'bald', 'wiedersehen', 'können'], t: '…que podamos vernos pronto otra vez.', e: 'Subordinada con modal: infinitivo + modal conjugado ("können") al final.', c: 'konn:dass' },
+  { sol: ['obwohl', 'sie', 'sehr', 'müde', 'war'], t: '…aunque estaba muy cansada.', e: 'Subordinada con "obwohl": verbo ("war") al final.', c: 'konn:konzessiv' },
+  { sol: ['wenn', 'das', 'Wetter', 'morgen', 'schön', 'ist'], t: '…si mañana hace buen tiempo.', e: 'Subordinada con "wenn": verbo ("ist") al final.', c: 'konn:temporal' },
+  { sol: ['ob', 'der', 'Zug', 'schon', 'angekommen', 'ist'], t: '…si el tren ya ha llegado.', e: 'Subordinada indirecta con "ob": auxiliar ("ist") al final.', c: 'konn:dass' },
+  { sol: ['deshalb', 'habe', 'ich', 'ihn', 'nicht', 'angerufen'], t: 'Por eso no le he llamado.', e: '"deshalb" en posición 1 + auxiliar ("habe") + sujeto.', c: 'konn:konsekutiv' },
+  { sol: ['trotzdem', 'geht', 'er', 'heute', 'Abend', 'zum', 'Sport'], t: 'A pesar de eso él va al deporte esta noche.', e: '"trotzdem" en posición 1 + verbo ("geht") + sujeto.', c: 'konn:konzessiv' },
+  { sol: ['weil', 'wir', 'heute', 'einen', 'wichtigen', 'Termin', 'haben'], t: '…porque hoy tenemos una cita importante.', e: 'Subordinada con "weil": verbo ("haben") al final.', c: 'konn:kausal' },
+  { sol: ['dass', 'du', 'die', 'schwere', 'Prüfung', 'bestanden', 'hast'], t: '…que hayas aprobado el examen difícil.', e: 'Participio + auxiliar ("hast") al final de subordinada con "dass".', c: 'konn:dass' },
+  { sol: ['bevor', 'wir', 'in', 'den', 'Urlaub', 'fahren'], t: '…antes de que nos vayamos de vacaciones.', e: 'Subordinada temporal con "bevor": verbo ("fahren") al final.', c: 'konn:temporal' },
+  { sol: ['obwohl', 'es', 'schon', 'sehr', 'spät', 'in', 'der', 'Nacht', 'ist'], t: '…aunque ya es muy tarde en la noche.', e: 'Subordinada concesiva con "obwohl": verbo ("ist") al final.', c: 'konn:konzessiv' },
+  { sol: ['damit', 'alle', 'Mitarbeiter', 'die', 'neuen', 'Informationen', 'bekommen'], t: '…para que todos los empleados reciban la nueva información.', e: 'Subordinada final con "damit": verbo ("bekommen") al final.', c: 'konn:final' },
+  { sol: ['nachdem', 'er', 'den', 'langen', 'Brief', 'gelesen', 'hatte'], t: '…después de haber leído la larga carta.', e: 'Subordinada con "nachdem": participio + auxiliar ("hatte") al final.', c: 'konn:temporal' },
+  { sol: ['deswegen', 'müssen', 'wir', 'den', 'Termin', 'leider', 'verschieben'], t: 'Por eso tenemos que aplazar la cita por desgracia.', e: '"deswegen" en posición 1 + modal ("müssen") + sujeto.', c: 'konn:konsekutiv' },
+  { sol: ['wenn', 'du', 'Hilfe', 'beim', 'Umzug', 'brauchst'], t: '…si necesitas ayuda con la mudanza.', e: 'Subordinada condicional con "wenn": verbo ("brauchst") al final.', c: 'konn:konditional' }
 ];
 
 const frames = [

@@ -115,13 +115,14 @@ function toOrder(rng, it) {
 }
 
 // Filtra/transforma el pool según el tipo de juego elegido.
-function applyGameType(rng, items, gameType) {
+function applyGameType(rng, items, gameType, size = 10) {
   if (!gameType || gameType === 'mixed') return items;
   if (gameType === 'mc') return items.filter((it) => it.type === 'mc');
   if (gameType === 'order') {
     const nativos = items.filter((it) => it.type === 'order');
-    if (nativos.length) return nativos;
-    return items.map((it) => toOrder(rng, it)).filter(Boolean);
+    const convertidos = items.filter((it) => it.type === 'mc').map((it) => toOrder(rng, it)).filter(Boolean);
+    if (nativos.length >= size * 2) return nativos;
+    return [...nativos, ...convertidos];
   }
   // Un texto con varios huecos no se puede convertir en "¿correcto o no?": no
   // hay UNA palabra que enseñar bien o mal. Se quedan fuera, y toJudge sigue
@@ -146,7 +147,7 @@ export function buildSession(topic, { size = 10, mode = 'mixed', gameType = 'mix
   const faltan = new Set(mode === 'faltan' ? conceptosQueFaltan(ids) : []);
 
   let pool = candidatePool(topic, rng, size * 10);
-  pool = applyGameType(rng, pool, gameType);
+  pool = applyGameType(rng, pool, gameType, size);
 
   const seen = new Set();
   const uniq = [];
