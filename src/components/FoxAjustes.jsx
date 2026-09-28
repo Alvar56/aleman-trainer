@@ -220,6 +220,13 @@ export default function FoxAjustes({ onClose, onChange }) {
               <li><strong>{l.dias}</strong><small>Tage</small></li>
             </ul>
           </div>
+
+          {/* Curva de transición orgánica y suave hacia el fondo del modal */}
+          <div className="fox-hero-wave-wrap" aria-hidden="true">
+            <svg className="fox-hero-wave" viewBox="0 0 1200 42" preserveAspectRatio="none">
+              <path d="M0,18 Q 320,40 600,16 T 1200,22 L 1200,42 L 0,42 Z" fill="var(--surface)" />
+            </svg>
+          </div>
         </div>
         {aviso && <p className="fox-aviso">{aviso}</p>}
 
