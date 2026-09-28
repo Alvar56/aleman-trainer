@@ -205,14 +205,14 @@ export const ANIMALES = [
 // avisar de lo nuevo ya funciona igual para todo lo que este aqui.
 const FONDOS = [
   { id: 'nadaFondo', de: 'Nichts', ranura: 'fondo', es: 'Sin fondo', en: 'No background', precio: 0 },
-  { id: 'wiese', de: 'Wiese', ranura: 'fondo', es: 'Pradera', en: 'Meadow', precio: 150 },
-  { id: 'strand', de: 'Strand', ranura: 'fondo', es: 'Playa', en: 'Beach', precio: 200 },
-  { id: 'wald', de: 'Wald', ranura: 'fondo', es: 'Bosque', en: 'Forest', precio: 250 },
-  { id: 'wueste', de: 'Wüste', ranura: 'fondo', es: 'Desierto', en: 'Desert', precio: 300 },
-  { id: 'eis', de: 'Eis und Schnee', ranura: 'fondo', es: 'Hielo y nieve', en: 'Ice and snow', precio: 350 },
-  { id: 'berge', de: 'Berge', ranura: 'fondo', es: 'Montañas', en: 'Mountains', precio: 400 },
-  { id: 'stadt', de: 'Stadt bei Nacht', ranura: 'fondo', es: 'Ciudad de noche', en: 'City at night', precio: 450 },
-  { id: 'weltraum', de: 'Weltraum', ranura: 'fondo', es: 'Espacio', en: 'Outer space', precio: 550 }
+  { id: 'wiese', de: 'Wiese', ranura: 'fondo', es: 'Pradera', en: 'Meadow', precio: 0 },
+  { id: 'strand', de: 'Strand', ranura: 'fondo', es: 'Playa', en: 'Beach', precio: 0 },
+  { id: 'wald', de: 'Wald', ranura: 'fondo', es: 'Bosque', en: 'Forest', precio: 0 },
+  { id: 'wueste', de: 'Wüste', ranura: 'fondo', es: 'Desierto', en: 'Desert', precio: 0 },
+  { id: 'eis', de: 'Eis und Schnee', ranura: 'fondo', es: 'Hielo y nieve', en: 'Ice and snow', precio: 0 },
+  { id: 'berge', de: 'Berge', ranura: 'fondo', es: 'Montañas', en: 'Mountains', precio: 0 },
+  { id: 'stadt', de: 'Stadt bei Nacht', ranura: 'fondo', es: 'Ciudad de noche', en: 'City at night', precio: 0 },
+  { id: 'weltraum', de: 'Weltraum', ranura: 'fondo', es: 'Espacio', en: 'Outer space', precio: 0 }
 ];
 
 COMPLEMENTOS.push(...FONDOS);
