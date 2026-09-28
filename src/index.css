@@ -2256,91 +2256,209 @@ input.ask-input,
   width: min(760px, 100%); max-height: 92vh; overflow-y: auto;
   display: flex; flex-direction: column; gap: 16px;
 }
-.fox-preview { display: flex; justify-content: center; padding: 6px 0 10px; }
-/* El zorro: tamaño contenido y elegante */
-.fox-ficha .fox-preview > svg { width: 140px; height: auto; }
-/* Ficha de arriba del todo: saldo | Felix | el resto. Felix va en el centro
-   de verdad (columnas laterales iguales), no en el hueco que quede. */
-.fox-ficha {
-  display: grid;
-  /* La columna del medio se lleva el hueco entero para que el paisaje sea un
-     paisaje y no un recuadro pegado al zorro. Las laterales siguen midiendo
-     lo mismo entre si, asi que Felix se queda centrado de verdad. */
-  grid-template-columns: 1fr minmax(0, 2.4fr) 1fr;
-  align-items: center; gap: 20px;
+
+/* --- CABECERA PANORÁMICA DE FELIX CON PAISAJE COMPLETO Y ELEMENTOS SUPERPUESTOS --- */
+.fox-hero-escena {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px 18px 0 18px;
+  margin-bottom: 8px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3), 0 8px 24px rgba(0, 0, 0, 0.12);
+  background-size: 100% 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.fox-hero-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 2;
+  position: relative;
   margin-bottom: 6px;
 }
-/* El saldo, arriba y pegado al borde izquierdo; las cifras, al derecho. Las
-   dos columnas miden lo mismo, asi que el zorro se queda en el centro. */
-.fox-ficha .fox-saldo-grande { align-self: start; justify-self: start; }
-.fox-ficha .fox-stats { justify-self: end; width: 76px; }
-.fox-ficha .fox-preview { padding: 0; }
-.fox-ficha .fox-escena { width: 100%; }
-/* El saldo es el número que miras para saber si te llega para algo, así que va
-   grande y solo, sin icono compitiendo al lado. */
-.fox-saldo-grande {
-  display: flex; flex-direction: column; align-items: flex-start; text-align: left;
-  line-height: 1.05;
+
+.fox-hero-titulo {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text, #1e293b);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 5px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
 }
-.fox-saldo-grande .fsg-num {
-  font-size: 1.9rem; font-weight: 800; color: #a16207;
-  font-variant-numeric: tabular-nums; letter-spacing: -0.02em;
+
+.fox-hero-cerrar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
 }
-.fox-saldo-grande .fsg-lab {
-  font-size: 0.64rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.08em; color: #b45309; margin-top: 2px;
+.fox-hero-cerrar:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.98);
+  color: #0f172a;
 }
-/* Las cuatro cifras, en casillas rodeadas de azul claro. */
-.fox-stats {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: 1fr; gap: 6px;
+
+.fox-hero-cuerpo {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1.8fr) 1fr;
+  align-items: flex-end;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  gap: 12px;
 }
-.fox-stats li {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 0; text-align: center; min-width: 0;
-  background: var(--accent-soft); border: 1.5px solid var(--statcard-border, #7aa3e0);
-  border-radius: 10px; padding: 7px 6px;
+
+.fox-hero-saldo {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 9px 15px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  align-self: center;
+  justify-self: start;
 }
-.fox-stats strong { font-size: 1rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
-.fox-stats small { color: var(--muted); font-size: 0.64rem; line-height: 1.25; }
-/* En el movil: los datos a un lado y el zorro al otro, no todo centrado. */
+.fox-hero-saldo .fsg-num {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #b45309;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+}
+.fox-hero-saldo .fsg-lab {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #92400e;
+  margin-top: 3px;
+  display: block;
+}
+
+.fox-hero-personaje {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  justify-self: center;
+  line-height: 0;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.2));
+  margin-bottom: -2px;
+}
+.fox-hero-personaje > svg {
+  width: 145px;
+  height: auto;
+  display: block;
+}
+
+.fox-hero-stats {
+  list-style: none;
+  margin: 0 0 12px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+  justify-self: end;
+  width: 80px;
+}
+.fox-hero-stats li {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(122, 163, 224, 0.5);
+  border-radius: 10px;
+  padding: 5px 4px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+.fox-hero-stats strong {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  line-height: 1.1;
+  display: block;
+}
+.fox-hero-stats small {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #475569;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+
+/* Modo oscuro adaptativo para tarjetas de vidrio sobre el paisaje */
+[data-theme='dark'] .fox-hero-titulo,
+[data-theme='dark'] .fox-hero-cerrar,
+[data-theme='dark'] .fox-hero-saldo,
+[data-theme='dark'] .fox-hero-stats li {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text, #f8fafc);
+}
+[data-theme='dark'] .fox-hero-stats strong { color: #93c5fd; }
+[data-theme='dark'] .fox-hero-stats small { color: #94a3b8; }
+[data-theme='dark'] .fox-hero-saldo .fsg-num { color: #f59e0b; }
+[data-theme='dark'] .fox-hero-saldo .fsg-lab { color: #fbbf24; }
+
+/* Móvil: reorganización fluida de la cabecera */
 @media (max-width: 560px) {
-  /* Menos marco: 20 px por lado eran 40 px de los 375 de un movil. */
-  .fox-modal { padding: 10px; }
-  .fox-modal-caja { padding: 16px; max-height: 92vh; gap: 12px; }
-
-  .fox-ficha {
+  .fox-hero-escena {
+    min-height: 270px;
+    padding: 12px 14px 0 14px;
+  }
+  .fox-hero-cuerpo {
     grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
     align-items: center;
-    gap: 14px 10px;
-    margin-bottom: 8px;
   }
-  .fox-saldo-grande {
-    grid-column: 1; grid-row: 1;
-    align-items: flex-start; text-align: left; align-self: start;
-    width: auto;
+  .fox-hero-saldo {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
   }
-  .fox-saldo-grande .fsg-num { font-size: 2rem; }
-  .fox-ficha .fox-preview { grid-column: 2; grid-row: 1 / span 2; justify-self: center; }
-  .fox-ficha .fox-preview > svg { width: clamp(105px, 34vw, 140px); height: auto; }
-
-  .fox-ficha .fox-stats {
+  .fox-hero-personaje {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .fox-hero-personaje > svg {
+    width: clamp(110px, 32vw, 135px);
+  }
+  .fox-hero-stats {
     grid-column: 1 / -1;
     grid-row: 2;
     grid-template-columns: repeat(4, 1fr);
-    align-self: auto;
-    justify-self: stretch;
-    width: auto;
+    width: 100%;
+    margin-bottom: 10px;
+    gap: 6px;
   }
-
-  /* El zorro comparte fila solo con el saldo: las cifras ya no estan a su
-     izquierda, asi que no tiene que ocupar las dos filas. */
-  .fox-ficha .fox-preview { grid-row: 1; }
-
-  /* Un respiro entre el zorro, las casillas y el nombre: con 10 px iba todo
-     pegado y la ficha parecia un bloque. */
-  .fox-ficha { row-gap: 22px; }
-  .fox-modal-caja { gap: 18px; }
 
   /* El boton de comprar el nombre, a lo ancho debajo del campo: al lado se
      quedaba en 93 px y "2000 Munzen" no entraba. */
@@ -5193,105 +5311,44 @@ input.vs-respuesta { max-width: 460px; }
 
    `fox-escena` es el marco; la clase de al lado dice que paisaje. Sin fondo
    comprado (nadaFondo) no pinta nada y todo queda como estaba. */
+
+/* --- FONDOS DE PAISAJE DETALLADOS VECTORIALES (HINTERGRUND) --- */
 .fox-escena {
   position: relative;
-  display: inline-flex;
-  align-items: flex-end;
-  justify-content: center;
-  border-radius: 14px;
-  overflow: hidden;
-}
-.fox-escena > * { position: relative; z-index: 1; }
-.fox-escena-nadaFondo { border-radius: 0; overflow: visible; }
-
-/* El suelo, comun a los paisajes que lo llevan. */
-.fox-escena-wiese::after,
-.fox-escena-wueste::after,
-.fox-escena-eis::after,
-.fox-escena-strand::after,
-.fox-escena-wald::after,
-.fox-escena-berge::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 26%;
-  z-index: 0;
+  background-size: 100% 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
 }
 
-.fox-escena-wiese { background: linear-gradient(#bfe3ff 0%, #dff1ff 58%); }
-.fox-escena-wiese::after { background: linear-gradient(#78c67a, #4ea653); }
-
-.fox-escena-strand { background: linear-gradient(#bfe6ff 0%, #e6f6ff 55%); }
-.fox-escena-strand::after { background: linear-gradient(#f5e2b0, #e8cd8a); }
-
-.fox-escena-wald { background: linear-gradient(#cfe7cf 0%, #eaf5ea 60%); }
-.fox-escena-wald::after { background: linear-gradient(#5c9e5f, #3d7a42); }
-/* Tres coniferas al fondo, con un degradado repetido en forma de picos. */
-.fox-escena-wald::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 22%;
-  height: 34%;
-  z-index: 0;
-  background:
-    conic-gradient(from 135deg at 50% 100%, transparent 0 90deg, #4a8a4e 90deg 180deg, transparent 180deg) 8% 100% / 26% 78% no-repeat,
-    conic-gradient(from 135deg at 50% 100%, transparent 0 90deg, #3f7c44 90deg 180deg, transparent 180deg) 50% 100% / 32% 100% no-repeat,
-    conic-gradient(from 135deg at 50% 100%, transparent 0 90deg, #4a8a4e 90deg 180deg, transparent 180deg) 92% 100% / 26% 70% no-repeat;
+.fox-escena-wiese,
+.fox-escena-nadaFondo {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20360%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22w-sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2338bdf8%22%2F%3E%20%3Cstop%20offset%3D%2255%25%22%20stop-color%3D%22%23bae6fd%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23e0f2fe%22%2F%3E%20%3C%2FlinearGradient%3E%20%3CradialGradient%20id%3D%22w-sun%22%20cx%3D%2215%25%22%20cy%3D%2220%25%22%20r%3D%2250%25%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23fffef0%22%2F%3E%20%3Cstop%20offset%3D%2225%25%22%20stop-color%3D%22%23fef08a%22%20stop-opacity%3D%220.9%22%2F%3E%20%3Cstop%20offset%3D%2255%25%22%20stop-color%3D%22%23fde047%22%20stop-opacity%3D%220.3%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2338bdf8%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FradialGradient%3E%20%3ClinearGradient%20id%3D%22w-hill1%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2386efac%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234ade80%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22w-hill2%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234ade80%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2322c55e%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22w-ground%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2322c55e%22%2F%3E%20%3Cstop%20offset%3D%2235%25%22%20stop-color%3D%22%2316a34a%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2315803d%22%2F%3E%20%3C%2FlinearGradient%3E%20%3C%2Fdefs%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23w-sky)%22%2F%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2265%22%20r%3D%22130%22%20fill%3D%22url(%23w-sun)%22%2F%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2265%22%20r%3D%2228%22%20fill%3D%22%23ffffff%22%2F%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.85%22%3E%20%3Cpath%20d%3D%22M210%2065%20q18%20-22%2045%20-9%20q28%20-28%2058%20-4%20q32%20-14%2050%2014%20q18%2018%20-9%2032%20h-125%20q-22%20-14%20-19%20-33%20z%22%2F%3E%20%3Cpath%20d%3D%22M570%2080%20q14%20-16%2034%20-6%20q20%20-20%2045%20-4%20q22%20-9%2036%209%20q14%2014%20-7%2024%20h-94%20q-16%20-9%20-14%20-23%20z%22%20opacity%3D%220.75%22%2F%3E%20%3Cpath%20d%3D%22M20%2095%20q12%20-12%2030%20-5%20q18%20-16%2038%20-3%20q18%20-7%2030%207%20q10%2011%20-6%2019%20h-80%20q-14%20-7%20-12%20-18%20z%22%20opacity%3D%220.6%22%2F%3E%20%3C%2Fg%3E%20%3Cpath%20d%3D%22M0%20230%20Q%20180%20185%20400%20220%20T%20800%20200%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-hill1)%22%20opacity%3D%220.7%22%2F%3E%20%3Cpath%20d%3D%22M0%20250%20Q%20280%20205%20560%20245%20T%20800%20230%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-hill2)%22%20opacity%3D%220.85%22%2F%3E%20%3Cpath%20d%3D%22M0%20268%20Q%20260%20250%20520%20262%20T%20800%20255%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-ground)%22%2F%3E%20%3Cg%20stroke%3D%22%2315803d%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%3E%20%3Cpath%20d%3D%22M45%20272%20Q%2049%20260%2046%20254%20M48%20272%20Q%2054%20263%2057%20257%22%2F%3E%20%3Cpath%20d%3D%22M175%20274%20Q%20178%20262%20175%20255%20M178%20274%20Q%20184%20264%20188%20259%22%2F%3E%20%3Cpath%20d%3D%22M630%20273%20Q%20633%20261%20629%20254%20M633%20273%20Q%20639%20264%20644%20259%22%2F%3E%20%3Cpath%20d%3D%22M745%20270%20Q%20748%20258%20745%20252%20M748%20270%20Q%20754%20262%20758%20257%22%2F%3E%20%3C%2Fg%3E%20%3Cg%3E%20%3Ccircle%20cx%3D%2285%22%20cy%3D%22280%22%20r%3D%224.5%22%20fill%3D%22%23ef4444%22%2F%3E%3Ccircle%20cx%3D%2285%22%20cy%3D%22280%22%20r%3D%221.5%22%20fill%3D%22%231e1b4b%22%2F%3E%20%3Ccircle%20cx%3D%22695%22%20cy%3D%22284%22%20r%3D%225%22%20fill%3D%22%23ef4444%22%2F%3E%3Ccircle%20cx%3D%22695%22%20cy%3D%22284%22%20r%3D%221.8%22%20fill%3D%22%231e1b4b%22%2F%3E%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22290%22%20r%3D%224%22%20fill%3D%22%23facc15%22%2F%3E%3Ccircle%20cx%3D%22140%22%20cy%3D%22290%22%20r%3D%221.3%22%20fill%3D%22%23d97706%22%2F%3E%20%3Ccircle%20cx%3D%22645%22%20cy%3D%22282%22%20r%3D%224.5%22%20fill%3D%22%23facc15%22%2F%3E%3Ccircle%20cx%3D%22645%22%20cy%3D%22282%22%20r%3D%221.5%22%20fill%3D%22%23d97706%22%2F%3E%20%3Ccircle%20cx%3D%22225%22%20cy%3D%22282%22%20r%3D%224%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22225%22%20cy%3D%22282%22%20r%3D%221.5%22%20fill%3D%22%23eab308%22%2F%3E%20%3Ccircle%20cx%3D%22575%22%20cy%3D%22286%22%20r%3D%224%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22575%22%20cy%3D%22286%22%20r%3D%221.5%22%20fill%3D%22%23eab308%22%2F%3E%20%3Ccircle%20cx%3D%22755%22%20cy%3D%22292%22%20r%3D%224%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22755%22%20cy%3D%22292%22%20r%3D%221.5%22%20fill%3D%22%23eab308%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
 }
 
-.fox-escena-wueste { background: linear-gradient(#ffd9a0 0%, #ffeccc 60%); }
-.fox-escena-wueste::after { background: linear-gradient(#f0c274, #dda85f); }
-
-.fox-escena-eis { background: linear-gradient(#cfeaff 0%, #eef8ff 60%); }
-.fox-escena-eis::after { background: linear-gradient(#ffffff, #d8ecf7); }
-
-.fox-escena-berge { background: linear-gradient(#cfe4f5 0%, #eaf4fb 55%); }
-.fox-escena-berge::after { background: linear-gradient(#8fae87, #6f9169); }
-.fox-escena-berge::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 20%;
-  height: 42%;
-  z-index: 0;
-  background:
-    conic-gradient(from 135deg at 50% 100%, transparent 0 90deg, #9bb2c9 90deg 180deg, transparent 180deg) 14% 100% / 46% 82% no-repeat,
-    conic-gradient(from 135deg at 50% 100%, transparent 0 90deg, #8399b0 90deg 180deg, transparent 180deg) 78% 100% / 52% 100% no-repeat;
+.fox-escena-strand {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20360%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22st-sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230284c7%22%2F%3E%20%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%2338bdf8%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23bae6fd%22%2F%3E%20%3C%2FlinearGradient%3E%20%3CradialGradient%20id%3D%22st-sun%22%20cx%3D%2280%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ffffff%22%2F%3E%20%3Cstop%20offset%3D%2225%25%22%20stop-color%3D%22%23fef08a%22%2F%3E%20%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23f59e0b%22%20stop-opacity%3D%220.3%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2338bdf8%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FradialGradient%3E%20%3ClinearGradient%20id%3D%22st-sea1%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230369a1%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230284c7%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22st-sea2%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230891b2%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2306b6d4%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22st-sand%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23fde047%22%2F%3E%20%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23facc15%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23eab308%22%2F%3E%20%3C%2FlinearGradient%3E%20%3C%2Fdefs%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23st-sky)%22%2F%3E%20%3Ccircle%20cx%3D%22640%22%20cy%3D%2265%22%20r%3D%22120%22%20fill%3D%22url(%23st-sun)%22%2F%3E%20%3Ccircle%20cx%3D%22640%22%20cy%3D%2265%22%20r%3D%2226%22%20fill%3D%22%23fffef0%22%2F%3E%20%3Cg%20stroke%3D%22%23ffffff%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%220.8%22%3E%20%3Cpath%20d%3D%22M180%2080%20q12%20-8%2024%200%20q12%20-8%2024%200%22%2F%3E%20%3Cpath%20d%3D%22M245%2065%20q9%20-6%2018%200%20q9%20-6%2018%200%22%20opacity%3D%220.6%22%2F%3E%20%3Cpath%20d%3D%22M420%2090%20q10%20-7%2020%200%20q10%20-7%2020%200%22%20opacity%3D%220.7%22%2F%3E%20%3C%2Fg%3E%20%3Cpath%20d%3D%22M0%20215%20L%20800%20215%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23st-sea1)%22%2F%3E%20%3Cpath%20d%3D%22M0%20235%20Q%20120%20225%20240%20235%20T%20480%20235%20T%20720%20235%20T%20800%20235%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23st-sea2)%22%2F%3E%20%3Cpath%20d%3D%22M0%20235%20Q%20120%20225%20240%20235%20T%20480%20235%20T%20720%20235%20T%20800%20235%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%223%22%20fill%3D%22none%22%20opacity%3D%220.75%22%2F%3E%20%3Cpath%20d%3D%22M0%20258%20Q%20200%20242%20400%20255%20T%20800%20248%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22%2367e8f9%22%20opacity%3D%220.85%22%2F%3E%20%3Cpath%20d%3D%22M0%20258%20Q%20200%20242%20400%20255%20T%20800%20248%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%224.5%22%20fill%3D%22none%22%20opacity%3D%220.95%22%2F%3E%20%3Cpath%20d%3D%22M0%20268%20Q%20240%20254%20480%20266%20T%20800%20260%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23st-sand)%22%2F%3E%20%3Cg%3E%20%3Cpath%20d%3D%22M760%20270%20Q%20730%20200%20700%20130%22%20stroke%3D%22%2378350f%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%20%3Cpath%20d%3D%22M760%20270%20Q%20730%20200%20700%20130%22%20stroke%3D%22%2392400e%22%20stroke-width%3D%228%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%20%3Cpath%20d%3D%22M700%20130%20Q%20640%20110%20590%20140%22%20stroke%3D%22%2315803d%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%20%3Cpath%20d%3D%22M700%20130%20Q%20660%2080%20620%2070%22%20stroke%3D%22%2316a34a%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%20%3Cpath%20d%3D%22M700%20130%20Q%20720%2070%20760%2075%22%20stroke%3D%22%2322c55e%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%20%3Cpath%20d%3D%22M700%20130%20Q%20750%20100%20785%20125%22%20stroke%3D%22%2315803d%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%20%3Ccircle%20cx%3D%22698%22%20cy%3D%22136%22%20r%3D%225%22%20fill%3D%22%23713f12%22%2F%3E%20%3Ccircle%20cx%3D%22706%22%20cy%3D%22138%22%20r%3D%225%22%20fill%3D%22%23713f12%22%2F%3E%20%3C%2Fg%3E%20%3Cg%3E%20%3Cpath%20d%3D%22M90%20290%20L%2092%20284%20L%2097%20283%20L%2093%20280%20L%2095%20274%20L%2090%20277%20L%2085%20274%20L%2087%20280%20L%2083%20283%20L%2088%20284%20Z%22%20fill%3D%22%23f97316%22%2F%3E%20%3Cellipse%20cx%3D%22640%22%20cy%3D%22285%22%20rx%3D%225%22%20ry%3D%223.5%22%20fill%3D%22%23ffffff%22%20transform%3D%22rotate(-15%20640%20285)%22%2F%3E%20%3Cellipse%20cx%3D%22170%22%20cy%3D%22295%22%20rx%3D%224.5%22%20ry%3D%223%22%20fill%3D%22%23fed7aa%22%20transform%3D%22rotate(20%20170%20295)%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
 }
 
-/* Ciudad de noche y espacio: sin suelo, el cielo llega abajo. */
-.fox-escena-stadt { background: linear-gradient(#1b2745 0%, #33406b 70%, #4a5680 100%); }
-.fox-escena-stadt::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 38%;
-  z-index: 0;
-  background:
-    linear-gradient(#2a3557, #2a3557) 6% 100% / 18% 62% no-repeat,
-    linear-gradient(#222d4d, #222d4d) 30% 100% / 14% 88% no-repeat,
-    linear-gradient(#2a3557, #2a3557) 52% 100% / 20% 50% no-repeat,
-    linear-gradient(#222d4d, #222d4d) 78% 100% / 16% 74% no-repeat,
-    linear-gradient(#2a3557, #2a3557) 96% 100% / 12% 40% no-repeat;
+.fox-escena-wald {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20360%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22wd-sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23064e3b%22%2F%3E%20%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%23047857%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23a7f3d0%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22wd-ray%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23fef08a%22%20stop-opacity%3D%220.35%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23fef08a%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22wd-ground%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2315803d%22%2F%3E%20%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%2314532d%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23052e16%22%2F%3E%20%3C%2FlinearGradient%3E%20%3C%2Fdefs%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23wd-sky)%22%2F%3E%20%3Cpolygon%20points%3D%2260%2C0%2020%2C0%20200%2C360%20300%2C360%22%20fill%3D%22url(%23wd-ray)%22%2F%3E%20%3Cpolygon%20points%3D%22220%2C0%20170%2C0%20450%2C360%20560%2C360%22%20fill%3D%22url(%23wd-ray)%22%2F%3E%20%3Cpolygon%20points%3D%22400%2C0%20350%2C0%20680%2C360%20780%2C360%22%20fill%3D%22url(%23wd-ray)%22%2F%3E%20%3Cg%20fill%3D%22%23022c22%22%20opacity%3D%220.6%22%3E%20%3Cpolygon%20points%3D%2260%2C110%2030%2C220%2090%2C220%22%2F%3E%20%3Cpolygon%20points%3D%22120%2C95%2085%2C210%20155%2C210%22%2F%3E%20%3Cpolygon%20points%3D%22200%2C120%20170%2C225%20230%2C225%22%2F%3E%20%3Cpolygon%20points%3D%22340%2C105%20305%2C215%20375%2C215%22%2F%3E%20%3Cpolygon%20points%3D%22450%2C115%20420%2C220%20480%2C220%22%2F%3E%20%3Cpolygon%20points%3D%22580%2C90%20540%2C210%20620%2C210%22%2F%3E%20%3Cpolygon%20points%3D%22670%2C115%20640%2C220%20700%2C220%22%2F%3E%20%3Cpolygon%20points%3D%22750%2C100%20715%2C215%20785%2C215%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20fill%3D%22%23064e3b%22%20opacity%3D%220.85%22%3E%20%3Cpolygon%20points%3D%2290%2C140%2050%2C250%20130%2C250%22%2F%3E%20%3Cpolygon%20points%3D%22170%2C130%20130%2C245%20210%2C245%22%2F%3E%20%3Cpolygon%20points%3D%22270%2C145%20235%2C255%20305%2C255%22%2F%3E%20%3Cpolygon%20points%3D%22530%2C135%20490%2C245%20570%2C245%22%2F%3E%20%3Cpolygon%20points%3D%22630%2C125%20585%2C245%20675%2C245%22%2F%3E%20%3Cpolygon%20points%3D%22720%2C138%20680%2C250%20760%2C250%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20fill%3D%22%23451a03%22%3E%20%3Crect%20x%3D%2286%22%20y%3D%22235%22%20width%3D%228%22%20height%3D%2235%22%2F%3E%20%3Crect%20x%3D%22166%22%20y%3D%22230%22%20width%3D%228%22%20height%3D%2240%22%2F%3E%20%3Crect%20x%3D%22626%22%20y%3D%22230%22%20width%3D%228%22%20height%3D%2240%22%2F%3E%20%3Crect%20x%3D%22716%22%20y%3D%22235%22%20width%3D%228%22%20height%3D%2235%22%2F%3E%20%3C%2Fg%3E%20%3Cpath%20d%3D%22M0%20265%20Q%20260%20248%20520%20262%20T%20800%20255%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23wd-ground)%22%2F%3E%20%3Cg%3E%20%3Cpath%20d%3D%22M90%20280%20C%2085%20272%20105%20272%20100%20280%20Z%22%20fill%3D%22%23ef4444%22%2F%3E%20%3Crect%20x%3D%2293%22%20y%3D%22280%22%20width%3D%224%22%20height%3D%226%22%20fill%3D%22%23f8fafc%22%2F%3E%20%3Ccircle%20cx%3D%2292%22%20cy%3D%22275%22%20r%3D%221%22%20fill%3D%22%23ffffff%22%2F%3E%20%3Ccircle%20cx%3D%2296%22%20cy%3D%22274%22%20r%3D%221.2%22%20fill%3D%22%23ffffff%22%2F%3E%20%3Ccircle%20cx%3D%2298%22%20cy%3D%22277%22%20r%3D%220.9%22%20fill%3D%22%23ffffff%22%2F%3E%20%3Cpath%20d%3D%22M120%20284%20C%20117%20278%20127%20278%20124%20284%20Z%22%20fill%3D%22%23f59e0b%22%2F%3E%20%3Crect%20x%3D%22121%22%20y%3D%22284%22%20width%3D%222.5%22%20height%3D%224%22%20fill%3D%22%23fef08a%22%2F%3E%20%3Cpath%20d%3D%22M690%20282%20C%20685%20274%20705%20274%20700%20282%20Z%22%20fill%3D%22%23ef4444%22%2F%3E%20%3Crect%20x%3D%22693%22%20y%3D%22282%22%20width%3D%224%22%20height%3D%226%22%20fill%3D%22%23f8fafc%22%2F%3E%20%3Ccircle%20cx%3D%22692%22%20cy%3D%22277%22%20r%3D%221%22%20fill%3D%22%23ffffff%22%2F%3E%20%3Ccircle%20cx%3D%22696%22%20cy%3D%22276%22%20r%3D%221.2%22%20fill%3D%22%23ffffff%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20fill%3D%22%23fef08a%22%3E%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22180%22%20r%3D%222.5%22%20opacity%3D%220.9%22%2F%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%22160%22%20r%3D%222%22%20opacity%3D%220.8%22%2F%3E%20%3Ccircle%20cx%3D%22360%22%20cy%3D%22220%22%20r%3D%222.8%22%20opacity%3D%220.9%22%2F%3E%20%3Ccircle%20cx%3D%22510%22%20cy%3D%22170%22%20r%3D%222.2%22%20opacity%3D%220.85%22%2F%3E%20%3Ccircle%20cx%3D%22670%22%20cy%3D%22190%22%20r%3D%222.5%22%20opacity%3D%220.9%22%2F%3E%20%3Ccircle%20cx%3D%22750%22%20cy%3D%22150%22%20r%3D%222%22%20opacity%3D%220.75%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
 }
 
-.fox-escena-weltraum { background: radial-gradient(circle at 30% 25%, #3a2a6b 0%, #191233 60%, #0d0a1d 100%); }
-.fox-escena-weltraum::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    radial-gradient(1.5px 1.5px at 18% 22%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 72% 16%, #fff, transparent),
-    radial-gradient(1px 1px at 44% 38%, #ffe9a8, transparent),
-    radial-gradient(1.5px 1.5px at 86% 52%, #fff, transparent),
-    radial-gradient(1px 1px at 12% 62%, #cfe6ff, transparent),
-    radial-gradient(1.5px 1.5px at 60% 76%, #fff, transparent);
+.fox-escena-berge {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20360%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22bg-sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%233b82f6%22%2F%3E%20%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%2393c5fd%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23fed7aa%22%2F%3E%20%3C%2FlinearGradient%3E%20%3CradialGradient%20id%3D%22bg-sun%22%20cx%3D%2230%25%22%20cy%3D%2242%25%22%20r%3D%2240%25%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23fffef0%22%2F%3E%20%3Cstop%20offset%3D%2220%25%22%20stop-color%3D%22%23fef08a%22%2F%3E%20%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23f97316%22%20stop-opacity%3D%220.3%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2393c5fd%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FradialGradient%3E%20%3ClinearGradient%20id%3D%22bg-m1%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23475569%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%231e293b%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22bg-m2%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2364748b%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23334155%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22bg-ground%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234d7c0f%22%2F%3E%20%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%233f6212%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%231a2e05%22%2F%3E%20%3C%2FlinearGradient%3E%20%3C%2Fdefs%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23bg-sky)%22%2F%3E%20%3Ccircle%20cx%3D%22240%22%20cy%3D%22150%22%20r%3D%22140%22%20fill%3D%22url(%23bg-sun)%22%2F%3E%20%3Cpolygon%20points%3D%22120%2C60%200%2C260%20240%2C260%22%20fill%3D%22url(%23bg-m1)%22%2F%3E%20%3Cpolygon%20points%3D%22120%2C60%20120%2C120%20140%2C110%20160%2C150%20240%2C260%22%20fill%3D%22%23334155%22%2F%3E%20%3Cpolygon%20points%3D%22120%2C60%2085%2C120%20105%2C110%20120%2C130%20140%2C110%20155%2C120%22%20fill%3D%22%23ffffff%22%2F%3E%20%3Cpolygon%20points%3D%22480%2C45%20320%2C260%20640%2C260%22%20fill%3D%22url(%23bg-m1)%22%2F%3E%20%3Cpolygon%20points%3D%22480%2C45%20480%2C110%20510%2C95%20535%2C140%20640%2C260%22%20fill%3D%22%231e293b%22%2F%3E%20%3Cpolygon%20points%3D%22480%2C45%20435%2C110%20460%2C95%20480%2C125%20510%2C95%20530%2C115%22%20fill%3D%22%23ffffff%22%2F%3E%20%3Cpolygon%20points%3D%22680%2C90%20560%2C260%20800%2C260%22%20fill%3D%22url(%23bg-m2)%22%2F%3E%20%3Cpolygon%20points%3D%22680%2C90%20645%2C140%20665%2C130%20680%2C150%20705%2C130%20720%2C145%22%20fill%3D%22%23ffffff%22%2F%3E%20%3Cpath%20d%3D%22M0%20240%20Q%20200%20200%20450%20235%20T%20800%20220%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22%231e3a5f%22%20opacity%3D%220.8%22%2F%3E%20%3Cg%20fill%3D%22%230f172a%22%20opacity%3D%220.9%22%3E%20%3Cpolygon%20points%3D%2280%2C195%2065%2C245%2095%2C245%22%2F%3E%20%3Cpolygon%20points%3D%22110%2C185%2090%2C245%20130%2C245%22%2F%3E%20%3Cpolygon%20points%3D%22145%2C190%20128%2C245%20162%2C245%22%2F%3E%20%3Cpolygon%20points%3D%22620%2C185%20595%2C245%20645%2C245%22%2F%3E%20%3Cpolygon%20points%3D%22660%2C195%20642%2C245%20678%2C245%22%2F%3E%20%3Cpolygon%20points%3D%22700%2C188%20680%2C245%20720%2C245%22%2F%3E%20%3C%2Fg%3E%20%3Cpath%20d%3D%22M0%20268%20Q%20260%20252%20520%20265%20T%20800%20258%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23bg-ground)%22%2F%3E%20%3Cg%3E%20%3Cellipse%20cx%3D%2290%22%20cy%3D%22280%22%20rx%3D%2212%22%20ry%3D%227%22%20fill%3D%22%2364748b%22%2F%3E%20%3Cellipse%20cx%3D%2288%22%20cy%3D%22278%22%20rx%3D%228%22%20ry%3D%224%22%20fill%3D%22%2394a3b8%22%2F%3E%20%3Cellipse%20cx%3D%22690%22%20cy%3D%22285%22%20rx%3D%2214%22%20ry%3D%228%22%20fill%3D%22%2364748b%22%2F%3E%20%3Cellipse%20cx%3D%22688%22%20cy%3D%22283%22%20rx%3D%229%22%20ry%3D%225%22%20fill%3D%22%2394a3b8%22%2F%3E%20%3Ccircle%20cx%3D%22160%22%20cy%3D%22285%22%20r%3D%223.5%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22285%22%20r%3D%221.5%22%20fill%3D%22%23facc15%22%2F%3E%20%3Ccircle%20cx%3D%22620%22%20cy%3D%22288%22%20r%3D%223.5%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22288%22%20r%3D%221.5%22%20fill%3D%22%23facc15%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
 }
 
-.fox-preview .fox-escena:not(.fox-escena-nadaFondo) {
-  width: 100%;
-  min-height: 190px;
-  padding: 14px 0 0;
-  border-radius: 16px;
+.fox-escena-wueste {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20360%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22ws-sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23991b1b%22%2F%3E%20%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23ea580c%22%2F%3E%20%3Cstop%20offset%3D%2280%25%22%20stop-color%3D%22%23f97316%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23fde047%22%2F%3E%20%3C%2FlinearGradient%3E%20%3CradialGradient%20id%3D%22ws-sun%22%20cx%3D%2250%25%22%20cy%3D%2230%25%22%20r%3D%2245%25%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ffffff%22%2F%3E%20%3Cstop%20offset%3D%2225%25%22%20stop-color%3D%22%23fef08a%22%2F%3E%20%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23f97316%22%20stop-opacity%3D%220.4%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ea580c%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FradialGradient%3E%20%3ClinearGradient%20id%3D%22ws-dune1%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23c2410c%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23d97706%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22ws-dune2%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ea580c%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23f59e0b%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22ws-ground%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23f59e0b%22%2F%3E%20%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23d97706%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%239a3412%22%2F%3E%20%3C%2FlinearGradient%3E%20%3C%2Fdefs%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23ws-sky)%22%2F%3E%20%3Ccircle%20cx%3D%22400%22%20cy%3D%22110%22%20r%3D%22150%22%20fill%3D%22url(%23ws-sun)%22%2F%3E%20%3Ccircle%20cx%3D%22400%22%20cy%3D%22110%22%20r%3D%2232%22%20fill%3D%22%23fffef0%22%2F%3E%20%3Cpolygon%20points%3D%2260%2C180%20160%2C180%20180%2C240%2040%2C240%22%20fill%3D%22%237c2d12%22%20opacity%3D%220.6%22%2F%3E%20%3Cpolygon%20points%3D%22560%2C170%20700%2C170%20730%2C240%20530%2C240%22%20fill%3D%22%237c2d12%22%20opacity%3D%220.6%22%2F%3E%20%3Cpath%20d%3D%22M0%20230%20Q%20250%20170%20500%20230%20T%20800%20200%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23ws-dune1)%22%2F%3E%20%3Cpath%20d%3D%22M0%20250%20Q%20300%20190%20600%20250%20T%20800%20235%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23ws-dune2)%22%2F%3E%20%3Cpath%20d%3D%22M0%20268%20Q%20240%20252%20480%20265%20T%20800%20258%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23ws-ground)%22%2F%3E%20%3Cg%20fill%3D%22%2314532d%22%3E%20%3Crect%20x%3D%2280%22%20y%3D%22200%22%20width%3D%2210%22%20height%3D%2275%22%20rx%3D%225%22%2F%3E%20%3Cpath%20d%3D%22M72%20230%20H%2080%20V%20220%20H%2072%20V%20230%20Z%22%20rx%3D%222%22%2F%3E%20%3Crect%20x%3D%2270%22%20y%3D%22215%22%20width%3D%227%22%20height%3D%2220%22%20rx%3D%223.5%22%2F%3E%20%3Cpath%20d%3D%22M90%20240%20H%2098%20V%20228%20H%2090%20V%20240%20Z%22%20rx%3D%222%22%2F%3E%20%3Crect%20x%3D%2293%22%20y%3D%22222%22%20width%3D%227%22%20height%3D%2222%22%20rx%3D%223.5%22%2F%3E%20%3Crect%20x%3D%22710%22%20y%3D%22220%22%20width%3D%228%22%20height%3D%2255%22%20rx%3D%224%22%2F%3E%20%3Cpath%20d%3D%22M704%20240%20H%20710%20V%20232%20H%20704%20Z%22%20rx%3D%222%22%2F%3E%20%3Crect%20x%3D%22702%22%20y%3D%22228%22%20width%3D%226%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
+}
+
+.fox-escena-eis {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20360%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22ei-sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020617%22%2F%3E%20%3Cstop%20offset%3D%2245%25%22%20stop-color%3D%22%230f172a%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%231e1b4b%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22ei-aurora%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2306b6d4%22%20stop-opacity%3D%220%22%2F%3E%20%3Cstop%20offset%3D%2230%25%22%20stop-color%3D%22%2310b981%22%20stop-opacity%3D%220.8%22%2F%3E%20%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22%2306b6d4%22%20stop-opacity%3D%220.85%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%236366f1%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22ei-ground%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ffffff%22%2F%3E%20%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23e0f2fe%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%237dd3fc%22%2F%3E%20%3C%2FlinearGradient%3E%20%3C%2Fdefs%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23ei-sky)%22%2F%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%2260%22%20cy%3D%2240%22%20r%3D%221.5%22%20opacity%3D%220.9%22%2F%3E%20%3Ccircle%20cx%3D%22150%22%20cy%3D%2265%22%20r%3D%221.2%22%20opacity%3D%220.8%22%2F%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%2235%22%20r%3D%221.8%22%20opacity%3D%220.95%22%2F%3E%20%3Ccircle%20cx%3D%22420%22%20cy%3D%2250%22%20r%3D%221.2%22%20opacity%3D%220.75%22%2F%3E%20%3Ccircle%20cx%3D%22560%22%20cy%3D%2230%22%20r%3D%221.5%22%20opacity%3D%220.9%22%2F%3E%20%3Ccircle%20cx%3D%22680%22%20cy%3D%2260%22%20r%3D%221.3%22%20opacity%3D%220.8%22%2F%3E%20%3Ccircle%20cx%3D%22750%22%20cy%3D%2245%22%20r%3D%221.7%22%20opacity%3D%220.95%22%2F%3E%20%3C%2Fg%3E%20%3Cpath%20d%3D%22M0%20120%20Q%20200%2040%20400%20110%20T%20800%2060%20L%20800%20170%20Q%20600%20120%20400%20170%20T%200%20160%20Z%22%20fill%3D%22url(%23ei-aurora)%22%20filter%3D%22blur(8px)%22%2F%3E%20%3Cpath%20d%3D%22M0%2090%20Q%20250%20140%20500%2070%20T%20800%20110%20L%20800%20140%20Q%20550%20110%20300%20150%20T%200%20120%20Z%22%20fill%3D%22url(%23ei-aurora)%22%20opacity%3D%220.6%22%20filter%3D%22blur(6px)%22%2F%3E%20%3Cpolygon%20points%3D%2280%2C180%2030%2C260%20140%2C260%22%20fill%3D%22%2338bdf8%22%20opacity%3D%220.7%22%2F%3E%20%3Cpolygon%20points%3D%2280%2C180%2080%2C260%20140%2C260%22%20fill%3D%22%230284c7%22%20opacity%3D%220.7%22%2F%3E%20%3Cpolygon%20points%3D%22620%2C165%20540%2C260%20700%2C260%22%20fill%3D%22%23bae6fd%22%20opacity%3D%220.8%22%2F%3E%20%3Cpolygon%20points%3D%22620%2C165%20620%2C260%20700%2C260%22%20fill%3D%22%2338bdf8%22%20opacity%3D%220.8%22%2F%3E%20%3Cpath%20d%3D%22M0%20265%20Q%20260%20245%20520%20260%20T%20800%20252%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23ei-ground)%22%2F%3E%20%3Cg%20fill%3D%22%230284c7%22%3E%20%3Cpolygon%20points%3D%22120%2C285%20123%2C280%20126%2C285%20123%2C290%22%20fill%3D%22%2338bdf8%22%2F%3E%20%3Cpolygon%20points%3D%22660%2C288%20663%2C283%20666%2C288%20663%2C293%22%20fill%3D%22%2338bdf8%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
+}
+
+.fox-escena-stadt {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20360%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22st-sky2%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23090d16%22%2F%3E%20%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%23111827%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%231f2937%22%2F%3E%20%3C%2FlinearGradient%3E%20%3CradialGradient%20id%3D%22st-moon%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2250%25%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23fffef0%22%2F%3E%20%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22%23fef08a%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23fef08a%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FradialGradient%3E%20%3C%2Fdefs%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23st-sky2)%22%2F%3E%20%3Ccircle%20cx%3D%22680%22%20cy%3D%2270%22%20r%3D%2260%22%20fill%3D%22url(%23st-moon)%22%20opacity%3D%220.4%22%2F%3E%20%3Ccircle%20cx%3D%22680%22%20cy%3D%2270%22%20r%3D%2228%22%20fill%3D%22%23fffef0%22%2F%3E%20%3Ccircle%20cx%3D%22672%22%20cy%3D%2265%22%20r%3D%225%22%20fill%3D%22%23fef08a%22%20opacity%3D%220.4%22%2F%3E%20%3Ccircle%20cx%3D%22688%22%20cy%3D%2274%22%20r%3D%224%22%20fill%3D%22%23fef08a%22%20opacity%3D%220.4%22%2F%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.8%22%3E%20%3Ccircle%20cx%3D%2280%22%20cy%3D%2240%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%2260%22%20r%3D%221.2%22%2F%3E%20%3Ccircle%20cx%3D%22380%22%20cy%3D%2235%22%20r%3D%221.6%22%2F%3E%3Ccircle%20cx%3D%22500%22%20cy%3D%2250%22%20r%3D%221.3%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20fill%3D%22%231e293b%22%3E%20%3Crect%20x%3D%2230%22%20y%3D%22110%22%20width%3D%2255%22%20height%3D%22155%22%2F%3E%20%3Crect%20x%3D%22110%22%20y%3D%2280%22%20width%3D%2270%22%20height%3D%22185%22%2F%3E%20%3Crect%20x%3D%22210%22%20y%3D%22130%22%20width%3D%2260%22%20height%3D%22135%22%2F%3E%20%3Crect%20x%3D%22300%22%20y%3D%2270%22%20width%3D%2285%22%20height%3D%22195%22%2F%3E%20%3Crect%20x%3D%22420%22%20y%3D%22120%22%20width%3D%2265%22%20height%3D%22145%22%2F%3E%20%3Crect%20x%3D%22520%22%20y%3D%2290%22%20width%3D%2275%22%20height%3D%22175%22%2F%3E%20%3Crect%20x%3D%22620%22%20y%3D%22140%22%20width%3D%2260%22%20height%3D%22125%22%2F%3E%20%3Crect%20x%3D%22710%22%20y%3D%22100%22%20width%3D%2265%22%20height%3D%22165%22%2F%3E%20%3Cline%20x1%3D%22342%22%20y1%3D%2270%22%20x2%3D%22342%22%20y2%3D%2240%22%20stroke%3D%22%23475569%22%20stroke-width%3D%222%22%2F%3E%20%3Ccircle%20cx%3D%22342%22%20cy%3D%2240%22%20r%3D%223%22%20fill%3D%22%23ef4444%22%2F%3E%20%3Cline%20x1%3D%22145%22%20y1%3D%2280%22%20x2%3D%22145%22%20y2%3D%2255%22%20stroke%3D%22%23475569%22%20stroke-width%3D%222%22%2F%3E%20%3Ccircle%20cx%3D%22145%22%20cy%3D%2255%22%20r%3D%222.5%22%20fill%3D%22%23ef4444%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20fill%3D%22%23fef08a%22%20opacity%3D%220.85%22%3E%20%3Crect%20x%3D%2240%22%20y%3D%22125%22%20width%3D%226%22%20height%3D%228%22%2F%3E%3Crect%20x%3D%2255%22%20y%3D%22125%22%20width%3D%226%22%20height%3D%228%22%2F%3E%20%3Crect%20x%3D%2240%22%20y%3D%22145%22%20width%3D%226%22%20height%3D%228%22%2F%3E%3Crect%20x%3D%2270%22%20y%3D%22145%22%20width%3D%226%22%20height%3D%228%22%2F%3E%20%3Crect%20x%3D%22125%22%20y%3D%2295%22%20width%3D%228%22%20height%3D%2210%22%20fill%3D%22%2338bdf8%22%2F%3E%3Crect%20x%3D%22145%22%20y%3D%2295%22%20width%3D%228%22%20height%3D%2210%22%2F%3E%20%3Crect%20x%3D%22125%22%20y%3D%22120%22%20width%3D%228%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%22160%22%20y%3D%22120%22%20width%3D%228%22%20height%3D%2210%22%20fill%3D%22%2338bdf8%22%2F%3E%20%3Crect%20x%3D%22315%22%20y%3D%2285%22%20width%3D%228%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%22335%22%20y%3D%2285%22%20width%3D%228%22%20height%3D%2210%22%2F%3E%20%3Crect%20x%3D%22355%22%20y%3D%2285%22%20width%3D%228%22%20height%3D%2210%22%20fill%3D%22%2338bdf8%22%2F%3E%3Crect%20x%3D%22315%22%20y%3D%22110%22%20width%3D%228%22%20height%3D%2210%22%2F%3E%20%3Crect%20x%3D%22355%22%20y%3D%22110%22%20width%3D%228%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%22535%22%20y%3D%22105%22%20width%3D%228%22%20height%3D%2210%22%2F%3E%20%3Crect%20x%3D%22555%22%20y%3D%22105%22%20width%3D%228%22%20height%3D%2210%22%20fill%3D%22%2338bdf8%22%2F%3E%3Crect%20x%3D%22575%22%20y%3D%22105%22%20width%3D%228%22%20height%3D%2210%22%2F%3E%20%3Crect%20x%3D%22725%22%20y%3D%22115%22%20width%3D%227%22%20height%3D%229%22%2F%3E%3Crect%20x%3D%22745%22%20y%3D%22115%22%20width%3D%227%22%20height%3D%229%22%2F%3E%20%3C%2Fg%3E%20%3Crect%20x%3D%220%22%20y%3D%22265%22%20width%3D%22800%22%20height%3D%2295%22%20fill%3D%22%230f172a%22%2F%3E%20%3Crect%20x%3D%220%22%20y%3D%22260%22%20width%3D%22800%22%20height%3D%225%22%20fill%3D%22%2338bdf8%22%20opacity%3D%220.85%22%2F%3E%20%3Crect%20x%3D%220%22%20y%3D%22265%22%20width%3D%22800%22%20height%3D%223%22%20fill%3D%22%23f59e0b%22%2F%3E%20%3C%2Fsvg%3E");
+}
+
+.fox-escena-weltraum {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20360%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22sp-neb1%22%20cx%3D%2225%25%22%20cy%3D%2235%25%22%20r%3D%2260%25%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%239333ea%22%20stop-opacity%3D%220.6%22%2F%3E%20%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%234c1d95%22%20stop-opacity%3D%220.3%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23030712%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FradialGradient%3E%20%3CradialGradient%20id%3D%22sp-neb2%22%20cx%3D%2275%25%22%20cy%3D%2265%25%22%20r%3D%2255%25%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ec4899%22%20stop-opacity%3D%220.5%22%2F%3E%20%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%2306b6d4%22%20stop-opacity%3D%220.25%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23030712%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FradialGradient%3E%20%3ClinearGradient%20id%3D%22sp-planet%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23fb923c%22%2F%3E%20%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23ea580c%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23431407%22%2F%3E%20%3C%2FlinearGradient%3E%20%3C%2Fdefs%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22%23030712%22%2F%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23sp-neb1)%22%2F%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23sp-neb2)%22%2F%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%2280%22%20r%3D%221%22%2F%3E%20%3Ccircle%20cx%3D%22200%22%20cy%3D%2240%22%20r%3D%222%22%20fill%3D%22%23fed7aa%22%2F%3E%3Ccircle%20cx%3D%22310%22%20cy%3D%2270%22%20r%3D%221.2%22%2F%3E%20%3Ccircle%20cx%3D%22450%22%20cy%3D%2230%22%20r%3D%222.2%22%20fill%3D%22%23a5f3fc%22%2F%3E%3Ccircle%20cx%3D%22580%22%20cy%3D%2285%22%20r%3D%221.4%22%2F%3E%20%3Ccircle%20cx%3D%22680%22%20cy%3D%2240%22%20r%3D%221.8%22%2F%3E%3Ccircle%20cx%3D%22760%22%20cy%3D%2275%22%20r%3D%221.2%22%2F%3E%20%3Ccircle%20cx%3D%2290%22%20cy%3D%22180%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%22210%22%20r%3D%221.2%22%2F%3E%20%3Ccircle%20cx%3D%22620%22%20cy%3D%22190%22%20r%3D%221.7%22%2F%3E%3Ccircle%20cx%3D%22730%22%20cy%3D%22220%22%20r%3D%221.4%22%2F%3E%20%3C%2Fg%3E%20%3Cline%20x1%3D%22280%22%20y1%3D%2220%22%20x2%3D%22380%22%20y2%3D%2255%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%222%22%20opacity%3D%220.8%22%2F%3E%20%3Cline%20x1%3D%22240%22%20y1%3D%226%22%20x2%3D%22380%22%20y2%3D%2255%22%20stroke%3D%22%2338bdf8%22%20stroke-width%3D%221.2%22%20opacity%3D%220.5%22%2F%3E%20%3Cg%20transform%3D%22translate(640%2C%2090)%22%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2260%22%20ry%3D%2218%22%20fill%3D%22none%22%20stroke%3D%22%23fde047%22%20stroke-width%3D%228%22%20opacity%3D%220.6%22%20transform%3D%22rotate(-20)%22%2F%3E%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%2228%22%20fill%3D%22url(%23sp-planet)%22%2F%3E%20%3Cpath%20d%3D%22M%20-56%2020%20A%2060%2018%200%200%200%2056%20-20%22%20fill%3D%22none%22%20stroke%3D%22%23fde047%22%20stroke-width%3D%228%22%20opacity%3D%220.9%22%20transform%3D%22rotate(-20)%22%2F%3E%20%3C%2Fg%3E%20%3Ccircle%20cx%3D%22130%22%20cy%3D%22120%22%20r%3D%2216%22%20fill%3D%22%2338bdf8%22%20opacity%3D%220.85%22%2F%3E%20%3Ccircle%20cx%3D%22126%22%20cy%3D%22116%22%20r%3D%2214%22%20fill%3D%22%230284c7%22%2F%3E%20%3Cpath%20d%3D%22M0%20270%20Q%20260%20255%20520%20268%20T%20800%20260%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22%23111827%22%2F%3E%20%3Cpath%20d%3D%22M0%20270%20Q%20260%20255%20520%20268%20T%20800%20260%22%20stroke%3D%22%236366f1%22%20stroke-width%3D%223.5%22%20fill%3D%22none%22%20opacity%3D%220.75%22%2F%3E%20%3C%2Fsvg%3E");
 }

@@ -196,32 +196,30 @@ export default function FoxAjustes({ onClose, onChange }) {
       onClick={(e) => { if (e.target === e.currentTarget) cerrar(); }}
     >
       <div className="fox-modal-caja">
-        <div className="row spread" style={{ alignItems: 'flex-start' }}>
-          <h2 style={{ margin: 0 }}>Dein Fuchs</h2>
-          <button className="lied-cerrar" onClick={cerrar} title="Zurück">✕</button>
-        </div>
+        {/* Paisaje completo ocupando toda la cabecera con los textos y elementos superpuestos */}
+        <div className={'fox-hero-escena fox-escena-' + (f.fondo || 'nadaFondo')}>
+          <div className="fox-hero-topbar">
+            <h2 className="fox-hero-titulo">Dein Fuchs</h2>
+            <button className="fox-hero-cerrar" onClick={cerrar} title="Zurück">✕</button>
+          </div>
 
-        {/* Tres columnas: el saldo a la izquierda, que es el número que miras
-            para saber si te llega; Felix en medio; y lo demás a la derecha. */}
-        <div className="fox-ficha">
-          <div className="fox-saldo-grande">
-            <span className="fsg-num">{monedas}</span>
-            <span className="fsg-lab">Münzen</span>
-          </div>
-          <div className="fox-preview">
-            {/* Con una racha de muestra: el efecto aprieta segun subes, y aqui
-                interesa ver como queda cuando lleva un rato encendido, no el
-                minimo. */}
-            <div className={'fox-escena fox-escena-' + (f.fondo || 'nadaFondo')}>
-              <FoxFace fuchs={f} gesto="feliz" size={140} conCuerpo chispeando racha={12} />
+          <div className="fox-hero-cuerpo">
+            <div className="fox-hero-saldo">
+              <span className="fsg-num">{monedas}</span>
+              <span className="fsg-lab">Münzen</span>
             </div>
+
+            <div className="fox-hero-personaje">
+              <FoxFace fuchs={f} gesto="feliz" size={145} conCuerpo chispeando racha={12} />
+            </div>
+
+            <ul className="fox-hero-stats">
+              <li><strong>{l.coronas}</strong><small>Kronen</small></li>
+              <li><strong className={l.nivel >= 100 ? 'num-dorado' : ''}>{l.nivel}</strong><small>Level</small></li>
+              <li><strong>{l.racha}</strong><small>in Folge</small></li>
+              <li><strong>{l.dias}</strong><small>Tage</small></li>
+            </ul>
           </div>
-          <ul className="fox-stats">
-            <li><strong>{l.coronas}</strong><small>Kronen</small></li>
-            <li><strong className={l.nivel >= 100 ? 'num-dorado' : ''}>{l.nivel}</strong><small>Level</small></li>
-            <li><strong>{l.racha}</strong><small>in Folge</small></li>
-            <li><strong>{l.dias}</strong><small>Tage</small></li>
-          </ul>
         </div>
         {aviso && <p className="fox-aviso">{aviso}</p>}
 
