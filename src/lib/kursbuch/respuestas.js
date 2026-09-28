@@ -228,9 +228,17 @@ const RESPUESTAS = {
 
   // ---- Lektion 4: Der erste Arbeitstag ------------------------------------
   'Darf ich mich vorstellen? Mein Name ist …':
-    { de: 'Freut mich sehr. Herzlich willkommen!', es: 'Encantado. ¡Bienvenido!' },
+    { de: 'Freut mich sehr. Herzlich willkommen!', es: 'Encantado. ¡Bienvenido!',
+      mas: [
+        { de: 'Ich fange heute in der Buchhaltung an.', es: 'Empiezo hoy en contabilidad.' },
+        { de: 'Dann sind wir Nachbarn, mein Büro ist gleich daneben.', es: 'Pues somos vecinos, mi despacho está al lado.' }
+      ] },
   'Das ist Frau Berger, unsere neue Kollegin.':
-    { de: 'Guten Tag, Frau Berger. Schön, Sie hier zu haben.', es: 'Buenos días, señora Berger. Me alegro de tenerla aquí.' },
+    { de: 'Guten Tag, Frau Berger. Schön, Sie hier zu haben.', es: 'Buenos días, señora Berger. Me alegro de tenerla aquí.',
+      mas: [
+        { de: 'Wenn Sie etwas brauchen, fragen Sie einfach.', es: 'Si necesita algo, no dude en preguntar.' },
+        { de: 'Danke, darauf komme ich bestimmt zurück.', es: 'Gracias, seguro que se lo tomo en palabra.' }
+      ] },
   'Freut mich, Sie kennenzulernen.':
     { de: 'Ganz meinerseits. Ich habe schon viel von Ihnen gehört.', es: 'Igualmente. Ya he oído hablar mucho de usted.' },
   'Ich bin für die Buchhaltung zuständig.':
@@ -238,7 +246,11 @@ const RESPUESTAS = {
   'Entschuldigung, das habe ich nicht verstanden.':
     { de: 'Kein Problem, ich sage es noch einmal.', es: 'Sin problema, lo repito.' },
   'Können Sie das bitte noch einmal erklären?':
-    { de: 'Natürlich. Also, ganz von vorne …', es: 'Por supuesto. A ver, desde el principio…' },
+    { de: 'Natürlich. Also, ganz von vorne …', es: 'Por supuesto. A ver, desde el principio…',
+      mas: [
+        { de: 'Jetzt ist es klar. Danke für die Geduld.', es: 'Ahora sí lo veo. Gracias por la paciencia.' },
+        { de: 'Kein Problem. Lieber zweimal fragen als einmal falsch machen.', es: 'No pasa nada. Mejor preguntar dos veces que hacerlo mal una.' }
+      ] },
   'Was bedeutet das genau?':
     { de: 'Das heißt, wir fangen um acht an.', es: 'Quiere decir que empezamos a las ocho.' },
   'Habe ich das richtig verstanden: …?':
@@ -246,23 +258,59 @@ const RESPUESTAS = {
 
   // ---- Lektion 5: In der Schule -------------------------------------------
   'Das ist mir egal.':
-    { de: 'Dann entscheide ich einfach. Beschwer dich nachher nicht!', es: 'Pues decido yo. ¡Luego no te quejes!' },
+    { de: 'Dann entscheide ich einfach. Beschwer dich nachher nicht!', es: 'Pues decido yo. ¡Luego no te quejes!',
+      mas: [
+        { de: 'Na gut, dann sag ich doch was: lieber der Nachmittag.', es: 'Vale, pues sí digo algo: mejor por la tarde.' },
+        { de: 'Siehst du, es war dir doch nicht egal.', es: '¿Ves? Sí que te daba igual.' }
+      ] },
   'Mir ist beides recht.':
-    { de: 'Gut, dann nehmen wir das erste.', es: 'Bien, pues el primero.' },
+    { de: 'Gut, dann nehmen wir das erste.', es: 'Bien, pues el primero.',
+      mas: [
+        { de: 'Aber wenn es regnet, lieber drinnen.', es: 'Pero si llueve, mejor dentro.' },
+        { de: 'Klar. Ich schaue morgen früh auf das Wetter.', es: 'Claro. Mañana miro el tiempo.' }
+      ] },
   'Wie du willst.':
-    { de: 'Nein, sag du es. Ich will dich nicht überreden.', es: 'No, dilo tú. No te quiero convencer.' },
+    { de: 'Nein, sag du es. Ich will dich nicht überreden.', es: 'No, dilo tú. No te quiero convencer.',
+      mas: [
+        { de: 'Dann sage ich es: lieber später.', es: 'Pues lo digo: mejor más tarde.' },
+        { de: 'Perfekt. Genau das wollte ich wissen.', es: 'Perfecto. Eso es justo lo que quería saber.' }
+      ] },
   'Können Sie bitte langsamer sprechen?':
-    { de: 'Ja, natürlich. Entschuldigung, ich rede oft zu schnell.', es: 'Sí, claro. Perdone, hablo muy rápido a menudo.' },
+    { de: 'Ja, natürlich. Entschuldigung, ich rede oft zu schnell.', es: 'Sí, claro. Perdone, hablo muy rápido a menudo.',
+      mas: [
+        { de: 'Jetzt verstehe ich Sie gut.', es: 'Ahora le entiendo bien.' },
+        { de: 'Sagen Sie es ruhig wieder, wenn ich schneller werde.', es: 'Dígamelo otra vez si vuelvo a acelerar.' }
+      ] },
   'Soll ich es Ihnen aufschreiben?':
-    { de: 'Ja bitte, das wäre super.', es: 'Sí, por favor, sería genial.' },
+    { de: 'Ja bitte, das wäre super.', es: 'Sí, por favor, sería genial.',
+      mas: [
+        { de: 'Vor allem die Namen und die Uhrzeit.', es: 'Sobre todo los nombres y la hora.' },
+        { de: 'Mache ich. Ich gebe es Ihnen gleich mit.', es: 'Lo hago. Se lo doy ahora mismo.' }
+      ] },
   'Ich erkläre es Ihnen gern noch einmal.':
-    { de: 'Das ist sehr nett von Ihnen.', es: 'Es muy amable por su parte.' },
+    { de: 'Das ist sehr nett von Ihnen.', es: 'Es muy amable por su parte.',
+      mas: [
+        { de: 'Es ist mir ein bisschen unangenehm zu fragen.', es: 'Me da un poco de apuro preguntar.' },
+        { de: 'Das muss es nicht. Mir ist eine Frage lieber als ein Missverständnis.', es: 'No hace falta. Prefiero una pregunta a un malentendido.' }
+      ] },
   'Ich bin mir nicht sicher.':
-    { de: 'Dann fragen wir lieber nach.', es: 'Pues mejor preguntamos.' },
+    { de: 'Dann fragen wir lieber nach.', es: 'Pues mejor preguntamos.',
+      mas: [
+        { de: 'Wen fragen wir am besten?', es: '¿A quién preguntamos mejor?' },
+        { de: 'Die Klassenlehrerin. Sie weiß so etwas immer.', es: 'A la tutora. Esas cosas siempre las sabe.' }
+      ] },
   'Ich glaube schon, aber ich weiß es nicht genau.':
-    { de: 'Wir schauen einfach nach. Das Mitteilungsheft liegt in der Schultasche.', es: 'Lo miramos y ya está. El cuaderno de notas está en la mochila.' },
+    { de: 'Wir schauen einfach nach. Das Mitteilungsheft liegt in der Schultasche.', es: 'Lo miramos y ya está. El cuaderno de notas está en la mochila.',
+      mas: [
+        { de: 'Hier steht es: Ausflug am Freitag.', es: 'Aquí está: excursión el viernes.' },
+        { de: 'Gut, dass wir nachgeschaut haben.', es: 'Menos mal que lo hemos mirado.' }
+      ] },
   'Vielleicht, das kann ich nicht sagen.':
-    { de: 'Kein Problem, ich frage jemand anderen.', es: 'No pasa nada, pregunto a otra persona.' },
+    { de: 'Kein Problem, ich frage jemand anderen.', es: 'No pasa nada, pregunto a otra persona.',
+      mas: [
+        { de: 'Ich frage heute Abend zu Hause nach.', es: 'Lo pregunto esta noche en casa.' },
+        { de: 'Danke. Dann warten wir damit bis morgen.', es: 'Gracias. Pues lo dejamos para mañana.' }
+      ] },
 
   // ---- Lektion 6: Feierabend ----------------------------------------------
   'Komm schon, das wird bestimmt lustig!':
@@ -1190,9 +1238,17 @@ const RESPUESTAS = {
   'Schaltest du abends ab?':
     { de: 'Ich versuche es, klappt aber selten.', es: 'Lo intento, pero casi nunca lo consigo.' },
   'Wann bekommen wir das Zeugnis?':
-    { de: 'Am letzten Schultag, zusammen mit der Information über das nächste Jahr.', es: 'El último día de clase, junto con la información del curso que viene.' },
+    { de: 'Am letzten Schultag, zusammen mit der Information über das nächste Jahr.', es: 'El último día de clase, junto con la información del curso que viene.',
+      mas: [
+        { de: 'Kommt die Information auch per Mail?', es: '¿La información llega también por correo?' },
+        { de: 'Ja, am selben Tag. Prüfen Sie bitte den Spam-Ordner.', es: 'Sí, el mismo día. Mire también en la carpeta de spam.' }
+      ] },
   'Mein Sohn war krank.':
-    { de: 'Bringen Sie bitte eine Entschuldigung mit.', es: 'Traiga un justificante, por favor.' },
+    { de: 'Bringen Sie bitte eine Entschuldigung mit.', es: 'Traiga un justificante, por favor.',
+      mas: [
+        { de: 'Reicht eine von mir oder muss sie vom Arzt sein?', es: '¿Basta una mía o tiene que ser del médico?' },
+        { de: 'Bis drei Tage reicht Ihre. Danach brauchen wir ein Attest.', es: 'Hasta tres días basta la suya. Después necesitamos un justificante médico.' }
+      ] },
   'Wie läuft es in der Klasse?':
     { de: 'Sehr gut, er macht gut mit.', es: 'Muy bien, participa mucho.' },
   'Gibt es Hausaufgaben über die Ferien?':
@@ -2994,11 +3050,23 @@ const RESPUESTAS = {
   'Die Buchhaltung gehört zu meinem Bereich.':
     { de: 'Sehr gut. Dann sehen wir uns bei der Monatsabrechnung oft.', es: 'Muy bien. Entonces nos veremos a menudo con el cierre mensual.' },
   'Ich stelle Ihnen Frau Berger vor, sie ist neu bei uns.':
-    { de: 'Willkommen im Team! In welcher Abteilung arbeiten Sie?', es: '¡Bienvenida al equipo! ¿En qué departamento trabaja?' },
+    { de: 'Willkommen im Team! In welcher Abteilung arbeiten Sie?', es: '¡Bienvenida al equipo! ¿En qué departamento trabaja?',
+      mas: [
+        { de: 'Im Einkauf, bei Herrn Wagner.', es: 'En compras, con el señor Wagner.' },
+        { de: 'Dann sehen wir uns oft. Wir bestellen alles über Sie.', es: 'Entonces nos veremos mucho. Lo pedimos todo por ustedes.' }
+      ] },
   'Heute ist mein erster Arbeitstag hier.':
-    { de: 'Herzlich willkommen. Ich zeige Ihnen zuerst Ihren Arbeitsplatz.', es: 'Bienvenido. Primero le enseño su puesto de trabajo.' },
+    { de: 'Herzlich willkommen. Ich zeige Ihnen zuerst Ihren Arbeitsplatz.', es: 'Bienvenido. Primero le enseño su puesto de trabajo.',
+      mas: [
+        { de: 'Brauche ich für den Computer schon ein Passwort?', es: '¿Necesito ya una contraseña para el ordenador?' },
+        { de: 'Das bekommen Sie heute Nachmittag von der IT.', es: 'Se la dará informática esta tarde.' }
+      ] },
   'Freut mich, Sie persönlich kennenzulernen.':
-    { de: 'Ganz meinerseits. Wir haben ja schon oft telefoniert.', es: 'Igualmente. Ya hemos hablado muchas veces por teléfono.' },
+    { de: 'Ganz meinerseits. Wir haben ja schon oft telefoniert.', es: 'Igualmente. Ya hemos hablado muchas veces por teléfono.',
+      mas: [
+        { de: 'Am Telefon klingen Sie ganz anders.', es: 'Por teléfono suena usted muy distinto.' },
+        { de: 'Das sagen alle. Angeblich klinge ich strenger.', es: 'Me lo dicen todos. Por lo visto sueno más serio.' }
+      ] },
   'Ich komme aus der Abteilung nebenan.':
     { de: 'Ach, Sie sind der Kollege von Herrn Huber?', es: 'Ah, ¿usted es el compañero del señor Huber?' },
   'Wer ist hier mein Ansprechpartner?':
@@ -3010,11 +3078,23 @@ const RESPUESTAS = {
   'Habe ich das richtig verstanden: bis Freitag?':
     { de: 'Genau, Freitag Mittag. Danach geht es an den Kunden.', es: 'Exacto, el viernes al mediodía. Después va al cliente.' },
   'Was bedeutet diese Abkürzung?':
-    { de: 'Die verwendet nur unsere Abteilung. Ich schreibe sie dir auf.', es: 'Esa solo la usa nuestro departamento. Te la apunto.' },
+    { de: 'Die verwendet nur unsere Abteilung. Ich schreibe sie dir auf.', es: 'Esa solo la usa nuestro departamento. Te la apunto.',
+      mas: [
+        { de: 'Gibt es eine Liste mit allen?', es: '¿Hay una lista con todas?' },
+        { de: 'Im Intranet, unter „Interne Begriffe". Sehr praktisch.', es: 'En la intranet, en «Interne Begriffe». Muy práctica.' }
+      ] },
   'Wie meinen Sie das genau?':
-    { de: 'Ich meine, der Kunde soll den Bericht zuerst sehen.', es: 'Quiero decir que el cliente debe ver el informe primero.' },
+    { de: 'Ich meine, der Kunde soll den Bericht zuerst sehen.', es: 'Quiero decir que el cliente debe ver el informe primero.',
+      mas: [
+        { de: 'Also erst der Kunde und dann die Abteilungsleitung?', es: '¿Entonces primero el cliente y luego la jefatura?' },
+        { de: 'Genau so. Sonst gibt es wieder Diskussionen.', es: 'Exactamente así. Si no, vuelve a haber discusiones.' }
+      ] },
   'Könnten Sie mir das an einem Beispiel zeigen?':
-    { de: 'Gern. Schauen wir den letzten Auftrag zusammen an.', es: 'Con gusto. Miramos juntos el último pedido.' },
+    { de: 'Gern. Schauen wir den letzten Auftrag zusammen an.', es: 'Con gusto. Miramos juntos el último pedido.',
+      mas: [
+        { de: 'Dürfte ich mir dabei Notizen machen?', es: '¿Podría tomar notas mientras?' },
+        { de: 'Natürlich. Beim ersten Mal merkt sich das niemand.', es: 'Por supuesto. La primera vez no se acuerda nadie.' }
+      ] },
   'Ich bin mir nicht sicher, ob das stimmt.':
     { de: 'Prüf es ruhig nach. Lieber jetzt als nach der Abgabe.', es: 'Compruébalo tranquilamente. Mejor ahora que después de entregarlo.' },
   'Zu wem gehe ich, wenn ich nicht weiterweiß?':
@@ -3028,9 +3108,17 @@ const RESPUESTAS = {
         { de: 'Bis morgen Mittag reicht. Bitte alle in Kopie setzen.', es: 'Con mañana al mediodía basta. Pon a todos en copia, por favor.' }
       ] },
   'Wann ist der Abgabetermin für den Bericht?':
-    { de: 'Freitag zwölf Uhr. Schick ihn mir vorher zum Gegenlesen.', es: 'El viernes a las doce. Mándamelo antes para revisarlo.' },
+    { de: 'Freitag zwölf Uhr. Schick ihn mir vorher zum Gegenlesen.', es: 'El viernes a las doce. Mándamelo antes para revisarlo.',
+      mas: [
+        { de: 'Donnerstagabend hätte ich ihn fertig.', es: 'El jueves por la tarde lo tendría listo.' },
+        { de: 'Perfekt, dann haben wir noch einen Tag Luft.', es: 'Perfecto, así nos queda un día de margen.' }
+      ] },
   'Ich arbeite mich gerade noch ein.':
-    { de: 'Lass dir Zeit. Die ersten drei Monate sind dafür da.', es: 'Tómate tu tiempo. Los tres primeros meses son para eso.' },
+    { de: 'Lass dir Zeit. Die ersten drei Monate sind dafür da.', es: 'Tómate tu tiempo. Los tres primeros meses son para eso.',
+      mas: [
+        { de: 'Manches frage ich bestimmt zweimal.', es: 'Seguro que algunas cosas las pregunto dos veces.' },
+        { de: 'Frag ruhig dreimal. Das ist normal am Anfang.', es: 'Pregunta hasta tres veces. Es normal al principio.' }
+      ] },
   'Diese Aufgabe schaffe ich bis Mittwoch.':
     { de: 'Perfekt. Sag Bescheid, falls doch etwas dazwischenkommt.', es: 'Perfecto. Avisa si surge algo.' },
   'Unter Zeitdruck mache ich mehr Fehler.':
@@ -3052,9 +3140,17 @@ const RESPUESTAS = {
         { de: 'Bis Ende des Monats. Danach laden wir zu den Gesprächen ein.', es: 'Hasta fin de mes. Después convocamos las entrevistas.' }
       ] },
   'Welche Unterlagen brauchen Sie von mir?':
-    { de: 'Zeugnisse, Lebenslauf und eine Kopie des Ausweises.', es: 'Certificados, currículum y una copia del documento.' },
+    { de: 'Zeugnisse, Lebenslauf und eine Kopie des Ausweises.', es: 'Certificados, currículum y una copia del documento.',
+      mas: [
+        { de: 'Meine Zeugnisse sind auf Spanisch. Reicht eine Übersetzung?', es: 'Mis títulos están en español. ¿Basta con una traducción?' },
+        { de: 'Eine beglaubigte, ja. Die Liste der Übersetzer schicke ich Ihnen.', es: 'Una jurada, sí. Le mando la lista de traductores.' }
+      ] },
   'Ich habe fünf Jahre Erfahrung in der Branche.':
-    { de: 'Und in welchem Bereich genau? Vertrieb oder Technik?', es: '¿Y en qué área exactamente? ¿Ventas o técnica?' },
+    { de: 'Und in welchem Bereich genau? Vertrieb oder Technik?', es: '¿Y en qué área exactamente? ¿Ventas o técnica?',
+      mas: [
+        { de: 'Vor allem im Vertrieb, zuletzt auch etwas Technik.', es: 'Sobre todo en ventas, y últimamente algo de técnica.' },
+        { de: 'Die Mischung suchen wir genau.', es: 'Justo esa mezcla es la que buscamos.' }
+      ] },
   'Wann könnten Sie bei uns anfangen?':
     { de: 'In sechs Wochen. So lange läuft meine Kündigungsfrist.', es: 'En seis semanas. Es mi plazo de preaviso.' },
   'Wie sind die Arbeitszeiten geregelt?':
@@ -3070,11 +3166,23 @@ const RESPUESTAS = {
   'Vielen Dank für das Gespräch.':
     { de: 'Danke Ihnen. Es war ein sehr angenehmes Gespräch.', es: 'Gracias a usted. Ha sido una conversación muy agradable.' },
   'Ich habe einen Fehler gemacht, es tut mir leid.':
-    { de: 'Danke, dass du es sagst. Schauen wir, wie wir es reparieren.', es: 'Gracias por decirlo. Vamos a ver cómo lo arreglamos.' },
+    { de: 'Danke, dass du es sagst. Schauen wir, wie wir es reparieren.', es: 'Gracias por decirlo. Vamos a ver cómo lo arreglamos.',
+      mas: [
+        { de: 'Ich habe die Rechnung an die falsche Firma geschickt.', es: 'He mandado la factura a la empresa equivocada.' },
+        { de: 'Das passiert. Ruf dort an und schick sie neu.', es: 'Eso pasa. Llama allí y vuelve a mandarla.' }
+      ] },
   'Ich schaffe die Arbeit in der Zeit nicht.':
-    { de: 'Dann sag es früher. Zusammen finden wir eine Lösung.', es: 'Pues dilo antes. Juntos encontramos una solución.' },
+    { de: 'Dann sag es früher. Zusammen finden wir eine Lösung.', es: 'Pues dilo antes. Juntos encontramos una solución.',
+      mas: [
+        { de: 'Es sind einfach zu viele Aufträge gleichzeitig.', es: 'Son demasiados encargos a la vez.' },
+        { de: 'Dann nehmen wir zwei raus und geben sie weiter.', es: 'Pues sacamos dos y los pasamos a otro.' }
+      ] },
   'Können wir kurz unter vier Augen sprechen?':
-    { de: 'Natürlich. Gehen wir in den Besprechungsraum.', es: 'Claro. Vamos a la sala de reuniones.' },
+    { de: 'Natürlich. Gehen wir in den Besprechungsraum.', es: 'Claro. Vamos a la sala de reuniones.',
+      mas: [
+        { de: 'Es geht um die Schichtplanung.', es: 'Es sobre el reparto de turnos.' },
+        { de: 'Dachte ich mir. Setzen Sie sich, wir haben Zeit.', es: 'Me lo imaginaba. Siéntese, tenemos tiempo.' }
+      ] },
   'Mit dem neuen Ablauf komme ich nicht zurecht.':
     { de: 'Woran genau hakt es? Dann passen wir es an.', es: '¿Dónde se atasca exactamente? Así lo ajustamos.' },
   'Ich fühle mich im Team nicht wohl.':
@@ -3090,9 +3198,17 @@ const RESPUESTAS = {
   'Ich möchte zum Monatsende kündigen.':
     { de: 'Das bedaure ich sehr. Können wir vorher noch einmal reden?', es: 'Lo lamento mucho. ¿Podemos hablarlo antes una vez más?' },
   'Ich denke, wir haben alles besprochen.':
-    { de: 'Von meiner Seite ja. Vielen Dank für Ihre Zeit.', es: 'Por mi parte sí. Muchas gracias por su tiempo.' },
+    { de: 'Von meiner Seite ja. Vielen Dank für Ihre Zeit.', es: 'Por mi parte sí. Muchas gracias por su tiempo.',
+      mas: [
+        { de: 'Eine Sache noch: der Ausflug im Mai.', es: 'Una cosa más: la excursión de mayo.' },
+        { de: 'Stimmt. Die Anmeldung kommt nächste Woche.', es: 'Es verdad. La inscripción llega la semana que viene.' }
+      ] },
   'Schönen Tag noch und auf Wiedersehen.':
-    { de: 'Ihnen auch. Grüßen Sie bitte Ihre Frau von mir.', es: 'Igualmente. Salude a su mujer de mi parte.' },
+    { de: 'Ihnen auch. Grüßen Sie bitte Ihre Frau von mir.', es: 'Igualmente. Salude a su mujer de mi parte.',
+      mas: [
+        { de: 'Mache ich gern. Bis zum nächsten Mal.', es: 'Con mucho gusto. Hasta la próxima.' },
+        { de: 'Bis dann. Und melden Sie sich, wenn etwas ist.', es: 'Hasta entonces. Y avise si pasa algo.' }
+      ] },
   'Das ist mir ehrlich gesagt egal.':
     { de: 'Dann entscheide ich. Wir nehmen den Donnerstag.', es: 'Pues decido yo. Cogemos el jueves.' },
   'Von mir aus beides, such du aus.':
@@ -3144,11 +3260,23 @@ const RESPUESTAS = {
   'Wann ist der nächste Elternsprechtag?':
     { de: 'Am zwölften November. Sie können sich online anmelden.', es: 'El doce de noviembre. Se pueden apuntar por internet.' },
   'Welche Schulbücher müssen wir kaufen?':
-    { de: 'Keine. Die Liste bekommen die Kinder, die Bücher stellt die Schule.', es: 'Ninguno. Los niños reciben la lista, los libros los pone el colegio.' },
+    { de: 'Keine. Die Liste bekommen die Kinder, die Bücher stellt die Schule.', es: 'Ninguno. Los niños reciben la lista, los libros los pone el colegio.',
+      mas: [
+        { de: 'Und Hefte und Stifte?', es: '¿Y cuadernos y bolígrafos?' },
+        { de: 'Die schon. Die Liste kommt in der ersten Woche.', es: 'Eso sí. La lista llega la primera semana.' }
+      ] },
   'Wie viel kostet die Nachmittagsbetreuung?':
-    { de: 'Achtzig Euro im Monat, mit Mittagessen hundertzwanzig.', es: 'Ochenta euros al mes, con comida ciento veinte.' },
+    { de: 'Achtzig Euro im Monat, mit Mittagessen hundertzwanzig.', es: 'Ochenta euros al mes, con comida ciento veinte.',
+      mas: [
+        { de: 'Gibt es eine Ermäßigung für zwei Kinder?', es: '¿Hay descuento por dos hijos?' },
+        { de: 'Ja, das zweite Kind zahlt die Hälfte.', es: 'Sí, el segundo paga la mitad.' }
+      ] },
   'Darf mein Kind allein nach Hause gehen?':
-    { de: 'Ab der dritten Klasse ja, mit Ihrer schriftlichen Erlaubnis.', es: 'A partir de tercero sí, con su permiso por escrito.' },
+    { de: 'Ab der dritten Klasse ja, mit Ihrer schriftlichen Erlaubnis.', es: 'A partir de tercero sí, con su permiso por escrito.',
+      mas: [
+        { de: 'Wo bekomme ich dieses Formular?', es: '¿Dónde consigo ese formulario?' },
+        { de: 'Im Sekretariat, oder ich gebe es ihm morgen mit.', es: 'En secretaría, o se lo doy mañana a él.' }
+      ] },
   'Ist die Schularbeit schon korrigiert?':
     { de: 'Bis Freitag. Die Kinder bekommen sie dann zurück.', es: 'Para el viernes. Los niños lo recibirán entonces.' },
   'Mein Kind hat Schwierigkeiten mit der Sprache.':
@@ -3158,9 +3286,17 @@ const RESPUESTAS = {
         { de: 'Zwei, immer am Dienstag und Donnerstag nach dem Unterricht.', es: 'Dos, siempre martes y jueves después de clase.' }
       ] },
   'Er kann sich in der Klasse schlecht konzentrieren.':
-    { de: 'Ich setze ihn weiter nach vorne. Das hilft bei vielen Kindern.', es: 'Lo pongo más adelante. A muchos niños les ayuda.' },
+    { de: 'Ich setze ihn weiter nach vorne. Das hilft bei vielen Kindern.', es: 'Lo pongo más adelante. A muchos niños les ayuda.',
+      mas: [
+        { de: 'Zu Hause ist es genauso.', es: 'En casa pasa lo mismo.' },
+        { de: 'Dann probieren Sie kürzere Einheiten, zwanzig Minuten mit Pause.', es: 'Pruebe con ratos más cortos, veinte minutos con pausa.' }
+      ] },
   'Wie kann ich zu Hause besser helfen?':
-    { de: 'Lassen Sie ihn laut vorlesen, jeden Tag zehn Minuten.', es: 'Déjele leer en voz alta, diez minutos al día.' },
+    { de: 'Lassen Sie ihn laut vorlesen, jeden Tag zehn Minuten.', es: 'Déjele leer en voz alta, diez minutos al día.',
+      mas: [
+        { de: 'Auf Deutsch? Mein Deutsch ist nicht perfekt.', es: '¿En alemán? Mi alemán no es perfecto.' },
+        { de: 'Das macht nichts. Er liest, Sie hören zu. Das genügt.', es: 'No importa. Él lee y usted escucha. Con eso basta.' }
+      ] },
   'Ist meine Tochter im Unterricht aktiv?':
     { de: 'Sehr. Manchmal so aktiv, dass die anderen nicht drankommen.', es: 'Mucho. A veces tanto que los demás no llegan a intervenir.' },
   'Seine Noten haben sich stark verbessert.':
@@ -4042,15 +4178,31 @@ const RESPUESTAS = {
   'Wer übernimmt das Projekt nach dem Sommer?':
     { de: 'Vermutlich ich, wenn die Beförderung durchgeht.', es: 'Probablemente yo, si sale el ascenso.' },
   'Welche Qualifikationen erwarten Sie?':
-    { de: 'Eine abgeschlossene Ausbildung und zwei Jahre Erfahrung.', es: 'Una formación terminada y dos años de experiencia.' },
+    { de: 'Eine abgeschlossene Ausbildung und zwei Jahre Erfahrung.', es: 'Una formación terminada y dos años de experiencia.',
+      mas: [
+        { de: 'Zählt Erfahrung aus dem Ausland auch?', es: '¿Cuenta también la experiencia del extranjero?' },
+        { de: 'Selbstverständlich. Die Hälfte des Teams kommt nicht von hier.', es: 'Por supuesto. La mitad del equipo no es de aquí.' }
+      ] },
   'Zahlt der Arbeitgeber auch Fortbildungen?':
-    { de: 'Ja, zwei Kurse pro Jahr, auch Sprachkurse.', es: 'Sí, dos cursos al año, también de idiomas.' },
+    { de: 'Ja, zwei Kurse pro Jahr, auch Sprachkurse.', es: 'Sí, dos cursos al año, también de idiomas.',
+      mas: [
+        { de: 'Auch während der Arbeitszeit?', es: '¿También en horario de trabajo?' },
+        { de: 'Einen halben Tag pro Woche, ja.', es: 'Media jornada a la semana, sí.' }
+      ] },
   'Wie ist das Betriebsklima bei Ihnen?':
-    { de: 'Familiär. Die meisten sind seit über zehn Jahren da.', es: 'Familiar. La mayoría lleva más de diez años aquí.' },
+    { de: 'Familiär. Die meisten sind seit über zehn Jahren da.', es: 'Familiar. La mayoría lleva más de diez años aquí.',
+      mas: [
+        { de: 'Das klingt gut. Gibt es viel Wechsel?', es: 'Suena bien. ¿Hay mucha rotación?' },
+        { de: 'Kaum. Letztes Jahr ist niemand gegangen.', es: 'Apenas. El año pasado no se fue nadie.' }
+      ] },
   'Ich bin zeitlich sehr flexibel.':
     { de: 'Das hilft uns sehr. Wären auch Samstage möglich?', es: 'Eso nos ayuda mucho. ¿Serían posibles también los sábados?' },
   'Dann probieren wir es bis zum Semesterende so.':
-    { de: 'Einverstanden. Im Februar sprechen wir noch einmal darüber.', es: 'De acuerdo. En febrero lo volvemos a hablar.' },
+    { de: 'Einverstanden. Im Februar sprechen wir noch einmal darüber.', es: 'De acuerdo. En febrero lo volvemos a hablar.',
+      mas: [
+        { de: 'Soll ich Ihnen vorher schreiben, wenn es nicht klappt?', es: '¿Le escribo antes si no funciona?' },
+        { de: 'Bitte. Warten Sie nicht bis Februar.', es: 'Por favor. No espere hasta febrero.' }
+      ] },
   'Ich denke, wir sind uns einig.':
     { de: 'Ja. Vielen Dank, dass Sie sich die Zeit genommen haben.', es: 'Sí. Muchas gracias por dedicar el tiempo.' },
   'Sagen Sie mir Bescheid, wenn sich etwas ändert.':
@@ -4070,11 +4222,23 @@ const RESPUESTAS = {
   'Gibt es an dieser Schule Schulgeld?':
     { de: 'Nein, nur einen kleinen Beitrag für Material.', es: 'No, solo una pequeña aportación para material.' },
   'Wie ist sein Verhalten in der Klasse?':
-    { de: 'Deutlich besser als im Herbst. Er meldet sich sogar freiwillig.', es: 'Bastante mejor que en otoño. Incluso participa voluntariamente.' },
+    { de: 'Deutlich besser als im Herbst. Er meldet sich sogar freiwillig.', es: 'Bastante mejor que en otoño. Incluso participa voluntariamente.',
+      mas: [
+        { de: 'Das höre ich zum ersten Mal, das freut mich sehr.', es: 'Es la primera vez que lo oigo, me alegra mucho.' },
+        { de: 'Sagen Sie es ihm ruhig. Das hört er gern von Ihnen.', es: 'Dígaselo, que le gusta oírlo de usted.' }
+      ] },
   'Hilft Loben bei ihm mehr als Schimpfen?':
-    { de: 'Eindeutig. Nach einem Lob arbeitet er eine Woche lang anders.', es: 'Sin duda. Después de un elogio trabaja distinto una semana.' },
+    { de: 'Eindeutig. Nach einem Lob arbeitet er eine Woche lang anders.', es: 'Sin duda. Después de un elogio trabaja distinto una semana.',
+      mas: [
+        { de: 'Dann machen wir es zu Hause auch so.', es: 'Pues en casa lo haremos igual.' },
+        { de: 'Sehr gut. Wenn wir beide gleich handeln, wirkt es doppelt.', es: 'Muy bien. Si actuamos igual los dos, funciona el doble.' }
+      ] },
   'Was können wir für sein Selbstvertrauen tun?':
-    { de: 'Kleine Aufgaben, die er sicher schafft. Erfolge wirken schnell.', es: 'Tareas pequeñas que seguro consigue. Los éxitos funcionan rápido.' },
+    { de: 'Kleine Aufgaben, die er sicher schafft. Erfolge wirken schnell.', es: 'Tareas pequeñas que seguro consigue. Los éxitos funcionan rápido.',
+      mas: [
+        { de: 'Er hilft gern beim Kochen. Zählt das?', es: 'Le gusta ayudar a cocinar. ¿Eso cuenta?' },
+        { de: 'Absolut. Alles, wo er am Ende etwas Fertiges sieht.', es: 'Desde luego. Todo donde al final vea algo terminado.' }
+      ] },
   'Lies wenigstens den Artikel zu Ende.':
     { de: 'Also gut. Aber wenn er langweilig ist, höre ich auf.', es: 'Está bien. Pero si es aburrido, lo dejo.' },
   'Komm schon, einmal offline schadet dir nicht.':
@@ -4768,11 +4932,23 @@ const RESPUESTAS = {
         { de: 'Zweimal die Woche. Mehr geht mit der Arbeit nicht.', es: 'Dos veces por semana. Más no me da con el trabajo.' }
       ] },
   'Willkommen im Team! Ich bin Álvaro.':
-    { de: 'Danke! Ich freue mich auf die Arbeit hier.', es: '¡Gracias! Tengo ganas de empezar aquí.' },
+    { de: 'Danke! Ich freue mich auf die Arbeit hier.', es: '¡Gracias! Tengo ganas de empezar aquí.',
+      mas: [
+        { de: 'Wo sitzt du denn?', es: '¿Dónde te sientas?' },
+        { de: 'Ganz hinten am Fenster. Komm vorbei, wenn du etwas brauchst.', es: 'Al fondo, junto a la ventana. Pásate si necesitas algo.' }
+      ] },
   'Entschuldigung, da bin ich nicht mitgekommen.':
-    { de: 'Kein Problem, ich erkläre es noch einmal.', es: 'No pasa nada, lo explico otra vez.' },
+    { de: 'Kein Problem, ich erkläre es noch einmal.', es: 'No pasa nada, lo explico otra vez.',
+      mas: [
+        { de: 'Vor allem den Teil mit den Terminen.', es: 'Sobre todo la parte de los plazos.' },
+        { de: 'Verstehe. Ich male es kurz auf, dann ist es klarer.', es: 'Entiendo. Se lo dibujo y queda más claro.' }
+      ] },
   'Was heißt das für meine Arbeit?':
-    { de: 'Sie machen ab Montag die Frühschicht.', es: 'A partir del lunes hace el turno de mañana.' },
+    { de: 'Sie machen ab Montag die Frühschicht.', es: 'A partir del lunes hace el turno de mañana.',
+      mas: [
+        { de: 'Ab wann genau? Ich muss das zu Hause absprechen.', es: '¿Desde cuándo exactamente? Lo tengo que hablar en casa.' },
+        { de: 'Ab dem Ersten. Bis dahin haben Sie Zeit.', es: 'Desde el día uno. Hasta entonces tiene tiempo.' }
+      ] },
   'Könnten Sie den letzten Punkt noch einmal sagen?':
     { de: 'Natürlich. Die Pause ist von zwölf bis halb eins.', es: 'Claro. La pausa es de doce a doce y media.' },
   'Sprechen Sie bitte etwas langsamer mit mir.':

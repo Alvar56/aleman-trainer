@@ -220,6 +220,13 @@ export default function FoxAjustes({ onClose, onChange }) {
               <li><strong>{l.dias}</strong><small>Tage</small></li>
             </ul>
           </div>
+
+          {/* Transición orgánica de curva suave hacia el cuerpo del modal */}
+          <div className="fox-hero-transicion" aria-hidden="true">
+            <svg viewBox="0 0 1200 36" preserveAspectRatio="none">
+              <path d="M0,14 C 300,32 600,6 1200,20 L 1200,36 L 0,36 Z" fill="var(--surface)" />
+            </svg>
+          </div>
         </div>
 
         <div className="fox-modal-cuerpo">
