@@ -204,9 +204,9 @@ export default function FoxAjustes({ onClose, onChange }) {
           </div>
 
           <div className="fox-hero-cuerpo">
-            <div className="fox-hero-saldo">
-              <span className="fsg-num">{monedas}</span>
-              <span className="fsg-lab">Münzen</span>
+            <div className="fox-hero-saldo monedero">
+              <span className="mnd-icono">🪙</span>
+              <strong className="mnd-total">{monedas}</strong>
             </div>
 
             <div className="fox-hero-personaje">
