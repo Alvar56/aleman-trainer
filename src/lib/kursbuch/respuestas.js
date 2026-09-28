@@ -160,27 +160,71 @@ const RESPUESTAS = {
   'Wollen wir am Samstag joggen gehen?':
     { de: 'Gern, aber bitte nicht zu früh.', es: 'Vale, pero no muy temprano.' },
   'Super Idee, machen wir!':
-    { de: 'Dann schreibe ich dir morgen.', es: 'Pues mañana te escribo.' },
+    { de: 'Dann schreibe ich dir morgen.', es: 'Pues mañana te escribo.',
+      mas: [
+        { de: 'Schreib mir bitte am Vormittag, ich arbeite bis drei.', es: 'Escríbeme por la mañana, trabajo hasta las tres.' },
+        { de: 'Alles klar, dann so gegen elf.', es: 'Vale, sobre las once entonces.' }
+      ] },
   'Ja, gern. Wann treffen wir uns?':
-    { de: 'Sagen wir um zehn vor dem Park?', es: '¿A las diez delante del parque?' },
+    { de: 'Sagen wir um zehn vor dem Park?', es: '¿A las diez delante del parque?',
+      mas: [
+        { de: 'Zehn ist gut. Beim Haupteingang?', es: 'Las diez está bien. ¿En la entrada principal?' },
+        { de: 'Ja, dort ist auch ein Brunnen, falls es warm wird.', es: 'Sí, allí hay una fuente por si hace calor.' }
+      ] },
   'Da bin ich dabei!':
-    { de: 'Perfekt, dann sind wir zu dritt.', es: 'Perfecto, entonces somos tres.' },
+    { de: 'Perfekt, dann sind wir zu dritt.', es: 'Perfecto, entonces somos tres.',
+      mas: [
+        { de: 'Wer kommt denn noch mit?', es: '¿Quién más viene?' },
+        { de: 'Meine Schwester. Sie läuft aber deutlich schneller als wir.', es: 'Mi hermana. Aunque corre bastante más que nosotros.' }
+      ] },
   'Das ist nichts für mich.':
-    { de: 'Schade. Und was machst du lieber?', es: 'Qué pena. ¿Y qué prefieres hacer?' },
+    { de: 'Schade. Und was machst du lieber?', es: 'Qué pena. ¿Y qué prefieres hacer?',
+      mas: [
+        { de: 'Schwimmen. Da tut mir hinterher nichts weh.', es: 'Nadar. Después no me duele nada.' },
+        { de: 'Stimmt, das ist viel schonender für die Gelenke.', es: 'Es verdad, es mucho más suave para las articulaciones.' }
+      ] },
   'Lieber ein anderes Mal.':
-    { de: 'Alles klar, kein Stress. Ich frage dich nächste Woche einfach noch einmal.', es: 'Vale, sin agobios. La semana que viene te vuelvo a preguntar.' },
+    { de: 'Alles klar, kein Stress. Ich frage dich nächste Woche einfach noch einmal.', es: 'Vale, sin agobios. La semana que viene te vuelvo a preguntar.',
+      mas: [
+        { de: 'Nächste Woche bin ich wieder da.', es: 'La semana que viene ya estoy.' },
+        { de: 'Gut, dann planen wir gleich für Dienstag.', es: 'Bien, pues lo dejamos para el martes.' }
+      ] },
   'Tut mir leid, da kann ich nicht.':
-    { de: 'Kein Problem. Vielleicht nächste Woche?', es: 'No pasa nada. ¿Quizá la semana que viene?' },
+    { de: 'Kein Problem. Vielleicht nächste Woche?', es: 'No pasa nada. ¿Quizá la semana que viene?',
+      mas: [
+        { de: 'Nächste Woche gern, da habe ich frei.', es: 'La que viene sí, tengo libre.' },
+        { de: 'Super. Dann sage ich den anderen Bescheid.', es: 'Genial. Pues se lo digo a los demás.' }
+      ] },
   'Joggen ist super, aber das Fitnessstudio finde ich langweilig.':
-    { de: 'Da bin ich ganz deiner Meinung.', es: 'Estoy totalmente de acuerdo.' },
+    { de: 'Da bin ich ganz deiner Meinung.', es: 'Estoy totalmente de acuerdo.',
+      mas: [
+        { de: 'Draußen sieht man wenigstens etwas.', es: 'Fuera al menos ves algo.' },
+        { de: 'Genau. Im Studio starre ich nur an die Wand.', es: 'Exacto. En el gimnasio solo miro la pared.' }
+      ] },
   'Das ist mir zu anstrengend.':
-    { de: 'Am Anfang ja, aber man gewöhnt sich daran.', es: 'Al principio sí, pero te acostumbras.' },
+    { de: 'Am Anfang ja, aber man gewöhnt sich daran.', es: 'Al principio sí, pero te acostumbras.',
+      mas: [
+        { de: 'Wie lange hat es bei dir gedauert?', es: '¿A ti cuánto te costó?' },
+        { de: 'Drei Wochen. Danach habe ich es sogar vermisst.', es: 'Tres semanas. Después hasta lo echaba de menos.' }
+      ] },
   'Ich finde das ziemlich gesund.':
-    { de: 'Stimmt, und es macht auch Spaß.', es: 'Es verdad, y además es divertido.' },
+    { de: 'Stimmt, und es macht auch Spaß.', es: 'Es verdad, y además es divertido.',
+      mas: [
+        { de: 'Und man schläft danach viel besser.', es: 'Y después se duerme mucho mejor.' },
+        { de: 'Das merke ich auch, besonders im Winter.', es: 'Eso lo noto yo también, sobre todo en invierno.' }
+      ] },
   'Ich mag Mannschaftssport lieber als Einzelsport.':
-    { de: 'Dann spiel doch bei uns mit!', es: '¡Pues juega con nosotros!' },
+    { de: 'Dann spiel doch bei uns mit!', es: '¡Pues juega con nosotros!',
+      mas: [
+        { de: 'Wann trainiert ihr denn?', es: '¿Y cuándo entrenáis?' },
+        { de: 'Dienstag und Donnerstag, immer um halb acht.', es: 'Martes y jueves, siempre a las siete y media.' }
+      ] },
   'Am liebsten trainiere ich früh am Morgen.':
-    { de: 'Um die Zeit schlafe ich noch.', es: 'A esa hora yo aún duermo.' },
+    { de: 'Um die Zeit schlafe ich noch.', es: 'A esa hora yo aún duermo.',
+      mas: [
+        { de: 'Dafür habe ich den ganzen Tag Ruhe.', es: 'A cambio tengo el día entero tranquilo.' },
+        { de: 'Das stimmt schon. Aber aufstehen könnte ich nie.', es: 'Eso es verdad. Pero levantarme no podría.' }
+      ] },
 
   // ---- Lektion 4: Der erste Arbeitstag ------------------------------------
   'Darf ich mich vorstellen? Mein Name ist …':
@@ -1176,7 +1220,11 @@ const RESPUESTAS = {
   'Treibst du regelmäßig Sport?':
     { de: 'Dreimal die Woche, meistens laufen.', es: 'Tres veces por semana, casi siempre correr.' },
   'Wo trainierst du?':
-    { de: 'Im Park, nicht im Studio.', es: 'En el parque, no en el gimnasio.' },
+    { de: 'Im Park, nicht im Studio.', es: 'En el parque, no en el gimnasio.',
+      mas: [
+        { de: 'Im Prater, dort ist die Strecke flach.', es: 'En el Prater, allí el recorrido es llano.' },
+        { de: 'Gute Wahl. Bergauf hätte ich auch keine Lust.', es: 'Buena elección. Cuesta arriba tampoco me apetecería.' }
+      ] },
   'Kannst du mir beim Umzug helfen?':
     { de: 'Klar, wann ziehst du um?', es: 'Claro, ¿cuándo te mudas?' },
   'Guten Tag, ich bin Álvaro Pascual.':
@@ -2842,9 +2890,17 @@ const RESPUESTAS = {
   'Du bist jederzeit willkommen bei uns.':
     { de: 'Danke, das bedeutet mir wirklich viel.', es: 'Gracias, eso significa mucho para mí.' },
   'Machen wir nächste Woche beim Lauf mit?':
-    { de: 'Fünf Kilometer schaffe ich. Zehn wären zu viel.', es: 'Cinco kilómetros los hago. Diez sería demasiado.' },
+    { de: 'Fünf Kilometer schaffe ich. Zehn wären zu viel.', es: 'Cinco kilómetros los hago. Diez sería demasiado.',
+      mas: [
+        { de: 'Fünf reichen auch. Dann melde ich uns an.', es: 'Con cinco basta. Pues nos apunto.' },
+        { de: 'Mach das. Und trainieren wir vorher zusammen?', es: 'Hazlo. ¿Y entrenamos juntos antes?' }
+      ] },
   'Sollen wir uns vorher kurz aufwärmen?':
-    { de: 'Unbedingt. Ohne Aufwärmen hole ich mir sofort eine Verletzung.', es: 'Sin falta. Sin calentar me lesiono enseguida.' },
+    { de: 'Unbedingt. Ohne Aufwärmen hole ich mir sofort eine Verletzung.', es: 'Sin falta. Sin calentar me lesiono enseguida.',
+      mas: [
+        { de: 'Zehn Minuten reichen, oder?', es: 'Con diez minutos basta, ¿no?' },
+        { de: 'Für mich schon. Die Waden brauchen am längsten.', es: 'Para mí sí. Los gemelos son los que más tardan.' }
+      ] },
   'Super Idee, das machen wir!':
     { de: 'Dann schreibe ich es gleich in die Gruppe.', es: 'Pues lo escribo ahora en el grupo.' },
   'Ja, gern. Wann und wo treffen wir uns?':
@@ -2884,9 +2940,17 @@ const RESPUESTAS = {
   'Ich finde den Beitrag ziemlich fair.':
     { de: 'Für zweimal Training pro Woche auf jeden Fall.', es: 'Para dos entrenamientos por semana, desde luego.' },
   'Das Spiel gestern war eine Katastrophe.':
-    { de: 'Der Schiedsrichter oder unsere Mannschaft?', es: '¿El árbitro o nuestro equipo?' },
+    { de: 'Der Schiedsrichter oder unsere Mannschaft?', es: '¿El árbitro o nuestro equipo?',
+      mas: [
+        { de: 'Beides, ehrlich gesagt.', es: 'Las dos cosas, la verdad.' },
+        { de: 'Dann war es wirklich ein schlechter Abend.', es: 'Pues sí que fue una mala noche.' }
+      ] },
   'Im Team trainiere ich lieber als allein.':
-    { de: 'Warum? Weil man sich gegenseitig mitzieht?', es: '¿Por qué? ¿Porque unos tiran de otros?' },
+    { de: 'Warum? Weil man sich gegenseitig mitzieht?', es: '¿Por qué? ¿Porque unos tiran de otros?',
+      mas: [
+        { de: 'Genau. Allein höre ich viel früher auf.', es: 'Exacto. Solo lo dejo mucho antes.' },
+        { de: 'Bei mir ist es dasselbe. Deshalb bin ich im Verein.', es: 'A mí me pasa igual. Por eso estoy en el club.' }
+      ] },
   'Mir ist das Training in der Früh am liebsten.':
     { de: 'Um welche Zeit? Ich schaffe es kaum vor acht.', es: '¿A qué hora? Yo casi no llego antes de las ocho.' },
   'Im Winter laufe ich lieber drinnen.':
@@ -3916,7 +3980,11 @@ const RESPUESTAS = {
   'Wir grillen im Garten, kommt ihr dazu?':
     { de: 'Sehr gern! Sollen wir Salat oder Nachspeise machen?', es: '¡Con mucho gusto! ¿Hacemos ensalada o postre?' },
   'Gehen wir morgen ins Hallenbad?':
-    { de: 'Gern, aber früh. Ab sechzehn Uhr sind alle Bahnen belegt.', es: 'Con gusto, pero temprano. A partir de las cuatro están todas las calles ocupadas.' },
+    { de: 'Gern, aber früh. Ab sechzehn Uhr sind alle Bahnen belegt.', es: 'Con gusto, pero temprano. A partir de las cuatro están todas las calles ocupadas.',
+      mas: [
+        { de: 'Dann um zwei. Da ist noch fast niemand.', es: 'Pues a las dos. A esa hora casi no hay nadie.' },
+        { de: 'Abgemacht. Vergiss die Badekappe nicht.', es: 'Hecho. No te olvides el gorro.' }
+      ] },
   'Sollen wir uns für den Lauf anmelden?':
     { de: 'Machen wir. Die Startnummern holen wir am Vortag ab.', es: 'Hagámoslo. Los dorsales los recogemos el día antes.' },
   'Wie wäre es mit einem Ruhetag?':
@@ -3926,13 +3994,29 @@ const RESPUESTAS = {
   'Ohne mich, ich bin noch verletzt.':
     { de: 'Natürlich. Erhol dich, der Wettkampf läuft nicht weg.', es: 'Claro. Recupérate, la competición no se va a escapar.' },
   'Heute fehlt mir einfach die Kraft.':
-    { de: 'Kein Problem. Ein Spaziergang zählt auch als Bewegung.', es: 'No hay problema. Un paseo también cuenta como ejercicio.' },
+    { de: 'Kein Problem. Ein Spaziergang zählt auch als Bewegung.', es: 'No hay problema. Un paseo también cuenta como ejercicio.',
+      mas: [
+        { de: 'Gehen wir eine Runde um den Block?', es: '¿Damos una vuelta a la manzana?' },
+        { de: 'Das schaffe ich. Danach fühle ich mich bestimmt besser.', es: 'Eso sí puedo. Seguro que después me siento mejor.' }
+      ] },
   'Das Spiel war absolut fair.':
-    { de: 'Finde ich auch. Der Schiedsrichter hat kaum eingegriffen.', es: 'Yo también lo creo. El árbitro apenas intervino.' },
+    { de: 'Finde ich auch. Der Schiedsrichter hat kaum eingegriffen.', es: 'Yo también lo creo. El árbitro apenas intervino.',
+      mas: [
+        { de: 'Und das Ergebnis war auch verdient.', es: 'Y el resultado también fue merecido.' },
+        { de: 'Da sind wir uns ausnahmsweise mal einig.', es: 'Por una vez estamos de acuerdo.' }
+      ] },
   'Der Erfolg kommt nicht von allein.':
-    { de: 'Stimmt. Zwei Jahre Training stecken in dieser Medaille.', es: 'Es verdad. En esa medalla hay dos años de entrenamiento.' },
+    { de: 'Stimmt. Zwei Jahre Training stecken in dieser Medaille.', es: 'Es verdad. En esa medalla hay dos años de entrenamiento.',
+      mas: [
+        { de: 'Wie oft habt ihr trainiert?', es: '¿Cuántas veces entrenabais?' },
+        { de: 'Viermal die Woche, auch im Winter.', es: 'Cuatro veces por semana, también en invierno.' }
+      ] },
   'Diese Übung ist nur Kraft, keine Technik.':
-    { de: 'Deshalb mag ich sie nicht. Technik macht mehr Spaß.', es: 'Por eso no me gusta. La técnica es más divertida.' },
+    { de: 'Deshalb mag ich sie nicht. Technik macht mehr Spaß.', es: 'Por eso no me gusta. La técnica es más divertida.',
+      mas: [
+        { de: 'Welche magst du denn lieber?', es: '¿Cuál te gusta más?' },
+        { de: 'Alles mit Ball. Da denkt man nicht ans Zählen.', es: 'Todo lo que sea con pelota. Ahí no piensas en contar.' }
+      ] },
   'Beweglichkeit ist mir wichtiger als Kraft.':
     { de: 'Vernünftig. Mit sechzig ist das noch wichtiger.', es: 'Sensato. A los sesenta es todavía más importante.' },
   'Am liebsten trainiere ich ohne Gegner.':
@@ -4482,7 +4566,11 @@ const RESPUESTAS = {
   'Wollen wir statt Kino lieber schwimmen gehen?':
     { de: 'Noch besser, das Hallenbad hat heute bis zehn offen.', es: 'Aún mejor; la piscina cubierta abre hoy hasta las diez.' },
   'Dafür fehlt mir gerade die Energie.':
-    { de: 'Kein Problem, machen wir es einfach nächste Woche noch einmal aus.', es: 'Sin problema; lo volvemos a quedar la semana que viene.' },
+    { de: 'Kein Problem, machen wir es einfach nächste Woche noch einmal aus.', es: 'Sin problema; lo volvemos a quedar la semana que viene.',
+      mas: [
+        { de: 'Dann sag mir einfach Bescheid, wenn es wieder passt.', es: 'Pues avísame cuando te venga bien.' },
+        { de: 'Mache ich. Danke, dass du nicht drängst.', es: 'Lo haré. Gracias por no insistir.' }
+      ] },
   'Warum möchten Sie gerade bei uns arbeiten?':
     { de: 'Weil Ihr Team international ist und ich genau dort hineinpassen würde.', es: 'Porque su equipo es internacional y ahí encajaría bien.' },
   'Welche Erfahrung bringen Sie mit?':
@@ -4674,7 +4762,11 @@ const RESPUESTAS = {
         { de: 'Meine Nachbarin hat es mir erzählt. Sie arbeitet dort.', es: 'Me lo contó mi vecina. Trabaja allí.' }
       ] },
   'Gehst du lieber laufen oder ins Fitnessstudio?':
-    { de: 'Im Sommer laufen, im Winter ins Studio.', es: 'En verano correr, en invierno al gimnasio.' },
+    { de: 'Im Sommer laufen, im Winter ins Studio.', es: 'En verano correr, en invierno al gimnasio.',
+      mas: [
+        { de: 'Und wie oft schaffst du das?', es: '¿Y cuántas veces lo consigues?' },
+        { de: 'Zweimal die Woche. Mehr geht mit der Arbeit nicht.', es: 'Dos veces por semana. Más no me da con el trabajo.' }
+      ] },
   'Willkommen im Team! Ich bin Álvaro.':
     { de: 'Danke! Ich freue mich auf die Arbeit hier.', es: '¡Gracias! Tengo ganas de empezar aquí.' },
   'Entschuldigung, da bin ich nicht mitgekommen.':

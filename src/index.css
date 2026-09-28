@@ -2280,6 +2280,16 @@ input.ask-input,
   background-position: center bottom;
   background-repeat: no-repeat;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: background-image 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fox-hero-escena::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 35%, rgba(0, 0, 0, 0.06) 100%);
+  z-index: 1;
 }
 
 .fox-hero-topbar {
@@ -2316,11 +2326,15 @@ input.ask-input,
   padding: 5px 12px;
   border-radius: 999px;
   background: rgba(254, 249, 195, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1.5px solid #eab308;
   color: #854d0e;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease;
+}
+.fox-hero-saldo.monedero:hover {
+  transform: translateY(-1px);
 }
 .fox-hero-saldo .mnd-total {
   font-size: 1.1rem;
@@ -2339,8 +2353,8 @@ input.ask-input,
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.12);
   background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font-size: 1.05rem;
   font-weight: 700;
   color: #334155;
@@ -2348,7 +2362,7 @@ input.ask-input,
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .fox-hero-cerrar:hover {
@@ -2356,8 +2370,11 @@ input.ask-input,
   color: #0f172a;
   transform: scale(1.08);
 }
+.fox-hero-cerrar:active {
+  transform: scale(0.92);
+}
 
-/* Personaje centrado en la escena */
+/* Personaje centrado en la escena con sombra ambiental de contacto */
 .fox-hero-personaje {
   position: absolute;
   left: 50%;
@@ -2369,6 +2386,19 @@ input.ask-input,
   z-index: 4;
   line-height: 0;
   filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22));
+}
+.fox-hero-personaje::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 72%);
+  pointer-events: none;
+  z-index: -1;
 }
 .fox-hero-personaje > svg {
   width: 152px;
@@ -2400,12 +2430,16 @@ input.ask-input,
   text-align: center;
   min-width: 0;
   background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 9px;
   padding: 4px 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease;
+}
+.fox-hero-stats li:hover {
+  transform: translateY(-1px);
 }
 .fox-hero-stats strong {
   font-size: 0.95rem;
@@ -2435,6 +2469,9 @@ input.ask-input,
 /* Modo oscuro adaptativo */
 [data-theme='dark'] .fox-modal-caja {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+[data-theme='dark'] .fox-hero-escena::before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.25) 100%);
 }
 [data-theme='dark'] .fox-hero-titulo {
   color: #f8fafc;
