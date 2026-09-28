@@ -221,9 +221,11 @@ export default function FoxAjustes({ onClose, onChange }) {
             </ul>
           </div>
         </div>
-        {aviso && <p className="fox-aviso">{aviso}</p>}
 
-        <label className="field">
+        <div className="fox-modal-cuerpo">
+          {aviso && <p className="fox-aviso">{aviso}</p>}
+
+          <label className="field">
           Sein Name
           <div className="fox-nombre">
             <input
@@ -323,6 +325,7 @@ export default function FoxAjustes({ onClose, onChange }) {
         <button className="btn-primary" style={{ width: '100%', marginTop: 8 }} onClick={cerrar}>
           Fertig
         </button>
+        </div>
       </div>
     </div>
   );

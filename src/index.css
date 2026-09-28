@@ -2245,37 +2245,41 @@ input.ask-input,
 
 /* personalizar */
 .fox-modal {
-  position: fixed; inset: 0; z-index: 80; background: rgba(16, 24, 40, 0.45);
+  position: fixed; inset: 0; z-index: 80; background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   display: flex; align-items: center; justify-content: center; padding: 20px;
 }
-/* La tienda de Felix es una lista larga -ocho categorias, el nombre y el
-   boton de cerrar- y en 580 px se leia apretada, con casi todo fuera de la
-   vista y a base de rueda. Mas ancha y mas alta cabe casi entera de una vez;
-   el min() sigue protegiendo las pantallas pequenas. */
+
+/* La tarjeta modal: SIN márgenes blancos alrededor del paisaje, bordes redondeados y cuerpo scrolleable */
 .fox-modal-caja {
-  background: var(--surface); border-radius: 16px; padding: 26px;
-  width: min(760px, 100%); max-height: 92vh; overflow-y: auto;
-  display: flex; flex-direction: column; gap: 16px;
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 0;
+  width: min(780px, 100%);
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
-
-
-/* --- TARJETA PANORÁMICA DE FELIX (HERO CARD): INTEGRADA, ELEGANTE Y COMPLETA --- */
+/* --- CABECERA PANORÁMICA DE FELIX (HERO BANNER): 100% ANCHO, SIN BORDES BLANCOS --- */
 .fox-hero-escena {
   position: relative;
   width: 100%;
-  min-height: 250px;
-  border-radius: 16px;
+  min-height: 295px;
+  flex-shrink: 0;
+  margin: 0;
+  border-radius: 18px 18px 0 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 16px 20px 10px 20px;
-  margin-bottom: 18px;
   background-size: 100% 100%;
   background-position: center bottom;
   background-repeat: no-repeat;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .fox-hero-topbar {
@@ -2285,30 +2289,30 @@ input.ask-input,
   width: 100%;
   z-index: 2;
   position: relative;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .fox-hero-titulo {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 800;
   color: #0f172a;
   background: transparent;
   border: none;
   box-shadow: none;
   padding: 0;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8), 0 2px 8px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9), 0 2px 10px rgba(255, 255, 255, 0.6);
 }
 
 .fox-hero-cerrar {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #334155;
   display: flex;
@@ -2316,7 +2320,7 @@ input.ask-input,
   justify-content: center;
   cursor: pointer;
   transition: all 0.15s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .fox-hero-cerrar:hover {
   background: #ffffff;
@@ -2342,10 +2346,12 @@ input.ask-input,
   gap: 8px;
   padding: 6px 14px;
   border-radius: 999px;
-  background: #fef9c3;
+  background: rgba(254, 249, 195, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1.5px solid #eab308;
   color: #854d0e;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .fox-hero-saldo .mnd-total {
   font-size: 1.15rem;
@@ -2364,11 +2370,11 @@ input.ask-input,
   align-items: flex-end;
   justify-self: center;
   line-height: 0;
-  padding-bottom: 4px;
+  padding-bottom: 2px;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.18));
 }
 .fox-hero-personaje > svg {
-  width: 135px;
+  width: 145px;
   height: auto;
   display: block;
 }
@@ -2377,11 +2383,11 @@ input.ask-input,
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   justify-self: end;
-  width: 76px;
+  width: 78px;
 }
 .fox-hero-stats li {
   display: flex;
@@ -2394,35 +2400,45 @@ input.ask-input,
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1.5px solid var(--statcard-border, #7aa3e0);
-  border-radius: 10px;
-  padding: 7px 6px;
+  border-radius: 9px;
+  padding: 4px 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 .fox-hero-stats strong {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #1e293b;
-  line-height: 1.2;
+  line-height: 1.15;
   font-variant-numeric: tabular-nums;
   display: block;
 }
 .fox-hero-stats small {
   color: var(--muted, #64748b);
-  font-size: 0.64rem;
-  line-height: 1.25;
+  font-size: 0.62rem;
+  line-height: 1.15;
   display: block;
 }
 
+/* El cuerpo scrolleable debajo del hero banner */
+.fox-modal-cuerpo {
+  padding: 20px 24px 24px 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
 /* Modo oscuro adaptativo */
-[data-theme='dark'] .fox-hero-escena {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+[data-theme='dark'] .fox-modal-caja {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 [data-theme='dark'] .fox-hero-titulo {
   color: #f8fafc;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 [data-theme='dark'] .fox-hero-cerrar {
-  background: rgba(30, 41, 59, 0.85);
+  background: rgba(30, 41, 59, 0.9);
   border-color: rgba(255, 255, 255, 0.2);
   color: #f8fafc;
 }
@@ -2433,7 +2449,7 @@ input.ask-input,
 }
 [data-theme='dark'] .fox-hero-saldo .mnd-total { color: #fbbf24; }
 [data-theme='dark'] .fox-hero-stats li {
-  background: rgba(30, 41, 59, 0.88);
+  background: rgba(30, 41, 59, 0.9);
   border-color: #3b82f6;
 }
 [data-theme='dark'] .fox-hero-stats strong { color: #f1f5f9; }
@@ -2442,9 +2458,8 @@ input.ask-input,
 /* En el móvil */
 @media (max-width: 560px) {
   .fox-hero-escena {
-    min-height: 270px;
+    min-height: 280px;
     padding: 14px 14px 8px 14px;
-    margin-bottom: 14px;
   }
   .fox-hero-cuerpo {
     grid-template-columns: 1fr auto 1fr;
@@ -2463,33 +2478,32 @@ input.ask-input,
     padding-bottom: 0;
   }
   .fox-hero-personaje > svg {
-    width: clamp(105px, 32vw, 130px);
+    width: clamp(110px, 32vw, 135px);
   }
   .fox-hero-stats {
     grid-column: 1 / -1;
     grid-row: 2;
+    flex-direction: row;
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
     margin-bottom: 4px;
     gap: 6px;
   }
-
-
-/* El boton de comprar el nombre, a lo ancho debajo del campo: al lado se
-     quedaba en 93 px y "2000 Munzen" no entraba. */
+  .fox-modal-cuerpo {
+    padding: 16px 16px 20px 16px;
+    gap: 14px;
+  }
   .fox-nombre { flex-wrap: wrap; width: 100%; }
   .fox-nombre input,
   .fox-nombre .fox-item { flex: 1 1 100%; max-width: none; width: 100%; }
   .fox-nombre .fox-item { align-items: center; padding: 11px 12px; }
-  /* Apilados uno sobre otro, los 4 px de diferencia entre la caja y el boton
-     se ven de lleno. */
   .fox-nombre input,
   .fox-nombre .fox-item { min-height: 45px; }
-  /* 0.68rem es el tamano de las etiquetas chicas de los complementos; aqui
-     es el texto del boton y se leia diminuto. */
   .fox-nombre .fox-item small { font-size: 0.86rem; color: var(--text-2); }
   .fox-nombre .fox-item.comprable small { color: var(--accent); font-weight: 600; }
 }
+
 .fox-items { display: flex; gap: 8px; flex-wrap: wrap; }
 .fox-item {
   display: flex; flex-direction: column; align-items: flex-start; gap: 1px;
@@ -5339,7 +5353,7 @@ input.vs-respuesta { max-width: 460px; }
 
 .fox-escena-wiese,
 .fox-escena-nadaFondo {
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20360%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22w-sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2338bdf8%22%2F%3E%20%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%237dd3fc%22%2F%3E%20%3Cstop%20offset%3D%2285%25%22%20stop-color%3D%22%23bae6fd%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23e0f2fe%22%2F%3E%20%3C%2FlinearGradient%3E%20%3CradialGradient%20id%3D%22w-sun%22%20cx%3D%2215%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ffffff%22%2F%3E%20%3Cstop%20offset%3D%2225%25%22%20stop-color%3D%22%23fef08a%22%20stop-opacity%3D%220.95%22%2F%3E%20%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23fde047%22%20stop-opacity%3D%220.35%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2338bdf8%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FradialGradient%3E%20%3ClinearGradient%20id%3D%22w-mount%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2393c5fd%22%20stop-opacity%3D%220.7%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23e0f2fe%22%20stop-opacity%3D%220.9%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22w-hill1%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2386efac%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234ade80%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22w-hill2%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234ade80%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2322c55e%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22w-ground%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2322c55e%22%2F%3E%20%3Cstop%20offset%3D%2235%25%22%20stop-color%3D%22%2316a34a%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2315803d%22%2F%3E%20%3C%2FlinearGradient%3E%20%3Cstyle%3E%20%40keyframes%20floatCloud1%20%7B%200%25%20%7B%20transform%3A%20translateX(0)%3B%20%7D%20100%25%20%7B%20transform%3A%20translateX(950px)%3B%20%7D%20%7D%20%40keyframes%20floatCloud2%20%7B%200%25%20%7B%20transform%3A%20translateX(0)%3B%20%7D%20100%25%20%7B%20transform%3A%20translateX(1050px)%3B%20%7D%20%7D%20%40keyframes%20floatCloud3%20%7B%200%25%20%7B%20transform%3A%20translateX(0)%3B%20%7D%20100%25%20%7B%20transform%3A%20translateX(900px)%3B%20%7D%20%7D%20%40keyframes%20sunPulse%20%7B%200%25%2C%20100%25%20%7B%20transform%3A%20scale(1)%3B%20opacity%3A%200.9%3B%20%7D%2050%25%20%7B%20transform%3A%20scale(1.12)%3B%20opacity%3A%201%3B%20%7D%20%7D%20%40keyframes%20millSpin%20%7B%200%25%20%7B%20transform%3A%20rotate(0deg)%3B%20%7D%20100%25%20%7B%20transform%3A%20rotate(360deg)%3B%20%7D%20%7D%20%40keyframes%20butterFly1%20%7B%200%25%2C%20100%25%20%7B%20transform%3A%20translate(0%2C%200)%20scale(1)%3B%20%7D%2050%25%20%7B%20transform%3A%20translate(35px%2C%20-20px)%20scale(1.05)%3B%20%7D%20%7D%20%40keyframes%20butterFly2%20%7B%200%25%2C%20100%25%20%7B%20transform%3A%20translate(0%2C%200)%20scale(0.9)%3B%20%7D%2050%25%20%7B%20transform%3A%20translate(-25px%2C%20-15px)%20scale(0.95)%3B%20%7D%20%7D%20%40keyframes%20flowerSway%20%7B%200%25%2C%20100%25%20%7B%20transform%3A%20rotate(0deg)%3B%20%7D%2050%25%20%7B%20transform%3A%20rotate(6deg)%3B%20%7D%20%7D%20%40keyframes%20flowerSwayDel%20%7B%200%25%2C%20100%25%20%7B%20transform%3A%20rotate(0deg)%3B%20%7D%2050%25%20%7B%20transform%3A%20rotate(-5deg)%3B%20%7D%20%7D%20.c1%20%7B%20animation%3A%20floatCloud1%2032s%20linear%20infinite%3B%20%7D%20.c2%20%7B%20animation%3A%20floatCloud2%2044s%20linear%20infinite%3B%20%7D%20.c3%20%7B%20animation%3A%20floatCloud3%2024s%20linear%20infinite%3B%20%7D%20.wsun%20%7B%20transform-origin%3A%20120px%2065px%3B%20animation%3A%20sunPulse%204s%20ease-in-out%20infinite%3B%20%7D%20.mill%20%7B%20transform-origin%3A%20670px%20175px%3B%20animation%3A%20millSpin%2012s%20linear%20infinite%3B%20%7D%20.bf1%20%7B%20animation%3A%20butterFly1%206s%20ease-in-out%20infinite%3B%20%7D%20.bf2%20%7B%20animation%3A%20butterFly2%205s%20ease-in-out%201.5s%20infinite%3B%20%7D%20.fl%20%7B%20transform-origin%3A%20center%20bottom%3B%20animation%3A%20flowerSway%203s%20ease-in-out%20infinite%3B%20%7D%20.fl-del%20%7B%20transform-origin%3A%20center%20bottom%3B%20animation%3A%20flowerSwayDel%203.6s%20ease-in-out%201s%20infinite%3B%20%7D%20%3C%2Fstyle%3E%20%3C%2Fdefs%3E%20%3C!--%20Sky%20--%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23w-sky)%22%2F%3E%20%3C!--%20Sun%20--%3E%20%3Cg%20class%3D%22wsun%22%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2265%22%20r%3D%22140%22%20fill%3D%22url(%23w-sun)%22%2F%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2265%22%20r%3D%2228%22%20fill%3D%22%23ffffff%22%2F%3E%20%3C%2Fg%3E%20%3C!--%20Distant%20Mountains%20--%3E%20%3Cpath%20d%3D%22M0%20210%20Q%20140%20160%20280%20195%20T%20560%20170%20T%20800%20185%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-mount)%22%2F%3E%20%3C!--%20Clouds%20--%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Cg%20class%3D%22c1%22%20transform%3D%22translate(-160%2C%200)%22%3E%20%3Cpath%20d%3D%22M0%2065%20q20%20-24%2048%20-10%20q30%20-30%2062%20-4%20q34%20-15%2054%2015%20q20%2020%20-10%2035%20h-134%20q-24%20-15%20-20%20-36%20z%22%20opacity%3D%220.88%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D%22c2%22%20transform%3D%22translate(-240%2C%200)%22%3E%20%3Cpath%20d%3D%22M0%2085%20q15%20-18%2036%20-7%20q22%20-22%2050%20-4%20q24%20-10%2040%2010%20q15%2015%20-8%2026%20h-104%20q-18%20-10%20-14%20-25%20z%22%20opacity%3D%220.75%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D%22c3%22%20transform%3D%22translate(-110%2C%200)%22%3E%20%3Cpath%20d%3D%22M0%20100%20q14%20-14%2034%20-6%20q20%20-18%2042%20-3%20q20%20-8%2034%208%20q12%2012%20-7%2021%20h-90%20q-15%20-8%20-13%20-20%20z%22%20opacity%3D%220.6%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fg%3E%20%3C!--%20Hill%201%20(Back)%20--%3E%20%3Cpath%20d%3D%22M0%20225%20Q%20200%20175%20420%20215%20T%20800%20195%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-hill1)%22%20opacity%3D%220.75%22%2F%3E%20%3C!--%20Windmill%20on%20Hill%201%20--%3E%20%3Cg%20transform%3D%22translate(0%2C%200)%22%3E%20%3Cpolygon%20points%3D%22665%2C160%20675%2C160%20678%2C195%20662%2C195%22%20fill%3D%22%23f8fafc%22%2F%3E%20%3Cpolygon%20points%3D%22663%2C160%20677%2C160%20670%2C150%22%20fill%3D%22%23dc2626%22%2F%3E%20%3Crect%20x%3D%22668%22%20y%3D%22178%22%20width%3D%224%22%20height%3D%226%22%20fill%3D%22%2378350f%22%2F%3E%20%3C!--%20Rotor%20--%3E%20%3Cg%20class%3D%22mill%22%3E%20%3Cline%20x1%3D%22670%22%20y1%3D%22175%22%20x2%3D%22670%22%20y2%3D%22150%22%20stroke%3D%22%2378350f%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3Cline%20x1%3D%22670%22%20y1%3D%22175%22%20x2%3D%22670%22%20y2%3D%22200%22%20stroke%3D%22%2378350f%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3Cline%20x1%3D%22670%22%20y1%3D%22175%22%20x2%3D%22645%22%20y2%3D%22175%22%20stroke%3D%22%2378350f%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3Cline%20x1%3D%22670%22%20y1%3D%22175%22%20x2%3D%22695%22%20y2%3D%22175%22%20stroke%3D%22%2378350f%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3Ccircle%20cx%3D%22670%22%20cy%3D%22175%22%20r%3D%223%22%20fill%3D%22%23dc2626%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fg%3E%20%3C!--%20Hill%202%20(Mid)%20with%20trees%20--%3E%20%3Cpath%20d%3D%22M0%20248%20Q%20280%20195%20560%20240%20T%20800%20225%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-hill2)%22%20opacity%3D%220.88%22%2F%3E%20%3Cg%20fill%3D%22%2315803d%22%20opacity%3D%220.9%22%3E%20%3Ccircle%20cx%3D%22210%22%20cy%3D%22225%22%20r%3D%2214%22%2F%3E%3Ccircle%20cx%3D%22225%22%20cy%3D%22222%22%20r%3D%2218%22%2F%3E%3Ccircle%20cx%3D%22242%22%20cy%3D%22226%22%20r%3D%2213%22%2F%3E%20%3Ccircle%20cx%3D%22510%22%20cy%3D%22235%22%20r%3D%2212%22%2F%3E%3Ccircle%20cx%3D%22522%22%20cy%3D%22230%22%20r%3D%2216%22%2F%3E%3Ccircle%20cx%3D%22536%22%20cy%3D%22236%22%20r%3D%2211%22%2F%3E%20%3C%2Fg%3E%20%3C!--%20Foreground%20Ground%20--%3E%20%3Cpath%20d%3D%22M0%20268%20Q%20260%20250%20520%20262%20T%20800%20255%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-ground)%22%2F%3E%20%3C!--%20Grass%20Blades%20--%3E%20%3Cg%20stroke%3D%22%2315803d%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%3E%20%3Cpath%20d%3D%22M45%20272%20Q%2049%20260%2046%20254%20M48%20272%20Q%2054%20263%2057%20257%22%2F%3E%20%3Cpath%20d%3D%22M175%20274%20Q%20178%20262%20175%20255%20M178%20274%20Q%20184%20264%20188%20259%22%2F%3E%20%3Cpath%20d%3D%22M360%20272%20Q%20364%20260%20360%20254%20M363%20272%20Q%20369%20263%20373%20258%22%2F%3E%20%3Cpath%20d%3D%22M630%20273%20Q%20633%20261%20629%20254%20M633%20273%20Q%20639%20264%20644%20259%22%2F%3E%20%3Cpath%20d%3D%22M745%20270%20Q%20748%20258%20745%20252%20M748%20270%20Q%20754%20262%20758%20257%22%2F%3E%20%3C%2Fg%3E%20%3C!--%20Swaying%20Flowers%20--%3E%20%3Cg%20class%3D%22fl%22%3E%20%3Ccircle%20cx%3D%2285%22%20cy%3D%22280%22%20r%3D%224.5%22%20fill%3D%22%23ef4444%22%2F%3E%3Ccircle%20cx%3D%2285%22%20cy%3D%22280%22%20r%3D%221.5%22%20fill%3D%22%231e1b4b%22%2F%3E%20%3Ccircle%20cx%3D%22695%22%20cy%3D%22284%22%20r%3D%225%22%20fill%3D%22%23ef4444%22%2F%3E%3Ccircle%20cx%3D%22695%22%20cy%3D%22284%22%20r%3D%221.8%22%20fill%3D%22%231e1b4b%22%2F%3E%20%3Ccircle%20cx%3D%22225%22%20cy%3D%22282%22%20r%3D%224.2%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22225%22%20cy%3D%22282%22%20r%3D%221.6%22%20fill%3D%22%23eab308%22%2F%3E%20%3Ccircle%20cx%3D%22490%22%20cy%3D%22280%22%20r%3D%224%22%20fill%3D%22%233b82f6%22%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22280%22%20r%3D%221.4%22%20fill%3D%22%23ffffff%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D%22fl-del%22%3E%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22290%22%20r%3D%224%22%20fill%3D%22%23facc15%22%2F%3E%3Ccircle%20cx%3D%22140%22%20cy%3D%22290%22%20r%3D%221.3%22%20fill%3D%22%23d97706%22%2F%3E%20%3Ccircle%20cx%3D%22645%22%20cy%3D%22282%22%20r%3D%224.5%22%20fill%3D%22%23facc15%22%2F%3E%3Ccircle%20cx%3D%22645%22%20cy%3D%22282%22%20r%3D%221.5%22%20fill%3D%22%23d97706%22%2F%3E%20%3Ccircle%20cx%3D%22575%22%20cy%3D%22286%22%20r%3D%224.2%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22575%22%20cy%3D%22286%22%20r%3D%221.6%22%20fill%3D%22%23eab308%22%2F%3E%20%3Ccircle%20cx%3D%22755%22%20cy%3D%22292%22%20r%3D%224%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22755%22%20cy%3D%22292%22%20r%3D%221.5%22%20fill%3D%22%23eab308%22%2F%3E%20%3C%2Fg%3E%20%3C!--%20Animated%20Butterflies%20--%3E%20%3Cg%20class%3D%22bf1%22%20transform%3D%22translate(180%2C%20240)%22%3E%20%3Cpath%20d%3D%22M0%200%20Q%20-6%20-10%200%20-14%20Q%206%20-10%200%200%20Z%22%20fill%3D%22%23ec4899%22%2F%3E%20%3Cpath%20d%3D%22M0%200%20Q%20-10%20-4%20-12%20-10%20Q%20-4%20-8%200%200%20Z%22%20fill%3D%22%23f43f5e%22%2F%3E%20%3Ccircle%20cx%3D%220%22%20cy%3D%22-6%22%20r%3D%221.5%22%20fill%3D%22%231e1b4b%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D%22bf2%22%20transform%3D%22translate(620%2C%20230)%22%3E%20%3Cpath%20d%3D%22M0%200%20Q%206%20-10%200%20-14%20Q%20-6%20-10%200%200%20Z%22%20fill%3D%22%2338bdf8%22%2F%3E%20%3Cpath%20d%3D%22M0%200%20Q%2010%20-4%2012%20-10%20Q%204%20-8%200%200%20Z%22%20fill%3D%22%230284c7%22%2F%3E%20%3Ccircle%20cx%3D%220%22%20cy%3D%22-6%22%20r%3D%221.5%22%20fill%3D%22%230f172a%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20360%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22w-sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230284c7%22%2F%3E%20%3Cstop%20offset%3D%2235%25%22%20stop-color%3D%22%2338bdf8%22%2F%3E%20%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22%237dd3fc%22%2F%3E%20%3Cstop%20offset%3D%2290%25%22%20stop-color%3D%22%23bae6fd%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23f0f9ff%22%2F%3E%20%3C%2FlinearGradient%3E%20%3CradialGradient%20id%3D%22w-sun%22%20cx%3D%2216%25%22%20cy%3D%2220%25%22%20r%3D%2245%25%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ffffff%22%2F%3E%20%3Cstop%20offset%3D%2225%25%22%20stop-color%3D%22%23fef08a%22%20stop-opacity%3D%220.95%22%2F%3E%20%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23fde047%22%20stop-opacity%3D%220.35%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2338bdf8%22%20stop-opacity%3D%220%22%2F%3E%20%3C%2FradialGradient%3E%20%3ClinearGradient%20id%3D%22w-mount%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23818cf8%22%20stop-opacity%3D%220.65%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23c7d2fe%22%20stop-opacity%3D%220.9%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22w-hill1%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2386efac%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234ade80%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22w-hill2%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234ade80%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2322c55e%22%2F%3E%20%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22w-ground%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2322c55e%22%2F%3E%20%3Cstop%20offset%3D%2235%25%22%20stop-color%3D%22%2316a34a%22%2F%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2315803d%22%2F%3E%20%3C%2FlinearGradient%3E%20%3Cstyle%3E%20%40keyframes%20floatCloud1%20%7B%200%25%20%7B%20transform%3A%20translateX(0)%3B%20%7D%20100%25%20%7B%20transform%3A%20translateX(980px)%3B%20%7D%20%7D%20%40keyframes%20floatCloud2%20%7B%200%25%20%7B%20transform%3A%20translateX(0)%3B%20%7D%20100%25%20%7B%20transform%3A%20translateX(1080px)%3B%20%7D%20%7D%20%40keyframes%20floatCloud3%20%7B%200%25%20%7B%20transform%3A%20translateX(0)%3B%20%7D%20100%25%20%7B%20transform%3A%20translateX(920px)%3B%20%7D%20%7D%20%40keyframes%20sunPulse%20%7B%200%25%2C%20100%25%20%7B%20transform%3A%20scale(1)%3B%20opacity%3A%200.9%3B%20%7D%2050%25%20%7B%20transform%3A%20scale(1.12)%3B%20opacity%3A%201%3B%20%7D%20%7D%20%40keyframes%20millSpin%20%7B%200%25%20%7B%20transform%3A%20rotate(0deg)%3B%20%7D%20100%25%20%7B%20transform%3A%20rotate(360deg)%3B%20%7D%20%7D%20%40keyframes%20butterFly1%20%7B%200%25%2C%20100%25%20%7B%20transform%3A%20translate(0%2C%200)%20scale(1)%3B%20%7D%2050%25%20%7B%20transform%3A%20translate(35px%2C%20-20px)%20scale(1.05)%3B%20%7D%20%7D%20%40keyframes%20butterFly2%20%7B%200%25%2C%20100%25%20%7B%20transform%3A%20translate(0%2C%200)%20scale(0.9)%3B%20%7D%2050%25%20%7B%20transform%3A%20translate(-25px%2C%20-15px)%20scale(0.95)%3B%20%7D%20%7D%20%40keyframes%20flowerSway%20%7B%200%25%2C%20100%25%20%7B%20transform%3A%20rotate(0deg)%3B%20%7D%2050%25%20%7B%20transform%3A%20rotate(6deg)%3B%20%7D%20%7D%20%40keyframes%20flowerSwayDel%20%7B%200%25%2C%20100%25%20%7B%20transform%3A%20rotate(0deg)%3B%20%7D%2050%25%20%7B%20transform%3A%20rotate(-5deg)%3B%20%7D%20%7D%20.c1%20%7B%20animation%3A%20floatCloud1%2032s%20linear%20infinite%3B%20%7D%20.c2%20%7B%20animation%3A%20floatCloud2%2044s%20linear%20infinite%3B%20%7D%20.c3%20%7B%20animation%3A%20floatCloud3%2024s%20linear%20infinite%3B%20%7D%20.wsun%20%7B%20transform-origin%3A%20130px%2065px%3B%20animation%3A%20sunPulse%204s%20ease-in-out%20infinite%3B%20%7D%20.mill%20%7B%20transform-origin%3A%20670px%20175px%3B%20animation%3A%20millSpin%2012s%20linear%20infinite%3B%20%7D%20.bf1%20%7B%20animation%3A%20butterFly1%206s%20ease-in-out%20infinite%3B%20%7D%20.bf2%20%7B%20animation%3A%20butterFly2%205s%20ease-in-out%201.5s%20infinite%3B%20%7D%20.fl%20%7B%20transform-origin%3A%20center%20bottom%3B%20animation%3A%20flowerSway%203s%20ease-in-out%20infinite%3B%20%7D%20.fl-del%20%7B%20transform-origin%3A%20center%20bottom%3B%20animation%3A%20flowerSwayDel%203.6s%20ease-in-out%201s%20infinite%3B%20%7D%20%3C%2Fstyle%3E%20%3C%2Fdefs%3E%20%3C!--%20Sky%20--%3E%20%3Crect%20width%3D%22800%22%20height%3D%22360%22%20fill%3D%22url(%23w-sky)%22%2F%3E%20%3C!--%20Sun%20--%3E%20%3Cg%20class%3D%22wsun%22%3E%20%3Ccircle%20cx%3D%22130%22%20cy%3D%2265%22%20r%3D%22140%22%20fill%3D%22url(%23w-sun)%22%2F%3E%20%3Ccircle%20cx%3D%22130%22%20cy%3D%2265%22%20r%3D%2230%22%20fill%3D%22%23ffffff%22%2F%3E%20%3C%2Fg%3E%20%3C!--%20Distant%20Blue%20Mountains%20--%3E%20%3Cpath%20d%3D%22M0%20200%20Q%20140%20145%20280%20185%20T%20560%20160%20T%20800%20175%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-mount)%22%2F%3E%20%3C!--%20Fluffy%20Parallax%20Clouds%20--%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Cg%20class%3D%22c1%22%20transform%3D%22translate(-160%2C%200)%22%3E%20%3Cpath%20d%3D%22M0%2060%20q20%20-24%2048%20-10%20q30%20-30%2062%20-4%20q34%20-15%2054%2015%20q20%2020%20-10%2035%20h-134%20q-24%20-15%20-20%20-36%20z%22%20opacity%3D%220.9%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D%22c2%22%20transform%3D%22translate(-240%2C%200)%22%3E%20%3Cpath%20d%3D%22M0%2080%20q15%20-18%2036%20-7%20q22%20-22%2050%20-4%20q24%20-10%2040%2010%20q15%2015%20-8%2026%20h-104%20q-18%20-10%20-14%20-25%20z%22%20opacity%3D%220.75%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D%22c3%22%20transform%3D%22translate(-110%2C%200)%22%3E%20%3Cpath%20d%3D%22M0%2095%20q14%20-14%2034%20-6%20q20%20-18%2042%20-3%20q20%20-8%2034%208%20q12%2012%20-7%2021%20h-90%20q-15%20-8%20-13%20-20%20z%22%20opacity%3D%220.6%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fg%3E%20%3C!--%20Hill%201%20(Back)%20--%3E%20%3Cpath%20d%3D%22M0%20220%20Q%20200%20170%20420%20210%20T%20800%20190%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-hill1)%22%20opacity%3D%220.8%22%2F%3E%20%3C!--%20Windmill%20on%20Hill%201%20--%3E%20%3Cg%20transform%3D%22translate(0%2C%200)%22%3E%20%3Cpolygon%20points%3D%22665%2C155%20675%2C155%20678%2C195%20662%2C195%22%20fill%3D%22%23f8fafc%22%20stroke%3D%22%23e2e8f0%22%20stroke-width%3D%221%22%2F%3E%20%3Cpolygon%20points%3D%22663%2C155%20677%2C155%20670%2C144%22%20fill%3D%22%23ef4444%22%2F%3E%20%3Crect%20x%3D%22668%22%20y%3D%22176%22%20width%3D%224%22%20height%3D%227%22%20fill%3D%22%2378350f%22%2F%3E%20%3C!--%20Rotor%20--%3E%20%3Cg%20class%3D%22mill%22%3E%20%3Cline%20x1%3D%22670%22%20y1%3D%22175%22%20x2%3D%22670%22%20y2%3D%22145%22%20stroke%3D%22%2378350f%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3Cline%20x1%3D%22670%22%20y1%3D%22175%22%20x2%3D%22670%22%20y2%3D%22205%22%20stroke%3D%22%2378350f%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3Cline%20x1%3D%22670%22%20y1%3D%22175%22%20x2%3D%22640%22%20y2%3D%22175%22%20stroke%3D%22%2378350f%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3Cline%20x1%3D%22670%22%20y1%3D%22175%22%20x2%3D%22700%22%20y2%3D%22175%22%20stroke%3D%22%2378350f%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3Ccircle%20cx%3D%22670%22%20cy%3D%22175%22%20r%3D%223.5%22%20fill%3D%22%23ef4444%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fg%3E%20%3C!--%20Hill%202%20(Mid)%20with%20trees%20--%3E%20%3Cpath%20d%3D%22M0%20245%20Q%20280%20190%20560%20235%20T%20800%20220%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-hill2)%22%20opacity%3D%220.9%22%2F%3E%20%3Cg%20fill%3D%22%2315803d%22%20opacity%3D%220.95%22%3E%20%3Ccircle%20cx%3D%22210%22%20cy%3D%22225%22%20r%3D%2214%22%2F%3E%3Ccircle%20cx%3D%22225%22%20cy%3D%22220%22%20r%3D%2219%22%2F%3E%3Ccircle%20cx%3D%22242%22%20cy%3D%22225%22%20r%3D%2213%22%2F%3E%20%3Ccircle%20cx%3D%22510%22%20cy%3D%22232%22%20r%3D%2213%22%2F%3E%3Ccircle%20cx%3D%22524%22%20cy%3D%22227%22%20r%3D%2218%22%2F%3E%3Ccircle%20cx%3D%22538%22%20cy%3D%22233%22%20r%3D%2212%22%2F%3E%20%3C%2Fg%3E%20%3C!--%20Foreground%20Lush%20Green%20Ground%20--%3E%20%3Cpath%20d%3D%22M0%20268%20Q%20260%20250%20520%20262%20T%20800%20255%20L%20800%20360%20L%200%20360%20Z%22%20fill%3D%22url(%23w-ground)%22%2F%3E%20%3C!--%20Grass%20Blades%20--%3E%20%3Cg%20stroke%3D%22%2315803d%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%3E%20%3Cpath%20d%3D%22M45%20272%20Q%2049%20260%2046%20254%20M48%20272%20Q%2054%20263%2057%20257%22%2F%3E%20%3Cpath%20d%3D%22M175%20274%20Q%20178%20262%20175%20255%20M178%20274%20Q%20184%20264%20188%20259%22%2F%3E%20%3Cpath%20d%3D%22M360%20272%20Q%20364%20260%20360%20254%20M363%20272%20Q%20369%20263%20373%20258%22%2F%3E%20%3Cpath%20d%3D%22M630%20273%20Q%20633%20261%20629%20254%20M633%20273%20Q%20639%20264%20644%20259%22%2F%3E%20%3Cpath%20d%3D%22M745%20270%20Q%20748%20258%20745%20252%20M748%20270%20Q%20754%20262%20758%20257%22%2F%3E%20%3C%2Fg%3E%20%3C!--%20Swaying%20Flowers%20--%3E%20%3Cg%20class%3D%22fl%22%3E%20%3Ccircle%20cx%3D%2285%22%20cy%3D%22280%22%20r%3D%224.5%22%20fill%3D%22%23ef4444%22%2F%3E%3Ccircle%20cx%3D%2285%22%20cy%3D%22280%22%20r%3D%221.5%22%20fill%3D%22%231e1b4b%22%2F%3E%20%3Ccircle%20cx%3D%22695%22%20cy%3D%22284%22%20r%3D%225%22%20fill%3D%22%23ef4444%22%2F%3E%3Ccircle%20cx%3D%22695%22%20cy%3D%22284%22%20r%3D%221.8%22%20fill%3D%22%231e1b4b%22%2F%3E%20%3Ccircle%20cx%3D%22225%22%20cy%3D%22282%22%20r%3D%224.2%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22225%22%20cy%3D%22282%22%20r%3D%221.6%22%20fill%3D%22%23eab308%22%2F%3E%20%3Ccircle%20cx%3D%22490%22%20cy%3D%22280%22%20r%3D%224%22%20fill%3D%22%233b82f6%22%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22280%22%20r%3D%221.4%22%20fill%3D%22%23ffffff%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D%22fl-del%22%3E%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22290%22%20r%3D%224%22%20fill%3D%22%23facc15%22%2F%3E%3Ccircle%20cx%3D%22140%22%20cy%3D%22290%22%20r%3D%221.3%22%20fill%3D%22%23d97706%22%2F%3E%20%3Ccircle%20cx%3D%22645%22%20cy%3D%22282%22%20r%3D%224.5%22%20fill%3D%22%23facc15%22%2F%3E%3Ccircle%20cx%3D%22645%22%20cy%3D%22282%22%20r%3D%221.5%22%20fill%3D%22%23d97706%22%2F%3E%20%3Ccircle%20cx%3D%22575%22%20cy%3D%22286%22%20r%3D%224.2%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22575%22%20cy%3D%22286%22%20r%3D%221.6%22%20fill%3D%22%23eab308%22%2F%3E%20%3Ccircle%20cx%3D%22755%22%20cy%3D%22292%22%20r%3D%224%22%20fill%3D%22%23ffffff%22%2F%3E%3Ccircle%20cx%3D%22755%22%20cy%3D%22292%22%20r%3D%221.5%22%20fill%3D%22%23eab308%22%2F%3E%20%3C%2Fg%3E%20%3C!--%20Animated%20Butterflies%20--%3E%20%3Cg%20class%3D%22bf1%22%20transform%3D%22translate(180%2C%20235)%22%3E%20%3Cpath%20d%3D%22M0%200%20Q%20-7%20-11%200%20-15%20Q%207%20-11%200%200%20Z%22%20fill%3D%22%23ec4899%22%2F%3E%20%3Cpath%20d%3D%22M0%200%20Q%20-11%20-4%20-13%20-11%20Q%20-4%20-9%200%200%20Z%22%20fill%3D%22%23f43f5e%22%2F%3E%20%3Ccircle%20cx%3D%220%22%20cy%3D%22-6%22%20r%3D%221.5%22%20fill%3D%22%231e1b4b%22%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D%22bf2%22%20transform%3D%22translate(620%2C%20225)%22%3E%20%3Cpath%20d%3D%22M0%200%20Q%207%20-11%200%20-15%20Q%20-7%20-11%200%200%20Z%22%20fill%3D%22%2338bdf8%22%2F%3E%20%3Cpath%20d%3D%22M0%200%20Q%2011%20-4%2013%20-11%20Q%204%20-9%200%200%20Z%22%20fill%3D%22%230284c7%22%2F%3E%20%3Ccircle%20cx%3D%220%22%20cy%3D%22-6%22%20r%3D%221.5%22%20fill%3D%22%230f172a%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
 }
 
 .fox-escena-strand {
