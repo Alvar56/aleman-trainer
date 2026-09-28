@@ -346,6 +346,7 @@ button.pill.star-pill.starred {
      lista de once apartados eso es ruido: se sigue bajando con la rueda. */
   scrollbar-width: none;
   -ms-overflow-style: none;
+  z-index: 105;
 }
 .sidebar::-webkit-scrollbar { display: none; }
 .sidebar .brand { font-weight: 800; font-size: 1.02rem; padding: 2px 10px 6px; letter-spacing: -0.02em; }
@@ -5401,10 +5402,10 @@ input.vs-respuesta { max-width: 460px; }
 .fox-suelo-barra {
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 232px;
   right: 0;
   height: 38px;
-  z-index: 95;
+  z-index: 90;
   pointer-events: none;
   background-size: 800px 38px;
   background-repeat: repeat-x;
@@ -5449,5 +5450,12 @@ input.vs-respuesta { max-width: 460px; }
   .fox-suelo-barra {
     height: 30px;
     background-size: 600px 30px;
+  }
+}
+
+@media (max-width: 860px) {
+  .fox-suelo-barra {
+    left: 0;
+    right: 0;
   }
 }
