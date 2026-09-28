@@ -721,42 +721,25 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 }
 .cloze-pie { margin-top: 30px; text-align: center; }
 
-.options { display: grid; gap: 10px; max-width: 540px; }
+.options { display: grid; gap: 11px; max-width: 620px; width: 100%; }
 .option {
-  text-align: left; padding: 14px 16px; border: 1.5px solid var(--border-strong);
-  background: var(--surface); font-size: 1.02rem; border-radius: 11px;
+  position: relative; text-align: left; padding: 14px 18px; border: 1.5px solid var(--border-strong);
+  background: var(--surface); font-size: 1.05rem; border-radius: 14px;
+  color: var(--text); cursor: pointer; transition: all 0.14s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03); line-height: 1.45;
 }
-.option:hover:not(:disabled) { border-color: var(--accent); }
-.option.correct { border-color: var(--good); background: var(--good-bg); }
-.option.wrong { border-color: var(--bad); background: var(--bad-bg); }
+.option:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+.option.correct { border-color: var(--good); background: var(--good-bg); color: var(--text); }
+.option.wrong { border-color: var(--bad); background: var(--bad-bg); color: var(--text); }
 .option.dim { opacity: 0.45; }
-/* Opciones que son cosas que dices tu: bocadillo con el rabito al otro lado
-   que el de la frase de arriba, asi se ve el ida y vuelta.
-
-   El rabito es un cuadrado girado 45 grados y no un triangulo de bordes,
-   porque asi hereda el fondo y el color del borde de la propia opcion: cuando
-   se pone verde o roja al contestar, el rabito se tine con ella sin tener que
-   repetir cada estado. */
 .options-tuyo .option {
-  position: relative;
-  border-radius: 16px;
-  border-bottom-right-radius: 5px;
+  border-radius: 14px;
 }
-.options-tuyo .option::after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  bottom: 4px;
-  width: 11px;
-  height: 11px;
-  background: inherit;
-  border: inherit;
-  border-top: 0;
-  border-left: 0;
-  border-bottom-right-radius: 3px;
-  transform: rotate(45deg);
-}
-.options-tuyo .option.dim::after { opacity: inherit; }
 /* El numero de la tecla, delante de la opcion. Un atajo que no se anuncia no
    lo usa nadie, asi que se ve; pero apagado, que la respuesta es el texto.
    En el movil no hay teclado: alli sobra y se esconde. */
@@ -4339,36 +4322,37 @@ input.vs-respuesta { max-width: 460px; }
    El rabito va con dos triangulos (::before el borde, ::after el relleno) y
    no con un borde recortado, porque asi respeta el color del borde en claro y
    en oscuro sin repetir la regla. */
+/* Bocadillos de diálogo (enunciado de comunicación) */
 .sentence-dicho,
 .sentence-tuyo {
   position: relative;
-  border-radius: 16px;
-  padding: 14px 18px;
-  margin: 4px 0 26px;
-  max-width: 34rem;
+  border-radius: 18px 18px 18px 4px;
+  padding: 14px 20px;
+  margin: 4px 0 24px 0;
+  max-width: 36rem;
   width: fit-content;
   line-height: 1.45;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text);
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.04);
 }
 
 .sentence-dicho {
   background: var(--surface);
   border: 1.5px solid var(--border-strong);
-  border-bottom-left-radius: 5px;
-  font-size: 1.12rem;
 }
 
 .sentence-tuyo {
   background: var(--accent-soft);
   border: 1.5px solid #cddcec;
-  border-bottom-right-radius: 5px;
-  margin-left: auto;
-  font-size: 1.15rem;
-  font-weight: 500;
-  color: var(--text-2);
+  margin-left: 0;
 }
-[data-theme='dark'] .sentence-tuyo { border-color: rgba(91, 139, 212, 0.35); }
+[data-theme='dark'] .sentence-tuyo {
+  border-color: rgba(91, 139, 212, 0.35);
+}
 
-/* El rabito. Se dibuja pegado a la esquina de abajo, del lado que toque. */
+/* El rabito abajo a la izquierda */
 .sentence-dicho::before,
 .sentence-dicho::after,
 .sentence-tuyo::before,
@@ -4381,7 +4365,6 @@ input.vs-respuesta { max-width: 460px; }
   border-style: solid;
 }
 
-/* Lo que te dicen: rabito abajo a la izquierda. */
 .sentence-dicho::before {
   left: -9px;
   border-width: 0 0 13px 11px;
@@ -4394,16 +4377,15 @@ input.vs-respuesta { max-width: 460px; }
   border-color: transparent transparent var(--surface) transparent;
 }
 
-/* Lo que dices tu: rabito abajo a la derecha, espejo del otro. */
 .sentence-tuyo::before {
-  right: -9px;
-  border-width: 0 11px 13px 0;
+  left: -9px;
+  border-width: 0 0 13px 11px;
   border-color: transparent transparent #cddcec transparent;
 }
 .sentence-tuyo::after {
-  right: -6px;
+  left: -6px;
   bottom: 0;
-  border-width: 0 9px 11px 0;
+  border-width: 0 0 11px 9px;
   border-color: transparent transparent var(--accent-soft) transparent;
 }
 [data-theme='dark'] .sentence-tuyo::before {
@@ -4411,8 +4393,8 @@ input.vs-respuesta { max-width: 460px; }
 }
 
 @media (max-width: 720px) {
-  .sentence-dicho { padding: 12px 14px; font-size: 1.02rem; }
-  .sentence-tuyo { padding: 12px 14px; font-size: 1.05rem; }
+  .sentence-dicho,
+  .sentence-tuyo { padding: 12px 16px; font-size: 1.05rem; }
 }
 
 /* La tabla de los minijuegos: la primera columna lleva emoji, nombre y lo que

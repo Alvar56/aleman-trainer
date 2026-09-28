@@ -100,7 +100,7 @@ function montadores(w, ajenas, otrasRespuestas, glosas, vuelta = 0) {
       item: {
         prompt: t('komm.exPick'),
         sentence: w.es + (w.wann ? `  (${w.wann})` : ''),
-        marco: 'tuyo',
+        marco: 'dicho',
         marcoOpciones: 'tuyo',
         answer: w.de,
         options: mezclar([w.de, ...distractores])
