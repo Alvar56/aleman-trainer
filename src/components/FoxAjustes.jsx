@@ -196,23 +196,23 @@ export default function FoxAjustes({ onClose, onChange }) {
       onClick={(e) => { if (e.target === e.currentTarget) cerrar(); }}
     >
       <div className="fox-modal-caja">
-        {/* Paisaje completo ocupando toda la cabecera con los textos y elementos superpuestos */}
         <div className={'fox-hero-escena fox-escena-' + (f.fondo || 'nadaFondo')}>
           <div className="fox-hero-topbar">
-            <h2 className="fox-hero-titulo">Dein Fuchs</h2>
-            <button className="fox-hero-cerrar" onClick={cerrar} title="Zurück">✕</button>
+            <div className="fox-hero-top-left">
+              <h2 className="fox-hero-titulo">Dein Fuchs</h2>
+              <div className="fox-hero-saldo monedero">
+                <span className="mnd-icono">🪙</span>
+                <strong className="mnd-total">{monedas}</strong>
+              </div>
+            </div>
+            <button className="fox-hero-cerrar" onClick={cerrar} title="Zurück" aria-label="Schließen">✕</button>
           </div>
 
-          <div className="fox-hero-cuerpo">
-            <div className="fox-hero-saldo monedero">
-              <span className="mnd-icono">🪙</span>
-              <strong className="mnd-total">{monedas}</strong>
-            </div>
+          <div className="fox-hero-personaje">
+            <FoxFace fuchs={f} gesto="feliz" size={152} conCuerpo chispeando racha={12} />
+          </div>
 
-            <div className="fox-hero-personaje">
-              <FoxFace fuchs={f} gesto="feliz" size={145} conCuerpo chispeando racha={12} />
-            </div>
-
+          <div className="fox-hero-stats-wrap">
             <ul className="fox-hero-stats">
               <li><strong>{l.coronas}</strong><small>Kronen</small></li>
               <li><strong className={l.nivel >= 100 ? 'num-dorado' : ''}>{l.nivel}</strong><small>Level</small></li>

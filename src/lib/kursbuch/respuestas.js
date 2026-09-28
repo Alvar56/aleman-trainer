@@ -20,11 +20,23 @@ import { tc } from '../contenido/index.js';
 const RESPUESTAS = {
   // ---- Lektion 1: Weggehen & Ankommen -------------------------------------
   'Damals bin ich nach Österreich gekommen.':
-    { de: 'Und wie war der Anfang?', es: '¿Y cómo fueron los principios?' },
+    { de: 'Und wie war der Anfang?', es: '¿Y cómo fueron los principios?',
+      mas: [
+        { de: 'Schwierig. Ich kannte hier niemanden.', es: 'Difícil. Aquí no conocía a nadie.' },
+        { de: 'Und heute? Hast du das Gefühl, angekommen zu sein?', es: '¿Y ahora? ¿Sientes que ya has llegado?' }
+      ] },
   'Am Anfang war alles fremd für mich.':
-    { de: 'Das glaube ich dir. Mir ging es genauso.', es: 'Te creo. A mí me pasó lo mismo.' },
+    { de: 'Das glaube ich dir. Mir ging es genauso.', es: 'Te creo. A mí me pasó lo mismo.',
+      mas: [
+        { de: 'Wie lange hat es bei dir gedauert?', es: '¿A ti cuánto te duró?' },
+        { de: 'Zwei Jahre. Dann war es auf einmal einfach mein Zuhause.', es: 'Dos años. Y de repente ya era mi casa.' }
+      ] },
   'Mit der Zeit habe ich mich daran gewöhnt.':
-    { de: 'Siehst du? Es wird immer leichter.', es: '¿Ves? Siempre se va haciendo más fácil.' },
+    { de: 'Siehst du? Es wird immer leichter.', es: '¿Ves? Siempre se va haciendo más fácil.',
+      mas: [
+        { de: 'An manches aber immer noch nicht.', es: 'A algunas cosas todavía no.' },
+        { de: 'Zum Beispiel?', es: '¿A cuáles?' }
+      ] },
   'Und wie ging es dann weiter?':
     { de: 'Dann habe ich eine Arbeit gefunden.', es: 'Después encontré un trabajo.' },
   'Das kann ich gut verstehen.':
@@ -2538,9 +2550,17 @@ const RESPUESTAS = {
   'Wir kennen uns schon aus der Schule.':
     { de: 'So lange! Und ihr habt euch nie aus den Augen verloren?', es: '¡Tanto tiempo! ¿Y nunca os habéis perdido la pista?' },
   'Ich würde gern öfter nach Hause fahren.':
-    { de: 'Schau dir die Nachtzüge an. Die sind billiger als Fliegen.', es: 'Mira los trenes nocturnos. Salen más baratos que volar.' },
+    { de: 'Schau dir die Nachtzüge an. Die sind billiger als Fliegen.', es: 'Mira los trenes nocturnos. Salen más baratos que volar.',
+      mas: [
+        { de: 'Nachts fahren? Das halte ich nicht durch.', es: '¿Viajar de noche? No lo aguanto.' },
+        { de: 'Im Liegewagen schon. Man wacht auf und ist da.', es: 'En coche cama sí. Te despiertas y ya estás.' }
+      ] },
   'Mein größter Wunsch ist ein sicherer Job.':
-    { de: 'Das verstehe ich. Wie lange läuft dein Vertrag noch?', es: 'Lo entiendo. ¿Cuánto te queda de contrato?' },
+    { de: 'Das verstehe ich. Wie lange läuft dein Vertrag noch?', es: 'Lo entiendo. ¿Cuánto te queda de contrato?',
+      mas: [
+        { de: 'Noch acht Monate. Danach weiß ich gar nichts.', es: 'Ocho meses más. Después no sé nada.' },
+        { de: 'Dann frag jetzt schon nach. Warten macht es nicht besser.', es: 'Pues pregunta ya. Esperar no lo mejora.' }
+      ] },
   'Damals habe ich kein Wort Deutsch gesprochen.':
     { de: 'Und heute reden wir hier ohne Probleme. Wie hast du das gemacht?', es: 'Y hoy hablamos aquí sin problemas. ¿Cómo lo hiciste?',
       mas: [
@@ -2548,19 +2568,47 @@ const RESPUESTAS = {
         { de: 'Radio? Das hätte ich nie gedacht. Verstehst du da alles?', es: '¿Radio? Nunca lo habría pensado. ¿Lo entiendes todo?' }
       ] },
   'Die ersten zwei Jahre waren die schwersten.':
-    { de: 'Was hat dir damals am meisten geholfen?', es: '¿Qué fue lo que más te ayudó entonces?' },
+    { de: 'Was hat dir damals am meisten geholfen?', es: '¿Qué fue lo que más te ayudó entonces?',
+      mas: [
+        { de: 'Die Arbeit. Dort musste ich reden, ob ich wollte oder nicht.', es: 'El trabajo. Allí tenía que hablar, quisiera o no.' },
+        { de: 'Das ist der beste Kurs, den es gibt.', es: 'Ese es el mejor curso que hay.' }
+      ] },
   'Ich habe zuerst bei einem Freund gewohnt.':
-    { de: 'Zum Glück hattest du ihn. Ohne Kontakte ist es doppelt so schwer.', es: 'Menos mal que lo tenías. Sin contactos es el doble de difícil.' },
+    { de: 'Zum Glück hattest du ihn. Ohne Kontakte ist es doppelt so schwer.', es: 'Menos mal que lo tenías. Sin contactos es el doble de difícil.',
+      mas: [
+        { de: 'Drei Monate. Länger wollte ich ihm nicht zur Last fallen.', es: 'Tres meses. No quería ser una carga más tiempo.' },
+        { de: 'Und dann hast du gleich etwas Eigenes gefunden?', es: '¿Y luego encontraste algo tuyo enseguida?' }
+      ] },
   'Nach und nach habe ich mich daran gewöhnt.':
-    { de: 'An was zum Beispiel? Am Wetter oder an den Leuten?', es: '¿A qué, por ejemplo? ¿Al tiempo o a la gente?' },
+    { de: 'An was zum Beispiel? Am Wetter oder an den Leuten?', es: '¿A qué, por ejemplo? ¿Al tiempo o a la gente?',
+      mas: [
+        { de: 'An das Wetter nie. An die Leute schon.', es: 'Al tiempo nunca. A la gente sí.' },
+        { de: 'Beim Wetter hilft nur eine gute Jacke.', es: 'Con el tiempo solo ayuda un buen abrigo.' }
+      ] },
   'Ich habe damals jeden Abend gelernt.':
-    { de: 'Nach der Arbeit? Das braucht ziemlich viel Disziplin.', es: '¿Después del trabajo? Eso requiere bastante disciplina.' },
+    { de: 'Nach der Arbeit? Das braucht ziemlich viel Disziplin.', es: '¿Después del trabajo? Eso requiere bastante disciplina.',
+      mas: [
+        { de: 'Zwei Jahre lang. Müde war ich sowieso.', es: 'Durante dos años. Cansada estaba igual.' },
+        { de: 'Und hat es sich gelohnt?', es: '¿Y mereció la pena?' }
+      ] },
   'Meine erste Wohnung war winzig und kalt.':
-    { de: 'Das klingt hart. Wie lange hast du dort gewohnt?', es: 'Suena duro. ¿Cuánto tiempo viviste allí?' },
+    { de: 'Das klingt hart. Wie lange hast du dort gewohnt?', es: 'Suena duro. ¿Cuánto tiempo viviste allí?',
+      mas: [
+        { de: 'Ein Jahr. Im Winter habe ich mit Mantel geschlafen.', es: 'Un año. En invierno dormía con abrigo.' },
+        { de: 'Und jetzt weißt du eine warme Wohnung zu schätzen.', es: 'Y ahora sabes valorar una casa caliente.' }
+      ] },
   'Ich habe die Entscheidung nie bereut.':
-    { de: 'Das hört man selten. Die meisten hadern zumindest manchmal.', es: 'Eso se oye pocas veces. La mayoría duda al menos a veces.' },
+    { de: 'Das hört man selten. Die meisten hadern zumindest manchmal.', es: 'Eso se oye pocas veces. La mayoría duda al menos a veces.',
+      mas: [
+        { de: 'Schlechte Tage hatte ich viele. Zweifel an der Entscheidung nicht.', es: 'Días malos tuve muchos. Dudas sobre la decisión no.' },
+        { de: 'Das ist der Unterschied, und den merkt man erst später.', es: 'Esa es la diferencia, y se nota más tarde.' }
+      ] },
   'Vor fünf Jahren war hier alles anders.':
-    { de: 'Inwiefern? Die Straße sieht doch gleich aus.', es: '¿En qué sentido? La calle tiene el mismo aspecto.' },
+    { de: 'Inwiefern? Die Straße sieht doch gleich aus.', es: '¿En qué sentido? La calle tiene el mismo aspecto.',
+      mas: [
+        { de: 'Die Häuser schon, aber die Geschäfte alle nicht.', es: 'Las casas sí, pero las tiendas ninguna.' },
+        { de: 'Jetzt, wo du es sagst: der Bäcker war früher an der Ecke.', es: 'Ahora que lo dices: la panadería estaba en la esquina.' }
+      ] },
   'Und wie ist es dir dabei gegangen?':
     { de: 'Ehrlich gesagt ziemlich schlecht. Ich habe viel geweint.', es: 'Sinceramente, bastante mal. Lloré mucho.' },
   'Erzähl weiter, das interessiert mich wirklich.':
@@ -2572,7 +2620,11 @@ const RESPUESTAS = {
   'Das kann ich gut nachvollziehen.':
     { de: 'Danke. Es hilft schon, wenn jemand einfach zuhört.', es: 'Gracias. Ya ayuda que alguien simplemente escuche.' },
   'Was hat dir damals am meisten geholfen?':
-    { de: 'Der Deutschkurs. Nicht wegen der Grammatik, wegen der Leute.', es: 'El curso de alemán. No por la gramática, por la gente.' },
+    { de: 'Der Deutschkurs. Nicht wegen der Grammatik, wegen der Leute.', es: 'El curso de alemán. No por la gramática, por la gente.',
+      mas: [
+        { de: 'Das höre ich oft. Man lernt die Sprache und nebenbei kennt man jemanden.', es: 'Eso lo oigo mucho. Aprendes el idioma y de paso conoces a alguien.' },
+        { de: 'Genau. Mit zwei von damals treffe ich mich immer noch.', es: 'Exacto. Con dos de entonces todavía quedo.' }
+      ] },
   'Und wie ist es danach weitergegangen?':
     { de: 'Dann habe ich endlich eine Stelle gefunden und alles wurde leichter.', es: 'Luego por fin encontré un trabajo y todo se hizo más fácil.' },
   'Entschuldigung, ich meine natürlich Dienstag.':
@@ -3708,19 +3760,47 @@ const RESPUESTAS = {
   'Sie hat das ganze Fest organisiert.':
     { de: 'Das sieht man. Alles läuft wie am Schnürchen.', es: 'Se nota. Todo va como la seda.' },
   'Ich hätte gern mehr Ruhe im Alltag.':
-    { de: 'Wer nicht? Fang mit einem freien Abend pro Woche an.', es: '¿Quién no? Empieza con una tarde libre por semana.' },
+    { de: 'Wer nicht? Fang mit einem freien Abend pro Woche an.', es: '¿Quién no? Empieza con una tarde libre por semana.',
+      mas: [
+        { de: 'Einen ganzen Abend? Das schaffe ich nie.', es: '¿Una tarde entera? Eso no lo consigo.' },
+        { de: 'Dann eine Stunde. Hauptsache, sie gehört dir.', es: 'Pues una hora. Lo importante es que sea tuya.' }
+      ] },
   'Am liebsten hätte ich etwas mehr Freiheit bei der Arbeit.':
-    { de: 'Sprich mit deinem Chef. Manchmal reicht ein Gespräch.', es: 'Habla con tu jefe. A veces basta una conversación.' },
+    { de: 'Sprich mit deinem Chef. Manchmal reicht ein Gespräch.', es: 'Habla con tu jefe. A veces basta una conversación.',
+      mas: [
+        { de: 'Und wenn er nein sagt?', es: '¿Y si dice que no?' },
+        { de: 'Dann weißt du es wenigstens. Jetzt rätst du nur.', es: 'Al menos lo sabrás. Ahora solo lo supones.' }
+      ] },
   'Ich wünsche mir, dass die Kinder es leichter haben.':
-    { de: 'Das wollen alle Eltern. Und meistens klappt es auch.', es: 'Eso lo quieren todos los padres. Y normalmente sale.' },
+    { de: 'Das wollen alle Eltern. Und meistens klappt es auch.', es: 'Eso lo quieren todos los padres. Y normalmente sale.',
+      mas: [
+        { de: 'Sie sprechen die Sprache schon besser als ich.', es: 'Ya hablan el idioma mejor que yo.' },
+        { de: 'Siehst du? Das war es doch, was du wolltest.', es: '¿Ves? Pues eso era lo que querías.' }
+      ] },
   'Das Praktikum war für mich der Wendepunkt.':
-    { de: 'Warum genau? Wegen der Leute oder wegen der Arbeit?', es: '¿Por qué exactamente? ¿Por la gente o por el trabajo?' },
+    { de: 'Warum genau? Wegen der Leute oder wegen der Arbeit?', es: '¿Por qué exactamente? ¿Por la gente o por el trabajo?',
+      mas: [
+        { de: 'Vor allem wegen der Leute. Da habe ich zum ersten Mal den ganzen Tag Deutsch geredet.', es: 'Sobre todo por la gente. Fue la primera vez que hablé alemán todo el día.' },
+        { de: 'Und danach ging es leichter?', es: '¿Y después fue más fácil?' }
+      ] },
   'Nach der Krise ging es langsam aufwärts.':
-    { de: 'Wie lange hat das gedauert, bis du es gemerkt hast?', es: '¿Cuánto tardaste en notarlo?' },
+    { de: 'Wie lange hat das gedauert, bis du es gemerkt hast?', es: '¿Cuánto tardaste en notarlo?',
+      mas: [
+        { de: 'Ein halbes Jahr ungefähr. Ich habe es erst gemerkt, als ich wieder Pläne gemacht habe.', es: 'Medio año más o menos. Me di cuenta cuando volví a hacer planes.' },
+        { de: 'Das ist ein gutes Zeichen, finde ich.', es: 'Eso es buena señal, me parece.' }
+      ] },
   'Damals habe ich sehr an mir gezweifelt.':
-    { de: 'Und heute? Sieht man dir gar nicht mehr an.', es: '¿Y hoy? Ya no se te nota nada.' },
+    { de: 'Und heute? Sieht man dir gar nicht mehr an.', es: '¿Y hoy? Ya no se te nota nada.',
+      mas: [
+        { de: 'Heute geht es mir gut, aber gebraucht habe ich dafür ein paar Jahre.', es: 'Hoy estoy bien, pero me hicieron falta unos años.' },
+        { de: 'Das ist doch normal. Wer so etwas durchmacht, braucht Zeit.', es: 'Es normal. Quien pasa por eso necesita tiempo.' }
+      ] },
   'Wie hast du die Trennung damals verkraftet?':
-    { de: 'Schlecht, ehrlich gesagt. Erst nach einem Jahr wurde es besser.', es: 'Mal, la verdad. Hasta el año no fue a mejor.' },
+    { de: 'Schlecht, ehrlich gesagt. Erst nach einem Jahr wurde es besser.', es: 'Mal, la verdad. Hasta el año no fue a mejor.',
+      mas: [
+        { de: 'Und was hat dir am Ende geholfen?', es: '¿Y qué te ayudó al final?' },
+        { de: 'Arbeiten und rausgehen. Allein zu Hause wurde es nur schlimmer.', es: 'Trabajar y salir. Sola en casa iba a peor.' }
+      ] },
   'Hast du Vorurteile erlebt?':
     { de: 'Ein paar Mal. Meistens verschwinden sie nach dem ersten Gespräch.', es: 'Alguna vez. Normalmente desaparecen tras la primera conversación.' },
   'Das muss viel Mut gekostet haben.':
@@ -3734,11 +3814,23 @@ const RESPUESTAS = {
   'Heute fühle ich mich hier stark.':
     { de: 'Das freut mich sehr. Ab wann war das so?', es: 'Me alegra mucho. ¿Desde cuándo es así?' },
   'Ich will das Risiko diesmal eingehen.':
-    { de: 'Gut. Und was ist der schlimmste Fall, den du dir vorstellst?', es: 'Bien. ¿Y cuál es el peor caso que te imaginas?' },
+    { de: 'Gut. Und was ist der schlimmste Fall, den du dir vorstellst?', es: 'Bien. ¿Y cuál es el peor caso que te imaginas?',
+      mas: [
+        { de: 'Dass es nicht klappt und ich wieder von vorn anfange.', es: 'Que no salga y tenga que empezar otra vez.' },
+        { de: 'Von vorn, aber mit allem, was du inzwischen kannst.', es: 'Otra vez, pero con todo lo que ya sabes.' }
+      ] },
   'Diese Chance lasse ich nicht vorbeigehen.':
-    { de: 'Genau richtig. Solche kommen selten zweimal.', es: 'Muy bien. De esas pocas veces vienen dos.' },
+    { de: 'Genau richtig. Solche kommen selten zweimal.', es: 'Muy bien. De esas pocas veces vienen dos.',
+      mas: [
+        { de: 'Ich habe schon eine vorbeigehen lassen.', es: 'Ya dejé pasar una.' },
+        { de: 'Dann weißt du ja, warum du diesmal ja sagst.', es: 'Pues ya sabes por qué esta vez dices que sí.' }
+      ] },
   'Ich hoffe auf eine feste Stelle im Herbst.':
-    { de: 'Hast du schon gefragt, oder wartest du auf ein Angebot?', es: '¿Ya lo has preguntado o esperas una oferta?' },
+    { de: 'Hast du schon gefragt, oder wartest du auf ein Angebot?', es: '¿Ya lo has preguntado o esperas una oferta?',
+      mas: [
+        { de: 'Ich warte. Fragen kommt mir aufdringlich vor.', es: 'Espero. Preguntar me parece insistente.' },
+        { de: 'Hier nicht. Hier heißt Fragen, dass es dir wichtig ist.', es: 'Aquí no. Aquí preguntar significa que te importa.' }
+      ] },
   'Das ist alles hausgemacht? Wirklich?':
     { de: 'Sogar die Marmelade und der Honig, vom eigenen Garten.', es: 'Hasta la mermelada y la miel, del propio jardín.' },
   'Wir servieren um acht, kommt ihr vorher?':
@@ -4268,21 +4360,45 @@ const RESPUESTAS = {
   'Was ist dein nächstes großes Ziel?':
     { de: 'Der Führerschein, ohne Auto komme ich aufs Land kaum hin.', es: 'El carné; sin coche apenas llego al campo.' },
   'Wie lange hat der ganze Prozess gedauert?':
-    { de: 'Fast ein Jahr, allein auf den Termin habe ich Monate gewartet.', es: 'Casi un año; solo por la cita esperé meses.' },
+    { de: 'Fast ein Jahr, allein auf den Termin habe ich Monate gewartet.', es: 'Casi un año; solo por la cita esperé meses.',
+      mas: [
+        { de: 'So lange? Das hätte ich nicht gedacht.', es: '¿Tanto? No me lo habría imaginado.' },
+        { de: 'Alle sagen das. Und dann steht man selbst in der Schlange.', es: 'Todos dicen lo mismo. Y luego te toca hacer la cola a ti.' }
+      ] },
   'Was hast du vorher gemacht?':
-    { de: 'In Spanien habe ich fünf Jahre in einem Architekturbüro gearbeitet.', es: 'En España trabajé cinco años en un estudio de arquitectura.' },
+    { de: 'In Spanien habe ich fünf Jahre in einem Architekturbüro gearbeitet.', es: 'En España trabajé cinco años en un estudio de arquitectura.',
+      mas: [
+        { de: 'Und arbeitest du hier auch in dem Bereich?', es: '¿Y aquí trabajas también en eso?' },
+        { de: 'Noch nicht. Erst muss der Abschluss anerkannt werden.', es: 'Todavía no. Primero tienen que homologarme el título.' }
+      ] },
   'Hat sich der Aufwand gelohnt?':
-    { de: 'Auf jeden Fall, heute würde ich alles genauso wieder machen.', es: 'Desde luego; hoy lo volvería a hacer todo igual.' },
+    { de: 'Auf jeden Fall, heute würde ich alles genauso wieder machen.', es: 'Desde luego; hoy lo volvería a hacer todo igual.',
+      mas: [
+        { de: 'Auch die Jahre, in denen nichts weiterging?', es: '¿Incluso los años en los que no avanzaba nada?' },
+        { de: 'Gerade die. Ohne die wäre ich heute nicht so ruhig.', es: 'Sobre todo esos. Sin ellos hoy no estaría tan tranquilo.' }
+      ] },
   'Wann hast du dich entschieden?':
-    { de: 'Nach einem sehr schlechten Winter, da war mir plötzlich alles klar.', es: 'Tras un invierno muy malo; de golpe lo vi clarísimo.' },
+    { de: 'Nach einem sehr schlechten Winter, da war mir plötzlich alles klar.', es: 'Tras un invierno muy malo; de golpe lo vi clarísimo.',
+      mas: [
+        { de: 'Und hast du es dann gleich gemacht?', es: '¿Y lo hiciste enseguida?' },
+        { de: 'Zwei Wochen später war der Flug gebucht.', es: 'Dos semanas después tenía el vuelo reservado.' }
+      ] },
   'Das muss hart gewesen sein.':
     { de: 'War es auch, zum Glück hatte ich ein paar gute Freunde.', es: 'Lo fue; por suerte tenía un par de buenos amigos.' },
   'Erzähl doch mal, wie es weiterging.':
     { de: 'Ganz unerwartet gut, plötzlich kam ein Anruf mit einem Jobangebot.', es: 'Inesperadamente bien: de repente llamaron con una oferta de trabajo.' },
   'Ich wünschte, ich hätte früher angefangen.':
-    { de: 'Das denkt am Anfang jeder, wichtig ist nur, dass du angefangen hast.', es: 'Eso lo piensa todo el mundo; lo importante es que empezaste.' },
+    { de: 'Das denkt am Anfang jeder, wichtig ist nur, dass du angefangen hast.', es: 'Eso lo piensa todo el mundo; lo importante es que empezaste.',
+      mas: [
+        { de: 'Mit vierzig fühlt es sich trotzdem spät an.', es: 'A los cuarenta igual se siente tarde.' },
+        { de: 'In meinem Kurs sitzt einer mit sechzig. Frag den mal.', es: 'En mi clase hay uno de sesenta. Pregúntale a él.' }
+      ] },
   'Am liebsten würde ich ein Jahr Pause machen.':
-    { de: 'Verständlich, aber danach fällt der Wiedereinstieg oft ziemlich schwer.', es: 'Es comprensible, pero luego volver suele costar bastante.' },
+    { de: 'Verständlich, aber danach fällt der Wiedereinstieg oft ziemlich schwer.', es: 'Es comprensible, pero luego volver suele costar bastante.',
+      mas: [
+        { de: 'Das ist es, was mich zurückhält.', es: 'Eso es lo que me frena.' },
+        { de: 'Dann nimm drei Monate. Die fallen niemandem auf.', es: 'Pues cógete tres meses. Eso no lo nota nadie.' }
+      ] },
   'Haben Sie einen Tisch für vier Personen?':
     { de: 'Um acht wird einer frei, davor ist leider alles besetzt.', es: 'A las ocho queda una libre; antes está todo ocupado.' },
   'Können wir draußen sitzen?':

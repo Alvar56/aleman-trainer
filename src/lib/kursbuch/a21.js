@@ -348,15 +348,15 @@ export const A21 = {
           es: 'Expresar deseos y anhelos',
           wendungen: [
             { de: 'Ich würde gern öfter nach Hause fahren.', es: 'Me gustaría ir a casa más a menudo.' },
-            { de: 'Mein größter Wunsch ist ein sicherer Job.', es: 'Mi mayor deseo es un trabajo estable.' , sigue: true },
-            { de: 'Ich hätte gern mehr Ruhe im Alltag.', es: 'Me gustaría tener más calma en el día a día.' , sigue: true },
+            { de: 'Mein größter Wunsch ist ein sicherer Job.', es: 'Mi mayor deseo es un trabajo estable.' },
+            { de: 'Ich hätte gern mehr Ruhe im Alltag.', es: 'Me gustaría tener más calma en el día a día.' },
             { de: 'Am liebsten hätte ich etwas mehr Freiheit bei der Arbeit.', es: 'Lo que más me gustaría es algo más de libertad en el trabajo.' },
-            { de: 'Ich wünsche mir, dass die Kinder es leichter haben.', es: 'Deseo que los niños lo tengan más fácil.' , sigue: true },
-            { de: 'Ich wünschte, ich hätte früher angefangen.', es: 'Ojalá hubiera empezado antes.' , sigue: true },
+            { de: 'Ich wünsche mir, dass die Kinder es leichter haben.', es: 'Deseo que los niños lo tengan más fácil.' },
+            { de: 'Ich wünschte, ich hätte früher angefangen.', es: 'Ojalá hubiera empezado antes.' },
             { de: 'Am liebsten würde ich ein Jahr Pause machen.', es: 'Lo que más me apetecería es tomarme un año.' },
-            { de: 'Ich hoffe auf eine feste Stelle im Herbst.', es: 'Espero un puesto fijo en otoño.' , sigue: true },
-            { de: 'Ich will das Risiko diesmal eingehen.', es: 'Esta vez quiero asumir el riesgo.' , sigue: true },
-            { de: 'Diese Chance lasse ich nicht vorbeigehen.', es: 'Esta oportunidad no la dejo pasar.' , sigue: true }
+            { de: 'Ich hoffe auf eine feste Stelle im Herbst.', es: 'Espero un puesto fijo en otoño.' },
+            { de: 'Ich will das Risiko diesmal eingehen.', es: 'Esta vez quiero asumir el riesgo.' },
+            { de: 'Diese Chance lasse ich nicht vorbeigehen.', es: 'Esta oportunidad no la dejo pasar.' }
           ]
         },
         {
@@ -364,15 +364,15 @@ export const A21 = {
           es: 'Contar sobre el pasado y el comienzo',
           wendungen: [
             { de: 'Damals bin ich nach Österreich gekommen.', es: 'Entonces vine a Austria.' },
-            { de: 'Am Anfang war alles fremd für mich.', es: 'Al principio todo me resultaba extraño.' , sigue: true },
-            { de: 'Mit der Zeit habe ich mich daran gewöhnt.', es: 'Con el tiempo me acostumbré.' , sigue: true },
+            { de: 'Am Anfang war alles fremd für mich.', es: 'Al principio todo me resultaba extraño.' },
+            { de: 'Mit der Zeit habe ich mich daran gewöhnt.', es: 'Con el tiempo me acostumbré.' },
             { de: 'Damals habe ich kein Wort Deutsch gesprochen.', es: 'Entonces no hablaba ni una palabra de alemán.' },
-            { de: 'Die ersten zwei Jahre waren die schwersten.', es: 'Los dos primeros años fueron los más difíciles.' , sigue: true },
-            { de: 'Ich habe zuerst bei einem Freund gewohnt.', es: 'Al principio viví en casa de un amigo.' , sigue: true },
+            { de: 'Die ersten zwei Jahre waren die schwersten.', es: 'Los dos primeros años fueron los más difíciles.' },
+            { de: 'Ich habe zuerst bei einem Freund gewohnt.', es: 'Al principio viví en casa de un amigo.' },
             { de: 'Nach und nach habe ich mich daran gewöhnt.', es: 'Poco a poco me fui acostumbrando.' },
-            { de: 'Ich habe damals jeden Abend gelernt.', es: 'Entonces estudiaba todas las tardes.' , sigue: true },
-            { de: 'Meine erste Wohnung war winzig und kalt.', es: 'Mi primer piso era diminuto y frío.' , sigue: true },
-            { de: 'Ich habe die Entscheidung nie bereut.', es: 'Nunca me arrepentí de la decisión.' , sigue: true }
+            { de: 'Ich habe damals jeden Abend gelernt.', es: 'Entonces estudiaba todas las tardes.' },
+            { de: 'Meine erste Wohnung war winzig und kalt.', es: 'Mi primer piso era diminuto y frío.' },
+            { de: 'Ich habe die Entscheidung nie bereut.', es: 'Nunca me arrepentí de la decisión.' }
           ]
         },
         {
@@ -380,15 +380,15 @@ export const A21 = {
           es: 'Hablar de puntos de inflexión y crisis',
           wendungen: [
             { de: 'Vor fünf Jahren war hier alles anders.', es: 'Hace cinco años aquí todo era distinto.' },
-            { de: 'Das Praktikum war für mich der Wendepunkt.', es: 'Las prácticas fueron para mí el punto de inflexión.' , sigue: true },
-            { de: 'Nach der Krise ging es langsam aufwärts.', es: 'Después de la crisis todo fue mejorando poco a poco.' , sigue: true },
+            { de: 'Das Praktikum war für mich der Wendepunkt.', es: 'Las prácticas fueron para mí el punto de inflexión.' },
+            { de: 'Nach der Krise ging es langsam aufwärts.', es: 'Después de la crisis todo fue mejorando poco a poco.' },
             { de: 'Damals habe ich sehr an mir gezweifelt.', es: 'Entonces dudaba mucho de mí mismo.' },
-            { de: 'Wie lange hat der ganze Prozess gedauert?', es: '¿Cuánto duró todo el proceso?' , sigue: true },
-            { de: 'Was hast du vorher gemacht?', es: '¿Qué hacías antes?' , sigue: true },
+            { de: 'Wie lange hat der ganze Prozess gedauert?', es: '¿Cuánto duró todo el proceso?' },
+            { de: 'Was hast du vorher gemacht?', es: '¿Qué hacías antes?' },
             { de: 'Hat sich der Aufwand gelohnt?', es: '¿Mereció la pena el esfuerzo?' },
-            { de: 'Wann hast du dich entschieden?', es: '¿Cuándo lo decidiste?' , sigue: true },
-            { de: 'Was hat dir damals am meisten geholfen?', es: '¿Qué fue lo que más te ayudó entonces?' , sigue: true },
-            { de: 'Wie hast du die Trennung damals verkraftet?', es: '¿Cómo llevaste entonces la separación?' , sigue: true }
+            { de: 'Wann hast du dich entschieden?', es: '¿Cuándo lo decidiste?' },
+            { de: 'Was hat dir damals am meisten geholfen?', es: '¿Qué fue lo que más te ayudó entonces?' },
+            { de: 'Wie hast du die Trennung damals verkraftet?', es: '¿Cómo llevaste entonces la separación?' }
           ]
         },
         {
@@ -396,15 +396,15 @@ export const A21 = {
           es: 'Preguntar y mostrar interés',
           wendungen: [
             { de: 'Und wie ging es dann weiter?', es: '¿Y cómo siguió la cosa?' },
-            { de: 'Das kann ich gut verstehen.', es: 'Lo entiendo perfectamente.' , sigue: true },
-            { de: 'Wie hast du dich dabei gefühlt?', es: '¿Cómo te sentiste?' , sigue: true },
+            { de: 'Das kann ich gut verstehen.', es: 'Lo entiendo perfectamente.' },
+            { de: 'Wie hast du dich dabei gefühlt?', es: '¿Cómo te sentiste?' },
             { de: 'Und wie ist es dir dabei gegangen?', es: '¿Y cómo lo llevaste?' },
-            { de: 'Erzähl weiter, das interessiert mich wirklich.', es: 'Sigue contando, me interesa de verdad.' , sigue: true },
-            { de: 'Das kann ich gut nachvollziehen.', es: 'Lo puedo entender perfectamente.' , sigue: true },
+            { de: 'Erzähl weiter, das interessiert mich wirklich.', es: 'Sigue contando, me interesa de verdad.' },
+            { de: 'Das kann ich gut nachvollziehen.', es: 'Lo puedo entender perfectamente.' },
             { de: 'Und wie ist es danach weitergegangen?', es: '¿Y cómo siguió la cosa después?' },
-            { de: 'Hast du Vorurteile erlebt?', es: '¿Has vivido prejuicios?' , sigue: true },
-            { de: 'Und was hast du dann gemacht?', es: '¿Y qué hiciste después?' , sigue: true },
-            { de: 'Erzähl doch mal, wie es weiterging.', es: 'Cuenta, ¿y cómo siguió la cosa?' , sigue: true }
+            { de: 'Hast du Vorurteile erlebt?', es: '¿Has vivido prejuicios?' },
+            { de: 'Und was hast du dann gemacht?', es: '¿Y qué hiciste después?' },
+            { de: 'Erzähl doch mal, wie es weiterging.', es: 'Cuenta, ¿y cómo siguió la cosa?' }
           ]
         },
         {
@@ -412,15 +412,15 @@ export const A21 = {
           es: 'Expresar empatía y comprensión',
           wendungen: [
             { de: 'Das tut mir leid für dich.', es: 'Lo siento mucho por ti.' },
-            { de: 'Das muss sehr schwer gewesen sein.', es: 'Debió de ser muy duro.' , sigue: true },
-            { de: 'Und wie war das für dich gefühlsmäßig?', es: '¿Y cómo te sentías con todo aquello?' , sigue: true },
+            { de: 'Das muss sehr schwer gewesen sein.', es: 'Debió de ser muy duro.' },
+            { de: 'Und wie war das für dich gefühlsmäßig?', es: '¿Y cómo te sentías con todo aquello?' },
             { de: 'Das muss schwer für dich gewesen sein.', es: 'Eso tuvo que ser duro para ti.' },
-            { de: 'Das muss viel Mut gekostet haben.', es: 'Eso debió de costar mucho valor.' , sigue: true },
-            { de: 'Das muss hart gewesen sein.', es: 'Eso tuvo que ser duro.' , sigue: true },
+            { de: 'Das muss viel Mut gekostet haben.', es: 'Eso debió de costar mucho valor.' },
+            { de: 'Das muss hart gewesen sein.', es: 'Eso tuvo que ser duro.' },
             { de: 'Ich hatte lange Angst, Fehler zu machen.', es: 'Durante mucho tiempo tuve miedo de cometer errores.' },
-            { de: 'Das Heimweh kommt meistens im Winter.', es: 'La morriña llega casi siempre en invierno.' , sigue: true },
-            { de: 'Mir fehlt manchmal meine Familie.', es: 'A veces echo de menos a mi familia.' , sigue: true },
-            { de: 'Ohne Zuversicht hätte ich aufgegeben.', es: 'Sin confianza en el futuro habría abandonado.' , sigue: true }
+            { de: 'Das Heimweh kommt meistens im Winter.', es: 'La morriña llega casi siempre en invierno.' },
+            { de: 'Mir fehlt manchmal meine Familie.', es: 'A veces echo de menos a mi familia.' },
+            { de: 'Ohne Zuversicht hätte ich aufgegeben.', es: 'Sin confianza en el futuro habría abandonado.' }
           ]
         },
         {
@@ -428,15 +428,15 @@ export const A21 = {
           es: 'Corregir los propios errores',
           wendungen: [
             { de: 'Entschuldigung, ich meine …', es: 'Perdón, quiero decir …' },
-            { de: 'Nein, warte – das stimmt nicht ganz.', es: 'No, espera, eso no es del todo así.' , sigue: true },
-            { de: 'Also, noch einmal von vorne.', es: 'Vale, otra vez desde el principio.' , sigue: true },
+            { de: 'Nein, warte – das stimmt nicht ganz.', es: 'No, espera, eso no es del todo así.' },
+            { de: 'Also, noch einmal von vorne.', es: 'Vale, otra vez desde el principio.' },
             { de: 'Entschuldigung, ich meine natürlich Dienstag.', es: 'Perdón, quiero decir el martes, claro.' },
-            { de: 'Entschuldige, ich habe mich versprochen.', es: 'Perdona, me he equivocado al hablar.' , sigue: true },
-            { de: 'Ich fange lieber noch einmal von vorne an.', es: 'Mejor empiezo otra vez desde el principio.' , sigue: true },
+            { de: 'Entschuldige, ich habe mich versprochen.', es: 'Perdona, me he equivocado al hablar.' },
+            { de: 'Ich fange lieber noch einmal von vorne an.', es: 'Mejor empiezo otra vez desde el principio.' },
             { de: 'Ich habe mich versprochen, sorry.', es: 'Me he trabado al hablar, perdón.' },
-            { de: 'Das habe ich falsch ausgedrückt.', es: 'Eso lo he expresado mal.' , sigue: true },
-            { de: 'Moment, ich korrigiere mich kurz.', es: 'Un momento, me corrijo.' , sigue: true },
-            { de: 'Halt, das habe ich falsch gesagt.', es: 'Espera, eso lo he dicho mal.' , sigue: true }
+            { de: 'Das habe ich falsch ausgedrückt.', es: 'Eso lo he expresado mal.' },
+            { de: 'Moment, ich korrigiere mich kurz.', es: 'Un momento, me corrijo.' },
+            { de: 'Halt, das habe ich falsch gesagt.', es: 'Espera, eso lo he dicho mal.' }
           ]
         },
         {
@@ -444,15 +444,15 @@ export const A21 = {
           es: 'Hablar de la llegada y la integración',
           wendungen: [
             { de: 'Am Anfang war alles fremd.', es: 'Al principio todo me resultaba ajeno.' },
-            { de: 'Ich habe mich schnell eingelebt.', es: 'Me adapté rápido.' , sigue: true },
-            { de: 'Ich fühle mich hier inzwischen zu Hause.', es: 'Ya me siento aquí como en casa.' , sigue: true },
+            { de: 'Ich habe mich schnell eingelebt.', es: 'Me adapté rápido.' },
+            { de: 'Ich fühle mich hier inzwischen zu Hause.', es: 'Ya me siento aquí como en casa.' },
             { de: 'Ich war stolz, als ich das erste Mal telefoniert habe.', es: 'Estaba orgulloso la primera vez que hablé por teléfono.' },
-            { de: 'Inzwischen habe ich das Gefühl dazuzugehören.', es: 'Ahora tengo la sensación de pertenecer.' , sigue: true },
-            { de: 'Der Zusammenhalt im Kurs hat mir geholfen.', es: 'La unión en clase me ayudó.' , sigue: true },
+            { de: 'Inzwischen habe ich das Gefühl dazuzugehören.', es: 'Ahora tengo la sensación de pertenecer.' },
+            { de: 'Der Zusammenhalt im Kurs hat mir geholfen.', es: 'La unión en clase me ayudó.' },
             { de: 'Heute fühle ich mich hier stark.', es: 'Hoy me siento fuerte aquí.' },
-            { de: 'Wie hast du dich in der ersten Woche gefühlt?', es: '¿Cómo te sentiste la primera semana?' , sigue: true },
-            { de: 'Hattest du Heimweh?', es: '¿Tenías morriña?' , sigue: true },
-            { de: 'Wann hast du dich hier zu Hause gefühlt?', es: '¿Cuándo empezaste a sentirte en casa?' , sigue: true }
+            { de: 'Wie hast du dich in der ersten Woche gefühlt?', es: '¿Cómo te sentiste la primera semana?' },
+            { de: 'Hattest du Heimweh?', es: '¿Tenías morriña?' },
+            { de: 'Wann hast du dich hier zu Hause gefühlt?', es: '¿Cuándo empezaste a sentirte en casa?' }
           ]
         },
         {
@@ -460,15 +460,15 @@ export const A21 = {
           es: 'Hablar de planes de futuro',
           wendungen: [
             { de: 'Was sind deine Pläne für die nächsten Jahre?', es: '¿Qué planes tienes para los próximos años?' },
-            { de: 'Ich will hierbleiben, zumindest vorerst.', es: 'Quiero quedarme aquí, al menos de momento.' , sigue: true },
-            { de: 'Vielleicht mache ich noch eine Ausbildung.', es: 'Quizá haga todavía una formación.' , sigue: true },
+            { de: 'Ich will hierbleiben, zumindest vorerst.', es: 'Quiero quedarme aquí, al menos de momento.' },
+            { de: 'Vielleicht mache ich noch eine Ausbildung.', es: 'Quizá haga todavía una formación.' },
             { de: 'Ich möchte irgendwann ein eigenes Geschäft haben.', es: 'Algún día quiero tener mi propio negocio.' },
-            { de: 'Nächstes Jahr ziehen wir in eine größere Wohnung.', es: 'El año que viene nos mudamos a un piso más grande.' , sigue: true },
-            { de: 'Ich habe vor, den Führerschein zu machen.', es: 'Tengo pensado sacarme el carné de conducir.' , sigue: true },
+            { de: 'Nächstes Jahr ziehen wir in eine größere Wohnung.', es: 'El año que viene nos mudamos a un piso más grande.' },
+            { de: 'Ich habe vor, den Führerschein zu machen.', es: 'Tengo pensado sacarme el carné de conducir.' },
             { de: 'Langfristig möchte ich zurück nach Spanien.', es: 'A largo plazo quiero volver a España.' },
-            { de: 'Erst mal will ich mich einfach hier einleben.', es: 'De momento solo quiero adaptarme aquí.' , sigue: true },
-            { de: 'Wo siehst du dich in fünf Jahren?', es: '¿Dónde te ves dentro de cinco años?' , sigue: true },
-            { de: 'Was ist dein nächstes großes Ziel?', es: '¿Cuál es tu siguiente gran objetivo?' , sigue: true }
+            { de: 'Erst mal will ich mich einfach hier einleben.', es: 'De momento solo quiero adaptarme aquí.' },
+            { de: 'Wo siehst du dich in fünf Jahren?', es: '¿Dónde te ves dentro de cinco años?' },
+            { de: 'Was ist dein nächstes großes Ziel?', es: '¿Cuál es tu siguiente gran objetivo?' }
           ]
         }
       ]
@@ -766,15 +766,15 @@ export const A21 = {
           es: 'Hacer una invitación',
           wendungen: [
             { de: 'Hast du Lust, vorbeizukommen?', es: '¿Te apetece pasarte?' },
-            { de: 'Hast du Lust, morgen vorbeizukommen?', es: '¿Te apetece pasarte mañana?' , sigue: true },
-            { de: 'Wollen wir am Sonntag zusammen kochen?', es: '¿Cocinamos juntos el domingo?' , sigue: true },
+            { de: 'Hast du Lust, morgen vorbeizukommen?', es: '¿Te apetece pasarte mañana?' },
+            { de: 'Wollen wir am Sonntag zusammen kochen?', es: '¿Cocinamos juntos el domingo?' },
             { de: 'Ich lade euch alle zum Kaffee ein.', es: 'Os invito a todos a un café.' },
-            { de: 'Wir grillen am Samstag, seid ihr dabei?', es: 'El sábado hacemos barbacoa, ¿os apuntáis?' , sigue: true },
-            { de: 'Möchtest du uns am Wochenende besuchen?', es: '¿Quieres visitarnos el fin de semana?' , sigue: true },
+            { de: 'Wir grillen am Samstag, seid ihr dabei?', es: 'El sábado hacemos barbacoa, ¿os apuntáis?' },
+            { de: 'Möchtest du uns am Wochenende besuchen?', es: '¿Quieres visitarnos el fin de semana?' },
             { de: 'Du bist jederzeit willkommen bei uns.', es: 'Eres bienvenido en nuestra casa cuando quieras.' },
-            { de: 'Magst du am Sonntag zum Frühstück kommen?', es: '¿Te apetece venir el domingo a desayunar?' , sigue: true },
-            { de: 'Komm doch einfach ins Lokal, wir sind schon dort.', es: 'Vente al local, ya estamos allí.' , sigue: true },
-            { de: 'Wir grillen im Garten, kommt ihr dazu?', es: 'Hacemos barbacoa en el jardín, ¿os venís?' , sigue: true }
+            { de: 'Magst du am Sonntag zum Frühstück kommen?', es: '¿Te apetece venir el domingo a desayunar?' },
+            { de: 'Komm doch einfach ins Lokal, wir sind schon dort.', es: 'Vente al local, ya estamos allí.' },
+            { de: 'Wir grillen im Garten, kommt ihr dazu?', es: 'Hacemos barbacoa en el jardín, ¿os venís?' }
           ]
         },
         {
@@ -782,15 +782,15 @@ export const A21 = {
           es: 'Responder a invitaciones privadas',
           wendungen: [
             { de: 'Ich möchte dich zum Essen einladen.', es: 'Quiero invitarte a comer.' },
-            { de: 'Kann ich etwas zum Essen beisteuern?', es: '¿Puedo aportar algo de comer?' , sigue: true },
-            { de: 'Da bin ich auf jeden Fall dabei!', es: '¡Ahí estoy seguro!' , sigue: true },
+            { de: 'Kann ich etwas zum Essen beisteuern?', es: '¿Puedo aportar algo de comer?' },
+            { de: 'Da bin ich auf jeden Fall dabei!', es: '¡Ahí estoy seguro!' },
             { de: 'Kommt doch am Wochenende zu uns.', es: 'Veníos el fin de semana a casa.' },
-            { de: 'Bring ruhig jemanden mit, es ist genug da.', es: 'Trae a quien quieras, hay de sobra.' , sigue: true },
-            { de: 'Was soll ich zum Essen beisteuern?', es: '¿Qué aporto para la comida?' , sigue: true },
+            { de: 'Bring ruhig jemanden mit, es ist genug da.', es: 'Trae a quien quieras, hay de sobra.' },
+            { de: 'Was soll ich zum Essen beisteuern?', es: '¿Qué aporto para la comida?' },
             { de: 'Wir feiern nichts Großes, nur ein paar Freunde.', es: 'No celebramos nada grande, solo unos amigos.' },
-            { de: 'Leider schaffe ich es diesmal nicht.', es: 'Esta vez no llego.' , sigue: true },
-            { de: 'Komm einfach vorbei, wenn du Zeit hast.', es: 'Pásate cuando tengas tiempo.' , sigue: true },
-            { de: 'Wir würden uns sehr freuen, wenn ihr kommt.', es: 'Nos alegraría mucho que vinierais.' , sigue: true }
+            { de: 'Leider schaffe ich es diesmal nicht.', es: 'Esta vez no llego.' },
+            { de: 'Komm einfach vorbei, wenn du Zeit hast.', es: 'Pásate cuando tengas tiempo.' },
+            { de: 'Wir würden uns sehr freuen, wenn ihr kommt.', es: 'Nos alegraría mucho que vinierais.' }
           ]
         },
         {
@@ -798,15 +798,15 @@ export const A21 = {
           es: 'Organizar visitas y hospitalidad',
           wendungen: [
             { de: 'Wir servieren um acht, kommt ihr vorher?', es: 'Servimos a las ocho, ¿venís antes?' },
-            { de: 'Ich habe etwas Spanisches gekocht.', es: 'He cocinado algo español.' , sigue: true },
-            { de: 'Bei uns gibt es nur eine Kleinigkeit.', es: 'En mi casa solo hay algo ligero.' , sigue: true },
+            { de: 'Ich habe etwas Spanisches gekocht.', es: 'He cocinado algo español.' },
+            { de: 'Bei uns gibt es nur eine Kleinigkeit.', es: 'En mi casa solo hay algo ligero.' },
             { de: 'Kommt ihr am Sonntag zum Essen?', es: '¿Venís el domingo a comer?' },
-            { de: 'Bring ruhig deine Mitbewohnerin mit.', es: 'Tráete a tu compañera de piso.' , sigue: true },
-            { de: 'Zieht ihr drinnen die Schuhe aus?', es: '¿Os quitáis los zapatos dentro?' , sigue: true },
-            { de: 'Wir haben leider nur wenig Platz.', es: 'Lo siento, tenemos poco sitio.' , sigue: true },
-            { de: 'Hättet ihr Lust auf einen Grillabend?', es: '¿Os apetece una barbacoa?' , sigue: true },
-            { de: 'Kommt doch nächstes Wochenende zu uns.', es: 'Veníos el finde que viene a casa.' , sigue: true },
-            { de: 'Ich möchte dich am Freitag zum Essen einladen.', es: 'Me gustaría invitarte a cenar el viernes.' , sigue: true }
+            { de: 'Bring ruhig deine Mitbewohnerin mit.', es: 'Tráete a tu compañera de piso.' },
+            { de: 'Zieht ihr drinnen die Schuhe aus?', es: '¿Os quitáis los zapatos dentro?' },
+            { de: 'Wir haben leider nur wenig Platz.', es: 'Lo siento, tenemos poco sitio.' },
+            { de: 'Hättet ihr Lust auf einen Grillabend?', es: '¿Os apetece una barbacoa?' },
+            { de: 'Kommt doch nächstes Wochenende zu uns.', es: 'Veníos el finde que viene a casa.' },
+            { de: 'Ich möchte dich am Freitag zum Essen einladen.', es: 'Me gustaría invitarte a cenar el viernes.' }
           ]
         },
         {
@@ -814,15 +814,15 @@ export const A21 = {
           es: 'Pedir y pagar en el restaurante',
           wendungen: [
             { de: 'Wir hätten gern die Speisekarte.', es: 'Quisiéramos la carta.' },
-            { de: 'Ich nehme das Schnitzel mit Erdäpfelsalat.', es: 'Yo tomo el escalope con ensalada de patata.' , sigue: true },
-            { de: 'Zahlen, bitte! – Getrennt oder zusammen?', es: '¡La cuenta! – ¿Por separado o junto?' , sigue: true },
+            { de: 'Ich nehme das Schnitzel mit Erdäpfelsalat.', es: 'Yo tomo el escalope con ensalada de patata.' },
+            { de: 'Zahlen, bitte! – Getrennt oder zusammen?', es: '¡La cuenta! – ¿Por separado o junto?' },
             { de: 'Haben Sie noch einen Tisch für zwei frei?', es: '¿Les queda una mesa libre para dos?' },
-            { de: 'Was können Sie heute empfehlen?', es: '¿Qué nos recomienda hoy?' , sigue: true },
-            { de: 'Für mich bitte das Schnitzel mit Salat.', es: 'Para mí el escalope con ensalada, por favor.' , sigue: true },
+            { de: 'Was können Sie heute empfehlen?', es: '¿Qué nos recomienda hoy?' },
+            { de: 'Für mich bitte das Schnitzel mit Salat.', es: 'Para mí el escalope con ensalada, por favor.' },
             { de: 'Könnten wir bitte noch Wasser bekommen?', es: '¿Nos podría traer más agua, por favor?' },
-            { de: 'Das war ausgezeichnet, danke schön.', es: 'Estaba excelente, muchas gracias.' , sigue: true },
-            { de: 'Zahlen bitte, getrennt.', es: 'La cuenta, por favor, por separado.' , sigue: true },
-            { de: 'Stimmt so, der Rest ist für Sie.', es: 'Está bien así, el resto es para usted.' , sigue: true }
+            { de: 'Das war ausgezeichnet, danke schön.', es: 'Estaba excelente, muchas gracias.' },
+            { de: 'Zahlen bitte, getrennt.', es: 'La cuenta, por favor, por separado.' },
+            { de: 'Stimmt so, der Rest ist für Sie.', es: 'Está bien así, el resto es para usted.' }
           ]
         },
         {
@@ -830,15 +830,15 @@ export const A21 = {
           es: 'Expresar preferencias y peticiones en el local',
           wendungen: [
             { de: 'Ist in dem Gericht Fleisch drin?', es: '¿Ese plato lleva carne?' },
-            { de: 'Entschuldigung, das habe ich nicht bestellt.', es: 'Perdone, esto no lo he pedido.' , sigue: true },
-            { de: 'Können wir draußen im Gastgarten sitzen?', es: '¿Podemos sentarnos fuera en la terraza?' , sigue: true },
+            { de: 'Entschuldigung, das habe ich nicht bestellt.', es: 'Perdone, esto no lo he pedido.' },
+            { de: 'Können wir draußen im Gastgarten sitzen?', es: '¿Podemos sentarnos fuera en la terraza?' },
             { de: 'Ist in dem Gericht eine Nuss drin?', es: '¿Ese plato lleva frutos secos?' },
-            { de: 'Können Sie mir etwas Würziges empfehlen?', es: '¿Me puede recomendar algo sabroso?' , sigue: true },
-            { de: 'Haben Sie einen Tisch für vier Personen?', es: '¿Tienen mesa para cuatro?' , sigue: true },
+            { de: 'Können Sie mir etwas Würziges empfehlen?', es: '¿Me puede recomendar algo sabroso?' },
+            { de: 'Haben Sie einen Tisch für vier Personen?', es: '¿Tienen mesa para cuatro?' },
             { de: 'Können wir draußen sitzen?', es: '¿Podemos sentarnos fuera?' },
-            { de: 'Können Sie das ohne Zwiebeln machen?', es: '¿Lo pueden hacer sin cebolla?' , sigue: true },
-            { de: 'Könnten wir bitte zahlen?', es: '¿Nos cobra, por favor?' , sigue: true },
-            { de: 'Das Essen hat wirklich gut geschmeckt.', es: 'La comida estaba buenísima.' , sigue: true }
+            { de: 'Können Sie das ohne Zwiebeln machen?', es: '¿Lo pueden hacer sin cebolla?' },
+            { de: 'Könnten wir bitte zahlen?', es: '¿Nos cobra, por favor?' },
+            { de: 'Das Essen hat wirklich gut geschmeckt.', es: 'La comida estaba buenísima.' }
           ]
         },
         {
@@ -846,15 +846,15 @@ export const A21 = {
           es: 'Tranquilizar y animar a alguien',
           wendungen: [
             { de: 'Keine Sorge, das schaffst du!', es: 'No te preocupes, ¡lo consigues!' },
-            { de: 'An deiner Stelle würde ich …', es: 'Yo en tu lugar …' , sigue: true },
-            { de: 'Das ist doch halb so schlimm.', es: 'No es para tanto.' , sigue: true },
+            { de: 'An deiner Stelle würde ich …', es: 'Yo en tu lugar …' },
+            { de: 'Das ist doch halb so schlimm.', es: 'No es para tanto.' },
             { de: 'Keine Sorge, das wird schon klappen.', es: 'No te preocupes, va a salir bien.' },
-            { de: 'An deiner Stelle würde ich einfach anrufen.', es: 'Yo en tu lugar simplemente llamaría.' , sigue: true },
-            { de: 'So schlimm ist das gar nicht.', es: 'No es tan grave.' , sigue: true },
+            { de: 'An deiner Stelle würde ich einfach anrufen.', es: 'Yo en tu lugar simplemente llamaría.' },
+            { de: 'So schlimm ist das gar nicht.', es: 'No es tan grave.' },
             { de: 'Mach dir keinen Stress, wir haben genug Zeit.', es: 'No te agobies, tenemos tiempo de sobra.' },
-            { de: 'Das kann jedem passieren, ehrlich.', es: 'Le puede pasar a cualquiera, de verdad.' , sigue: true },
-            { de: 'Probier es einfach, du kannst nichts verlieren.', es: 'Pruébalo, no tienes nada que perder.' , sigue: true },
-            { de: 'Nimm dir einfach etwas mehr Zeit dafür.', es: 'Tómate simplemente algo más de tiempo para eso.' , sigue: true }
+            { de: 'Das kann jedem passieren, ehrlich.', es: 'Le puede pasar a cualquiera, de verdad.' },
+            { de: 'Probier es einfach, du kannst nichts verlieren.', es: 'Pruébalo, no tienes nada que perder.' },
+            { de: 'Nimm dir einfach etwas mehr Zeit dafür.', es: 'Tómate simplemente algo más de tiempo para eso.' }
           ]
         },
         {
@@ -862,15 +862,15 @@ export const A21 = {
           es: 'Comparar hábitos de comida y regiones',
           wendungen: [
             { de: 'Bei uns isst man das ganz anders.', es: 'En mi país eso se come de otra forma.' },
-            { de: 'In Spanien gibt es das auch, aber mit Fisch.', es: 'En España también existe, pero con pescado.' , sigue: true },
-            { de: 'Das kenne ich von zu Hause nicht.', es: 'Eso no lo conozco de mi tierra.' , sigue: true },
+            { de: 'In Spanien gibt es das auch, aber mit Fisch.', es: 'En España también existe, pero con pescado.' },
+            { de: 'Das kenne ich von zu Hause nicht.', es: 'Eso no lo conozco de mi tierra.' },
             { de: 'Bei uns isst man viel später am Abend.', es: 'En mi tierra se cena mucho más tarde.' },
-            { de: 'So etwas gibt es bei uns auch, nur mit Fisch.', es: 'Algo así existe también en mi tierra, pero con pescado.' , sigue: true },
-            { de: 'Das kenne ich von zu Hause gar nicht.', es: 'Eso no lo conozco de casa.' , sigue: true },
+            { de: 'So etwas gibt es bei uns auch, nur mit Fisch.', es: 'Algo así existe también en mi tierra, pero con pescado.' },
+            { de: 'Das kenne ich von zu Hause gar nicht.', es: 'Eso no lo conozco de casa.' },
             { de: 'Bei uns ist das Brot ganz anders.', es: 'En mi tierra el pan es muy distinto.' },
-            { de: 'In meiner Heimat trinkt man kaum Bier.', es: 'En mi tierra casi no se bebe cerveza.' , sigue: true },
-            { de: 'Bei uns kocht man mit viel mehr Olivenöl.', es: 'En mi tierra se cocina con mucho más aceite de oliva.' , sigue: true },
-            { de: 'Die Portionen sind hier viel größer.', es: 'Aquí las raciones son mucho más grandes.' , sigue: true }
+            { de: 'In meiner Heimat trinkt man kaum Bier.', es: 'En mi tierra casi no se bebe cerveza.' },
+            { de: 'Bei uns kocht man mit viel mehr Olivenöl.', es: 'En mi tierra se cocina con mucho más aceite de oliva.' },
+            { de: 'Die Portionen sind hier viel größer.', es: 'Aquí las raciones son mucho más grandes.' }
           ]
         },
         {
@@ -878,15 +878,15 @@ export const A21 = {
           es: 'Expresar sorpresa y asombro',
           wendungen: [
             { de: 'Wirklich? Das wusste ich nicht!', es: '¿En serio? ¡No lo sabía!' },
-            { de: 'Das hätte ich nie gedacht!', es: '¡Nunca lo habría pensado!' , sigue: true },
-            { de: 'Echt jetzt?', es: '¿Va en serio?' , sigue: true },
+            { de: 'Das hätte ich nie gedacht!', es: '¡Nunca lo habría pensado!' },
+            { de: 'Echt jetzt?', es: '¿Va en serio?' },
             { de: 'Wirklich? Das wusste ich überhaupt nicht.', es: '¿En serio? No lo sabía en absoluto.' },
-            { de: 'Das glaube ich jetzt nicht!', es: '¡No me lo puedo creer!' , sigue: true },
-            { de: 'Echt jetzt? Das kann nicht sein.', es: '¿En serio? No puede ser.' , sigue: true },
+            { de: 'Das glaube ich jetzt nicht!', es: '¡No me lo puedo creer!' },
+            { de: 'Echt jetzt? Das kann nicht sein.', es: '¿En serio? No puede ser.' },
             { de: 'Damit hätte ich nie gerechnet.', es: 'Con eso no habría contado nunca.' },
-            { de: 'Was? Das gibt es doch nicht!', es: '¿Qué? ¡No puede ser!' , sigue: true },
-            { de: 'Das überrascht mich ehrlich gesagt.', es: 'Sinceramente, eso me sorprende.' , sigue: true },
-            { de: 'Das ist alles hausgemacht? Wirklich?', es: '¿Todo esto es casero? ¿En serio?' , sigue: true }
+            { de: 'Was? Das gibt es doch nicht!', es: '¿Qué? ¡No puede ser!' },
+            { de: 'Das überrascht mich ehrlich gesagt.', es: 'Sinceramente, eso me sorprende.' },
+            { de: 'Das ist alles hausgemacht? Wirklich?', es: '¿Todo esto es casero? ¿En serio?' }
           ]
         }
       ]
@@ -1201,15 +1201,15 @@ export const A21 = {
           es: 'Hacer una propuesta deportiva',
           wendungen: [
             { de: 'Machen wir nächste Woche beim Lauf mit?', es: '¿Nos apuntamos a la carrera de la semana que viene?' },
-            { de: 'Sollen wir uns vorher kurz aufwärmen?', es: '¿Calentamos un poco antes?' , sigue: true },
-            { de: 'Gehen wir morgen ins Hallenbad?', es: '¿Vamos mañana a la piscina cubierta?' , sigue: true },
+            { de: 'Sollen wir uns vorher kurz aufwärmen?', es: '¿Calentamos un poco antes?' },
+            { de: 'Gehen wir morgen ins Hallenbad?', es: '¿Vamos mañana a la piscina cubierta?' },
             { de: 'Sollen wir uns für den Lauf anmelden?', es: '¿Nos apuntamos a la carrera?' },
-            { de: 'Wie wäre es mit einem Ruhetag?', es: '¿Qué tal un día de descanso?' , sigue: true },
-            { de: 'Wie wäre es, wenn wir zusammen trainieren?', es: '¿Y si entrenamos juntos?' , sigue: true },
+            { de: 'Wie wäre es mit einem Ruhetag?', es: '¿Qué tal un día de descanso?' },
+            { de: 'Wie wäre es, wenn wir zusammen trainieren?', es: '¿Y si entrenamos juntos?' },
             { de: 'Ich schlage vor, wir treffen uns im Park.', es: 'Propongo que quedemos en el parque.' },
-            { de: 'Sollen wir es einfach mal ausprobieren?', es: '¿Y si simplemente lo probamos?' , sigue: true },
-            { de: 'Wollen wir statt Kino lieber schwimmen gehen?', es: '¿Vamos a nadar en vez de al cine?' , sigue: true },
-            { de: 'Wollen wir am Samstag joggen gehen?', es: '¿Salimos a correr el sábado?' , sigue: true }
+            { de: 'Sollen wir es einfach mal ausprobieren?', es: '¿Y si simplemente lo probamos?' },
+            { de: 'Wollen wir statt Kino lieber schwimmen gehen?', es: '¿Vamos a nadar en vez de al cine?' },
+            { de: 'Wollen wir am Samstag joggen gehen?', es: '¿Salimos a correr el sábado?' }
           ]
         },
         {
@@ -1217,15 +1217,15 @@ export const A21 = {
           es: 'Aceptar una propuesta',
           wendungen: [
             { de: 'Super Idee, machen wir!', es: '¡Buenísima idea, hagámoslo!' },
-            { de: 'Ja, gern. Wann treffen wir uns?', es: 'Sí, con gusto. ¿Cuándo quedamos?' , sigue: true },
-            { de: 'Da bin ich dabei!', es: '¡Me apunto!' , sigue: true },
+            { de: 'Ja, gern. Wann treffen wir uns?', es: 'Sí, con gusto. ¿Cuándo quedamos?' },
+            { de: 'Da bin ich dabei!', es: '¡Me apunto!' },
             { de: 'Super Idee, das machen wir!', es: '¡Buenísima idea, lo hacemos!' },
-            { de: 'Ja, gern. Wann und wo treffen wir uns?', es: 'Sí, con gusto. ¿Cuándo y dónde quedamos?' , sigue: true },
-            { de: 'Da bin ich auf jeden Fall dabei.', es: 'En eso me apunto seguro.' , sigue: true },
+            { de: 'Ja, gern. Wann und wo treffen wir uns?', es: 'Sí, con gusto. ¿Cuándo y dónde quedamos?' },
+            { de: 'Da bin ich auf jeden Fall dabei.', es: 'En eso me apunto seguro.' },
             { de: 'Klingt gut, ich sage zu.', es: 'Suena bien, digo que sí.' },
-            { de: 'Genau darauf hatte ich Lust.', es: 'Justo eso me apetecía.' , sigue: true },
-            { de: 'Warum eigentlich nicht? Machen wir.', es: '¿Y por qué no? Lo hacemos.' , sigue: true },
-            { de: 'Einverstanden, ich bin beim Wettkampf dabei.', es: 'De acuerdo, me apunto a la competición.' , sigue: true }
+            { de: 'Genau darauf hatte ich Lust.', es: 'Justo eso me apetecía.' },
+            { de: 'Warum eigentlich nicht? Machen wir.', es: '¿Y por qué no? Lo hacemos.' },
+            { de: 'Einverstanden, ich bin beim Wettkampf dabei.', es: 'De acuerdo, me apunto a la competición.' }
           ]
         },
         {
@@ -1233,15 +1233,15 @@ export const A21 = {
           es: 'Rechazar una propuesta de forma razonada',
           wendungen: [
             { de: 'Das ist nichts für mich.', es: 'Eso no es lo mío.' },
-            { de: 'Lieber ein anderes Mal.', es: 'Mejor en otra ocasión.' , sigue: true },
-            { de: 'Tut mir leid, da kann ich nicht.', es: 'Lo siento, ese día no puedo.' , sigue: true },
+            { de: 'Lieber ein anderes Mal.', es: 'Mejor en otra ocasión.' },
+            { de: 'Tut mir leid, da kann ich nicht.', es: 'Lo siento, ese día no puedo.' },
             { de: 'Das ist wirklich nichts für mich.', es: 'Eso de verdad no es para mí.' },
-            { de: 'Lieber ein anderes Mal, heute bin ich kaputt.', es: 'Mejor otro día, hoy estoy hecho polvo.' , sigue: true },
-            { de: 'Tut mir leid, an dem Tag geht es nicht.', es: 'Lo siento, ese día no me es posible.' , sigue: true },
+            { de: 'Lieber ein anderes Mal, heute bin ich kaputt.', es: 'Mejor otro día, hoy estoy hecho polvo.' },
+            { de: 'Tut mir leid, an dem Tag geht es nicht.', es: 'Lo siento, ese día no me es posible.' },
             { de: 'Das ist mir ehrlich gesagt zu anstrengend.', es: 'Sinceramente, eso me parece demasiado duro.' },
-            { de: 'Ich habe leider gerade kein Geld dafür.', es: 'Ahora mismo no tengo dinero para eso.' , sigue: true },
-            { de: 'Ohne mich, ich hasse Mannschaftssport.', es: 'Sin mí, odio los deportes de equipo.' , sigue: true },
-            { de: 'Ohne mich, ich bin noch verletzt.', es: 'Sin mí, todavía estoy lesionado.' , sigue: true }
+            { de: 'Ich habe leider gerade kein Geld dafür.', es: 'Ahora mismo no tengo dinero para eso.' },
+            { de: 'Ohne mich, ich hasse Mannschaftssport.', es: 'Sin mí, odio los deportes de equipo.' },
+            { de: 'Ohne mich, ich bin noch verletzt.', es: 'Sin mí, todavía estoy lesionado.' }
           ]
         },
         {
@@ -1249,15 +1249,15 @@ export const A21 = {
           es: 'Valorar deportes y actividades',
           wendungen: [
             { de: 'Joggen ist super, aber das Fitnessstudio finde ich langweilig.', es: 'Correr es genial, pero el gimnasio me parece aburrido.' },
-            { de: 'Das ist mir zu anstrengend.', es: 'Eso es demasiado agotador para mí.' , sigue: true },
-            { de: 'Ich finde das ziemlich gesund.', es: 'Me parece bastante sano.' , sigue: true },
+            { de: 'Das ist mir zu anstrengend.', es: 'Eso es demasiado agotador para mí.' },
+            { de: 'Ich finde das ziemlich gesund.', es: 'Me parece bastante sano.' },
             { de: 'Joggen finde ich auf Dauer langweilig.', es: 'Correr a la larga me parece aburrido.' },
-            { de: 'Das Fitnessstudio ist mir zu teuer.', es: 'El gimnasio me sale demasiado caro.' , sigue: true },
-            { de: 'Schwimmen finde ich richtig gesund.', es: 'Nadar me parece muy sano.' , sigue: true },
+            { de: 'Das Fitnessstudio ist mir zu teuer.', es: 'El gimnasio me sale demasiado caro.' },
+            { de: 'Schwimmen finde ich richtig gesund.', es: 'Nadar me parece muy sano.' },
             { de: 'Das Training war heute zu leicht.', es: 'El entrenamiento de hoy ha sido demasiado fácil.' },
-            { de: 'Ich halte Yoga für unterschätzt.', es: 'Creo que el yoga está infravalorado.' , sigue: true },
-            { de: 'Die Halle ist zu klein für so viele Leute.', es: 'El pabellón es demasiado pequeño para tanta gente.' , sigue: true },
-            { de: 'Ich finde den Beitrag ziemlich fair.', es: 'La cuota me parece bastante justa.' , sigue: true }
+            { de: 'Ich halte Yoga für unterschätzt.', es: 'Creo que el yoga está infravalorado.' },
+            { de: 'Die Halle ist zu klein für so viele Leute.', es: 'El pabellón es demasiado pequeño para tanta gente.' },
+            { de: 'Ich finde den Beitrag ziemlich fair.', es: 'La cuota me parece bastante justa.' }
           ]
         },
         {
@@ -1265,15 +1265,15 @@ export const A21 = {
           es: 'Expresar preferencias deportivas',
           wendungen: [
             { de: 'Ich mag Mannschaftssport lieber als Einzelsport.', es: 'Me gusta más el deporte de equipo que el individual.' },
-            { de: 'Am liebsten trainiere ich früh am Morgen.', es: 'Lo que más me gusta es entrenar por la mañana temprano.' , sigue: true },
-            { de: 'Im Team trainiere ich lieber als allein.', es: 'Prefiero entrenar en equipo que solo.' , sigue: true },
+            { de: 'Am liebsten trainiere ich früh am Morgen.', es: 'Lo que más me gusta es entrenar por la mañana temprano.' },
+            { de: 'Im Team trainiere ich lieber als allein.', es: 'Prefiero entrenar en equipo que solo.' },
             { de: 'Mir ist das Training in der Früh am liebsten.', es: 'Lo que más me gusta es el entrenamiento de primera hora.' },
-            { de: 'Im Winter laufe ich lieber drinnen.', es: 'En invierno prefiero correr dentro.' , sigue: true },
-            { de: 'Mir gefällt Radfahren besser als Laufen.', es: 'Me gusta más ir en bici que correr.' , sigue: true },
+            { de: 'Im Winter laufe ich lieber drinnen.', es: 'En invierno prefiero correr dentro.' },
+            { de: 'Mir gefällt Radfahren besser als Laufen.', es: 'Me gusta más ir en bici que correr.' },
             { de: 'Ich trainiere am liebsten allein.', es: 'Prefiero entrenar solo.' },
-            { de: 'Klettern finde ich spannender als Fußball.', es: 'Escalar me parece más emocionante que el fútbol.' , sigue: true },
-            { de: 'Ich bewege mich lieber in der Natur.', es: 'Prefiero moverme en la naturaleza.' , sigue: true },
-            { de: 'Ohne Musik kann ich nicht trainieren.', es: 'Sin música no puedo entrenar.' , sigue: true }
+            { de: 'Klettern finde ich spannender als Fußball.', es: 'Escalar me parece más emocionante que el fútbol.' },
+            { de: 'Ich bewege mich lieber in der Natur.', es: 'Prefiero moverme en la naturaleza.' },
+            { de: 'Ohne Musik kann ich nicht trainieren.', es: 'Sin música no puedo entrenar.' }
           ]
         },
         {
@@ -1281,15 +1281,15 @@ export const A21 = {
           es: 'Hablar de hábitos de entrenamiento',
           wendungen: [
             { de: 'Gehst du lieber laufen oder ins Fitnessstudio?', es: '¿Prefieres salir a correr o ir al gimnasio?' },
-            { de: 'Wo trainierst du?', es: '¿Dónde entrenas?' , sigue: true },
-            { de: 'Machst du regelmäßig Sport?', es: '¿Practicas deporte con regularidad?' , sigue: true },
+            { de: 'Wo trainierst du?', es: '¿Dónde entrenas?' },
+            { de: 'Machst du regelmäßig Sport?', es: '¿Practicas deporte con regularidad?' },
             { de: 'Wo trainierst du im Winter?', es: '¿Dónde entrenas en invierno?' },
-            { de: 'Hast du dich schon einmal verletzt?', es: '¿Te has lesionado alguna vez?' , sigue: true },
-            { de: 'Wie lange trainierst du am Stück?', es: '¿Cuánto entrenas seguido?' , sigue: true },
+            { de: 'Hast du dich schon einmal verletzt?', es: '¿Te has lesionado alguna vez?' },
+            { de: 'Wie lange trainierst du am Stück?', es: '¿Cuánto entrenas seguido?' },
             { de: 'Achtest du auch auf die Ernährung?', es: '¿Cuidas también la alimentación?' },
-            { de: 'Gehst du nach dem Training duschen?', es: '¿Te duchas después de entrenar?' , sigue: true },
-            { de: 'Seit wann bist du in diesem Verein?', es: '¿Desde cuándo estás en este club?' , sigue: true },
-            { de: 'Seit wann läufst du regelmäßig?', es: '¿Desde cuándo corres con regularidad?' , sigue: true }
+            { de: 'Gehst du nach dem Training duschen?', es: '¿Te duchas después de entrenar?' },
+            { de: 'Seit wann bist du in diesem Verein?', es: '¿Desde cuándo estás en este club?' },
+            { de: 'Seit wann läufst du regelmäßig?', es: '¿Desde cuándo corres con regularidad?' }
           ]
         },
         {
@@ -1297,15 +1297,15 @@ export const A21 = {
           es: 'Hablar de competiciones y resultados',
           wendungen: [
             { de: 'Das Spiel gestern war eine Katastrophe.', es: 'El partido de ayer fue un desastre.' },
-            { de: 'Das Spiel war absolut fair.', es: 'El partido fue absolutamente deportivo.' , sigue: true },
-            { de: 'Der Erfolg kommt nicht von allein.', es: 'El éxito no llega solo.' , sigue: true },
+            { de: 'Das Spiel war absolut fair.', es: 'El partido fue absolutamente deportivo.' },
+            { de: 'Der Erfolg kommt nicht von allein.', es: 'El éxito no llega solo.' },
             { de: 'Wie war das Spiel am Wochenende?', es: '¿Qué tal el partido del fin de semana?' },
-            { de: 'Wie viele Zuschauer waren im Stadion?', es: '¿Cuántos espectadores había en el estadio?' , sigue: true },
-            { de: 'Wie war der Start beim Marathon?', es: '¿Qué tal la salida del maratón?' , sigue: true },
+            { de: 'Wie viele Zuschauer waren im Stadion?', es: '¿Cuántos espectadores había en el estadio?' },
+            { de: 'Wie war der Start beim Marathon?', es: '¿Qué tal la salida del maratón?' },
             { de: 'Habt ihr in der Halbzeit geführt?', es: '¿Ibais ganando en el descanso?' },
-            { de: 'Wie lange bist du schon verletzt?', es: '¿Cuánto llevas lesionado?' , sigue: true },
-            { de: 'Läufst du lieber morgens oder abends?', es: '¿Prefieres correr por la mañana o por la tarde?' , sigue: true },
-            { de: 'Wie oft trainierst du in der Woche?', es: '¿Cuántas veces entrenas a la semana?' , sigue: true }
+            { de: 'Wie lange bist du schon verletzt?', es: '¿Cuánto llevas lesionado?' },
+            { de: 'Läufst du lieber morgens oder abends?', es: '¿Prefieres correr por la mañana o por la tarde?' },
+            { de: 'Wie oft trainierst du in der Woche?', es: '¿Cuántas veces entrenas a la semana?' }
           ]
         },
         {
@@ -1313,15 +1313,15 @@ export const A21 = {
           es: 'Hablar de forma física y motivación',
           wendungen: [
             { de: 'Heute fehlt mir einfach die Kraft.', es: 'Hoy simplemente no tengo fuerzas.' },
-            { de: 'Dafür fehlt mir gerade die Energie.', es: 'Ahora mismo no tengo energía para eso.' , sigue: true },
-            { de: 'Diese Übung ist nur Kraft, keine Technik.', es: 'Este ejercicio es solo fuerza, nada de técnica.' , sigue: true },
+            { de: 'Dafür fehlt mir gerade die Energie.', es: 'Ahora mismo no tengo energía para eso.' },
+            { de: 'Diese Übung ist nur Kraft, keine Technik.', es: 'Este ejercicio es solo fuerza, nada de técnica.' },
             { de: 'Der Kurs hat sich wirklich gelohnt.', es: 'El curso ha merecido mucho la pena.' },
-            { de: 'Beweglichkeit ist mir wichtiger als Kraft.', es: 'La flexibilidad me importa más que la fuerza.' , sigue: true },
-            { de: 'Am liebsten trainiere ich ohne Gegner.', es: 'Lo que más me gusta es entrenar sin rival.' , sigue: true },
+            { de: 'Beweglichkeit ist mir wichtiger als Kraft.', es: 'La flexibilidad me importa más que la fuerza.' },
+            { de: 'Am liebsten trainiere ich ohne Gegner.', es: 'Lo que más me gusta es entrenar sin rival.' },
             { de: 'Hast du heute Muskelkater?', es: '¿Tienes agujetas hoy?' },
-            { de: 'Was machst du gegen den inneren Schweinehund?', es: '¿Qué haces contra la pereza?' , sigue: true },
-            { de: 'Tut dir nach dem Training oft etwas weh?', es: '¿Te duele algo después de entrenar?' , sigue: true },
-            { de: 'Das war die beste Entscheidung seit Langem.', es: 'Fue la mejor decisión en mucho tiempo.' , sigue: true }
+            { de: 'Was machst du gegen den inneren Schweinehund?', es: '¿Qué haces contra la pereza?' },
+            { de: 'Tut dir nach dem Training oft etwas weh?', es: '¿Te duele algo después de entrenar?' },
+            { de: 'Das war die beste Entscheidung seit Langem.', es: 'Fue la mejor decisión en mucho tiempo.' }
           ]
         }
       ]
@@ -1633,15 +1633,15 @@ export const A21 = {
           es: 'Presentarse y presentar a nuevos compañeros formalmente',
           wendungen: [
             { de: 'Darf ich mich vorstellen? Mein Name ist …', es: '¿Me permite presentarme? Mi nombre es …' },
-            { de: 'Das ist Frau Berger, unsere neue Kollegin.', es: 'Esta es la Sra. Berger, nuestra nueva compañera.' , sigue: true },
-            { de: 'Willkommen im Team! Ich bin Álvaro.', es: '¡Bienvenido al equipo! Soy Álvaro.' , sigue: true },
+            { de: 'Das ist Frau Berger, unsere neue Kollegin.', es: 'Esta es la Sra. Berger, nuestra nueva compañera.' },
+            { de: 'Willkommen im Team! Ich bin Álvaro.', es: '¡Bienvenido al equipo! Soy Álvaro.' },
             { de: 'Ich bin für die Buchhaltung zuständig.', es: 'Yo me encargo de la contabilidad.' },
-            { de: 'Darf ich Ihnen Frau Berger vorstellen?', es: '¿Me permite presentarle a la señora Berger?' , sigue: true },
-            { de: 'Ich bin die neue Kollegin aus dem Büro nebenan.', es: 'Soy la compañera nueva del despacho de al lado.' , sigue: true },
+            { de: 'Darf ich Ihnen Frau Berger vorstellen?', es: '¿Me permite presentarle a la señora Berger?' },
+            { de: 'Ich bin die neue Kollegin aus dem Büro nebenan.', es: 'Soy la compañera nueva del despacho de al lado.' },
             { de: 'Ich fange heute bei Ihnen an.', es: 'Hoy empiezo con ustedes.' },
-            { de: 'Wir sehen uns bei der Besprechung.', es: 'Nos vemos en la reunión.' , sigue: true },
-            { de: 'Darf ich mich kurz vorstellen? Mein Name ist Pascual.', es: '¿Me presento brevemente? Me llamo Pascual.' , sigue: true },
-            { de: 'Die Buchhaltung gehört zu meinem Bereich.', es: 'La contabilidad entra en mi área.' , sigue: true }
+            { de: 'Wir sehen uns bei der Besprechung.', es: 'Nos vemos en la reunión.' },
+            { de: 'Darf ich mich kurz vorstellen? Mein Name ist Pascual.', es: '¿Me presento brevemente? Me llamo Pascual.' },
+            { de: 'Die Buchhaltung gehört zu meinem Bereich.', es: 'La contabilidad entra en mi área.' }
           ]
         },
         {
@@ -1649,15 +1649,15 @@ export const A21 = {
           es: 'Aclarar competencias y puestos en la empresa',
           wendungen: [
             { de: 'Ich stelle Ihnen Frau Berger vor, sie ist neu bei uns.', es: 'Le presento a la señora Berger, es nueva con nosotros.' },
-            { de: 'Heute ist mein erster Arbeitstag hier.', es: 'Hoy es mi primer día de trabajo aquí.' , sigue: true },
-            { de: 'Freut mich, Sie persönlich kennenzulernen.', es: 'Me alegra conocerle en persona.' , sigue: true },
+            { de: 'Heute ist mein erster Arbeitstag hier.', es: 'Hoy es mi primer día de trabajo aquí.' },
+            { de: 'Freut mich, Sie persönlich kennenzulernen.', es: 'Me alegra conocerle en persona.' },
             { de: 'Ich komme aus der Abteilung nebenan.', es: 'Vengo del departamento de al lado.' },
-            { de: 'Wer ist hier mein Ansprechpartner?', es: '¿Quién es aquí mi persona de contacto?' , sigue: true },
-            { de: 'Wir sehen uns bei der Besprechung um zehn.', es: 'Nos vemos en la reunión de las diez.' , sigue: true },
+            { de: 'Wer ist hier mein Ansprechpartner?', es: '¿Quién es aquí mi persona de contacto?' },
+            { de: 'Wir sehen uns bei der Besprechung um zehn.', es: 'Nos vemos en la reunión de las diez.' },
             { de: 'Ich bin der neue Praktikant in Ihrer Abteilung.', es: 'Soy el nuevo becario de su departamento.' },
-            { de: 'Das Projekt fällt in meine Zuständigkeit.', es: 'El proyecto entra en mi ámbito.' , sigue: true },
-            { de: 'Darf ich Ihnen unseren neuen Kollegen vorstellen?', es: '¿Le presento a nuestro nuevo compañero?' , sigue: true },
-            { de: 'Das ist Frau Wolf, unsere Abteilungsleiterin.', es: 'Esta es la señora Wolf, la jefa de departamento.' , sigue: true }
+            { de: 'Das Projekt fällt in meine Zuständigkeit.', es: 'El proyecto entra en mi ámbito.' },
+            { de: 'Darf ich Ihnen unseren neuen Kollegen vorstellen?', es: '¿Le presento a nuestro nuevo compañero?' },
+            { de: 'Das ist Frau Wolf, unsere Abteilungsleiterin.', es: 'Esta es la señora Wolf, la jefa de departamento.' }
           ]
         },
         {
@@ -1665,15 +1665,15 @@ export const A21 = {
           es: 'No entender algo y pedir aclaraciones',
           wendungen: [
             { de: 'Entschuldigung, da bin ich nicht mitgekommen.', es: 'Perdone, ahí me he perdido.' },
-            { de: 'Können Sie das bitte noch einmal erklären?', es: '¿Me lo puede explicar otra vez?' , sigue: true },
-            { de: 'Was heißt das für meine Arbeit?', es: '¿Y eso qué significa para mi trabajo?' , sigue: true },
+            { de: 'Können Sie das bitte noch einmal erklären?', es: '¿Me lo puede explicar otra vez?' },
+            { de: 'Was heißt das für meine Arbeit?', es: '¿Y eso qué significa para mi trabajo?' },
             { de: 'Habe ich das richtig verstanden: …?', es: '¿Lo he entendido bien: …?' },
-            { de: 'Das habe ich nicht ganz verstanden.', es: 'Eso no lo he entendido del todo.' , sigue: true },
-            { de: 'Könnten Sie den letzten Punkt noch einmal sagen?', es: '¿Podría repetir el último punto?' , sigue: true },
+            { de: 'Das habe ich nicht ganz verstanden.', es: 'Eso no lo he entendido del todo.' },
+            { de: 'Könnten Sie den letzten Punkt noch einmal sagen?', es: '¿Podría repetir el último punto?' },
             { de: 'Wie meinen Sie das?', es: '¿Cómo lo dice?' },
-            { de: 'Habe ich das richtig verstanden?', es: '¿Lo he entendido bien?' , sigue: true },
-            { de: 'Entschuldigung, das habe ich nicht ganz mitbekommen.', es: 'Perdone, eso no lo he captado del todo.' , sigue: true },
-            { de: 'Habe ich das richtig verstanden: bis Freitag?', es: '¿Lo he entendido bien: hasta el viernes?' , sigue: true }
+            { de: 'Habe ich das richtig verstanden?', es: '¿Lo he entendido bien?' },
+            { de: 'Entschuldigung, das habe ich nicht ganz mitbekommen.', es: 'Perdone, eso no lo he captado del todo.' },
+            { de: 'Habe ich das richtig verstanden: bis Freitag?', es: '¿Lo he entendido bien: hasta el viernes?' }
           ]
         },
         {
@@ -1681,15 +1681,15 @@ export const A21 = {
           es: 'Confirmar instrucciones de trabajo y detalles',
           wendungen: [
             { de: 'Was bedeutet diese Abkürzung?', es: '¿Qué significa esta abreviatura?' },
-            { de: 'Wie meinen Sie das genau?', es: '¿Cómo lo dice exactamente?' , sigue: true },
-            { de: 'Könnten Sie mir das an einem Beispiel zeigen?', es: '¿Me lo podría enseñar con un ejemplo?' , sigue: true },
+            { de: 'Wie meinen Sie das genau?', es: '¿Cómo lo dice exactamente?' },
+            { de: 'Könnten Sie mir das an einem Beispiel zeigen?', es: '¿Me lo podría enseñar con un ejemplo?' },
             { de: 'Ich bin mir nicht sicher, ob das stimmt.', es: 'No estoy seguro de que eso sea correcto.' },
-            { de: 'Zu wem gehe ich, wenn ich nicht weiterweiß?', es: '¿A quién acudo si me atasco?' , sigue: true },
-            { de: 'Darf ich noch einmal nachfragen?', es: '¿Puedo preguntar otra vez?' , sigue: true },
+            { de: 'Zu wem gehe ich, wenn ich nicht weiterweiß?', es: '¿A quién acudo si me atasco?' },
+            { de: 'Darf ich noch einmal nachfragen?', es: '¿Puedo preguntar otra vez?' },
             { de: 'War das eine feste Absprache oder nur eine Idee?', es: '¿Eso era un acuerdo firme o solo una idea?' },
-            { de: 'Wie lange soll die Präsentation dauern?', es: '¿Cuánto debe durar la presentación?' , sigue: true },
-            { de: 'Gilt das Homeoffice auch in der Probezeit?', es: '¿El teletrabajo vale también en el periodo de prueba?' , sigue: true },
-            { de: 'Sprechen Sie bitte etwas lauter?', es: '¿Puede hablar un poco más alto?' , sigue: true }
+            { de: 'Wie lange soll die Präsentation dauern?', es: '¿Cuánto debe durar la presentación?' },
+            { de: 'Gilt das Homeoffice auch in der Probezeit?', es: '¿El teletrabajo vale también en el periodo de prueba?' },
+            { de: 'Sprechen Sie bitte etwas lauter?', es: '¿Puede hablar un poco más alto?' }
           ]
         },
         {
@@ -1697,15 +1697,15 @@ export const A21 = {
           es: 'Hablar de tareas y procesos de trabajo',
           wendungen: [
             { de: 'Wer übernimmt das Protokoll heute?', es: '¿Quién se encarga hoy del acta?' },
-            { de: 'Wann ist der Abgabetermin für den Bericht?', es: '¿Cuándo es la fecha de entrega del informe?' , sigue: true },
-            { de: 'Ich arbeite mich gerade noch ein.', es: 'Todavía me estoy familiarizando con el trabajo.' , sigue: true },
+            { de: 'Wann ist der Abgabetermin für den Bericht?', es: '¿Cuándo es la fecha de entrega del informe?' },
+            { de: 'Ich arbeite mich gerade noch ein.', es: 'Todavía me estoy familiarizando con el trabajo.' },
             { de: 'Diese Aufgabe schaffe ich bis Mittwoch.', es: 'Esta tarea la saco para el miércoles.' },
-            { de: 'Unter Zeitdruck mache ich mehr Fehler.', es: 'Bajo presión de tiempo cometo más errores.' , sigue: true },
-            { de: 'Wie läuft das hier normalerweise ab?', es: '¿Cómo funciona esto normalmente aquí?' , sigue: true },
+            { de: 'Unter Zeitdruck mache ich mehr Fehler.', es: 'Bajo presión de tiempo cometo más errores.' },
+            { de: 'Wie läuft das hier normalerweise ab?', es: '¿Cómo funciona esto normalmente aquí?' },
             { de: 'Kann ich das an jemanden weitergeben?', es: '¿Puedo pasarle esto a alguien?' },
-            { de: 'Die Zusammenarbeit mit dem Team klappt gut.', es: 'La colaboración con el equipo funciona bien.' , sigue: true },
-            { de: 'Welche Vorschriften muss ich hier beachten?', es: '¿Qué normas tengo que respetar aquí?' , sigue: true },
-            { de: 'Ich hätte gern ehrliches Feedback zu meiner Arbeit.', es: 'Me gustaría un feedback sincero sobre mi trabajo.' , sigue: true }
+            { de: 'Die Zusammenarbeit mit dem Team klappt gut.', es: 'La colaboración con el equipo funciona bien.' },
+            { de: 'Welche Vorschriften muss ich hier beachten?', es: '¿Qué normas tengo que respetar aquí?' },
+            { de: 'Ich hätte gern ehrliches Feedback zu meiner Arbeit.', es: 'Me gustaría un feedback sincero sobre mi trabajo.' }
           ]
         },
         {
@@ -1713,15 +1713,15 @@ export const A21 = {
           es: 'Dar información en la entrevista de trabajo',
           wendungen: [
             { de: 'Ich möchte mich auf die Stelle bewerben.', es: 'Quiero presentar mi candidatura para el puesto.' },
-            { de: 'Welche Unterlagen brauchen Sie von mir?', es: '¿Qué documentación necesita de mí?' , sigue: true },
-            { de: 'Ich habe fünf Jahre Erfahrung in der Branche.', es: 'Tengo cinco años de experiencia en el sector.' , sigue: true },
+            { de: 'Welche Unterlagen brauchen Sie von mir?', es: '¿Qué documentación necesita de mí?' },
+            { de: 'Ich habe fünf Jahre Erfahrung in der Branche.', es: 'Tengo cinco años de experiencia en el sector.' },
             { de: 'Wann könnten Sie bei uns anfangen?', es: '¿Cuándo podría empezar con nosotros?' },
-            { de: 'Wie sind die Arbeitszeiten geregelt?', es: '¿Cómo está regulado el horario?' , sigue: true },
-            { de: 'Gibt es eine Probezeit?', es: '¿Hay periodo de prueba?' , sigue: true },
+            { de: 'Wie sind die Arbeitszeiten geregelt?', es: '¿Cómo está regulado el horario?' },
+            { de: 'Gibt es eine Probezeit?', es: '¿Hay periodo de prueba?' },
             { de: 'Zahlt die Firma auch Fortbildungen?', es: '¿La empresa paga también formación continua?' },
-            { de: 'Mein Deutsch ist noch nicht perfekt.', es: 'Mi alemán todavía no es perfecto.' , sigue: true },
-            { de: 'Wann bekomme ich eine Rückmeldung?', es: '¿Cuándo tendré una respuesta?' , sigue: true },
-            { de: 'Vielen Dank für das Gespräch.', es: 'Muchas gracias por la entrevista.' , sigue: true }
+            { de: 'Mein Deutsch ist noch nicht perfekt.', es: 'Mi alemán todavía no es perfecto.' },
+            { de: 'Wann bekomme ich eine Rückmeldung?', es: '¿Cuándo tendré una respuesta?' },
+            { de: 'Vielen Dank für das Gespräch.', es: 'Muchas gracias por la entrevista.' }
           ]
         },
         {
@@ -1729,15 +1729,15 @@ export const A21 = {
           es: 'Preguntar por requisitos y condiciones',
           wendungen: [
             { de: 'Welche Qualifikationen erwarten Sie?', es: '¿Qué cualificaciones esperan?' },
-            { de: 'Zahlt der Arbeitgeber auch Fortbildungen?', es: '¿El empleador paga también formación?' , sigue: true },
-            { de: 'Wie ist das Betriebsklima bei Ihnen?', es: '¿Cómo es el ambiente laboral con ustedes?' , sigue: true },
+            { de: 'Zahlt der Arbeitgeber auch Fortbildungen?', es: '¿El empleador paga también formación?' },
+            { de: 'Wie ist das Betriebsklima bei Ihnen?', es: '¿Cómo es el ambiente laboral con ustedes?' },
             { de: 'Ich bin zeitlich sehr flexibel.', es: 'Tengo mucha flexibilidad horaria.' },
-            { de: 'Warum möchten Sie gerade bei uns arbeiten?', es: '¿Por qué quiere trabajar precisamente con nosotros?' , sigue: true },
-            { de: 'Welche Erfahrung bringen Sie mit?', es: '¿Qué experiencia aporta?' , sigue: true },
+            { de: 'Warum möchten Sie gerade bei uns arbeiten?', es: '¿Por qué quiere trabajar precisamente con nosotros?' },
+            { de: 'Welche Erfahrung bringen Sie mit?', es: '¿Qué experiencia aporta?' },
             { de: 'Was sind Ihre größten Schwächen?', es: '¿Cuáles son sus mayores defectos?' },
-            { de: 'Wann könnten Sie anfangen?', es: '¿Cuándo podría empezar?' , sigue: true },
-            { de: 'Haben Sie noch Fragen an uns?', es: '¿Tiene alguna pregunta para nosotros?' , sigue: true },
-            { de: 'Wer übernimmt das Projekt nach dem Sommer?', es: '¿Quién se hace cargo del proyecto después del verano?' , sigue: true }
+            { de: 'Wann könnten Sie anfangen?', es: '¿Cuándo podría empezar?' },
+            { de: 'Haben Sie noch Fragen an uns?', es: '¿Tiene alguna pregunta para nosotros?' },
+            { de: 'Wer übernimmt das Projekt nach dem Sommer?', es: '¿Quién se hace cargo del proyecto después del verano?' }
           ]
         },
         {
@@ -1745,15 +1745,15 @@ export const A21 = {
           es: 'Plantear problemas y desacuerdos laborales',
           wendungen: [
             { de: 'Ich habe einen Fehler gemacht, es tut mir leid.', es: 'He cometido un error, lo siento.' },
-            { de: 'Ich schaffe die Arbeit in der Zeit nicht.', es: 'No saco el trabajo en ese tiempo.' , sigue: true },
-            { de: 'Können wir kurz unter vier Augen sprechen?', es: '¿Podemos hablar un momento a solas?' , sigue: true },
+            { de: 'Ich schaffe die Arbeit in der Zeit nicht.', es: 'No saco el trabajo en ese tiempo.' },
+            { de: 'Können wir kurz unter vier Augen sprechen?', es: '¿Podemos hablar un momento a solas?' },
             { de: 'Mit dem neuen Ablauf komme ich nicht zurecht.', es: 'Con el nuevo proceso no me apaño.' },
-            { de: 'Ich fühle mich im Team nicht wohl.', es: 'No me siento a gusto en el equipo.' , sigue: true },
-            { de: 'Die Vorschriften werden hier oft ignoriert.', es: 'Aquí las normas se ignoran a menudo.' , sigue: true },
+            { de: 'Ich fühle mich im Team nicht wohl.', es: 'No me siento a gusto en el equipo.' },
+            { de: 'Die Vorschriften werden hier oft ignoriert.', es: 'Aquí las normas se ignoran a menudo.' },
             { de: 'Ich mache seit Wochen zu viele Überstunden.', es: 'Llevo semanas haciendo demasiadas horas extra.' },
-            { de: 'Könnten wir meinen Vertrag besprechen?', es: '¿Podríamos hablar de mi contrato?' , sigue: true },
-            { de: 'Der Kunde war am Telefon sehr unfreundlich.', es: 'El cliente ha estado muy antipático por teléfono.' , sigue: true },
-            { de: 'Ich möchte zum Monatsende kündigen.', es: 'Quiero dimitir a final de mes.' , sigue: true }
+            { de: 'Könnten wir meinen Vertrag besprechen?', es: '¿Podríamos hablar de mi contrato?' },
+            { de: 'Der Kunde war am Telefon sehr unfreundlich.', es: 'El cliente ha estado muy antipático por teléfono.' },
+            { de: 'Ich möchte zum Monatsende kündigen.', es: 'Quiero dimitir a final de mes.' }
           ]
         }
       ]
@@ -2056,15 +2056,15 @@ export const A21 = {
           es: 'Aclarar cuestiones organizativas en la escuela',
           wendungen: [
             { de: 'Wann bekommen wir das Zeugnis?', es: '¿Cuándo nos dan las notas?' },
-            { de: 'Mein Sohn war krank.', es: 'Mi hijo ha estado enfermo.' , sigue: true },
-            { de: 'Wie läuft es in der Klasse?', es: '¿Qué tal va en clase?' , sigue: true },
+            { de: 'Mein Sohn war krank.', es: 'Mi hijo ha estado enfermo.' },
+            { de: 'Wie läuft es in der Klasse?', es: '¿Qué tal va en clase?' },
             { de: 'Gibt es Hausaufgaben über die Ferien?', es: '¿Hay deberes para las vacaciones?' },
-            { de: 'Wann bekommen die Kinder das Zeugnis?', es: '¿Cuándo reciben los niños las notas?' , sigue: true },
-            { de: 'Mein Sohn war gestern krank.', es: 'Mi hijo estuvo ayer enfermo.' , sigue: true },
+            { de: 'Wann bekommen die Kinder das Zeugnis?', es: '¿Cuándo reciben los niños las notas?' },
+            { de: 'Mein Sohn war gestern krank.', es: 'Mi hijo estuvo ayer enfermo.' },
             { de: 'Wie kommt mein Kind in der Klasse zurecht?', es: '¿Cómo se desenvuelve mi hijo en clase?' },
-            { de: 'Bekommen die Kinder Aufgaben für die Ferien?', es: '¿Les mandan tareas para las vacaciones?' , sigue: true },
-            { de: 'Braucht mein Kind Nachhilfe?', es: '¿Mi hijo necesita clases particulares?' , sigue: true },
-            { de: 'Wann ist der nächste Elternsprechtag?', es: '¿Cuándo es el próximo día de tutorías?' , sigue: true }
+            { de: 'Bekommen die Kinder Aufgaben für die Ferien?', es: '¿Les mandan tareas para las vacaciones?' },
+            { de: 'Braucht mein Kind Nachhilfe?', es: '¿Mi hijo necesita clases particulares?' },
+            { de: 'Wann ist der nächste Elternsprechtag?', es: '¿Cuándo es el próximo día de tutorías?' }
           ]
         },
         {
@@ -2072,15 +2072,15 @@ export const A21 = {
           es: 'Hablar de la vida escolar y gastos',
           wendungen: [
             { de: 'Welche Schulbücher müssen wir kaufen?', es: '¿Qué libros de texto tenemos que comprar?' },
-            { de: 'Wie viel kostet die Nachmittagsbetreuung?', es: '¿Cuánto cuesta la atención de tarde?' , sigue: true },
-            { de: 'Darf mein Kind allein nach Hause gehen?', es: '¿Puede mi hijo irse solo a casa?' , sigue: true },
+            { de: 'Wie viel kostet die Nachmittagsbetreuung?', es: '¿Cuánto cuesta la atención de tarde?' },
+            { de: 'Darf mein Kind allein nach Hause gehen?', es: '¿Puede mi hijo irse solo a casa?' },
             { de: 'Ist die Schularbeit schon korrigiert?', es: '¿Ya está corregido el examen?' },
-            { de: 'Was kostet die Klassenfahrt insgesamt?', es: '¿Cuánto cuesta en total el viaje de clase?' , sigue: true },
-            { de: 'Wann ist die Einschreibung für nächstes Jahr?', es: '¿Cuándo es la matrícula para el año que viene?' , sigue: true },
+            { de: 'Was kostet die Klassenfahrt insgesamt?', es: '¿Cuánto cuesta en total el viaje de clase?' },
+            { de: 'Wann ist die Einschreibung für nächstes Jahr?', es: '¿Cuándo es la matrícula para el año que viene?' },
             { de: 'Gibt es an dieser Schule Schulgeld?', es: '¿En este colegio hay que pagar tasas?' },
-            { de: 'Wie läuft es bei meinem Sohn im Unterricht?', es: '¿Cómo le va a mi hijo en clase?' , sigue: true },
-            { de: 'Wann sind die nächsten Schularbeiten?', es: '¿Cuándo son los próximos exámenes?' , sigue: true },
-            { de: 'Braucht sie zusätzliche Unterstützung?', es: '¿Necesita apoyo adicional?' , sigue: true }
+            { de: 'Wie läuft es bei meinem Sohn im Unterricht?', es: '¿Cómo le va a mi hijo en clase?' },
+            { de: 'Wann sind die nächsten Schularbeiten?', es: '¿Cuándo son los próximos exámenes?' },
+            { de: 'Braucht sie zusätzliche Unterstützung?', es: '¿Necesita apoyo adicional?' }
           ]
         },
         {
@@ -2088,15 +2088,15 @@ export const A21 = {
           es: 'Hablar con el profesor sobre dificultades de aprendizaje',
           wendungen: [
             { de: 'Mein Kind hat Schwierigkeiten mit der Sprache.', es: 'Mi hijo tiene dificultades con el idioma.' },
-            { de: 'Er kann sich in der Klasse schlecht konzentrieren.', es: 'En clase le cuesta concentrarse.' , sigue: true },
-            { de: 'Wie kann ich zu Hause besser helfen?', es: '¿Cómo puedo ayudar mejor en casa?' , sigue: true },
+            { de: 'Er kann sich in der Klasse schlecht konzentrieren.', es: 'En clase le cuesta concentrarse.' },
+            { de: 'Wie kann ich zu Hause besser helfen?', es: '¿Cómo puedo ayudar mejor en casa?' },
             { de: 'Ist meine Tochter im Unterricht aktiv?', es: '¿Participa mi hija en clase?' },
-            { de: 'Seine Noten haben sich stark verbessert.', es: 'Sus notas han mejorado mucho.' , sigue: true },
-            { de: 'Gibt es Probleme mit den Mitschülern?', es: '¿Hay problemas con los compañeros?' , sigue: true },
+            { de: 'Seine Noten haben sich stark verbessert.', es: 'Sus notas han mejorado mucho.' },
+            { de: 'Gibt es Probleme mit den Mitschülern?', es: '¿Hay problemas con los compañeros?' },
             { de: 'Sollten wir die Schule wechseln?', es: '¿Deberíamos cambiar de colegio?' },
-            { de: 'Welchen Abschluss kann er später machen?', es: '¿Qué título puede sacarse después?' , sigue: true },
-            { de: 'Er ist begabt, aber ziemlich faul.', es: 'Es listo, pero bastante vago.' , sigue: true },
-            { de: 'Vielen Dank für Ihre Geduld mit ihm.', es: 'Muchas gracias por su paciencia con él.' , sigue: true }
+            { de: 'Welchen Abschluss kann er später machen?', es: '¿Qué título puede sacarse después?' },
+            { de: 'Er ist begabt, aber ziemlich faul.', es: 'Es listo, pero bastante vago.' },
+            { de: 'Vielen Dank für Ihre Geduld mit ihm.', es: 'Muchas gracias por su paciencia con él.' }
           ]
         },
         {
@@ -2104,15 +2104,15 @@ export const A21 = {
           es: 'Acordar apoyo y refuerzo en casa',
           wendungen: [
             { de: 'Wie ist sein Verhalten in der Klasse?', es: '¿Cómo es su comportamiento en clase?' },
-            { de: 'Hilft Loben bei ihm mehr als Schimpfen?', es: '¿Con él funciona mejor elogiar que regañar?' , sigue: true },
-            { de: 'Was können wir für sein Selbstvertrauen tun?', es: '¿Qué podemos hacer por su autoconfianza?' , sigue: true },
+            { de: 'Hilft Loben bei ihm mehr als Schimpfen?', es: '¿Con él funciona mejor elogiar que regañar?' },
+            { de: 'Was können wir für sein Selbstvertrauen tun?', es: '¿Qué podemos hacer por su autoconfianza?' },
             { de: 'Können wir einen Termin vereinbaren?', es: '¿Podemos concertar una cita?' },
-            { de: 'Mein Sohn hat gestern gefehlt.', es: 'Mi hijo faltó ayer.' , sigue: true },
-            { de: 'Er tut sich mit den Artikeln sehr schwer.', es: 'Le cuestan mucho los artículos.' , sigue: true },
+            { de: 'Mein Sohn hat gestern gefehlt.', es: 'Mi hijo faltó ayer.' },
+            { de: 'Er tut sich mit den Artikeln sehr schwer.', es: 'Le cuestan mucho los artículos.' },
             { de: 'Was können wir zu Hause üben?', es: '¿Qué podemos practicar en casa?' },
-            { de: 'Wie viele Stunden hat er am Freitag?', es: '¿Cuántas horas tiene el viernes?' , sigue: true },
-            { de: 'Gibt es dieses Jahr einen Ausflug?', es: '¿Hay excursión este año?' , sigue: true },
-            { de: 'Wir üben zu Hause jeden Tag ein bisschen.', es: 'En casa practicamos un poco cada día.' , sigue: true }
+            { de: 'Wie viele Stunden hat er am Freitag?', es: '¿Cuántas horas tiene el viernes?' },
+            { de: 'Gibt es dieses Jahr einen Ausflug?', es: '¿Hay excursión este año?' },
+            { de: 'Wir üben zu Hause jeden Tag ein bisschen.', es: 'En casa practicamos un poco cada día.' }
           ]
         },
         {
@@ -2120,15 +2120,15 @@ export const A21 = {
           es: 'Pedir ayuda lingüística y ofrecer apoyos',
           wendungen: [
             { de: 'Können Sie bitte langsamer sprechen?', es: '¿Puede hablar más despacio?' },
-            { de: 'Soll ich es Ihnen aufschreiben?', es: '¿Se lo escribo?' , sigue: true },
-            { de: 'Ich erkläre es Ihnen gern noch einmal.', es: 'Se lo explico otra vez con gusto.' , sigue: true },
+            { de: 'Soll ich es Ihnen aufschreiben?', es: '¿Se lo escribo?' },
+            { de: 'Ich erkläre es Ihnen gern noch einmal.', es: 'Se lo explico otra vez con gusto.' },
             { de: 'Könnten Sie bitte etwas langsamer sprechen?', es: '¿Podría hablar un poco más despacio?' },
-            { de: 'Sprechen Sie bitte etwas langsamer mit mir.', es: 'Hábleme un poco más despacio, por favor.' , sigue: true },
-            { de: 'Ich kann es Ihnen gern noch einmal erklären.', es: 'Se lo puedo volver a explicar con gusto.' , sigue: true },
+            { de: 'Sprechen Sie bitte etwas langsamer mit mir.', es: 'Hábleme un poco más despacio, por favor.' },
+            { de: 'Ich kann es Ihnen gern noch einmal erklären.', es: 'Se lo puedo volver a explicar con gusto.' },
             { de: 'Ich brauche manchmal etwas länger zum Verstehen.', es: 'A veces necesito un poco más de tiempo para entender.' },
-            { de: 'Ist das so richtig, wie ich es sage?', es: '¿Está bien dicho así?' , sigue: true },
-            { de: 'Gibt es das auch auf Spanisch?', es: '¿Está también en español?' , sigue: true },
-            { de: 'Sagen Sie es bitte mit einfachen Worten.', es: 'Dígamelo con palabras sencillas, por favor.' , sigue: true }
+            { de: 'Ist das so richtig, wie ich es sage?', es: '¿Está bien dicho así?' },
+            { de: 'Gibt es das auch auf Spanisch?', es: '¿Está también en español?' },
+            { de: 'Sagen Sie es bitte mit einfachen Worten.', es: 'Dígamelo con palabras sencillas, por favor.' }
           ]
         },
         {
@@ -2136,15 +2136,15 @@ export const A21 = {
           es: 'Expresar inseguridad y dudas',
           wendungen: [
             { de: 'Ich bin mir nicht sicher.', es: 'No estoy seguro.' },
-            { de: 'Ich glaube schon, aber ich weiß es nicht genau.', es: 'Creo que sí, pero no lo sé con exactitud.' , sigue: true },
-            { de: 'Vielleicht, das kann ich nicht sagen.', es: 'Quizá, no lo sabría decir.' , sigue: true },
+            { de: 'Ich glaube schon, aber ich weiß es nicht genau.', es: 'Creo que sí, pero no lo sé con exactitud.' },
+            { de: 'Vielleicht, das kann ich nicht sagen.', es: 'Quizá, no lo sabría decir.' },
             { de: 'Ich bin mir da nicht ganz sicher.', es: 'En eso no estoy del todo seguro.' },
-            { de: 'Ich denke ja, sicher bin ich mir aber nicht.', es: 'Creo que sí, aunque no estoy seguro.' , sigue: true },
-            { de: 'Das kann ich leider nicht sagen.', es: 'Eso no se lo puedo decir.' , sigue: true },
+            { de: 'Ich denke ja, sicher bin ich mir aber nicht.', es: 'Creo que sí, aunque no estoy seguro.' },
+            { de: 'Das kann ich leider nicht sagen.', es: 'Eso no se lo puedo decir.' },
             { de: 'Vielleicht, vielleicht auch nicht.', es: 'Quizá sí, quizá no.' },
-            { de: 'Ich müsste das erst nachlesen.', es: 'Tendría que consultarlo antes.' , sigue: true },
-            { de: 'Ehrlich gesagt habe ich keine Ahnung.', es: 'Sinceramente, no tengo ni idea.' , sigue: true },
-            { de: 'Ich weiß nicht, ob Nachhilfe wirklich hilft.', es: 'No sé si las clases particulares ayudan de verdad.' , sigue: true }
+            { de: 'Ich müsste das erst nachlesen.', es: 'Tendría que consultarlo antes.' },
+            { de: 'Ehrlich gesagt habe ich keine Ahnung.', es: 'Sinceramente, no tengo ni idea.' },
+            { de: 'Ich weiß nicht, ob Nachhilfe wirklich hilft.', es: 'No sé si las clases particulares ayudan de verdad.' }
           ]
         },
         {
@@ -2152,15 +2152,15 @@ export const A21 = {
           es: 'Expresar indiferencia',
           wendungen: [
             { de: 'Das ist mir egal.', es: 'Me da igual.' },
-            { de: 'Mir ist beides recht.', es: 'Me vale cualquiera de las dos.' , sigue: true },
-            { de: 'Wie du willst.', es: 'Como quieras.' , sigue: true },
+            { de: 'Mir ist beides recht.', es: 'Me vale cualquiera de las dos.' },
+            { de: 'Wie du willst.', es: 'Como quieras.' },
             { de: 'Das ist mir ehrlich gesagt egal.', es: 'Sinceramente, me da igual.' },
-            { de: 'Von mir aus beides, such du aus.', es: 'Por mí las dos, elige tú.' , sigue: true },
-            { de: 'Mach einfach, wie du willst.', es: 'Haz simplemente lo que quieras.' , sigue: true },
+            { de: 'Von mir aus beides, such du aus.', es: 'Por mí las dos, elige tú.' },
+            { de: 'Mach einfach, wie du willst.', es: 'Haz simplemente lo que quieras.' },
             { de: 'Das spielt für mich keine Rolle.', es: 'Eso para mí no importa.' },
-            { de: 'Von mir aus gern, aber es muss nicht sein.', es: 'Por mí bien, pero no hace falta.' , sigue: true },
-            { de: 'Ist mir eigentlich ziemlich gleich.', es: 'La verdad es que me da bastante igual.' , sigue: true },
-            { de: 'Ob Mathe oder Deutsch, ist mir gleich.', es: 'Sea mates o alemán, me da igual.' , sigue: true }
+            { de: 'Von mir aus gern, aber es muss nicht sein.', es: 'Por mí bien, pero no hace falta.' },
+            { de: 'Ist mir eigentlich ziemlich gleich.', es: 'La verdad es que me da bastante igual.' },
+            { de: 'Ob Mathe oder Deutsch, ist mir gleich.', es: 'Sea mates o alemán, me da igual.' }
           ]
         },
         {
@@ -2168,15 +2168,15 @@ export const A21 = {
           es: 'Concluir una reunión de padres y profesores',
           wendungen: [
             { de: 'Ich denke, wir haben alles besprochen.', es: 'Creo que lo hemos hablado todo.' },
-            { de: 'Schönen Tag noch und auf Wiedersehen.', es: 'Que pase buen día y hasta la vista.' , sigue: true },
-            { de: 'Dann probieren wir es bis zum Semesterende so.', es: 'Entonces lo probamos así hasta final de semestre.' , sigue: true },
+            { de: 'Schönen Tag noch und auf Wiedersehen.', es: 'Que pase buen día y hasta la vista.' },
+            { de: 'Dann probieren wir es bis zum Semesterende so.', es: 'Entonces lo probamos así hasta final de semestre.' },
             { de: 'Ich denke, wir sind uns einig.', es: 'Creo que estamos de acuerdo.' },
-            { de: 'Sagen Sie mir Bescheid, wenn sich etwas ändert.', es: 'Avíseme si algo cambia.' , sigue: true },
-            { de: 'Dann hätten wir alles besprochen.', es: 'Entonces ya lo hemos hablado todo.' , sigue: true },
+            { de: 'Sagen Sie mir Bescheid, wenn sich etwas ändert.', es: 'Avíseme si algo cambia.' },
+            { de: 'Dann hätten wir alles besprochen.', es: 'Entonces ya lo hemos hablado todo.' },
             { de: 'Bitte unterbrechen Sie mich, wenn etwas unklar ist.', es: 'Interrúmpame si algo no queda claro.' },
-            { de: 'Können Sie mir den Lernstoff kurz zusammenfassen?', es: '¿Me puede resumir brevemente la materia?' , sigue: true },
-            { de: 'Ich verstehe das Schulsystem hier noch nicht ganz.', es: 'Todavía no entiendo bien el sistema escolar de aquí.' , sigue: true },
-            { de: 'Ich kann es Ihnen auch zeigen.', es: 'También se lo puedo enseñar.' , sigue: true }
+            { de: 'Können Sie mir den Lernstoff kurz zusammenfassen?', es: '¿Me puede resumir brevemente la materia?' },
+            { de: 'Ich verstehe das Schulsystem hier noch nicht ganz.', es: 'Todavía no entiendo bien el sistema escolar de aquí.' },
+            { de: 'Ich kann es Ihnen auch zeigen.', es: 'También se lo puedo enseñar.' }
           ]
         }
       ]
@@ -2473,15 +2473,15 @@ export const A21 = {
           es: 'Hablar del descanso tras el trabajo',
           wendungen: [
             { de: 'Was machst du nach der Arbeit meistens?', es: '¿Qué sueles hacer después del trabajo?' },
-            { de: 'Ich brauche nach der Arbeit erst einmal Ruhe.', es: 'Después del trabajo necesito primero tranquilidad.' , sigue: true },
-            { de: 'Gehst du unter der Woche aus?', es: '¿Sales entre semana?' , sigue: true },
+            { de: 'Ich brauche nach der Arbeit erst einmal Ruhe.', es: 'Después del trabajo necesito primero tranquilidad.' },
+            { de: 'Gehst du unter der Woche aus?', es: '¿Sales entre semana?' },
             { de: 'Heute faulenze ich einfach.', es: 'Hoy simplemente me dedico a no hacer nada.' },
-            { de: 'Hast du Lust, heute noch wegzugehen?', es: '¿Te apetece salir hoy?' , sigue: true },
-            { de: 'Am Freitag bleibe ich prinzipiell zu Hause.', es: 'Los viernes por principio me quedo en casa.' , sigue: true },
+            { de: 'Hast du Lust, heute noch wegzugehen?', es: '¿Te apetece salir hoy?' },
+            { de: 'Am Freitag bleibe ich prinzipiell zu Hause.', es: 'Los viernes por principio me quedo en casa.' },
             { de: 'Wie schaltest du nach einem harten Tag ab?', es: '¿Cómo desconectas después de un día duro?' },
-            { de: 'Nach der Spätschicht bin ich zu nichts zu gebrauchen.', es: 'Después del turno de tarde no sirvo para nada.' , sigue: true },
-            { de: 'Schaffst du es, abends wirklich abzuschalten?', es: '¿Consigues desconectar de verdad por la noche?' , sigue: true },
-            { de: 'Was ist für dich die größte Ablenkung?', es: '¿Cuál es para ti la mayor distracción?' , sigue: true }
+            { de: 'Nach der Spätschicht bin ich zu nichts zu gebrauchen.', es: 'Después del turno de tarde no sirvo para nada.' },
+            { de: 'Schaffst du es, abends wirklich abzuschalten?', es: '¿Consigues desconectar de verdad por la noche?' },
+            { de: 'Was ist für dich die größte Ablenkung?', es: '¿Cuál es para ti la mayor distracción?' }
           ]
         },
         {
@@ -2489,15 +2489,15 @@ export const A21 = {
           es: 'Convencer y animar a alguien',
           wendungen: [
             { de: 'Komm schon, das wird bestimmt lustig!', es: '¡Venga, seguro que es divertido!' },
-            { de: 'Nur eine Folge, bitte!', es: '¡Solo un capítulo, porfa!' , sigue: true },
-            { de: 'Sei doch nicht so!', es: '¡No seas así!' , sigue: true },
+            { de: 'Nur eine Folge, bitte!', es: '¡Solo un capítulo, porfa!' },
+            { de: 'Sei doch nicht so!', es: '¡No seas así!' },
             { de: 'Jetzt komm mit, das wird sicher lustig!', es: '¡Vente ya, seguro que es divertido!' },
-            { de: 'Eine Folge noch, bitte!', es: '¡Un episodio más, porfa!' , sigue: true },
-            { de: 'Sei doch nicht so, das macht Spaß.', es: 'No seas así, es divertido.' , sigue: true },
+            { de: 'Eine Folge noch, bitte!', es: '¡Un episodio más, porfa!' },
+            { de: 'Sei doch nicht so, das macht Spaß.', es: 'No seas así, es divertido.' },
             { de: 'Probier es wenigstens einmal.', es: 'Pruébalo al menos una vez.' },
-            { de: 'Alle anderen kommen auch mit.', es: 'Todos los demás también vienen.' , sigue: true },
-            { de: 'Du bereust es sicher nicht.', es: 'Seguro que no te arrepientes.' , sigue: true },
-            { de: 'Es dauert doch nur eine halbe Stunde.', es: 'Si solo dura media hora.' , sigue: true }
+            { de: 'Alle anderen kommen auch mit.', es: 'Todos los demás también vienen.' },
+            { de: 'Du bereust es sicher nicht.', es: 'Seguro que no te arrepientes.' },
+            { de: 'Es dauert doch nur eine halbe Stunde.', es: 'Si solo dura media hora.' }
           ]
         },
         {
@@ -2505,15 +2505,15 @@ export const A21 = {
           es: 'Hacer una promesa',
           wendungen: [
             { de: 'Ich verspreche dir, dass ich morgen früh aufstehe.', es: 'Te prometo que mañana me levanto pronto.' },
-            { de: 'Ich halte mein Wort, das schwöre ich dir.', es: 'Cumplo mi palabra, te lo juro.' , sigue: true },
-            { de: 'Ich verspreche dir, morgen stehe ich früh auf.', es: 'Te prometo que mañana me levanto temprano.' , sigue: true },
+            { de: 'Ich halte mein Wort, das schwöre ich dir.', es: 'Cumplo mi palabra, te lo juro.' },
+            { de: 'Ich verspreche dir, morgen stehe ich früh auf.', es: 'Te prometo que mañana me levanto temprano.' },
             { de: 'Darauf kannst du dich hundertprozentig verlassen.', es: 'Puedes contar con ello al cien por cien.' },
-            { de: 'Ich schwöre, ich habe es nicht gelöscht.', es: 'Te juro que no lo he borrado.' , sigue: true },
-            { de: 'Ich mache es heute Abend, ganz sicher.', es: 'Lo hago esta noche, seguro.' , sigue: true },
+            { de: 'Ich schwöre, ich habe es nicht gelöscht.', es: 'Te juro que no lo he borrado.' },
+            { de: 'Ich mache es heute Abend, ganz sicher.', es: 'Lo hago esta noche, seguro.' },
             { de: 'Ich halte immer, was ich verspreche.', es: 'Siempre cumplo lo que prometo.' },
-            { de: 'Ich verspreche dir, ich prüfe künftig die Quelle.', es: 'Te prometo que a partir de ahora compruebo la fuente.' , sigue: true },
-            { de: 'Ab morgen reduziere ich meine Bildschirmzeit.', es: 'A partir de mañana reduzco mi tiempo de pantalla.' , sigue: true },
-            { de: 'Darauf kannst du dich verlassen, ich teile nichts.', es: 'Puedes contar con ello, no comparto nada.' , sigue: true }
+            { de: 'Ich verspreche dir, ich prüfe künftig die Quelle.', es: 'Te prometo que a partir de ahora compruebo la fuente.' },
+            { de: 'Ab morgen reduziere ich meine Bildschirmzeit.', es: 'A partir de mañana reduzco mi tiempo de pantalla.' },
+            { de: 'Darauf kannst du dich verlassen, ich teile nichts.', es: 'Puedes contar con ello, no comparto nada.' }
           ]
         },
         {
@@ -2521,15 +2521,15 @@ export const A21 = {
           es: 'Reaccionar a una promesa',
           wendungen: [
             { de: 'Versprochen? – Versprochen!', es: '¿Prometido? – ¡Prometido!' },
-            { de: 'Ist das ein Versprechen?', es: '¿Eso es una promesa?' , sigue: true },
-            { de: 'Ich schaue nur eine Folge, versprochen.', es: 'Solo veo un episodio, prometido.' , sigue: true },
+            { de: 'Ist das ein Versprechen?', es: '¿Eso es una promesa?' },
+            { de: 'Ich schaue nur eine Folge, versprochen.', es: 'Solo veo un episodio, prometido.' },
             { de: 'Ich kümmere mich morgen darum, versprochen.', es: 'Me ocupo mañana, te lo prometo.' },
-            { de: 'Verlass dich drauf, das vergesse ich nicht.', es: 'Cuenta con ello, no se me olvida.' , sigue: true },
-            { de: 'Ich stehe dir jederzeit zur Verfügung.', es: 'Estoy a tu disposición cuando quieras.' , sigue: true },
+            { de: 'Verlass dich drauf, das vergesse ich nicht.', es: 'Cuenta con ello, no se me olvida.' },
+            { de: 'Ich stehe dir jederzeit zur Verfügung.', es: 'Estoy a tu disposición cuando quieras.' },
             { de: 'Wann hast du das letzte Mal etwas Neues probiert?', es: '¿Cuándo probaste algo nuevo por última vez?' },
-            { de: 'Lies wenigstens den Artikel zu Ende.', es: 'Léete al menos el artículo hasta el final.' , sigue: true },
-            { de: 'Komm schon, einmal offline schadet dir nicht.', es: 'Venga, un rato sin conexión no te hace daño.' , sigue: true },
-            { de: 'Hör dir den Podcast an, nur eine Folge.', es: 'Escucha el pódcast, solo un episodio.' , sigue: true }
+            { de: 'Lies wenigstens den Artikel zu Ende.', es: 'Léete al menos el artículo hasta el final.' },
+            { de: 'Komm schon, einmal offline schadet dir nicht.', es: 'Venga, un rato sin conexión no te hace daño.' },
+            { de: 'Hör dir den Podcast an, nur eine Folge.', es: 'Escucha el pódcast, solo un episodio.' }
           ]
         },
         {
@@ -2537,15 +2537,15 @@ export const A21 = {
           es: 'Expresar una opinión propia',
           wendungen: [
             { de: 'Meiner Meinung nach ist die Serie überbewertet.', es: 'En mi opinión, la serie está sobrevalorada.' },
-            { de: 'Ich finde, dass …', es: 'Yo creo que …' , sigue: true },
-            { de: 'Ich halte die Serie für überbewertet.', es: 'Considero que la serie está sobrevalorada.' , sigue: true },
+            { de: 'Ich finde, dass …', es: 'Yo creo que …' },
+            { de: 'Ich halte die Serie für überbewertet.', es: 'Considero que la serie está sobrevalorada.' },
             { de: 'Ich finde, dass zu viel Werbung läuft.', es: 'Me parece que hay demasiada publicidad.' },
-            { de: 'Ich halte diese Nachricht für falsch.', es: 'Creo que esa noticia es falsa.' , sigue: true },
-            { de: 'Für mich ist das nur ein Gerücht.', es: 'Para mí eso es solo un rumor.' , sigue: true },
+            { de: 'Ich halte diese Nachricht für falsch.', es: 'Creo que esa noticia es falsa.' },
+            { de: 'Für mich ist das nur ein Gerücht.', es: 'Para mí eso es solo un rumor.' },
             { de: 'Der Hauptdarsteller spielt hervorragend.', es: 'El protagonista actúa de maravilla.' },
-            { de: 'Ich bin der Meinung, dass man weniger Handy nutzen sollte.', es: 'Opino que se debería usar menos el móvil.' , sigue: true },
-            { de: 'Diese Schlagzeile finde ich übertrieben.', es: 'Ese titular me parece exagerado.' , sigue: true },
-            { de: 'Meiner Meinung nach ist die Quelle glaubwürdig.', es: 'En mi opinión la fuente es creíble.' , sigue: true }
+            { de: 'Ich bin der Meinung, dass man weniger Handy nutzen sollte.', es: 'Opino que se debería usar menos el móvil.' },
+            { de: 'Diese Schlagzeile finde ich übertrieben.', es: 'Ese titular me parece exagerado.' },
+            { de: 'Meiner Meinung nach ist die Quelle glaubwürdig.', es: 'En mi opinión la fuente es creíble.' }
           ]
         },
         {
@@ -2553,15 +2553,15 @@ export const A21 = {
           es: 'Transmitir la opinión de otros',
           wendungen: [
             { de: 'Er sagt, dass er lieber Dokus schaut.', es: 'Dice que prefiere ver documentales.' },
-            { de: 'Er meint, Dokus seien ihm lieber.', es: 'Dice que a él le gustan más los documentales.' , sigue: true },
-            { de: 'Sie meint, das Ende war unlogisch.', es: 'Ella opina que el final no tenía lógica.' , sigue: true },
+            { de: 'Er meint, Dokus seien ihm lieber.', es: 'Dice que a él le gustan más los documentales.' },
+            { de: 'Sie meint, das Ende war unlogisch.', es: 'Ella opina que el final no tenía lógica.' },
             { de: 'Sie sagt, der Bericht sei völlig neutral.', es: 'Ella dice que el informe es totalmente neutral.' },
-            { de: 'Für mich ist das reine Unterhaltung.', es: 'Para mí eso es puro entretenimiento.' , sigue: true },
-            { de: 'Wie stehst du zu dem Thema?', es: '¿Qué postura tienes sobre el tema?' , sigue: true },
+            { de: 'Für mich ist das reine Unterhaltung.', es: 'Para mí eso es puro entretenimiento.' },
+            { de: 'Wie stehst du zu dem Thema?', es: '¿Qué postura tienes sobre el tema?' },
             { de: 'Was sagen deine Kollegen dazu?', es: '¿Qué dicen tus compañeros de eso?' },
-            { de: 'Sie behauptet, das sei längst entschieden.', es: 'Ella afirma que eso está decidido hace tiempo.' , sigue: true },
-            { de: 'Meiner Meinung nach ist das der falsche Weg.', es: 'En mi opinión ese es el camino equivocado.' , sigue: true },
-            { de: 'Was hältst du von dem Interview?', es: '¿Qué te parece la entrevista?' , sigue: true }
+            { de: 'Sie behauptet, das sei längst entschieden.', es: 'Ella afirma que eso está decidido hace tiempo.' },
+            { de: 'Meiner Meinung nach ist das der falsche Weg.', es: 'En mi opinión ese es el camino equivocado.' },
+            { de: 'Was hältst du von dem Interview?', es: '¿Qué te parece la entrevista?' }
           ]
         },
         {
@@ -2569,15 +2569,15 @@ export const A21 = {
           es: 'Hablar de series y consumo de medios',
           wendungen: [
             { de: 'Wie viel Zeit verbringst du am Handy?', es: '¿Cuánto tiempo pasas con el móvil?' },
-            { de: 'Ich schaue kaum fern, aber ich höre viele Podcasts.', es: 'Casi no veo la tele, pero escucho muchos pódcast.' , sigue: true },
-            { de: 'Am Abend lese ich lieber.', es: 'Por la tarde prefiero leer.' , sigue: true },
+            { de: 'Ich schaue kaum fern, aber ich höre viele Podcasts.', es: 'Casi no veo la tele, pero escucho muchos pódcast.' },
+            { de: 'Am Abend lese ich lieber.', es: 'Por la tarde prefiero leer.' },
             { de: 'Was schaust du gerade?', es: '¿Qué estás viendo?' },
-            { de: 'Siehst du viel fern?', es: '¿Ves mucho la tele?' , sigue: true },
-            { de: 'Hörst du Podcasts?', es: '¿Escuchas pódcasts?' , sigue: true },
+            { de: 'Siehst du viel fern?', es: '¿Ves mucho la tele?' },
+            { de: 'Hörst du Podcasts?', es: '¿Escuchas pódcasts?' },
             { de: 'Wie findest du die Serie?', es: '¿Qué te parece la serie?' },
-            { de: 'Wo hast du das gelesen?', es: '¿Dónde has leído eso?' , sigue: true },
-            { de: 'Schaltest du abends ab?', es: '¿Desconectas por la noche?' , sigue: true },
-            { de: 'Welche Serie schaust du im Moment?', es: '¿Qué serie estás viendo ahora?' , sigue: true }
+            { de: 'Wo hast du das gelesen?', es: '¿Dónde has leído eso?' },
+            { de: 'Schaltest du abends ab?', es: '¿Desconectas por la noche?' },
+            { de: 'Welche Serie schaust du im Moment?', es: '¿Qué serie estás viendo ahora?' }
           ]
         },
         {
@@ -2585,15 +2585,15 @@ export const A21 = {
           es: 'Hablar de fuentes de información y uso del móvil',
           wendungen: [
             { de: 'Wie viel Zeit verbringst du täglich am Handy?', es: '¿Cuánto tiempo pasas al día con el móvil?' },
-            { de: 'Siehst du überhaupt noch fern?', es: '¿Todavía ves la tele?' , sigue: true },
-            { de: 'Hörst du Podcasts beim Pendeln?', es: '¿Escuchas pódcast al ir al trabajo?' , sigue: true },
+            { de: 'Siehst du überhaupt noch fern?', es: '¿Todavía ves la tele?' },
+            { de: 'Hörst du Podcasts beim Pendeln?', es: '¿Escuchas pódcast al ir al trabajo?' },
             { de: 'Wo informierst du dich über Nachrichten?', es: '¿Dónde te informas de las noticias?' },
-            { de: 'Schaust du mit oder ohne Untertitel?', es: '¿Ves con subtítulos o sin ellos?' , sigue: true },
-            { de: 'Hast du das Abo eigentlich gekündigt?', es: '¿Al final cancelaste la suscripción?' , sigue: true },
+            { de: 'Schaust du mit oder ohne Untertitel?', es: '¿Ves con subtítulos o sin ellos?' },
+            { de: 'Hast du das Abo eigentlich gekündigt?', es: '¿Al final cancelaste la suscripción?' },
             { de: 'Bist du in sozialen Medien aktiv?', es: '¿Eres activo en redes sociales?' },
-            { de: 'Wie findest du die neue Staffel?', es: '¿Qué te parece la nueva temporada?' , sigue: true },
-            { de: 'Schaltest du am Abend wirklich ab?', es: '¿De verdad desconectas por la noche?' , sigue: true },
-            { de: 'Wie hoch ist deine Bildschirmzeit pro Tag?', es: '¿Cuál es tu tiempo de pantalla al día?' , sigue: true }
+            { de: 'Wie findest du die neue Staffel?', es: '¿Qué te parece la nueva temporada?' },
+            { de: 'Schaltest du am Abend wirklich ab?', es: '¿De verdad desconectas por la noche?' },
+            { de: 'Wie hoch ist deine Bildschirmzeit pro Tag?', es: '¿Cuál es tu tiempo de pantalla al día?' }
           ]
         }
       ]
@@ -2932,15 +2932,15 @@ export const A21 = {
           es: 'Colaborar y organizar la mudanza',
           wendungen: [
             { de: 'Kannst du mir beim Umzug helfen?', es: '¿Me ayudas con la mudanza?' },
-            { de: 'Kannst du mir am Samstag beim Umzug helfen?', es: '¿Me puedes ayudar el sábado con la mudanza?' , sigue: true },
-            { de: 'Wir schleppen schon seit sechs Uhr Kisten.', es: 'Llevamos cargando cajas desde las seis.' , sigue: true },
+            { de: 'Kannst du mir am Samstag beim Umzug helfen?', es: '¿Me puedes ayudar el sábado con la mudanza?' },
+            { de: 'Wir schleppen schon seit sechs Uhr Kisten.', es: 'Llevamos cargando cajas desde las seis.' },
             { de: 'Wo soll diese Kiste hin?', es: '¿Dónde va esta caja?' },
-            { de: 'Das Sofa passt nicht in den Lift.', es: 'El sofá no cabe en el ascensor.' , sigue: true },
-            { de: 'Hast du den Umzugswagen schon reserviert?', es: '¿Ya has reservado la furgoneta?' , sigue: true },
+            { de: 'Das Sofa passt nicht in den Lift.', es: 'El sofá no cabe en el ascensor.' },
+            { de: 'Hast du den Umzugswagen schon reserviert?', es: '¿Ya has reservado la furgoneta?' },
             { de: 'Vergiss nicht, die Adresse umzumelden.', es: 'No olvides cambiar el empadronamiento.' },
-            { de: 'Die Übergabe der alten Wohnung ist am Montag.', es: 'La entrega del piso viejo es el lunes.' , sigue: true },
-            { de: 'Danke, dass ihr alle gekommen seid!', es: '¡Gracias por venir todos!' , sigue: true },
-            { de: 'In welche Kiste kommen die Gläser?', es: '¿En qué caja van los vasos?' , sigue: true }
+            { de: 'Die Übergabe der alten Wohnung ist am Montag.', es: 'La entrega del piso viejo es el lunes.' },
+            { de: 'Danke, dass ihr alle gekommen seid!', es: '¡Gracias por venir todos!' },
+            { de: 'In welche Kiste kommen die Gläser?', es: '¿En qué caja van los vasos?' }
           ]
         },
         {
@@ -2948,15 +2948,15 @@ export const A21 = {
           es: 'Hacer propuestas durante la mudanza',
           wendungen: [
             { de: 'Fangen wir mit der Küche an?', es: '¿Empezamos por la cocina?' },
-            { de: 'Was hältst du davon, morgen weiterzumachen?', es: '¿Qué te parece seguir mañana?' , sigue: true },
-            { de: 'Wir könnten die alten Möbel verschenken.', es: 'Podríamos regalar los muebles viejos.' , sigue: true },
+            { de: 'Was hältst du davon, morgen weiterzumachen?', es: '¿Qué te parece seguir mañana?' },
+            { de: 'Wir könnten die alten Möbel verschenken.', es: 'Podríamos regalar los muebles viejos.' },
             { de: 'Lass uns die Kisten gleich beschriften.', es: 'Vamos a rotular las cajas ahora mismo.' },
-            { de: 'Ich schlage vor, wir mieten einen Wagen.', es: 'Propongo que alquilemos una furgoneta.' , sigue: true },
-            { de: 'Sollen wir die Handwerker kommen lassen?', es: '¿Llamamos a los operarios?' , sigue: true },
+            { de: 'Ich schlage vor, wir mieten einen Wagen.', es: 'Propongo que alquilemos una furgoneta.' },
+            { de: 'Sollen wir die Handwerker kommen lassen?', es: '¿Llamamos a los operarios?' },
             { de: 'Werfen wir die Hälfte einfach weg?', es: '¿Tiramos la mitad y ya está?' },
-            { de: 'Bringen wir den alten Schrank zum Mistplatz?', es: '¿Llevamos el armario viejo al punto limpio?' , sigue: true },
-            { de: 'Ich schlage vor, wir räumen zuerst die Küche ein.', es: 'Propongo que coloquemos primero la cocina.' , sigue: true },
-            { de: 'Sollen wir zuerst die schweren Sachen tragen?', es: '¿Llevamos primero las cosas pesadas?' , sigue: true }
+            { de: 'Bringen wir den alten Schrank zum Mistplatz?', es: '¿Llevamos el armario viejo al punto limpio?' },
+            { de: 'Ich schlage vor, wir räumen zuerst die Küche ein.', es: 'Propongo que coloquemos primero la cocina.' },
+            { de: 'Sollen wir zuerst die schweren Sachen tragen?', es: '¿Llevamos primero las cosas pesadas?' }
           ]
         },
         {
@@ -2964,15 +2964,15 @@ export const A21 = {
           es: 'Aceptar o rechazar con reservas',
           wendungen: [
             { de: 'Na gut, von mir aus.', es: 'Bueno, vale, por mí bien.' },
-            { de: 'Hmm, ich weiß nicht so recht …', es: 'Mmm, no lo tengo muy claro …' , sigue: true },
-            { de: 'Lieber nicht, ehrlich gesagt.', es: 'Mejor no, la verdad.' , sigue: true },
+            { de: 'Hmm, ich weiß nicht so recht …', es: 'Mmm, no lo tengo muy claro …' },
+            { de: 'Lieber nicht, ehrlich gesagt.', es: 'Mejor no, la verdad.' },
             { de: 'Na gut, von mir aus machen wir es so.', es: 'Bueno, por mí lo hacemos así.' },
-            { de: 'Hmm, ich weiß nicht so recht.', es: 'Mmm, no lo tengo claro.' , sigue: true },
-            { de: 'Ehrlich gesagt wäre mir das nicht recht.', es: 'Sinceramente, eso no me convencería.' , sigue: true },
+            { de: 'Hmm, ich weiß nicht so recht.', es: 'Mmm, no lo tengo claro.' },
+            { de: 'Ehrlich gesagt wäre mir das nicht recht.', es: 'Sinceramente, eso no me convencería.' },
             { de: 'Einverstanden, aber nur unter einer Bedingung.', es: 'De acuerdo, pero con una condición.' },
-            { de: 'Wenn es sein muss, mache ich mit.', es: 'Si tiene que ser, me apunto.' , sigue: true },
-            { de: 'Da bin ich mir noch nicht sicher.', es: 'De eso todavía no estoy seguro.' , sigue: true },
-            { de: 'Na gut, dann eben provisorisch.', es: 'Bueno, pues provisionalmente.' , sigue: true }
+            { de: 'Wenn es sein muss, mache ich mit.', es: 'Si tiene que ser, me apunto.' },
+            { de: 'Da bin ich mir noch nicht sicher.', es: 'De eso todavía no estoy seguro.' },
+            { de: 'Na gut, dann eben provisorisch.', es: 'Bueno, pues provisionalmente.' }
           ]
         },
         {
@@ -2980,15 +2980,15 @@ export const A21 = {
           es: 'Aceptar encargos y tareas',
           wendungen: [
             { de: 'Klar, mache ich!', es: '¡Claro, lo hago!' },
-            { de: 'Das übernehme ich.', es: 'De eso me encargo yo.' , sigue: true },
-            { de: 'Geht in Ordnung.', es: 'De acuerdo.' , sigue: true },
+            { de: 'Das übernehme ich.', es: 'De eso me encargo yo.' },
+            { de: 'Geht in Ordnung.', es: 'De acuerdo.' },
             { de: 'Klar, das mache ich gern.', es: 'Claro, lo hago con gusto.' },
-            { de: 'Das übernehme ich bis Freitag.', es: 'De eso me encargo para el viernes.' , sigue: true },
-            { de: 'Geht in Ordnung, verlass dich auf mich.', es: 'Vale, cuenta conmigo.' , sigue: true },
+            { de: 'Das übernehme ich bis Freitag.', es: 'De eso me encargo para el viernes.' },
+            { de: 'Geht in Ordnung, verlass dich auf mich.', es: 'Vale, cuenta conmigo.' },
             { de: 'Kein Problem, ich bringe das Werkzeug mit.', es: 'No hay problema, yo llevo las herramientas.' },
-            { de: 'Das kriege ich hin, keine Sorge.', es: 'Eso lo saco, no te preocupes.' , sigue: true },
-            { de: 'Ich kümmere mich um den Müll.', es: 'Yo me ocupo de la basura.' , sigue: true },
-            { de: 'Ich kümmere mich um den Nachsendeauftrag.', es: 'Yo me ocupo del reenvío postal.' , sigue: true }
+            { de: 'Das kriege ich hin, keine Sorge.', es: 'Eso lo saco, no te preocupes.' },
+            { de: 'Ich kümmere mich um den Müll.', es: 'Yo me ocupo de la basura.' },
+            { de: 'Ich kümmere mich um den Nachsendeauftrag.', es: 'Yo me ocupo del reenvío postal.' }
           ]
         },
         {
@@ -2996,15 +2996,15 @@ export const A21 = {
           es: 'Pedir precaución',
           wendungen: [
             { de: 'Vorsicht, das ist schwer!', es: '¡Cuidado, que pesa!' },
-            { de: 'Pass auf, nicht fallen lassen!', es: '¡Ten cuidado, que no se caiga!' , sigue: true },
-            { de: 'Langsam, langsam!', es: '¡Despacio, despacio!' , sigue: true },
+            { de: 'Pass auf, nicht fallen lassen!', es: '¡Ten cuidado, que no se caiga!' },
+            { de: 'Langsam, langsam!', es: '¡Despacio, despacio!' },
             { de: 'Vorsicht, die Kiste ist sehr schwer!', es: '¡Cuidado, la caja pesa mucho!' },
-            { de: 'Vorsicht, lass es nicht fallen!', es: '¡Cuidado, no lo dejes caer!' , sigue: true },
-            { de: 'Langsam, hier ist eine Stufe.', es: 'Despacio, aquí hay un escalón.' , sigue: true },
+            { de: 'Vorsicht, lass es nicht fallen!', es: '¡Cuidado, no lo dejes caer!' },
+            { de: 'Langsam, hier ist eine Stufe.', es: 'Despacio, aquí hay un escalón.' },
             { de: 'Achte bitte auf die frische Farbe.', es: 'Ten cuidado con la pintura fresca.' },
-            { de: 'Stell das nicht auf den neuen Boden.', es: 'No pongas eso en el suelo nuevo.' , sigue: true },
-            { de: 'Halt die Leiter fest, bitte.', es: 'Sujeta bien la escalera, por favor.' , sigue: true },
-            { de: 'Vorsicht, diese Kiste ist zerbrechlich!', es: '¡Cuidado, esta caja es frágil!' , sigue: true }
+            { de: 'Stell das nicht auf den neuen Boden.', es: 'No pongas eso en el suelo nuevo.' },
+            { de: 'Halt die Leiter fest, bitte.', es: 'Sujeta bien la escalera, por favor.' },
+            { de: 'Vorsicht, diese Kiste ist zerbrechlich!', es: '¡Cuidado, esta caja es frágil!' }
           ]
         },
         {
@@ -3012,15 +3012,15 @@ export const A21 = {
           es: 'Amueblar y colocar cosas en la habitación',
           wendungen: [
             { de: 'Das Sofa kommt an die Wand und der Tisch in die Mitte.', es: 'El sofá va contra la pared y la mesa en el centro.' },
-            { de: 'Stell das Regal bitte neben die Tür.', es: 'Pon la estantería al lado de la puerta.' , sigue: true },
-            { de: 'Das Sofa kommt an die Wand beim Fenster.', es: 'El sofá va a la pared de la ventana.' , sigue: true },
+            { de: 'Stell das Regal bitte neben die Tür.', es: 'Pon la estantería al lado de la puerta.' },
+            { de: 'Das Sofa kommt an die Wand beim Fenster.', es: 'El sofá va a la pared de la ventana.' },
             { de: 'Das Regal stellen wir am besten neben die Tür.', es: 'La estantería mejor la ponemos al lado de la puerta.' },
-            { de: 'Wohin hängen wir den Spiegel?', es: '¿Dónde colgamos el espejo?' , sigue: true },
-            { de: 'Der Tisch soll in die Mitte.', es: 'La mesa va en el centro.' , sigue: true },
+            { de: 'Wohin hängen wir den Spiegel?', es: '¿Dónde colgamos el espejo?' },
+            { de: 'Der Tisch soll in die Mitte.', es: 'La mesa va en el centro.' },
             { de: 'Die Lampe hängen wir über den Esstisch.', es: 'La lámpara la colgamos sobre la mesa de comer.' },
-            { de: 'Der Teppich passt farblich gar nicht.', es: 'La alfombra no pega nada de color.' , sigue: true },
-            { de: 'Wir brauchen mehr Steckdosen hier.', es: 'Necesitamos más enchufes aquí.' , sigue: true },
-            { de: 'Die Vorhänge machen den Raum gemütlich.', es: 'Las cortinas hacen la habitación acogedora.' , sigue: true }
+            { de: 'Der Teppich passt farblich gar nicht.', es: 'La alfombra no pega nada de color.' },
+            { de: 'Wir brauchen mehr Steckdosen hier.', es: 'Necesitamos más enchufes aquí.' },
+            { de: 'Die Vorhänge machen den Raum gemütlich.', es: 'Las cortinas hacen la habitación acogedora.' }
           ]
         },
         {
@@ -3028,15 +3028,15 @@ export const A21 = {
           es: 'Expresar importancia y prioridades',
           wendungen: [
             { de: 'Das ist mir sehr wichtig.', es: 'Eso es muy importante para mí.' },
-            { de: 'Hauptsache, es ist bis Freitag fertig.', es: 'Lo importante es que esté listo el viernes.' , sigue: true },
-            { de: 'Das ist mir wirklich sehr wichtig.', es: 'Eso para mí es muy importante de verdad.' , sigue: true },
+            { de: 'Hauptsache, es ist bis Freitag fertig.', es: 'Lo importante es que esté listo el viernes.' },
+            { de: 'Das ist mir wirklich sehr wichtig.', es: 'Eso para mí es muy importante de verdad.' },
             { de: 'Wichtig ist nur, dass es Freitag fertig ist.', es: 'Lo único importante es que el viernes esté listo.' },
-            { de: 'Für mich zählt vor allem die Ruhe.', es: 'Para mí lo que cuenta sobre todo es la tranquilidad.' , sigue: true },
-            { de: 'Wichtiger als die Farbe ist das Licht.', es: 'Más importante que el color es la luz.' , sigue: true },
+            { de: 'Für mich zählt vor allem die Ruhe.', es: 'Para mí lo que cuenta sobre todo es la tranquilidad.' },
+            { de: 'Wichtiger als die Farbe ist das Licht.', es: 'Más importante que el color es la luz.' },
             { de: 'Das kann warten, es eilt nicht.', es: 'Eso puede esperar, no corre prisa.' },
-            { de: 'Entscheidend ist, dass die Kinder ein Zimmer haben.', es: 'Lo decisivo es que los niños tengan una habitación.' , sigue: true },
-            { de: 'Das Wichtigste ist, dass nichts kaputtgeht.', es: 'Lo más importante es que no se rompa nada.' , sigue: true },
-            { de: 'Hier herrscht noch das totale Chaos.', es: 'Aquí todavía reina el caos total.' , sigue: true }
+            { de: 'Entscheidend ist, dass die Kinder ein Zimmer haben.', es: 'Lo decisivo es que los niños tengan una habitación.' },
+            { de: 'Das Wichtigste ist, dass nichts kaputtgeht.', es: 'Lo más importante es que no se rompa nada.' },
+            { de: 'Hier herrscht noch das totale Chaos.', es: 'Aquí todavía reina el caos total.' }
           ]
         },
         {
@@ -3044,15 +3044,15 @@ export const A21 = {
           es: 'Coordinar cajas y detalles del traslado',
           wendungen: [
             { de: 'Wo schaffen wir den meisten Stauraum?', es: '¿Dónde conseguimos más espacio de almacenaje?' },
-            { de: 'Stellen wir das Bett provisorisch hierher?', es: '¿Ponemos la cama aquí provisionalmente?' , sigue: true },
-            { de: 'Diese Lösung finde ich sehr praktisch.', es: 'Esta solución me parece muy práctica.' , sigue: true },
+            { de: 'Stellen wir das Bett provisorisch hierher?', es: '¿Ponemos la cama aquí provisionalmente?' },
+            { de: 'Diese Lösung finde ich sehr praktisch.', es: 'Esta solución me parece muy práctica.' },
             { de: 'Wohin stellen wir das Regal am besten?', es: '¿Dónde ponemos mejor la estantería?' },
-            { de: 'Passt das Bett überhaupt an diese Wand?', es: '¿Cabe la cama en esa pared?' , sigue: true },
-            { de: 'Soll der Schreibtisch ans Fenster?', es: '¿Ponemos el escritorio junto a la ventana?' , sigue: true },
+            { de: 'Passt das Bett überhaupt an diese Wand?', es: '¿Cabe la cama en esa pared?' },
+            { de: 'Soll der Schreibtisch ans Fenster?', es: '¿Ponemos el escritorio junto a la ventana?' },
             { de: 'Wie wollen wir die Küche einräumen?', es: '¿Cómo colocamos la cocina?' },
-            { de: 'Wer macht die Endreinigung der alten Wohnung?', es: '¿Quién hace la limpieza final del piso viejo?' , sigue: true },
-            { de: 'Kannst du am Samstag mit anpacken?', es: '¿Puedes echar una mano el sábado?' , sigue: true },
-            { de: 'Nimmst du bitte das andere Ende?', es: '¿Coges el otro extremo, por favor?' , sigue: true }
+            { de: 'Wer macht die Endreinigung der alten Wohnung?', es: '¿Quién hace la limpieza final del piso viejo?' },
+            { de: 'Kannst du am Samstag mit anpacken?', es: '¿Puedes echar una mano el sábado?' },
+            { de: 'Nimmst du bitte das andere Ende?', es: '¿Coges el otro extremo, por favor?' }
           ]
         }
       ]
@@ -3377,15 +3377,15 @@ export const A21 = {
           es: 'Consultar horarios de transporte',
           wendungen: [
             { de: 'Wann fährt der nächste Zug nach Salzburg?', es: '¿Cuándo sale el próximo tren a Salzburgo?' },
-            { de: 'Muss ich umsteigen? – Ja, in Linz.', es: '¿Tengo que hacer transbordo? – Sí, en Linz.' , sigue: true },
-            { de: 'Von welchem Gleis fährt der Zug ab?', es: '¿Por qué vía sale el tren?' , sigue: true },
+            { de: 'Muss ich umsteigen? – Ja, in Linz.', es: '¿Tengo que hacer transbordo? – Sí, en Linz.' },
+            { de: 'Von welchem Gleis fährt der Zug ab?', es: '¿Por qué vía sale el tren?' },
             { de: 'Wann fährt der nächste Zug nach Graz?', es: '¿Cuándo sale el próximo tren a Graz?' },
-            { de: 'Muss ich unterwegs umsteigen?', es: '¿Tengo que hacer transbordo por el camino?' , sigue: true },
-            { de: 'Auf welchem Gleis steht der Zug?', es: '¿En qué vía está el tren?' , sigue: true },
+            { de: 'Muss ich unterwegs umsteigen?', es: '¿Tengo que hacer transbordo por el camino?' },
+            { de: 'Auf welchem Gleis steht der Zug?', es: '¿En qué vía está el tren?' },
             { de: 'Gibt es eine Ermäßigung für Studenten?', es: '¿Hay descuento para estudiantes?' },
-            { de: 'Was kostet eine Rückfahrkarte?', es: '¿Cuánto cuesta un billete de ida y vuelta?' , sigue: true },
-            { de: 'Wie lange dauert die Fahrt ungefähr?', es: '¿Cuánto dura el viaje más o menos?' , sigue: true },
-            { de: 'Fährt am Sonntag auch ein Nachtzug?', es: '¿El domingo también hay tren nocturno?' , sigue: true }
+            { de: 'Was kostet eine Rückfahrkarte?', es: '¿Cuánto cuesta un billete de ida y vuelta?' },
+            { de: 'Wie lange dauert die Fahrt ungefähr?', es: '¿Cuánto dura el viaje más o menos?' },
+            { de: 'Fährt am Sonntag auch ein Nachtzug?', es: '¿El domingo también hay tren nocturno?' }
           ]
         },
         {
@@ -3393,15 +3393,15 @@ export const A21 = {
           es: 'Aclarar detalles del tren y conexiones',
           wendungen: [
             { de: 'Ist die Ankunftszeit realistisch?', es: '¿La hora de llegada es realista?' },
-            { de: 'Was stand gerade in der Durchsage?', es: '¿Qué acaba de decir la megafonía?' , sigue: true },
-            { de: 'Lohnt sich eine Sitzplatzreservierung?', es: '¿Merece la pena reservar asiento?' , sigue: true },
+            { de: 'Was stand gerade in der Durchsage?', es: '¿Qué acaba de decir la megafonía?' },
+            { de: 'Lohnt sich eine Sitzplatzreservierung?', es: '¿Merece la pena reservar asiento?' },
             { de: 'Bekomme ich bei Verspätung eine Entschädigung?', es: '¿Con retraso recibo una indemnización?' },
-            { de: 'Wann geht der letzte Zug zurück?', es: '¿Cuándo sale el último tren de vuelta?' , sigue: true },
-            { de: 'Fährt heute etwas anders als sonst?', es: '¿Hoy hay algún cambio en el servicio?' , sigue: true },
+            { de: 'Wann geht der letzte Zug zurück?', es: '¿Cuándo sale el último tren de vuelta?' },
+            { de: 'Fährt heute etwas anders als sonst?', es: '¿Hoy hay algún cambio en el servicio?' },
             { de: 'Wie oft fährt die Bahn am Abend?', es: '¿Cada cuánto pasa el tren por la tarde?' },
-            { de: 'Muss ich für diese Strecke umsteigen?', es: '¿Tengo que hacer transbordo en este trayecto?' , sigue: true },
-            { de: 'Der Bahnhof ist zu Fuß gut erreichbar.', es: 'A la estación se llega bien a pie.' , sigue: true },
-            { de: 'Ist der Weg ausgeschildert?', es: '¿El camino está señalizado?' , sigue: true }
+            { de: 'Muss ich für diese Strecke umsteigen?', es: '¿Tengo que hacer transbordo en este trayecto?' },
+            { de: 'Der Bahnhof ist zu Fuß gut erreichbar.', es: 'A la estación se llega bien a pie.' },
+            { de: 'Ist der Weg ausgeschildert?', es: '¿El camino está señalizado?' }
           ]
         },
         {
@@ -3409,15 +3409,15 @@ export const A21 = {
           es: 'Pedir ayuda con cortesía',
           wendungen: [
             { de: 'Könnten Sie mir bitte helfen?', es: '¿Podría ayudarme, por favor?' },
-            { de: 'Würden Sie so nett sein und …?', es: '¿Sería tan amable de …?' , sigue: true },
-            { de: 'Könnten Sie mir bitte mit dem Koffer helfen?', es: '¿Me podría ayudar con la maleta, por favor?' , sigue: true },
+            { de: 'Würden Sie so nett sein und …?', es: '¿Sería tan amable de …?' },
+            { de: 'Könnten Sie mir bitte mit dem Koffer helfen?', es: '¿Me podría ayudar con la maleta, por favor?' },
             { de: 'Würden Sie so nett sein und kurz aufpassen?', es: '¿Sería tan amable de vigilar un momento?' },
-            { de: 'Dürfte ich kurz vorbei?', es: '¿Me permite pasar un momento?' , sigue: true },
-            { de: 'Hätten Sie vielleicht einen Stift für mich?', es: '¿Tendría por casualidad un bolígrafo?' , sigue: true },
+            { de: 'Dürfte ich kurz vorbei?', es: '¿Me permite pasar un momento?' },
+            { de: 'Hätten Sie vielleicht einen Stift für mich?', es: '¿Tendría por casualidad un bolígrafo?' },
             { de: 'Wären Sie so freundlich, das Fenster zu schließen?', es: '¿Sería tan amable de cerrar la ventana?' },
-            { de: 'Könnten Sie mir kurz weiterhelfen?', es: '¿Me podría echar una mano un momento?' , sigue: true },
-            { de: 'Könnten Sie im Ruhebereich bitte leiser sprechen?', es: '¿Podría hablar más bajo en la zona de silencio?' , sigue: true },
-            { de: 'Dürfte ich Ihren Gepäckwagen kurz haben?', es: '¿Me prestaría un momento su carrito?' , sigue: true }
+            { de: 'Könnten Sie mir kurz weiterhelfen?', es: '¿Me podría echar una mano un momento?' },
+            { de: 'Könnten Sie im Ruhebereich bitte leiser sprechen?', es: '¿Podría hablar más bajo en la zona de silencio?' },
+            { de: 'Dürfte ich Ihren Gepäckwagen kurz haben?', es: '¿Me prestaría un momento su carrito?' }
           ]
         },
         {
@@ -3425,15 +3425,15 @@ export const A21 = {
           es: 'Responder a peticiones educadas',
           wendungen: [
             { de: 'Aber gern! · Kein Problem.', es: '¡Con mucho gusto! · Sin problema.' },
-            { de: 'Vielen Dank, das ist sehr freundlich.', es: 'Muchas gracias, es usted muy amable.' , sigue: true },
-            { de: 'Kein Problem, ich helfe Ihnen gern.', es: 'No hay problema, le ayudo con mucho gusto.' , sigue: true },
+            { de: 'Vielen Dank, das ist sehr freundlich.', es: 'Muchas gracias, es usted muy amable.' },
+            { de: 'Kein Problem, ich helfe Ihnen gern.', es: 'No hay problema, le ayudo con mucho gusto.' },
             { de: 'Wären Sie so nett, mir beim Koffer zu helfen?', es: '¿Sería tan amable de ayudarme con la maleta?' },
-            { de: 'Wären Sie so freundlich, mir zu helfen?', es: '¿Sería tan amable de ayudarme?' , sigue: true },
-            { de: 'Dürfte ich Sie kurz stören?', es: '¿Le importaría que le interrumpa un momento?' , sigue: true },
+            { de: 'Wären Sie so freundlich, mir zu helfen?', es: '¿Sería tan amable de ayudarme?' },
+            { de: 'Dürfte ich Sie kurz stören?', es: '¿Le importaría que le interrumpa un momento?' },
             { de: 'Könnten Sie das bitte kurz halten?', es: '¿Me lo podría sujetar un momento?' },
-            { de: 'Soll ich Sie ein Stück begleiten?', es: '¿Le acompaño un trecho?' , sigue: true },
-            { de: 'Ich schicke Ihnen eine Wegbeschreibung aufs Handy.', es: 'Le mando las indicaciones al móvil.' , sigue: true },
-            { de: 'Sie können den Weg gar nicht verfehlen.', es: 'No se puede perder.' , sigue: true }
+            { de: 'Soll ich Sie ein Stück begleiten?', es: '¿Le acompaño un trecho?' },
+            { de: 'Ich schicke Ihnen eine Wegbeschreibung aufs Handy.', es: 'Le mando las indicaciones al móvil.' },
+            { de: 'Sie können den Weg gar nicht verfehlen.', es: 'No se puede perder.' }
           ]
         },
         {
@@ -3441,15 +3441,15 @@ export const A21 = {
           es: 'Preguntar por asientos libres',
           wendungen: [
             { de: 'Entschuldigung, ist der Platz noch frei?', es: 'Perdone, ¿está libre este asiento?' },
-            { de: 'Ja, bitte sehr. / Nein, der ist leider besetzt.', es: 'Sí, adelante. / No, lo siento, está ocupado.' , sigue: true },
-            { de: 'Verzeihung, ist hier noch ein Platz frei?', es: 'Disculpe, ¿queda aquí algún sitio libre?' , sigue: true },
+            { de: 'Ja, bitte sehr. / Nein, der ist leider besetzt.', es: 'Sí, adelante. / No, lo siento, está ocupado.' },
+            { de: 'Verzeihung, ist hier noch ein Platz frei?', es: 'Disculpe, ¿queda aquí algún sitio libre?' },
             { de: 'Sitzt hier schon jemand?', es: '¿Hay alguien sentado aquí?' },
-            { de: 'Ist der Platz reserviert?', es: '¿Este sitio está reservado?' , sigue: true },
-            { de: 'Darf ich mich hier hinsetzen?', es: '¿Me puedo sentar aquí?' , sigue: true },
+            { de: 'Ist der Platz reserviert?', es: '¿Este sitio está reservado?' },
+            { de: 'Darf ich mich hier hinsetzen?', es: '¿Me puedo sentar aquí?' },
             { de: 'Könnten wir tauschen? Ich sitze gern am Fenster.', es: '¿Podríamos cambiar? Me gusta ir en la ventanilla.' },
-            { de: 'Ist dieser Platz reserviert?', es: '¿Está reservado este asiento?' , sigue: true },
-            { de: 'Sind hier im Ruhebereich noch Plätze frei?', es: '¿Quedan sitios libres aquí en la zona de silencio?' , sigue: true },
-            { de: 'Darf ich mich zu Ihnen setzen?', es: '¿Me puedo sentar con usted?' , sigue: true }
+            { de: 'Ist dieser Platz reserviert?', es: '¿Está reservado este asiento?' },
+            { de: 'Sind hier im Ruhebereich noch Plätze frei?', es: '¿Quedan sitios libres aquí en la zona de silencio?' },
+            { de: 'Darf ich mich zu Ihnen setzen?', es: '¿Me puedo sentar con usted?' }
           ]
         },
         {
@@ -3457,15 +3457,15 @@ export const A21 = {
           es: 'Expresar buenos deseos de viaje',
           wendungen: [
             { de: 'Gute Reise! · Gute Fahrt!', es: '¡Buen viaje!' },
-            { de: 'Schönen Aufenthalt!', es: '¡Feliz estancia!' , sigue: true },
-            { de: 'Kommen Sie gut an!', es: '¡Que llegue bien!' , sigue: true },
+            { de: 'Schönen Aufenthalt!', es: '¡Feliz estancia!' },
+            { de: 'Kommen Sie gut an!', es: '¡Que llegue bien!' },
             { de: 'Gute Reise und kommen Sie gut an!', es: '¡Buen viaje y que llegue bien!' },
-            { de: 'Schönen Aufenthalt in Wien!', es: '¡Que tenga una buena estancia en Viena!' , sigue: true },
-            { de: 'Gute Fahrt und pass auf dich auf!', es: '¡Buen viaje y cuídate!' , sigue: true },
+            { de: 'Schönen Aufenthalt in Wien!', es: '¡Que tenga una buena estancia en Viena!' },
+            { de: 'Gute Fahrt und pass auf dich auf!', es: '¡Buen viaje y cuídate!' },
             { de: 'Ich wünsche Ihnen einen angenehmen Flug.', es: 'Le deseo un vuelo agradable.' },
-            { de: 'Erhol dich gut im Urlaub!', es: '¡Descansa bien en las vacaciones!' , sigue: true },
-            { de: 'Viel Spaß beim Stadtrundgang!', es: '¡Que disfrutes de la visita guiada!' , sigue: true },
-            { de: 'Einen schönen Aufenthalt bei uns!', es: '¡Que tenga una buena estancia con nosotros!' , sigue: true }
+            { de: 'Erhol dich gut im Urlaub!', es: '¡Descansa bien en las vacaciones!' },
+            { de: 'Viel Spaß beim Stadtrundgang!', es: '¡Que disfrutes de la visita guiada!' },
+            { de: 'Einen schönen Aufenthalt bei uns!', es: '¡Que tenga una buena estancia con nosotros!' }
           ]
         },
         {
@@ -3473,15 +3473,15 @@ export const A21 = {
           es: 'Describir el camino en la ciudad',
           wendungen: [
             { de: 'Gehen Sie geradeaus bis zur Brücke, dann links.', es: 'Vaya recto hasta el puente y luego a la izquierda.' },
-            { de: 'Das ist gleich um die Ecke.', es: 'Está a la vuelta de la esquina.' , sigue: true },
-            { de: 'Es sind ungefähr zehn Minuten zu Fuß.', es: 'Son unos diez minutos a pie.' , sigue: true },
+            { de: 'Das ist gleich um die Ecke.', es: 'Está a la vuelta de la esquina.' },
+            { de: 'Es sind ungefähr zehn Minuten zu Fuß.', es: 'Son unos diez minutos a pie.' },
             { de: 'Immer geradeaus bis zur Brücke und dann links.', es: 'Todo recto hasta el puente y luego a la izquierda.' },
-            { de: 'Das liegt direkt um die Ecke.', es: 'Está justo a la vuelta de la esquina.' , sigue: true },
-            { de: 'Zu Fuß braucht man etwa zehn Minuten.', es: 'A pie se tardan unos diez minutos.' , sigue: true },
+            { de: 'Das liegt direkt um die Ecke.', es: 'Está justo a la vuelta de la esquina.' },
+            { de: 'Zu Fuß braucht man etwa zehn Minuten.', es: 'A pie se tardan unos diez minutos.' },
             { de: 'Nehmen Sie die Fußgängerzone, das ist kürzer.', es: 'Coja la zona peatonal, es más corto.' },
-            { de: 'An der zweiten Ampel rechts abbiegen.', es: 'En el segundo semáforo gire a la derecha.' , sigue: true },
-            { de: 'Wie lang ist der Fußweg zum Hotel?', es: '¿Cuánto es el camino a pie al hotel?' , sigue: true },
-            { de: 'Komme ich zu Fuß zur Innenstadt?', es: '¿Llego al centro a pie?' , sigue: true }
+            { de: 'An der zweiten Ampel rechts abbiegen.', es: 'En el segundo semáforo gire a la derecha.' },
+            { de: 'Wie lang ist der Fußweg zum Hotel?', es: '¿Cuánto es el camino a pie al hotel?' },
+            { de: 'Komme ich zu Fuß zur Innenstadt?', es: '¿Llego al centro a pie?' }
           ]
         },
         {
@@ -3489,15 +3489,15 @@ export const A21 = {
           es: 'Registrarse y pagar en la recepción del hotel',
           wendungen: [
             { de: 'Ich habe ein Zimmer auf den Namen … reserviert.', es: 'Tengo una habitación reservada a nombre de …' },
-            { de: 'Um wie viel Uhr gibt es Frühstück?', es: '¿A qué hora es el desayuno?' , sigue: true },
-            { de: 'Ich würde gern auschecken.', es: 'Quisiera hacer el check-out.' , sigue: true },
+            { de: 'Um wie viel Uhr gibt es Frühstück?', es: '¿A qué hora es el desayuno?' },
+            { de: 'Ich würde gern auschecken.', es: 'Quisiera hacer el check-out.' },
             { de: 'Ich habe ein Doppelzimmer auf den Namen Pascual reserviert.', es: 'Tengo una habitación doble reservada a nombre de Pascual.' },
-            { de: 'Ab wann wird das Frühstück serviert?', es: '¿Desde qué hora sirven el desayuno?' , sigue: true },
-            { de: 'Ich möchte jetzt auschecken.', es: 'Quiero hacer el check-out ahora.' , sigue: true },
+            { de: 'Ab wann wird das Frühstück serviert?', es: '¿Desde qué hora sirven el desayuno?' },
+            { de: 'Ich möchte jetzt auschecken.', es: 'Quiero hacer el check-out ahora.' },
             { de: 'Im Bad fehlt ein Handtuch.', es: 'En el baño falta una toalla.' },
-            { de: 'Kann ich das Gepäck bis nachmittags hierlassen?', es: '¿Puedo dejar el equipaje aquí hasta la tarde?' , sigue: true },
-            { de: 'Haben Sie einen Stadtplan für mich?', es: '¿Tiene un plano de la ciudad para mí?' , sigue: true },
-            { de: 'Ab wann kann ich das Zimmer beziehen?', es: '¿A partir de cuándo puedo entrar en la habitación?' , sigue: true }
+            { de: 'Kann ich das Gepäck bis nachmittags hierlassen?', es: '¿Puedo dejar el equipaje aquí hasta la tarde?' },
+            { de: 'Haben Sie einen Stadtplan für mich?', es: '¿Tiene un plano de la ciudad para mí?' },
+            { de: 'Ab wann kann ich das Zimmer beziehen?', es: '¿A partir de cuándo puedo entrar en la habitación?' }
           ]
         }
       ]
