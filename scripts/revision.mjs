@@ -26,12 +26,36 @@ for (const f of ficheros) {
   for (const m of src.matchAll(/\bt\(\s*`([^`]*)\$\{/g)) dinamicas.push(`${f}: t(\`${m[1]}\${…}\`)`);
 }
 
+// Los trozos de clave que se completan en tiempo de ejecucion -t('tp.perfAux.'
+// + persona)- los ha cogido tambien la regexp de arriba, porque tambien
+// empiezan por t('. Pero no son una clave: son el principio de una familia.
+// Sin quitarlos, revision.mjs marcaba un fallo fijo en cada ejecucion
+// ("tp.perfAux." no existe, claro que no), y un verificador que siempre da un
+// fallo falso te ensena a no mirarlo.
+const prefijos = new Set();
+for (const d of dinamicas) {
+  const m = /t\('([^']*)' \+/.exec(d);
+  if (m) prefijos.add(m[1]);
+}
+for (const pre of prefijos) usadas.delete(pre);
+
+// Lo que SI se puede comprobar de una familia: que exista alguna clave que
+// empiece asi. Si no hay ninguna es que la renombraron y nadie actualizo el
+// sitio donde se monta, y ahi la pantalla enseña la clave en crudo.
+const familiasVacias = [...prefijos]
+  .filter((pre) => ![...declaradas].some((k) => k.startsWith(pre)))
+  .sort();
+
 const faltan = [...usadas].filter((k) => !declaradas.has(k)).sort();
 const sobran = [...declaradas].filter((k) => !usadas.has(k)).sort();
 
 console.log('IDIOMA: ' + declaradas.size + ' claves declaradas, ' + usadas.size + ' usadas literalmente');
 if (faltan.length) { console.log('\n✗ SE USAN PERO NO EXISTEN (' + faltan.length + '):'); faltan.forEach((k) => console.log('   ' + k)); }
 else console.log('   ✓ ninguna clave usada sin declarar');
+if (familiasVacias.length) {
+  console.log('\n\u2717 FAMILIAS SIN NINGUNA CLAVE (' + familiasVacias.length + '):');
+  familiasVacias.forEach((k) => console.log('   ' + k + '\u2026'));
+}
 if (dinamicas.length) { console.log('\n· claves montadas al vuelo (no comprobables aquí): ' + dinamicas.length); dinamicas.slice(0, 8).forEach((x) => console.log('   ' + x)); }
 console.log('\n· declaradas y sin usar literalmente: ' + sobran.length);
 

@@ -1312,28 +1312,23 @@ export function colorSiguiente(prev, ok, deToEs) {
   return prev === AMARILLO || prev === VERDE ? AMARILLO : ROJO;
 }
 
-// Cuantas palabras del mazo hay de cada color. `todasVerdes` es lo que abre el
-// boton de ampliar el tema con la IA.
-// El color que se le VE a una palabra: el que le hayas puesto tu a mano y, si
-// no le has puesto ninguno, el que se ha ganado practicando.
+// El color que se le VE a una palabra.
 //
-// Existe porque la regla estaba escrita dos veces y no decian lo mismo: la
-// tabla pintaba de verde lo que ya te sabes, y el candado de "Ampliar" solo
-// miraba los colores puestos a mano. Verdes en la tabla que no contaban para
-// nada.
+// Solo lo que hayas decidido tu: el color que le pongas a mano con la paleta y
+// el que sale de las flashcards, que son las dos unicas cosas que escriben
+// `color`. Antes, si no habia ninguno, se deducia uno de las estadisticas de
+// practica (rojo si habias fallado, verde con fuerza 3...), y como TODOS los
+// juegos llaman a recordCard, jugar una partida de Test o de Blitz te repintaba
+// media tabla sin haberlo pedido. El semaforo es del repaso visual, no del
+// marcador.
 //
-// El orden importa: rojo antes que verde, porque una palabra que fallas sigue
-// siendo una palabra que fallas aunque lleves tres aciertos.
+// Ojo con `coloresDeck`: su `todasVerdes` -lo que abre el boton de ampliar el
+// tema con la IA- depende de esto, asi que ahora se abre repasando con
+// flashcards o pintando a mano, no acertando en los otros juegos.
 export function colorVisible(de, p = progAll()) {
   const c = p[cardKey(de)];
   if (!c) return null;
-  if (c.color) return c.color;
-  if (c.wrong > 0 && c.strength < 4) return ROJO;
-  if (c.strength >= 3) return VERDE;
-  // Con una o dos veces bien la palabra ya no esta en blanco: amarilla, que
-  // es "empezada". Si no, jugabas un Blitz entero y el punto no se movia.
-  if (c.correct > 0 || c.wrong > 0) return AMARILLO;
-  return null;
+  return c.color || null;
 }
 
 export function coloresDeck(deck) {
@@ -1517,6 +1512,19 @@ export function pickCards(deck, size = 12) {
     if (!c || c.correct + c.wrong === 0) score = 5; // nuevas: prioridad media
     else if (c.due <= now) score = 10 + (6 - c.strength); // toca repasar
     else score = -c.strength; // ya dominadas: al final
+    // Y un empujon a las que TODAVIA cuentan para la barra.
+    //
+    // La barra es la suma de aciertos con tope de ACIERTOS_POR_PALABRA por
+    // palabra: a partir de ahi, acertarla otra vez no sube nada. Pero el
+    // repaso espaciado la seguia eligiendo -"toca repasarla" puntua altisimo-,
+    // asi que se podia jugar una tanda entera de diez, acertarlas todas, y ver
+    // el porcentaje clavado en el mismo numero. Que es exactamente lo que
+    // parece: que el ejercicio no ha servido para nada.
+    //
+    // Con el empujon, mientras queden palabras por debajo del tope entran
+    // ellas primero; cuando ya no queda ninguna, el mazo esta al 100% y la
+    // tanda vuelve a ser repaso puro, que es lo que toca.
+    if ((c?.correct || 0) < ACIERTOS_POR_PALABRA) score += 8;
     // El azar reparte DENTRO de cada grupo -las nuevas entre ellas, las de
     // repasar entre ellas- sin colar una dominada por delante de una fallada.
     return { card, score: score + Math.random() * 3 };
@@ -1542,14 +1550,18 @@ export function pickCards(deck, size = 12) {
 // Los modos de juego son INTERFAZ, no contenido: van por t(). Es una funcion
 // y no una constante para que al cambiar de idioma se recalculen.
 export function vocabModes() {
+  // De mas facil a mas dificil, con el mismo criterio que las monedas:
+  // reconocer (tarjetas, test, emparejar, blitz), reconstruir (wortsalat,
+  // ahorcado) y producir (escribir), que va siempre el ultimo. Blitz cierra
+  // los de reconocer porque es lo mismo pero con reloj.
   return [
     { id: 'flashcards', emoji: '🃏', label: t('vm.flashcards'), hint: t('vm.flashcardsHint') },
     { id: 'quiz', emoji: '✅', label: t('vm.quiz'), hint: t('vm.quizHint') },
-    { id: 'write', emoji: '⌨️', label: t('vm.write'), hint: t('vm.writeHint') },
     { id: 'match', emoji: '🧩', label: t('vm.match'), hint: t('vm.matchHint') },
-    { id: 'wortsalat', emoji: '🔤', label: 'Wortsalat', hint: t('vm.wortsalatHint') },
     { id: 'blitz', emoji: '⚡', label: 'Blitz', hint: t('vm.blitzHint') },
-    { id: 'hangman', emoji: '🪢', label: t('vm.hangman'), hint: t('vm.hangmanHint') }
+    { id: 'wortsalat', emoji: '🔤', label: 'Wortsalat', hint: t('vm.wortsalatHint') },
+    { id: 'hangman', emoji: '🪢', label: t('vm.hangman'), hint: t('vm.hangmanHint') },
+    { id: 'write', emoji: '⌨️', label: t('vm.write'), hint: t('vm.writeHint') }
   ];
 }
 

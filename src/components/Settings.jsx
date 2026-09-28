@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { t, pick, getLang, setLang, LANGS, LANGS_PENDIENTES } from '../lib/i18n.js';
 import ImportarVocab from './ImportarVocab.jsx';
 import ComoFunciona from './ComoFunciona.jsx';
@@ -14,6 +14,8 @@ import { bestStreak } from '../lib/rachas.js';
 import { generateItems } from '../lib/ai.js';
 import { esOrdenador } from '../lib/teclas.js';
 import { hablar, vozAlemana } from '../lib/audio.js';
+import { progresoHuerfano } from '../lib/progress.js';
+import { KURSBUCH, ruleConceptId } from '../lib/kursbuch/index.js';
 
 const ICONO_TEMA = { auto: '🌗', claro: '☀️', oscuro: '🌙' };
 const NOMBRE_TEMA = {
@@ -397,6 +399,8 @@ export default function Settings({ onBack }) {
 
       {!PORTABLE && <ImportarVocab />}
 
+      <AvisoProgresoHuerfano />
+
       <div className="panel">
         <h2>{t('set.data')}</h2>
         <p className="muted" style={{ fontSize: '0.9rem', marginBottom: 14 }}>
@@ -445,6 +449,57 @@ export default function Settings({ onBack }) {
           </a>
         </span>
       </footer>
+    </div>
+  );
+}
+
+
+// Progreso que ya no corresponde a ningun contenido.
+//
+// El progreso de un apartado de Kommunikation se guarda con su nombre aleman
+// como clave, y el de una regla con el texto de la regla cuando no trae `key`
+// propia. Asi que renombrar cualquiera de los dos deja lo que llevabas hecho
+// colgando de una clave muerta: la barra baja sola y no hay nada que lo diga.
+// Ya paso una vez al reorganizar las lecciones.
+//
+// No ofrece borrarlo: borrarlo seria rematar la perdida. Lo que hay que hacer
+// con lo que salga aqui es mirarlo y anadirlo a RENOMBRADAS en progress.js,
+// que es lo que devuelve el trabajo a su sitio.
+function AvisoProgresoHuerfano() {
+  const huerfano = useMemo(() => {
+    const apartadosVivos = new Set();
+    const conceptosVivos = new Set();
+    for (const banda of KURSBUCH.baende) {
+      for (const l of banda.lektionen) {
+        for (const f of l.kommunikation || []) apartadosVivos.add(`${l.id}:${f.funktion}`);
+        for (const g of l.grammatik || []) conceptosVivos.add(ruleConceptId(l, g));
+      }
+    }
+    return progresoHuerfano({ apartadosVivos, conceptosVivos });
+  }, []);
+
+  const total = huerfano.apartados.length + huerfano.conceptos.length;
+  if (!total) return null;
+
+  return (
+    <div className="panel">
+      <h2>{pick('Progreso sin contenido', 'Progress with no content')}</h2>
+      <p className="muted" style={{ fontSize: '0.9rem', marginBottom: 10 }}>
+        {pick(
+          `Hay ${total} apuntes de progreso que ya no corresponden a ningun apartado ni regla del libro, seguramente porque cambiaron de nombre. No se pierde nada del almacen, pero ese trabajo no esta contando en ninguna barra.`,
+          `There are ${total} progress records that no longer match any section or rule in the book, most likely because they were renamed. Nothing is lost from storage, but that work is not counting towards any bar.`
+        )}
+      </p>
+      <ul className="muted" style={{ fontSize: '0.82rem', margin: 0, paddingLeft: 18 }}>
+        {[...huerfano.apartados, ...huerfano.conceptos].slice(0, 12).map((c) => (
+          <li key={c}>{c}</li>
+        ))}
+      </ul>
+      {total > 12 && (
+        <p className="muted" style={{ fontSize: '0.82rem', marginTop: 8 }}>
+          {pick(`y ${total - 12} mas`, `and ${total - 12} more`)}
+        </p>
+      )}
     </div>
   );
 }

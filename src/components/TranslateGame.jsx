@@ -6,7 +6,7 @@ import { elegirFrases, corregir, pistas as pistasDe, apuntar, xpDe } from '../li
 import { explainTranslation } from '../lib/ai.js';
 import { aiAvailable } from '../lib/settings.js';
 import { recordActivity } from '../lib/streak.js';
-import { ganar, monedasConPistas, cobrarBono100 } from '../lib/monedas.js';
+import { ganar, monedasConPistas } from '../lib/monedas.js';
 import { playAudio } from '../lib/audio.js';
 import { bumpSessions, recordAnswer } from '../lib/progress.js';
 import { saveRun, guardarParcial } from '../lib/leaderboard.js';
@@ -215,7 +215,6 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
       xp,
       streak,
       monedas: monedas.current,
-      bonoCien: 0,
       missed: resultados.current
         .filter((r) => r.estado !== 'bien')
         .map((r) => ({

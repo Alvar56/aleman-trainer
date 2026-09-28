@@ -4,7 +4,6 @@ import { SIN_IA } from './modo.js';
 const DEFAULT = {
   dailyGoalXp: 40,
   sessionSize: 10,
-  sound: true,
   aiEnabled: false,
   aiProvider: 'claude-local', // 'claude-local' | 'gemini' | 'openai-compat'
   aiKey: '',

@@ -18,6 +18,7 @@ import WortsalatGame from './components/WortsalatGame.jsx';
 import BlitzGame from './components/BlitzGame.jsx';
 import HangmanGame from './components/HangmanGame.jsx';
 import VocabReto from './components/VocabReto.jsx';
+import KommReto from './components/KommReto.jsx';
 import AskPractice from './components/AskPractice.jsx';
 import GenderGame from './components/GenderGame.jsx';
 import FoxChat from './components/FoxChat.jsx';
@@ -43,19 +44,22 @@ import { SIN_IA, PORTABLE } from './lib/modo.js';
 import { getLektion } from './lib/kursbuch/index.js';
 import { onLangChange } from './lib/i18n.js';
 import { storage, fusionarDelServidor, alFusionar, HAY_SERVIDOR } from './lib/storage.js';
+import { hayEjercicio } from './lib/enEjercicio.js';
 
 // Vistas que no merece la pena recordar: una partida o un resumen a medias.
-const EFIMERAS = ['session', 'summary', 'vsession', 'vsummary', 'nsession', 'nsummary', 'exam', 'vreto', 'gender', 'kasus', 'traducir', 'fox', 'askpractice'];
+const EFIMERAS = ['session', 'summary', 'vsession', 'vsummary', 'nsession', 'nsummary', 'exam', 'vreto', 'gender', 'kasus', 'traducir', 'fox', 'askpractice', 'kommreto'];
 
 // Pantallas donde estas HACIENDO un ejercicio. El monedero va fijo arriba a la
 // derecha y ahi tapaba el contador (1/20), asi que en estas se aparta. Lo
 // marcamos con una clase en el <body> en vez de deducirlo desde el CSS: se ve
 // en el inspector y no depende de que el navegador resuelva un :has().
 // Los juegos de vocabulario cuya tanda es una lista de tarjetas y por tanto se
-// puede repetir con solo las falladas. Fuera: emparejar (es una parrilla) y
-// der/die/das (no va por mazo).
-const REPETIBLES = ['quiz', 'write', 'flashcards', 'wortsalat', 'blitz', 'hangman'];
-const EJERCICIO = ['session', 'vsession', 'nsession', 'exam', 'vreto', 'gender', 'kasus', 'traducir'];
+// puede repetir con solo las falladas. Fuera: emparejar (es una parrilla),
+// der/die/das (no va por mazo) y Blitz, que es contrarreloj: repetir solo los
+// fallos ahi es una carrera de tres preguntas que se acaba antes de empezar,
+// y ademas rompe lo unico que mide -cuantas te salen seguidas en 30 segundos.
+const REPETIBLES = ['quiz', 'write', 'flashcards', 'wortsalat', 'hangman'];
+const EJERCICIO = ['session', 'vsession', 'nsession', 'exam', 'vreto', 'gender', 'kasus', 'traducir', 'kommreto'];
 
 const TOP_LEVEL = ['home', 'grammar', 'vocab', 'komm', 'news', 'lieder', 'diary', 'pruefung', ...(PORTABLE ? [] : ['notebook']), 'leaderboard', 'settings'];
 
@@ -99,7 +103,7 @@ export default function App() {
         const { timestamp, data } = await res.json();
         const localTs = Number(localStorage.getItem('dtrainer_sync_ts') || 0);
         if (timestamp <= localTs) return;
-        if (EJERCICIO.includes(vistaAhora.current.name)) {
+        if (EJERCICIO.includes(vistaAhora.current.name) || hayEjercicio()) {
           syncAplazada.current = true;
           return;
         }
@@ -121,7 +125,7 @@ export default function App() {
     // Tras una fusion por conflicto: si estas en un ejercicio se espera a que
     // salgas, igual que arriba.
     const quitar = alFusionar(() => {
-      if (EJERCICIO.includes(vistaAhora.current.name)) {
+      if (EJERCICIO.includes(vistaAhora.current.name) || hayEjercicio()) {
         // Bandera propia: aqui la mezcla YA esta hecha y la marca ya esta al
         // dia, asi que al salir no hay que volver a mirar el servidor -diria
         // "nada nuevo"-, hay que pintar lo que ya tenemos.
@@ -282,6 +286,8 @@ export default function App() {
   const startVocab = (deckId, vmode, fallos = false, dir = null, cartasFijas = null, origen = null) =>
     setViewProxy({ name: 'vsession', deckId, vmode, fallos, dir, cartasFijas, origen, k: Date.now() });
   const startReto = (deckId) => setViewProxy({ name: 'vreto', deckId, k: Date.now() });
+  // El mismo reto, pero con las conversaciones de una Lektion de Kommunikation.
+  const startKommReto = (lektionId) => setViewProxy({ name: 'kommreto', lektionId, k: Date.now() });
 
   // Tarjetas de TODO el vocabulario, sin pasar por Wortschatz. Los mazos del
   // libro se cogen enteros por lección (`kb-…-all`) y no en grupitos de diez,
@@ -569,13 +575,30 @@ export default function App() {
         )}
 
         {view.name === 'kommlektion' && (
-          <Kommunikation 
-            lektionId={view.lektionId} 
+          <Kommunikation
+            lektionId={view.lektionId}
+            // La pestaña viaja en la vista, como en Gramática y Vocabulario.
+            // Sin esto vivía sólo en el useState del componente, así que
+            // cualquier remontaje -volver a la sección, o la recarga que hace
+            // la sincronización al volver a la pestaña del navegador- te
+            // devolvía a Teoría aunque estuvieras en Ejercicios.
+            tab={view.tab}
+            onTab={setTab}
+            onReto={startKommReto}
             dialog={view.dialog}
             busy={view.busy}
             setDialog={(dialog) => setViewProxy((v) => ({ ...v, dialog }))}
             setBusy={(busy) => setViewProxy((v) => ({ ...v, busy }))}
-            onBack={() => go('komm')} 
+            onBack={() => go('komm')}
+          />
+        )}
+
+        {view.name === 'kommreto' && (
+          <KommReto
+            key={view.k}
+            lektionId={view.lektionId}
+            onExit={() => setViewProxy({ name: 'kommlektion', lektionId: view.lektionId, tab: 'ejercicios' })}
+            onFinish={(data) => setView({ name: 'vsummary', data: { ...data, mode: 'reto' } })}
           />
         )}
 

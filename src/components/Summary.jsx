@@ -9,7 +9,7 @@ import Premios from './Premios.jsx';
 const APROBADO = 80;
 
 export default function Summary({ data, onRepeat, onRepetirFallos, onHome, onTema }) {
-  const { topic, correctCount, total, accuracy, seconds, xp, streak, rank, mistakes, rachaMax, rachaRecord, monedas, bonoDia, bonoCien } = data;
+  const { topic, correctCount, total, accuracy, seconds, xp, streak, rank, mistakes, rachaMax, rachaRecord, monedas, bonoDia } = data;
   const fallos = data.fallos || [];
   const pct = Math.round(accuracy * 100);
   const mm = Math.floor(seconds / 60);
@@ -53,7 +53,6 @@ export default function Summary({ data, onRepeat, onRepetirFallos, onHome, onTem
           xp={xp}
           monedas={monedas}
           bonoDia={bonoDia}
-          bonoCien={bonoCien}
           rachaMax={rachaMax}
           rachaRecord={rachaRecord}
           dias={streak?.state?.current || 0}

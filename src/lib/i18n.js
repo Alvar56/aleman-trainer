@@ -173,11 +173,6 @@ const DICT = {
   'tp.glossPlain': ['{s} {v} {m}.', '{s} {v} {m}.'],
   'tp.auxHe': ['he', 'have'],
   'tp.auxHa': ['ha', 'has'],
-  'tp.perfAux.ich': ['he', 'have'],
-  'tp.perfAux.du': ['has', 'have'],
-  'tp.perfAux.er': ['ha', 'has'],
-  'tp.perfAux.wir': ['hemos', 'have'],
-  'tp.perfAux.sie': ['han', 'have'],
   'tp.wouldBeGood': ['Estaría bien {v} {m}.', 'It would be good to {v} {m}.'],
   'tp.becauseGloss': ['…porque {s}{v} {m}.', '…because {s}{v} {m}.'],
   // Enunciados de los ejercicios de src/topics.
@@ -789,6 +784,10 @@ const DICT = {
   'komm.sourceOff': [
     'Todos los ejercicios salen del contenido oficial de esta lección del libro. No necesitan IA.',
     'All exercises come from the official book content of this lesson. They need no AI.'
+  ],
+  'komm.retoCargando': [
+    'Preparando el reto con las conversaciones de {n}… (tarda un minuto)',
+    'Preparing the challenge with the conversations from {n}… (takes a minute)'
   ],
   'gr.aiHint': [
     'Activa la IA en el menú lateral para recibir ejercicios nuevos generados al momento.',

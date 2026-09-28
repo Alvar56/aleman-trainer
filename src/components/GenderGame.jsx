@@ -5,7 +5,7 @@ import { pickGenderNouns, recordGender, recordCard, getDeck } from '../lib/vocab
 import { pistaGenero } from '../lib/genero.js';
 import { useTeclas, esOrdenador } from '../lib/teclas.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, RECONOCER, cobrarBono100 } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun, guardarParcial } from '../lib/leaderboard.js';
 import { getSettings } from '../lib/settings.js';
@@ -180,7 +180,6 @@ export default function GenderGame({ onExit, onFinish, nivel = 'all' }) {
       xp,
       streak,
       monedas: monedas.current,
-      bonoCien: 0,
       missed: results.current.filter((r) => !r.ok).map((r) => ({ de: r.noun.article + ' ' + r.noun.noun, es: r.noun.es }))
     });
   }

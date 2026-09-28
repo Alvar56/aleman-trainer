@@ -7,7 +7,7 @@ import { runJob } from '../lib/aiJobs.js';
 import { useAiJob } from '../lib/useAiJob.js';
 import { saveResult, veredicto, getTyp, BESTANDEN } from '../lib/pruefung.js';
 import { recordActivity } from '../lib/streak.js';
-import { ganar, MONEDAS_EXAMEN, cobrarBono100 } from '../lib/monedas.js';
+import { ganar, MONEDAS_EXAMEN } from '../lib/monedas.js';
 import BotonCopiar from './BotonCopiar.jsx';
 
 // Busca una voz alemana entre las instaladas en el sistema.

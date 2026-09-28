@@ -3,10 +3,14 @@ import { t, pick } from '../lib/i18n.js';
 import { getStarredItems, useStars } from '../lib/stars.js';
 import { SIN_IA, PORTABLE } from '../lib/modo.js';
 import { topicMastery, weakConcepts, conceptosQueFaltan, UMBRAL_TERMINAR } from '../lib/progress.js';
+import MatchGame from './MatchGame.jsx';
+import VocabSummary from './VocabSummary.jsx';
+import BlitzGame from './BlitzGame.jsx';
+import { paresDeGramatica } from '../lib/paresJuego.js';
+import { recordAnswer } from '../lib/progress.js';
 import { aiAvailable } from '../lib/settings.js';
 import { deleteUserGrammarTopic } from '../lib/userGrammar.js';
 import { tc } from '../lib/contenido/index.js';
-import { verificarBono100 } from '../lib/monedas.js';
 import CoronaPanel, { BarrasTema } from './ProgresoTema.jsx';
 import Desplegable from './Desplegable.jsx';
 import TextoAleman from './TextoAleman.jsx';
@@ -109,6 +113,48 @@ function TheorySection({ s }) {
 
 export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onBack }) {
   const setTab = (t) => onTab?.(t);
+  // 'match' | 'blitz'. Son juegos enteros y no tandas del generador, asi que
+  // no pasan por onStart: se pintan aqui mismo en lugar del tema.
+  const [juego, setJuego] = useState(null);
+  const [resumenJuego, setResumenJuego] = useState(null);
+  if (topic && juego) {
+    const pares = paresDeGramatica(topic);
+    const porFrase = new Map(pares.map((x) => [x.de, x]));
+    const ctx = {
+      id: 'gram:' + topic.id,
+      nombre: pick(topic.nameEs, topic.nameEn || topic.name),
+      emoji: topic.emoji || '📖'
+      // Sin `pct`: el bono del 100% no se da en estos dos.
+    };
+    // Cada acierto suma a SU regla, igual que en una tanda normal. El peso es
+    // el del test (1): aqui se reconoce, no se produce.
+    const apuntar = (de, ok) => {
+      const cid = porFrase.get(de)?.conceptId;
+      if (cid) recordAnswer(cid, ok, { type: 'mc' });
+    };
+    const salir = () => setJuego(null);
+    const acabar = (data) => {
+      // `cual` va con el resultado: al salir del juego se pierde `juego` y
+      // "Otra ronda" necesita saber cual volver a abrir.
+      setResumenJuego({ ...data, cual: juego, volverA: 'ejercicios', deck: { emoji: ctx.emoji, name: ctx.nombre } });
+      setJuego(null);
+    };
+    return juego === 'match' ? (
+      <MatchGame pares={pares} apuntar={apuntar} contexto={ctx} onExit={salir} onFinish={acabar} />
+    ) : (
+      // Un minuto: aqui la pregunta es una frase con hueco, no una palabra.
+      <BlitzGame cartas={pares} apuntar={apuntar} contexto={ctx} segundos={60} onExit={salir} onFinish={acabar} />
+    );
+  }
+
+  if (topic && resumenJuego) {
+    const volver = () => setResumenJuego(null);
+    const otraRonda = () => { const cual = resumenJuego.cual; setResumenJuego(null); setJuego(cual); };
+    return (
+      <VocabSummary data={resumenJuego} onRepeat={otraRonda} onDeck={volver} onHome={volver} />
+    );
+  }
+
   if (!topic) {
     return (
       <div className="card center stack">
@@ -120,7 +166,6 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
   const ids = topic.concepts.map((c) => c.id);
   const m = topicMastery(ids);
   if (m.pct >= 100) {
-    verificarBono100(`topic:${topic.id}`, m.pct);
   }
   const weak = weakConcepts(ids);
   const aiOn = aiAvailable();
@@ -173,7 +218,7 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
     <div>
       <div className="topbar">
         <div className="min0">
-          <h1>{topic.emoji && <span style={{ marginRight: 8 }}>{topic.emoji}</span>}{pick(topic.nameEs, topic.nameEn || topic.name)}</h1>
+          <h1><button type="button" className="titulo-volver" onClick={onBack}>{topic.emoji && <span style={{ marginRight: 8 }}>{topic.emoji}</span>}{pick(topic.nameEs, topic.nameEn || topic.name)}</button></h1>
           <p className="muted" style={{ marginTop: 4, fontSize: '0.9rem' }}>
             {topic.name} · {pick(topic.blurb, topic.blurbEn || tc(topic.blurb))}
             {topic.custom && <span className="pill" style={{ marginLeft: 8, fontSize: '0.75rem' }}>✨ {pick('Creado con IA', 'Created with AI')}</span>}
@@ -342,6 +387,9 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
               ) : (
               <>
               <div className="gametype-label">{t('gr.pickGame')}</div>
+              {/* De mas facil a mas dificil, con el mismo criterio que las
+                  monedas: reconocer, reconstruir y producir. Escribir va
+                  siempre el ultimo y el test el primero. */}
               <div className="gametype-grid">
                 <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'mc')}>
                   <span className="gt-ico">✅</span>
@@ -350,11 +398,28 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
                     <small>{t('home.gTestSub')}</small>
                   </span>
                 </button>
-                <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'write')}>
-                  <span className="gt-ico">⌨️</span>
+                <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'judge')}>
+                  <span className="gt-ico">⚖️</span>
                   <span className="gt-txt">
-                    <span>{t('gr.gWrite')}</span>
-                    <small>{t('gr.gWriteSub')}</small>
+                    <span>{t('home.gJudge')}</span>
+                    <small>{t('home.gJudgeSub')}</small>
+                  </span>
+                </button>
+                {/* Emparejar y Blitz no pasan por el generador de tandas: son
+                    juegos enteros, los mismos que Vocabulario, con las frases
+                    de hueco de esta leccion. Por eso no llaman a onStart. */}
+                <button className="gametype" onClick={() => setJuego('match')}>
+                  <span className="gt-ico">🧩</span>
+                  <span className="gt-txt">
+                    <span>{pick('Emparejar', 'Match')}</span>
+                    <small>{pick('Seis huecos con su solución', 'six gaps with their answer')}</small>
+                  </span>
+                </button>
+                <button className="gametype" onClick={() => setJuego('blitz')}>
+                  <span className="gt-ico">⚡</span>
+                  <span className="gt-txt">
+                    <span>Blitz</span>
+                    <small>{pick('Diez aciertos en treinta segundos', 'ten right in thirty seconds')}</small>
                   </span>
                 </button>
                 <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'order')}>
@@ -364,11 +429,11 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
                     <small>{t('home.gOrderSub')}</small>
                   </span>
                 </button>
-                <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'judge')}>
-                  <span className="gt-ico">⚖️</span>
+                <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'write')}>
+                  <span className="gt-ico">⌨️</span>
                   <span className="gt-txt">
-                    <span>{t('home.gJudge')}</span>
-                    <small>{t('home.gJudgeSub')}</small>
+                    <span>{t('gr.gWrite')}</span>
+                    <small>{t('gr.gWriteSub')}</small>
                   </span>
                 </button>
               </div>

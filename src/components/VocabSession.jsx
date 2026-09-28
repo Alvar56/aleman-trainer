@@ -3,7 +3,7 @@ import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t, codigoIdioma } from '../lib/i18n.js';
 import { pickCards, recordCard, setCardColor, getCardColor, colorSiguiente, allDecks, deckStats } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, verificarBono100, RECONOCER, PRODUCIR } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER, PRODUCIR } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { getSettings } from '../lib/settings.js';
 import { useTeclas, teclasDeOpciones } from '../lib/teclas.js';
@@ -95,7 +95,19 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
   const inputRef = useRef(null);
   const advancing = useRef(false);
 
-  const dir = useMemo(() => cards.map(() => propDir === 'es-de' ? false : propDir === 'de-es' ? true : Math.random() < 0.65), [cards, propDir]);
+  // La direccion de cada carta. En mixto se sortea, PERO al repetir un fallo
+  // se respeta la que tenia cuando fallaste: si te equivocaste yendo de
+  // aleman a castellano, repetirlo al reves no es repetirlo, es otra pregunta
+  // sobre la misma palabra. Por eso parecia que el ejercicio cambiaba solo.
+  const dir = useMemo(
+    () => cards.map((c) => (
+      typeof c?._deToEs === 'boolean' ? c._deToEs
+        : propDir === 'es-de' ? false
+          : propDir === 'de-es' ? true
+            : Math.random() < 0.65
+    )),
+    [cards, propDir]
+  );
 
   useEffect(() => {
     if (mode === 'write' && phase === 'q' && inputRef.current) inputRef.current.focus();
@@ -128,6 +140,10 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
 
   const quizOptions = useMemo(() => {
     if (mode !== 'quiz' || !card) return [];
+    // Al repetir un fallo, las MISMAS cuatro opciones que tenias delante.
+    // Con distractores nuevos cada vez, la pregunta que fallaste no vuelve a
+    // aparecer nunca: vuelve otra distinta con la misma respuesta.
+    if (Array.isArray(card._opciones) && card._opciones.length) return card._opciones;
     const normText = (s) => String(s || '').trim().toLowerCase();
     const ansKey = normText(answer);
     let pool = deck.cards
@@ -261,6 +277,9 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
       card,
       ok,
       deToEs,
+      // Las opciones que tenias delante, para poder repetir ESTE ejercicio y
+      // no otro distinto sobre la misma palabra.
+      opciones: mode === 'quiz' ? quizOptions : null,
       picked: mode === 'quiz' ? userChoiceOrText : null,
       input: mode === 'write' ? userChoiceOrText : ''
     };
@@ -286,14 +305,6 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
     let streak = null;
     let run = null;
     let rank = null;
-    let bonoCien = 0;
-    if (deck) {
-      const st = deckStats(deck);
-      if (st && st.pct >= 100) {
-        bonoCien = verificarBono100(`deck:${deck.id}`, st.pct);
-      }
-    }
-
     if (!isFlash) {
       xp = validResults.reduce((s, r) => s + (r.ok ? 10 : 2), 0);
       if (acc >= 0.9) xp += 5;
@@ -311,12 +322,15 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
       seconds,
       xp,
       streak,
-      monedas: isFlash ? 0 : monedas.current + bonoCien,
-      bonoCien,
+      monedas: isFlash ? 0 : monedas.current,
       rachaMax: mejorSeguidas.current,
       rachaRecord: ultimaSeguidas.current,
       rank,
-      missed: validResults.filter((r) => !r.ok).map((r) => r.card)
+      // El fallo viaja con su direccion y sus opciones, para que "repetir los
+      // fallos" devuelva EL ejercicio y no otro sobre la misma palabra.
+      missed: validResults
+        .filter((r) => !r.ok)
+        .map((r) => ({ ...r.card, _deToEs: r.deToEs, _opciones: r.opciones }))
     });
   }
 

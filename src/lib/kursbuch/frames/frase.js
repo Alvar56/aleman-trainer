@@ -877,7 +877,17 @@ export const FRASE = {
       { s: 'Ich gehe ___ ins Schwimmbad.', a: 'am Samstag', d: ['ins Schwimmbad am Samstag', 'Samstag ins'], t: 'El sábado voy a la piscina.', e: 'El complemento de tiempo va primero.' },
       { s: 'Sie wartet ___ vor dem Kino.', a: 'seit zwanzig Minuten', d: ['vor dem Kino seit', 'zwanzig Minuten vor'], t: 'Lleva veinte minutos esperando delante del cine.', e: 'Duración antes de lugar.' },
       { s: 'Die Kinder spielen ___ im Hof.', a: 'nachmittags', d: ['im Hof nachmittags', 'Hof nachmittags'], t: 'Por la tarde los niños juegan en el patio.', e: 'nachmittags es tiempo: va antes.' },
-      { s: 'Wir fliegen ___ nach Japan.', a: 'im Herbst', d: ['nach Japan im Herbst', 'Japan im Herbst'], t: 'En otoño volamos a Japón.', e: 'Tiempo y después destino.' }
+      { s: 'Wir fliegen ___ nach Japan.', a: 'im Herbst', d: ['nach Japan im Herbst', 'Japan im Herbst'], t: 'En otoño volamos a Japón.', e: 'Tiempo y después destino.' },
+      { s: 'In welcher Reihenfolge stehen Zeit und Ort?', a: 'primero el tiempo, luego el lugar', d: ['primero el lugar', 'da igual'], t: 'Primero el tiempo y después el lugar.', e: 'Ich fahre morgen nach Graz.' },
+      { s: 'Wie heißt diese Regel auf Deutsch?', a: 'TeKaMoLo', d: ['KaTeMoLo', 'LoMoKaTe'], t: 'La regla se llama «TeKaMoLo».', e: 'Temporal, Kausal, Modal, Lokal.' },
+      { s: 'Wofür steht das „Te“ in TeKaMoLo?', a: 'temporal, o sea cuándo', d: ['territorial', 'temperatura'], t: '«Te» es temporal: cuándo.', e: 'Y va el primero.' },
+      { s: 'Und das „Lo“?', a: 'lokal, o sea dónde', d: ['lógico', 'largo'], t: '«Lo» es local: dónde.', e: 'Y va el último.' },
+      { s: 'Wo steht „mit dem Rad“ in der Reihe?', a: 'entre el tiempo y el lugar', d: ['antes del tiempo', 'al final del todo'], t: '«mit dem Rad» va entre el tiempo y el lugar.', e: 'Es el «Mo» de modo.' },
+      { s: 'Welcher Satz ist richtig?', a: 'Ich fahre morgen mit dem Zug nach Wien.', d: ['Ich fahre nach Wien morgen mit dem Zug.', 'Ich fahre mit dem Zug morgen nach Wien.'], t: 'Lo correcto es «Ich fahre morgen mit dem Zug nach Wien.».', e: 'Tiempo, modo, lugar.' },
+      { s: 'Was ändert sich, wenn die Zeit vorne steht?', a: 'el verbo se queda en la posición dos', d: ['nada', 'el verbo se va al final'], t: 'Si el tiempo va delante, el verbo sigue en la posición dos.', e: 'Morgen fahre ich nach Graz.' },
+      { s: 'Sie geht ___ ins Büro.', a: 'jeden Morgen', d: ['ins Zentrum', 'mit dem Bus ins'], t: 'Va cada mañana a la oficina.', e: 'Tiempo antes que lugar.' },
+      { s: 'Wir waren ___ in Salzburg.', a: 'letztes Wochenende', d: ['im Hotel', 'sehr gern'], t: 'Estuvimos el fin de semana pasado en Salzburgo.', e: 'Primero cuándo.' },
+      { s: 'Ist esta orden igual que en español?', a: 'no, en español suele ir al revés', d: ['sí, idéntico', 'no existe orden en español'], t: 'No: en español el lugar suele ir antes.', e: '«Voy a Graz mañana» frente a «Ich fahre morgen nach Graz».' }
     ]
   },
   'wenn-satz-bedingung': {
@@ -891,7 +901,17 @@ export const FRASE = {
       { s: 'Wenn die Sonne ___, gehen wir in den Park.', a: 'scheint', d: ['scheint sie', 'scheinen'], t: 'Si hace sol, vamos al parque.', e: 'El verbo cierra la subordinada.' },
       { s: 'Wenn es zu heiß ist, ___ ich nicht laufen.', a: 'gehe', d: ['ich gehe', 'gehen'], t: 'Si hace demasiado calor, no salgo a correr.', e: 'Principal empezando por el verbo.' },
       { s: '___ du willst, machen wir morgen einen Ausflug.', a: 'Wenn', d: ['Weil', 'Dass'], t: 'Si quieres, mañana hacemos una excursión.', e: 'wenn para la condición, no weil.' },
-      { s: 'Wenn wir früh ___, sehen wir den Sonnenaufgang.', a: 'aufstehen', d: ['stehen auf', 'aufstehen wir'], t: 'Si nos levantamos pronto, vemos el amanecer.', e: 'En subordinada el separable NO se parte.' }
+      { s: 'Wenn wir früh ___, sehen wir den Sonnenaufgang.', a: 'aufstehen', d: ['stehen auf', 'aufstehen wir'], t: 'Si nos levantamos pronto, vemos el amanecer.', e: 'En subordinada el separable NO se parte.' },
+      { s: 'Wo steht das Verb nach „wenn“?', a: 'al final', d: ['en la posición dos', 'justo detrás de wenn'], t: 'Detrás de «wenn» el verbo va al final.', e: 'Wenn es regnet…' },
+      { s: 'Und was passiert en la otra mitad?', a: 'empieza por el verbo', d: ['empieza por el sujeto', 'no cambia'], t: 'La otra mitad empieza por el verbo.', e: 'Wenn es regnet, BLEIBEN wir zu Hause.' },
+      { s: 'Warum steht dort das Verb vorne?', a: 'porque la frase con wenn ocupa la posición uno', d: ['porque es una pregunta', 'por costumbre'], t: 'Porque la frase con «wenn» ocupa toda la posición uno.', e: 'Y el verbo tiene que ir en la dos.' },
+      { s: 'Was ist der Unterschied zwischen „wenn“ und „als“?', a: 'als es para una vez en el pasado', d: ['als es más formal', 'no hay diferencia'], t: '«als» es para una sola vez en el pasado.', e: 'wenn: condición o algo repetido.' },
+      { s: 'Kann der wenn-Satz hinten stehen?', a: 'sí, y entonces no se invierte', d: ['no, nunca', 'sólo en preguntas'], t: 'Sí, y entonces la principal no se invierte.', e: 'Wir bleiben zu Hause, wenn es regnet.' },
+      { s: 'Wenn ich Zeit ___, rufe ich dich an.', a: 'habe', d: ['habe ich', 'haben'], t: 'Si tengo tiempo, te llamo.', e: 'Verbo al final.' },
+      { s: 'Wenn es morgen schön ist, ___ wir grillen.', a: 'können', d: ['wir können', 'könnt'], t: 'Si mañana hace bueno, podemos hacer barbacoa.', e: 'El verbo abre la principal.' },
+      { s: 'Wenn du früher ___, warte auf mich.', a: 'fertig bist', d: ['bist fertig', 'fertig sein'], t: 'Si acabas antes, espérame.', e: 'Todo el verbo al final.' },
+      { s: 'Welcher dieser wenn-Sätze ist richtig?', a: 'Wenn es regnet, nehme ich den Schirm.', d: ['Wenn es regnet, ich nehme den Schirm.', 'Wenn regnet es, nehme ich den Schirm.'], t: 'Lo correcto es «Wenn es regnet, nehme ich den Schirm.».', e: 'Verbo al final y luego verbo delante.' },
+      { s: 'Braucht der wenn-Satz ein Komma?', a: 'sí, siempre', d: ['no', 'sólo si va delante'], t: 'Sí, siempre lleva coma.', e: 'Separa las dos mitades.' }
     ]
   },
   'haeufigkeit-adverbien': {
@@ -905,7 +925,17 @@ export const FRASE = {
       { s: 'Sie ist ___ pünktlich, das ist bekannt.', a: 'immer', d: ['nie', 'selten'], t: 'Siempre es puntual, es sabido.', e: 'immer, lo más frecuente.' },
       { s: '___ gehe ich laufen, aber nicht regelmäßig.', a: 'Manchmal', d: ['Immer', 'Nie'], t: 'A veces salgo a correr, pero sin regularidad.', e: 'manchmal está en el medio de la escala.' },
       { s: 'Er hat ___ Zeit am Wochenende.', a: 'immer', d: ['nie nicht', 'immer kein'], t: 'Siempre tiene tiempo el fin de semana.', e: 'El adverbio detrás del verbo.' },
-      { s: 'Wir sehen uns ___, etwa zweimal im Jahr.', a: 'selten', d: ['oft', 'immer'], t: 'Nos vemos poco, unas dos veces al año.', e: 'Dos veces al año: selten.' }
+      { s: 'Wir sehen uns ___, etwa zweimal im Jahr.', a: 'selten', d: ['oft', 'immer'], t: 'Nos vemos poco, unas dos veces al año.', e: 'Dos veces al año: selten.' },
+      { s: 'Welches Adverb ist das häufigste von allen?', a: 'immer', d: ['oft', 'manchmal'], t: 'El que más frecuencia indica es «immer».', e: 'immer = siempre, el 100%.' },
+      { s: 'Und welches el menos?', a: 'nie', d: ['selten', 'manchmal'], t: 'El de menos frecuencia es «nie».', e: 'nie = nunca, el 0%.' },
+      { s: 'Welche Reihenfolge ist richtig, de más a menos?', a: 'immer, oft, manchmal, selten, nie', d: ['immer, manchmal, oft, nie, selten', 'nie, selten, oft, immer'], t: 'El orden es «immer, oft, manchmal, selten, nie».', e: 'De siempre a nunca.' },
+      { s: 'Wo steht das Adverb normalerweise?', a: 'detrás del verbo', d: ['delante del verbo', 'al final'], t: 'Normalmente va detrás del verbo.', e: 'Ich gehe oft ins Kino.' },
+      { s: 'Kann es am Satzanfang stehen?', a: 'sí, y entonces el verbo va detrás', d: ['no', 'sólo nie'], t: 'Sí, y entonces el verbo va justo detrás.', e: 'Manchmal gehe ICH laufen.' },
+      { s: 'Braucht „nie“ noch un nicht?', a: 'no, ya niega', d: ['sí, siempre', 'sólo en preguntas'], t: 'No: «nie» ya niega por sí solo.', e: 'Er kommt nie zu spät, no «nicht nie».' },
+      { s: 'Was heißt „meistens“?', a: 'casi siempre', d: ['a veces', 'nunca'], t: '«meistens» es «casi siempre».', e: 'Va entre immer y oft.' },
+      { s: 'Wie fragt man nach der Häufigkeit?', a: 'Wie oft…?', d: ['Wann…?', 'Wie lange…?'], t: 'Se pregunta «Wie oft…?».', e: 'Wie oft gehst du ins Fitnessstudio?' },
+      { s: '___ fahre ich mit dem Rad, fast jeden Tag.', a: 'Meistens', d: ['Selten', 'Nie'], t: 'Casi siempre voy en bici, casi todos los días.', e: 'Alta frecuencia.' },
+      { s: 'Er geht ___ ins Theater, vielleicht einmal im Jahr.', a: 'selten', d: ['oft', 'immer'], t: 'Va poco al teatro, quizá una vez al año.', e: 'Una vez al año es «selten».' }
     ]
   },
   'zeitadverbien-reihenfolge': {
@@ -933,7 +963,17 @@ export const FRASE = {
       { s: '___ Sie an der dritten Haltestelle um.', a: 'Steigen', d: ['Steigt', 'Steig'], t: 'Haga transbordo en la tercera parada.', e: 'umsteigen, con Sie y el um al final.' },
       { s: 'Gehen Sie ___ zum Bahnhof, das ist schneller.', a: 'zu Fuß', d: ['Fuß', 'mit Fuß'], t: 'Vaya andando a la estación, es más rápido.', e: 'zu Fuß es expresión fija.' },
       { s: '___ Sie mir bitte den Weg?', a: 'Zeigen', d: ['Zeigt', 'Zeig'], t: '¿Me indica el camino?', e: 'También en pregunta se usa la forma de Sie.' },
-      { s: 'Halten Sie sich ___, dann sehen Sie die Kirche.', a: 'links', d: ['die Links', 'zu links'], t: 'Manténgase a la izquierda y verá la iglesia.', e: 'sich links halten: sin artículo.' }
+      { s: 'Halten Sie sich ___, dann sehen Sie die Kirche.', a: 'links', d: ['die Links', 'zu links'], t: 'Manténgase a la izquierda y verá la iglesia.', e: 'sich links halten: sin artículo.' },
+      { s: 'Wie bildet man den Imperativ mit „Sie“?', a: 'infinitivo + Sie', d: ['sólo el infinitivo', 'la raíz sola'], t: 'Con «Sie» es el infinitivo más «Sie».', e: 'Gehen Sie geradeaus.' },
+      { s: 'Warum se usa el «Sie» al dar direcciones?', a: 'porque se pregunta a desconocidos', d: ['porque es más corto', 'por costumbre local'], t: 'Porque en la calle se habla con desconocidos.', e: 'Y con desconocidos, Sie.' },
+      { s: 'Wo steht die Vorsilbe bei „abbiegen“?', a: 'al final', d: ['delante', 'no se separa'], t: 'El prefijo va al final.', e: 'Biegen Sie rechts AB.' },
+      { s: 'Was heißt „geradeaus“?', a: 'todo recto', d: ['a la derecha', 'de vuelta'], t: '«geradeaus» es «todo recto».', e: 'La palabra más útil al preguntar.' },
+      { s: 'Was heißt „umsteigen“?', a: 'hacer transbordo', d: ['bajarse', 'subirse'], t: '«umsteigen» es hacer transbordo.', e: 'Cambiar de línea, no bajarse del todo.' },
+      { s: 'Und „aussteigen“?', a: 'bajarse', d: ['subirse', 'hacer transbordo'], t: '«aussteigen» es bajarse.', e: 'einsteigen es subirse.' },
+      { s: '___ Sie an der nächsten Ampel links.', a: 'Biegen', d: ['Biegt', 'Bieg'], t: 'Gire a la izquierda en el próximo semáforo.', e: 'Con Sie: infinitivo + Sie.' },
+      { s: 'Gehen Sie an der Kirche ___.', a: 'vorbei', d: ['vorbeien', 'vorbeigehen'], t: 'Pase por delante de la iglesia.', e: 'vorbeigehen: el vorbei al final.' },
+      { s: '___ Sie die Linie drei bis zum Hauptplatz.', a: 'Nehmen', d: ['Nimm', 'Nehmt'], t: 'Coja la línea tres hasta la plaza mayor.', e: 'nehmen + Sie.' },
+      { s: 'Wie fragt man höflich nach dem Weg?', a: 'Entschuldigung, wie komme ich zum…?', d: ['Wo ist…?', 'Ich will zum…'], t: 'Se pregunta «Entschuldigung, wie komme ich zum…?».', e: 'Con «Entschuldigung» delante.' }
     ]
   },
   'indirekte-frage-ob': {
@@ -947,7 +987,17 @@ export const FRASE = {
       { s: 'Sagen Sie mir bitte, ___ ich das abgeben kann.', a: 'wo', d: ['ob', 'dass'], t: 'Dígame dónde puedo entregar esto.', e: 'wo se mantiene.' },
       { s: 'Ich bin nicht sicher, ___ das die richtige Nummer ist.', a: 'ob', d: ['dass', 'wenn'], t: 'No estoy seguro de si es el número correcto.', e: 'Duda de sí o no: ob.' },
       { s: 'Fragen Sie bitte, ___ lange die Bearbeitung dauert.', a: 'wie', d: ['ob', 'dass'], t: 'Pregunte cuánto tarda la tramitación.', e: 'wie lange se mantiene.' },
-      { s: 'Wir wissen nicht, ob er heute ___.', a: 'kommt', d: ['kommt er', 'kommen'], t: 'No sabemos si viene hoy.', e: 'Verbo al final.' }
+      { s: 'Wir wissen nicht, ob er heute ___.', a: 'kommt', d: ['kommt er', 'kommen'], t: 'No sabemos si viene hoy.', e: 'Verbo al final.' },
+      { s: 'Wann benutzt man „ob“?', a: 'cuando la pregunta es de sí o no', d: ['siempre', 'cuando hay una palabra interrogativa'], t: '«ob» va cuando la pregunta es de sí o no.', e: 'Kommt er? → Ich weiß nicht, ob er kommt.' },
+      { s: 'Und cuando la pregunta lleva wann, wo, wie?', a: 'se repite esa palabra', d: ['se usa ob igual', 'se quita'], t: 'Se repite esa misma palabra.', e: 'Wann kommt er? → Ich weiß nicht, wann er kommt.' },
+      { s: 'Wo steht das Verb en la pregunta indirecta?', a: 'al final', d: ['en la posición dos', 'el primero'], t: 'El verbo va al final.', e: 'Como en toda subordinada.' },
+      { s: 'Warum se usa la pregunta indirecta?', a: 'porque suena más cortés', d: ['porque es más corta', 'por gramática y ya'], t: 'Porque suena más cortés.', e: '«Können Sie mir sagen, wo…?» en vez de «Wo ist…?».' },
+      { s: 'Kann man „ob“ y una W-Wort juntos?', a: 'no', d: ['sí', 'sólo con wann'], t: 'No se pueden juntar.', e: 'O una o la otra.' },
+      { s: 'Braucht die indirekte Frage ein Fragezeichen?', a: 'solo si la principal es pregunta', d: ['siempre', 'nunca'], t: 'Solo si la frase principal es una pregunta.', e: 'Wissen Sie, ob…? frente a Ich weiß nicht, ob…' },
+      { s: 'Ich weiß nicht, ___ er schon da ist.', a: 'ob', d: ['wenn', 'dass'], t: 'No sé si ya ha llegado.', e: 'Sí/no → ob.' },
+      { s: 'Können Sie mir sagen, wo das Büro ___?', a: 'ist', d: ['ist es', 'sein'], t: '¿Me puede decir dónde está la oficina?', e: 'Verbo al final.' },
+      { s: 'Was ist der Unterschied zwischen „ob“ und „wenn“?', a: 'ob es si de duda, wenn es si de condición', d: ['ninguno', 'wenn es más formal'], t: '«ob» es el «si» de duda; «wenn» el de condición.', e: 'En español los dos son «si».' },
+      { s: 'Ich frage mich, ___ das eine gute Idee war.', a: 'ob', d: ['wenn', 'als'], t: 'Me pregunto si fue buena idea.', e: 'Duda → ob.' }
     ]
   },
   'zu-infinitiv': {

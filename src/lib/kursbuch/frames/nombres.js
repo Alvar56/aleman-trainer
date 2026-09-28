@@ -605,7 +605,17 @@ export const NOMBRES = {
       { s: 'Meine Lehrerin ist ___.', a: 'Deutsche', d: ['Deutschland', 'deutsch'], t: 'Mi profesora es alemana.', e: 'La persona femenina: die Deutsche.' },
       { s: 'Wir lernen ___ im Kurs.', a: 'Deutsch', d: ['Deutschland', 'der Deutsche'], t: 'En el curso aprendemos alemán.', e: 'El idioma va sin artículo detrás de lernen.' },
       { s: 'Der ___ am Tisch nebenan spricht Griechisch.', a: 'Grieche', d: ['Griechenland', 'griechisch'], t: 'El griego de la mesa de al lado habla griego.', e: 'La persona: der Grieche.' },
-      { s: 'Sie kommt aus Ungarn und spricht perfekt ___.', a: 'Ungarisch', d: ['Ungarn', 'Ungar'], t: 'Es de Hungría y habla húngaro perfectamente.', e: 'El idioma de Ungarn es Ungarisch.' }
+      { s: 'Sie kommt aus Ungarn und spricht perfekt ___.', a: 'Ungarisch', d: ['Ungarn', 'Ungar'], t: 'Es de Hungría y habla húngaro perfectamente.', e: 'El idioma de Ungarn es Ungarisch.' },
+      { s: 'Er kommt aus Frankreich und spricht ___.', a: 'Französisch', d: ['Franzose', 'Französin'], t: 'Es de Francia y habla francés.', e: 'El idioma acaba en -isch.' },
+      { s: 'Sie ist ___ und kommt aus Warschau.', a: 'Polin', d: ['Polnisch', 'Pole'], t: 'Es polaca y viene de Varsovia.', e: 'Femenino: -in.' },
+      { s: 'Mein Chef ist ___, er kommt aus Zagreb.', a: 'Kroate', d: ['Kroatisch', 'Kroatin'], t: 'Mi jefe es croata, viene de Zagreb.', e: 'Masculino sin -in.' },
+      { s: 'In Brasilien spricht man ___.', a: 'Portugiesisch', d: ['Brasilianisch', 'Spanisch'], t: 'En Brasil se habla portugués.', e: 'El país no siempre da nombre al idioma.' },
+      { s: 'Das ist ein ___ Film.', a: 'italienischer', d: ['Italienisch', 'Italiener'], t: 'Es una película italiana.', e: 'Delante del nombre, adjetivo con terminación.' },
+      { s: 'Meine Kollegin ist ___.', a: 'Österreicherin', d: ['Österreich', 'Österreicher'], t: 'Mi compañera es austriaca.', e: 'Femenino: -erin.' },
+      { s: 'Wie heißt die Sprache in Griechenland?', a: 'Griechisch', d: ['Grieche', 'Griechin'], t: 'El idioma de Grecia es el griego.', e: '-isch para el idioma.' },
+      { s: 'Die Sprache schreibt man ___.', a: 'groß', d: ['klein', 'mit Artikel'], t: 'El nombre del idioma va en mayúscula.', e: 'Ich lerne Deutsch.' },
+      { s: 'Aber das Adjektiv schreibt man ___.', a: 'klein', d: ['groß', 'mit Artikel'], t: 'El adjetivo va en minúscula.', e: 'ein deutsches Buch.' },
+      { s: 'Er kommt aus der Türkei, also ist er ___.', a: 'Türke', d: ['Türkisch', 'Türkin'], t: 'Es de Turquía, así que es turco.', e: 'La persona, no el idioma.' }
     ]
   },
   'ordinalzahlen-wohnort': {
@@ -619,7 +629,17 @@ export const NOMBRES = {
       { s: 'Sie wohnen im ___ Bezirk, in Favoriten.', a: 'zehnten', d: ['zehnte', 'zehn'], t: 'Viven en el distrito diez, en Favoriten.', e: 'En dativo la terminación es -ten.' },
       { s: 'Ich habe die Wohnung im ___ Stock genommen.', a: 'zweiten', d: ['zwei', 'zweite'], t: 'He cogido el piso del segundo.', e: 'zweite en dativo: zweiten.' },
       { s: 'Der Laden ist im ___ Bezirk.', a: 'einundzwanzigsten', d: ['einundzwanzigten', 'einundzwanzig'], t: 'La tienda está en el distrito veintiuno.', e: 'A partir de 20 siempre -ste, también en los compuestos.' },
-      { s: 'Wir sind im ___ Stock, ganz oben.', a: 'vierten', d: ['vier', 'vierte'], t: 'Estamos en el cuarto, arriba del todo.', e: 'vierte es regular: vier + te, y en dativo -ten.' }
+      { s: 'Wir sind im ___ Stock, ganz oben.', a: 'vierten', d: ['vier', 'vierte'], t: 'Estamos en el cuarto, arriba del todo.', e: 'vierte es regular: vier + te, y en dativo -ten.' },
+      { s: 'Wie bildet man die Ordnungszahl von 1 bis 19?', a: 'Zahl + -te', d: ['Zahl + -ste', 'Zahl + -er'], t: 'Del 1 al 19 se forma con la cifra y «-te».', e: 'vierte, fünfte, siebte.' },
+      { s: 'Und ab 20?', a: 'Zahl + -ste', d: ['Zahl + -te', 'Zahl + -er'], t: 'A partir de 20 se añade «-ste».', e: 'zwanzigste, dreißigste.' },
+      { s: 'Welche drei Ordnungszahlen sind unregelmäßig?', a: 'erste, dritte, siebte', d: ['zweite, vierte, fünfte', 'achte, neunte, zehnte'], t: 'Las irregulares son «erste», «dritte» y «siebte».', e: 'No salen de la cifra tal cual.' },
+      { s: 'Warum sagt man „im ersten Stock“ und no „im eins Stock“?', a: 'es ist eine Ordnungszahl', d: ['es ist ein Fehler im Buch', 'beides geht'], t: 'Porque es un ordinal, no un número a secas.', e: 'El primero, no el uno.' },
+      { s: 'Welche Endung hat die Ordnungszahl nach „im“?', a: '-en', d: ['-e', '-er'], t: 'Después de «im» el ordinal acaba en «-en».', e: 'im ersten, im dritten, im zwanzigsten.' },
+      { s: 'Ihre Schwester wohnt im ___ Stock.', a: 'sechsten', d: ['sechste', 'sechs'], t: 'Vive en la sexta planta.', e: 'sechs → sechste → im sechsten.' },
+      { s: 'Das Lokal ist im ___ Bezirk.', a: 'neunten', d: ['neunte', 'neun'], t: 'El local está en el distrito noveno.', e: 'Ordinal en dativo: -en.' },
+      { s: 'Wie schreibt man „im 3. Stock“ als Zahl mit Punkt?', a: 'der Punkt macht die Ordnungszahl', d: ['der Punkt ist ein Komma', 'der Punkt bedeutet Abkürzung'], t: 'El punto es lo que convierte la cifra en ordinal.', e: '3. Stock se lee «dritten Stock».' },
+      { s: 'Wir wohnen im ___ Bezirk, in Landstraße.', a: 'dritten', d: ['dritte', 'drei'], t: 'Vivimos en el distrito tercero, en Landstraße.', e: 'dritte es irregular: no «dreite».' },
+      { s: 'Wie viele Bezirke hat Wien?', a: 'dreiundzwanzig', d: ['zwanzig', 'fünfzehn'], t: 'Viena tiene veintitrés distritos.', e: 'Por eso llegan hasta el «dreiundzwanzigsten».' }
     ]
   },
   'uhrzeit-offiziell-inoffiziell': {
@@ -633,7 +653,17 @@ export const NOMBRES = {
       { s: 'Wir treffen uns um ___ nach sechs.', a: 'zehn', d: ['halb', 'Viertel vor'], t: 'Quedamos a las seis y diez.', e: 'Los minutos sueltos también van con nach.' },
       { s: '12:00 mittags sagt man ___.', a: 'zwölf Uhr', d: ['null Uhr', 'vierundzwanzig Uhr'], t: 'Las doce del mediodía son «zwölf Uhr».', e: 'Medianoche en cambio es null Uhr o vierundzwanzig Uhr.' },
       { s: 'Wie spät ist es? – Es ___ gleich neun.', a: 'ist', d: ['hat', 'sind'], t: '¿Qué hora es? – Van a ser las nueve.', e: 'La hora va siempre con es ist.' },
-      { s: 'Der Kurs beginnt ___ Viertel nach fünf.', a: 'um', d: ['am', 'im'], t: 'El curso empieza a las cinco y cuarto.', e: 'La hora exacta va con um.' }
+      { s: 'Der Kurs beginnt ___ Viertel nach fünf.', a: 'um', d: ['am', 'im'], t: 'El curso empieza a las cinco y cuarto.', e: 'La hora exacta va con um.' },
+      { s: 'Wo benutzt man die offizielle Uhrzeit?', a: 'en horarios y citas formales', d: ['entre amigos', 'sólo en la radio'], t: 'La hora oficial se usa en horarios y citas formales.', e: 'Trenes, médico, trabajo.' },
+      { s: 'Bis wieviel geht die offizielle Uhrzeit?', a: 'hasta las 24', d: ['hasta las 12', 'hasta las 20'], t: 'La hora oficial llega hasta las 24.', e: '20 Uhr, 23 Uhr 45.' },
+      { s: 'Was bedeutet „halb acht“?', a: 'las siete y media', d: ['las ocho y media', 'las ocho menos cuarto'], t: '«halb acht» son las siete y media.', e: 'Mira hacia LA hora que viene, no la que pasó.' },
+      { s: 'Warum ist „halb“ die trampa clásica para nosotros?', a: 'en español la media va con la hora pasada', d: ['porque halb significa cuarto', 'porque no existe en alemán'], t: 'Porque en español «y media» se cuenta con la hora que ya pasó.', e: 'halb acht = 7:30, no 8:30.' },
+      { s: 'Was heißt „Viertel vor neun“?', a: 'las nueve menos cuarto', d: ['las nueve y cuarto', 'las ocho y media'], t: '«Viertel vor neun» son las nueve menos cuarto.', e: 'vor = antes.' },
+      { s: 'Welche Präposition steht vor der Uhrzeit?', a: 'um', d: ['in', 'an'], t: 'Delante de la hora va «um».', e: 'um acht, um Viertel nach fünf.' },
+      { s: 'Wie fragt man nach der Uhrzeit?', a: 'Wie spät ist es?', d: ['Wie viel Uhr hast du?', 'Was ist die Zeit?'], t: 'Se pregunta «Wie spät ist es?».', e: 'También vale «Wie viel Uhr ist es?».' },
+      { s: '18:45 offiziell heißt ___.', a: 'achtzehn Uhr fünfundvierzig', d: ['Viertel vor sieben', 'halb sieben'], t: '18:45 en oficial es «achtzehn Uhr fünfundvierzig».', e: 'Cifra a cifra, sin «vor» ni «nach».' },
+      { s: 'Und 18:45 inoffiziell?', a: 'Viertel vor sieben', d: ['Viertel nach sechs', 'halb sieben'], t: 'Y en informal, «Viertel vor sieben».', e: 'Se cuenta sobre el 7, no sobre el 19.' },
+      { s: 'Der Film beginnt ___ zwanzig Uhr.', a: 'um', d: ['in', 'am'], t: 'La película empieza a las veinte horas.', e: 'um + hora.' }
     ]
   },
   'mengenangaben-ohne-plural': {
@@ -647,7 +677,17 @@ export const NOMBRES = {
       { s: 'Zwischen Kilo und Erdäpfel kommt ___.', a: 'nichts', d: ['von', 'der'], t: 'Entre kilo y patatas no va nada.', e: 'No se dice «zwei Kilo von Erdäpfel».' },
       { s: 'Ein ___ Brot kostet drei Euro.', a: 'Kilo', d: ['Kilos', 'Kilogramme'], t: 'Un kilo de pan cuesta tres euros.', e: 'Un kilo, sin plural.' },
       { s: 'Drei ___ Kaffee, bitte.', a: 'Tassen', d: ['Tasse', 'Tassens'], t: 'Tres tazas de café, por favor.', e: 'Tasse es femenina y hace plural.' },
-      { s: 'Zwei ___ Mineralwasser zum Mitnehmen.', a: 'Flaschen', d: ['Flasche', 'Flaschen von'], t: 'Dos botellas de agua para llevar.', e: 'Femenina en plural, y sin von.' }
+      { s: 'Zwei ___ Mineralwasser zum Mitnehmen.', a: 'Flaschen', d: ['Flasche', 'Flaschen von'], t: 'Dos botellas de agua para llevar.', e: 'Femenina en plural, y sin von.' },
+      { s: 'Was steht zwischen der Menge und der Ware?', a: 'nada, van pegadas', d: ['von', 'der Artikel'], t: 'No va nada: cantidad y producto van seguidos.', e: 'zwei Kilo Erdäpfel.' },
+      { s: 'Welche Maße bleiben im Singular?', a: 'Kilo, Liter, Stück, Deka', d: ['Flasche, Tasse, Glas', 'todas'], t: 'Se quedan en singular «Kilo», «Liter», «Stück» y «Deka».', e: 'zwei Kilo, no «zwei Kilos».' },
+      { s: 'Und welche sí hacen plural?', a: 'los recipientes: Flaschen, Tassen', d: ['las medidas', 'ninguna'], t: 'Los recipientes sí: «Flaschen», «Tassen», «Gläser».', e: 'Son cosas contables de verdad.' },
+      { s: 'Was ist „Deka“ in Österreich?', a: 'diez gramos', d: ['cien gramos', 'un kilo'], t: 'Un «Deka» son diez gramos.', e: 'Zehn Deka = 100 g. Muy austriaco.' },
+      { s: 'Wie sagt man in Österreich zu „Kartoffeln“?', a: 'Erdäpfel', d: ['Kartoffeln', 'Patates'], t: 'En Austria se dice «Erdäpfel».', e: 'Es de las palabras que más cambian.' },
+      { s: 'Ich hätte gern zwanzig ___ Käse.', a: 'Deka', d: ['Dekas', 'Deken'], t: 'Póngame doscientos gramos de queso.', e: 'Deka no hace plural.' },
+      { s: 'Geben Sie mir bitte drei ___ Wein.', a: 'Flaschen', d: ['Flasche', 'Flaschens'], t: 'Póngame tres botellas de vino.', e: 'Recipiente → sí plural.' },
+      { s: 'Zwei ___ Mehl, bitte.', a: 'Kilo', d: ['Kilos', 'Kile'], t: 'Dos kilos de harina, por favor.', e: 'Medida → sin plural.' },
+      { s: 'Welcher Satz ist richtig?', a: 'Ich nehme zwei Stück Kuchen.', d: ['Ich nehme zwei Stücke von Kuchen.', 'Ich nehme zwei Stücks Kuchen.'], t: 'Lo correcto es «Ich nehme zwei Stück Kuchen.».', e: 'Sin plural y sin «von».' },
+      { s: 'Warum sale mal a los españoles?', a: 'porque metemos el de', d: ['porque el orden cambia', 'porque falta el artículo'], t: 'Porque en español decimos «dos kilos DE patatas».', e: 'En alemán ese «de» no existe.' }
     ]
   },
   'adjektiv-steigerung-wetter': {
@@ -661,7 +701,17 @@ export const NOMBRES = {
       { s: 'Im August wird es ___ als im Juni.', a: 'heißer', d: ['heiß', 'am heißesten'], t: 'En agosto hace más calor que en junio.', e: 'heiß → heißer.' },
       { s: 'Der Nebel ist morgens ___.', a: 'am dichtesten', d: ['dichter', 'dicht'], t: 'La niebla es más espesa por la mañana.', e: 'Superlativo de dicht.' },
       { s: 'Heute ist es ___ als angesagt war.', a: 'kühler', d: ['kühl', 'am kühlsten'], t: 'Hoy hace más fresco de lo que anunciaban.', e: 'kühl → kühler.' },
-      { s: 'Im Gebirge ist die Luft ___.', a: 'am kältesten', d: ['kälter', 'kalt'], t: 'En la montaña el aire es más frío.', e: 'am + adjetivo + sten.' }
+      { s: 'Im Gebirge ist die Luft ___.', a: 'am kältesten', d: ['kälter', 'kalt'], t: 'En la montaña el aire es más frío.', e: 'am + adjetivo + sten.' },
+      { s: 'Wie bildet man den Komparativ?', a: 'adjetivo + -er', d: ['mehr + adjetivo', 'adjetivo + -ste'], t: 'El comparativo se forma con el adjetivo y «-er».', e: 'kalt → kälter.' },
+      { s: 'Welches Wort steht beim Vergleich?', a: 'als', d: ['wie', 'dass'], t: 'En la comparación se usa «als».', e: 'wärmer ALS gestern.' },
+      { s: 'Und wenn dos cosas son iguales?', a: 'so … wie', d: ['als', 'mehr als'], t: 'Si son iguales, «so … wie».', e: 'so warm wie gestern.' },
+      { s: 'Wie bildet man den Superlativ?', a: 'am + adjetivo + -sten', d: ['der meiste', 'sehr + adjetivo'], t: 'El superlativo es «am» + adjetivo + «-sten».', e: 'am wärmsten.' },
+      { s: 'Was passiert oft mit dem Vokal?', a: 'coge Umlaut', d: ['se alarga', 'no cambia'], t: 'Muchas veces coge Umlaut.', e: 'kalt → kälter, warm → wärmer, lang → länger.' },
+      { s: 'Wie steigert man „gut“?', a: 'besser, am besten', d: ['guter, am gutsten', 'mehr gut'], t: '«gut» hace «besser» y «am besten».', e: 'Irregular, como en español.' },
+      { s: 'Wie steigert man „gern“?', a: 'lieber, am liebsten', d: ['gerner, am gernsten', 'mehr gern'], t: '«gern» hace «lieber» y «am liebsten».', e: 'También irregular.' },
+      { s: 'Was ist der Unterschied zum Spanischen?', a: 'en alemán no se usa «más», va en la palabra', d: ['es igual', 'en alemán no hay comparativo'], t: 'Que el alemán no pone «más» delante: lo mete en la palabra.', e: '«más frío» = kälter.' },
+      { s: 'Heute ist es so warm ___ gestern.', a: 'wie', d: ['als', 'dass'], t: 'Hoy hace el mismo calor que ayer.', e: 'Igualdad → wie.' },
+      { s: 'Der Sommer ist hier ___ als in Spanien.', a: 'kürzer', d: ['kurzer', 'am kürzesten'], t: 'Aquí el verano es más corto que en España.', e: 'Comparativo con Umlaut.' }
     ]
   },
   'gern-lieber-am-liebsten': {
@@ -675,7 +725,17 @@ export const NOMBRES = {
       { s: 'Ich gehe ___ ins Kino als ins Theater.', a: 'lieber', d: ['gern', 'am liebsten'], t: 'Prefiero el cine al teatro.', e: 'lieber … als: la comparación.' },
       { s: 'Die Kinder spielen ___ draußen.', a: 'gern', d: ['lieber als', 'am liebsten von'], t: 'A los niños les gusta jugar fuera.', e: 'gern a secas.' },
       { s: '___ esse ich Paella, wie zu Hause.', a: 'Am liebsten', d: ['Lieber', 'Gern als'], t: 'Lo que más me gusta comer es paella, como en casa.', e: 'El superlativo abre la frase.' },
-      { s: 'Er fährt ___ Rad als Auto.', a: 'lieber', d: ['gern', 'am liebsten'], t: 'Prefiere la bici al coche.', e: 'lieber … als con dos medios de transporte.' }
+      { s: 'Er fährt ___ Rad als Auto.', a: 'lieber', d: ['gern', 'am liebsten'], t: 'Prefiere la bici al coche.', e: 'lieber … als con dos medios de transporte.' },
+      { s: 'Was ist „gern“ für eine Wortart?', a: 'un adverbio', d: ['un verbo', 'un adjetivo'], t: '«gern» es un adverbio.', e: 'Acompaña al verbo y no cambia.' },
+      { s: 'Wie lauten die drei Stufen von „gern“?', a: 'gern, lieber, am liebsten', d: ['gern, gerner, am gernsten', 'gut, besser, am besten'], t: 'Se gradúa «gern, lieber, am liebsten».', e: 'Irregular del todo.' },
+      { s: 'Wo steht „gern“ im Satz?', a: 'detrás del verbo', d: ['delante del verbo', 'al final siempre'], t: 'Va detrás del verbo.', e: 'Ich spiele gern Fußball.' },
+      { s: 'Wie sagt man „me gusta el fútbol“ con gern?', a: 'Ich spiele gern Fußball.', d: ['Ich mag gern Fußball.', 'Ich gern Fußball spiele.'], t: 'Se dice «Ich spiele gern Fußball.».', e: 'El alemán lo dice con la acción, no con «gustar».' },
+      { s: 'Was ist der Unterschied zu „gefallen“?', a: 'gern va con lo que HACES', d: ['son intercambiables', 'gefallen es más formal'], t: '«gern» acompaña a lo que HACES.', e: 'gefallen es para lo que te gusta ver o tener.' },
+      { s: 'Was heißt „Ich trinke lieber Tee“?', a: 'prefiero el té', d: ['me gusta el té', 'el té es mejor'], t: 'Significa «prefiero el té».', e: 'lieber = preferir.' },
+      { s: 'Welches Wort steht beim Vergleich mit lieber?', a: 'als', d: ['wie', 'dass'], t: 'En la comparación con «lieber» va «als».', e: 'lieber Tee ALS Kaffee.' },
+      { s: 'Muss man bei „am liebsten“ etwas ändern?', a: 'no, es fijo', d: ['sí, la terminación', 'sí, el artículo'], t: 'No, «am liebsten» es una forma fija.', e: 'Nunca cambia.' },
+      { s: 'Im Sommer schwimme ich ___ als im Winter.', a: 'lieber', d: ['gern', 'am liebsten'], t: 'En verano prefiero nadar que en invierno.', e: 'Comparación → lieber.' },
+      { s: '___ bleibe ich zu Hause und lese.', a: 'Am liebsten', d: ['Gern', 'Lieber'], t: 'Lo que más me gusta es quedarme en casa leyendo.', e: 'Superlativo → am liebsten.' }
     ]
   },
   'zu-teuer-zu-klein': {
@@ -689,7 +749,17 @@ export const NOMBRES = {
       { s: 'Die Miete ist ___ hoch für mein Gehalt.', a: 'zu', d: ['sehr', 'ganz'], t: 'El alquiler es demasiado alto para mi sueldo.', e: 'No te lo puedes permitir: zu hoch.' },
       { s: 'Die Aussicht ist ___ schön.', a: 'sehr', d: ['zu', 'kein'], t: 'Las vistas son muy bonitas.', e: 'Aquí no hay queja: sehr.' },
       { s: 'Der Weg zur U-Bahn ist ___ weit.', a: 'zu', d: ['sehr', 'ganz'], t: 'El camino al metro es demasiado largo.', e: 'Molesta: zu weit.' },
-      { s: 'Das Sofa ist ___ bequem, ich bleibe hier.', a: 'so', d: ['zu', 'kein'], t: 'El sofá es tan cómodo que me quedo aquí.', e: 'so + adjetivo, ni zu ni sehr.' }
+      { s: 'Das Sofa ist ___ bequem, ich bleibe hier.', a: 'so', d: ['zu', 'kein'], t: 'El sofá es tan cómodo que me quedo aquí.', e: 'so + adjetivo, ni zu ni sehr.' },
+      { s: 'Was bedeutet „zu“ vor einem Adjektiv?', a: 'demasiado', d: ['muy', 'bastante'], t: '«zu» delante de un adjetivo significa «demasiado».', e: 'Y siempre es algo malo.' },
+      { s: 'Und „sehr“?', a: 'muy', d: ['demasiado', 'poco'], t: '«sehr» significa «muy».', e: 'Es neutro o bueno.' },
+      { s: 'Was ist der Unterschied en la práctica?', a: 'zu significa que no vale', d: ['ninguno', 'zu es más formal'], t: 'Que «zu» dice que ya no sirve.', e: '«zu teuer» = no lo compro.' },
+      { s: 'Warum lo confundimos los españoles?', a: 'porque decimos «muy caro» para las dos cosas', d: ['porque zu es corto', 'porque suena igual'], t: 'Porque en español decimos «muy caro» para las dos cosas.', e: 'En alemán hay que elegir.' },
+      { s: 'Kann man „sehr“ y „zu“ juntos?', a: 'no', d: ['sí', 'sólo en preguntas'], t: 'No se pueden juntar.', e: 'O una o la otra.' },
+      { s: 'Die Wohnung ist ___ schön, wir nehmen sie.', a: 'sehr', d: ['zu', 'so'], t: 'El piso es muy bonito, nos lo quedamos.', e: 'Es algo bueno → sehr.' },
+      { s: 'Der Preis ist leider ___ hoch.', a: 'zu', d: ['sehr', 'so'], t: 'El precio es demasiado alto.', e: '«leider» ya avisa: algo va mal.' },
+      { s: 'Das Zimmer ist ___ klein für zwei Personen.', a: 'zu', d: ['sehr', 'so'], t: 'La habitación es demasiado pequeña para dos.', e: 'No cabe → zu.' },
+      { s: 'Was heißt „so“ vor einem Adjektiv?', a: 'tan', d: ['demasiado', 'poco'], t: '«so» delante de un adjetivo es «tan».', e: 'Das Sofa ist so bequem!' },
+      { s: 'Was heißt „nicht teuer genug“?', a: 'no es lo bastante caro', d: ['es demasiado caro', 'no es caro'], t: 'Significa que no es lo bastante caro.', e: '«genug» va DETRÁS del adjetivo.' }
     ]
   },
   'schmerzen-haben': {

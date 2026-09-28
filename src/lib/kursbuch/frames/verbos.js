@@ -49,7 +49,15 @@ export const VERBOS = {
       { s: 'Meine Eltern ___ in Madrid.', a: 'wohnen', d: ['wohnt', 'wohnst'], t: 'Mis padres viven en Madrid.', e: 'Plural (sie) → raíz + -en.' },
       { s: 'Wie ___ du?', a: 'heißt', d: ['heiße', 'heißen'], t: '¿Cómo te llamas?', e: 'La raíz de heißen ya acaba en -ß, así que du solo añade -t: heißt.' },
       { s: 'Ihr ___ aus Deutschland, oder?', a: 'seid', d: ['sind', 'ist'], t: 'Sois de Alemania, ¿no?', e: 'sein con ihr: seid.' },
-      { s: 'Frau Berger ___ in Salzburg.', a: 'wohnt', d: ['wohne', 'wohnen'], t: 'La señora Berger vive en Salzburgo.', e: 'Un nombre en singular lleva la forma de er/sie/es: -t.' }
+      { s: 'Frau Berger ___ in Salzburg.', a: 'wohnt', d: ['wohne', 'wohnen'], t: 'La señora Berger vive en Salzburgo.', e: 'Un nombre en singular lleva la forma de er/sie/es: -t.' },
+      { s: 'Meine Schwester ___ Lucía.', a: 'heißt', d: ['heißen', 'heiße'], t: 'Mi hermana se llama Lucía.', e: 'er/sie → heißt.' },
+      { s: 'Wir ___ seit drei Jahren in Wien.', a: 'wohnen', d: ['wohnt', 'wohnst'], t: 'Llevamos tres años viviendo en Viena.', e: 'wir → como el infinitivo.' },
+      { s: '___ Sie aus Österreich?', a: 'Kommen', d: ['Kommt', 'Kommst'], t: '¿Es usted de Austria?', e: 'Sie formal → kommen.' },
+      { s: 'Die Kinder ___ schon in der Schule.', a: 'sind', d: ['ist', 'seid'], t: 'Los niños ya están en el colegio.', e: 'Plural → sind.' },
+      { s: 'In welchem Bezirk ___ ihr?', a: 'wohnt', d: ['wohnen', 'wohnst'], t: '¿Dónde vivís exactamente?', e: 'ihr → -t.' },
+      { s: 'Ich ___ nicht aus Wien, ich bin aus Linz.', a: 'komme', d: ['kommst', 'kommt'], t: 'No soy de Viena, soy de Linz.', e: 'ich → -e.' },
+      { s: 'Wie ___ Ihr Kollege?', a: 'heißt', d: ['heißen', 'heiße'], t: '¿Cómo se llama su compañero?', e: 'El sujeto es «Ihr Kollege», singular.' },
+      { s: 'Du ___ noch neu hier, oder?', a: 'bist', d: ['bin', 'ist'], t: 'Eres nuevo aquí, ¿no?', e: 'du → bist.' }
     ],
     orders: [
       { sol: ['Ich', 'heiße', 'Anna', 'und', 'ich', 'komme', 'aus', 'Polen'], t: 'Me llamo Anna y vengo de Polonia.', e: 'Dos frases con sujeto + verbo unidas por "und".' },
@@ -173,7 +181,15 @@ export const VERBOS = {
       { s: 'Sie ___ bei einer Bank.', a: 'arbeitet', d: ['arbeiten', 'arbeitest'], t: 'Ella trabaja en un banco.', e: 'Sujeto singular → arbeitet.' },
       { s: 'Du ___ den Film bestimmt gut.', a: 'findest', d: ['findst', 'findet'], t: 'Seguro que la película te gusta.', e: 'finden: raíz en -d → du findest.' },
       { s: 'Wo ___ ihr?', a: 'arbeitet', d: ['arbeiten', 'arbeitest'], t: '¿Dónde trabajáis?', e: 'ihr arbeitet.' },
-      { s: 'Der Kurs ___ um 18 Uhr.', a: 'endet', d: ['endt', 'endest'], t: 'El curso termina a las 18.', e: 'enden: raíz en -d → er endet.' }
+      { s: 'Der Kurs ___ um 18 Uhr.', a: 'endet', d: ['endt', 'endest'], t: 'El curso termina a las 18.', e: 'enden: raíz en -d → er endet.' },
+      { s: 'Warum sagt man „du arbeitest“ y no „du arbeitst“?', a: 'der Stamm endet auf -t', d: ['arbeiten ist unregelmäßig', 'es ist ein Modalverb'], t: 'Porque la raíz acaba en «-t» y se mete una e.', e: 'arbeit- + -e- + -st.' },
+      { s: 'Welche Personen bekommen das extra -e?', a: 'du, er/sie/es und ihr', d: ['nur du', 'todas'], t: 'Lo llevan «du», «er/sie/es» e «ihr».', e: 'wir y sie ya acaban en -en.' },
+      { s: 'Welches Verb braucht das extra -e NICHT?', a: 'kommen', d: ['antworten', 'finden'], t: '«kommen» no necesita la e extra.', e: 'Su raíz no acaba en -t ni en -d.' },
+      { s: 'Nach welchen Buchstaben kommt das extra -e?', a: 'nach -t und -d', d: ['nach -s und -z', 'nach -n'], t: 'Se mete detrás de «-t» y «-d».', e: 'arbeiten, antworten, finden, reden.' },
+      { s: 'Du ___ mir nie auf meine Nachrichten.', a: 'antwortest', d: ['antwortst', 'antwortet'], t: 'Nunca me contestas a los mensajes.', e: 'antwort- + -e- + -st.' },
+      { s: 'Er ___ das Formular aus.', a: 'füllt', d: ['füllet', 'fülle'], t: 'Rellena el formulario.', e: 'füll- no acaba en -t: sin e extra.' },
+      { s: 'Ihr ___ zu schnell.', a: 'redet', d: ['redt', 'redest'], t: 'Habláis muy rápido.', e: 'red- acaba en -d: red-e-t.' },
+      { s: 'Wozu dient das extra -e überhaupt?', a: 'damit man es aussprechen kann', d: ['por gramática y ya', 'para que suene formal'], t: 'Está para que la palabra se pueda pronunciar.', e: '«arbeitst» sería impronunciable.' }
     ],
     orders: [
       { sol: ['Ich', 'arbeite', 'bei', 'einer', 'Bank'], t: 'Trabajo en un banco.', e: 'Con ich la terminación es -e.' },
@@ -376,7 +392,17 @@ export const VERBOS = {
       { s: 'Das Baby ist erst drei ___ alt.', a: 'Monate', d: ['Jahre', 'Wochen alt'], t: 'El bebé solo tiene tres meses.', e: 'Con bebés se cuenta en meses o semanas.' },
       { s: 'Meine Tochter ___ nächste Woche sechs.', a: 'wird', d: ['ist', 'hat'], t: 'Mi hija cumple seis la semana que viene.', e: 'Cumplir años es werden, no sein.' },
       { s: 'Er ___ genauso alt wie ich.', a: 'ist', d: ['hat', 'sind'], t: 'Tiene la misma edad que yo.', e: 'Comparar edades también con sein.' },
-      { s: 'Wie alt ___ dein Bruder eigentlich?', a: 'ist', d: ['hat', 'bist'], t: '¿Cuántos años tiene tu hermano?', e: 'Tercera persona: ist.' }
+      { s: 'Wie alt ___ dein Bruder eigentlich?', a: 'ist', d: ['hat', 'bist'], t: '¿Cuántos años tiene tu hermano?', e: 'Tercera persona: ist.' },
+      { s: 'Mit welchem Verb sagt man das Alter auf Deutsch?', a: 'sein', d: ['haben', 'werden'], t: 'La edad se dice con «sein».', e: 'Ich BIN 32, no «ich habe 32».' },
+      { s: 'Warum sagen wir Spanier hier oft etwas falsch?', a: 'porque en español se usa tener', d: ['porque el verbo es irregular', 'por el orden de la frase'], t: 'Porque en español la edad va con «tener».', e: '«Tengo 32» → «Ich bin 32».' },
+      { s: 'Muss man „Jahre alt“ immer sagen?', a: 'no, se puede dejar solo el número', d: ['sí, siempre', 'sólo con Sie'], t: 'No hace falta: basta con el número.', e: 'Ich bin 32 (Jahre alt).' },
+      { s: 'Welches Verb braucht man für „cumplir años“?', a: 'werden', d: ['sein', 'haben'], t: 'Para «cumplir años» se usa «werden».', e: 'Sie wird morgen sechs.' },
+      { s: 'Wie fragt man höflich nach dem Alter?', a: 'Wie alt sind Sie, wenn ich fragen darf?', d: ['Wie alt bist du?', 'Wie viele Jahre hast du?'], t: 'La forma cortés es «Wie alt sind Sie, wenn ich fragen darf?».', e: 'Con desconocidos, y suavizado.' },
+      { s: 'Meine Neffen ___ acht und zehn.', a: 'sind', d: ['ist', 'seid'], t: 'Mis sobrinos tienen ocho y diez.', e: 'Plural → sind.' },
+      { s: 'Wie alt ___ du?', a: 'bist', d: ['bin', 'ist'], t: '¿Cuántos años tienes?', e: 'du → bist.' },
+      { s: 'Das Baby ist erst sechs ___ alt.', a: 'Wochen', d: ['Woche', 'Wochens'], t: 'El bebé solo tiene seis semanas.', e: 'Plural: Wochen.' },
+      { s: 'Er ___ im Mai vierzig.', a: 'wird', d: ['ist', 'hat'], t: 'Cumple cuarenta en mayo.', e: 'Futuro cercano → werden.' },
+      { s: 'Wie alt ___ Ihre Kinder?', a: 'sind', d: ['ist', 'seid'], t: '¿Qué edad tienen sus hijos?', e: 'Sujeto plural → sind.' }
     ]
   },
   'praesens-fuer-die-zukunft': {
@@ -390,7 +416,17 @@ export const VERBOS = {
       { s: 'Übermorgen ___ er nach Linz.', a: 'fährt', d: ['fuhr', 'wird fahren'], t: 'Pasado mañana va a Linz.', e: 'übermorgen marca el futuro.' },
       { s: 'Im Mai ___ meine Prüfung.', a: 'ist', d: ['war', 'wird sein'], t: 'En mayo es mi examen.', e: 'im Mai + presente.' },
       { s: 'Am Wochenende ___ wir die Wohnung.', a: 'putzen', d: ['putzten', 'werden putzen'], t: 'El fin de semana limpiamos el piso.', e: 'Presente para lo planeado.' },
-      { s: 'Gleich ___ ich dich an.', a: 'rufe', d: ['rief', 'werde anrufen'], t: 'Ahora te llamo.', e: 'gleich = enseguida, y el verbo va en presente.' }
+      { s: 'Gleich ___ ich dich an.', a: 'rufe', d: ['rief', 'werde anrufen'], t: 'Ahora te llamo.', e: 'gleich = enseguida, y el verbo va en presente.' },
+      { s: 'Womit sagt man im Alltag el futuro auf Deutsch?', a: 'con el presente', d: ['con werden siempre', 'con el Perfekt'], t: 'En el día a día el futuro se dice con el presente.', e: 'Morgen fahre ich nach Graz.' },
+      { s: 'Was braucht der Satz dafür?', a: 'una palabra de tiempo', d: ['el verbo werden', 'nada'], t: 'Hace falta una palabra de tiempo.', e: 'morgen, nächste Woche, im Mai.' },
+      { s: 'Wozu benutzt man „werden“ dann?', a: 'para pronósticos y promesas', d: ['para cualquier futuro', 'para el pasado'], t: '«werden» se usa para pronósticos y promesas.', e: 'Es wird regnen. Ich werde es machen.' },
+      { s: 'Ist „Ich werde morgen fahren“ falsch?', a: 'no, pero suena más pesado', d: ['sí, es incorrecto', 'sólo vale por escrito'], t: 'No es incorrecto, pero suena más pesado.', e: 'Lo natural es «Ich fahre morgen».' },
+      { s: 'Nächsten Monat ___ wir um.', a: 'ziehen', d: ['werden ziehen', 'zogen'], t: 'El mes que viene nos mudamos.', e: 'Presente con palabra de tiempo.' },
+      { s: 'Was hilft nos a los españoles aquí?', a: 'que en español hacemos lo mismo', d: ['nada, es muy distinto', 'que hay que usar werden'], t: 'Nos ayuda que en español hacemos lo mismo.', e: '«Mañana voy a Graz».' },
+      { s: 'Nächstes Jahr ___ sie nach Wien.', a: 'kommt', d: ['wird kommen', 'kam'], t: 'El año que viene se viene a Viena.', e: 'Presente.' },
+      { s: 'Ohne Zeitangabe versteht man den Satz als ___.', a: 'presente', d: ['futuro', 'pasado'], t: 'Sin palabra de tiempo, la frase se entiende como presente.', e: 'Por eso la palabra de tiempo es obligatoria.' },
+      { s: 'Heute Abend ___ ich früh ins Bett.', a: 'gehe', d: ['werde gehen', 'ging'], t: 'Esta noche me acuesto pronto.', e: 'Presente con «heute Abend».' },
+      { s: 'In zwei Wochen ___ der Kurs zu Ende.', a: 'ist', d: ['wird sein', 'war'], t: 'En dos semanas se acaba el curso.', e: 'Presente para algo ya planeado.' }
     ]
   },
   'sport-spielen-machen-fahren': {
@@ -404,7 +440,17 @@ export const VERBOS = {
       { s: 'Wir ___ im Sommer oft Tennis.', a: 'spielen', d: ['machen', 'fahren'], t: 'En verano jugamos mucho al tenis.', e: 'Tennis con pelota: spielen.' },
       { s: 'Sie ___ dreimal pro Woche Sport.', a: 'treibt', d: ['spielt', 'fährt'], t: 'Hace deporte tres veces por semana.', e: 'Sport treiben es la expresión fija.' },
       { s: 'Im Hallenbad ___ ich zwanzig Bahnen.', a: 'schwimme', d: ['mache', 'spiele'], t: 'En la piscina cubierta nado veinte largos.', e: 'schwimmen también es verbo propio.' },
-      { s: 'Am Wochenende ___ wir eine Wanderung.', a: 'machen', d: ['spielen', 'fahren'], t: 'El fin de semana hacemos una caminata.', e: 'eine Wanderung machen.' }
+      { s: 'Am Wochenende ___ wir eine Wanderung.', a: 'machen', d: ['spielen', 'fahren'], t: 'El fin de semana hacemos una caminata.', e: 'eine Wanderung machen.' },
+      { s: 'Welches Verb geht mit Ballsportarten?', a: 'spielen', d: ['machen', 'fahren'], t: 'Con los deportes de pelota va «spielen».', e: 'Fußball, Tennis, Handball spielen.' },
+      { s: 'Welches Verb geht mit Ski und Rad?', a: 'fahren', d: ['spielen', 'machen'], t: 'Con esquí y bici va «fahren».', e: 'Ski fahren, Rad fahren.' },
+      { s: 'Und mit Yoga oder Pilates?', a: 'machen', d: ['spielen', 'fahren'], t: 'Con yoga o pilates va «machen».', e: 'Yoga machen.' },
+      { s: 'Was heißt „Sport treiben“?', a: 'hacer deporte en general', d: ['entrenar duro', 'competir'], t: '«Sport treiben» es hacer deporte en general.', e: 'Un pelín más formal que «Sport machen».' },
+      { s: 'Welche Sportarten haben ihr eigenes Verb?', a: 'nadar y correr', d: ['fútbol y tenis', 'yoga y pilates'], t: 'Nadar y correr tienen verbo propio.', e: 'schwimmen, laufen.' },
+      { s: 'Warum sale mal a los españoles?', a: 'en español todo es «hacer» o «jugar a»', d: ['porque hay muchos verbos', 'por el orden'], t: 'Porque en español casi todo es «hacer» o «jugar a».', e: 'En alemán el verbo cambia según el deporte.' },
+      { s: 'Braucht „Fußball spielen“ einen Artikel?', a: 'no', d: ['sí, der', 'sí, das'], t: 'No lleva artículo.', e: 'Ich spiele Fußball, no «den Fußball».' },
+      { s: 'Am Wochenende ___ ich oft Schach.', a: 'spiele', d: ['mache', 'fahre'], t: 'Los fines de semana juego mucho al ajedrez.', e: 'Juego de tablero → también spielen.' },
+      { s: 'Im Urlaub ___ wir viel Rad.', a: 'fahren', d: ['spielen', 'machen'], t: 'En vacaciones vamos mucho en bici.', e: 'Rad fahren.' },
+      { s: 'Dreimal pro Woche ___ ich ins Fitnessstudio.', a: 'gehe', d: ['spiele', 'fahre'], t: 'Voy al gimnasio tres veces por semana.', e: 'Al sitio se va: gehen.' }
     ]
   },
   'reflexive-verben-akkusativ': {
@@ -418,7 +464,17 @@ export const VERBOS = {
       { s: 'Wie fühlst du ___ heute?', a: 'dich', d: ['dir', 'sich'], t: '¿Cómo te encuentras hoy?', e: 'sich fühlen con du: dich.' },
       { s: 'Die Kinder waschen ___ allein.', a: 'sich', d: ['ihnen', 'uns'], t: 'Los niños se lavan solos.', e: 'Plural de tercera persona: sich.' },
       { s: 'Ich habe ___ gestern verspätet.', a: 'mich', d: ['mir', 'sich'], t: 'Ayer llegué tarde.', e: 'sich verspäten: mich con ich.' },
-      { s: 'Sie interessiert ___ für Geschichte.', a: 'sich', d: ['ihr', 'ihn'], t: 'Le interesa la historia.', e: 'sich interessieren für.' }
+      { s: 'Sie interessiert ___ für Geschichte.', a: 'sich', d: ['ihr', 'ihn'], t: 'Le interesa la historia.', e: 'sich interessieren für.' },
+      { s: 'Was ist ein reflexives Verb?', a: 'uno que se hace a uno mismo', d: ['uno irregular', 'uno con dos verbos'], t: 'Es un verbo cuya acción recae en uno mismo.', e: 'sich waschen, sich freuen.' },
+      { s: 'Wie heißt das Pronomen bei „ich“?', a: 'mich', d: ['mir', 'sich'], t: 'Con «ich» el pronombre es «mich».', e: 'Ich wasche mich.' },
+      { s: 'Und bei „er, sie, es“ und „sie/Sie“?', a: 'sich', d: ['ihn', 'ihm'], t: 'Con «er, sie, es» y «sie/Sie» es «sich».', e: 'Siempre «sich», en singular y en plural.' },
+      { s: 'Wo steht das Pronomen im Satz?', a: 'justo detrás del verbo', d: ['al final', 'delante del sujeto'], t: 'Va justo detrás del verbo conjugado.', e: 'Ich freue mich sehr.' },
+      { s: 'Was ist der Unterschied zum Spanischen?', a: 'en español va pegado al verbo', d: ['no hay diferencia', 'en español no existe'], t: 'Que en español va pegado al verbo.', e: '«me ducho» frente a «ich dusche mich».' },
+      { s: 'Welches Hilfsverb nehmen sie im Perfekt?', a: 'haben, casi siempre', d: ['sein', 'werden'], t: 'Casi siempre «haben».', e: 'Ich habe mich gefreut.' },
+      { s: 'Wir treffen ___ um acht.', a: 'uns', d: ['sich', 'euch'], t: 'Quedamos a las ocho.', e: 'wir → uns.' },
+      { s: 'Zieh ___ bitte warm an!', a: 'dich', d: ['dir', 'sich'], t: '¡Abrígate bien!', e: 'Imperativo de du → dich.' },
+      { s: 'Habt ihr ___ schon vorgestellt?', a: 'euch', d: ['uns', 'sich'], t: '¿Ya os habéis presentado?', e: 'ihr → euch.' },
+      { s: 'Welcher Satz ist falsch?', a: 'Ich freue sehr mich.', d: ['Ich freue mich sehr.', 'Sie freut sich sehr.'], t: 'El incorrecto es «Ich freue sehr mich.».', e: 'El pronombre va pegado al verbo, no al final.' }
     ]
   },
   'wehtun-dativ': {

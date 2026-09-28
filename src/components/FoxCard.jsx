@@ -37,16 +37,31 @@ export default function FoxCard({ onAbrir }) {
             el viewBox y el zorro se dibujaba encogido para caber, asi que el
             160 de verdad se veia como 134. Al quitar ese margen aparecio a su
             tamano real y se comia la tarjeta. */}
+        {/* Sin paisaje aqui: en la portada el zorro va suelto sobre la
+            tarjeta. El fondo comprado se ve en su pantalla, no metido en un
+            recuadro dentro de otro recuadro. */}
         <FoxFace fuchs={fuchs} gesto="normal" size={SIN_IA ? 138 : 136} conCuerpo className="flota" />
       </button>
 
       <div className="fox-card-texto">
         {/* Pulsar la burbuja saca otra frase. El altavoz de dentro no la
             cambia: para eso corta la propagación en su propio onClick. */}
-        <button
-          type="button"
+        {/* Un div con role="button" y no un <button>: dentro va el altavoz de
+            Escuchar, que ES un botón, y un botón dentro de otro es HTML
+            inválido. React avisaba por consola en cada pintado y el navegador
+            resolvía el anidamiento como le parecía, así que el altavoz podía
+            dejar de responder. El aspecto no cambia: .fox-burbuja-clic ya le
+            quitaba al botón todo lo que parecía un botón. */}
+        <div
+          role="button"
+          tabIndex={0}
           className="fox-burbuja fox-burbuja-clic"
           onClick={() => setPregunta((p) => otraFuchs(p))}
+          onKeyDown={(e) => {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            e.preventDefault();
+            setPregunta((p) => otraFuchs(p));
+          }}
           title={t('fox.otraFrase')}
         >
           <span className="fb-de">
@@ -56,7 +71,7 @@ export default function FoxCard({ onAbrir }) {
             <Escuchar texto={pregunta.de} className="fb-say" frase rate={0.9} />
           </span>
           <span className="fb-es">{glosaFuchs(pregunta)}</span>
-        </button>
+        </div>
 
         {/* Contestarle y charlar con el son IA. La pregunta de arriba no: es
             una de las que van escritas en fuchs.js, asi que Felix te sigue

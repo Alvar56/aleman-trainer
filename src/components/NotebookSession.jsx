@@ -8,7 +8,7 @@ import ClozeTest from './ClozeTest.jsx';
 import OpenQuestion from './OpenQuestion.jsx';
 import Feedback from './Feedback.jsx';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, RECONOCER, cobrarBono100 } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
 import { makeRng, randomSeed, shuffle } from '../lib/rng.js';
@@ -116,7 +116,6 @@ export default function NotebookSession({ note, lektion, onExit, onFinish }) {
       xp,
       streak,
       monedas: monedas.current,
-      bonoCien: 0,
       missed: []
     });
   }

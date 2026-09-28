@@ -278,7 +278,17 @@ export const MODALES = {
       { s: '___ ihr bitte etwas leiser sein?', a: 'Könnt', d: ['Können', 'Kannst'], t: '¿Podéis bajar un poco la voz?', e: 'Con ihr la forma es könnt.' },
       { s: 'Können Sie mir sagen, wo die Post ___?', a: 'ist', d: ['sein', 'ist sie'], t: '¿Me puede decir dónde está correos?', e: 'La segunda parte es subordinada: el verbo al final.' },
       { s: 'Könnten Sie das bitte ___?', a: 'aufschreiben', d: ['aufgeschrieben', 'schreiben auf'], t: '¿Me lo podría apuntar?', e: 'könnten es aún más educado que können.' },
-      { s: 'Kannst du mir bitte die Adresse ___?', a: 'geben', d: ['gibst', 'gegeben'], t: '¿Me puedes dar la dirección?', e: 'Infinitivo al final detrás del modal.' }
+      { s: 'Kannst du mir bitte die Adresse ___?', a: 'geben', d: ['gibst', 'gegeben'], t: '¿Me puedes dar la dirección?', e: 'Infinitivo al final detrás del modal.' },
+      { s: 'Wo steht das zweite Verb in „Können Sie mir helfen?“?', a: 'am Ende, im Infinitiv', d: ['direkt nach können', 'vor dem Subjekt'], t: 'El segundo verbo va al final y en infinitivo.', e: 'Können Sie mir helfen?' },
+      { s: 'Was ist höflicher, „können“ oder „könnten“?', a: 'könnten', d: ['können', 'beide gleich'], t: '«könnten» es más cortés que «können».', e: 'Es el Konjunktiv II: pide en vez de exigir.' },
+      { s: 'Welches Wort macht cualquier petición más amable?', a: 'bitte', d: ['auch', 'schon'], t: 'La palabra que suaviza cualquier petición es «bitte».', e: 'Cabe casi en cualquier sitio de la frase.' },
+      { s: 'Warum steht „Können“ am Satzanfang?', a: 'es ist eine Ja-/Nein-Frage', d: ['es ist höflicher so', 'können steht immer vorn'], t: 'Porque es una pregunta de sí/no, y ahí el verbo abre la frase.', e: 'Sin palabra interrogativa, el verbo va primero.' },
+      { s: '___ Sie mir bitte den Weg zum Bahnhof zeigen?', a: 'Könnten', d: ['Könnte', 'Könntet'], t: '¿Me podría indicar el camino?', e: 'Sie formal → könnten.' },
+      { s: 'Kannst du mir bitte die Tür ___?', a: 'aufhalten', d: ['aufhaltest', 'aufgehalten'], t: '¿Me puedes aguantar la puerta?', e: 'Infinitivo al final.' },
+      { s: '___ ihr mir kurz helfen?', a: 'Könnt', d: ['Könnte', 'Könnten'], t: '¿Me podéis ayudar un momento?', e: 'ihr → könnt.' },
+      { s: 'Könnten Sie mir sagen, wie spät es ___?', a: 'ist', d: ['ist es', 'sein'], t: '¿Me podría decir qué hora es?', e: 'Pregunta indirecta: el verbo al final.' },
+      { s: 'Welche Frage ist am unhöflichsten?', a: 'Geben Sie mir das!', d: ['Können Sie mir das geben?', 'Könnten Sie mir das geben?'], t: 'La menos cortés es «Geben Sie mir das!».', e: 'Es un imperativo, no una pregunta.' },
+      { s: 'Kannst du das bitte ___?', a: 'erklären', d: ['erklärst', 'erklärt'], t: '¿Me lo puedes explicar?', e: 'Detrás de un modal, infinitivo.' }
     ]
   },
   'koennen-faehigkeit-moeglichkeit': {
@@ -292,7 +302,17 @@ export const MODALES = {
       { s: '___ ihr am Freitag ins Kino gehen?', a: 'Könnt', d: ['Dürft', 'Müsst'], t: '¿Podéis ir al cine el viernes?', e: 'Con ihr: könnt.' },
       { s: 'Mit dem Bein ___ ich gerade nicht laufen.', a: 'kann', d: ['darf', 'will'], t: 'Con la pierna así ahora no puedo correr.', e: 'Imposibilidad física.' },
       { s: 'Nach dem Kurs ___ ich schon telefonieren.', a: 'kann', d: ['muss', 'soll'], t: 'Después del curso ya sé hablar por teléfono.', e: 'Habilidad conseguida.' },
-      { s: 'Wir ___ das Spiel leider nicht sehen.', a: 'konnten', d: ['durften', 'mussten'], t: 'No pudimos ver el partido.', e: 'En pasado: konnten, sin Umlaut.' }
+      { s: 'Wir ___ das Spiel leider nicht sehen.', a: 'konnten', d: ['durften', 'mussten'], t: 'No pudimos ver el partido.', e: 'En pasado: konnten, sin Umlaut.' },
+      { s: 'Welche zwei Sachen sagt „können“?', a: 'saber hacer algo y poder hacerlo', d: ['sólo poder', 'sólo querer'], t: '«können» dice dos cosas: saber hacer algo y poder hacerlo.', e: 'Ich kann schwimmen / Heute kann ich nicht.' },
+      { s: 'Warum brauchen wir para esto dos verbos en español?', a: 'porque decimos saber y poder', d: ['porque es más cortés', 'no los necesitamos'], t: 'Porque en español usamos «saber» y «poder».', e: 'El alemán los junta en uno.' },
+      { s: 'Wo steht das zweite Verb nach „können“?', a: 'al final, en infinitivo', d: ['justo detrás', 'no hay segundo verbo'], t: 'El segundo verbo va al final y en infinitivo.', e: 'Ich kann gut Deutsch sprechen.' },
+      { s: 'Was ist an „ich kann“ und „er kann“ besonders?', a: 'que son iguales, sin -t', d: ['que llevan Umlaut', 'que son irregulares'], t: 'Que son idénticas: «er kann», sin «-t».', e: 'Los modales no cogen -t en la tercera.' },
+      { s: 'Kann man „können“ sin segundo verbo?', a: 'sí, si se entiende', d: ['no, nunca', 'sólo en preguntas'], t: 'Sí, si se sobreentiende.', e: 'Ich kann Deutsch.' },
+      { s: 'Wie heißt der Präteritum von „können“?', a: 'konnte', d: ['könnte', 'gekonnt'], t: 'El Präteritum de «können» es «konnte».', e: 'Sin Umlaut: «könnte» es otra cosa.' },
+      { s: 'Und was bedeutet „könnte“?', a: 'podría', d: ['pude', 'puedo'], t: '«könnte» significa «podría».', e: 'Konjunktiv II: cortesía o algo hipotético.' },
+      { s: 'Nach dem Kurs ___ ich schon einiges verstehen.', a: 'kann', d: ['kanne', 'könne'], t: 'Después del curso ya entiendo bastante.', e: 'ich kann.' },
+      { s: '___ Sie mir das erklären?', a: 'Können', d: ['Könnt', 'Kannst'], t: '¿Me puede explicar eso?', e: 'Sie formal → können.' },
+      { s: 'Welcher Satz ist falsch?', a: 'Ich kann gut zu schwimmen.', d: ['Ich kann gut schwimmen.', 'Kannst du schwimmen?'], t: 'El incorrecto es «Ich kann gut zu schwimmen.».', e: 'Con un modal el infinitivo NO lleva «zu».' }
     ]
   },
   'nicht-duerfen-nicht-muessen': {
@@ -306,7 +326,17 @@ export const MODALES = {
       { s: 'Am Schalter ___ man nicht rauchen.', a: 'darf', d: ['muss', 'mag'], t: 'En la ventanilla no se puede fumar.', e: 'Prohibición.' },
       { s: 'Sie ___ das nicht unterschreiben, es ist freiwillig.', a: 'müssen', d: ['dürfen', 'sollen'], t: 'No tiene que firmarlo, es voluntario.', e: 'Voluntario: müssen nicht.' },
       { s: 'Ohne Ausweis ___ Sie nicht hinein.', a: 'dürfen', d: ['müssen', 'wollen'], t: 'Sin documento no puede entrar.', e: 'No está permitido.' },
-      { s: 'Du ___ dich nicht beeilen, wir haben Zeit.', a: 'musst', d: ['darfst', 'kannst'], t: 'No hace falta que te des prisa, tenemos tiempo.', e: 'Sin urgencia: musst nicht.' }
+      { s: 'Du ___ dich nicht beeilen, wir haben Zeit.', a: 'musst', d: ['darfst', 'kannst'], t: 'No hace falta que te des prisa, tenemos tiempo.', e: 'Sin urgencia: musst nicht.' },
+      { s: 'Was bedeutet „nicht dürfen“?', a: 'estar prohibido', d: ['no hacer falta', 'no querer'], t: '«nicht dürfen» es estar prohibido.', e: 'Hier darf man nicht rauchen.' },
+      { s: 'Und „nicht müssen“?', a: 'no hacer falta', d: ['estar prohibido', 'no poder'], t: '«nicht müssen» es que no hace falta.', e: 'Du musst nicht kommen: puedes, pero no hace falta.' },
+      { s: 'Warum es esto una trampa para nosotros?', a: 'en español los dos son «no deber»', d: ['porque suenan igual', 'porque son irregulares'], t: 'Porque en español los dos suenan a «no debes».', e: 'Y significan cosas opuestas.' },
+      { s: 'Was ist das Gegenteil von „müssen“ en sentido?', a: 'nicht brauchen zu', d: ['nicht dürfen', 'nicht können'], t: 'Lo contrario de «müssen» es «nicht brauchen zu».', e: 'Du brauchst nicht zu kommen = du musst nicht kommen.' },
+      { s: 'Welcher Satz verbietet algo?', a: 'Hier darf man nicht parken.', d: ['Hier muss man nicht parken.', 'Hier kann man nicht parken.'], t: 'El que prohíbe es «Hier darf man nicht parken.».', e: 'dürfen = permiso.' },
+      { s: 'Und cuál dice que es opcional?', a: 'Du musst nicht mitkommen.', d: ['Du darfst nicht mitkommen.', 'Du kannst nicht mitkommen.'], t: 'El que dice que es opcional es «Du musst nicht mitkommen.».', e: 'No hace falta, pero puedes.' },
+      { s: 'Im Krankenhaus ___ man nicht laut sein.', a: 'darf', d: ['muss', 'kann'], t: 'En el hospital no se puede hacer ruido.', e: 'Prohibición → dürfen.' },
+      { s: 'Du ___ nicht alles auf einmal lernen.', a: 'musst', d: ['darfst', 'kannst'], t: 'No hace falta que lo aprendas todo de golpe.', e: 'No es obligatorio → müssen.' },
+      { s: 'Wie sagt man auf Deutsch „no puedo, no me dejan“?', a: 'Ich darf nicht.', d: ['Ich muss nicht.', 'Ich kann nicht.'], t: 'Se dice «Ich darf nicht.».', e: '«Ich kann nicht» sería que no soy capaz.' },
+      { s: 'Ohne Termin ___ Sie leider nicht hinein.', a: 'dürfen', d: ['müssen', 'können'], t: 'Sin cita no puede pasar.', e: 'Es una norma, no una imposibilidad.' }
     ]
   },
   'hoefliche-bitte-koennten-wuerden': {

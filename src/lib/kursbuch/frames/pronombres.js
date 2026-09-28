@@ -234,7 +234,17 @@ export const PRONOMBRES = {
       { s: 'Wie kalt ___ es heute?', a: 'ist', d: ['hat', 'macht'], t: '¿Qué frío hace hoy?', e: 'En la pregunta el es se queda.' },
       { s: 'Im Dezember wird ___ früh dunkel.', a: 'es', d: ['er', 'das'], t: 'En diciembre oscurece pronto.', e: 'Sin es la frase no se sostiene.' },
       { s: 'Gestern ___ es den ganzen Tag geregnet.', a: 'hat', d: ['ist', 'war'], t: 'Ayer estuvo lloviendo todo el día.', e: 'regnen forma el Perfekt con haben.' },
-      { s: '___ ist heute achtzehn Grad.', a: 'Es', d: ['Er', 'Das'], t: 'Hoy hace dieciocho grados.', e: 'La temperatura también va con es.' }
+      { s: '___ ist heute achtzehn Grad.', a: 'Es', d: ['Er', 'Das'], t: 'Hoy hace dieciocho grados.', e: 'La temperatura también va con es.' },
+      { s: 'Warum braucht „Es regnet“ ein „es“?', a: 'porque el verbo alemán exige sujeto', d: ['porque es más educado', 'porque es plural'], t: 'Porque en alemán el verbo siempre necesita sujeto.', e: 'En español basta con «llueve».' },
+      { s: 'Was bedeutet das „es“ hier?', a: 'nada, es un relleno obligatorio', d: ['ello', 'el tiempo'], t: 'No significa nada: es un relleno obligatorio.', e: 'No se puede quitar.' },
+      { s: 'Darf man „Regnet heute“ sagen?', a: 'no, falta el sujeto', d: ['sí, en lenguaje coloquial', 'sí, en preguntas'], t: 'No: falta el sujeto.', e: 'Regnet es heute?' },
+      { s: 'Wo steht „es“ in „Heute regnet es“?', a: 'detrás del verbo', d: ['delante del verbo', 'al final'], t: 'Va detrás del verbo.', e: 'Porque «heute» ocupa la posición uno.' },
+      { s: 'Welche Verben brauchen dieses „es“ noch?', a: 'los del tiempo y la hora', d: ['todos', 'los modales'], t: 'Los del tiempo y los de la hora.', e: 'Es regnet, es ist drei Uhr.' },
+      { s: '___ hat gestern gehagelt.', a: 'Es', d: ['Das', 'Er'], t: 'Ayer granizó.', e: 'Sujeto de relleno.' },
+      { s: 'Wie warm ___ es morgen?', a: 'wird', d: ['werden', 'wirst'], t: '¿Qué temperatura hará mañana?', e: 'es → wird.' },
+      { s: 'Im Winter ___ es hier oft neblig.', a: 'ist', d: ['sind', 'hat'], t: 'En invierno aquí hay niebla a menudo.', e: 'es → ist.' },
+      { s: 'Welcher Satz ist falsch?', a: 'Heute regnet.', d: ['Heute regnet es.', 'Es regnet heute.'], t: 'El incorrecto es «Heute regnet.».', e: 'Sin sujeto no vale.' },
+      { s: '___ gibt morgen Schnee.', a: 'Es', d: ['Da', 'Man'], t: 'Mañana va a nevar.', e: '«es gibt», siempre con es.' }
     ]
   },
   'dativ-und-akkusativ-zusammen': {
@@ -248,7 +258,17 @@ export const PRONOMBRES = {
       { s: 'Der Beamte erklärt ___ Antragstellern alles.', a: 'den', d: ['die', 'der'], t: 'El funcionario se lo explica todo a los solicitantes.', e: 'Dativo plural: den + -n.' },
       { s: 'Geben Sie ___ bitte Ihren Ausweis.', a: 'mir', d: ['mich', 'ich'], t: 'Deme su documento, por favor.', e: 'mir es el dativo de ich.' },
       { s: 'Ich habe ___ die Bestätigung schon gegeben.', a: 'ihr', d: ['sie', 'ihre'], t: 'Ya le he dado la confirmación.', e: 'Dativo femenino del pronombre: ihr.' },
-      { s: 'Er hat ___ dem Chef weitergeleitet.', a: 'es', d: ['ihn', 'ihm'], t: 'Se lo ha reenviado al jefe.', e: 'Pronombre del qué delante del dativo con nombre.' }
+      { s: 'Er hat ___ dem Chef weitergeleitet.', a: 'es', d: ['ihn', 'ihm'], t: 'Se lo ha reenviado al jefe.', e: 'Pronombre del qué delante del dativo con nombre.' },
+      { s: 'Welche Reihenfolge haben die zwei Objekte?', a: 'primero el dativo, luego el acusativo', d: ['primero el acusativo', 'da igual'], t: 'Primero el dativo y después el acusativo.', e: 'Ich gebe dem Kind das Buch.' },
+      { s: 'Und si los dos son pronombres?', a: 'al revés: acusativo primero', d: ['igual que antes', 'da igual'], t: 'Al revés: el acusativo va delante.', e: 'Ich gebe es ihm.' },
+      { s: 'Warum cambia el orden con pronombres?', a: 'porque lo corto va delante', d: ['por costumbre', 'por el verbo'], t: 'Porque lo más corto va delante.', e: 'Es la regla de fondo en alemán.' },
+      { s: 'Welches Objekt ist normalmente una persona?', a: 'el dativo', d: ['el acusativo', 'los dos'], t: 'Normalmente la persona es el dativo.', e: 'A quién se lo das.' },
+      { s: 'Und la cosa?', a: 'el acusativo', d: ['el dativo', 'ninguno'], t: 'La cosa es el acusativo.', e: 'Qué le das.' },
+      { s: 'Welche Verben llevan los dos?', a: 'geben, zeigen, schicken, bringen', d: ['gehen, kommen, fahren', 'sein, haben'], t: 'Los llevan «geben», «zeigen», «schicken», «bringen».', e: 'Todos son de dar o pasar algo a alguien.' },
+      { s: 'Ich schicke ___ die Rechnung morgen.', a: 'dir', d: ['dich', 'du'], t: 'Te mando la factura mañana.', e: 'La persona → dativo.' },
+      { s: 'Zeig ___ bitte den Ausweis.', a: 'mir', d: ['mich', 'ich'], t: 'Enséñame el carné, por favor.', e: 'mir, no mich.' },
+      { s: 'Ich habe ___ ihr schon geschickt.', a: 'es', d: ['ihn', 'sie'], t: 'Ya se lo he mandado.', e: 'Dos pronombres → acusativo primero.' },
+      { s: 'Welcher Satz ist richtig?', a: 'Ich gebe ihm das Buch.', d: ['Ich gebe das Buch ihm.', 'Ich gebe ihn das Buch.'], t: 'Lo correcto es «Ich gebe ihm das Buch.».', e: 'Pronombre dativo delante del nombre.' }
     ]
   },
   'wo-fragen-worueber-darueber': {

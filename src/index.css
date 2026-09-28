@@ -730,6 +730,33 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 .option.correct { border-color: var(--good); background: var(--good-bg); }
 .option.wrong { border-color: var(--bad); background: var(--bad-bg); }
 .option.dim { opacity: 0.45; }
+/* Opciones que son cosas que dices tu: bocadillo con el rabito al otro lado
+   que el de la frase de arriba, asi se ve el ida y vuelta.
+
+   El rabito es un cuadrado girado 45 grados y no un triangulo de bordes,
+   porque asi hereda el fondo y el color del borde de la propia opcion: cuando
+   se pone verde o roja al contestar, el rabito se tine con ella sin tener que
+   repetir cada estado. */
+.options-tuyo .option {
+  position: relative;
+  border-radius: 16px;
+  border-bottom-right-radius: 5px;
+}
+.options-tuyo .option::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: 4px;
+  width: 11px;
+  height: 11px;
+  background: inherit;
+  border: inherit;
+  border-top: 0;
+  border-left: 0;
+  border-bottom-right-radius: 3px;
+  transform: rotate(45deg);
+}
+.options-tuyo .option.dim::after { opacity: inherit; }
 /* El numero de la tecla, delante de la opcion. Un atajo que no se anuncia no
    lo usa nadie, asi que se ve; pero apagado, que la respuesta es el texto.
    En el movil no hay teclado: alli sobra y se esconde. */
@@ -2237,10 +2264,14 @@ input.ask-input,
   position: fixed; inset: 0; z-index: 80; background: rgba(16, 24, 40, 0.45);
   display: flex; align-items: center; justify-content: center; padding: 20px;
 }
+/* La tienda de Felix es una lista larga -ocho categorias, el nombre y el
+   boton de cerrar- y en 580 px se leia apretada, con casi todo fuera de la
+   vista y a base de rueda. Mas ancha y mas alta cabe casi entera de una vez;
+   el min() sigue protegiendo las pantallas pequenas. */
 .fox-modal-caja {
-  background: var(--surface); border-radius: 16px; padding: 22px;
-  width: min(580px, 100%); max-height: 88vh; overflow-y: auto;
-  display: flex; flex-direction: column; gap: 14px;
+  background: var(--surface); border-radius: 16px; padding: 26px;
+  width: min(760px, 100%); max-height: 92vh; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 16px;
 }
 .fox-preview { display: flex; justify-content: center; padding: 6px 0 10px; }
 /* El zorro: tamaño contenido y elegante */
@@ -2248,7 +2279,11 @@ input.ask-input,
 /* Ficha de arriba del todo: saldo | Felix | el resto. Felix va en el centro
    de verdad (columnas laterales iguales), no en el hueco que quede. */
 .fox-ficha {
-  display: grid; grid-template-columns: 1fr auto 1fr;
+  display: grid;
+  /* La columna del medio se lleva el hueco entero para que el paisaje sea un
+     paisaje y no un recuadro pegado al zorro. Las laterales siguen midiendo
+     lo mismo entre si, asi que Felix se queda centrado de verdad. */
+  grid-template-columns: 1fr minmax(0, 2.4fr) 1fr;
   align-items: center; gap: 20px;
   margin-bottom: 6px;
 }
@@ -2257,6 +2292,7 @@ input.ask-input,
 .fox-ficha .fox-saldo-grande { align-self: start; justify-self: start; }
 .fox-ficha .fox-stats { justify-self: end; width: 76px; }
 .fox-ficha .fox-preview { padding: 0; }
+.fox-ficha .fox-escena { width: 100%; }
 /* El saldo es el número que miras para saber si te llega para algo, así que va
    grande y solo, sin icono compitiendo al lado. */
 .fox-saldo-grande {
@@ -2325,9 +2361,9 @@ input.ask-input,
 
   /* El boton de comprar el nombre, a lo ancho debajo del campo: al lado se
      quedaba en 93 px y "2000 Munzen" no entraba. */
-  .fox-nombre { flex-wrap: wrap; }
+  .fox-nombre { flex-wrap: wrap; width: 100%; }
   .fox-nombre input,
-  .fox-nombre .fox-item { flex: 1 1 100%; }
+  .fox-nombre .fox-item { flex: 1 1 100%; max-width: none; width: 100%; }
   .fox-nombre .fox-item { align-items: center; padding: 11px 12px; }
   /* Apilados uno sobre otro, los 4 px de diferencia entre la caja y el boton
      se ven de lleno. */
@@ -2663,8 +2699,8 @@ input.ask-input,
 
 
 /* Cambiar el nombre está bajo llave hasta que lo compras. */
-.fox-nombre { display: flex; gap: 8px; align-items: stretch; }
-.fox-nombre input { flex: 1; min-width: 0; margin-top: 0; }
+.fox-nombre { display: flex; gap: 8px; align-items: stretch; width: 100%; }
+.fox-nombre input { flex: 1 1 auto; min-width: 0; max-width: none; width: 100%; margin-top: 0; }
 .fox-nombre input:disabled { opacity: 0.6; cursor: not-allowed; }
 .fox-nombre .fox-item { flex-shrink: 0; justify-content: center; }
 /* El texto del boton, no una etiqueta al pie de un complemento: con el 0.68rem
@@ -4289,23 +4325,94 @@ input.vs-respuesta { max-width: 460px; }
 
 /* Lo que ALGUIEN TE DICE, en bocadillo. Es lo que es, y ademas deja claro de
    un vistazo que el ejercicio va de contestar y no de traducir. */
+/* Las dos frases de un ejercicio son bocadillos, como en la teoria: alguien
+   esta hablando. Antes .sentence-dicho era una caja redondeada sin rabito -no
+   llegaba a leerse como habla- y .sentence-tuyo era texto suelto, asi que no
+   se veia que tambien era alguien diciendo algo.
+
+   El codigo de colores es el mismo que el del chat de Kommunikation, para no
+   tener que aprenderlo dos veces:
+
+     .sentence-dicho  lo que TE dicen  -> claro, rabito a la izquierda
+     .sentence-tuyo   lo que dices TU  -> azulado, rabito a la derecha
+
+   El rabito va con dos triangulos (::before el borde, ::after el relleno) y
+   no con un borde recortado, porque asi respeta el color del borde en claro y
+   en oscuro sin repetir la regla. */
+.sentence-dicho,
+.sentence-tuyo {
+  position: relative;
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin: 4px 0 26px;
+  max-width: 34rem;
+  width: fit-content;
+  line-height: 1.45;
+}
+
 .sentence-dicho {
-  position: relative; background: var(--surface); border: 1.5px solid var(--border-strong);
-  border-radius: 14px; border-bottom-left-radius: 4px;
-  padding: 14px 18px; margin: 4px 0 22px; max-width: 34rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border-strong);
+  border-bottom-left-radius: 5px;
   font-size: 1.12rem;
 }
-/* Una cita en TU idioma, la que tienes que decir en aleman. Sin negrita de
-   titular: lo importante es la respuesta, no el enunciado. Y sin la raya que
-   llevaba a la izquierda: al lado del enunciado gris de arriba parecia que
-   marcaba algo, y no marcaba nada. Lo que distingue esta frase de la que te
-   dicen (.sentence-dicho, en bocadillo) es el peso y el color. */
+
 .sentence-tuyo {
-  font-size: 1.15rem; font-weight: 500; color: var(--text-2);
+  background: var(--accent-soft);
+  border: 1.5px solid #cddcec;
+  border-bottom-right-radius: 5px;
+  margin-left: auto;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-2);
 }
+[data-theme='dark'] .sentence-tuyo { border-color: rgba(91, 139, 212, 0.35); }
+
+/* El rabito. Se dibuja pegado a la esquina de abajo, del lado que toque. */
+.sentence-dicho::before,
+.sentence-dicho::after,
+.sentence-tuyo::before,
+.sentence-tuyo::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Lo que te dicen: rabito abajo a la izquierda. */
+.sentence-dicho::before {
+  left: -9px;
+  border-width: 0 0 13px 11px;
+  border-color: transparent transparent var(--border-strong) transparent;
+}
+.sentence-dicho::after {
+  left: -6px;
+  bottom: 0;
+  border-width: 0 0 11px 9px;
+  border-color: transparent transparent var(--surface) transparent;
+}
+
+/* Lo que dices tu: rabito abajo a la derecha, espejo del otro. */
+.sentence-tuyo::before {
+  right: -9px;
+  border-width: 0 11px 13px 0;
+  border-color: transparent transparent #cddcec transparent;
+}
+.sentence-tuyo::after {
+  right: -6px;
+  bottom: 0;
+  border-width: 0 9px 11px 0;
+  border-color: transparent transparent var(--accent-soft) transparent;
+}
+[data-theme='dark'] .sentence-tuyo::before {
+  border-bottom-color: rgba(91, 139, 212, 0.35);
+}
+
 @media (max-width: 720px) {
   .sentence-dicho { padding: 12px 14px; font-size: 1.02rem; }
-  .sentence-tuyo { font-size: 1.05rem; }
+  .sentence-tuyo { padding: 12px 14px; font-size: 1.05rem; }
 }
 
 /* La tabla de los minijuegos: la primera columna lleva emoji, nombre y lo que
@@ -4726,28 +4833,31 @@ input.vs-respuesta { max-width: 460px; }
 .fox-secciones .fox-bloque.abierto + .fox-bloque {
   border-top: 1px solid var(--border);
 }
+/* La fila de cada categoria. Con 7px arriba y abajo las ocho ranuras salian
+   pegadas unas a otras y la lista se leia como un bloque; con mas aire se
+   distingue cada una de un vistazo, que es lo que se viene a hacer aqui. */
 .fox-tirador {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
   background: none;
   border: none;
-  padding: 7px 4px;
+  padding: 13px 10px;
   cursor: pointer;
   text-align: left;
   color: inherit;
   font: inherit;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: background 0.15s ease;
 }
 .fox-tirador:hover { background: var(--surface-2); }
 .fox-bloque.abierto .fox-tirador:hover { background: transparent; }
-.fox-tirador-izq { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.fox-tirador-izq { display: inline-flex; align-items: center; gap: 11px; min-width: 0; }
 .fox-ico {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -4758,14 +4868,14 @@ input.vs-respuesta { max-width: 460px; }
   font-size: 0.85rem;
 }
 .fox-bloque.abierto .fox-ico { border-color: var(--accent); }
-.fox-titulo { font-size: 0.9rem; font-weight: 600; }
+.fox-titulo { font-size: 0.97rem; font-weight: 600; }
 .fox-tirador-der { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
 /* Lo que llevas puesto en esa ranura, para no tener que abrirla. */
 .fox-puesta {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   color: var(--muted);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -5073,5 +5183,133 @@ input.vs-respuesta { max-width: 460px; }
   }
 }
 
+/* El titulo de una Lektion, un tema o un mazo lleva al listado del que vienes.
+   El boton de volver ya esta arriba a la derecha, pero donde se pincha por
+   instinto para salir es en el titulo. Es un <button> de verdad -se tabula y
+   responde al teclado-, pero no tiene que parecerlo: hereda todo del h1 y solo
+   se subraya al pasar por encima. */
+.titulo-volver {
+  all: unset;
+  cursor: pointer;
+  display: inline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+.titulo-volver:hover,
+.titulo-volver:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  color: var(--accent);
+}
 
+/* ---------- Los fondos de Felix ----------
+   Una ranura mas de la tienda, pero se pinta DETRAS del zorro en vez de
+   encima. Son degradados y un par de formas con ::before/::after, no imagenes:
+   pesan cero, escalan a cualquier tamano y siguen al tema claro/oscuro sin
+   tener que preparar dos versiones de cada una.
 
+   `fox-escena` es el marco; la clase de al lado dice que paisaje. Sin fondo
+   comprado (nadaFondo) no pinta nada y todo queda como estaba. */
+.fox-escena {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.fox-escena > * { position: relative; z-index: 1; }
+.fox-escena-nadaFondo { border-radius: 0; overflow: visible; }
+
+/* El suelo, comun a los paisajes que lo llevan. */
+.fox-escena-wiese::after,
+.fox-escena-wueste::after,
+.fox-escena-eis::after,
+.fox-escena-strand::after,
+.fox-escena-wald::after,
+.fox-escena-berge::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 26%;
+  z-index: 0;
+}
+
+.fox-escena-wiese { background: linear-gradient(#bfe3ff 0%, #dff1ff 58%); }
+.fox-escena-wiese::after { background: linear-gradient(#78c67a, #4ea653); }
+
+.fox-escena-strand { background: linear-gradient(#bfe6ff 0%, #e6f6ff 55%); }
+.fox-escena-strand::after { background: linear-gradient(#f5e2b0, #e8cd8a); }
+
+.fox-escena-wald { background: linear-gradient(#cfe7cf 0%, #eaf5ea 60%); }
+.fox-escena-wald::after { background: linear-gradient(#5c9e5f, #3d7a42); }
+/* Tres coniferas al fondo, con un degradado repetido en forma de picos. */
+.fox-escena-wald::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 22%;
+  height: 34%;
+  z-index: 0;
+  background:
+    conic-gradient(from 135deg at 50% 100%, transparent 0 90deg, #4a8a4e 90deg 180deg, transparent 180deg) 8% 100% / 26% 78% no-repeat,
+    conic-gradient(from 135deg at 50% 100%, transparent 0 90deg, #3f7c44 90deg 180deg, transparent 180deg) 50% 100% / 32% 100% no-repeat,
+    conic-gradient(from 135deg at 50% 100%, transparent 0 90deg, #4a8a4e 90deg 180deg, transparent 180deg) 92% 100% / 26% 70% no-repeat;
+}
+
+.fox-escena-wueste { background: linear-gradient(#ffd9a0 0%, #ffeccc 60%); }
+.fox-escena-wueste::after { background: linear-gradient(#f0c274, #dda85f); }
+
+.fox-escena-eis { background: linear-gradient(#cfeaff 0%, #eef8ff 60%); }
+.fox-escena-eis::after { background: linear-gradient(#ffffff, #d8ecf7); }
+
+.fox-escena-berge { background: linear-gradient(#cfe4f5 0%, #eaf4fb 55%); }
+.fox-escena-berge::after { background: linear-gradient(#8fae87, #6f9169); }
+.fox-escena-berge::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 20%;
+  height: 42%;
+  z-index: 0;
+  background:
+    conic-gradient(from 135deg at 50% 100%, transparent 0 90deg, #9bb2c9 90deg 180deg, transparent 180deg) 14% 100% / 46% 82% no-repeat,
+    conic-gradient(from 135deg at 50% 100%, transparent 0 90deg, #8399b0 90deg 180deg, transparent 180deg) 78% 100% / 52% 100% no-repeat;
+}
+
+/* Ciudad de noche y espacio: sin suelo, el cielo llega abajo. */
+.fox-escena-stadt { background: linear-gradient(#1b2745 0%, #33406b 70%, #4a5680 100%); }
+.fox-escena-stadt::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 38%;
+  z-index: 0;
+  background:
+    linear-gradient(#2a3557, #2a3557) 6% 100% / 18% 62% no-repeat,
+    linear-gradient(#222d4d, #222d4d) 30% 100% / 14% 88% no-repeat,
+    linear-gradient(#2a3557, #2a3557) 52% 100% / 20% 50% no-repeat,
+    linear-gradient(#222d4d, #222d4d) 78% 100% / 16% 74% no-repeat,
+    linear-gradient(#2a3557, #2a3557) 96% 100% / 12% 40% no-repeat;
+}
+
+.fox-escena-weltraum { background: radial-gradient(circle at 30% 25%, #3a2a6b 0%, #191233 60%, #0d0a1d 100%); }
+.fox-escena-weltraum::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(1.5px 1.5px at 18% 22%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 72% 16%, #fff, transparent),
+    radial-gradient(1px 1px at 44% 38%, #ffe9a8, transparent),
+    radial-gradient(1.5px 1.5px at 86% 52%, #fff, transparent),
+    radial-gradient(1px 1px at 12% 62%, #cfe6ff, transparent),
+    radial-gradient(1.5px 1.5px at 60% 76%, #fff, transparent);
+}
+
+.fox-preview .fox-escena:not(.fox-escena-nadaFondo) {
+  width: 100%;
+  min-height: 190px;
+  padding: 14px 0 0;
+  border-radius: 16px;
+}

@@ -198,7 +198,17 @@ export const PREP_LUGAR = {
       { s: 'Er fährt mit ___ Fahrrad zur Arbeit.', a: 'dem', d: ['das', 'den'], t: 'Va en bici al trabajo.', e: 'das Fahrrad → mit dem Fahrrad.' },
       { s: 'Ich fliege mit ___ Flugzeug.', a: 'dem', d: ['das', 'den'], t: 'Voy en avión.', e: 'das Flugzeug → mit dem.' },
       { s: 'Aber ich gehe ___ Fuß.', a: 'zu', d: ['mit', 'in'], t: 'Pero voy a pie.', e: 'Excepción: "zu Fuß", no "mit dem Fuß".' },
-      { s: 'Sie wohnt mit ___ Freundin zusammen.', a: 'einer', d: ['eine', 'einen'], t: 'Vive con una amiga.', e: 'mit + dativo femenino → einer.' }
+      { s: 'Sie wohnt mit ___ Freundin zusammen.', a: 'einer', d: ['eine', 'einen'], t: 'Vive con una amiga.', e: 'mit + dativo femenino → einer.' },
+      { s: 'Welchen Fall verlangt „mit“?', a: 'el dativo', d: ['el acusativo', 'el genitivo'], t: '«mit» rige dativo.', e: 'Siempre, sin excepciones.' },
+      { s: 'Welche Präpositionen gehen auch immer mit Dativ?', a: 'aus, bei, nach, von, zu', d: ['für, ohne, gegen', 'in, an, auf'], t: 'También «aus, bei, nach, von, zu».', e: 'Se aprenden de carrerilla con «mit».' },
+      { s: 'Was ist die Dativform von „der“?', a: 'dem', d: ['den', 'der'], t: 'El dativo de «der» es «dem».', e: 'mit dem Bus.' },
+      { s: 'Und die von „die“ (femenino)?', a: 'der', d: ['die', 'dem'], t: 'El dativo de «die» femenino es «der».', e: 'mit der U-Bahn.' },
+      { s: 'Was passiert im Dativ Plural?', a: 'der artículo es den y el nombre coge -n', d: ['no cambia nada', 'sólo cambia el artículo'], t: 'El artículo es «den» y el sustantivo coge una «-n».', e: 'mit den Kindern, mit den Freunden.' },
+      { s: 'Wie sagt man „a pie“?', a: 'zu Fuß', d: ['mit Fuß', 'mit dem Fuß'], t: 'Se dice «zu Fuß».', e: 'Es la excepción: no lleva «mit».' },
+      { s: 'Ich gehe mit ___ Kollegen essen.', a: 'den', d: ['die', 'der'], t: 'Voy a comer con los compañeros.', e: 'Dativo plural.' },
+      { s: 'Sie spricht mit ___ Nachbarn.', a: 'dem', d: ['den', 'der'], t: 'Habla con el vecino.', e: 'der Nachbar → mit dem.' },
+      { s: 'Kommst du heute Abend mit ___?', a: 'uns', d: ['wir', 'unser'], t: '¿Te vienes con nosotros?', e: 'wir → dativo uns.' },
+      { s: 'Warum sale mal a los españoles?', a: 'en español «con» no cambia nada detrás', d: ['porque mit tiene dos sentidos', 'por el orden'], t: 'Porque en español «con» no cambia lo que va detrás.', e: 'En alemán obliga a poner dativo.' }
     ],
     orders: [
       { sol: ['Ich', 'fahre', 'jeden', 'Tag', 'mit', 'der', 'U-Bahn'], t: 'Voy todos los días en metro.', e: 'mit + dativo femenino.' },
@@ -458,7 +468,17 @@ export const PREP_LUGAR = {
       { s: 'Die Kollegin kommt ___ Wien und ist nie weggezogen.', a: 'aus', d: ['in', 'bei'], t: 'La compañera es de Viena y nunca se ha mudado.', e: 'Ser de un sitio: aus.' },
       { s: 'Wir wohnen jetzt ___ einem kleinen Dorf.', a: 'in', d: ['aus', 'nach'], t: 'Ahora vivimos en un pueblo pequeño.', e: 'in + dativo para decir dónde.' },
       { s: 'Woher kommt dieser Käse? – ___ Österreich.', a: 'Aus', d: ['In', 'Nach'], t: '¿De dónde es este queso? – De Austria.', e: 'También para cosas: la procedencia va con aus.' },
-      { s: 'Sie ist ___ der Türkei und wohnt in Linz.', a: 'aus', d: ['in', 'nach'], t: 'Es de Turquía y vive en Linz.', e: 'Las dos cosas en una frase: aus para el origen, in para el sitio.' }
+      { s: 'Sie ist ___ der Türkei und wohnt in Linz.', a: 'aus', d: ['in', 'nach'], t: 'Es de Turquía y vive en Linz.', e: 'Las dos cosas en una frase: aus para el origen, in para el sitio.' },
+      { s: 'Meine Großeltern kommen ___ Andalusien.', a: 'aus', d: ['in', 'nach'], t: 'Mis abuelos son de Andalucía.', e: 'Origen → aus.' },
+      { s: 'Mein Bruder wohnt ___ Berlin.', a: 'in', d: ['aus', 'nach'], t: 'Mi hermano vive en Berlín.', e: 'Residencia → in.' },
+      { s: 'Dieser Wein kommt ___ Italien.', a: 'aus', d: ['in', 'von'], t: 'Este vino viene de Italia.', e: 'Procedencia → aus.' },
+      { s: 'Ich arbeite ___ einem Krankenhaus.', a: 'in', d: ['aus', 'nach'], t: 'Trabajo en un hospital.', e: 'in + dativo.' },
+      { s: 'Woher kommst du ursprünglich? – ___ Rumänien.', a: 'Aus', d: ['In', 'Nach'], t: '¿De dónde eres originalmente? — De Rumanía.', e: 'aus para el origen.' },
+      { s: 'Sie lebt schon lange ___ Österreich.', a: 'in', d: ['aus', 'nach'], t: 'Lleva mucho tiempo viviendo en Austria.', e: 'Vivir en un sitio → in.' },
+      { s: '„Ich komme aus Wien“ heißt: ___', a: 'ich bin von dort', d: ['ich gehe dorthin', 'ich war dort'], t: '«Ich komme aus Wien» significa que eres de allí.', e: 'No es que vengas de camino.' },
+      { s: 'Mein Vater kommt ___ einem kleinen Dorf.', a: 'aus', d: ['in', 'von'], t: 'Mi padre es de un pueblo pequeño.', e: 'aus + dativo.' },
+      { s: 'Und wo wohnt er jetzt? – ___ Linz.', a: 'In', d: ['Aus', 'Nach'], t: '¿Y dónde vive ahora? — En Linz.', e: 'Ahora mismo → in.' },
+      { s: 'Was ist der Unterschied?', a: 'aus = Herkunft, in = Wohnort', d: ['beide gleich', 'aus = Wohnort, in = Herkunft'], t: 'aus es de dónde eres, in dónde vives.', e: 'Se pueden dar los dos en la misma frase.' }
     ]
   },
   'wohnen-in-der-strasse': {
@@ -472,7 +492,17 @@ export const PREP_LUGAR = {
       { s: 'Die Praxis ist ___ zweiten Stock.', a: 'im', d: ['in die', 'in der'], t: 'La consulta está en el segundo piso.', e: 'Siempre im + ordinal + Stock.' },
       { s: 'Wohnst du noch in ___ alten Wohnung?', a: 'der', d: ['die', 'dem'], t: '¿Sigues viviendo en el piso viejo?', e: 'die Wohnung en dativo: der Wohnung.' },
       { s: 'Sie wohnt in ___ Haus mit Garten.', a: 'einem', d: ['einer', 'einen'], t: 'Vive en una casa con jardín.', e: 'das Haus en dativo: einem Haus.' },
-      { s: 'Wir sind ___ dritten Stock, Tür acht.', a: 'im', d: ['in der', 'in den'], t: 'Estamos en el tercer piso, puerta ocho.', e: 'im dritten Stock, y el número de puerta va suelto.' }
+      { s: 'Wir sind ___ dritten Stock, Tür acht.', a: 'im', d: ['in der', 'in den'], t: 'Estamos en el tercer piso, puerta ocho.', e: 'im dritten Stock, y el número de puerta va suelto.' },
+      { s: 'Welchen Fall verlangt „in“, wenn man sagt DÓNDE se vive?', a: 'den Dativ', d: ['den Akkusativ', 'den Genitiv'], t: 'Para decir dónde se vive, «in» rige dativo.', e: 'Ich wohne in der Ungargasse.' },
+      { s: 'Was ist „im“ die Abkürzung von?', a: 'in dem', d: ['in das', 'in der'], t: '«im» es la contracción de «in dem».', e: 'Por eso siempre es dativo.' },
+      { s: 'Warum sagt man „in der Straße“ und no „in dem“?', a: 'die Straße ist feminin', d: ['Straße ist neutrum', 'es ist eine Ausnahme'], t: 'Porque «die Straße» es femenino y el dativo femenino es «der».', e: 'in + der Straße.' },
+      { s: 'Ich wohne in ___ Hauptstraße.', a: 'der', d: ['dem', 'die'], t: 'Vivo en la Hauptstraße.', e: 'die Straße → in der.' },
+      { s: 'Die Wohnung ist ___ fünften Stock.', a: 'im', d: ['in der', 'in dem der'], t: 'El piso está en la quinta planta.', e: 'der Stock → im.' },
+      { s: 'Er wohnt in ___ ruhigen Gegend.', a: 'einer', d: ['einem', 'eine'], t: 'Vive en una zona tranquila.', e: 'die Gegend, dativo con ein → einer.' },
+      { s: 'Wir wohnen ___ Erdgeschoss, gleich neben dem Eingang.', a: 'im', d: ['in der', 'in die'], t: 'Vivimos en la planta baja, al lado de la entrada.', e: 'das Erdgeschoss → im.' },
+      { s: 'Sie ist in ___ Wohnung über uns gezogen.', a: 'die', d: ['der', 'dem'], t: 'Se ha mudado al piso de arriba.', e: 'Con movimiento («ziehen in») va acusativo: in die.' },
+      { s: 'Und si ya vive allí: Sie wohnt in ___ Wohnung über uns.', a: 'der', d: ['die', 'dem'], t: 'Y si ya vive allí: vive en el piso de arriba.', e: 'Sin movimiento, dativo: in der.' },
+      { s: 'Was ändert sich zwischen „in die Wohnung“ und „in der Wohnung“?', a: 'ob es Bewegung gibt', d: ['die Bedeutung von in', 'nichts'], t: 'Cambia si hay movimiento o no.', e: 'Entrar (acusativo) o estar (dativo).' }
     ]
   },
   'praeposition-nach-zu-in-richtung': {

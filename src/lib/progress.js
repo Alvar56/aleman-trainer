@@ -6,8 +6,67 @@ import { storage, KEYS } from './storage.js';
 
 const DEFAULT = { concepts: {}, seenItems: {}, kommPracticed: {}, sessions: 0 };
 
+// Apartados de Kommunikation que cambiaron de nombre al reorganizar las
+// lecciones (8 funciones de 10 conversaciones cada una).
+//
+// El progreso se guarda con el nombre alemán del apartado como clave, así que
+// renombrar uno deja lo que llevabas hecho colgando de una clave que ya no
+// existe: la barra baja sola y no hay forma de saber por qué. Esto lo traduce
+// una vez, igual que aciertosDe() traduce los formatos viejos del valor.
+//
+// Cuando un apartado se partió en dos, los aciertos se reparten a medias entre
+// los dos herederos: el material practicado es el mismo, solo está en dos
+// sitios, y así ni se pierde crédito ni se regala el doble.
+const RENOMBRADAS = {
+  'a11-start:begrüßen und verabschieden': ['a11-start:begrüßen', 'a11-start:sich verabschieden'],
+  'a21-l1:Wünsche ausdrücken': ['a21-l1:Wünsche und Sehnsüchte ausdrücken'],
+  'a21-l1:über Vergangenes sprechen': ['a21-l1:über die Vergangenheit und den Anfang berichten'],
+  'a21-l1:nachfragen, Interesse und Mitgefühl zeigen': [
+    'a21-l1:nachfragen und Interesse zeigen',
+    'a21-l1:Mitgefühl und Verständnis ausdrücken'
+  ],
+  'a21-l3:Vorlieben ausdrücken': ['a21-l3:Vorlieben beim Sport ausdrücken']
+};
+
+const MARCA_RENOMBRADAS = 'kommRenombradasV1';
+
+function migrarRenombradas(p) {
+  if (p[MARCA_RENOMBRADAS]) return p;
+  const kp = p.kommPracticed || {};
+  for (const [vieja, nuevas] of Object.entries(RENOMBRADAS)) {
+    const v = kp[vieja];
+    if (!v) continue;
+    const trozo = Math.round(aciertosDe(v) / nuevas.length);
+    for (const nueva of nuevas) {
+      // Si ya has practicado la nueva, se suma: lo de antes no se tira.
+      const actual = kp[nueva];
+      kp[nueva] = {
+        at: Math.max((typeof v === 'object' && v.at) || 0, (typeof actual === 'object' && actual?.at) || 0),
+        aciertos: aciertosDe(actual) + trozo,
+        preguntas: ((typeof actual === 'object' && actual?.preguntas) || 0)
+          + Math.round(((typeof v === 'object' && v.preguntas) || 0) / nuevas.length),
+        veces: ((typeof actual === 'object' && actual?.veces) || 0)
+          + ((typeof v === 'object' && v.veces) || 1)
+      };
+    }
+    delete kp[vieja];
+  }
+  p.kommPracticed = kp;
+  p[MARCA_RENOMBRADAS] = true;
+  return p;
+}
+
+let migrado = false;
+
 function load() {
-  return { ...DEFAULT, ...storage.get(KEYS.progress, DEFAULT) };
+  const p = { ...DEFAULT, ...storage.get(KEYS.progress, DEFAULT) };
+  // Una vez por sesión: la migración escribe, y escribir en cada lectura sería
+  // tocar el almacén cientos de veces por pantalla.
+  if (!migrado && !p[MARCA_RENOMBRADAS]) {
+    migrado = true;
+    return storage.update(KEYS.progress, DEFAULT, migrarRenombradas);
+  }
+  return p;
 }
 
 // Modelo por concepto: aciertos, fallos, "fuerza" (0..5 estilo Leitner),
@@ -246,4 +305,28 @@ export function kommApartadosQueFaltan(lektionId, kommunikationArray) {
 
 export function resetProgress() {
   storage.set(KEYS.progress, DEFAULT);
+}
+
+// Progreso que ya no corresponde a nada del libro.
+//
+// Como la clave de un apartado es su nombre alemán, renombrarlo deja lo que
+// llevabas hecho colgando de una clave muerta: la barra baja sola y no hay
+// forma de enterarse. Esto lo enseña. Lo que salga aquí no se borra: se mira,
+// se decide a qué apartado nuevo corresponde y se añade a RENOMBRADAS, que es
+// lo que de verdad recupera el trabajo.
+// Recibe los identificadores que existen AHORA. No se sacan aquí de kursbuch
+// para no atar el almacén de progreso al contenido: quien llama ya los tiene.
+export function progresoHuerfano({ apartadosVivos, conceptosVivos } = {}) {
+  const p = load();
+  const apartados = apartadosVivos
+    ? Object.keys(p.kommPracticed || {}).filter((c) => !apartadosVivos.has(c))
+    : [];
+  // Los conceptos de gramática tienen el mismo problema: su clave sale del
+  // texto de la regla cuando la regla no trae `key` propia, así que retocar el
+  // enunciado la cambia. Pero aquí sólo se avisa de los del libro: los temas
+  // por temática generan conceptos que no están en ninguna lista.
+  const conceptos = conceptosVivos
+    ? Object.keys(p.concepts || {}).filter((c) => /^a\d\d-/.test(c) && !conceptosVivos.has(c))
+    : [];
+  return { apartados, conceptos };
 }

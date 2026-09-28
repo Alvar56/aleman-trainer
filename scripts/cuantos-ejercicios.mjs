@@ -11,7 +11,9 @@
 //                  ordenar. Algunos temas los generan combinando, así que su
 //                  número es lo que sale muestreando, no un tope.
 //   Wortschatz     no hay ejercicios: hay palabras, y cada juego las usa todas.
-//   Kommunikation  hay frases, y cada tipo de pregunta usa todas.
+//   Kommunikation  hay frases, y cada tipo de pregunta usa las que le sirven:
+//                  "Ordenar" pide de tres a doce palabras y "La palabra que
+//                  falta" pide una tapable, así que no salen todas en todo.
 //
 // Uso: node scripts/cuantos-ejercicios.mjs [--csv]
 
@@ -110,11 +112,14 @@ const gramatica = [
 // · Blitz · Ahorcado. Todos preguntan una palabra cada vez menos Emparejar,
 // que va de seis en seis, y der/die/das, que solo usa sustantivos.
 const PAREJAS = 6;
-const vocabulario = vocab.allDecks().map((d) => {
-  const n = d.cards.length;
+const SUSTANTIVO = /^(der|die|das) /i;
+
+function filaVocabulario(tema, orden, cartas, mazos) {
+  const n = cartas.length;
   return {
-    orden: lugar(d.lektionId || ''),
-    tema: d.name || d.id,
+    orden,
+    tema,
+    'mazos': mazos,
     'palabras': n,
     'Tarjetas': n,
     'Test': n,
@@ -123,27 +128,70 @@ const vocabulario = vocab.allDecks().map((d) => {
     'Wortsalat': n,
     'Blitz': n,
     'Ahorcado': n,
-    'der/die/das': d.cards.filter((c) => /^(der|die|das) /i.test(c.de)).length
+    'der/die/das': cartas.filter((c) => SUSTANTIVO.test(c.de)).length
   };
-}).sort((a, b) => a.orden - b.orden);
+}
+
+// Por lección y no por mazo. Cada Lektion tiene sus ocho o diez subtemas, y
+// una tabla de doscientas filas de diez palabras no dice cuánto hay para
+// practicar en una lección, que es la pregunta.
+const porLeccion = new Map();
+const sueltos = [];
+for (const d of vocab.allDecks()) {
+  if (!d.lektionId) { sueltos.push(d); continue; }
+  if (!porLeccion.has(d.lektionId)) porLeccion.set(d.lektionId, []);
+  porLeccion.get(d.lektionId).push(d);
+}
+
+const vocabulario = [
+  ...KURSBUCH.lektionen
+    .filter((l) => porLeccion.has(l.id))
+    .map((l) => {
+      const ds = porLeccion.get(l.id);
+      return filaVocabulario(lektionLabel(l), lugar(l.id), ds.flatMap((d) => d.cards), ds.length);
+    }),
+  // Los mazos que no son del libro van al final, como en la pantalla.
+  ...sueltos.map((d) => filaVocabulario(d.name || d.id, 1000 + ORDEN.size, d.cards, 1))
+].sort((a, b) => a.orden - b.orden);
 
 // ------------------------------------------------------------ Kommunikation
-// El orden de los botones: Elegir la frase · ¿Qué significa? · Contestar · La
-// palabra que falta. Los cuatro usan todas las frases de la lección.
+// Los seis tipos de pregunta de KommPractice. No valen todas las frases para
+// todos: "Ordenar" pide entre tres y doce palabras y "La palabra que falta"
+// pide una palabra tapable que no se repita en la frase, así que hay que
+// preguntárselo al montador de verdad en vez de dar por hecho que salen todas.
+// Antes esta tabla listaba cuatro tipos y ponía el total de frases en los
+// cuatro: faltaban dos columnas y las otras estaban de más por unas pocas.
+const { tiposPosibles } = await import('../src/lib/kursbuch/kommTipos.js');
+const { respuestaDe } = await import('../src/lib/kursbuch/respuestas.js');
+
+// Las columnas son los BOTONES de la pantalla, no los seis tipos internos:
+// cada botón puede tirar de más de un tipo ("Elegir la frase" va en las dos
+// direcciones y "Contestar" junta contestar y entender), que es como está
+// escrito en TIPOS_EJERCICIO. Una frase cuenta para el botón si le sirve para
+// alguno de sus tipos.
+const BOTONES = [
+  ['Elegir la frase', ['decir', 'significado']],
+  ['Contestar', ['contestar', 'entender']],
+  ['La palabra que falta', ['hueco']],
+  ['Ordenar', ['ordenar']]
+];
+
 const comunicacion = KURSBUCH.lektionen.map((l) => {
   const fs = lektionKommunikation(l);
-  const frases = fs.reduce((s, k) => s + (k.wendungen || []).length, 0);
-  if (!frases) return null;
-  return {
+  const todas = fs.flatMap((k) => k.wendungen || []);
+  if (!todas.length) return null;
+  const fila = {
     orden: lugar(l.id),
     tema: lektionLabel(l),
     'apartados': fs.length,
-    'frases': frases,
-    'Elegir la frase': frases,
-    '¿Qué significa?': frases,
-    'Contestar': frases,
-    'La palabra que falta': frases
+    'frases': todas.length
   };
+  for (const [col] of BOTONES) fila[col] = 0;
+  for (const w of todas) {
+    const puede = tiposPosibles(w, todas, respuestaDe);
+    for (const [col, tipos] of BOTONES) if (tipos.some((t) => puede[t])) fila[col] += 1;
+  }
+  return fila;
 }).filter(Boolean).sort((a, b) => a.orden - b.orden);
 
 const SECCIONES = [

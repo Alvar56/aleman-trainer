@@ -215,21 +215,66 @@ grupo('Con la app en ingles, las respuestas tambien');
   // tc(): en un test de "que significa" salian dos opciones en ingles -las del
   // libro- y dos en castellano, las de aqui. Con dos idiomas en la misma lista
   // la respuesta buena canta sola.
-  const castellano = /[óíáéúñ¿¡]/;
-  const frase = 'Ich würde gern wieder nach Hause fahren.';
+  //
+  // Se miran TODAS las respuestas y no una frase concreta: la de antes estaba
+  // escrita a mano aqui y el dia que esa frase salio del libro la prueba
+  // empezo a fallar sin que hubiera nada roto.
+  //
+  // Solo ¿ ¡ ñ: las vocales con tilde salen tambien en nombres que no se
+  // traducen (Alvaro, Sofia, Oztuerk), asi que marcarlas daria falsos fallos.
+  const castellano = /[ñ¿¡]/;
+  const { KURSBUCH } = await import('../src/lib/kursbuch/index.js');
+  const frases = [];
+  for (const b of KURSBUCH.baende) {
+    for (const l of b.lektionen) {
+      for (const k of l.kommunikation || []) for (const w of k.wendungen) frases.push(w.de);
+    }
+  }
 
-  const r = resp.respuestaDe(frase);
-  comprobar('la respuesta no sale en castellano', !!r && !castellano.test(r.es), r ? r.es : '(ninguna)');
+  const malResp = frases.filter((f) => { const r = resp.respuestaDe(f); return r && castellano.test(r.es); });
+  comprobar('ninguna respuesta sale en castellano', malResp.length === 0,
+    malResp.length + ' de ' + frases.length);
 
-  const turnos = resp.conversacionDe(frase);
+  const conTurnos = frases.filter((f) => resp.conversacionDe(f).length > 0);
+  const malTurnos = conTurnos.filter((f) => resp.conversacionDe(f).some((x) => castellano.test(x.es)));
   comprobar('los turnos de la conversacion tampoco',
-    turnos.length > 0 && turnos.every((x) => !castellano.test(x.es)),
-    turnos.map((x) => x.es).join(' | '));
+    conTurnos.length > 0 && malTurnos.length === 0, malTurnos.length + ' de ' + conTurnos.length);
 
-  const seg = resp.seguimientoDe(frase);
+  const conSeg = frases.filter((f) => (resp.seguimientoDe(f) || []).length > 0);
+  const malSeg = conSeg.filter((f) => resp.seguimientoDe(f).some((x) => castellano.test(x.es)));
   comprobar('y los turnos de seguimiento',
-    seg.every((x) => !castellano.test(x.es)),
-    seg.map((x) => x.es).join(' | '));
+    conSeg.length > 0 && malSeg.length === 0, malSeg.length + ' de ' + conSeg.length);
+}
+
+// ---------------------------------------------------------------------------
+grupo('Practicar mueve la barra del mazo');
+{
+  mem.clear();
+  const v = await import('../src/lib/vocab.js');
+  // El caso que se reporto: una leccion a medias donde lo ya practicado esta
+  // en el tope de aciertos y toca repasarlo. El repaso espaciado elegia justo
+  // esas -"toca repasarla" puntua altisimo- y, como pasado el tope acertar no
+  // suma, se jugaba una tanda entera de diez y el porcentaje no se movia.
+  const cartas = v.allDecks().filter((d) => d.lektionId === 'a21-l1').flatMap((d) => d.cards);
+  const deck = { id: 'prueba-barra', name: 'prueba', cards: cartas };
+  const ayer = Date.now() - 24 * 3600e3;
+  const prog = {};
+  for (const c of cartas.slice(0, Math.round(cartas.length * 0.14))) {
+    prog[`${deck.id}::${c.de}`] = { correct: 2, wrong: 0, strength: 3, lastSeen: ayer, due: ayer };
+  }
+  mem.set('dtrainer:vocab:progress', JSON.stringify(prog));
+
+  const antes = v.deckStats(deck);
+  for (const c of v.pickCards(deck, 10)) v.recordCard(c.de, true, { mode: 'quiz' });
+  const despues = v.deckStats(deck);
+
+  comprobar('una tanda acertada sube el porcentaje', despues.pct > antes.pct,
+    `${antes.pct}% → ${despues.pct}%`);
+  // Y no por casualidad: la tanda tiene que traer palabras que aun cuenten.
+  const quedan = cartas.filter((c) => (prog[`${deck.id}::${c.de}`]?.correct || 0) < 2).length;
+  comprobar('mientras queden palabras sin llenar, la tanda las prefiere',
+    quedan > 10 && despues.aciertos - antes.aciertos >= 8,
+    `+${despues.aciertos - antes.aciertos} aciertos de 10 preguntas`);
 }
 
 // ---------------------------------------------------------------------------

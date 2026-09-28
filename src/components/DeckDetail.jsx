@@ -13,8 +13,6 @@ import Escuchar from './Escuchar.jsx';
 import PuntoColor from './PuntoColor.jsx';
 import ModalConjugacion from './ModalConjugacion.jsx';
 import FotosVocab from './FotosVocab.jsx';
-import StarButton from './StarButton.jsx';
-import { verificarBono100 } from '../lib/monedas.js';
 
 // Mismas dos pestañas que en Grammatik: primero te lees las palabras, luego
 // juegas. Antes salía todo de corrido y los juegos tapaban la lista, que es
@@ -27,7 +25,6 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
   useStars();
   const st = deckStats(deck);
   if (st.pct >= 100) {
-    verificarBono100(`deck:${deck.id}`, st.pct);
   }
   const fallos = cartasFalladas(deck);
   const aiOn = aiAvailable();
@@ -63,7 +60,7 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
     <div>
       <div className="topbar">
         <div className="min0">
-          <h1>{deck.emoji} {deck.name}</h1>
+          <h1><button type="button" className="titulo-volver" onClick={onBack}>{deck.emoji} {deck.name}</button></h1>
           <p className="muted" style={{ marginTop: 4, fontSize: '0.9rem' }}>
             {t('voc.deckStats', { total: st.total, known: st.known, pct: st.pct, mastered: st.mastered })}
             {deck.builtin ? '' : deck.source === 'ai' ? t('voc.aiCreated') : t('voc.importedLabel')}
@@ -288,7 +285,9 @@ function VocabCard({ card, deckId, onConjugate, loadingVerb }) {
               {loadingVerb === word ? t('loading') : t('voc.conjugate')}
             </button>
           )}
-          <StarButton item={{ ...card, id: 'vocab:' + (card.id || card.de), de: card.de, es: card.es, deckId }} />
+          {/* Sin estrella en la lista de palabras: aqui se lee el tema, no se
+              practica. Marcar se hace donde te sale la palabra en un ejercicio,
+              que es cuando sabes si se te resiste. */}
           {/* El altavoz, pegado al punto de color: los dos son cosas que le
               haces a esa palabra concreta. */}
           <Escuchar texto={card.de} />

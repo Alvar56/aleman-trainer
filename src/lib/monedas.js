@@ -62,47 +62,16 @@ export function gastar(n) {
 // cuesta hacer: escribir, el examen, el diario.
 export const MONEDAS_EJERCICIO = 1;
 
-// Lo que pagan las cosas que no son un ejercicio suelto. La idea es que el
-// premio vaya con el esfuerzo: escribirle una frase correcta a Felix vale como
-// acertar un ejercicio, y un texto entero o una parte del examen valen lo que
-// una tanda de ejercicios, porque cuestan lo mismo.
+// Lo que paga cada cosa que NO es un minijuego. Estos si pagan bien, porque
+// se hacen una vez y cuestan: escribir en el diario, limpiar una hoja del
+// cuaderno, un examen entero, o clavarle una respuesta a Felix.
 //
-// Los dos del examen se pagan EN PROPORCION a lo que hayas acertado, no por
-// llegar al final: terminarlo a boleo no da nada.
+// (Los valores son los que tenian antes de que se quitara el bono del 100%,
+// recuperados del bundle: se borraron de mas al quitar aquel bloque.)
 export const MONEDAS_FELIX = 5;
 export const MONEDAS_EXAMEN = 30;
 export const MONEDAS_TAGEBUCH = 25;
 export const MONEDAS_NOTIZBUCH = 15;
-export const MONEDAS_BONO_100 = 20;
-const KEY_BONOS_100 = 'monedas:bonos100';
-
-function getCobrados100() {
-  return storage.get(KEY_BONOS_100, {});
-}
-
-// Cobra el bono de 20 monedas por completar una lección/unidad/tema/mazo al 100%.
-// Guarda la clave para que cada hito alcanzado solo se pague una vez.
-export function cobrarBono100(idClave) {
-  if (!idClave) return 0;
-  const cobrados = getCobrados100();
-  if (cobrados[idClave]) return 0; // ya se cobró este hito
-
-  cobrados[idClave] = Date.now();
-  storage.set(KEY_BONOS_100, cobrados);
-  ganar(MONEDAS_BONO_100);
-  return MONEDAS_BONO_100;
-}
-
-export function bono100Cobrado(idClave) {
-  return !!getCobrados100()[idClave];
-}
-
-export function verificarBono100(idClave, pct) {
-  if (pct >= 100 && !bono100Cobrado(idClave)) {
-    return cobrarBono100(idClave);
-  }
-  return 0;
-}
 
 // Cuanto paga un ejercicio: lo que TE EXIGE, menos lo que te han ayudado.
 //

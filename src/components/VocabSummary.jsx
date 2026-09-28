@@ -9,12 +9,15 @@ import Premios from './Premios.jsx';
 export default function VocabSummary({ data, onRepeat, onRepetirFallos, onDeck, onHome }) {
   const {
     deck, mode, correct, total, seconds, xp, mistakes, missed = [], streak,
-    monedas = 0, rachaMax = 0, rachaRecord = null, rank = null, bonoCien = 0
+    monedas = 0, rachaMax = 0, rachaRecord = null, rank = null,
   } = data;
   const isMatch = mode === 'match';
   // Los mazos de una lección del libro vuelven a la pestaña de ejercicios;
   // los mazos sueltos, a su propia pantalla, que no tiene pestañas.
-  const esDeLeccion = String(deck?.id || '').startsWith('kb-');
+  // Gramatica y Kommunikation reutilizan este resumen y ahi no hay mazo: el
+  // boton tiene que decir "volver a los ejercicios", no "volver al mazo". Lo
+  // dicen ellos con volverA, y si no viene se deduce del id del mazo.
+  const esDeLeccion = data.volverA === 'ejercicios' || String(deck?.id || '').startsWith('kb-');
   const pct = total ? Math.round((correct / total) * 100) : 0;
   const pleno = isMatch ? mistakes === 0 : total > 0 && correct === total;
   const mm = Math.floor(seconds / 60);
@@ -52,7 +55,6 @@ export default function VocabSummary({ data, onRepeat, onRepetirFallos, onDeck, 
           xp={xp}
           monedas={monedas}
           bonoDia={bonoDia}
-          bonoCien={bonoCien}
           rachaMax={rachaMax}
           rachaRecord={rachaRecord}
           dias={streak?.state?.current || 0}

@@ -269,7 +269,17 @@ export const PASADO = {
       { s: 'Er hat das Formular ___.', a: 'unterschrieben', d: ['geunterschrieben', 'unterschriebt'], t: 'Firmó el formulario.', e: 'Los inseparables (unter-, be-, ver-) no llevan ge-.' },
       { s: 'Ich habe die Tabletten ___.', a: 'genommen', d: ['genehmt', 'genommt'], t: 'Me tomé las pastillas.', e: 'nehmen → genommen, irregular.' },
       { s: 'Wir haben lange ___.', a: 'gewartet', d: ['wartet', 'gewartetet'], t: 'Esperamos mucho rato.', e: 'warten es regular pero pide -et: gewartet.' },
-      { s: 'Sie hat die Wohnung ___.', a: 'renoviert', d: ['gerenoviert', 'renovierte'], t: 'Reformó el piso.', e: 'renovieren acaba en -ieren: sin ge-.' }
+      { s: 'Sie hat die Wohnung ___.', a: 'renoviert', d: ['gerenoviert', 'renovierte'], t: 'Reformó el piso.', e: 'renovieren acaba en -ieren: sin ge-.' },
+      { s: 'Wie bildet man das Partizip II von einem regelmäßigen Verb?', a: 'ge- + raíz + -t', d: ['ge- + raíz + -en', 'raíz + -t'], t: 'Con «ge-» delante, la raíz y «-t» al final.', e: 'machen → gemacht.' },
+      { s: 'Und de uno irregular?', a: 'ge- + raíz + -en', d: ['ge- + raíz + -t', 'raíz + -en'], t: 'Con «ge-», la raíz y «-en».', e: 'sehen → gesehen. Y la vocal suele cambiar.' },
+      { s: 'Welche Verben bekommen KEIN ge-?', a: 'los de -ieren y los inseparables', d: ['los largos', 'los de movimiento'], t: 'No llevan «ge-» los acabados en «-ieren» y los inseparables.', e: 'telefoniert, verstanden, bezahlt.' },
+      { s: 'Wo steht das ge- bei trennbaren Verben?', a: 'en medio', d: ['delante del todo', 'no lo llevan'], t: 'En los separables el «ge-» va en medio.', e: 'aufräumen → aufgeräumt.' },
+      { s: 'Wo steht das Partizip II im Satz?', a: 'al final', d: ['detrás del sujeto', 'en la posición dos'], t: 'El participio va al final de la frase.', e: 'Ich habe gestern viel gearbeitet.' },
+      { s: 'Warum ist „studiert“ ohne ge-?', a: 'porque acaba en -ieren', d: ['porque es inseparable', 'es una excepción suelta'], t: 'Porque es un verbo en «-ieren».', e: 'studieren, telefonieren, renovieren.' },
+      { s: 'Was ist das Partizip II von „arbeiten“?', a: 'gearbeitet', d: ['gearbeit', 'arbeitet'], t: 'El participio de «arbeiten» es «gearbeitet».', e: 'Con e extra, porque la raíz acaba en -t.' },
+      { s: 'Und von „besuchen“?', a: 'besucht', d: ['gebesucht', 'besuchen'], t: 'El de «besuchen» es «besucht».', e: 'be- es inseparable: sin ge-.' },
+      { s: 'Und von „einkaufen“?', a: 'eingekauft', d: ['gekauft ein', 'geeinkauft'], t: 'El de «einkaufen» es «eingekauft».', e: 'El ge- se mete detrás del prefijo.' },
+      { s: 'Wie erkennt man ein regelmäßiges Verb en el participio?', a: 'acaba en -t y no cambia la vocal', d: ['acaba en -en', 'lleva Umlaut'], t: 'Acaba en «-t» y la vocal no cambia.', e: 'machen → gemacht, no «gemocht».' }
     ]
   },
   'perfekt-oder-praeteritum': {
@@ -283,7 +293,17 @@ export const PASADO = {
       { s: 'Wo ___ du gestern?', a: 'warst', d: ['bist gewesen', 'hast gewesen'], t: '¿Dónde estuviste ayer?', e: 'sein en pasado: warst.' },
       { s: 'Er ___ nach Hause fahren.', a: 'wollte', d: ['hat gewollt', 'ist gewollt'], t: 'Quería irse a casa.', e: 'wollen en Präteritum: wollte.' },
       { s: 'Wir ___ am Wochenende zu Hause geblieben.', a: 'sind', d: ['haben', 'waren'], t: 'El fin de semana nos quedamos en casa.', e: 'bleiben con sein en el Perfekt.' },
-      { s: 'Die Stimmung ___ gestern ausgezeichnet.', a: 'war', d: ['ist gewesen', 'hat gewesen'], t: 'El ambiente de ayer fue excelente.', e: 'Otra vez sein: war.' }
+      { s: 'Die Stimmung ___ gestern ausgezeichnet.', a: 'war', d: ['ist gewesen', 'hat gewesen'], t: 'El ambiente de ayer fue excelente.', e: 'Otra vez sein: war.' },
+      { s: 'Welche Vergangenheit benutzt man beim Sprechen?', a: 'el Perfekt', d: ['el Präteritum', 'las dos igual'], t: 'Al hablar se usa el Perfekt.', e: 'Ich habe gearbeitet.' },
+      { s: 'Welche Verben gehen trotzdem im Präteritum?', a: 'sein, haben y los modales', d: ['los separables', 'los reflexivos'], t: 'Van en Präteritum «sein», «haben» y los modales.', e: 'war, hatte, musste, konnte.' },
+      { s: 'Warum se dice „Ich war müde“ y no „Ich bin müde gewesen“?', a: 'porque sein va en Präteritum', d: ['porque es más corto', 'porque es informal'], t: 'Porque «sein» va en Präteritum al hablar.', e: 'Lo otro no es incorrecto, pero suena raro.' },
+      { s: 'Womit se forma el Perfekt?', a: 'haben o sein + participio', d: ['werden + participio', 'sólo el participio'], t: 'Con «haben» o «sein» más el participio.', e: 'Y el participio al final.' },
+      { s: 'Welche Verben nehmen „sein“?', a: 'los de movimiento y cambio de estado', d: ['los reflexivos', 'los separables'], t: 'Los de movimiento y los de cambio de estado.', e: 'gehen, fahren, kommen, bleiben, werden.' },
+      { s: 'Ich ___ gestern keine Lust.', a: 'hatte', d: ['habe gehabt', 'bin gewesen'], t: 'Ayer no tenía ganas.', e: 'haben → hatte.' },
+      { s: 'Wir ___ um sieben aufgestanden.', a: 'sind', d: ['haben', 'waren'], t: 'Nos levantamos a las siete.', e: 'aufstehen es movimiento → sein.' },
+      { s: 'Er ___ letzte Woche krank.', a: 'war', d: ['ist gewesen', 'hat gewesen'], t: 'La semana pasada estuvo enfermo.', e: 'sein → war.' },
+      { s: 'Ich ___ gestern früher gehen.', a: 'musste', d: ['habe gemusst', 'bin gemusst'], t: 'Ayer me tuve que ir antes.', e: 'Los modales, en Präteritum.' },
+      { s: 'Was benutzt man en un texto escrito, un cuento por ejemplo?', a: 'el Präteritum', d: ['el Perfekt', 'el presente'], t: 'En un texto escrito se usa el Präteritum.', e: 'Al revés que al hablar.' }
     ]
   }
 };

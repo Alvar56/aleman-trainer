@@ -18,31 +18,50 @@ import { guardados, borrarGuardado, otroIdioma } from '../lib/guardados.js';
 import { SIN_IA, PORTABLE } from '../lib/modo.js';
 import { aiAvailable } from '../lib/settings.js';
 import { kommMastery, recordKommPracticed, kommApartadosFallados, kommApartadosQueFaltan, UMBRAL_TERMINAR } from '../lib/progress.js';
-import { verificarBono100 } from '../lib/monedas.js';
 import { BarrasTema } from './ProgresoTema.jsx';
 import { GENDER_NIVELES } from '../lib/vocab.js';
 import EtiquetaChip from './EtiquetaChip.jsx';
 import BotonCopiar from './BotonCopiar.jsx';
 import { getStarredItems, useStars } from '../lib/stars.js';
 import FotosVocab from './FotosVocab.jsx';
+import MatchGame from './MatchGame.jsx';
+import VocabSummary from './VocabSummary.jsx';
+import BlitzGame from './BlitzGame.jsx';
+import { paresDeKommunikation } from '../lib/paresJuego.js';
 
 // Los tipos de pregunta que se pueden practicar sueltos.
 const TIPOS_EJERCICIO = [
-  { id: 'decir', emoji: '✅', tipos: ['decir'],
+  // De mas facil a mas dificil, igual que en Gramatica y Vocabulario:
+  // reconocer primero, reconstruir despues y escribir al final.
+  //
+  // Las dos direcciones en un solo boton. Eran dos ("Elegir la frase" y "¿Que
+  // significa?") y cada uno sacaba 10 preguntas de las mismas 80 frases, asi
+  // que por separado se repetian el doble de rapido. Juntos, una tanda mezcla
+  // ir y volver sin que haya que escribir una frase mas.
+  { id: 'decir', emoji: '✅', tipos: ['decir', 'significado'],
     es: 'Elegir la frase', en: 'Pick the phrase',
-    subEs: 'Del castellano al alemán', subEn: 'from your language into German' },
-  { id: 'significado', emoji: '💭', tipos: ['significado'],
-    es: '¿Qué significa?', en: 'What does it mean?',
-    subEs: 'Del alemán a lo tuyo', subEn: 'from German into your language' },
+    subEs: 'Del castellano al alemán y al revés', subEn: 'from your language into German and back' },
   { id: 'responder', emoji: '🗣️', tipos: ['contestar', 'entender'],
     es: 'Contestar', en: 'Reply',
     subEs: 'Qué dices y qué te dicen', subEn: 'what you say and what they say' },
+  // Estos dos no son tipos de pregunta: son juegos enteros, los mismos que
+  // Vocabulario, con las frases de la leccion en vez de con palabras. Por eso
+  // llevan `juego` en vez de `tipos`.
+  { id: 'match', emoji: '🧩', juego: 'match',
+    es: 'Emparejar', en: 'Match',
+    subEs: 'Seis frases con lo que significan', subEn: 'six phrases with their meaning' },
+  { id: 'blitz', emoji: '⚡', juego: 'blitz',
+    es: 'Blitz', en: 'Blitz',
+    subEs: 'Diez aciertos en treinta segundos', subEn: 'ten right in thirty seconds' },
+  { id: 'ordenar', emoji: '🔀', tipos: ['ordenar'],
+    es: 'Ordenar la frase', en: 'Put it in order',
+    subEs: 'Coloca las palabras', subEn: 'put the words in order' },
   { id: 'hueco', emoji: '📝', tipos: ['hueco'],
     es: 'La palabra que falta', en: 'The missing word',
-    subEs: 'Completa el hueco', subEn: 'fill in the blank' }
+    subEs: 'Completa el hueco, a mano', subEn: 'fill in the blank, by hand' }
 ];
 
-export default function Kommunikation({ lektionId, tab, onTab, onOpen, onBack, onTraducir, dialog, busy, setDialog, setBusy }) {
+export default function Kommunikation({ lektionId, tab, onTab, onOpen, onBack, onTraducir, onReto, dialog, busy, setDialog, setBusy }) {
   // El tomo que se está practicando mezclado, o 'todo'. null = no hay mezcla en
   // marcha y se ve la lista de lecciones.
   const [mezcla, setMezcla] = useState(null);
@@ -77,6 +96,7 @@ export default function Kommunikation({ lektionId, tab, onTab, onOpen, onBack, o
       lektionId={lektionId}
       tab={tab}
       onTab={onTab}
+      onReto={onReto}
       onBack={onBack}
       dialog={dialog}
       busy={busy}
@@ -178,6 +198,7 @@ function KommDetail({
   lektionId,
   tab: propTab,
   onTab,
+  onReto,
   onBack,
   dialog: propDialog,
   busy: propBusy,
@@ -201,6 +222,10 @@ function KommDetail({
   const scrollLeccion = React.useRef(null);
   const [lastFocus, setLastFocus] = useState(null);
   const [practica, setPractica] = useState(null);   // la función que estás practicando
+  const [juego, setJuego] = useState(null);         // 'match' | 'blitz', que son juegos enteros
+  // El resultado de esa partida, para enseñar el resumen al acabar en vez de
+  // devolverte a los ejercicios sin decirte nada.
+  const [resumenJuego, setResumenJuego] = useState(null);
   // Sube al terminar una práctica, para repintar las marcas sin recargar.
   const [vuelta, setVuelta] = useState(0);
   const [misKonv, setMisKonv] = useState(() => guardados('konversation'));
@@ -269,7 +294,6 @@ function KommDetail({
   );
   const km = lektion ? kommMastery(lektion.id, lektion.kommunikation) : null;
   if (km && km.pct >= 100) {
-    verificarBono100(`lektion:kommunikation:${lektion.id}`, km.pct);
   }
   // Lo que se te ha resistido y lo que te falta para el 100%, por apartado.
   const kFallados = lektion ? kommApartadosFallados(lektion.id, lektion.kommunikation) : [];
@@ -302,6 +326,25 @@ function KommDetail({
   // El apartado entero en alemán y de corrido: cada frase del libro con lo que
   // te contestan y la vuelta que sigue. Es exactamente lo que se ve en las
   // burbujas, sin las traducciones, para pegarlo en un lector de voz.
+  // Las frases de un apartado, agrupadas en conversaciones.
+  //
+  // Por defecto cada frase abre la suya: frase, respuesta, y a otra cosa. Eso
+  // se lee como una lista de pares sueltos, que no es como habla nadie. Una
+  // frase marcada con `sigue` no abre conversacion nueva: se engancha a la
+  // anterior, y las dos (o las cuatro) se pintan como un dialogo seguido.
+  //
+  // No se anade ni se quita nada: son las mismas frases, cada una con su
+  // respuesta, y cada una sigue siendo su propio ejercicio. Lo unico que
+  // cambia es donde se corta.
+  function conversacionesDe(k) {
+    const grupos = [];
+    (k.wendungen || []).forEach((w, wi) => {
+      if (w.sigue && grupos.length) grupos[grupos.length - 1].push({ w, wi });
+      else grupos.push([{ w, wi }]);
+    });
+    return grupos;
+  }
+
   function textoApartado(k) {
     const lineas = [];
     for (const w of k.wendungen || []) {
@@ -339,6 +382,45 @@ function KommDetail({
     } finally {
       setBusy(null);
     }
+  }
+
+  // Emparejar y Blitz son juegos completos, no una tanda de preguntas, asi
+  // que salen por su lado. El progreso va al mismo sitio que el resto de
+  // Kommunikation: al apartado del que sea la frase.
+  if (juego) {
+    const pares = paresDeKommunikation(lektion);
+    const ctx = {
+      id: 'komm:' + lektion.id,
+      nombre: lektionLabel(lektion),
+      emoji: '💬',
+      pct: () => km?.pct ?? null
+    };
+    const apuntar = (de, ok) => {
+      const par = pares.find((x) => x.de === de);
+      if (par?.funktion && ok) recordKommPracticed(lektion.id, par.funktion, 1, 1);
+    };
+    const salir = () => { setJuego(null); setVuelta((v) => v + 1); };
+    const acabar = (data) => {
+      setVuelta((v) => v + 1);
+      // `cual` se guarda con el resultado porque al salir del juego se pierde
+      // `juego`, y "Otra ronda" necesita saber cual volver a abrir.
+      setResumenJuego({ ...data, cual: juego, volverA: 'ejercicios', deck: { emoji: ctx.emoji, name: ctx.nombre } });
+      setJuego(null);
+    };
+    return juego === 'match' ? (
+      <MatchGame pares={pares} apuntar={apuntar} contexto={ctx} onExit={salir} onFinish={acabar} />
+    ) : (
+      // Un minuto: aqui la pregunta es una frase, no una palabra suelta.
+      <BlitzGame cartas={pares} apuntar={apuntar} contexto={ctx} segundos={60} onExit={salir} onFinish={acabar} />
+    );
+  }
+
+  if (resumenJuego) {
+    const volver = () => setResumenJuego(null);
+    const otraRonda = () => { const cual = resumenJuego.cual; setResumenJuego(null); setJuego(cual); };
+    return (
+      <VocabSummary data={resumenJuego} onRepeat={otraRonda} onDeck={volver} onHome={volver} />
+    );
   }
 
   if (practica) {
@@ -394,7 +476,7 @@ function KommDetail({
           lo que llevas hecho, y Teoría / Ejercicios. */}
       <div className="topbar">
         <div className="min0">
-          <h1>{lektionLabel(lektion)}</h1>
+          <h1><button type="button" className="titulo-volver" onClick={onBack}>{lektionLabel(lektion)}</button></h1>
           <p className="muted" style={{ marginTop: 4, fontSize: '0.9rem' }}>
             {lektion.bandName} · {lektion.kommunikation.length} {t('functions')}
             {km && km.total > 0 && ` · ${km.practiced}/${km.total} ${t('komm.hechas')}`}
@@ -498,7 +580,9 @@ function KommDetail({
                   contestar a la derecha. Se ve de un vistazo quién dice qué, y
                   la sección entera va a juego. */}
               <div className="komm-chat">
-                {(k.wendungen || []).map((w, wi) => {
+                {conversacionesDe(k).map((grupo, gi) => (
+                  <div className="kc-par" key={gi}>
+                    {grupo.map(({ w, wi }) => {
                   // La conversacion entera: lo que te contestan y, si la hay,
                   // la vuelta que sigue. Una frase suelta no se usa sola: se
                   // usa porque alguien contesta y tu sigues.
@@ -506,7 +590,7 @@ function KommDetail({
                   const bubbleKeyA = `${i}-${wi}-a`;
                   const revA = reveladas.has(bubbleKeyA);
                   return (
-                    <div className="kc-par" key={wi}>
+                    <React.Fragment key={wi}>
                       <div className="dlg-turn a">
                         <div
                           className={'dlg-bubble' + (revA ? ' revelada' : '')}
@@ -553,9 +637,11 @@ function KommDetail({
                           </div>
                         );
                       })}
-                    </div>
+                    </React.Fragment>
                   );
-                })}
+                    })}
+                  </div>
+                ))}
               </div>
               {/* Practicar ESTE apartado, aquí mismo: es lo que apetece justo
                   después de leerse sus frases. En la pestaña de ejercicios
@@ -625,7 +711,9 @@ function KommDetail({
                 className="gametype"
                 key={j.id}
                 onClick={() =>
-                  setPractica({ funktion: todaLaLeccion, tipos: j.tipos, mezcla: true, volverA: 'ejercicios' })
+                  j.juego
+                    ? setJuego(j.juego)
+                    : setPractica({ funktion: todaLaLeccion, tipos: j.tipos, mezcla: true, volverA: 'ejercicios' })
                 }
               >
                 <span className="gt-ico">{j.emoji}</span>
@@ -697,6 +785,15 @@ function KommDetail({
                 {(km?.pct || 0) < UMBRAL_TERMINAR
                   ? t('voc.finishLocked', { p: UMBRAL_TERMINAR })
                   : t('voc.finish', { n: kFaltan.length })}
+              </button>
+            )}
+
+            {/* El Reto con IA, que ya tenian Vocabulario y Gramatica. El texto
+                de arriba lo nombraba desde hace tiempo ("«Reto con IA» genera
+                ejercicios aparte") pero el boton no estaba en ningun sitio. */}
+            {aiOn && onReto && (
+              <button className="btn-ghost btn-sm" onClick={() => onReto(lektionId)}>
+                {t('gr.aiChallenge')}
               </button>
             )}
           </div>

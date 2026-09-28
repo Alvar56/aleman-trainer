@@ -19,7 +19,6 @@ import PuntoColor from './PuntoColor.jsx';
 import ModalConjugacion from './ModalConjugacion.jsx';
 import EtiquetaChip from './EtiquetaChip.jsx';
 import FotosVocab from './FotosVocab.jsx';
-import StarButton from './StarButton.jsx';
 function CustomDropdown({ options, value, onChange }) {
   const [open, setOpen] = useState(false);
   const selected = options.find((o) => o.value === value) || options[0];
@@ -243,7 +242,7 @@ function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onReto, onBac
     <div>
       <div className="topbar">
         <div className="min0">
-          <h1>{lektionLabel(lektion)}</h1>
+          <h1><button type="button" className="titulo-volver" onClick={onBack}>{lektionLabel(lektion)}</button></h1>
           <p className="muted" style={{ marginTop: 4, fontSize: '0.9rem' }}>
             {lektion.bandName} · {total} {t('words')} · {st.known} {t('voc.known')} ({st.pct}%)
           </p>
@@ -676,7 +675,9 @@ function VocabTableRow({ c, deckId, lektionId, onConjugate, loadingVerb }) {
               </span>
             </button>
           )}
-          <StarButton item={{ ...c, id: 'vocab:' + (c.id || c.de), de: c.de, es: c.es, deckId, lektionId }} />
+          {/* Sin estrella en la lista de palabras: aqui se lee el tema, no se
+              practica. Marcar se hace donde te sale la palabra en un ejercicio,
+              que es cuando sabes si se te resiste. */}
           {/* El altavoz, pegado al punto de color: los dos son cosas que le
               haces a esa palabra concreta. */}
           <Escuchar texto={c.de} />

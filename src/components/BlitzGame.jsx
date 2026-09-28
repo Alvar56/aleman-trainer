@@ -2,13 +2,16 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { recordCard, deckStats } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, RECONOCER, verificarBono100 } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
 import { pick } from '../lib/i18n.js';
 import { apuntarRespuesta } from '../lib/rachas.js';
 import { useTeclas, teclasDeOpciones } from '../lib/teclas.js';
 
+// Medio minuto en Vocabulario, donde la pregunta es una palabra y se lee de
+// un vistazo. Gramatica y Kommunikation piden mas: ahi hay que leer una frase
+// entera antes de poder elegir, asi que pasan un minuto.
 const SEGUNDOS = 30;
 const OBJETIVO = 10;
 
@@ -21,17 +24,34 @@ function revuelve(a) {
   return x;
 }
 
-export default function BlitzGame({ deck, cartasFijas, onExit, onFinish }) {
+// Contrarreloj: treinta segundos para acertar diez.
+//
+// Nacio para el vocabulario y estaba atado a el. Gramatica y Kommunikation lo
+// quieren tambien, y duplicar el componente seria tener el mismo reloj escrito
+// tres veces. Asi que lo que cambia entra por props y, si no vienen, se
+// comporta exactamente como antes:
+//
+//   cartas     las parejas [{ de, es }] que se preguntan; por defecto, el mazo
+//   apuntar    (de, acerto) => void; por defecto, recordCard del vocabulario
+//   contexto   { id, nombre, emoji, pct } para el marcador y el ranking
+export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas, segundos = SEGUNDOS, onExit, onFinish }) {
   const fox = useFox();
-  // `pool` es de donde salen los DESPISTES y sigue siendo el mazo entero:
-  const pool = useMemo(() => (deck.cards.length >= 4 ? revuelve(deck.cards) : []), [deck]);
+  const ctx = contexto || {
+    id: 'vocab:' + deck?.id,
+    nombre: deck?.name,
+    emoji: deck?.emoji,
+    pct: () => (deck ? deckStats(deck).pct : null)
+  };
+  // `pool` es de donde salen los DESPISTES y sigue siendo la lista entera:
+  const base = cartas || deck?.cards || [];
+  const pool = useMemo(() => (base.length >= 4 ? revuelve(base) : []), [base]);
   // Y esto es lo que se PREGUNTA: el mazo barajado, o solo lo que fallaste.
   const preguntas = useMemo(
     () => ((cartasFijas && cartasFijas.length) ? cartasFijas : pool),
     [pool, cartasFijas]
   );
   const [i, setI] = useState(0);
-  const [seg, setSeg] = useState(SEGUNDOS);
+  const [seg, setSeg] = useState(segundos);
   const [aciertos, setAciertos] = useState(0);
   const [racha, setRacha] = useState(0);
   const [mejorRacha, setMejorRacha] = useState(0);
@@ -92,7 +112,8 @@ export default function BlitzGame({ deck, cartasFijas, onExit, onFinish }) {
     if (rSeg.seguidas > mejorSeguidas.current) mejorSeguidas.current = rSeg.seguidas;
     ultimaSeguidas.current = rSeg;
     fox.acierto(ok);
-    recordCard(card.de, ok);
+    if (apuntar) apuntar(card.de, ok);
+    else recordCard(card.de, ok);
     monedas.current += cobrarEjercicio(ok, { nivel: RECONOCER });
     results.current.push({ card, ok });
 
@@ -119,13 +140,12 @@ export default function BlitzGame({ deck, cartasFijas, onExit, onFinish }) {
     const total = results.current.length;
     const correct = aciertos;
     const esGanado = aciertos >= OBJETIVO;
-    const bonoCien = deck ? verificarBono100(`deck:${deck.id}`, deckStats(deck).pct) : 0;
     const xp = Math.max(2, correct * 5 + (esGanado ? 20 : 0) + mejorRacha * 2);
     bumpSessions();
     const streak = recordActivity(xp);
     saveRun({
-      topicId: 'vocab:' + deck.id,
-      topicName: deck.name,
+      topicId: ctx.id,
+      topicName: ctx.nombre,
       mode: 'blitz',
       game: 'blitz',
       correct,
@@ -145,8 +165,7 @@ export default function BlitzGame({ deck, cartasFijas, onExit, onFinish }) {
       seconds,
       xp,
       streak,
-      monedas: monedas.current + bonoCien,
-      bonoCien,
+      monedas: monedas.current,
       mejorRacha,
       missed: results.current.filter((r) => !r.ok).map((r) => ({ de: r.card.de, es: r.card.es }))
     });
@@ -178,12 +197,12 @@ export default function BlitzGame({ deck, cartasFijas, onExit, onFinish }) {
     <div className="vocab-session">
       <div className="progress-top">
         <button className="btn-ghost" onClick={onExit} title="Salir (Esc)">✕</button>
-        <div className="bar"><span style={{ width: (seg / SEGUNDOS) * 100 + '%' }} /></div>
+        <div className="bar"><span style={{ width: (seg / segundos) * 100 + '%' }} /></div>
         <span className={'timer blitz-timer' + (seg <= 5 ? ' urgente' : '')}>{seg}s</span>
       </div>
 
       <div className="ctx-fila">
-        <span className="pill ctx-tema">{deck.emoji} {deck.name}</span>
+        <span className="pill ctx-tema">{ctx.emoji} {ctx.nombre}</span>
         <span className="row" style={{ gap: 8 }}>
           <span className="pill" style={{ fontWeight: 600 }}>✓ {aciertos} / {OBJETIVO}</span>
           {racha >= 3 && <span className="pill blitz-racha">🔥 {racha}</span>}
@@ -211,8 +230,8 @@ export default function BlitzGame({ deck, cartasFijas, onExit, onFinish }) {
         </div>
 
         <p className="wo-hint muted">
-          {pick('Objetivo: 10 aciertos en 30s · Fallar resta 1 punto · Atajos: 1, 2, 3, Esc',
-                'Goal: 10 correct in 30s · Mistakes subtract 1 point · Keys: 1, 2, 3, Esc')}
+          {pick(`Objetivo: ${OBJETIVO} aciertos en ${segundos}s · Fallar resta 1 punto · Atajos: 1, 2, 3, Esc`,
+                `Goal: ${OBJETIVO} correct in ${segundos}s · Mistakes subtract 1 point · Keys: 1, 2, 3, Esc`)}
         </p>
       <FoxOverlay fox={fox} racha={racha} />
       </div>

@@ -1,55 +1,70 @@
 let ctx = null;
 
-function init() {
-  if (!ctx) {
-    ctx = new (window.AudioContext || window.webkitAudioContext)();
-  }
-  if (ctx.state === 'suspended') {
-    ctx.resume();
-  }
+// Programa un sonido cuando el contexto esté SONANDO de verdad.
+//
+// El navegador crea el AudioContext suspendido hasta que hay un gesto del
+// usuario, y ctx.resume() es asíncrono. Antes se llamaba a resume() y se
+// agendaba la nota en la misma línea, con el contexto todavía suspendido: ahí
+// currentTime está congelado en 0, así que osc.start(0) / osc.stop(0.3)
+// agendaban la nota "en el pasado", y cuando el audio arrancaba de verdad ya
+// había pasado su turno. Resultado: el PRIMER acierto o fallo de la sesión no
+// sonaba, y del segundo en adelante sí, porque el contexto ya estaba en
+// marcha. Sonaba a fallo aleatorio y era siempre el primero.
+//
+// Con esto, si hay que despertarlo se espera a que despierte y se agenda
+// después. Si ya estaba sonando, va directo y no cuesta nada.
+function conContexto(programar) {
+  try {
+    if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (ctx.state === 'suspended') {
+      ctx.resume().then(() => programar(ctx)).catch(() => {});
+      return;
+    }
+    programar(ctx);
+  } catch (e) { /* sin audio: el ejercicio sigue igual */ }
 }
 
 export function playSuccess() {
-  try {
-    init();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
+  conContexto((ac) => {
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
     osc.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(ac.destination);
 
+    const t = ac.currentTime;
     osc.type = 'sine';
-    osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
-    osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); // E5
+    osc.frequency.setValueAtTime(523.25, t); // C5
+    osc.frequency.setValueAtTime(659.25, t + 0.1); // E5
 
-    gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.1, ctx.currentTime + 0.02);
-    gain.gain.setValueAtTime(0.1, ctx.currentTime + 0.15);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+    gain.gain.setValueAtTime(0, t);
+    gain.gain.linearRampToValueAtTime(0.1, t + 0.02);
+    gain.gain.setValueAtTime(0.1, t + 0.15);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
 
-    osc.start(ctx.currentTime);
-    osc.stop(ctx.currentTime + 0.3);
-  } catch (e) {}
+    osc.start(t);
+    osc.stop(t + 0.3);
+  });
 }
 
 export function playError() {
-  try {
-    init();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
+  conContexto((ac) => {
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
     osc.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(ac.destination);
 
+    const t = ac.currentTime;
     osc.type = 'triangle';
-    osc.frequency.setValueAtTime(150, ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.2);
+    osc.frequency.setValueAtTime(150, t);
+    osc.frequency.exponentialRampToValueAtTime(100, t + 0.2);
 
-    gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.1, ctx.currentTime + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+    gain.gain.setValueAtTime(0, t);
+    gain.gain.linearRampToValueAtTime(0.1, t + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.2);
 
-    osc.start(ctx.currentTime);
-    osc.stop(ctx.currentTime + 0.2);
-  } catch (e) {}
+    osc.start(t);
+    osc.stop(t + 0.2);
+  });
 }
 
 export function playAudio(correct) {

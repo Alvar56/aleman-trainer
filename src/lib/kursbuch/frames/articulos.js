@@ -544,7 +544,17 @@ export const ARTICULOS = {
       { s: 'Der Zug fährt in ___ Slowakei.', a: 'die', d: ['der', 'das'], t: 'El tren va a Eslovaquia.', e: 'die Slowakei con movimiento: in die Slowakei.' },
       { s: 'Wir waren letzten Winter in ___ Schweiz.', a: 'der', d: ['die', 'das'], t: 'El invierno pasado estuvimos en Suiza.', e: 'Aquí no hay movimiento: in + dativo, der Schweiz.' },
       { s: 'Kommst du aus ___ Iran?', a: 'dem', d: ['der', 'die'], t: '¿Eres de Irán?', e: 'der Iran es masculino: aus dem Iran.' },
-      { s: 'Meine Nachbarn kommen aus ___.', a: 'Kroatien', d: ['der Kroatien', 'dem Kroatien'], t: 'Mis vecinos son de Croacia.', e: 'Kroatien va sin artículo.' }
+      { s: 'Meine Nachbarn kommen aus ___.', a: 'Kroatien', d: ['der Kroatien', 'dem Kroatien'], t: 'Mis vecinos son de Croacia.', e: 'Kroatien va sin artículo.' },
+      { s: 'Sie kommt aus ___ Slowakei.', a: 'der', d: ['die', 'dem'], t: 'Es de Eslovaquia.', e: 'die Slowakei → aus der.' },
+      { s: 'Wir fliegen nächste Woche in ___ Niederlande.', a: 'die', d: ['der', 'den'], t: 'La semana que viene volamos a los Países Bajos.', e: 'Plural con movimiento → in die.' },
+      { s: 'Mein Onkel lebt in ___ Niederlanden.', a: 'den', d: ['die', 'der'], t: 'Mi tío vive en los Países Bajos.', e: 'Dativo plural → in den.' },
+      { s: 'Die meisten Länder haben ___.', a: 'keinen Artikel', d: ['immer der', 'immer die'], t: 'La mayoría de los países no llevan artículo.', e: 'Spanien, Italien, Polen.' },
+      { s: 'Er studiert in ___ Schweiz.', a: 'der', d: ['die', 'dem'], t: 'Estudia en Suiza.', e: 'Sin movimiento → in der.' },
+      { s: 'Ich war noch nie in ___ Türkei.', a: 'der', d: ['die', 'dem'], t: 'Nunca he estado en Turquía.', e: 'in + dativo → der Türkei.' },
+      { s: 'Nächsten Monat fahren wir nach ___.', a: 'Ungarn', d: ['der Ungarn', 'die Ungarn'], t: 'El mes que viene vamos a Hungría.', e: 'Sin artículo → nach.' },
+      { s: 'Warum sagt man „in die Schweiz“ und nicht „nach“?', a: 'weil die Schweiz einen Artikel hat', d: ['weil sie klein ist', 'weil sie neutral ist'], t: 'Porque «die Schweiz» lleva artículo.', e: 'Con artículo va in, sin artículo nach.' },
+      { s: 'Der Iran und der Irak haben ___.', a: 'einen Artikel', d: ['keinen Artikel', 'zwei Artikel'], t: '«der Iran» y «der Irak» llevan artículo.', e: 'Como die Türkei y die Schweiz.' },
+      { s: 'Sie arbeitet in ___ Ukraine.', a: 'der', d: ['die', 'dem'], t: 'Trabaja en Ucrania.', e: 'die Ukraine → in der.' }
     ]
   },
   'von-statt-genitiv': {
@@ -558,7 +568,17 @@ export const ARTICULOS = {
       { s: 'Der Hund von ___ Nachbarin bellt viel.', a: 'meiner', d: ['meine', 'meinen'], t: 'El perro de mi vecina ladra mucho.', e: 'die Nachbarin en dativo: meiner Nachbarin.' },
       { s: '___ Schwester kommt am Samstag.', a: 'Thomas\'', d: ['Thomas', 'Von Thomas'], t: 'La hermana de Thomas viene el sábado.', e: 'Si el nombre ya acaba en -s, solo se pone el apóstrofo.' },
       { s: 'Das Zimmer ___ meinem Neffen ist klein.', a: 'von', d: ['aus', 'zu'], t: 'La habitación de mi sobrino es pequeña.', e: 'von + dativo, la forma normal al hablar.' },
-      { s: 'Die Eltern von ___ Freundin wohnen in Linz.', a: 'meiner', d: ['meine', 'meinem'], t: 'Los padres de mi amiga viven en Linz.', e: 'die Freundin en dativo: meiner Freundin.' }
+      { s: 'Die Eltern von ___ Freundin wohnen in Linz.', a: 'meiner', d: ['meine', 'meinem'], t: 'Los padres de mi amiga viven en Linz.', e: 'die Freundin en dativo: meiner Freundin.' },
+      { s: 'Welchen Fall verlangt „von“?', a: 'el dativo', d: ['el acusativo', 'el genitivo'], t: '«von» rige dativo.', e: 'von meinem Bruder, von meiner Schwester.' },
+      { s: 'Wie sagt man Besitz im Alltag meistens?', a: 'mit von + Dativ', d: ['mit dem Genitiv', 'sólo con el artículo'], t: 'En el día a día la posesión se dice con «von» + dativo.', e: 'Das Auto von meinem Vater.' },
+      { s: 'Was passt bei NOMBRES propios statt „von“?', a: 'el nombre con -s', d: ['el artículo', 'nada'], t: 'Con nombres propios se usa el nombre con «-s».', e: 'Annas Cousine, Peters Auto.' },
+      { s: 'Trägt das -s bei Namen einen Apostroph?', a: 'no, salvo si el nombre acaba en s', d: ['sí, siempre', 'nunca'], t: 'No lleva apóstrofo, salvo si el nombre acaba en s.', e: 'Annas Auto, pero Thomas\' Auto.' },
+      { s: 'Das ist das Fahrrad ___ meinem Nachbarn.', a: 'von', d: ['vom', 'des'], t: 'Esa es la bici de mi vecino.', e: 'von + dativo.' },
+      { s: 'Die Wohnung von ___ Tante ist groß.', a: 'meiner', d: ['meinem', 'meine'], t: 'El piso de mi tía es grande.', e: 'die Tante → dativo meiner.' },
+      { s: '___ Kinder spielen draußen.', a: 'Martas', d: ['Marta', 'Von Marta'], t: 'Los hijos de Marta juegan fuera.', e: 'Nombre propio + -s, delante.' },
+      { s: 'Der Name ___ Straße ist lang.', a: 'der', d: ['die', 'von die'], t: 'El nombre de la calle es largo.', e: 'Genitivo femenino: der Straße.' },
+      { s: 'Wann klingt der Genitiv besser als „von“?', a: 'por escrito y en lenguaje formal', d: ['hablando con amigos', 'nunca'], t: 'El genitivo queda mejor por escrito y en registro formal.', e: 'Hablando, casi siempre «von».' },
+      { s: 'Das Zimmer von ___ Söhnen ist oben.', a: 'meinen', d: ['meiner', 'meine'], t: 'La habitación de mis hijos está arriba.', e: 'Dativo plural: meinen + -n.' }
     ]
   },
   'stoffnamen-ohne-artikel': {
@@ -572,7 +592,17 @@ export const ARTICULOS = {
       { s: 'Ich nehme ___ Tasse Tee.', a: 'eine', d: ['die', 'keine'], t: 'Tomo una taza de té.', e: 'Con la medida Tasse vuelve el artículo.' },
       { s: 'Magst du ___?', a: 'Fisch', d: ['den Fisch', 'einen Fisch'], t: '¿Te gusta el pescado?', e: 'Gustos en general: sin artículo.' },
       { s: '___ im Kühlschrank ist alle.', a: 'Die Milch', d: ['Milch', 'Eine Milch'], t: 'La leche de la nevera se ha acabado.', e: 'Se habla de una leche concreta: con artículo.' },
-      { s: 'Wir haben noch ___ zu Hause.', a: 'Reis', d: ['den Reis', 'einen Reis'], t: 'Todavía tenemos arroz en casa.', e: 'Cantidad indefinida: sin artículo.' }
+      { s: 'Wir haben noch ___ zu Hause.', a: 'Reis', d: ['den Reis', 'einen Reis'], t: 'Todavía tenemos arroz en casa.', e: 'Cantidad indefinida: sin artículo.' },
+      { s: 'Wann steht ein Stoffname ohne Artikel?', a: 'cuando se habla en general', d: ['siempre', 'nunca'], t: 'Sin artículo cuando se habla de la sustancia en general.', e: 'Ich trinke Kaffee.' },
+      { s: 'Und wann bekommt er einen Artikel?', a: 'cuando es uno concreto', d: ['cuando es plural', 'cuando es masculino'], t: 'Lleva artículo cuando se habla de uno concreto.', e: 'Die Milch im Kühlschrank.' },
+      { s: 'Was ist ein Stoffname überhaupt?', a: 'algo que no se cuenta', d: ['una comida', 'un líquido'], t: 'Un nombre de materia es algo que no se cuenta.', e: 'Reis, Wasser, Fleisch, Geld.' },
+      { s: 'Wie zählt man so etwas trotzdem?', a: 'con una medida delante', d: ['con un plural', 'no se puede'], t: 'Se cuentan poniendo una medida delante.', e: 'ein Glas Wasser, zwei Kilo Reis.' },
+      { s: 'Wie verneint man „Ich esse Fleisch“?', a: 'Ich esse kein Fleisch.', d: ['Ich esse nicht Fleisch.', 'Ich esse nicht das Fleisch.'], t: 'Se niega con «Ich esse kein Fleisch.».', e: 'Sin artículo → kein, no nicht.' },
+      { s: 'Ich kaufe heute ___ und Käse.', a: 'Wurst', d: ['die Wurst', 'eine Wurst'], t: 'Hoy compro embutido y queso.', e: 'En general → sin artículo.' },
+      { s: '___ hier ist wirklich gut.', a: 'Der Kaffee', d: ['Kaffee', 'Ein Kaffee'], t: 'El café de aquí está muy bueno.', e: 'Uno concreto → con artículo.' },
+      { s: 'Hast du noch ___ zu Hause?', a: 'Milch', d: ['die Milch', 'eine Milch'], t: '¿Te queda leche en casa?', e: 'En general → sin artículo.' },
+      { s: 'Was ist der Unterschied zum Spanischen?', a: 'en español sí se pone el artículo', d: ['es igual', 'en español no hay artículos'], t: 'Que en español sí lo ponemos.', e: '«Bebo café» pero «me gusta EL café».' },
+      { s: 'Ich möchte ___ Bier, bitte.', a: 'ein', d: ['das', 'Bier'], t: 'Quiero una cerveza, por favor.', e: 'Aquí es una unidad: lleva «ein».' }
     ]
   },
   'adjektiv-nach-bestimmtem-artikel': {
@@ -586,7 +616,17 @@ export const ARTICULOS = {
       { s: 'In der ___ Wohnung war es lauter.', a: 'alten', d: ['alte', 'alter'], t: 'En el piso viejo había más ruido.', e: 'Dativo femenino: der + -en.' },
       { s: 'Das ___ Bad ist endlich fertig.', a: 'neue', d: ['neuer', 'neues'], t: 'El baño nuevo por fin está acabado.', e: 'das + -e en nominativo.' },
       { s: 'Mit dem ___ Herd kocht es sich besser.', a: 'neuen', d: ['neue', 'neuer'], t: 'Con la cocina nueva se cocina mejor.', e: 'Dativo masculino: dem + -en.' },
-      { s: 'Die ___ Fenster halten die Kälte draußen.', a: 'neuen', d: ['neue', 'neues'], t: 'Las ventanas nuevas dejan el frío fuera.', e: 'Plural: -en.' }
+      { s: 'Die ___ Fenster halten die Kälte draußen.', a: 'neuen', d: ['neue', 'neues'], t: 'Las ventanas nuevas dejan el frío fuera.', e: 'Plural: -en.' },
+      { s: 'Welche zwei Endungen hay detrás de der/die/das?', a: '-e y -en', d: ['-er y -es', '-e y -er'], t: 'Detrás del artículo determinado solo hay «-e» y «-en».', e: 'Mucho más fácil que con «ein».' },
+      { s: 'Wann ist die Endung -e?', a: 'en nominativo singular', d: ['siempre', 'en plural'], t: 'La «-e» va en nominativo singular.', e: 'der neue Tisch, die neue Lampe, das neue Bad.' },
+      { s: 'Und wann -en?', a: 'en el resto', d: ['sólo en plural', 'sólo en dativo'], t: 'La «-en» va en todo lo demás.', e: 'Plural, acusativo masculino, dativo…' },
+      { s: 'Welche Endung hat el plural siempre?', a: '-en', d: ['-e', '-er'], t: 'El plural lleva siempre «-en».', e: 'die neuen Fenster.' },
+      { s: 'Warum ist esto más fácil que con „ein“?', a: 'porque el artículo ya dice el género', d: ['porque hay menos casos', 'porque no cambia'], t: 'Porque «der/die/das» ya dice el género, y el adjetivo no tiene que decirlo.', e: 'Con «ein» el adjetivo carga con ese trabajo.' },
+      { s: 'Die ___ Wohnung liegt im dritten Stock.', a: 'neue', d: ['neuen', 'neuer'], t: 'El piso nuevo está en la tercera planta.', e: 'Nominativo singular → -e.' },
+      { s: 'Wir haben die ___ Wohnung genommen.', a: 'größere', d: ['größeren', 'größerer'], t: 'Nos hemos quedado el piso más grande.', e: 'die en acusativo femenino sigue siendo -e.' },
+      { s: 'Ich wohne in dem ___ Haus dort.', a: 'alten', d: ['alte', 'alter'], t: 'Vivo en aquella casa vieja.', e: 'Dativo → -en.' },
+      { s: 'Der ___ Nachbar ist sehr nett.', a: 'neue', d: ['neuen', 'neuer'], t: 'El vecino nuevo es muy majo.', e: 'Nominativo masculino → -e.' },
+      { s: 'Ich habe den ___ Schrank gekauft.', a: 'kleinen', d: ['kleine', 'kleiner'], t: 'He comprado el armario pequeño.', e: 'Acusativo masculino → -en.' }
     ]
   },
   'adjektiv-nach-unbestimmtem-artikel': {

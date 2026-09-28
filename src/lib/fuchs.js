@@ -199,6 +199,24 @@ export const ANIMALES = [
   { id: 'mapache', de: 'Waschbär', es: 'Mapache', en: 'Raccoon', precio: PRECIO_ANIMAL }
 ];
 
+// ---- fondos: donde esta Felix ------------------------------------------
+// No se le ponen encima, se pintan detras. Van en COMPLEMENTOS como una
+// ranura mas para no tener que duplicar la tienda entera: comprar, equipar y
+// avisar de lo nuevo ya funciona igual para todo lo que este aqui.
+const FONDOS = [
+  { id: 'nadaFondo', de: 'Nichts', ranura: 'fondo', es: 'Sin fondo', en: 'No background', precio: 0 },
+  { id: 'wiese', de: 'Wiese', ranura: 'fondo', es: 'Pradera', en: 'Meadow', precio: 150 },
+  { id: 'strand', de: 'Strand', ranura: 'fondo', es: 'Playa', en: 'Beach', precio: 200 },
+  { id: 'wald', de: 'Wald', ranura: 'fondo', es: 'Bosque', en: 'Forest', precio: 250 },
+  { id: 'wueste', de: 'Wüste', ranura: 'fondo', es: 'Desierto', en: 'Desert', precio: 300 },
+  { id: 'eis', de: 'Eis und Schnee', ranura: 'fondo', es: 'Hielo y nieve', en: 'Ice and snow', precio: 350 },
+  { id: 'berge', de: 'Berge', ranura: 'fondo', es: 'Montañas', en: 'Mountains', precio: 400 },
+  { id: 'stadt', de: 'Stadt bei Nacht', ranura: 'fondo', es: 'Ciudad de noche', en: 'City at night', precio: 450 },
+  { id: 'weltraum', de: 'Weltraum', ranura: 'fondo', es: 'Espacio', en: 'Outer space', precio: 550 }
+];
+
+COMPLEMENTOS.push(...FONDOS);
+
 const DEFAULT = {
   nombre: 'Felix',
   especie: 'zorro',
@@ -211,6 +229,7 @@ const DEFAULT = {
   pies: 'nadaPies',
   objeto: 'nadaObjeto',
   particulas: 'p0',
+  fondo: 'nadaFondo',
   visto: [] // ids ya vistos, para avisar solo de lo nuevo
 };
 

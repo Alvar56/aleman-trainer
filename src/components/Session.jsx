@@ -14,7 +14,7 @@ import { saveRun, rankOfRun } from '../lib/leaderboard.js';
 import { getSettings } from '../lib/settings.js';
 import { vocabMixItems, intercalar } from '../lib/mixItems.js';
 import { recordStreak, currentStreak, updateStreak } from '../lib/rachas.js';
-import { cobrarEjercicio, verificarBono100, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
 import { playAudio } from '../lib/audio.js';
 import { ensureJob, clearJob } from '../lib/aiJobs.js';
 import { useAiJob } from '../lib/useAiJob.js';
@@ -257,15 +257,6 @@ export default function Session({ topic, mode, game = 'mixed', itemsFijos = null
     let xp = results.current.reduce((s, r) => s + xpFor(r.correct), 0);
     if (accuracy >= 0.9) xp += 5;
 
-    // Bono de 20 monedas si el tema de gramática alcanza el 100% de dominio
-    let bonoCien = 0;
-    if (topic?.concepts?.length) {
-      const tm = topicMastery(topic.concepts.map((c) => c.id));
-      if (tm && tm.pct >= 100) {
-        bonoCien = verificarBono100(`topic:${topic.id}`, tm.pct);
-      }
-    }
-
     // fallos agrupados por concepto
     const mistakesByConcept = {};
     results.current
@@ -303,8 +294,7 @@ export default function Session({ topic, mode, game = 'mixed', itemsFijos = null
       seconds,
       xp,
       streak,
-      monedas: monedasGanadas.current + bonoCien,
-      bonoCien,
+      monedas: monedasGanadas.current,
       bonoDia,
       rachaMax: mejorRacha.current,
       rachaRecord: record,

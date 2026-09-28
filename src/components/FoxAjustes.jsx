@@ -29,7 +29,8 @@ const RANURAS = [
   { id: 'ropa', de: 'Kleidung', ico: '👕' },
   { id: 'pies', de: 'An den Füßen', ico: '👟' },
   { id: 'objeto', de: 'Gegenstände', ico: '🎒' },
-  { id: 'particulas', de: 'Effekte', ico: '✨' }
+  { id: 'particulas', de: 'Effekte', ico: '✨' },
+  { id: 'fondo', de: 'Hintergrund', ico: '🏞️' }
 ];
 
 // Un bloque de la tienda: lo que se compra arriba y lo que se gana debajo,
@@ -211,7 +212,9 @@ export default function FoxAjustes({ onClose, onChange }) {
             {/* Con una racha de muestra: el efecto aprieta segun subes, y aqui
                 interesa ver como queda cuando lleva un rato encendido, no el
                 minimo. */}
-            <FoxFace fuchs={f} gesto="feliz" size={140} conCuerpo chispeando racha={12} />
+            <div className={'fox-escena fox-escena-' + (f.fondo || 'nadaFondo')}>
+              <FoxFace fuchs={f} gesto="feliz" size={140} conCuerpo chispeando racha={12} />
+            </div>
           </div>
           <ul className="fox-stats">
             <li><strong>{l.coronas}</strong><small>Kronen</small></li>

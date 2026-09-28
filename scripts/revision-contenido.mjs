@@ -147,7 +147,13 @@ for (const l of KURSBUCH.lektionen) {
   for (const rg of l.grammatik || []) {
     const d = DATA[ruleKey(rg)];
     for (const p of d?.picks || []) {
-      if (!String(p.s).includes('___')) nota('hueco', donde, `sin hueco: "${p.s}"`);
+      // Sin hueco vale SI es una pregunta de gramatica ("Welchen Kasus
+      // verlangt mit?"): se pinta entera y se contesta eligiendo, que es
+      // justo lo que MultipleChoice hace cuando la frase no trae ___. Lo que
+      // no vale es una afirmacion sin hueco: ahi no hay nada que preguntar.
+      if (!String(p.s).includes('___') && !/\?\s*$/.test(String(p.s))) {
+        nota('hueco', donde, `sin hueco y no es pregunta: "${p.s}"`);
+      }
       if (p.d?.includes(p.a)) nota('hueco', donde, `la respuesta está entre los distractores: "${p.s}"`);
       if (!p.t) nota('hueco', donde, `sin traducción: "${p.s}"`);
     }

@@ -11,7 +11,12 @@ for (const [key, d] of Object.entries(DATA)) {
   (d.picks || []).forEach((x, i) => {
     const huecos = (String(x.s).match(/___/g) || []).length;
     const partesAns = String(x.a || '').split(/\s*\.\.\.\s*|\s*…\s*/).filter(Boolean).length;
-    if (huecos !== 1 && huecos !== partesAns) fallos.push(`${donde}: ${huecos} huecos "___" (debe haber 1 o coincidir con partes de respuesta) → ${x.s}`);
+    // Una pregunta de gramatica pura ("Welchen Kasus verlangt mit?") no
+    // lleva hueco: se pinta entera y se contesta eligiendo, que es lo que
+    // hace MultipleChoice cuando la frase no trae ___. Se reconoce por el
+    // interrogante final. Todo lo demas sigue necesitando su hueco.
+    const esPregunta = huecos === 0 && /\?\s*$/.test(String(x.s));
+    if (!esPregunta && huecos !== 1 && huecos !== partesAns) fallos.push(`${donde}: ${huecos} huecos "___" (debe haber 1 o coincidir con partes de respuesta) → ${x.s}`);
     const opts = [x.a, ...(x.d || [])].map((o) => String(o).toLowerCase().trim());
     if (new Set(opts).size !== 3) fallos.push(`${donde}: ${new Set(opts).size} opciones distintas (deben ser 3) → ${JSON.stringify([x.a, ...(x.d || [])])}`);
     if (!x.t) fallos.push(`${donde}: sin traducción`);

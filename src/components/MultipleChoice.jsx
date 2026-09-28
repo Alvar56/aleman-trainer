@@ -69,7 +69,12 @@ export default function MultipleChoice({ item, onAnswer }) {
           </React.Fragment>
         ))}
       </div>
-      <div className="options">
+      {/* `marcoOpciones`: cuando las opciones son cosas que DICES -las
+          respuestas de "¿Que le contestas?", las frases de "Elegir la
+          frase"- se pintan como bocadillos hacia el otro lado, para que se
+          vea de un vistazo quien habla en cada sitio. Cuando son
+          traducciones ("¿Que significa?") no: eso no lo dice nadie. */}
+      <div className={'options' + (item.marcoOpciones ? ' options-' + item.marcoOpciones : '')}>
         {safeOptions.map((opt, i) => {
           let cls = 'option';
           if (done) {

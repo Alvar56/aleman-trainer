@@ -4,7 +4,7 @@ import { t, codigoIdioma } from '../lib/i18n.js';
 import { pickKasus, recordKasus, OPCIONES, porEn } from '../lib/kasus.js';
 import { useTeclas, teclasDeOpciones, esOrdenador } from '../lib/teclas.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, RECONOCER, cobrarBono100 } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
 import { getSettings } from '../lib/settings.js';
@@ -161,7 +161,6 @@ export default function KasusGame({ onExit, onFinish, filtro = 'all' }) {
       xp,
       streak,
       monedas: monedas.current,
-      bonoCien: 0,
       missed: results.current
         .filter((r) => !r.ok)
         .map((r) => {

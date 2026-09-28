@@ -234,7 +234,17 @@ export const WECHSEL = {
       { s: 'Ich setze mich neben ___ Fenster.', a: 'das', d: ['dem', 'der'], t: 'Me siento al lado de la ventana.', e: 'sich setzen es movimiento: neben das Fenster.' },
       { s: 'Stell das Rad hinter ___ Haus.', a: 'das', d: ['dem', 'der'], t: 'Pon la bici detrás de la casa.', e: 'hinter + acusativo con movimiento.' },
       { s: 'Wir gehen ins Kino, also in ___ Kino.', a: 'das', d: ['dem', 'der'], t: 'Vamos al cine, o sea in das Kino.', e: 'ins es la unión de in + das.' },
-      { s: 'Fahr bitte vor ___ Eingang.', a: 'den', d: ['dem', 'der'], t: 'Para delante de la entrada.', e: 'Movimiento hacia: vor den Eingang.' }
+      { s: 'Fahr bitte vor ___ Eingang.', a: 'den', d: ['dem', 'der'], t: 'Para delante de la entrada.', e: 'Movimiento hacia: vor den Eingang.' },
+      { s: 'Welche Frage geht mit dem Akkusativ?', a: 'wohin', d: ['wo', 'woher'], t: 'Con el acusativo va la pregunta «wohin».', e: 'Adónde: hay movimiento.' },
+      { s: 'Und welche mit dem Dativ?', a: 'wo', d: ['wohin', 'wann'], t: 'Con el dativo va «wo».', e: 'Dónde: no hay movimiento.' },
+      { s: 'Wie viele Wechselpräpositionen gibt es?', a: 'nueve', d: ['cinco', 'doce'], t: 'Son nueve.', e: 'in, an, auf, über, unter, vor, hinter, neben, zwischen.' },
+      { s: 'Was heißt „Wechsel“ hier?', a: 'que cambian de caso', d: ['que cambian de sentido', 'que van en parejas'], t: 'Que cambian de caso según haya movimiento o no.', e: 'Por eso se llaman así.' },
+      { s: 'Was ist „ins“ die Abkürzung von?', a: 'in das', d: ['in dem', 'in die'], t: '«ins» es «in das».', e: 'Acusativo, o sea movimiento.' },
+      { s: 'Und „im“?', a: 'in dem', d: ['in das', 'in die'], t: '«im» es «in dem».', e: 'Dativo, o sea sitio.' },
+      { s: 'Ich lege das Buch auf ___ Tisch.', a: 'den', d: ['dem', 'der'], t: 'Pongo el libro sobre la mesa.', e: 'Movimiento → acusativo.' },
+      { s: 'Stell die Flasche in ___ Kühlschrank.', a: 'den', d: ['dem', 'der'], t: 'Mete la botella en la nevera.', e: 'der Kühlschrank + movimiento → den.' },
+      { s: 'Wir gehen heute in ___ Oper.', a: 'die', d: ['der', 'dem'], t: 'Hoy vamos a la ópera.', e: 'die Oper + movimiento → die.' },
+      { s: 'Woran erkennt man el movimiento?', a: 'el verbo lo dice', d: ['la preposición', 'el artículo'], t: 'Lo dice el verbo.', e: 'gehen, stellen, legen frente a sein, stehen, liegen.' }
     ]
   },
   'wechselpraep-stellen-legen-haengen': {
@@ -248,7 +258,17 @@ export const WECHSEL = {
       { s: 'Stell den Sessel neben ___ Sofa.', a: 'das', d: ['dem', 'der'], t: 'Pon el sillón al lado del sofá.', e: 'stellen: acusativo.' },
       { s: 'Der Sessel steht neben ___ Sofa.', a: 'dem', d: ['das', 'der'], t: 'El sillón está al lado del sofá.', e: 'stehen: dativo.' },
       { s: 'Ich lege die Decke auf ___ Bett.', a: 'das', d: ['dem', 'der'], t: 'Pongo la manta en la cama.', e: 'legen: acusativo.' },
-      { s: 'Die Schuhe stehen vor ___ Tür.', a: 'der', d: ['die', 'den'], t: 'Los zapatos están delante de la puerta.', e: 'stehen con die Tür en dativo: der Tür.' }
+      { s: 'Die Schuhe stehen vor ___ Tür.', a: 'der', d: ['die', 'den'], t: 'Los zapatos están delante de la puerta.', e: 'stehen con die Tür en dativo: der Tür.' },
+      { s: 'Welche drei Verben fragen nach „wohin“?', a: 'stellen, legen, hängen', d: ['stehen, liegen, hängen', 'gehen, fahren, kommen'], t: 'Preguntan «wohin»: «stellen», «legen» y «hängen».', e: 'Y por tanto acusativo.' },
+      { s: 'Und welche por „wo“?', a: 'stehen, liegen, hängen', d: ['stellen, legen, setzen', 'machen, tun'], t: 'Preguntan «wo»: «stehen», «liegen» y «hängen».', e: 'Y por tanto dativo.' },
+      { s: 'Welches Verb está en las dos listas?', a: 'hängen', d: ['stellen', 'liegen'], t: '«hängen» está en las dos.', e: 'Colgar algo y estar colgado.' },
+      { s: 'Was ist der Unterschied zwischen „stellen“ und „legen“?', a: 'de pie o tumbado', d: ['dentro o fuera', 'arriba o abajo'], t: '«stellen» es ponerlo de pie, «legen» tumbado.', e: 'Una botella se stellt, un libro se legt.' },
+      { s: 'Sind estos verbos regulares?', a: 'stellen y legen sí, los otros no', d: ['todos sí', 'ninguno'], t: '«stellen» y «legen» son regulares; «stehen», «liegen» y «hängen» no.', e: 'stand, lag, hing.' },
+      { s: 'Ich hänge das Foto an ___ Wand.', a: 'die', d: ['der', 'dem'], t: 'Cuelgo la foto en la pared.', e: 'hängen con movimiento → acusativo.' },
+      { s: 'Das Foto hängt an ___ Wand.', a: 'der', d: ['die', 'dem'], t: 'La foto está colgada en la pared.', e: 'hängen sin movimiento → dativo.' },
+      { s: 'Stell die Vase auf ___ Fensterbrett.', a: 'das', d: ['dem', 'der'], t: 'Pon el jarrón en el alféizar.', e: 'stellen → acusativo.' },
+      { s: 'Die Post liegt auf ___ Küchentisch.', a: 'dem', d: ['den', 'der'], t: 'El periódico está en la mesa.', e: 'liegen → dativo.' },
+      { s: 'Warum sale mal a los españoles?', a: 'porque usamos poner y estar para todo', d: ['porque son irregulares', 'por el orden'], t: 'Porque en español lo resolvemos con «poner» y «estar».', e: 'El alemán distingue de pie, tumbado y colgado.' }
     ]
   },
   'wechselpraep-wo-wohin-wdh': {

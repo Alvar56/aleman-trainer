@@ -1,12 +1,14 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { t, pick, codigoIdioma } from '../lib/i18n.js';
 import { recordKommPracticed, bumpSessions, KOMM_APROBADO, kommMastery } from '../lib/progress.js';
 import { recordActivity } from '../lib/streak.js';
 import { saveRun, rankOfRun } from '../lib/leaderboard.js';
-import { cobrarEjercicio, verificarBono100, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
 import { getLektion } from '../lib/kursbuch/index.js';
 import MultipleChoice from './MultipleChoice.jsx';
 import { respuestaDe, seguimientoDe } from '../lib/kursbuch/respuestas.js';
+import { TIPOS, palabraTapable } from '../lib/kursbuch/kommTipos.js';
+import { marcarEjercicio } from '../lib/enEjercicio.js';
 import WordOrder from './WordOrder.jsx';
 import WriteCard from './WriteCard.jsx';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
@@ -68,7 +70,10 @@ function mezclar(a) {
 //              quiere decir. Es la que se contesta mas rapido, y por eso paga
 //              menos, pero hace falta: reconocer lo que te dicen es la mitad
 //              de una conversacion.
-export const TIPOS = ['decir', 'contestar', 'entender', 'hueco', 'significado', 'ordenar'];
+// Los tipos y la palabra tapable viven en kommTipos.js, que es un modulo sin
+// JSX: asi los scripts que cuentan ejercicios usan las MISMAS condiciones que
+// se usan aqui al montar la pregunta, en vez de repetirlas por su cuenta.
+export { TIPOS };
 
 // Preguntas por tanda. Una funcion del libro trae tres o cuatro frases, asi
 // que una pregunta por frase dejaba tandas de tres: se acababan antes de
@@ -77,29 +82,6 @@ export const TIPOS = ['decir', 'contestar', 'entender', 'hueco', 'significado', 
 // reparten por rondas hasta llegar a diez.
 export const POR_TANDA = 10;
 
-// La palabra que se tapa: la mas larga que no sea la primera -la primera va en
-// mayuscula y se adivina sola- ni un articulo. Devuelve null si la frase no da
-// para tanto, y entonces se prueba con otro tipo.
-//
-// `salto` es para cuando la misma frase vuelve a caer en la tanda: en vez de
-// taparle otra vez la misma palabra, se tapa la siguiente en tamano.
-function palabraTapable(palabras, salto = 0) {
-  const fuera = new Set(['der', 'die', 'das', 'den', 'dem', 'ein', 'eine', 'und', 'ist', 'ich', 'du', 'sie']);
-  const limpias = palabras.map((x) => x.replace(/[.,!?¿¡"„“]/g, '').toLowerCase());
-  const candidatas = [];
-  for (let k = 1; k < palabras.length; k++) {
-    const limpia = palabras[k].replace(/[.,!?¿¡"„“]/g, '');
-    if (limpia.length < 4 || fuera.has(limpia.toLowerCase())) continue;
-    // Tampoco vale una palabra que se repite en la propia frase: en
-    // "Passt dir 18 Uhr? - Ja, das ___." la tienes escrita dos lineas mas
-    // arriba y el hueco se rellena solo.
-    if (limpias.filter((x) => x === limpia.toLowerCase()).length > 1) continue;
-    candidatas.push({ k, largo: limpia.length });
-  }
-  if (!candidatas.length) return null;
-  candidatas.sort((a, b) => b.largo - a.largo);
-  return candidatas[salto % candidatas.length].k;
-}
 
 // Todas las preguntas que se le pueden montar a UNA frase. Devuelve funciones
 // y no objetos: montar una pregunta cuesta barajar tres listas, y de estas seis
@@ -119,6 +101,7 @@ function montadores(w, ajenas, otrasRespuestas, glosas, vuelta = 0) {
         prompt: t('komm.exPick'),
         sentence: w.es + (w.wann ? `  (${w.wann})` : ''),
         marco: 'tuyo',
+        marcoOpciones: 'tuyo',
         answer: w.de,
         options: mezclar([w.de, ...distractores])
       },
@@ -139,6 +122,7 @@ function montadores(w, ajenas, otrasRespuestas, glosas, vuelta = 0) {
         prompt: t('komm.exAntwort'),
         sentence: w.de,
         marco: 'dicho',
+        marcoOpciones: 'tuyo',
         answer: resp.de,
         options: mezclar([resp.de, ...despistes])
       },
@@ -151,6 +135,7 @@ function montadores(w, ajenas, otrasRespuestas, glosas, vuelta = 0) {
         prompt: t('komm.exFrage'),
         sentence: resp.de,
         marco: 'dicho',
+        marcoOpciones: 'tuyo',
         answer: w.de,
         options: mezclar([w.de, ...distractores])
       },
@@ -354,6 +339,11 @@ export default function KommPractice({
   onHecho
 }) {
   const fox = useFox();
+  // Mientras esta tanda esté en pantalla, la app no se recarga sola aunque la
+  // sincronización traiga datos nuevos: en Gramática y Vocabulario la práctica
+  // es una vista propia y la lista de App.jsx la protege, pero aquí pasa
+  // dentro de la pantalla de la Lektion y no la veía nadie.
+  useEffect(() => marcarEjercicio(), []);
   const [vuelta, setVuelta] = useState(0);
   // Las preguntas de "repetir los fallos": cuando las hay, la tanda son esas.
   const [fijas, setFijas] = useState(null);
@@ -475,16 +465,6 @@ export default function KommPractice({
     const acc = total ? aciertos.current / total : 0;
     let xp = aciertos.current * 10 + (total - aciertos.current) * 2;
     if (acc >= 0.9) xp += 5;
-    let bonoCien = 0;
-    if (lektionId && !String(lektionId).startsWith('mix')) {
-      const lek = getLektion(lektionId);
-      if (lek?.kommunikation) {
-        const km = kommMastery(lektionId, lek.kommunikation);
-        if (km && km.pct >= 100) {
-          bonoCien = verificarBono100(`lektion:kommunikation:${lektionId}`, km.pct);
-        }
-      }
-    }
     bumpSessions();
     // Lo que devuelve dice si esta tanda ha subido de nivel.
     const racha = recordActivity(xp);
@@ -508,8 +488,7 @@ export default function KommPractice({
       aciertos: aciertos.current,
       total,
       xp,
-      monedas: monedas.current + bonoCien,
-      bonoCien,
+      monedas: monedas.current,
       bonoDia: racha.events.find((e) => e.type === 'coins')?.value || 0,
       dias: racha.state.current,
       rachaMax: mejorSeguidas.current,
@@ -581,7 +560,6 @@ export default function KommPractice({
           xp={fin.xp}
           monedas={fin.monedas}
           bonoDia={fin.bonoDia}
-          bonoCien={fin.bonoCien}
           rachaMax={fin.rachaMax}
           rachaRecord={fin.rachaRecord}
           dias={fin.dias}
