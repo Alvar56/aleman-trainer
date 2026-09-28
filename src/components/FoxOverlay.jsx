@@ -153,23 +153,31 @@ export function useFox() {
 // zorro salen a partir de dos, a la vez que el rayito de la cabecera: asi
 // premian algo en vez de estar puestas siempre.
 export default function FoxOverlay({ fox, mudo = false, racha = 0 }) {
+  const f = getFuchs();
+  const fondo = f.fondo || 'nadaFondo';
+
   return (
-    <div
-      className="fox-overlay"
-      style={{ transform: fox.salta ? 'translateY(-15px)' : 'none' }}
-    >
-      {fox.msg && <div className={'fox-burbuja-dice' + (mudo ? ' estorba' : '')}>{fox.msg}</div>}
-      <div style={{ pointerEvents: 'auto' }}>
-        <FoxFace
-          fuchs={getFuchs()}
-          gesto={fox.gesto}
-          size={110}
-          conCuerpo
-          chispeando={racha >= EMPIEZA}
-          racha={racha}
-          className="flota"
-        />
+    <>
+      {/* Suelo del paisaje activo visible abajo durante los ejercicios */}
+      <div className={'fox-suelo-barra fox-suelo-' + fondo} />
+
+      <div
+        className="fox-overlay"
+        style={{ transform: fox.salta ? 'translateY(-15px)' : 'none' }}
+      >
+        {fox.msg && <div className={'fox-burbuja-dice' + (mudo ? ' estorba' : '')}>{fox.msg}</div>}
+        <div style={{ pointerEvents: 'auto' }}>
+          <FoxFace
+            fuchs={f}
+            gesto={fox.gesto}
+            size={110}
+            conCuerpo
+            chispeando={racha >= EMPIEZA}
+            racha={racha}
+            className="flota"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
