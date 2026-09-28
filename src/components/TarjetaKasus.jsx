@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import { t, pick } from '../lib/i18n.js';
-import { kasusStats, KASUS_FILTROS_CASO, KASUS_FILTROS_ART } from '../lib/kasus.js';
+import { kasusStats, useKasusCargado, KASUS_FILTROS_CASO, KASUS_FILTROS_ART } from '../lib/kasus.js';
 import EtiquetaChip from './EtiquetaChip.jsx';
 
 // La tarjeta del Kasus Trainer, arriba de Grammatik.
 export default function TarjetaKasus({ onJugar }) {
   const [filtro, setFiltro] = useState('all');
+  const listo = useKasusCargado();
   const st = kasusStats(filtro);
 
   return (
     <div className="juego-seccion">
-      <button className={'gender-cta' + (st.pct >= 100 ? ' dominado' : '')} onClick={() => onJugar(filtro)}>
+      <button className={'gender-cta' + (listo && st.pct >= 100 ? ' dominado' : '')} onClick={() => onJugar(filtro)}>
         <span className="gc-emoji">🧭</span>
         <span style={{ flex: 1 }}>
           <div className="gc-title">{t('kasus.title')}</div>
           <div className="gc-sub">
-            {t('kasus.sub', { d: st.dominadas, n: st.total, p: st.pct, e: st.empezadas })}
+            {listo ? t('kasus.sub', { d: st.dominadas, n: st.total, p: st.pct, e: st.empezadas }) : '…'}
           </div>
         </span>
         <span className="chev">›</span>

@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { t, codigoIdioma } from '../lib/i18n.js';
-import { pickKasus, recordKasus, OPCIONES, porEn } from '../lib/kasus.js';
+import { pickKasus, recordKasus, OPCIONES, porEn, useKasusCargado } from '../lib/kasus.js';
 import { useTeclas, teclasDeOpciones, esOrdenador } from '../lib/teclas.js';
 import { recordActivity } from '../lib/streak.js';
 import { cobrarEjercicio, RECONOCER } from '../lib/monedas.js';
@@ -23,7 +23,15 @@ import KasusTabelle from './KasusTabelle.jsx';
 //
 // Ahora incluye además una tabla desplegable de consulta rápida accesible
 // durante el ejercicio en la esquina superior derecha.
-export default function KasusGame({ onExit, onFinish, filtro = 'all' }) {
+// Las frases se cargan aparte (ver cargarKasus): hasta que llegan no se puede
+// elegir la tanda, y elegirla con la lista vacía daría "no hay frases".
+export default function KasusGame(props) {
+  const listo = useKasusCargado();
+  if (!listo) return <div className="card center muted">…</div>;
+  return <KasusPartida {...props} />;
+}
+
+function KasusPartida({ onExit, onFinish, filtro = 'all' }) {
   const fox = useFox();
   const size = getSettings().sessionSize || 10;
   const frases = useMemo(() => pickKasus(size, filtro), [filtro, size]);
