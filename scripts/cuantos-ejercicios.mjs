@@ -162,7 +162,7 @@ const vocabulario = [
 // Antes esta tabla listaba cuatro tipos y ponía el total de frases en los
 // cuatro: faltaban dos columnas y las otras estaban de más por unas pocas.
 const { tiposPosibles } = await import('../src/lib/kursbuch/kommTipos.js');
-const { respuestaDe } = await import('../src/lib/kursbuch/respuestas.js');
+const { respuestaEnCadena, seguimientoDe } = await import('../src/lib/kursbuch/respuestas.js');
 
 // Las columnas son los BOTONES de la pantalla, no los seis tipos internos:
 // cada botón puede tirar de más de un tipo ("Elegir la frase" va en las dos
@@ -178,7 +178,11 @@ const BOTONES = [
 
 const comunicacion = KURSBUCH.lektionen.map((l) => {
   const fs = lektionKommunikation(l);
-  const todas = fs.flatMap((k) => k.wendungen || []);
+  // Los turnos de dentro de cada conversacion tambien se juegan, asi que
+  // cuentan igual que las frases del libro.
+  const todas = fs.flatMap((k) =>
+    (k.wendungen || []).flatMap((w) => [w, ...seguimientoDe(w.de)])
+  );
   if (!todas.length) return null;
   const fila = {
     orden: lugar(l.id),
@@ -188,7 +192,7 @@ const comunicacion = KURSBUCH.lektionen.map((l) => {
   };
   for (const [col] of BOTONES) fila[col] = 0;
   for (const w of todas) {
-    const puede = tiposPosibles(w, todas, respuestaDe);
+    const puede = tiposPosibles(w, todas, respuestaEnCadena);
     for (const [col, tipos] of BOTONES) if (tipos.some((t) => puede[t])) fila[col] += 1;
   }
   return fila;

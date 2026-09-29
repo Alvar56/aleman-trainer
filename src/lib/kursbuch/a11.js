@@ -779,16 +779,9 @@ export const A11 = {
           funktion: 'nach dem Namen fragen',
           es: 'Preguntar el nombre',
           wendungen: [
-            { de: 'Wie heißt du? – Ich heiße Luna.', es: '¿Cómo te llamas? – Me llamo Luna.' },
-            { de: 'Wie heißen Sie, bitte?', es: '¿Cómo se llama usted, por favor?' },
-            { de: 'Wie ist dein Name?', es: '¿Cuál es tu nombre?' },
-            { de: 'Und wie heißt du mit Nachnamen?', es: '¿Y de apellido cómo te llamas?' },
             { de: 'Darf ich fragen, wie Sie heißen?', es: '¿Puedo preguntarle cómo se llama?' },
-            { de: 'Wie schreibt man Ihren Namen?', es: '¿Cómo se escribe su nombre?' },
-            { de: 'Wie war noch mal dein Name?', es: '¿Cómo era tu nombre?' },
-            { de: 'Wie war noch mal dein Nachname?', es: '¿Cómo era tu apellido?' },
-            { de: 'Entschuldigung, wie spricht man Ihren Namen aus?', es: 'Perdone, ¿cómo se pronuncia su nombre?' },
-            { de: 'Wie spricht man deinen Namen richtig aus?', es: '¿Cómo se pronuncia bien tu nombre?' }
+            { de: 'Wie heißt du? – Ich heiße Luna.', es: '¿Cómo te llamas? – Me llamo Luna.' },
+            { de: 'Wie ist dein Name?', es: '¿Cuál es tu nombre?' }
           ]
         },
         {
@@ -796,15 +789,8 @@ export const A11 = {
           es: 'Hablar de cómo estás',
           wendungen: [
             { de: 'Wie geht\'s? – Danke, gut.', es: '¿Qué tal? – Bien, gracias.' },
-            { de: 'Sehr gut. · Es geht. · Nicht so gut.', es: 'Muy bien. · Va tirando. · No muy bien.' },
-            { de: 'Wie geht es Ihnen heute?', es: '¿Cómo está usted hoy?' },
             { de: 'Alles gut bei dir?', es: '¿Todo bien?' },
-            { de: 'Und selbst?', es: '¿Y tú qué tal?' },
-            { de: 'Mir geht es heute nicht so gut.', es: 'Hoy no me encuentro muy bien.' },
-            { de: 'Wie läuft es gerade bei dir?', es: '¿Cómo te va ahora mismo?' },
-            { de: 'Geht es dir schon besser?', es: '¿Ya estás mejor?' },
-            { de: 'Was ist denn los mit dir?', es: '¿Qué te pasa?' },
-            { de: 'Ich bin ein bisschen nervös.', es: 'Estoy un poco nervioso.' }
+            { de: 'Wie geht es Ihnen heute?', es: '¿Cómo está usted hoy?' }
           ]
         },
         {
@@ -812,15 +798,8 @@ export const A11 = {
           es: 'Hablar de dónde eres y dónde vives',
           wendungen: [
             { de: 'Woher kommst du? Wo wohnst du?', es: '¿De dónde eres? ¿Dónde vives?' },
-            { de: 'Ich komme aus Polen, aber ich wohne in Wien.', es: 'Vengo de Polonia, pero vivo en Viena.' },
-            { de: 'Aus welchem Land kommst du?', es: '¿De qué país eres?' },
             { de: 'Seit wann bist du in Wien?', es: '¿Desde cuándo estás en Viena?' },
-            { de: 'In welchem Bezirk wohnst du?', es: '¿En qué distrito vives?' },
-            { de: 'Warum bist du nach Österreich gekommen?', es: '¿Por qué viniste a Austria?' },
-            { de: 'Vermisst du dein Land?', es: '¿Echas de menos tu país?' },
-            { de: 'Wie gefällt dir das Leben hier?', es: '¿Qué tal te gusta la vida aquí?' },
-            { de: 'Wohnst du allein oder mit anderen zusammen?', es: '¿Vives solo o con más gente?' },
-            { de: 'Fährst du oft in deine Heimat?', es: '¿Vas a menudo a tu tierra?' }
+            { de: 'Ich komme aus Polen, aber ich wohne in Wien.', es: 'Vengo de Polonia, pero vivo en Viena.' }
           ]
         },
         {
@@ -828,15 +807,8 @@ export const A11 = {
           es: 'Suponer algo',
           wendungen: [
             { de: 'Du bist sicher Maria, oder?', es: 'Tú eres Maria, ¿no?' },
-            { de: 'Kommst du aus Italien?', es: '¿Vienes de Italia?' },
             { de: 'Sie sind bestimmt der neue Kollege, oder?', es: 'Usted seguro que es el compañero nuevo, ¿no?' },
-            { de: 'Du sprichst Spanisch, oder?', es: 'Hablas español, ¿verdad?' },
-            { de: 'Das ist wahrscheinlich Ihr Platz.', es: 'Ese seguramente es su sitio.' },
-            { de: 'Ihr kennt euch vielleicht schon?', es: '¿Puede que ya os conozcáis?' },
-            { de: 'Du bist sicher nicht von hier.', es: 'Seguro que no eres de aquí.' },
-            { de: 'Sie kommen bestimmt aus Südamerika, oder?', es: 'Seguro que es usted de Sudamérica, ¿no?' },
-            { de: 'Du arbeitest vermutlich im Krankenhaus.', es: 'Seguramente trabajas en el hospital.' },
-            { de: 'Ist das vielleicht deine Tasche?', es: '¿Esa bolsa es tuya, quizá?' }
+            { de: 'Ihr kennt euch vielleicht schon?', es: '¿Puede que ya os conozcáis?' }
           ]
         },
         {
@@ -845,14 +817,7 @@ export const A11 = {
           wendungen: [
             { de: 'Ja, genau. · Richtig. · Stimmt.', es: 'Sí, exacto. · Correcto. · Cierto.' },
             { de: 'Da haben Sie völlig recht.', es: 'En eso tiene toda la razón.' },
-            { de: 'Genau das denke ich auch.', es: 'Justo eso pienso yo también.' },
-            { de: 'Das sehe ich genauso.', es: 'Yo lo veo igual.' },
-            { de: 'Ja, das stimmt wirklich.', es: 'Sí, eso es verdad.' },
-            { de: 'Einverstanden, machen wir das so.', es: 'De acuerdo, lo hacemos así.' },
-            { de: 'Ganz genau, so sehe ich das auch.', es: 'Exactamente, yo también lo veo así.' },
-            { de: 'Da kann ich dir nur zustimmen.', es: 'En eso solo puedo darte la razón.' },
-            { de: 'So ist es, ohne Zweifel.', es: 'Así es, sin duda.' },
-            { de: 'Genau das wollte ich auch sagen.', es: 'Justo eso quería decir yo.' }
+            { de: 'Genau das denke ich auch.', es: 'Justo eso pienso yo también.' }
           ]
         },
         {
@@ -860,15 +825,8 @@ export const A11 = {
           es: 'Hablar de idiomas',
           wendungen: [
             { de: 'Welche Sprachen sprichst du?', es: '¿Qué idiomas hablas?' },
-            { de: 'Wie lange lernst du schon Deutsch?', es: '¿Cuánto tiempo llevas aprendiendo alemán?' },
-            { de: 'Was ist deine Muttersprache?', es: '¿Cuál es tu lengua materna?' },
             { de: 'Deutsch ist schwer, finde ich.', es: 'El alemán es difícil, me parece.' },
-            { de: 'Können wir bitte Deutsch sprechen? Ich möchte üben.', es: '¿Podemos hablar en alemán, por favor? Quiero practicar.' },
-            { de: 'Gibt es dafür ein deutsches Wort?', es: '¿Hay una palabra alemana para eso?' },
-            { de: 'Wo hast du dein Deutsch gelernt?', es: '¿Dónde has aprendido tu alemán?' },
-            { de: 'Verstehst du den Wiener Dialekt?', es: '¿Entiendes el dialecto vienés?' },
-            { de: 'Träumst du schon auf Deutsch?', es: '¿Ya sueñas en alemán?' },
-            { de: 'Welche Sprache fällt dir am leichtesten?', es: '¿Qué idioma te resulta más fácil?' }
+            { de: 'Wo hast du dein Deutsch gelernt?', es: '¿Dónde has aprendido tu alemán?' }
           ]
         },
         {
@@ -876,15 +834,8 @@ export const A11 = {
           es: 'Despedirse',
           wendungen: [
             { de: 'Auf Wiedersehen und einen schönen Tag noch!', es: '¡Hasta la vista y que tenga un buen día!' },
-            { de: 'Tschüss, bis bald!', es: '¡Adiós, hasta pronto!' },
             { de: 'Ich muss leider los, mein Bus kommt gleich.', es: 'Tengo que irme, mi autobús llega enseguida.' },
-            { de: 'Schönes Wochenende!', es: '¡Buen fin de semana!' },
-            { de: 'Bis morgen, schlaf gut!', es: 'Hasta mañana, ¡que duermas bien!' },
-            { de: 'Es war schön, Sie kennenzulernen.', es: 'Ha sido un placer conocerle.' },
-            { de: 'Grüß deine Familie von mir!', es: '¡Saluda a tu familia de mi parte!' },
-            { de: 'Wir sehen uns nächste Woche!', es: '¡Nos vemos la semana que viene!' },
-            { de: 'Pass auf dich auf, bis bald!', es: '¡Cuídate, hasta pronto!' },
-            { de: 'Wir sehen uns am Donnerstag, ja?', es: 'Nos vemos el jueves, ¿vale?' }
+            { de: 'Schönes Wochenende!', es: '¡Buen fin de semana!' }
           ]
         }
       ]

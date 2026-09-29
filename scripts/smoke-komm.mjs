@@ -9,7 +9,7 @@ const base = '../src/lib/kursbuch/';
 const { A11 } = await import(base + 'a11.js');
 const { A12 } = await import(base + 'a12.js');
 const { A21 } = await import(base + 'a21.js');
-const { respuestaDe } = await import(base + 'respuestas.js');
+const { respuestaEnCadena, seguimientoDe } = await import(base + 'respuestas.js');
 
 const { TIPOS, tiposPosibles } = await import('../src/lib/kursbuch/kommTipos.js');
 
@@ -22,8 +22,12 @@ for (const banda of [A11, A12, A21]) {
   for (const lek of banda.lektionen) {
     const funk = lek.kommunikation || [];
     if (!funk.length) continue;
-    const frases = funk.flatMap((f) => f.wendungen || []);
-    const puede = frases.map((w) => tiposPosibles(w, frases, respuestaDe));
+    // Igual que construir(): las frases del libro Y los turnos de dentro de
+    // cada conversacion, que es lo que de verdad sale en una tanda.
+    const frases = funk.flatMap((f) =>
+      (f.wendungen || []).flatMap((w) => [w, ...seguimientoDe(w.de)])
+    );
+    const puede = frases.map((w) => tiposPosibles(w, frases, respuestaEnCadena));
     const linea = [];
     for (const nombre of TIPOS) {
       // Las frases que admiten ese tipo. construir() da las vueltas que hagan
