@@ -71,9 +71,7 @@ export const LANGS_PENDIENTES = [{ id: 'uk', label: 'Українська', flag
 const DICT = {
   // genéricos
   'back': ['Volver', 'Back'],
-  'cancel': ['Cancelar', 'Cancel'],
   'delete': ['Borrar', 'Delete'],
-  'save': ['Guardar', 'Save'],
   'retry': ['Reintentar', 'Try again'],
   'loading': ['Cargando…', 'Loading…'],
   // Los pasos de cada espera larga. No son decorativos: describen lo que
@@ -282,19 +280,12 @@ const DICT = {
   'level': ['Nivel', 'Level'],
   'showEs': ['👁 Mostrar traducción', '👁 Show translation'],
   'hideEs': ['🙈 Ocultar traducción', '🙈 Hide translation'],
-  'another': ['Otra', 'Another'],
-  'aiOff': ['Activa la IA en el menú lateral.', 'Turn on AI in the sidebar.'],
   'aiOffLong': [
     'Activa la IA en el menú lateral para usar esto.',
     'Turn on AI in the sidebar to use this.'
   ],
 
   // menú / ajustes
-  'engine': ['Motor de ejercicios', 'Exercise engine'],
-  'uiLang': ['Idioma de la app', 'App language'],
-  'templates': ['Plantillas (sin IA)', 'Templates (no AI)'],
-  'aiActive': ['IA activa · genera y explica', 'AI on · generates and explains'],
-  'aiLocal': ['Plantillas locales', 'Local templates'],
 
   // Lieder
   'lieder.title': ['Lieder', 'Lieder'],
@@ -305,10 +296,6 @@ const DICT = {
   'lieder.new': ['🎵 Proponme una canción', '🎵 Suggest me a song'],
   'lieder.another': ['🔄 Otra canción', '🔄 Another song'],
   'lieder.searching': ['Buscando una canción…', 'Looking for a song…'],
-  'lieder.searchingLong': [
-    'Buscando una canción que encaje con tu nivel y comprobando el vídeo…',
-    'Looking for a song that fits your level and checking the video…'
-  ],
   'lieder.empty': [
     'Pulsa el botón y te propongo una canción en alemán para tu nivel.',
     'Hit the button and I will suggest a German song for your level.'
@@ -323,10 +310,6 @@ const DICT = {
   'lieder.grammar': ['Gramática que practica', 'Grammar it practises'],
   'lieder.listen': ['▶ Ver en YouTube', '▶ Watch on YouTube'],
   'lieder.lyrics': ['📄 Letra oficial', '📄 Official lyrics'],
-  'lieder.lyricsNote': [
-    'La letra no se reproduce aquí por derechos de autor: ábrela en el enlace y síguela mientras suena el vídeo.',
-    'Lyrics are not reproduced here for copyright reasons: open the link and follow along while the video plays.'
-  ],
   'lieder.search': ['Buscar', 'Search'],
   'lieder.searchPh': [
     'Un artista o una canción: «Nena», «99 Luftballons», «Wanda - Bologna»…',
@@ -347,7 +330,6 @@ const DICT = {
   ],
   'lieder.filterLevel': ['Nivel', 'Level'],
   'lieder.filterGenre': ['Género', 'Genre'],
-  'lieder.any': ['Cualquiera', 'Any'],
   'lieder.notes': ['Mis notas', 'My notes'],
   'lieder.notesPh': [
     'Lo que te llame la atención: una frase que te guste, una palabra nueva, por dónde te pierdes al escucharla…',
@@ -356,10 +338,6 @@ const DICT = {
   'lieder.notesSaved': ['Guardado', 'Saved'],
   'lieder.saved': ['Mis canciones', 'My songs'],
   'lieder.close': ['Cerrar y ver solo mis canciones', 'Close and just show my songs'],
-  'lieder.savedEmpty': [
-    'Aún no has guardado ninguna. Cuando te proponga una que te guste, dale a la estrella.',
-    'You have not saved any yet. When I suggest one you like, hit the star.'
-  ],
   'lieder.save': ['Guardar', 'Save'],
   'lieder.unsave': ['Guardada', 'Saved'],
 
@@ -395,7 +373,6 @@ const DICT = {
 
   // Fuchs, el zorrito
   'fox.sub': ['Tu compañero de alemán · charla, corrige y traduce', 'Your German buddy · chats, corrects and translates'],
-  'fox.open': ['Hablar con el zorro', 'Talk to the fox'],
   'fox.chatWith': ['Hablar con {nombre}', 'Chat with {nombre}'],
   'fox.answerPh': ['Contéstale a {nombre} en alemán…', 'Answer {nombre} in German…'],
   'fox.ph': ['Escríbele a {nombre} en alemán (o pídele que te traduzca algo)…', 'Write to {nombre} in German (or ask for a translation)…'],
@@ -419,20 +396,7 @@ const DICT = {
   // esto decía "Dein Fuchs" aunque te compraras un gato.
   // Con el nombre dentro: si lo rebautizas, el botón lo dice.
   'fox.customiseName': ['Personalizar a {nombre}', 'Customise {nombre}'],
-  'fox.name': ['Su nombre', 'His name'],
-  'fox.colour': ['Color', 'Colour'],
   'fox.coins': ['Monedas', 'Coins'],
-  'fox.buy': ['comprar', 'buy'],
-  'fox.noCoins': ['Te faltan monedas para eso.', 'Not enough coins for that.'],
-  'fox.earnHint': ['Esto no se compra: se gana.', 'This one is not for sale: you earn it.'],
-  'fox.animal': ['El bicho', 'The animal'],
-  'fox.colourHint': [
-    'Cada ejercicio te da monedas: más si aciertas, si es difícil y si llevas racha.',
-    'Every exercise pays coins: more if you get it right, if it is hard and if you are on a run.'
-  ],
-  'fox.locked': ['Se abre con {req}', 'Unlocks with {req}'],
-  'fox.done': ['Listo', 'Done'],
-  'fox.unlocked': ['nuevo: {que}', 'new: {que}'],
 
   // Startseite
   'home.sub': ['Resumen de tu alemán · nivel A2–B1', 'Your German at a glance · level A2–B1'],
@@ -440,7 +404,6 @@ const DICT = {
   'home.record': ['Récord', 'Best'],
   'home.levelN': ['Nivel {n}', 'Level {n}'],
   'home.xpTotal': ['{n} XP en total', '{n} XP in total'],
-  'home.xpToNext': ['{a}/{b} XP para el nivel {n}', '{a}/{b} XP to level {n}'],
   'home.bestRun': ['Récord de seguidas', 'Best run'],
   'home.bestRunSub': ['ejercicios acertados sin fallar', 'exercises right without a miss'],
   'home.acc10': ['Precisión (últimas 10)', 'Accuracy (last 10)'],
@@ -448,18 +411,11 @@ const DICT = {
   'home.sessionsTotal': ['Sesiones totales', 'Total sessions'],
   'home.aiOn': ['IA activa ✨', 'AI on ✨'],
   'home.aiOff': ['modo plantillas', 'template mode'],
-  'home.streakTitle': ['Racha', 'Streak'],
   'home.days': ['días', 'days'],
-  'home.day': ['día', 'day'],
   'home.calMonth': ['{a} de {b} días practicados este mes', '{a} of {b} days practised this month'],
   'home.atRisk': ['⚠️ Practica hoy', '⚠️ Practise today'],
   'home.todayBtn': ['Hoy', 'Today'],
-  'home.startFree': ['De todo un poco', 'A bit of everything'],
   'home.practice': ['Práctica', 'Practice'],
-  'home.practiceSub': [
-    'Gramática, vocabulario y comunicación mezclados: test, ordenar frases, cazar el error, artículos, diálogos y traducciones.',
-    'Grammar, vocabulary and communication mixed: quiz, sentence order, spot the mistake, articles, dialogues and translations.'
-  ],
   'home.random': ['De todo un poco', 'A bit of everything'],
   'home.gTest': ['Test', 'Quiz'],
   'home.gTestSub': ['4 opciones', '4 options'],
@@ -467,11 +423,6 @@ const DICT = {
   'home.gOrderSub': ['Coloca las palabras', 'Put the words in order'],
   'home.gJudge': ['¿Correcto o no?', 'Right or wrong?'],
   'home.gJudgeSub': ['Caza el error', 'Spot the mistake'],
-  'home.gWeak': ['Solo mis fallos', 'Just my mistakes'],
-  'home.gGender': ['der / die / das', 'der / die / das'],
-  'home.gGenderSub': ['el artículo de cada palabra', 'the article of each noun'],
-  'home.gUeb': ['Traducir frases', 'Translate sentences'],
-  'home.gUebSub': ['con pistas, en los dos sentidos', 'with hints, both directions'],
   // Lleva al índice de Wortschatz, donde eliges lección o mazo; no a un juego.
   'home.moreGames': ['O una lección de vocabulario', 'Or a vocabulary lesson'],
   'home.moreGamesShort': ['O vocabulario', 'Or vocabulary'],
@@ -479,8 +430,6 @@ const DICT = {
     'Estos dan 1 moneda por acierto. Las lecciones completas, el diario o el examen otorgan más monedas y XP extra.',
     'These give 1 coin per correct answer. Complete lessons, the diary, or exams grant more coins and bonus XP.'
   ],
-  'home.gWeakSub': ['{n} puntos flojos', '{n} weak points'],
-  'home.gWeakNone': ['aún nada', 'nothing yet'],
   'home.aiReview': ['Repaso con IA', 'AI review'],
   'foto.paste': [
     'o pega una captura con Ctrl+V · o arrastra el archivo aquí',
@@ -503,8 +452,6 @@ const DICT = {
     'The vocabulary of {libro}, lesson by lesson, with its games and flashcards.'
 
   ],
-  'voc.themes': ['temas', 'themes'],
-  'voc.theme': ['tema', 'theme'],
   'voc.cards': ['Tarjetas', 'Flashcards'],
   'voc.known': ['conocidas', 'known'],
   'voc.fresh': ['sin practicar', 'not practised'],
@@ -518,8 +465,6 @@ const DICT = {
     'Guess the article of the nouns · {known}/{total} mastered ({pct}%) · {empezadas} practised'
 
   ],
-  'voc.import': ['📄 Importar Excel / CSV', '📄 Import Excel / CSV'],
-  'voc.genAi': ['✨ Generar con IA', '✨ Generate with AI'],
   'voc.importTitle': ['Importar un archivo', 'Import a file'],
   'voc.importHint': [
     'Una columna en alemán y otra en español. Se aprovechan también columnas de frase de ejemplo.',
@@ -530,7 +475,6 @@ const DICT = {
   'voc.deckName': ['Nombre del mazo', 'Deck name'],
   'voc.saveDeck': ['Guardar mazo ({n} tarjetas)', 'Save deck ({n} cards)'],
   'voc.genTitle': ['Generar vocabulario con IA', 'Generate vocabulary with AI'],
-  'voc.themeLabel': ['Tema', 'Topic'],
   'voc.themePh': ['p. ej. en el aeropuerto, hacer deporte…', 'e.g. at the airport, doing sport…'],
   'voc.nCards': ['Nº de tarjetas', 'Number of cards'],
   'voc.createDeck': ['Crear mazo', 'Create deck'],
@@ -542,7 +486,6 @@ const DICT = {
   'gr.hideTemas': ['▴ Ocultar las explicaciones extra', '▴ Hide the extra explanations'],
   'voc.showMine': ['▾ Ver mis mazos ({n})', '▾ Show my decks ({n})'],
   'voc.hideMine': ['▴ Ocultar mis mazos', '▴ Hide my decks'],
-  'voc.pickGame': ['Elige un juego', 'Pick a game'],
   'voc.deckStats': [
     '{total} tarjetas · {known} conocidas ({pct}%) · {mastered} dominadas',
     '{total} cards · {known} known ({pct}%) · {mastered} mastered'
@@ -553,7 +496,6 @@ const DICT = {
   'voc.listen': ['Escuchar la pronunciación', 'Listen to the pronunciation'],
   'voc.conjugate': ['Conjugar', 'Conjugate'],
   'voc.close': ['Cerrar', 'Close'],
-  'voc.cardsHint': ['gírala y autoevalúate', 'flip it and grade yourself'],
   'voc.deToEs': ['Alemán → Español', 'German → English'],
   'voc.esToDe': ['Español → Alemán', 'English → German'],
   'voc.expandTitle': ['Ampliar «{tema}»', 'Expand “{tema}”'],
@@ -644,9 +586,6 @@ const DICT = {
   'sum.mistakes': ['Repaso de fallos ({n})', 'Mistake review ({n})'],
   'sum.noMistakes': ['Ningún fallo. ¡Impecable! 🎯', 'Not a single mistake. Flawless! 🎯'],
   'sum.again': ['Otra sesión', 'Another session'],
-  'sum.onlyWeak': ['Repasar solo fallos', 'Review mistakes only'],
-  'sum.theory': ['📖 Volver a la teoría', '📖 Back to the theory'],
-  'sum.exercises': ['✏️ Volver a los ejercicios', '✏️ Back to the exercises'],
   'sum.home': ['Inicio', 'Home'],
   'vsum.toReview': ['Para repasar', 'To review'],
   'vsum.retryCards': ['🔄 Repasar las pendientes ({n})', '🔄 Review pending cards ({n})'],
@@ -666,8 +605,6 @@ const DICT = {
   'gr.recentAcc': ['Aciertos en las últimas {n} sesiones', 'Accuracy over the last {n} sessions'],
   'gr.gWrite': ['Escribir', 'Type it'],
   'gr.gWriteSub': ['Sin opciones, a mano', 'No options, type it'],
-  'gr.gWeakGame': ['Solo mis fallos', 'Just my mistakes'],
-  'gr.gWeakGameSub': ['{n} para repasar', '{n} to review'],
   'ses.prev': ['El ejercicio anterior', 'The previous exercise'],
   'ses.reviewing': ['Ya contestado', 'Already answered'],
   'ses.youAnswered': ['Contestaste:', 'You answered:'],
@@ -682,9 +619,6 @@ const DICT = {
   'gr.pitfalls': ['⚠️ Errores típicos', '⚠️ Common mistakes'],
   'gr.toExercises': ['Ir a los ejercicios →', 'Go to the exercises →'],
   'gr.practise': ['Practicar', 'Practise'],
-  'gr.mastered': ['{n}% dominado', '{n}% mastered'],
-  'gr.practised': ['{a}/{b} conceptos practicados', '{a}/{b} concepts practised'],
-  'gr.toReview': [' · {n} para repasar', ' · {n} to review'],
   'gr.crownTitle': ['Tema dominado', 'Topic mastered'],
   'gr.crownSub': [
     'Tu acierto en cada minijuego, con las 5 últimas sesiones de este tema.',
@@ -706,8 +640,6 @@ const DICT = {
     '{n}% to go before you master the topic and see your accuracy per minigame.'
   ],
   'gr.pickGame': ['Elige el tipo de juego', 'Pick a game type'],
-  'gr.gMixed': ['Mixto', 'Mixed'],
-  'gr.gMixedSub': ['de todo', 'a bit of everything'],
   'gr.reviewWeak': ['🎯 Repasar mis fallos', '🎯 Review my mistakes'],
   'gr.reviewWeakN': ['🎯 Repasar mis fallos ({n})', '🎯 Review my mistakes ({n})'],
   // Se ve siempre, apagado mientras no haya nada que repasar: un boton que
@@ -749,7 +681,6 @@ const DICT = {
     'Todos los ejercicios salen del contenido oficial de esta lección del libro. No necesitan IA.',
     'All exercises come from the official book content of this lesson. They need no AI.'
   ],
-  'ses.fromAi': ['✨ ejercicio de la IA', '✨ AI exercise'],
   // En vocabulario la respuesta es más simple que en gramática: aquí la IA no
   // se mete en ningún juego, solo en el reto.
   'news.noNew': [
@@ -761,15 +692,6 @@ const DICT = {
     'This was generated in Spanish. Search again to get it in English.'
   ],
   'voc.combiTitle': ['Vocabulario al azar', 'Random vocabulary'],
-  'voc.combiSub': [
-    'Todo el vocabulario mezclado. Es lo que de verdad cuesta: reconocer una palabra sin saber de qué tema venía.',
-    'All the vocabulary mixed together. That is the hard part: recognising a word without knowing which topic it came from.'
-  ],
-  'voc.combiPick': ['Marca al menos dos mazos para empezar.', 'Select at least two decks to start.'],
-  'voc.combiCount': [
-    'Los {n} mazos juntos · {p} palabras, sin repetidas',
-    'All {n} decks together · {p} words, no duplicates'
-  ],
   'voc.source': [
     'Estos ejercicios usan el contenido de aquí. Si subes la proporción de IA en Ajustes, cada partida añade además ejercicios nuevos del mismo tema (viene a cero). «Reto con IA» genera ejercicios aparte.',
     'These exercises use the content from here. If you raise the AI share in Settings, each round also adds fresh exercises on the same topic (starts at zero). "AI challenge" makes up separate exercises.'
@@ -808,27 +730,18 @@ const DICT = {
   'star.add': ['Guardar en favoritos', 'Save to favorites'],
   'star.remove': ['Quitar de favoritos', 'Remove from favorites'],
   'star.review': ['⭐ Repasar marcados ({n})', '⭐ Review starred ({n})'],
-  'star.reviewVocab': ['⭐ Repasar vocabulario marcado ({n})', '⭐ Review starred vocabulary ({n})'],
-  'star.reviewGrammar': ['⭐ Repasar gramática marcada ({n})', '⭐ Review starred grammar ({n})'],
   'oq.prompt': ['Responde a la pregunta', 'Answer the question'],
 
   // buscador de dudas
   'ask.title': ['Pregunta tu duda', 'Ask your question'],
   'ask.sub': ['explicación con tablas y ejemplos', 'explanation with tables and examples'],
-  'ask.ph': ['p. ej. ¿cuándo se usa der, den o dem?', 'e.g. when do I use der, den or dem?'],
-  'ask.go': ['Preguntar', 'Ask'],
   'ask.thinking': ['Pensando…', 'Thinking…'],
-  'ask.preparing': ['Preparando la explicación…', 'Preparing the explanation…'],
   'ask.off': [
     'Activa la IA en el menú lateral para usar el buscador de dudas.',
     'Turn on AI in the sidebar to use the question search.'
   ],
   'ask.remember': ['Para acordarte', 'To remember it'],
   'ask.practise': ['✏️ Practicar esto', '✏️ Practise this'],
-  'ask.preparingPractice': [
-    'Preparando ejercicios sobre lo que acabas de leer… (tarda un minuto)',
-    'Preparing exercises on what you just read… (takes a minute)'
-  ],
   'ask.another': ['Otra pregunta', 'Another question'],
 
 
@@ -855,12 +768,9 @@ const DICT = {
   'komm.mixName': ['Todo mezclado', 'All mixed'],
   // La leccion, con pestañas: el rotulo de la rejilla de apartados y la
   // cuenta de los que llevas hechos, al lado del titulo.
-  'komm.pickSection': ['Elige un apartado', 'Pick a section'],
   'komm.hechas': ['hechos', 'done'],
-  'komm.exScore': ['{a} de {b} bien.', '{a} of {b} right.'],
   'komm.exPassed': ['✓ Apartado completado.', '✓ Section completed.'],
   'komm.exFailed': ['Con un {p}% cuenta como hecho. Otra vuelta.', 'It counts as done from {p}%. Go again.'],
-  'komm.exNeed': ['Miniejercicio: diez preguntas, y con el 80% este apartado queda hecho.', 'Mini exercise: ten questions, and 80% marks this section as done.'],
   'komm.practiceAgain': ['Otra vuelta', 'Go again'],
   'komm.backTheory': ['Volver a la teoría', 'Back to the theory'],
   'komm.convThis': ['💬 Conversación sobre esto', '💬 Conversation about this'],
@@ -948,11 +858,6 @@ const DICT = {
     'Upload any picture and I describe it in German, with vocabulary, phrases to talk about it and questions.'
   ],
   'foto.pickA': ['Elegir o hacer una foto del ejercicio', 'Choose or take a photo of the exercise'],
-  'foto.title': ['📷 Foto de un ejercicio o una imagen', '📷 Photo of an exercise or a picture'],
-  'foto.sub': [
-    'Haz una foto del ejercicio de clase y te lo resuelvo y te lo explico. O sube cualquier imagen y te la describo en alemán con su vocabulario.',
-    'Take a photo of your class exercise and I will solve it and explain it. Or upload any picture and I will describe it in German with its vocabulary.'
-  ],
   'foto.pick': ['Elegir o hacer una foto', 'Choose or take a photo'],
   'foto.formats': ['JPG, PNG, WEBP · máx. 12 MB', 'JPG, PNG, WEBP · max 12 MB'],
   'foto.solve': ['✅ Resolver el ejercicio', '✅ Solve the exercise'],
@@ -960,7 +865,6 @@ const DICT = {
   'foto.describe': ['🗣️ Describir la imagen', '🗣️ Describe the picture'],
   'foto.describing': ['Describiendo…', 'Describing…'],
   'foto.remove': ['Quitar foto', 'Remove photo'],
-  'foto.another': ['Otra foto', 'Another photo'],
   'foto.wait': ['Leyendo la foto… tarda un minuto.', 'Reading the photo… this takes a minute.'],
   'foto.needsLocal': [
     'Para leer fotos hace falta «IA · Claude (local, sin key)»: es el único que puede abrir la imagen.',
@@ -1142,10 +1046,7 @@ const DICT = {
   'set.resetDone': ['Progreso borrado ({n} cosas).', 'Progress deleted ({n} items).'],
 
   // Prüfung: pantallas de tarea
-  'ex.backToExam': ['← Examen', '← Exam'],
   'ex.backBtn': ['Volver al examen', 'Back to exam'],
-  'ex.preparing': ['Preparando la tarea de examen… (tarda un minuto)', 'Preparing the exam task… (takes a minute)'],
-  'ex.preparingShort': ['Preparando la tarea…', 'Preparing the task…'],
   'ex.cantLoad': ['No se pudo cargar la tarea.', 'Could not load the task.'],
   'ex.listen': ['▶ Escuchar', '▶ Listen'],
   'ex.listenAgain': ['🔁 Escuchar de nuevo', '🔁 Listen again'],
@@ -1174,7 +1075,6 @@ const DICT = {
   'ex.writeTo': ['Escribes a: {q}', 'You are writing to: {q}'],
   'ex.aboutWords': ['Unas {n} palabras. No olvides saludo y despedida.', 'About {n} words. Do not forget a greeting and a sign-off.'],
   'ex.mailGot': ['El correo que recibes', 'The email you receive'],
-  'ex.yourAnswer': ['Tu respuesta', 'Your answer'],
   'ex.wordsTarget': ['{n} palabras · objetivo ~{o}', '{n} words · target ~{o}'],
   'ex.howScored': ['Cómo se ha puntuado', 'How it was scored'],
   'ex.critTask': ['Cumplimiento de la tarea', 'Task fulfilment'],
@@ -1252,14 +1152,6 @@ const DICT = {
     'otras {n} pestañas siguen buscando',
     '{n} other tabs are still searching'
   ],
-  'news.searching': [
-    'Buscando en ORF, Der Standard y YouTube… Tarda un par de minutos porque está leyendo las webs de verdad.',
-    'Searching ORF, Der Standard and YouTube… This takes a couple of minutes because it is really reading the sites.'
-  ],
-  'news.empty': [
-    'Pulsa «Buscar noticias» y rastrearé los medios austriacos y YouTube.',
-    'Hit "Find news" and I will search Austrian media and YouTube.'
-  ],
   'news.vocab': ['Vocabulario de la noticia', 'Vocabulary from this story'],
   'news.read': ['🔗 Leer en', '🔗 Read on'],
   'news.watch': ['▶ Ver en YouTube', '▶ Watch on YouTube'],
@@ -1278,15 +1170,8 @@ const DICT = {
   'news.tabWeather': ['El tiempo', 'Weather'],
   'news.result': ['Resultado', 'Result'],
   'news.next': ['Próximo', 'Next up'],
-  'news.today': ['hoy', 'today'],
   'news.warning': ['Aviso', 'Warning'],
   'news.weatherVocab': ['Vocabulario del tiempo', 'Weather vocabulary'],
-  'news.noSport': ['Esta vez no salió nada de deporte.', 'No sport came up this time.'],
-  'news.noWeather': ['Esta vez no llegó la previsión.', 'The forecast did not come through this time.'],
-  'news.needsLocal': [
-    'Las noticias necesitan búsqueda web, que solo está disponible con «IA · Claude (local, sin key)».',
-    'News needs web search, which is only available with "AI · Claude (local, no key)".'
-  ],
 
   // ---------- rescatadas del bundle ----------
   // Un comando interrumpido a media escritura dejo este fichero en ceros y
@@ -1510,11 +1395,9 @@ const DICT = {
     'El artículo correcto dentro de la frase · {d}/{n} dominadas ({p}%) · {e} practicadas',
     'The right article inside the sentence · {d}/{n} mastered ({p}%) · {e} practised'
   ],
-  'kasus.pregunta': ['¿Qué artículo va en el hueco?', 'Which article goes in the gap?'],
   'kasus.pistaGenero': ['Género', 'Gender'],
   'kasus.pistaGeneroVal': ['{art} {nomen}', '{art} {nomen}'],
   'kasus.pistaKasus': ['Caso', 'Case'],
-  'kasus.filtro': ['Caso', 'Case'],
   'kasus.vacio': ['No hay frases para esta selección.', 'No sentences for this selection.'],
 
   // komm
@@ -1522,8 +1405,6 @@ const DICT = {
     'Las funciones comunicativas de Miteinander, con sus frases y su práctica.',
     'The communicative functions of Miteinander, with phrases and practice.'
   ],
-  'komm.taparTrad': ['👁 Tapar las traducciones', '👁 Hide the translations'],
-  'komm.verTrad': ['👁 Ver las traducciones', '👁 Show the translations'],
   'komm.exAntwort': ['¿Qué le contestas?', 'What do you reply?'],
   'komm.exHueco': ['¿Qué palabra falta?', 'Which word is missing?'],
   'komm.exFrage': ['Te contestan esto. ¿Qué habías dicho?', 'They reply this. What had you said?'],
@@ -1562,7 +1443,6 @@ const DICT = {
   'save.hideMine': ['▴ Ocultar mis explicaciones', '▴ Hide my explanations'],
   'save.showConv': ['▾ Ver mis conversaciones ({n})', '▾ Show my conversations ({n})'],
   'save.hideConv': ['▴ Ocultar mis conversaciones', '▴ Hide my conversations'],
-  'save.mine': ['Tus explicaciones guardadas ({n})', 'Your saved explanations ({n})'],
   'save.mineConv': ['Tus conversaciones guardadas ({n})', 'Your saved conversations ({n})'],
 
   // set
@@ -1619,7 +1499,6 @@ const DICT = {
     'Todos estos juegos usan las palabras de esta lección.',
     'All these games use the words from this lesson.'
   ],
-  'voc.genSug': ['O prueba con uno de estos:', 'Or try one of these:'],
 
   // wait
   'wait.vocabTitle': ['Buscando palabras nuevas', 'Looking for new words'],
