@@ -1089,32 +1089,18 @@ export const A11 = {
           funktion: 'nach dem Alter fragen',
           es: 'Preguntar la edad',
           wendungen: [
-            { de: 'Wie alt bist du? – Ich bin 25.', es: '¿Cuántos años tienes? – Tengo 25.' },
-            { de: 'Wie alt ist Ihre Tochter?', es: '¿Cuántos años tiene su hija?' },
             { de: 'Darf ich fragen, wie alt Sie sind?', es: '¿Puedo preguntarle cuántos años tiene?' },
-            { de: 'Wann hast du Geburtstag?', es: '¿Cuándo es tu cumpleaños?' },
-            { de: 'In welchem Jahr sind Sie geboren?', es: '¿En qué año nació?' },
-            { de: 'Wie alt sind deine Eltern?', es: '¿Cuántos años tienen tus padres?' },
-            { de: 'Wie alt ist Ihr jüngstes Kind?', es: '¿Cuántos años tiene su hijo menor?' },
-            { de: 'Bist du älter oder jünger als dein Bruder?', es: '¿Eres mayor o menor que tu hermano?' },
-            { de: 'Wie alt ist deine Schwester?', es: '¿Cuántos años tiene tu hermana?' },
-            { de: 'In welchem Jahr bist du geboren?', es: '¿En qué año naciste?' }
+            { de: 'Wie alt bist du? – Ich bin 25.', es: '¿Cuántos años tienes? – Tengo 25.' },
+            { de: 'Wie alt sind deine Eltern?', es: '¿Cuántos años tienen tus padres?' }
           ]
         },
         {
           funktion: 'über Familie und Familienstand sprechen',
           es: 'Hablar de la familia y el estado civil',
           wendungen: [
-            { de: 'Sind Sie verheiratet?', es: '¿Está usted casado/a?' },
-            { de: 'Ich bin seit fünf Jahren verheiratet und habe zwei Kinder.', es: 'Llevo cinco años casado y tengo dos hijos.' },
             { de: 'Sind Sie ledig oder verheiratet?', es: '¿Está usted soltero o casado?' },
-            { de: 'Haben Sie Kinder?', es: '¿Tiene hijos?' },
-            { de: 'Mein Familienstand ist ledig.', es: 'Mi estado civil es soltero.' },
-            { de: 'Ich bin verwitwet und lebe jetzt bei meiner Tochter.', es: 'Soy viudo y ahora vivo en casa de mi hija.' },
-            { de: 'Haben Sie Geschwister?', es: '¿Tiene hermanos?' },
-            { de: 'Wer wohnt alles in Ihrem Haushalt?', es: '¿Quiénes viven en su domicilio?' },
             { de: 'Bist du verheiratet oder ledig?', es: '¿Estás casado o soltero?' },
-            { de: 'Hast du Kinder?', es: '¿Tienes hijos?' }
+            { de: 'Sind Sie verheiratet?', es: '¿Está usted casado/a?' }
           ]
         },
         {
@@ -1122,31 +1108,17 @@ export const A11 = {
           es: 'Preguntar por el lugar de residencia',
           wendungen: [
             { de: 'Woher kommen Sie?', es: '¿De dónde es usted?' },
-            { de: 'Wo sind Sie geboren?', es: '¿Dónde nació?' },
-            { de: 'Wie lange leben Sie schon in Österreich?', es: '¿Cuánto tiempo lleva viviendo en Austria?' },
-            { de: 'Wohnst du gern in dieser Gegend?', es: '¿Te gusta vivir por esta zona?' },
-            { de: 'Seit wann wohnen Sie in dieser Wohnung?', es: '¿Desde cuándo vive en este piso?' },
             { de: 'In welchem Stock wohnen Sie?', es: '¿En qué planta vive?' },
-            { de: 'Ich wohne im dritten Stock, ohne Aufzug.', es: 'Vivo en el tercer piso, sin ascensor.' },
-            { de: 'Ich bin gerade umgezogen.', es: 'Me acabo de mudar.' },
-            { de: 'Meine neue Adresse ist Gumpendorfer Straße 45, Tür 12.', es: 'Mi nueva dirección es Gumpendorfer Straße 45, puerta 12.' },
-            { de: 'Wie gefällt dir deine Wohngegend?', es: '¿Qué tal te parece tu barrio?' }
+            { de: 'Ich bin gerade umgezogen.', es: 'Me acabo de mudar.' }
           ]
         },
         {
           funktion: 'Adresse und Kontaktdaten angeben',
           es: 'Dar la dirección y los datos de contacto',
           wendungen: [
-            { de: 'Ich wohne in der Hauptstraße 12, 1010 Wien.', es: 'Vivo en Hauptstraße 12, 1010 Viena.' },
-            { de: 'Meine Telefonnummer ist 0664 1234567.', es: 'Mi teléfono es 0664 1234567.' },
             { de: 'Wie ist Ihre Adresse?', es: '¿Cuál es su dirección?' },
-            { de: 'Unter welcher Nummer erreiche ich Sie?', es: '¿En qué número le localizo?' },
-            { de: 'Wie ist Ihre Postleitzahl?', es: '¿Qué código postal tiene?' },
-            { de: 'Unter welcher E-Mail-Adresse kann ich Sie erreichen?', es: '¿En qué correo electrónico puedo localizarle?' },
-            { de: 'Mein Handy ist neu, die Nummer hat sich geändert.', es: 'Mi móvil es nuevo, el número ha cambiado.' },
-            { de: 'Wie lautet Ihre Adresse bitte?', es: '¿Cuál es su dirección, por favor?' },
-            { de: 'Haben Sie eine österreichische Handynummer?', es: '¿Tiene un número de móvil austriaco?' },
-            { de: 'Ist das noch Ihre aktuelle Adresse?', es: '¿Sigue siendo esta su dirección actual?' }
+            { de: 'Ich wohne in der Hauptstraße 12, 1010 Wien.', es: 'Vivo en Hauptstraße 12, 1010 Viena.' },
+            { de: 'Unter welcher Nummer erreiche ich Sie?', es: '¿En qué número le localizo?' }
           ]
         },
         {
@@ -1155,14 +1127,7 @@ export const A11 = {
           wendungen: [
             { de: 'Ich spreche ein bisschen Deutsch.', es: 'Hablo un poco de alemán.' },
             { de: 'Sprechen Sie Englisch? – Ja, sehr gut.', es: '¿Habla inglés? – Sí, muy bien.' },
-            { de: 'Ich lerne Deutsch, aber ich mache noch viele Fehler.', es: 'Estoy aprendiendo alemán, pero todavía cometo muchos errores.' },
-            { de: 'Verstehen Sie mich?', es: '¿Me entiende?' },
-            { de: 'Ich spreche nur ein paar Wörter Türkisch.', es: 'Solo hablo unas pocas palabras de turco.' },
-            { de: 'Welche Sprache sprechen Sie bei der Arbeit?', es: '¿Qué idioma habla en el trabajo?' },
-            { de: 'Mein Deutsch ist noch nicht so gut.', es: 'Mi alemán todavía no es tan bueno.' },
-            { de: 'Ich lese schon Zeitung auf Deutsch.', es: 'Ya leo el periódico en alemán.' },
-            { de: 'Sprechen Sie langsamer, bitte, ich lerne noch.', es: 'Hable más despacio, por favor, todavía estoy aprendiendo.' },
-            { de: 'Auf welchem Niveau sind Sie?', es: '¿En qué nivel está?' }
+            { de: 'Verstehen Sie mich?', es: '¿Me entiende?' }
           ]
         },
         {
@@ -1170,15 +1135,8 @@ export const A11 = {
           es: 'Pedir que te lo repitan',
           wendungen: [
             { de: 'Wie bitte?', es: '¿Cómo dice?' },
-            { de: 'Können Sie das bitte wiederholen?', es: '¿Puede repetirlo, por favor?' },
             { de: 'Noch einmal, bitte. Langsamer, bitte.', es: 'Otra vez, por favor. Más despacio.' },
-            { de: 'Entschuldigung, das habe ich nicht verstanden.', es: 'Perdone, eso no lo he entendido.' },
-            { de: 'Können Sie das bitte aufschreiben?', es: '¿Puede escribírmelo, por favor?' },
-            { de: 'Was bedeutet das genau?', es: '¿Qué significa eso exactamente?' },
-            { de: 'Sprechen Sie bitte etwas lauter, ich höre Sie schlecht.', es: 'Hable un poco más alto, por favor, le oigo mal.' },
-            { de: 'Noch einmal von vorne, bitte.', es: 'Otra vez desde el principio, por favor.' },
-            { de: 'Wie war die Nummer noch einmal?', es: '¿Cómo era el número otra vez?' },
-            { de: 'Können Sie das bitte langsamer sagen?', es: '¿Puede decirlo más despacio, por favor?' }
+            { de: 'Sprechen Sie bitte etwas lauter, ich höre Sie schlecht.', es: 'Hable un poco más alto, por favor, le oigo mal.' }
           ]
         },
         {
@@ -1186,15 +1144,8 @@ export const A11 = {
           es: 'Rellenar un formulario',
           wendungen: [
             { de: 'Bitte füllen Sie dieses Formular aus.', es: 'Rellene este formulario, por favor.' },
-            { de: 'Wo muss ich unterschreiben?', es: '¿Dónde tengo que firmar?' },
-            { de: 'Diese Angabe verstehe ich nicht.', es: 'Este dato no lo entiendo.' },
-            { de: 'Muss ich das Formular heute abgeben?', es: '¿Tengo que entregar el formulario hoy?' },
-            { de: 'Brauchen Sie eine Kopie von meinem Pass?', es: '¿Necesita una copia de mi pasaporte?' },
             { de: 'Hier fehlt noch etwas, oder?', es: 'Aquí falta algo, ¿verdad?' },
-            { de: 'Kann ich den Antrag auch online stellen?', es: '¿Puedo hacer la solicitud también por internet?' },
-            { de: 'Was soll ich bei Geschlecht ankreuzen?', es: '¿Qué marco en la casilla de sexo?' },
-            { de: 'Brauchen Sie das Original oder reicht eine Kopie?', es: '¿Necesita el original o basta una copia?' },
-            { de: 'Wo trage ich die Telefonnummer ein?', es: '¿Dónde pongo el número de teléfono?' }
+            { de: 'Brauchen Sie eine Kopie von meinem Pass?', es: '¿Necesita una copia de mi pasaporte?' }
           ]
         },
         {
@@ -1202,15 +1153,8 @@ export const A11 = {
           es: 'Aclarar datos personales y documentos',
           wendungen: [
             { de: 'Haben Sie einen Ausweis dabei?', es: '¿Trae algún documento?' },
-            { de: 'Darf ich nach Ihrem Geburtsdatum fragen?', es: '¿Puedo preguntarle su fecha de nacimiento?' },
-            { de: 'Was ist Ihre Staatsangehörigkeit?', es: '¿Cuál es su nacionalidad?' },
-            { de: 'Sind Sie berufstätig?', es: '¿Trabaja usted?' },
-            { de: 'Ich bin 32 Jahre alt und ledig.', es: 'Tengo 32 años y estoy soltero.' },
-            { de: 'Wie ist Ihr Familienname?', es: '¿Cuál es su nombre de familia?' },
-            { de: 'Ich habe noch keinen Meldezettel.', es: 'Todavía no tengo el certificado de empadronamiento.' },
-            { de: 'Ist mein Ausweis noch gültig?', es: '¿Mi documento sigue siendo válido?' },
             { de: 'Wie ist Ihr Geburtsdatum?', es: '¿Cuál es su fecha de nacimiento?' },
-            { de: 'Muss ich das Formular unterschreiben?', es: '¿Tengo que firmar el formulario?' }
+            { de: 'Ich habe noch keinen Meldezettel.', es: 'Todavía no tengo el certificado de empadronamiento.' }
           ]
         }
       ]

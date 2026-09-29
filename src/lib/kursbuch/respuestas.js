@@ -242,16 +242,14 @@ const RESPUESTAS = {
 
   'Ich bin für die Buchhaltung zuständig.':
     { de: 'Ah, dann arbeiten wir sicher öfter zusammen.', es: 'Ah, entonces coincidiremos a menudo.' },
-  'Entschuldigung, das habe ich nicht verstanden.':
-    { de: 'Kein Problem, ich sage es noch einmal.', es: 'Sin problema, lo repito.' },
+
   'Können Sie das bitte noch einmal erklären?':
     { de: 'Natürlich. Also, ganz von vorne …', es: 'Por supuesto. A ver, desde el principio…',
       mas: [
         { de: 'Jetzt ist es klar. Danke für die Geduld.', es: 'Ahora sí lo veo. Gracias por la paciencia.' },
         { de: 'Kein Problem. Lieber zweimal fragen als einmal falsch machen.', es: 'No pasa nada. Mejor preguntar dos veces que hacerlo mal una.' }
       ] },
-  'Was bedeutet das genau?':
-    { de: 'Das heißt, wir fangen um acht an.', es: 'Quiere decir que empezamos a las ocho.' },
+
   'Habe ich das richtig verstanden: …?':
     { de: 'Genau, so ist es. Melden Sie sich, wenn doch etwas unklar bleibt.', es: 'Exacto, así es. Avíseme si algo sigue sin quedar claro.' },
 
@@ -744,38 +742,16 @@ const RESPUESTAS = {
 
 
   // ---- Lektion 2: Wohnen Sie auch da? ------------------------------------
-  'Ich bin 32 Jahre alt und ledig.':
-    { de: 'Ich bin 29 und wohne mit meinem Bruder.', es: 'Yo tengo 29 y vivo con mi hermano.' },
-  'Sind Sie verheiratet?':
-    { de: 'Ja, seit fünf Jahren. Wir haben in Spanien geheiratet, mitten im Sommer.', es: 'Sí, desde hace cinco años. Nos casamos en España, en pleno verano.',
-      mas: [
-        { de: 'Und haben Sie Kinder?', es: '¿Y tiene hijos?' },
-        { de: 'Ja, einen Sohn. Er ist drei.', es: 'Sí, un hijo. Tiene tres años.' }
-      ] },
-  'Wie bitte?':
-    { de: 'Ich sage: Wie ist Ihre Adresse?', es: 'Digo: ¿cuál es su dirección?' },
-  'Können Sie das bitte wiederholen?':
-    { de: 'Natürlich. Ich spreche jetzt langsamer, und sagen Sie ruhig Stopp.', es: 'Claro. Ahora hablo más despacio, y dígame para cuando quiera.' },
-  'Noch einmal, bitte. Langsamer, bitte.':
-    { de: 'Kein Problem, ich wiederhole es.', es: 'Sin problema, lo repito.' },
-  'Ich spreche ein bisschen Deutsch.':
-    { de: 'Das reicht für den Anfang. Weiter so!', es: 'Para empezar es suficiente. ¡Sigue así!',
-      mas: [
-        { de: 'Welche Sprachen sprechen Sie?', es: '¿Qué idiomas habla usted?' },
-        { de: 'Deutsch, Englisch und ein bisschen Französisch.', es: 'Alemán, inglés y un poco de francés.' }
-      ] },
-  'Sprechen Sie Englisch? – Ja, sehr gut.':
-    { de: 'Super, dann verstehen wir uns.', es: 'Genial, entonces nos entendemos.' },
-  'Wie alt bist du? – Ich bin 25.':
-    { de: 'Du siehst deutlich jünger aus! Ich hätte dich auf zwanzig geschätzt.', es: '¡Pareces bastante más joven! Te habría echado veinte.',
-      mas: [
-        { de: 'Danke! Und wie alt bist du?', es: '¡Gracias! ¿Y tú cuántos tienes?' },
-        { de: 'Ich bin 31, seit gestern.', es: 'Tengo 31, desde ayer.' }
-      ] },
-  'Ich wohne in der Hauptstraße 12, 1010 Wien.':
-    { de: 'Danke. Die Postleitzahl habe ich schon, aber fehlt noch die Türnummer?', es: 'Gracias. El código postal ya lo tengo, pero ¿falta el número de puerta?' },
-  'Meine Telefonnummer ist 0664 1234567.':
-    { de: 'Moment, ich schreibe sie auf.', es: 'Un momento, la apunto.' },
+
+
+
+
+
+
+
+
+
+
 
   // ---- Lektion 3: Was sind Sie von Beruf? --------------------------------
   'Wo ist der Kuli? – Hier. / Da drüben.':
@@ -1157,8 +1133,7 @@ const RESPUESTAS = {
     { de: 'Zwei: einen Bruder und eine Schwester.', es: 'Dos: un hermano y una hermana.' },
   'Bist du verheiratet?':
     { de: 'Nein, ich bin ledig. Aber meine Schwester heiratet im nächsten Sommer.', es: 'No, estoy soltero. Pero mi hermana se casa el verano que viene.' },
-  'Hast du Kinder?':
-    { de: 'Ja, einen Sohn. Er ist drei.', es: 'Sí, un hijo. Tiene tres años.' },
+
   'Wo wohnt deine Familie?':
     { de: 'Meine Eltern wohnen noch in Spanien.', es: 'Mis padres siguen viviendo en España.' },
   'Wie alt ist dein Bruder?':
@@ -1247,22 +1222,14 @@ const RESPUESTAS = {
     { de: 'Super, ich komme gern! Wann und wo feierst du denn?', es: '¡Genial, voy encantado! ¿Cuándo y dónde lo celebras?' },
   'Passt dir Samstag um acht?':
     { de: 'Ja, das passt mir gut.', es: 'Sí, me viene bien.' },
-  'Wie ist Ihr Familienname?':
-    { de: 'García, mit Akzent auf dem i. Ich buchstabiere ihn Ihnen: G-A-R-C-I-A.', es: 'García, con acento en la i. Se lo deletreo: G-A-R-C-I-A.' },
-  'Woher kommen Sie?':
-    { de: 'Aus Spanien, genauer gesagt aus Madrid. Aber ich lebe seit Jahren hier.', es: 'De España, más concretamente de Madrid. Pero vivo aquí desde hace años.' },
-  'Wo sind Sie geboren?':
-    { de: 'In Madrid, neunzehnhundertfünfundneunzig. Meine Eltern wohnen immer noch dort.', es: 'En Madrid, en mil novecientos noventa y cinco. Mis padres siguen viviendo allí.' },
-  'Haben Sie einen Ausweis dabei?':
-    { de: 'Ja, meinen Reisepass. Reicht der, oder brauchen Sie auch den Meldezettel?', es: 'Sí, el pasaporte. ¿Basta con eso o necesita también el empadronamiento?' },
-  'Wie ist Ihre Adresse?':
-    { de: 'Hauptstraße zwölf, Tür vier, eintausendzehn Wien. Das ist im ersten Bezirk.', es: 'Hauptstraße doce, puerta cuatro, mil diez Viena. Está en el distrito uno.' },
-  'In welchem Stock wohnen Sie?':
-    { de: 'Im zweiten Stock, Tür vierzehn. Es gibt leider keinen Aufzug.', es: 'En el segundo piso, puerta catorce. Por desgracia no hay ascensor.' },
-  'Unter welcher Nummer erreiche ich Sie?':
-    { de: 'Am besten auf dem Handy.', es: 'Mejor en el móvil.' },
-  'Ich bin gerade umgezogen.':
-    { de: 'Dann brauchen wir die neue Adresse.', es: 'Entonces necesitamos la nueva dirección.' },
+
+
+
+
+
+
+
+
   'Wann treffen wir uns?':
     { de: 'Sagen wir um sieben? Dann haben wir vor dem Film noch Zeit.', es: '¿Decimos a las siete? Así nos queda tiempo antes de la película.' },
   'Wo treffen wir uns?':
@@ -1505,92 +1472,43 @@ const RESPUESTAS = {
 
 
 
-  'Ich bin seit fünf Jahren verheiratet und habe zwei Kinder.':
-    { de: 'Zwei Kinder? Wie alt sind sie denn? Gehen sie schon in die Schule?', es: '¿Dos hijos? ¿Y qué edad tienen? ¿Ya van al colegio?' },
-  'Sind Sie ledig oder verheiratet?':
-    { de: 'Ich bin geschieden, aber wir verstehen uns immer noch gut.', es: 'Estoy divorciado, pero seguimos llevándonos bien.' },
-  'Darf ich nach Ihrem Geburtsdatum fragen?':
-    { de: 'Natürlich: am zwölften März neunzehnhundertachtundachtzig, in Lissabon.', es: 'Claro: el doce de marzo de mil novecientos ochenta y ocho, en Lisboa.' },
-  'Was ist Ihre Staatsangehörigkeit?':
-    { de: 'Ich habe die spanische, und seit letztem Jahr auch die österreichische.', es: 'Tengo la española y, desde el año pasado, también la austriaca.' },
-  'Haben Sie Kinder?':
-    { de: 'Ja, einen Sohn. Er ist sechs und geht seit September in die Schule.', es: 'Sí, un hijo. Tiene seis años y va al colegio desde septiembre.',
-      mas: [
-        { de: 'Und wie gefällt ihm die Schule?', es: '¿Y qué tal le gusta el colegio?' },
-        { de: 'Sehr gut. Am liebsten mag er die Turnstunde.', es: 'Muy bien. Lo que más le gusta es la clase de gimnasia.' }
-      ] },
-  'Mein Familienstand ist ledig.':
-    { de: 'Gut, das trage ich so ein. Dann brauchen wir keine weiteren Papiere.', es: 'Bien, lo anoto así. Entonces no hacen falta más papeles.' },
-  'Ich bin verwitwet und lebe jetzt bei meiner Tochter.':
-    { de: 'Das ist schön, dass Sie nicht allein sind. Wohnt sie auch hier in Wien?', es: 'Qué bien que no esté solo. ¿Ella también vive aquí en Viena?' },
-  'Können Sie das bitte aufschreiben?':
-    { de: 'Gern. Ich schreibe es Ihnen hier auf den Zettel, dann haben Sie es schwarz auf weiß.', es: 'Con gusto. Se lo escribo aquí en el papel, así lo tiene por escrito.' },
-  'Sprechen Sie bitte etwas lauter, ich höre Sie schlecht.':
-    { de: 'Entschuldigung. Ist es so besser? Die Verbindung ist heute wirklich schlecht.', es: 'Perdón. ¿Así mejor? Hoy la conexión está muy mal.' },
-  'Noch einmal von vorne, bitte.':
-    { de: 'Also: Sie kommen am Montag um acht und bringen den Ausweis mit.', es: 'Entonces: viene el lunes a las ocho y trae el documento.' },
-  'Wie war die Nummer noch einmal?':
-    { de: 'Null sechs sechs vier, dann eins zwei drei, vier fünf sechs sieben.', es: 'Cero seis seis cuatro, luego uno dos tres, cuatro cinco seis siete.' },
-  'Ich lerne Deutsch, aber ich mache noch viele Fehler.':
-    { de: 'Das ist völlig normal. Wichtig ist, dass man dich versteht, und das tue ich.', es: 'Es completamente normal. Lo importante es que se te entienda, y yo te entiendo.',
-      mas: [
-        { de: 'Danke. Korrigierst du mich trotzdem, wenn etwas falsch ist?', es: 'Gracias. ¿Me corriges igualmente si algo está mal?' },
-        { de: 'Gern, aber nur die großen Fehler. Sonst redest du bald gar nicht mehr.', es: 'Con gusto, pero solo los errores gordos. Si no, acabas por no hablar.' }
-      ] },
-  'Verstehen Sie mich?':
-    { de: 'Ja, sehr gut sogar. Sie sprechen deutlicher als viele Muttersprachler.', es: 'Sí, muy bien incluso. Habla usted más claro que muchos nativos.' },
-  'Ich spreche nur ein paar Wörter Türkisch.':
-    { de: 'Ein paar Wörter reichen schon. Die Leute freuen sich, wenn man es versucht.', es: 'Con unas pocas palabras ya basta. A la gente le gusta que lo intentes.' },
-  'Welche Sprache sprechen Sie bei der Arbeit?':
-    { de: 'Meistens Englisch, mit den Kollegen aus Wien aber Deutsch.', es: 'Casi siempre inglés, pero con los compañeros de Viena, alemán.' },
-  'Mein Deutsch ist noch nicht so gut.':
-    { de: 'Für ein Jahr Kurs ist das erstaunlich. Sprich einfach weiter, dann kommt der Rest.', es: 'Para un año de clases está asombroso. Sigue hablando y el resto llega solo.' },
-  'Ich lese schon Zeitung auf Deutsch.':
-    { de: 'Respekt! Die Zeitung ist schwerer als der Kurs, da steht viel Fachsprache drin.', es: '¡Respeto! El periódico es más difícil que el curso, tiene mucho lenguaje técnico.' },
-  'Sprechen Sie langsamer, bitte, ich lerne noch.':
-    { de: 'Selbstverständlich. Sagen Sie mir einfach Bescheid, wenn ich zu schnell werde.', es: 'Por supuesto. Dígamelo simplemente si voy demasiado rápido.' },
-  'Wie alt ist Ihre Tochter?':
-    { de: 'Sie wird im August sieben. Sie freut sich schon auf die Schule.', es: 'Cumple siete en agosto. Ya tiene ganas de ir al colegio.' },
-  'Darf ich fragen, wie alt Sie sind?':
-    { de: 'Ich bin dreiundvierzig, aber die meisten schätzen mich jünger.', es: 'Tengo cuarenta y tres, pero casi todos me echan menos.' },
-  'Wann hast du Geburtstag?':
-    { de: 'Am neunten November. Ich feiere immer erst am Wochenende danach.', es: 'El nueve de noviembre. Siempre lo celebro el fin de semana siguiente.' },
-  'In welchem Jahr sind Sie geboren?':
-    { de: 'Neunzehnhundertneunzig, im selben Jahr wie meine Frau.', es: 'En mil novecientos noventa, el mismo año que mi mujer.' },
-  'Wie alt sind deine Eltern?':
-    { de: 'Mein Vater ist siebzig und meine Mutter achtundsechzig. Beide sind noch fit.', es: 'Mi padre tiene setenta y mi madre sesenta y ocho. Los dos están todavía en forma.' },
-  'Meine neue Adresse ist Gumpendorfer Straße 45, Tür 12.':
-    { de: 'Danke, ich ändere das gleich im System. Ab wann gilt die neue Adresse?', es: 'Gracias, lo cambio ahora mismo en el sistema. ¿Desde cuándo vale la nueva dirección?' },
-  'Wie ist Ihre Postleitzahl?':
-    { de: 'Eins null eins null, das ist der erste Bezirk, direkt im Zentrum.', es: 'Uno cero uno cero, es el distrito uno, justo en el centro.' },
-  'Unter welcher E-Mail-Adresse kann ich Sie erreichen?':
-    { de: 'Am besten unter der privaten. Die geschäftliche lese ich nur am Vormittag.', es: 'Mejor en el privado. El del trabajo solo lo leo por la mañana.' },
-  'Ich wohne im dritten Stock, ohne Aufzug.':
-    { de: 'Ohne Aufzug im dritten Stock? Dann brauchen Sie beim Umzug viele Freunde.', es: '¿En el tercero sin ascensor? Entonces va a necesitar muchos amigos para la mudanza.' },
-  'Mein Handy ist neu, die Nummer hat sich geändert.':
-    { de: 'Sag sie mir bitte, dann speichere ich sie sofort ein.', es: 'Dímelo, por favor, y lo guardo ahora mismo.' },
-  'Ich habe noch keinen Meldezettel.':
-    { de: 'Den bekommen Sie am Magistrat. Bringen Sie den Pass und den Mietvertrag mit.', es: 'Lo consigue en el ayuntamiento. Lleve el pasaporte y el contrato de alquiler.' },
-  'Ist mein Ausweis noch gültig?':
-    { de: 'Bis Mai nächstes Jahr, ja. Danach müssen Sie ihn verlängern lassen.', es: 'Hasta mayo del año que viene, sí. Después tendrá que renovarlo.' },
-  'Bitte füllen Sie dieses Formular aus.':
-    { de: 'Mache ich. Muss ich alles ausfüllen oder nur die Felder mit dem Stern?', es: 'Lo hago. ¿Tengo que rellenarlo todo o solo los campos con el asterisco?',
-      mas: [
-        { de: 'Nur die mit dem Stern, der Rest ist freiwillig.', es: 'Solo los que tienen asterisco, el resto es voluntario.' },
-        { de: 'Danke. Dann bin ich in zwei Minuten fertig.', es: 'Gracias. Entonces termino en dos minutos.' }
-      ] },
-  'Wo muss ich unterschreiben?':
-    { de: 'Hier unten rechts, neben dem Datum. Mit Kugelschreiber, bitte.', es: 'Aquí abajo a la derecha, al lado de la fecha. Con bolígrafo, por favor.' },
-  'Diese Angabe verstehe ich nicht.':
-    { de: 'Da kommt Ihr Geburtsort hinein, also die Stadt, in der Sie geboren sind.', es: 'Ahí va su lugar de nacimiento, es decir, la ciudad en la que nació.' },
-  'Muss ich das Formular heute abgeben?':
-    { de: 'Nicht unbedingt. Sie können es auch bis Freitag per Post schicken.', es: 'No necesariamente. También puede enviarlo por correo hasta el viernes.' },
-  'Brauchen Sie eine Kopie von meinem Pass?':
-    { de: 'Ja, bitte, und zwar von der Seite mit dem Foto. Den Rest brauche ich nicht.', es: 'Sí, por favor, de la página con la foto. El resto no me hace falta.' },
-  'Hier fehlt noch etwas, oder?':
-    { de: 'Genau, die Telefonnummer. Ohne die können wir Sie nicht erreichen.', es: 'Exacto, el número de teléfono. Sin él no podemos localizarle.' },
-  'Kann ich den Antrag auch online stellen?':
-    { de: 'Ja, seit letztem Monat. Sie brauchen nur eine Handysignatur dafür.', es: 'Sí, desde el mes pasado. Solo necesita la firma digital del móvil.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Können wir eine kurze Pause machen?':
     { de: 'Ja, fünf Minuten. Danach machen wir mit Übung drei weiter.', es: 'Sí, cinco minutos. Después seguimos con el ejercicio tres.',
       mas: [
@@ -3851,26 +3769,16 @@ const RESPUESTAS = {
 
 
 
-  'Wie lange leben Sie schon in Österreich?':
-    { de: 'Seit sieben Jahren. Die Staatsbürgerschaft habe ich seit letztem Mai.', es: 'Siete años. La ciudadanía la tengo desde mayo pasado.' },
-  'Sind Sie berufstätig?':
-    { de: 'Ja, ich arbeite Teilzeit in einem Kindergarten.', es: 'Sí, trabajo media jornada en una guardería.' },
-  'Haben Sie Geschwister?':
-    { de: 'Zwei Brüder, beide jünger. Einer lebt noch in Madrid.', es: 'Dos hermanos, los dos menores. Uno vive todavía en Madrid.' },
-  'Wer wohnt alles in Ihrem Haushalt?':
-    { de: 'Meine Frau, unsere zwei Kinder und ich. Vier Personen also.', es: 'Mi mujer, nuestros dos hijos y yo. Cuatro personas.' },
-  'Auf welchem Niveau sind Sie?':
-    { de: 'A2, im Frühling mache ich die B1-Prüfung.', es: 'A2, en primavera hago el examen B1.' },
-  'Wie alt ist Ihr jüngstes Kind?':
-    { de: 'Vier Jahre. Im September kommt es in den Kindergarten.', es: 'Cuatro años. En septiembre empieza en la guardería.' },
-  'Seit wann wohnen Sie in dieser Wohnung?':
-    { de: 'Seit drei Jahren, genau seit meinem dreißigsten Geburtstag.', es: 'Desde hace tres años, justo desde mi trigésimo cumpleaños.' },
-  'Bist du älter oder jünger als dein Bruder?':
-    { de: 'Zwei Jahre jünger, aber alle halten mich für den Älteren.', es: 'Dos años menor, pero todos me toman por el mayor.' },
-  'Was soll ich bei Geschlecht ankreuzen?':
-    { de: 'Männlich, weiblich oder divers. Suchen Sie sich das Passende aus.', es: 'Masculino, femenino o diverso. Elija lo que corresponda.' },
-  'Brauchen Sie das Original oder reicht eine Kopie?':
-    { de: 'Eine beglaubigte Kopie reicht. Das Original bleibt bei Ihnen.', es: 'Basta una copia compulsada. El original se queda con usted.' },
+
+
+
+
+
+
+
+
+
+
   'Weißt du, wo die Schere geblieben ist?':
     { de: 'In der obersten Schublade, glaube ich. Da liegt alles Kleine.', es: 'En el cajón de arriba, creo. Ahí está todo lo pequeño.' },
   'Wo finde ich hier den Eingang zum Lager?':
@@ -4564,28 +4472,17 @@ const RESPUESTAS = {
 
 
 
-  'Bist du verheiratet oder ledig?':
-    { de: 'Ledig, aber ich bin seit drei Jahren mit meiner Freundin zusammen.', es: 'Soltero, aunque llevo tres años con mi novia.' },
-  'Wohnst du gern in dieser Gegend?':
-    { de: 'Sehr gern, es ist ruhig und trotzdem bin ich schnell in der Stadt.', es: 'Mucho: es tranquilo y aun así llego rápido al centro.' },
-  'Können Sie das bitte langsamer sagen?':
-    { de: 'Natürlich, ich wiederhole es ganz langsam, Wort für Wort.', es: 'Claro, lo repito muy despacio, palabra por palabra.' },
-  'Wie alt ist deine Schwester?':
-    { de: 'Sie wird nächsten Monat dreißig und plant schon eine große Feier.', es: 'Cumple treinta el mes que viene y ya está planeando una fiesta.' },
-  'In welchem Jahr bist du geboren?':
-    { de: 'Dreiundneunzig, also bin ich jetzt zweiunddreißig, wenn ich richtig rechne.', es: 'En el noventa y tres, así que tengo treinta y dos, si echo bien la cuenta.' },
-  'Wie lautet Ihre Adresse bitte?':
-    { de: 'Mariahilfer Straße achtundvierzig, dritter Stock, Tür zwölf, gleich neben dem Aufzug.', es: 'Mariahilfer Straße cuarenta y ocho, tercer piso, puerta doce, junto al ascensor.' },
-  'Haben Sie eine österreichische Handynummer?':
-    { de: 'Ja, seit zwei Monaten, ich diktiere sie Ihnen gleich.', es: 'Sí, desde hace dos meses; se lo dicto ahora mismo.' },
-  'Wie ist Ihr Geburtsdatum?':
-    { de: 'Am vierzehnten März neunzehnhundertdreiundneunzig, geboren in Valencia in Spanien.', es: 'El catorce de marzo de mil novecientos noventa y tres, nacido en Valencia, España.' },
-  'Ist das noch Ihre aktuelle Adresse?':
-    { de: 'Nein, ich bin letzten Monat umgezogen, ich gebe Ihnen die neue.', es: 'No, me mudé el mes pasado; le doy la nueva.' },
-  'Muss ich das Formular unterschreiben?':
-    { de: 'Ja, bitte unten rechts, und vergessen Sie das Datum nicht.', es: 'Sí, abajo a la derecha, y no olvide la fecha.' },
-  'Wo trage ich die Telefonnummer ein?':
-    { de: 'In das Feld ganz unten, direkt unter der E-Mail-Adresse.', es: 'En la casilla de abajo del todo, justo debajo del correo.' },
+
+
+
+
+
+
+
+
+
+
+
   'Arbeitest du in Vollzeit oder Teilzeit?':
     { de: 'Teilzeit, dreißig Stunden, so bleibt genug Zeit für den Deutschkurs.', es: 'A tiempo parcial, treinta horas; así me queda tiempo para el curso de alemán.' },
   'Arbeitest du lieber im Team oder allein?':
@@ -5089,8 +4986,7 @@ const RESPUESTAS = {
   'Mach\'s gut, wir hören uns!':
     { de: 'Du auch, bis bald!', es: 'Tú también, ¡hasta pronto!' },
 
-  'Wie gefällt dir deine Wohngegend?':
-    { de: 'Sehr gut, es ist ruhig und alles ist in der Nähe.', es: 'Muy bien, es tranquilo y lo tengo todo cerca.' },
+
   'Wie viele Kinder habt ihr?':
     { de: 'Zwei, einen Buben und ein Mädchen.', es: 'Dos, un niño y una niña.' },
   'Wie lange dauert der Termin ungefähr?':
@@ -5401,6 +5297,231 @@ const RESPUESTAS = {
         { de: 'Mache ich gern. Sie fragen immer, wie es dir in Wien geht.', es: 'Lo haré encantado. Siempre preguntan qué tal te va en Viena.' },
         { de: 'Bis morgen, schlaf gut!', es: 'Hasta mañana, ¡que duermas bien!' },
         { de: 'Du auch. Vergiss nicht, morgen etwas früher zu kommen.', es: 'Tú también. No olvides venir un poco antes mañana.' }
+      ] },
+
+
+  // ---- a11-l2 · nach dem Alter fragen -------------------------------
+  'Darf ich fragen, wie alt Sie sind?':
+    { de: 'Natürlich, ich bin 48.', es: 'Por supuesto, tengo 48.',
+      mas: [
+        { de: 'In welchem Jahr sind Sie geboren?', es: '¿En qué año nació?' },
+        { de: '1977, im November.', es: 'En 1977, en noviembre.' },
+        { de: 'Wie alt ist Ihre Tochter?', es: '¿Cuántos años tiene su hija?' },
+        { de: 'Sie wird im Mai zwölf. Sie geht schon ins Gymnasium.', es: 'En mayo cumple doce. Ya va al instituto.' },
+        { de: 'Wie alt ist Ihr jüngstes Kind?', es: '¿Cuántos años tiene su hijo menor?' },
+        { de: 'Der Kleine ist drei. Mit ihm ist es gerade am anstrengendsten.', es: 'El pequeño tiene tres. Con él es ahora lo más agotador.' }
+      ] },
+  'Wie alt bist du? – Ich bin 25.':
+    { de: 'Genauso alt wie ich. Wann genau?', es: 'Igual que yo. ¿Cuándo exactamente?',
+      mas: [
+        { de: 'In welchem Jahr bist du geboren?', es: '¿En qué año naciste?' },
+        { de: '2000, ich bin ein Jahrtausendkind.', es: 'En 2000, soy hijo del milenio.' },
+        { de: 'Wann hast du Geburtstag?', es: '¿Cuándo es tu cumpleaños?' },
+        { de: 'Am 3. August. Da ist immer schon jemand im Urlaub.', es: 'El 3 de agosto. Siempre hay alguien de vacaciones.' }
+      ] },
+  'Wie alt sind deine Eltern?':
+    { de: 'Mein Vater ist 60, meine Mutter 58.', es: 'Mi padre tiene 60 y mi madre 58.',
+      mas: [
+        { de: 'Wie alt ist deine Schwester?', es: '¿Cuántos años tiene tu hermana?' },
+        { de: 'Sie ist 30, also fünf Jahre älter als ich.', es: 'Tiene 30, o sea cinco años más que yo.' },
+        { de: 'Bist du älter oder jünger als dein Bruder?', es: '¿Eres mayor o menor que tu hermano?' },
+        { de: 'Jünger, aber alle halten mich für den Älteren.', es: 'Menor, pero todos me toman por el mayor.' }
+      ] },
+
+  // ---- a11-l2 · über Familie und Familienstand sprechen -------------
+  'Sind Sie ledig oder verheiratet?':
+    { de: 'Ledig. Ich wohne allein, das passt mir gut.', es: 'Soltero. Vivo solo y me va bien así.',
+      mas: [
+        { de: 'Haben Sie Kinder?', es: '¿Tiene hijos?' },
+        { de: 'Nein, keine. Dafür sehr viele Patenkinder.', es: 'No, ninguno. En cambio, muchos ahijados.' },
+        { de: 'Haben Sie Geschwister?', es: '¿Tiene hermanos?' },
+        { de: 'Zwei Schwestern, beide in Linz. Wir telefonieren jeden Sonntag.', es: 'Dos hermanas, las dos en Linz. Hablamos por teléfono todos los domingos.' },
+        { de: 'Mein Familienstand ist ledig.', es: 'Mi estado civil es soltero.' },
+        { de: 'Gut, dann kreuzen wir hier einfach „ledig“ an.', es: 'Bien, entonces marcamos aquí «soltero».' }
+      ] },
+  'Bist du verheiratet oder ledig?':
+    { de: 'Verheiratet, seit letztem Sommer.', es: 'Casado, desde el verano pasado.',
+      mas: [
+        { de: 'Hast du Kinder?', es: '¿Tienes hijos?' },
+        { de: 'Noch nicht, aber wir planen es für nächstes Jahr.', es: 'Todavía no, pero lo tenemos pensado para el año que viene.' },
+        { de: 'Ich bin verwitwet und lebe jetzt bei meiner Tochter.', es: 'Soy viudo y ahora vivo en casa de mi hija.' },
+        { de: 'Das wusste ich nicht. Geht es dir gut damit?', es: 'No lo sabía. ¿Estás bien así?' }
+      ] },
+  'Sind Sie verheiratet?':
+    { de: 'Ja, seit zwölf Jahren. Und Sie?', es: 'Sí, desde hace doce años. ¿Y usted?',
+      mas: [
+        { de: 'Ich bin seit fünf Jahren verheiratet und habe zwei Kinder.', es: 'Llevo cinco años casado y tengo dos hijos.' },
+        { de: 'Zwei Kinder schon? Dann ist bei Ihnen immer was los.', es: '¿Ya dos hijos? Entonces en su casa siempre pasa algo.' },
+        { de: 'Wer wohnt alles in Ihrem Haushalt?', es: '¿Quiénes viven en su domicilio?' },
+        { de: 'Wir vier und meine Mutter, sie ist letztes Jahr zu uns gezogen.', es: 'Nosotros cuatro y mi madre, que se vino con nosotros el año pasado.' }
+      ] },
+
+  // ---- a11-l2 · nach Wohnort und Wohnsituation fragen ---------------
+  'Woher kommen Sie?':
+    { de: 'Aus Bosnien, aus Tuzla.', es: 'De Bosnia, de Tuzla.',
+      mas: [
+        { de: 'Wo sind Sie geboren?', es: '¿Dónde nació?' },
+        { de: 'In Tuzla, im Krankenhaus gleich neben unserem Haus.', es: 'En Tuzla, en el hospital justo al lado de nuestra casa.' },
+        { de: 'Wie lange leben Sie schon in Österreich?', es: '¿Cuánto tiempo lleva viviendo en Austria?' },
+        { de: 'Seit 2014, also über zehn Jahre.', es: 'Desde 2014, o sea más de diez años.' },
+        { de: 'Seit wann wohnen Sie in dieser Wohnung?', es: '¿Desde cuándo vive en este piso?' },
+        { de: 'Seit drei Jahren. Vorher war ich im neunzehnten Bezirk.', es: 'Desde hace tres años. Antes estaba en el distrito diecinueve.' }
+      ] },
+  'In welchem Stock wohnen Sie?':
+    { de: 'Im ersten, gleich über der Bäckerei.', es: 'En la primera, justo encima de la panadería.',
+      mas: [
+        { de: 'Ich wohne im dritten Stock, ohne Aufzug.', es: 'Vivo en el tercer piso, sin ascensor.' },
+        { de: 'Ohne Aufzug? Dann brauchen Sie keinen Sport mehr.', es: '¿Sin ascensor? Entonces ya no necesita hacer deporte.' },
+        { de: 'Wohnst du gern in dieser Gegend?', es: '¿Te gusta vivir por esta zona?' },
+        { de: 'Sehr gern. Alles ist zu Fuß erreichbar, nur die Miete steigt.', es: 'Muchísimo. Todo está a pie, solo sube el alquiler.' }
+      ] },
+  'Ich bin gerade umgezogen.':
+    { de: 'Wirklich? Und wohin denn?', es: '¿De verdad? ¿Y adónde?',
+      mas: [
+        { de: 'Meine neue Adresse ist Gumpendorfer Straße 45, Tür 12.', es: 'Mi nueva dirección es Gumpendorfer Straße 45, puerta 12.' },
+        { de: 'Schöne Ecke. Ich wohne zwei Straßen weiter.', es: 'Bonita zona. Yo vivo dos calles más allá.' },
+        { de: 'Wie gefällt dir deine Wohngegend?', es: '¿Qué tal te parece tu barrio?' },
+        { de: 'Mir gefällt sie gut, nur am Wochenende ist es sehr laut.', es: 'Me gusta, solo que el fin de semana hay mucho ruido.' }
+      ] },
+
+  // ---- a11-l2 · Adresse und Kontaktdaten angeben --------------------
+  'Wie ist Ihre Adresse?':
+    { de: 'Hauptstraße 12, in Wien.', es: 'Hauptstraße 12, en Viena.',
+      mas: [
+        { de: 'Wie ist Ihre Postleitzahl?', es: '¿Qué código postal tiene?' },
+        { de: '1010, ich wohne mitten in der Stadt.', es: '1010, vivo en el centro.' },
+        { de: 'Wie lautet Ihre Adresse bitte?', es: '¿Cuál es su dirección, por favor?' },
+        { de: 'Ich schreibe sie Ihnen auf, der Straßenname ist lang.', es: 'Se la escribo, el nombre de la calle es largo.' },
+        { de: 'Ist das noch Ihre aktuelle Adresse?', es: '¿Sigue siendo esta su dirección actual?' },
+        { de: 'Nein, die ist von der alten Wohnung. Ich gebe Ihnen die neue.', es: 'No, esa es del piso viejo. Le doy la nueva.' }
+      ] },
+  'Ich wohne in der Hauptstraße 12, 1010 Wien.':
+    { de: 'Danke, das habe ich. Und eine Telefonnummer?', es: 'Gracias, ya lo tengo. ¿Y un teléfono?',
+      mas: [
+        { de: 'Meine Telefonnummer ist 0664 1234567.', es: 'Mi teléfono es 0664 1234567.' },
+        { de: 'Ich wiederhole: null sechs sechs vier, eins zwei drei vier fünf sechs sieben.', es: 'Repito: cero seis seis cuatro, uno dos tres cuatro cinco seis siete.' },
+        { de: 'Mein Handy ist neu, die Nummer hat sich geändert.', es: 'Mi móvil es nuevo, el número ha cambiado.' },
+        { de: 'Kein Problem, ich trage die neue gleich ein.', es: 'No pasa nada, apunto la nueva ahora mismo.' }
+      ] },
+  'Unter welcher Nummer erreiche ich Sie?':
+    { de: 'Am besten am Handy, im Büro bin ich selten.', es: 'Mejor al móvil, en la oficina estoy poco.',
+      mas: [
+        { de: 'Unter welcher E-Mail-Adresse kann ich Sie erreichen?', es: '¿En qué correo electrónico puedo localizarle?' },
+        { de: 'Vorname punkt Nachname, alles klein, bei gmx punkt at.', es: 'Nombre punto apellido, todo en minúsculas, arroba gmx punto at.' },
+        { de: 'Haben Sie eine österreichische Handynummer?', es: '¿Tiene un número de móvil austriaco?' },
+        { de: 'Ja, seit einem Monat. Die spanische habe ich aufgegeben.', es: 'Sí, desde hace un mes. El español lo he dejado.' }
+      ] },
+
+  // ---- a11-l2 · über Sprachkenntnisse sprechen ----------------------
+  'Ich spreche ein bisschen Deutsch.':
+    { de: 'Das hört man, Sie sprechen schon ganz ordentlich.', es: 'Se nota, ya habla bastante bien.',
+      mas: [
+        { de: 'Mein Deutsch ist noch nicht so gut.', es: 'Mi alemán todavía no es tan bueno.' },
+        { de: 'Für ein Jahr Kurs ist das sehr gut. Machen Sie einfach weiter.', es: 'Para un año de clase está muy bien. Siga así.' },
+        { de: 'Ich lerne Deutsch, aber ich mache noch viele Fehler.', es: 'Estoy aprendiendo alemán, pero todavía cometo muchos errores.' },
+        { de: 'Fehler machen alle. Wichtig ist, dass man Sie versteht.', es: 'Errores comete todo el mundo. Lo importante es que se le entienda.' },
+        { de: 'Sprechen Sie langsamer, bitte, ich lerne noch.', es: 'Hable más despacio, por favor, todavía estoy aprendiendo.' },
+        { de: 'Entschuldigung, ich rede immer zu schnell. Besser so?', es: 'Perdone, siempre hablo muy rápido. ¿Mejor así?' }
+      ] },
+  'Sprechen Sie Englisch? – Ja, sehr gut.':
+    { de: 'Gut, dann kommen wir im Notfall auch so weiter.', es: 'Bien, así en caso de apuro también nos entendemos.',
+      mas: [
+        { de: 'Ich spreche nur ein paar Wörter Türkisch.', es: 'Solo hablo unas pocas palabras de turco.' },
+        { de: 'Ein paar Wörter freuen die Leute trotzdem sehr.', es: 'Unas pocas palabras alegran mucho a la gente igualmente.' },
+        { de: 'Auf welchem Niveau sind Sie?', es: '¿En qué nivel está?' },
+        { de: 'A2, im Juni mache ich die Prüfung für B1.', es: 'A2; en junio hago el examen de B1.' }
+      ] },
+  'Verstehen Sie mich?':
+    { de: 'Ja, sehr gut. Sie sprechen klar und deutlich.', es: 'Sí, muy bien. Habla claro.',
+      mas: [
+        { de: 'Welche Sprache sprechen Sie bei der Arbeit?', es: '¿Qué idioma habla en el trabajo?' },
+        { de: 'Auf der Baustelle Deutsch, im Büro meistens Englisch.', es: 'En la obra alemán, en la oficina casi siempre inglés.' },
+        { de: 'Ich lese schon Zeitung auf Deutsch.', es: 'Ya leo el periódico en alemán.' },
+        { de: 'Respekt. Das ist der beste Weg, Wörter zu lernen.', es: 'Respeto. Es la mejor forma de aprender palabras.' }
+      ] },
+
+  // ---- a11-l2 · um Wiederholung bitten ------------------------------
+  'Wie bitte?':
+    { de: 'Ich sagte, das Formular müssen Sie unten unterschreiben.', es: 'He dicho que el formulario tiene que firmarlo abajo.',
+      mas: [
+        { de: 'Können Sie das bitte wiederholen?', es: '¿Puede repetirlo, por favor?' },
+        { de: 'Gern: unten rechts, neben dem Datum.', es: 'Con gusto: abajo a la derecha, junto a la fecha.' },
+        { de: 'Entschuldigung, das habe ich nicht verstanden.', es: 'Perdone, eso no lo he entendido.' },
+        { de: 'Ich zeige es Ihnen einfach mit dem Finger.', es: 'Se lo señalo con el dedo y listo.' },
+        { de: 'Können Sie das bitte aufschreiben?', es: '¿Puede escribírmelo, por favor?' },
+        { de: 'Natürlich, ich schreibe es Ihnen auf den Zettel.', es: 'Por supuesto, se lo escribo en el papel.' }
+      ] },
+  'Noch einmal, bitte. Langsamer, bitte.':
+    { de: 'Kein Problem. Ich rede viel zu schnell, das sagen alle.', es: 'No pasa nada. Hablo demasiado rápido, me lo dicen todos.',
+      mas: [
+        { de: 'Können Sie das bitte langsamer sagen?', es: '¿Puede decirlo más despacio, por favor?' },
+        { de: 'So: der Termin ist am Dienstag um halb elf.', es: 'Así: la cita es el martes a las diez y media.' },
+        { de: 'Noch einmal von vorne, bitte.', es: 'Otra vez desde el principio, por favor.' },
+        { de: 'Gut. Dienstag, halb elf, Zimmer 204, zweiter Stock.', es: 'Bien. Martes, diez y media, habitación 204, segunda planta.' }
+      ] },
+  'Sprechen Sie bitte etwas lauter, ich höre Sie schlecht.':
+    { de: 'Entschuldigung, hier ist es auch sehr laut. Besser?', es: 'Perdone, aquí también hay mucho ruido. ¿Mejor?',
+      mas: [
+        { de: 'Wie war die Nummer noch einmal?', es: '¿Cómo era el número otra vez?' },
+        { de: 'Null eins, dann vier mal die Acht, dann zwei drei.', es: 'Cero uno, luego cuatro ochos, luego dos tres.' },
+        { de: 'Was bedeutet das genau?', es: '¿Qué significa eso exactamente?' },
+        { de: 'Dass Sie den Antrag bis Freitag abgeben müssen, sonst verfällt er.', es: 'Que tiene que entregar la solicitud antes del viernes o caduca.' }
+      ] },
+
+  // ---- a11-l2 · ein Formular ausfüllen ------------------------------
+  'Bitte füllen Sie dieses Formular aus.':
+    { de: 'Mache ich. Brauche ich dafür einen blauen Stift?', es: 'Lo hago. ¿Necesito un bolígrafo azul?',
+      mas: [
+        { de: 'Diese Angabe verstehe ich nicht.', es: 'Este dato no lo entiendo.' },
+        { de: 'Da kommt der Name Ihres Arbeitgebers hin.', es: 'Ahí va el nombre de su empleador.' },
+        { de: 'Was soll ich bei Geschlecht ankreuzen?', es: '¿Qué marco en la casilla de sexo?' },
+        { de: 'Männlich, weiblich oder divers, wie Sie möchten.', es: 'Masculino, femenino u otro, como quiera.' },
+        { de: 'Wo trage ich die Telefonnummer ein?', es: '¿Dónde pongo el número de teléfono?' },
+        { de: 'In das letzte Feld, unter der E-Mail-Adresse.', es: 'En el último campo, debajo del correo.' }
+      ] },
+  'Hier fehlt noch etwas, oder?':
+    { de: 'Ja, das Geburtsdatum und die Unterschrift.', es: 'Sí, la fecha de nacimiento y la firma.',
+      mas: [
+        { de: 'Wo muss ich unterschreiben?', es: '¿Dónde tengo que firmar?' },
+        { de: 'Unten rechts, in dem kleinen Kästchen.', es: 'Abajo a la derecha, en la casilla pequeña.' },
+        { de: 'Muss ich das Formular heute abgeben?', es: '¿Tengo que entregar el formulario hoy?' },
+        { de: 'Heute wäre gut. Spätestens aber bis Freitag.', es: 'Hoy estaría bien. Como muy tarde, el viernes.' }
+      ] },
+  'Brauchen Sie eine Kopie von meinem Pass?':
+    { de: 'Ja, bitte. Den Kopierer finden Sie im Gang.', es: 'Sí, por favor. La fotocopiadora está en el pasillo.',
+      mas: [
+        { de: 'Brauchen Sie das Original oder reicht eine Kopie?', es: '¿Necesita el original o basta una copia?' },
+        { de: 'Das Original nur zum Anschauen, behalten tue ich die Kopie.', es: 'El original solo para verlo; me quedo con la copia.' },
+        { de: 'Kann ich den Antrag auch online stellen?', es: '¿Puedo hacer la solicitud también por internet?' },
+        { de: 'Ja, mit Handysignatur. Dann sparen Sie sich den Weg.', es: 'Sí, con firma digital. Así se ahorra el viaje.' }
+      ] },
+
+  // ---- a11-l2 · persönliche Daten und Dokumente klären --------------
+  'Haben Sie einen Ausweis dabei?':
+    { de: 'Ja, meinen Pass. Der Meldezettel fehlt mir noch.', es: 'Sí, el pasaporte. Me falta el certificado de empadronamiento.',
+      mas: [
+        { de: 'Darf ich nach Ihrem Geburtsdatum fragen?', es: '¿Puedo preguntarle su fecha de nacimiento?' },
+        { de: 'Der 14. März 1993.', es: 'El 14 de marzo de 1993.' },
+        { de: 'Was ist Ihre Staatsangehörigkeit?', es: '¿Cuál es su nacionalidad?' },
+        { de: 'Spanisch. Ich bin EU-Bürger, das macht es einfacher.', es: 'Española. Soy ciudadano de la UE, eso lo facilita.' },
+        { de: 'Wie ist Ihr Familienname?', es: '¿Cuál es su nombre de familia?' },
+        { de: 'Pascual, mit c. Den verschreiben fast alle.', es: 'Pascual, con c. Casi todos lo escriben mal.' }
+      ] },
+  'Wie ist Ihr Geburtsdatum?':
+    { de: '14. März 1993, in Valencia.', es: '14 de marzo de 1993, en Valencia.',
+      mas: [
+        { de: 'Ich bin 32 Jahre alt und ledig.', es: 'Tengo 32 años y estoy soltero.' },
+        { de: 'Danke, das trage ich gleich ein.', es: 'Gracias, lo apunto ahora mismo.' },
+        { de: 'Sind Sie berufstätig?', es: '¿Trabaja usted?' },
+        { de: 'Ja, in Vollzeit, als Techniker bei einer Baufirma.', es: 'Sí, a jornada completa, como técnico en una constructora.' }
+      ] },
+  'Ich habe noch keinen Meldezettel.':
+    { de: 'Den bekommen Sie im Meldeamt, das dauert zehn Minuten.', es: 'Lo consigue en el registro civil, tarda diez minutos.',
+      mas: [
+        { de: 'Ist mein Ausweis noch gültig?', es: '¿Mi documento sigue siendo válido?' },
+        { de: 'Bis August, dann müssen Sie ihn verlängern lassen.', es: 'Hasta agosto; luego tiene que renovarlo.' },
+        { de: 'Muss ich das Formular unterschreiben?', es: '¿Tengo que firmar el formulario?' },
+        { de: 'Ja, sonst kann ich es nicht annehmen.', es: 'Sí, si no no puedo aceptarlo.' }
       ] },
 
 };
