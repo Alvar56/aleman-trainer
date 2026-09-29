@@ -23,3 +23,6 @@ scripts/_claves.json
 scripts/_antes.json
 __pycache__/
 *.pyc
+
+# La copia de trabajo de los paisajes (scripts/paisajes-extraer.mjs).
+_paisajes/
