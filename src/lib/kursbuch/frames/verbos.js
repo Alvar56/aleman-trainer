@@ -536,7 +536,17 @@ export const VERBOS = {
       { s: 'Die Jacke ___ mir perfekt.', a: 'passt', d: ['steht', 'gefällt'], t: 'La chaqueta me queda perfecta de talla.', e: 'Talla: passen.' },
       { s: 'Diese Farbe ___ dir nicht so gut.', a: 'steht', d: ['passt', 'gefällt'], t: 'Ese color no te favorece tanto.', e: 'Favorecer: stehen.' },
       { s: '___ Ihnen die Schuhe?', a: 'Gefallen', d: ['Passen Ihnen sie', 'Stehen Ihnen es'], t: '¿Le gustan los zapatos?', e: 'Plural: gefallen.' },
-      { s: 'Der Anzug ___ ihm nicht mehr.', a: 'passt', d: ['steht', 'gefällt'], t: 'El traje ya no le vale.', e: 'Ha cambiado de talla: passen.' }
+      { s: 'Der Anzug ___ ihm nicht mehr.', a: 'passt', d: ['steht', 'gefällt'], t: 'El traje ya no le vale.', e: 'Ha cambiado de talla: passen.' },
+      { s: 'Das Hemd ___ gut zu der Hose.', a: 'passt', d: ['steht', 'gefällt'], t: 'La camisa pega bien con el pantalón.', e: 'passen zu para cosas que combinan entre sí.' },
+      { s: '___ dir die neue Wohnung?', a: 'Gefällt', d: ['Passt', 'Steht'], t: '¿Te gusta el piso nuevo?', e: 'gefallen para el gusto en general.' },
+      { s: 'Der rote Pullover ___ dir sehr gut.', a: 'steht', d: ['passt', 'gefällt'], t: 'El jersey rojo te queda muy bien.', e: 'stehen para lo que te favorece al llevarlo.' },
+      { s: 'Die Hose ___ mir in der Taille nicht.', a: 'passt', d: ['steht', 'gefällt'], t: 'El pantalón no me va bien de cintura.', e: 'passen para la talla.' },
+      { s: 'Diese Musik ___ mir überhaupt nicht.', a: 'gefällt', d: ['passt', 'steht'], t: 'Esta música no me gusta nada.', e: 'gefallen también vale para música o cuadros.' },
+      { s: 'Kurze Haare ___ ihm ausgezeichnet.', a: 'stehen', d: ['passen', 'gefallen'], t: 'El pelo corto le queda de maravilla.', e: 'Sujeto en plural: stehen.' },
+      { s: 'Die beiden Farben ___ nicht zusammen.', a: 'passen', d: ['stehen', 'gefallen'], t: 'Los dos colores no pegan juntos.', e: 'passen zusammen para cosas que combinan.' },
+      { s: '___ Ihnen das Hotel?', a: 'Gefällt', d: ['Passt', 'Steht'], t: '¿Le gusta el hotel?', e: 'gefallen con dativo: Ihnen.' },
+      { s: 'Der Termin am Montag ___ mir gut.', a: 'passt', d: ['steht', 'gefällt'], t: 'La cita del lunes me viene bien.', e: 'passen también para horarios y citas.' },
+      { s: 'Mir ___ dieses Modell am besten.', a: 'gefällt', d: ['passt', 'steht'], t: 'Este modelo es el que más me gusta.', e: 'El sujeto es dieses Modell, singular.' }
     ]
   },
   'futur-mit-werden': {
@@ -550,7 +560,17 @@ export const VERBOS = {
       { s: 'Ihr ___ das schon schaffen.', a: 'werdet', d: ['wollt', 'würdet'], t: 'Lo conseguiréis.', e: 'Con ihr: werdet.' },
       { s: 'Sie ___ in zwei Jahren fertig sein.', a: 'wird', d: ['will', 'würde'], t: 'Habrá terminado en dos años.', e: 'Previsión a futuro.' },
       { s: 'Für Pläne reicht meistens ___.', a: 'das Präsens', d: ['das Futur', 'der Konjunktiv'], t: 'Para planes basta casi siempre el presente.', e: 'werden se reserva para promesas y pronósticos.' },
-      { s: 'Ich ___ es dir versprechen.', a: 'werde', d: ['will', 'würde'], t: 'Te lo prometeré.', e: 'Promesa explícita.' }
+      { s: 'Ich ___ es dir versprechen.', a: 'werde', d: ['will', 'würde'], t: 'Te lo prometeré.', e: 'Promesa explícita.' },
+      { s: 'Nächstes Jahr ___ wir umziehen.', a: 'werden', d: ['wird', 'werdet'], t: 'El año que viene nos mudaremos.', e: 'wir werden, con la forma en -en.' },
+      { s: 'Er ___ bestimmt zu spät kommen.', a: 'wird', d: ['werden', 'werdet'], t: 'Seguro que llegará tarde.', e: 'er wird, tercera persona singular.' },
+      { s: 'Ihr ___ die Prüfung sicher bestehen.', a: 'werdet', d: ['werden', 'wird'], t: 'Seguro que aprobaréis el examen.', e: 'ihr werdet.' },
+      { s: 'Im Futur steht das zweite Verb ___.', a: 'im Infinitiv', d: ['im Partizip', 'im Präteritum'], t: 'En el futuro el segundo verbo va en infinitivo.', e: 'werden más infinitivo al final.' },
+      { s: 'Ich ___ dich vom Bahnhof abholen.', a: 'werde', d: ['wird', 'werden'], t: 'Te recogeré en la estación.', e: 'ich werde.' },
+      { s: '___ ihr uns nächste Woche besuchen?', a: 'Werdet', d: ['Werden', 'Wird'], t: '¿Nos visitaréis la semana que viene?', e: 'En la pregunta el verbo va primero: werdet ihr.' },
+      { s: 'Das ___ nicht einfach sein.', a: 'wird', d: ['werden', 'werde'], t: 'Eso no va a ser fácil.', e: 'das wird, singular.' },
+      { s: 'Wo steht der Infinitiv im Futursatz?', a: 'am Ende', d: ['nach werden', 'vor werden'], t: '¿Dónde va el infinitivo en la frase de futuro?', e: 'Al final de la frase, como en los modales.' },
+      { s: 'Sie ___ im Juni heiraten.', a: 'werden', d: ['wird', 'werdet'], t: 'Se casarán en junio.', e: 'sie en plural: werden.' },
+      { s: 'Statt Futur benutzt man oft ___.', a: 'das Präsens', d: ['das Perfekt', 'das Präteritum'], t: 'En vez de futuro se usa a menudo el presente.', e: 'Morgen fahre ich ya indica futuro.' }
     ]
   },
   'dativ-bei-gratulieren-danken': {

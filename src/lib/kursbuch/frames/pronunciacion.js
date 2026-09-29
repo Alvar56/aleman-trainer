@@ -440,7 +440,17 @@ export const PRONUNCIACION = {
       { s: '„Kaffee“ betont man in Österreich auf ___.', a: 'fee', d: ['Kaf', 'beiden'], t: 'En Austria «Kaffee» se acentúa en «fee».', e: 'En Alemania se oye también Káffee.' },
       { s: '„Telefon“ hat den Akzent auf ___.', a: 'fon', d: ['Te', 'le'], t: '«Telefon» se acentúa en «fon».', e: 'Al final.' },
       { s: 'Bei „Universität“ liegt der Akzent auf ___.', a: 'tät', d: ['Uni', 'ver'], t: 'En «Universität» el acento va en «tät».', e: 'Las palabras en -tät se acentúan al final.' },
-      { s: 'Fremdwörter lernt man am besten ___.', a: 'mit dem Akzent', d: ['ohne Akzent', 'nur geschrieben'], t: 'Los extranjerismos se aprenden mejor con su acento.', e: 'Cambiarlo después cuesta mucho.' }
+      { s: 'Fremdwörter lernt man am besten ___.', a: 'mit dem Akzent', d: ['ohne Akzent', 'nur geschrieben'], t: 'Los extranjerismos se aprenden mejor con su acento.', e: 'Cambiarlo después cuesta mucho.' },
+      { s: '„Student“ betont man auf ___.', a: 'dent', d: ['Stu', 'tu'], t: '«Student» se acentúa en «dent».', e: 'Los extranjerismos suelen acentuarse al final.' },
+      { s: '„Balkon“ hat den Akzent auf ___.', a: 'kon', d: ['Bal', 'beiden'], t: '«Balkon» lleva el acento en «kon».', e: 'Acento en la última sílaba.' },
+      { s: '„Familie“ betont man auf ___.', a: 'mi', d: ['Fa', 'lie'], t: '«Familie» se acentúa en «mi».', e: 'Aquí el acento va en medio.' },
+      { s: '„Büro“ hat den Akzent auf ___.', a: 'ro', d: ['Bü', 'beiden'], t: '«Büro» lleva el acento en «ro».', e: 'Del francés, con acento final.' },
+      { s: '„Adresse“ betont man auf ___.', a: 'dres', d: ['A', 'se'], t: '«Adresse» se acentúa en «dres».', e: 'Acento en la sílaba del medio.' },
+      { s: '„Salat“ hat den Akzent auf ___.', a: 'lat', d: ['Sa', 'beiden'], t: '«Salat» lleva el acento en «lat».', e: 'Acento en la última sílaba.' },
+      { s: 'Wörter auf -ieren betont man auf ___.', a: 'ie', d: ['der ersten Silbe', 'ren'], t: 'Las palabras en «-ieren» se acentúan en «ie».', e: 'studieren, telefonieren, reparieren.' },
+      { s: '„Zitrone“ betont man auf ___.', a: 'tro', d: ['Zi', 'ne'], t: '«Zitrone» se acentúa en «tro».', e: 'Acento en la sílaba del medio.' },
+      { s: 'Ein falscher Akzent macht das Wort oft ___.', a: 'unverständlich', d: ['schöner', 'kürzer'], t: 'Un acento mal puesto hace la palabra difícil de entender.', e: 'Por eso conviene aprender el acento con la palabra.' },
+      { s: '„Bibliothek“ hat den Akzent auf ___.', a: 'thek', d: ['Bi', 'blio'], t: '«Bibliothek» lleva el acento en «thek».', e: 'Extranjerismo con acento final.' }
     ]
   },
   'aussprache-satzakzent': {

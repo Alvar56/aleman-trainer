@@ -1021,7 +1021,17 @@ export const FRASE = {
       { s: 'Hast du Zeit, mir kurz ___ helfen?', a: 'zu', d: ['um zu', 'das'], t: '¿Tienes tiempo de ayudarme un momento?', e: 'Zeit haben + zu.' },
       { s: 'Er hat vor, im Sommer ___.', a: 'wegzufahren', d: ['wegfahren zu', 'zu wegfahren'], t: 'Tiene pensado irse en verano.', e: 'wegfahren es separable: el zu va dentro.' },
       { s: 'Ich kann heute nicht ___.', a: 'kommen', d: ['zu kommen', 'um zu kommen'], t: 'Hoy no puedo venir.', e: 'können no lleva zu.' },
-      { s: 'Vergiss nicht, den Koffer ___ packen.', a: 'zu', d: ['um zu', 'das'], t: 'No olvides hacer la maleta.', e: 'vergessen + zu.' }
+      { s: 'Vergiss nicht, den Koffer ___ packen.', a: 'zu', d: ['um zu', 'das'], t: 'No olvides hacer la maleta.', e: 'vergessen + zu.' },
+      { s: 'Ich hoffe, dich bald wieder ___ sehen.', a: 'zu', d: ['zum', 'um zu'], t: 'Espero verte pronto otra vez.', e: 'hoffen pide zu más infinitivo.' },
+      { s: 'Es macht Spaß, mit euch ___ kochen.', a: 'zu', d: ['zum', 'um'], t: 'Es divertido cocinar con vosotros.', e: 'Es macht Spaß, algo zu tun.' },
+      { s: 'Bei „anrufen“ heißt der zu-Infinitiv ___.', a: 'anzurufen', d: ['zu anrufen', 'anrufen zu'], t: 'En «anrufen» el infinitivo con zu es «anzurufen».', e: 'En los verbos separables el zu se mete en medio.' },
+      { s: 'Ich habe versprochen, früher ___ kommen.', a: 'zu', d: ['zum', 'um zu'], t: 'He prometido venir antes.', e: 'versprechen pide zu más infinitivo.' },
+      { s: 'Nach Modalverben steht ___.', a: 'kein zu', d: ['immer zu', 'manchmal zu'], t: 'Después de un verbo modal no va zu.', e: 'Ich muss gehen, no ich muss zu gehen.' },
+      { s: 'Sie hat beschlossen, ___ Hause zu bleiben.', a: 'zu', d: ['nach', 'in'], t: 'Ha decidido quedarse en casa.', e: 'zu Hause bleiben es la expresión fija.' },
+      { s: 'Er bittet mich, ihm ___ helfen.', a: 'zu', d: ['zum', 'um'], t: 'Me pide que le ayude.', e: 'bitten más zu e infinitivo.' },
+      { s: 'Ich habe keine Zeit, heute ___ kommen.', a: 'zu', d: ['zum', 'um zu'], t: 'No tengo tiempo de venir hoy.', e: 'Zeit haben, etwas zu tun.' },
+      { s: 'Wo steht der zu-Infinitiv im Satz?', a: 'am Ende', d: ['am Anfang', 'nach dem Subjekt'], t: '¿Dónde va el infinitivo con zu en la frase?', e: 'Siempre al final de su parte de la frase.' },
+      { s: 'Vor dem zu-Infinitiv steht oft ___.', a: 'ein Komma', d: ['ein Punkt', 'nichts'], t: 'Antes del infinitivo con zu suele ir una coma.', e: 'Ayuda a separar las dos partes de la frase.' }
     ]
   },
   'um-zu-final': {
@@ -1035,7 +1045,17 @@ export const FRASE = {
       { s: 'Wir nehmen ein Taxi, um nicht zu spät ___.', a: 'zu kommen', d: ['kommen', 'um zu kommen'], t: 'Cogemos un taxi para no llegar tarde.', e: 'zu + infinitivo al final.' },
       { s: 'Er steht früh auf, ___ in Ruhe zu frühstücken.', a: 'um', d: ['damit', 'weil'], t: 'Se levanta pronto para desayunar con calma.', e: 'Mismo sujeto: um … zu.' },
       { s: 'Ich schreibe es auf, um es nicht ___.', a: 'zu vergessen', d: ['vergessen', 'um zu vergessen'], t: 'Lo apunto para no olvidarlo.', e: 'El infinitivo con zu cierra.' },
-      { s: 'Sie lernt viel, ___ die Prüfung zu bestehen.', a: 'um', d: ['damit', 'dass'], t: 'Estudia mucho para aprobar el examen.', e: 'Finalidad con el mismo sujeto.' }
+      { s: 'Sie lernt viel, ___ die Prüfung zu bestehen.', a: 'um', d: ['damit', 'dass'], t: 'Estudia mucho para aprobar el examen.', e: 'Finalidad con el mismo sujeto.' },
+      { s: 'Ich gehe zum Arzt, ___ mich untersuchen zu lassen.', a: 'um', d: ['für', 'damit'], t: 'Voy al médico para que me examinen.', e: 'um … zu expresa la finalidad.' },
+      { s: 'Man benutzt um zu, wenn das Subjekt ___ ist.', a: 'gleich', d: ['verschieden', 'unbekannt'], t: 'Se usa «um zu» cuando el sujeto es el mismo.', e: 'Si cambia el sujeto, se usa damit.' },
+      { s: 'Sie arbeitet viel, ___ ihrer Familie zu helfen.', a: 'um', d: ['für', 'damit'], t: 'Trabaja mucho para ayudar a su familia.', e: 'Mismo sujeto en las dos partes: um … zu.' },
+      { s: 'Wir sparen, um ein Haus ___ kaufen.', a: 'zu', d: ['zum', 'um'], t: 'Ahorramos para comprar una casa.', e: 'El zu va justo delante del infinitivo final.' },
+      { s: 'Wo steht das Verb im um-zu-Satz?', a: 'am Ende', d: ['am Anfang', 'nach um'], t: '¿Dónde va el verbo en la frase con «um zu»?', e: 'Al final, detrás del zu.' },
+      { s: 'Er nimmt das Rad, ___ Geld zu sparen.', a: 'um', d: ['für', 'damit'], t: 'Coge la bici para ahorrar dinero.', e: 'Finalidad con el mismo sujeto.' },
+      { s: 'Ich rufe dich an, um dir alles ___ erklären.', a: 'zu', d: ['zum', 'um'], t: 'Te llamo para explicártelo todo.', e: 'um … zu, con el zu antes del infinitivo.' },
+      { s: 'Wenn die Subjekte verschieden sind, nimmt man ___.', a: 'damit', d: ['um zu', 'weil'], t: 'Si los sujetos son distintos se usa «damit».', e: 'Ich erkläre es, damit du es verstehst.' },
+      { s: 'Sie steht um fünf auf, ___ pünktlich zu sein.', a: 'um', d: ['für', 'damit'], t: 'Se levanta a las cinco para ser puntual.', e: 'Mismo sujeto: um … zu.' },
+      { s: 'Vor „um“ steht im Satz ___.', a: 'ein Komma', d: ['ein Punkt', 'nichts'], t: 'Antes de «um» va una coma.', e: 'Separa la parte principal de la final.' }
     ]
   },
   'wortstellung-nebensatz-wdh': {

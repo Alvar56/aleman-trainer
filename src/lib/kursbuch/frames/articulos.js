@@ -640,7 +640,17 @@ export const ARTICULOS = {
       { s: 'Mein ___ Schal ist aus Wolle.', a: 'neuer', d: ['neue', 'neues'], t: 'Mi bufanda nueva es de lana.', e: 'mein- también como ein-: -er en masculino.' },
       { s: 'Mit einem ___ Gürtel sieht es besser aus.', a: 'braunen', d: ['braune', 'brauner'], t: 'Con un cinturón marrón queda mejor.', e: 'Dativo masculino: einem + -en.' },
       { s: 'Das ist ein ___ Kleid für den Sommer.', a: 'leichtes', d: ['leichte', 'leichter'], t: 'Es un vestido ligero para el verano.', e: 'Neutro: -es.' },
-      { s: 'Ich brauche eine ___ Größe.', a: 'größere', d: ['größerer', 'größeres'], t: 'Necesito una talla más grande.', e: 'Femenino acusativo: -e.' }
+      { s: 'Ich brauche eine ___ Größe.', a: 'größere', d: ['größerer', 'größeres'], t: 'Necesito una talla más grande.', e: 'Femenino acusativo: -e.' },
+      { s: 'Sie trägt einen ___ Mantel aus Leder.', a: 'schwarzen', d: ['schwarzer', 'schwarze'], t: 'Lleva un abrigo negro de piel.', e: 'einen masculino en acusativo pide -en.' },
+      { s: 'Das war ein ___ Tag für uns alle.', a: 'langer', d: ['langen', 'lange'], t: 'Fue un día largo para todos.', e: 'ein masculino en nominativo pide -er.' },
+      { s: 'Wir haben ein ___ Zimmer bekommen.', a: 'kleines', d: ['kleiner', 'kleinen'], t: 'Nos han dado una habitación pequeña.', e: 'ein neutro pide -es.' },
+      { s: 'Er hat eine ___ Stimme.', a: 'tiefe', d: ['tiefer', 'tiefen'], t: 'Tiene una voz grave.', e: 'eine femenino pide -e.' },
+      { s: 'Mit einer ___ Jacke wird dir warm.', a: 'dicken', d: ['dicke', 'dicker'], t: 'Con una chaqueta gruesa entrarás en calor.', e: 'einer en dativo pide -en.' },
+      { s: 'Ich habe keinen ___ Schuh gefunden.', a: 'passenden', d: ['passender', 'passende'], t: 'No he encontrado ningún zapato que me valga.', e: 'keinen se comporta como einen: -en.' },
+      { s: 'Das ist ein ___ Preis für diese Qualität.', a: 'guter', d: ['gutes', 'guten'], t: 'Es un buen precio para esta calidad.', e: 'der Preis es masculino: ein guter Preis.' },
+      { s: 'Sie sucht eine ___ Wohnung im Zentrum.', a: 'günstige', d: ['günstiger', 'günstigen'], t: 'Busca un piso barato en el centro.', e: 'eine femenino en acusativo sigue siendo -e.' },
+      { s: 'Er kam mit einem ___ Koffer an.', a: 'schweren', d: ['schwerer', 'schweres'], t: 'Llegó con una maleta pesada.', e: 'einem en dativo pide -en.' },
+      { s: 'Das ist ein ___ Problem, kein kleines.', a: 'großes', d: ['großer', 'großen'], t: 'Es un problema grande, no pequeño.', e: 'das Problem es neutro: ein großes Problem.' }
     ]
   },
   'welche-groesse-akkusativ': {
@@ -654,7 +664,17 @@ export const ARTICULOS = {
       { s: '___ Pullover ist im Angebot?', a: 'Welcher', d: ['Welchen', 'Welches'], t: '¿Qué jersey está de oferta?', e: 'Nominativo masculino: welcher.' },
       { s: 'Mit ___ Karte zahlen Sie?', a: 'welcher', d: ['welche', 'welchen'], t: '¿Con qué tarjeta paga?', e: 'mit + dativo femenino: welcher.' },
       { s: '___ Rock steht mir besser?', a: 'Welcher', d: ['Welchen', 'Welches'], t: '¿Qué falda me queda mejor?', e: 'der Rock, nominativo: welcher.' },
-      { s: '___ Größe brauchen die Kinder?', a: 'Welche', d: ['Welchen', 'Welcher'], t: '¿Qué talla necesitan los niños?', e: 'die Größe, acusativo: welche.' }
+      { s: '___ Größe brauchen die Kinder?', a: 'Welche', d: ['Welchen', 'Welcher'], t: '¿Qué talla necesitan los niños?', e: 'die Größe, acusativo: welche.' },
+      { s: '___ Jacke möchten Sie anprobieren?', a: 'Welche', d: ['Welchen', 'Welches'], t: '¿Qué chaqueta quiere probarse?', e: 'die Jacke femenino en acusativo: welche.' },
+      { s: '___ Hemd soll ich zum Anzug tragen?', a: 'Welches', d: ['Welcher', 'Welchen'], t: '¿Qué camisa me pongo con el traje?', e: 'das Hemd neutro: welches.' },
+      { s: '___ Anzug hast du gekauft?', a: 'Welchen', d: ['Welcher', 'Welches'], t: '¿Qué traje has comprado?', e: 'der Anzug masculino en acusativo: welchen.' },
+      { s: 'In ___ Farbe möchten Sie den Mantel?', a: 'welcher', d: ['welche', 'welchen'], t: '¿En qué color quiere el abrigo?', e: 'in más dativo femenino: welcher.' },
+      { s: '___ Hose passt dir am besten?', a: 'Welche', d: ['Welcher', 'Welches'], t: '¿Qué pantalón te queda mejor?', e: 'die Hose femenino en nominativo: welche.' },
+      { s: 'Aus ___ Material ist der Schal?', a: 'welchem', d: ['welches', 'welcher'], t: '¿De qué material es la bufanda?', e: 'aus más dativo neutro: welchem.' },
+      { s: '___ Größe haben Sie bei Hemden?', a: 'Welche', d: ['Welchen', 'Welcher'], t: '¿Qué talla tiene en camisas?', e: 'die Größe femenino en acusativo: welche.' },
+      { s: '___ Schuhe gefallen dir?', a: 'Welche', d: ['Welcher', 'Welches'], t: '¿Qué zapatos te gustan?', e: 'En plural siempre welche.' },
+      { s: 'Zu ___ Preis bekomme ich das?', a: 'welchem', d: ['welchen', 'welcher'], t: '¿A qué precio me lo llevo?', e: 'zu más dativo masculino: welchem.' },
+      { s: '___ Kleid soll ich zur Feier anziehen?', a: 'Welches', d: ['Welcher', 'Welchen'], t: '¿Qué vestido me pongo para la fiesta?', e: 'das Kleid neutro en acusativo: welches.' }
     ]
   },
   'adjektiv-ohne-artikel': {

@@ -398,7 +398,17 @@ export const MODALES = {
       { s: 'Ich ___ keine Zwiebeln, danke.', a: 'mag', d: ['möchte will', 'will mag'], t: 'No me gusta la cebolla, gracias.', e: 'Gusto: mögen.' },
       { s: 'Was ___ ihr trinken?', a: 'möchtet', d: ['mögt', 'wollt'], t: '¿Qué queréis beber?', e: 'Con ihr: möchtet.' },
       { s: 'Sie ___ auf keinen Fall umziehen.', a: 'will', d: ['mag', 'möchte'], t: 'No quiere mudarse de ninguna manera.', e: 'Voluntad fuerte: wollen.' },
-      { s: 'In einem Geschäft klingt „ich will“ ___.', a: 'unhöflich', d: ['höflich', 'normal'], t: 'En una tienda «ich will» suena brusco.', e: 'Mejor ich möchte.' }
+      { s: 'In einem Geschäft klingt „ich will“ ___.', a: 'unhöflich', d: ['höflich', 'normal'], t: 'En una tienda «ich will» suena brusco.', e: 'Mejor ich möchte.' },
+      { s: 'Ich ___ am Wochenende lieber ausschlafen.', a: 'möchte', d: ['mag', 'will'], t: 'El fin de semana preferiría dormir hasta tarde.', e: 'möchte para un deseo suave.' },
+      { s: '___ du mich morgen abholen?', a: 'Willst', d: ['Magst', 'Möchtest du wollen'], t: '¿Me quieres recoger mañana?', e: 'wollen para preguntar por la voluntad.' },
+      { s: 'Meine Tochter ___ keine Milch.', a: 'mag', d: ['möchte', 'will'], t: 'A mi hija no le gusta la leche.', e: 'Gusto general: mögen.' },
+      { s: 'Wir ___ am Samstag ins Kino gehen.', a: 'wollen', d: ['mögen', 'möchten gehen wollen'], t: 'El sábado queremos ir al cine.', e: 'Un plan decidido: wollen.' },
+      { s: '___ ihr noch etwas Nachtisch?', a: 'Möchtet', d: ['Mögt', 'Wollt'], t: '¿Queréis más postre?', e: 'Ofrecer con educación: möchten.' },
+      { s: 'Ich ___ klassische Musik sehr gern.', a: 'mag', d: ['möchte', 'will'], t: 'Me gusta mucho la música clásica.', e: 'mögen para lo que te gusta en general.' },
+      { s: 'Er ___ Arzt werden, das steht fest.', a: 'will', d: ['mag', 'möchte'], t: 'Quiere ser médico, está decidido.', e: 'Decisión firme: wollen.' },
+      { s: '___ Sie einen Tisch am Fenster?', a: 'Möchten', d: ['Mögen', 'Wollen'], t: '¿Quiere una mesa junto a la ventana?', e: 'En un local siempre möchten.' },
+      { s: '„möchten“ ist eigentlich die Form von ___.', a: 'mögen', d: ['wollen', 'müssen'], t: '«möchten» es en realidad la forma de «mögen».', e: 'Es el Konjunktiv II de mögen.' },
+      { s: 'Ich ___ diesen Film nicht besonders.', a: 'mag', d: ['möchte', 'will'], t: 'Esta película no me gusta especialmente.', e: 'Opinión sobre algo: mögen.' }
     ]
   },
   'moechten-anbieten-nehmen': {
