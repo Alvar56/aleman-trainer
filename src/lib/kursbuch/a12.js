@@ -262,72 +262,56 @@ export const A12 = {
           funktion: 'über den Tagesablauf berichten',
           es: 'Contar la rutina del día',
           wendungen: [
-            { de: 'Wie war dein Tag? – Ganz gut, danke.', es: '¿Qué tal tu día? – Bastante bien, gracias.' },
-            { de: 'Was hast du am Wochenende gemacht?', es: '¿Qué hiciste el fin de semana?' },
-            { de: 'Was hast du gestern Abend gemacht?', es: '¿Qué hiciste ayer por la tarde?' }
+            { de: 'Wie war dein Tag? – Ganz gut, danke.', es: '¿Qué tal tu día? – Bastante bien, gracias.' }
           ]
         },
         {
           funktion: 'über besondere Erlebnisse im Alltag berichten',
           es: 'Contar anécdotas y experiencias cotidianas',
           wendungen: [
-            { de: 'Ich habe den Zug verpasst.', es: 'He perdido el tren.' },
-            { de: 'Vorhin hat deine Mutter angerufen.', es: 'Hace un rato llamó tu madre.' },
-            { de: 'Wir waren letztes Wochenende in Salzburg.', es: 'El fin de semana pasado estuvimos en Salzburgo.' }
+            { de: 'Ich habe den Zug verpasst.', es: 'He perdido el tren.' }
           ]
         },
         {
           funktion: 'Interesse und Erstaunen signalisieren',
           es: 'Mostrar interés y sorpresa',
           wendungen: [
-            { de: 'Echt? · Wirklich? · Ach so!', es: '¿En serio? · ¿De verdad? · ¡Ah, vale!' },
-            { de: 'Im Ernst?', es: '¿Pero en serio?' },
-            { de: 'Was für ein Zufall!', es: '¡Qué casualidad!' }
+            { de: 'Echt? · Wirklich? · Ach so!', es: '¿En serio? · ¿De verdad? · ¡Ah, vale!' }
           ]
         },
         {
           funktion: 'überrascht reagieren und nachhaken',
           es: 'Reaccionar con sorpresa e indagar',
           wendungen: [
-            { de: 'Im Ernst? Das wusste ich gar nicht.', es: '¿En serio? No lo sabía.' },
-            { de: 'So ein Zufall, das glaube ich kaum!', es: '¡Qué casualidad, casi no me lo creo!' },
-            { de: 'Im Ernst? Das ist ja unglaublich.', es: '¿En serio? Es increíble.' }
+            { de: 'Im Ernst? Das wusste ich gar nicht.', es: '¿En serio? No lo sabía.' }
           ]
         },
         {
           funktion: 'Smalltalk führen',
           es: 'Hacer conversación informal (Smalltalk)',
           wendungen: [
-            { de: 'Schönes Wetter heute, oder?', es: 'Buen tiempo hoy, ¿no?' },
-            { de: 'Ist hier noch frei?', es: '¿Está libre aquí?' },
-            { de: 'Kennen wir uns nicht von irgendwoher?', es: '¿No nos conocemos de algo?' }
+            { de: 'Schönes Wetter heute, oder?', es: 'Buen tiempo hoy, ¿no?' }
           ]
         },
         {
           funktion: 'Wartezeiten und Situationen kommentieren',
           es: 'Comentar situaciones y tiempos de espera',
           wendungen: [
-            { de: 'Warten Sie schon lange?', es: '¿Lleva mucho esperando?' },
-            { de: 'Schönes Wetter heute, nicht wahr?', es: 'Buen tiempo hoy, ¿verdad?' },
-            { de: 'Ich habe mich gestern richtig erschrocken.', es: 'Ayer me llevé un buen susto.' }
+            { de: 'Warten Sie schon lange?', es: '¿Lleva mucho esperando?' }
           ]
         },
         {
           funktion: 'über Lebensstationen und Migration sprechen',
           es: 'Hablar de etapas de la vida y migración',
           wendungen: [
-            { de: '2015 bin ich nach Österreich gekommen.', es: 'En 2015 vine a Austria.' },
-            { de: 'Am Anfang habe ich fast nichts verstanden.', es: 'Al principio no entendía casi nada.' },
-            { de: 'Meine Familie ist ein Jahr später nachgekommen.', es: 'Mi familia vino un año después.' }
+            { de: '2015 bin ich nach Österreich gekommen.', es: 'En 2015 vine a Austria.' }
           ]
         },
         {
           funktion: 'Gespräche ablehnen oder vertagen',
           es: 'Rechazar o posponer una conversación',
           wendungen: [
-            { de: 'Ich möchte lieber nicht darüber sprechen.', es: 'Prefiero no hablar de eso.' },
-            { de: 'Entschuldigung, ich habe es eilig.', es: 'Perdona, tengo prisa.' },
-            { de: 'Ich bin heute nicht besonders gesprächig.', es: 'Hoy no estoy muy hablador.' }
+            { de: 'Ich möchte lieber nicht darüber sprechen.', es: 'Prefiero no hablar de eso.' }
           ]
         }
       ]
@@ -579,72 +563,56 @@ export const A12 = {
           funktion: 'nach dem Weg fragen',
           es: 'Preguntar por el camino',
           wendungen: [
-            { de: 'Entschuldigung, wie komme ich zum Rathaus?', es: 'Perdone, ¿cómo llego al ayuntamiento?' },
-            { de: 'Entschuldigung, wo ist die Post?', es: 'Perdone, ¿dónde está correos?' },
-            { de: 'Bin ich hier richtig zum Bahnhof?', es: '¿Voy bien por aquí a la estación?' }
+            { de: 'Entschuldigung, wie komme ich zum Rathaus?', es: 'Perdone, ¿cómo llego al ayuntamiento?' }
           ]
         },
         {
           funktion: 'den Fußweg beschreiben',
           es: 'Describir el camino a pie',
           wendungen: [
-            { de: 'Ist es weit von hier? – Nein, fünf Minuten zu Fuß.', es: '¿Está lejos? – No, cinco minutos a pie.' },
-            { de: 'Ist das zu Fuß zu schaffen?', es: '¿Se puede llegar andando?' },
-            { de: 'Ist die Post hier in der Nähe?', es: '¿Está cerca la oficina de correos?' }
+            { de: 'Ist es weit von hier? – Nein, fünf Minuten zu Fuß.', es: '¿Está lejos? – No, cinco minutos a pie.' }
           ]
         },
         {
           funktion: 'nach Haltestellen und Linien im Nahverkehr fragen',
           es: 'Preguntar por paradas y líneas de transporte público',
           wendungen: [
-            { de: 'Welche Linie muss ich nehmen?', es: '¿Qué línea tengo que coger?' },
-            { de: 'Welche Linie fährt zum Flughafen?', es: '¿Qué línea va al aeropuerto?' },
-            { de: 'Wann fährt der letzte Bus?', es: '¿Cuándo pasa el último autobús?' }
+            { de: 'Welche Linie muss ich nehmen?', es: '¿Qué línea tengo que coger?' }
           ]
         },
         {
           funktion: 'im Nahverkehr den Weg erklären',
           es: 'Explicar la ruta en transporte público',
           wendungen: [
-            { de: 'Nehmen Sie die U3 und steigen Sie bei Stephansplatz um.', es: 'Coja la U3 y haga transbordo en Stephansplatz.' },
-            { de: 'Wo kann ich eine Fahrkarte kaufen?', es: '¿Dónde compro un billete?' },
-            { de: 'Der Zug hat zwanzig Minuten Verspätung.', es: 'El tren lleva veinte minutos de retraso.' }
+            { de: 'Nehmen Sie die U3 und steigen Sie bei Stephansplatz um.', es: 'Coja la U3 y haga transbordo en Stephansplatz.' }
           ]
         },
         {
           funktion: 'Tickets und Fahrkarten kaufen',
           es: 'Comprar billetes y abonos',
           wendungen: [
-            { de: 'Die Fahrkarten, bitte.', es: 'Los billetes, por favor.' },
-            { de: 'Lohnt sich eine Monatskarte für mich?', es: '¿Me compensa un abono mensual?' },
-            { de: 'Der Automat nimmt meine Karte nicht.', es: 'La máquina no acepta mi tarjeta.' }
+            { de: 'Die Fahrkarten, bitte.', es: 'Los billetes, por favor.' }
           ]
         },
         {
           funktion: 'im Zug und am Bahnsteig nachfragen',
           es: 'Preguntar en el tren y en el andén',
           wendungen: [
-            { de: 'Ist dieser Platz noch frei?', es: '¿Está libre este sitio?' },
-            { de: 'Von welchem Bahnsteig fährt der Zug?', es: '¿De qué andén sale el tren?' },
-            { de: 'Gibt es hier WLAN?', es: '¿Hay wifi aquí?' }
+            { de: 'Ist dieser Platz noch frei?', es: '¿Está libre este sitio?' }
           ]
         },
         {
           funktion: 'Orientierungsprobleme äußern',
           es: 'Expresar problemas de orientación',
           wendungen: [
-            { de: 'Ich habe mich verlaufen.', es: 'Me he perdido.' },
-            { de: 'Ich habe mich total verfahren.', es: 'Me he perdido completamente.' },
-            { de: 'Hier ist eine Baustelle, die Straße ist gesperrt.', es: 'Aquí hay obras, la calle está cortada.' }
+            { de: 'Ich habe mich verlaufen.', es: 'Me he perdido.' }
           ]
         },
         {
           funktion: 'Probleme unterwegs lösen',
           es: 'Resolver percances en el camino',
           wendungen: [
-            { de: 'Wir stehen seit einer Stunde im Stau.', es: 'Llevamos una hora en el atasco.' },
-            { de: 'Ich habe meine Fahrkarte verloren.', es: 'He perdido mi billete.' },
-            { de: 'Wir haben kein Benzin mehr.', es: 'Nos hemos quedado sin gasolina.' }
+            { de: 'Wir stehen seit einer Stunde im Stau.', es: 'Llevamos una hora en el atasco.' }
           ]
         }
       ]
@@ -910,72 +878,56 @@ export const A12 = {
           funktion: 'über Wohnungsmerkmale sprechen',
           es: 'Hablar de las características de la vivienda',
           wendungen: [
-            { de: 'Die Wohnung hat 60 m² und zwei Zimmer.', es: 'El piso tiene 60 m² y dos habitaciones.' },
-            { de: 'Ist die Gegend ruhig?', es: '¿La zona es tranquila?' },
-            { de: 'Altbau oder Neubau, was ist dir lieber?', es: '¿Edificio antiguo o nuevo, qué prefieres?' }
+            { de: 'Die Wohnung hat 60 m² und zwei Zimmer.', es: 'El piso tiene 60 m² y dos habitaciones.' }
           ]
         },
         {
           funktion: 'nach Mietkosten und Bedingungen fragen',
           es: 'Preguntar por gastos de alquiler y condiciones',
           wendungen: [
-            { de: 'Wie hoch ist die Miete?', es: '¿Cuánto es el alquiler?' },
-            { de: 'Wie viel Kaution muss ich zahlen?', es: '¿Cuánta fianza hay que pagar?' },
-            { de: 'Der Strom ist in der Miete nicht dabei.', es: 'La luz no está incluida en el alquiler.' }
+            { de: 'Wie hoch ist die Miete?', es: '¿Cuánto es el alquiler?' }
           ]
         },
         {
           funktion: 'Wohnungsdetails und Ausstattung erfragen',
           es: 'Preguntar por detalles del piso y equipamiento',
           wendungen: [
-            { de: 'Wie groß ist die Wohnung?', es: '¿Cuántos metros tiene el piso?' },
-            { de: 'Die Küche ist klein, aber hell.', es: 'La cocina es pequeña, pero luminosa.' },
-            { de: 'Sind Haustiere erlaubt?', es: '¿Se admiten mascotas?' }
+            { de: 'Wie groß ist die Wohnung?', es: '¿Cuántos metros tiene el piso?' }
           ]
         },
         {
           funktion: 'Wohnungsbesichtigung und Einzug planen',
           es: 'Planificar visitas al piso y mudanza',
           wendungen: [
-            { de: 'Wir suchen seit drei Monaten eine Wohnung.', es: 'Llevamos tres meses buscando piso.' },
-            { de: 'Ab wann kann ich einziehen?', es: '¿A partir de cuándo puedo mudarme?' },
-            { de: 'Ist eine Küche schon eingebaut?', es: '¿Lleva cocina montada?' }
+            { de: 'Wir suchen seit drei Monaten eine Wohnung.', es: 'Llevamos tres meses buscando piso.' }
           ]
         },
         {
           funktion: 'Gefallen und Missfallen ausdrücken',
           es: 'Expresar agrado o desagrado',
           wendungen: [
-            { de: 'Das gefällt mir (nicht).', es: 'Eso (no) me gusta.' },
-            { de: 'Die Küche finde ich zu dunkel.', es: 'La cocina me parece demasiado oscura.' },
-            { de: 'Mir gefällt die Aussicht am besten.', es: 'Lo que más me gusta son las vistas.' }
+            { de: 'Das gefällt mir (nicht).', es: 'Eso (no) me gusta.' }
           ]
         },
         {
           funktion: 'Möbel und Einrichtung bewerten',
           es: 'Valorar muebles y decoración',
           wendungen: [
-            { de: 'Wie findest du die neue Küche?', es: '¿Qué te parece la cocina nueva?' },
-            { de: 'Mir gefällt der Boden ausgesprochen gut.', es: 'El suelo me gusta muchísimo.' },
-            { de: 'Haben Sie dieses Regal auch in Weiß?', es: '¿Tienen esta estantería también en blanco?' }
+            { de: 'Wie findest du die neue Küche?', es: '¿Qué te parece la cocina nueva?' }
           ]
         },
         {
           funktion: 'im Möbelhaus nach Produkten fragen',
           es: 'Preguntar por productos en la tienda de muebles',
           wendungen: [
-            { de: 'Haben Sie auch Regale?', es: '¿Tienen también estanterías?' },
-            { de: 'Muss ich den Schrank selbst aufbauen?', es: '¿Tengo que montar yo el armario?' },
-            { de: 'Passt das Regal in einen normalen Kofferraum?', es: '¿La estantería cabe en un maletero normal?' }
+            { de: 'Haben Sie auch Regale?', es: '¿Tienen también estanterías?' }
           ]
         },
         {
           funktion: 'mit Nachbarn und Mitbewohnern sprechen',
           es: 'Hablar con vecinos y compañeros de piso',
           wendungen: [
-            { de: 'Guten Tag, wir sind neu eingezogen.', es: 'Buenos días, nos acabamos de mudar aquí.' },
-            { de: 'Wann wird der Müll abgeholt?', es: '¿Cuándo recogen la basura?' },
-            { de: 'Könnten Sie ein Paket für mich annehmen?', es: '¿Podría recogerme un paquete?' }
+            { de: 'Guten Tag, wir sind neu eingezogen.', es: 'Buenos días, nos acabamos de mudar aquí.' }
           ]
         }
       ]
@@ -1233,72 +1185,56 @@ export const A12 = {
           funktion: 'sich im Amt informieren',
           es: 'Informarse en la administración',
           wendungen: [
-            { de: 'Entschuldigung, bin ich hier richtig?', es: 'Perdone, ¿es aquí?' },
-            { de: 'Können Sie mir bitte helfen?', es: '¿Me puede ayudar, por favor?' },
-            { de: 'Welche Unterlagen muss ich mitbringen?', es: '¿Qué documentación tengo que traer?' }
+            { de: 'Entschuldigung, bin ich hier richtig?', es: 'Perdone, ¿es aquí?' }
           ]
         },
         {
           funktion: 'Verfahren und Formalitäten klären',
           es: 'Aclarar trámites y formalidades',
           wendungen: [
-            { de: 'Wer ist für diesen Fall zuständig?', es: '¿Quién se encarga de este caso?' },
-            { de: 'Kann ich den Antrag auch per Post schicken?', es: '¿Puedo enviar la solicitud también por correo?' },
-            { de: 'Fehlt noch etwas in meinem Antrag?', es: '¿Falta algo en mi solicitud?' }
+            { de: 'Wer ist für diesen Fall zuständig?', es: '¿Quién se encarga de este caso?' }
           ]
         },
         {
           funktion: 'ein formelles Telefonat beenden',
           es: 'Terminar una llamada formal',
           wendungen: [
-            { de: 'Vielen Dank für Ihre Hilfe.', es: 'Muchas gracias por su ayuda.' },
-            { de: 'Könnten Sie mir das schriftlich bestätigen?', es: '¿Me lo podría confirmar por escrito?' },
-            { de: 'Entschuldigen Sie die Störung.', es: 'Disculpe la molestia.' }
+            { de: 'Vielen Dank für Ihre Hilfe.', es: 'Muchas gracias por su ayuda.' }
           ]
         },
         {
           funktion: 'um Erlaubnis bitten',
           es: 'Pedir permiso',
           wendungen: [
-            { de: 'Darf ich hier parken?', es: '¿Puedo aparcar aquí?' },
-            { de: 'Ist es erlaubt, hier zu fotografieren?', es: '¿Está permitido hacer fotos aquí?' },
-            { de: 'Kann ich das Fenster aufmachen?', es: '¿Se puede abrir la ventana?' }
+            { de: 'Darf ich hier parken?', es: '¿Puedo aparcar aquí?' }
           ]
         },
         {
           funktion: 'Erlaubnis und Verbot ausdrücken',
           es: 'Expresar permiso y prohibición',
           wendungen: [
-            { de: 'Ja, das dürfen Sie. / Nein, das ist verboten.', es: 'Sí, puede. / No, está prohibido.' },
-            { de: 'Darf man hier mit dem Rad fahren?', es: '¿Se puede circular aquí en bici?' },
-            { de: 'Ist diese Angabe verpflichtend?', es: '¿Este dato es obligatorio?' }
+            { de: 'Ja, das dürfen Sie. / Nein, das ist verboten.', es: 'Sí, puede. / No, está prohibido.' }
           ]
         },
         {
           funktion: 'Auskunft über Gewohnheiten geben',
           es: 'Informar sobre rutinas y hábitos',
           wendungen: [
-            { de: 'Normalerweise arbeite ich bis 17 Uhr.', es: 'Normalmente trabajo hasta las 17.' },
-            { de: 'Am Wochenende stehe ich nie vor neun auf.', es: 'El fin de semana nunca me levanto antes de las nueve.' },
-            { de: 'Ich vereinbare Termine immer online.', es: 'Las citas las concierto siempre por internet.' }
+            { de: 'Normalerweise arbeite ich bis 17 Uhr.', es: 'Normalmente trabajo hasta las 17.' }
           ]
         },
         {
           funktion: 'Vorschläge machen und darauf reagieren',
           es: 'Hacer propuestas y responder a ellas',
           wendungen: [
-            { de: 'Sollen wir das zusammen machen?', es: '¿Lo hacemos juntos?' },
-            { de: 'Ich schlage Freitag vor.', es: 'Propongo el viernes.' },
-            { de: 'Kannst du das übernehmen?', es: '¿Te puedes encargar tú?' }
+            { de: 'Sollen wir das zusammen machen?', es: '¿Lo hacemos juntos?' }
           ]
         },
         {
           funktion: 'schriftliche Anträge und Schreiben formulieren',
           es: 'Formular solicitudes por escrito',
           wendungen: [
-            { de: 'Wie beginne ich so ein Schreiben?', es: '¿Cómo empiezo una carta así?' },
-            { de: 'Hiermit beantrage ich eine Verlängerung.', es: 'Por la presente solicito una prórroga.' },
-            { de: 'Ich bitte um eine Bestätigung.', es: 'Ruego un justificante.' }
+            { de: 'Wie beginne ich so ein Schreiben?', es: '¿Cómo empiezo una carta así?' }
           ]
         }
       ]
@@ -1558,128 +1494,56 @@ export const A12 = {
           funktion: 'Warnungen und Anweisungen aussprechen',
           es: 'Dar avisos e instrucciones médicas',
           wendungen: [
-            { de: 'Vorsicht! · Pass auf!', es: '¡Cuidado! · ¡Ten cuidado!' },
-            { de: 'Nehmen Sie bitte Platz.', es: 'Tome asiento, por favor.' },
-            { de: 'Vorsicht, der Boden ist nass!', es: '¡Cuidado, el suelo está mojado!' },
-            { de: 'Pass auf, das Wasser ist heiß.', es: 'Ten cuidado, el agua está caliente.' },
-            { de: 'Nehmen Sie bitte im Wartezimmer Platz.', es: 'Siéntese en la sala de espera, por favor.' },
-            { de: 'Bitte bewegen Sie den Arm nicht.', es: 'No mueva el brazo, por favor.' },
-            { de: 'Achtung, hier ist eine Stufe.', es: 'Atención, aquí hay un escalón.' },
-            { de: 'Könnten Sie bitte einen Moment warten?', es: '¿Podría esperar un momento, por favor?' },
-            { de: 'Bitte nehmen Sie die Tabletten nicht auf leeren Magen.', es: 'No tome las pastillas en ayunas, por favor.' },
-            { de: 'Fassen Sie die Wunde bitte nicht an.', es: 'No se toque la herida, por favor.' }
+            { de: 'Vorsicht! · Pass auf!', es: '¡Cuidado! · ¡Ten cuidado!' }
           ]
         },
         {
           funktion: 'Verhaltensregeln bei Krankheit beachten',
           es: 'Seguir recomendaciones de salud',
           wendungen: [
-            { de: 'Atmen Sie bitte ruhig weiter.', es: 'Siga respirando con calma, por favor.' },
-            { de: 'Vorsicht, die Wunde darf nicht nass werden.', es: 'Cuidado, la herida no se puede mojar.' },
-            { de: 'Bitte rauchen Sie vor der Operation nicht.', es: 'No fume antes de la operación, por favor.' },
-            { de: 'Achtung, diese Tablette hat Nebenwirkungen.', es: 'Atención, esta pastilla tiene efectos secundarios.' },
-            { de: 'Pass auf, die Stufe ist sehr hoch!', es: '¡Cuidado, el escalón es muy alto!' },
-            { de: 'Nehmen Sie die Tabletten bitte regelmäßig.', es: 'Tome las pastillas con regularidad, por favor.' },
-            { de: 'Heben Sie bitte nichts Schweres.', es: 'No levante nada pesado, por favor.' },
-            { de: 'Wo genau tut es weh?', es: '¿Dónde exactamente le duele?' },
-            { de: 'Seit wann haben Sie die Beschwerden?', es: '¿Desde cuándo tiene las molestias?' },
-            { de: 'Ist der Schmerz eher stechend oder dumpf?', es: '¿El dolor es más punzante o sordo?' }
+            { de: 'Wo genau tut es weh?', es: '¿Dónde exactamente le duele?' }
           ]
         },
         {
           funktion: 'Schmerzen und Symptome beschreiben',
           es: 'Describir dolores y síntomas',
           wendungen: [
-            { de: 'Mein Kopf tut weh.', es: 'Me duele la cabeza.' },
-            { de: 'Ich habe Halsschmerzen und Fieber.', es: 'Tengo dolor de garganta y fiebre.' },
-            { de: 'Mir tut der Rücken weh.', es: 'Me duele la espalda.' },
-            { de: 'Ich habe seit Tagen Kopfschmerzen.', es: 'Llevo días con dolor de cabeza.' },
-            { de: 'Ich fühle mich nicht gut.', es: 'No me encuentro bien.' },
-            { de: 'Ich habe Fieber.', es: 'Tengo fiebre.' },
-            { de: 'Ich habe seit drei Tagen Rückenschmerzen.', es: 'Llevo tres días con dolor de espalda.' },
-            { de: 'Mein Knie tut beim Gehen weh.', es: 'Me duele la rodilla al andar.' },
-            { de: 'Mir ist seit heute Morgen übel.', es: 'Tengo náuseas desde esta mañana.' },
-            { de: 'Ich fühle mich schwach und müde.', es: 'Me siento débil y cansado.' }
+            { de: 'Mein Kopf tut weh.', es: 'Me duele la cabeza.' }
           ]
         },
         {
           funktion: 'körperliche Beschwerden schildern',
           es: 'Detallar problemas físicos',
           wendungen: [
-            { de: 'Der Hals tut beim Schlucken weh.', es: 'Me duele la garganta al tragar.' },
-            { de: 'Mir ist plötzlich schwindlig geworden.', es: 'De repente me he mareado.' },
-            { de: 'Ich habe Fieber, achtunddreißig fünf.', es: 'Tengo fiebre, treinta y ocho y medio.' },
-            { de: 'Der Bauch tut mir seit gestern weh.', es: 'Me duele la barriga desde ayer.' },
-            { de: 'Ich habe mich beim Sport verletzt.', es: 'Me he lesionado haciendo deporte.' },
-            { de: 'Die Schmerzen kommen und gehen.', es: 'Los dolores van y vienen.' },
-            { de: 'Der Schmerz ist scharf, nicht dumpf.', es: 'El dolor es agudo, no sordo.' },
-            { de: 'Ich kann kaum tief atmen.', es: 'Casi no puedo respirar hondo.' },
-            { de: 'Die Wunde blutet immer wieder.', es: 'La herida sangra una y otra vez.' },
-            { de: 'Meine Haut juckt seit Tagen.', es: 'Me pica la piel desde hace días.' }
+            { de: 'Der Hals tut beim Schlucken weh.', es: 'Me duele la garganta al tragar.' }
           ]
         },
         {
           funktion: 'über das Befinden sprechen',
           es: 'Hablar de cómo te encuentras',
           wendungen: [
-            { de: 'Wie geht es dir? – Nicht so gut.', es: '¿Cómo estás? – No muy bien.' },
-            { de: 'Heute fühle ich mich schon viel besser.', es: 'Hoy ya me siento mucho mejor.' },
-            { de: 'Mir geht es leider gar nicht gut.', es: 'No me encuentro nada bien.' },
-            { de: 'Ich war zwei Wochen im Krankenstand.', es: 'Estuve dos semanas de baja.' },
-            { de: 'Die Diagnose war zum Glück harmlos.', es: 'Por suerte el diagnóstico fue inofensivo.' },
-            { de: 'Nach der Operation geht es mir besser.', es: 'Después de la operación me encuentro mejor.' },
-            { de: 'Mein Vater ist im Krankenhaus.', es: 'Mi padre está en el hospital.' },
-            { de: 'Ich schlafe seit Wochen schlecht.', es: 'Llevo semanas durmiendo mal.' },
-            { de: 'Wie geht es dir nach der Operation?', es: '¿Cómo estás después de la operación?' },
-            { de: 'Das klingt gar nicht gut.', es: 'Eso no suena nada bien.' }
+            { de: 'Wie geht es dir? – Nicht so gut.', es: '¿Cómo estás? – No muy bien.' }
           ]
         },
         {
           funktion: 'Mitgefühl ausdrücken und Hilfe anbieten',
           es: 'Mostrar empatía y ofrecer ayuda',
           wendungen: [
-            { de: 'Gute Besserung! · Das tut mir leid.', es: '¡Que te mejores! · Lo siento.' },
-            { de: 'Gute Besserung, werde schnell gesund!', es: '¡Que te mejores, recupérate pronto!' },
-            { de: 'Das tut mir wirklich leid für dich.', es: 'Lo siento de verdad por ti.' },
-            { de: 'Wie geht es deiner Mutter jetzt?', es: '¿Cómo está tu madre ahora?' },
-            { de: 'Brauchst du irgendetwas aus der Apotheke?', es: '¿Necesitas algo de la farmacia?' },
-            { de: 'Ruh dich aus, die Arbeit läuft nicht weg.', es: 'Descansa, el trabajo no se va a escapar.' },
-            { de: 'Melde dich, wenn du etwas brauchst.', es: 'Avísame si necesitas algo.' },
-            { de: 'Gute Besserung, ruh dich gut aus!', es: '¡Que te mejores, descansa bien!' },
-            { de: 'Was soll ich tun?', es: '¿Qué hago?' },
-            { de: 'Du solltest zum Arzt gehen.', es: 'Deberías ir al médico.' }
+            { de: 'Gute Besserung! · Das tut mir leid.', es: '¡Que te mejores! · Lo siento.' }
           ]
         },
         {
           funktion: 'ärztlichen Rat einholen und Ratschläge geben',
           es: 'Pedir consejo médico y dar recomendaciones',
           wendungen: [
-            { de: 'Was würden Sie mir raten?', es: '¿Qué me aconsejaría?' },
-            { de: 'Was hilft gegen Husten?', es: '¿Qué va bien para la tos?' },
-            { de: 'Soll ich eine Tablette nehmen?', es: '¿Me tomo una pastilla?' },
-            { de: 'Brauche ich ein Rezept?', es: '¿Necesito receta?' },
-            { de: 'Wie lange soll ich zu Hause bleiben?', es: '¿Cuánto tiempo tengo que quedarme en casa?' },
-            { de: 'Kann ich morgen wieder arbeiten?', es: '¿Puedo volver a trabajar mañana?' },
-            { de: 'Was hilft am besten gegen Husten?', es: '¿Qué va mejor para la tos?' },
-            { de: 'Soll ich zum Arzt gehen oder warten?', es: '¿Voy al médico o espero?' },
-            { de: 'Brauche ich für die Salbe ein Rezept?', es: '¿Necesito receta para la pomada?' },
-            { de: 'Du solltest weniger Kaffee trinken.', es: 'Deberías beber menos café.' }
+            { de: 'Was würden Sie mir raten?', es: '¿Qué me aconsejaría?' }
           ]
         },
         {
           funktion: 'eine Krankmeldung mitteilen',
           es: 'Notificar una baja por enfermedad',
           wendungen: [
-            { de: 'Ich bin krank und kann heute nicht kommen.', es: 'Estoy enfermo y hoy no puedo ir.' },
-            { de: 'Die Bestätigung schicke ich Ihnen morgen.', es: 'Le envío el justificante mañana.' },
-            { de: 'Ich bin voraussichtlich bis Freitag im Krankenstand.', es: 'Previsiblemente estaré de baja hasta el viernes.' },
-            { de: 'Könnte jemand meine Termine übernehmen?', es: '¿Podría alguien encargarse de mis citas?' },
-            { de: 'Entschuldigen Sie die kurzfristige Absage.', es: 'Disculpe la cancelación con tan poco margen.' },
-            { de: 'Mein Sohn ist krank, ich bleibe zu Hause.', es: 'Mi hijo está enfermo, me quedo en casa.' },
-            { de: 'Ich war heute beim Hausarzt.', es: 'Hoy he estado en el médico de cabecera.' },
-            { de: 'Nach der Operation bin ich vier Wochen weg.', es: 'Después de la operación estaré cuatro semanas fuera.' },
-            { de: 'Die Bestätigung schickt die Ordination direkt.', es: 'El justificante lo manda la consulta directamente.' },
-            { de: 'Wem muss ich die Krankmeldung schicken?', es: '¿A quién tengo que mandar la baja?' }
+            { de: 'Ich bin krank und kann heute nicht kommen.', es: 'Estoy enfermo y hoy no puedo ir.' }
           ]
         }
       ]

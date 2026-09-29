@@ -8,10 +8,11 @@
 // frase, se cerraban con la respuesta y no llevaban a ninguna parte. Ahora el
 // objetivo es el mismo volumen repartido de otra forma:
 //
-//   10 intercambios por apartado, en 2 o 3 conversaciones de 3 a 6
+//   UNA conversacion por apartado, de 4 a 6 intercambios
 //
-// Asi las frases del libro siguen estando todas -son los turnos que dices tu-
-// pero encadenadas sobre el mismo tema en vez de sueltas.
+// Con diez frases sueltas la pantalla era una lista infinita, y con tres
+// conversaciones seguia siendo inabarcable. Una sola conversacion por tema, con
+// lo mas importante del apartado, es lo que de verdad se estudia.
 //
 // Uso: node scripts/estado-komm.mjs [id-de-leccion]
 
@@ -24,8 +25,8 @@ const { KURSBUCH } = await import('../src/lib/kursbuch/index.js');
 const { respuestaDe, seguimientoDe } = await import('../src/lib/kursbuch/respuestas.js');
 
 const soloUna = process.argv[2];
-const OBJ = 10;          // intercambios por apartado
-const MIN_CONV = 3;      // intercambios de la conversacion mas corta
+const CONV = 1;          // conversaciones por apartado
+const MIN_CONV = 4;      // intercambios de la conversacion mas corta
 const MAX_CONV = 6;      // y de la mas larga
 
 let totalF = 0, totalI = 0, totalC = 0, totalSueltas = 0, malas = 0;
@@ -59,16 +60,16 @@ for (const band of KURSBUCH.baende) {
 
     console.log(
       `\n${l.id.padEnd(9)} ${l.name.padEnd(30)} ${String(ks.length).padStart(2)}/${meta} funciones · ` +
-      `${inter} intercambios en ${conv} conversaciones (objetivo ${meta * OBJ})`
+      `${inter} intercambios en ${conv} conversaciones (objetivo ${meta} conversaciones)`
     );
 
     for (const r of filas) {
-      // Un apartado esta bien cuando suma 10 y ninguna conversacion se queda
-      // en dos turnos ni se va a doce.
+      // Un apartado esta bien con UNA conversacion de cuatro a seis
+      // intercambios. Ni dos conversaciones ni una que se vaya a doce turnos.
       const fuera = r.largos.filter((x) => x < MIN_CONV || x > MAX_CONV).length;
-      const ok = r.i === OBJ && !fuera && !r.sinResp;
+      const ok = r.largos.length === CONV && !fuera && !r.sinResp;
       if (!ok) malas += 1;
-      const marca = r.i === OBJ ? (fuera ? ` !${fuera}` : '  ok') : (r.i < OBJ ? '+' : '-') + Math.abs(OBJ - r.i);
+      const marca = ok ? '  ok' : (r.largos.length !== CONV ? `c${r.largos.length}` : `!${fuera}`);
       const forma = r.largos.length ? r.largos.join('+') : '-';
       console.log(
         `   ${String(r.i).padStart(3)}${marca.padEnd(6)}(${String(r.largos.length).padStart(2)} conv: ${forma.padEnd(11)}` +
@@ -83,5 +84,5 @@ if (!soloUna) {
     `\nTOTAL ${totalF} funciones · ${totalI} intercambios en ${totalC} conversaciones · ` +
     `${totalSueltas} frases sin respuesta`
   );
-  console.log(`${malas} apartados fuera de forma (objetivo ${OBJ} intercambios en conversaciones de ${MIN_CONV} a ${MAX_CONV})`);
+  console.log(`${malas} apartados fuera de forma (objetivo ${CONV} conversacion de ${MIN_CONV} a ${MAX_CONV} intercambios)`);
 }
