@@ -464,7 +464,17 @@ export const PRONUNCIACION = {
       { s: '„Nicht HEUTE, morgen“ betont ___.', a: 'heute', d: ['nicht', 'morgen'], t: '«Nicht HEUTE, morgen» acentúa «heute».', e: 'Se contrapone a morgen.' },
       { s: 'Bei einer Korrektur betont man ___.', a: 'das korrigierte Wort', d: ['das Verb', 'das ganze Ende'], t: 'Al corregir se acentúa la palabra corregida.', e: 'Es lo que quieres que se oiga.' },
       { s: 'In einer normalen Aussage liegt der Akzent oft ___.', a: 'am Ende', d: ['am Anfang', 'in der Mitte'], t: 'En una frase normal el acento suele ir al final.', e: 'Ahí va lo nuevo.' },
-      { s: 'Der Satzakzent ist ___ als die Wortbetonung.', a: 'beweglicher', d: ['fester', 'gleich'], t: 'El acento de frase es más móvil que el de palabra.', e: 'El de palabra no cambia; el de frase sí.' }
+      { s: 'Der Satzakzent ist ___ als die Wortbetonung.', a: 'beweglicher', d: ['fester', 'gleich'], t: 'El acento de frase es más móvil que el de palabra.', e: 'El de palabra no cambia; el de frase sí.' },
+      { s: 'In „Ich komme mit dem AUTO“ betont man ___.', a: 'Auto', d: ['Ich', 'komme'], t: 'En «Ich komme mit dem AUTO» se acentúa «Auto».', e: 'Se acentúa la información nueva.' },
+      { s: 'Die wichtigste Information steht oft ___.', a: 'am Satzende', d: ['am Satzanfang', 'in der Mitte'], t: 'La información más importante suele ir al final.', e: 'Por eso el acento suele caer allí.' },
+      { s: 'Artikel und Pronomen sind im Satz meistens ___.', a: 'unbetont', d: ['betont', 'am lautesten'], t: 'Los artículos y pronombres suelen ir átonos.', e: 'Llevan el acento los sustantivos y los verbos.' },
+      { s: '„Ich habe es NICHT gesagt“ betont ___.', a: 'die Verneinung', d: ['das Subjekt', 'das Objekt'], t: '«Ich habe es NICHT gesagt» acentúa la negación.', e: 'Se acentúa nicht para dejarlo claro.' },
+      { s: 'Fragewörter am Satzanfang sind oft ___.', a: 'betont', d: ['unbetont', 'stumm'], t: 'Las palabras interrogativas al principio suelen ir acentuadas.', e: 'WANN kommst du?' },
+      { s: 'Ein Satz hat normalerweise ___ Hauptakzent.', a: 'einen', d: ['zwei', 'keinen'], t: 'Una frase tiene normalmente un acento principal.', e: 'Los demás acentos son más débiles.' },
+      { s: 'Beim Widersprechen betont man ___.', a: 'stärker', d: ['schwächer', 'gar nicht'], t: 'Al contradecir se acentúa más fuerte.', e: 'DOCH, ich war da!' },
+      { s: 'In „Das war SEHR gut“ liegt der Akzent auf ___.', a: 'sehr', d: ['Das', 'war'], t: 'En «Das war SEHR gut» el acento va en «sehr».', e: 'Se refuerza la palabra que intensifica.' },
+      { s: 'Der Satzakzent macht den Satz ___.', a: 'verständlicher', d: ['länger', 'leiser'], t: 'El acento de frase hace la frase más comprensible.', e: 'Guía al oyente hacia lo importante.' },
+      { s: 'Unbetonte Silben spricht man ___.', a: 'kürzer', d: ['länger', 'lauter'], t: 'Las sílabas átonas se pronuncian más cortas.', e: 'Por eso el alemán suena con ritmo marcado.' }
     ]
   },
   'aussprache-r-am-wortende': {

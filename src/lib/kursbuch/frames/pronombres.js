@@ -282,7 +282,17 @@ export const PRONOMBRES = {
       { s: '___ interessierst du dich?', a: 'Wofür', d: ['Für was', 'Für wen'], t: '¿Qué te interesa?', e: 'für + wo- da wofür.' },
       { s: 'Er hat sich sehr ___ gefreut.', a: 'darüber', d: ['über es', 'über das'], t: 'Se alegró mucho de ello.', e: 'über + da- da darüber.' },
       { s: 'Auf wen wartest du? – ___ meine Schwester.', a: 'Auf', d: ['Worauf', 'Darauf'], t: '¿A quién esperas? – A mi hermana.', e: 'Persona: preposición normal.' },
-      { s: 'Die r in wo-r-über ist da, ___.', a: 'weil über mit Vokal anfängt', d: ['ohne Grund', 'immer'], t: 'La r de «worüber» está porque «über» empieza por vocal.', e: 'wovor no la lleva: vor empieza por consonante.' }
+      { s: 'Die r in wo-r-über ist da, ___.', a: 'weil über mit Vokal anfängt', d: ['ohne Grund', 'immer'], t: 'La r de «worüber» está porque «über» empieza por vocal.', e: 'wovor no la lleva: vor empieza por consonante.' },
+      { s: '___ hast du geträumt?', a: 'Wovon', d: ['Von was', 'Wovon über'], t: '¿Con qué has soñado?', e: 'träumen von pasa a wovon para cosas.' },
+      { s: 'Er hat mir davon erzählt. ___ genau?', a: 'Wovon', d: ['Von wem', 'Worüber'], t: 'Me habló de ello. ¿De qué exactamente?', e: 'wovon pregunta por una cosa.' },
+      { s: 'Mit wem fährst du? – ___ meinem Bruder.', a: 'Mit', d: ['Damit', 'Womit'], t: '¿Con quién vas? – Con mi hermano.', e: 'Para personas se usa la preposición normal.' },
+      { s: 'Womit schreibst du? – ___ einem Kuli.', a: 'Mit', d: ['Damit', 'Womit'], t: '¿Con qué escribes? – Con un boli.', e: 'womit pregunta por cosas; la respuesta lleva mit.' },
+      { s: 'Das Wetter? Ich ärgere mich jeden Tag ___.', a: 'darüber', d: ['über es', 'davon'], t: '¿El tiempo? Me enfado con ello cada día.', e: 'Para cosas se usa da(r)- más preposición.' },
+      { s: '___ sprecht ihr gerade?', a: 'Worüber', d: ['Über was', 'Wovon über'], t: '¿De qué estáis hablando?', e: 'sprechen über pasa a worüber.' },
+      { s: 'Bei Personen fragt man mit ___.', a: 'Präposition plus wem', d: ['wo-', 'da-'], t: 'Con personas se pregunta con preposición más «wem».', e: 'Mit wem? Von wem? Auf wen?' },
+      { s: 'Die Prüfung? Ich habe Angst ___.', a: 'davor', d: ['vor es', 'worvor'], t: '¿El examen? Me da miedo.', e: 'Angst vor pasa a davor para cosas.' },
+      { s: 'Das r kommt dazu, wenn die Präposition ___ anfängt.', a: 'mit einem Vokal', d: ['mit einem Konsonanten', 'mit s'], t: 'La r se añade cuando la preposición empieza por vocal.', e: 'worüber, worauf, darüber, daran.' },
+      { s: '___ wartest du denn so lange?', a: 'Worauf', d: ['Auf was', 'Woraufhin'], t: '¿Qué estás esperando tanto rato?', e: 'warten auf pasa a worauf.' }
     ]
   },
   'man-unpersoenlich-essen': {

@@ -245,7 +245,15 @@ export const PASADO = {
       { s: 'Die Vase ist leider ___.', a: 'zerbrochen', d: ['gezerbrochen', 'zerbrechen'], t: 'Por desgracia, el jarrón se ha roto.', e: '"zerbrechen" es inseparable (empieza por zer-).' },
       { s: 'Habt ihr den Termin ___?', a: 'vergessen', d: ['gevergessen', 'vergisst'], t: '¿Habéis olvidado la cita?', e: '"vergessen" es inseparable y fuerte (Partizip igual que Infinitiv).' },
       { s: 'Ich habe den Bus leider ___.', a: 'verpasst', d: ['geverpasst', 'verpassen'], t: 'Por desgracia he perdido el autobús.', e: 'verpassen → verpasst, sin ge-.' },
-      { s: 'Sie hat die Prüfung ___.', a: 'bestanden', d: ['gebestanden', 'bestehen'], t: 'Ha aprobado el examen.', e: 'bestehen → bestanden (prefijo be-).' }
+      { s: 'Sie hat die Prüfung ___.', a: 'bestanden', d: ['gebestanden', 'bestehen'], t: 'Ha aprobado el examen.', e: 'bestehen → bestanden (prefijo be-).' },
+      { s: 'Ich habe das Wort nicht ___.', a: 'verstanden', d: ['verstehen', 'gestanden'], t: 'No he entendido la palabra.', e: 'Los verbos con ver- no llevan ge-.' },
+      { s: 'Er hat die Rechnung schon ___.', a: 'bezahlt', d: ['gezahlt', 'bezahlen'], t: 'Ya ha pagado la factura.', e: 'be- es prefijo inseparable: sin ge-.' },
+      { s: 'Wir haben zwei Nächte im Hotel ___.', a: 'übernachtet', d: ['geübernachtet', 'übernachten'], t: 'Hemos pasado dos noches en el hotel.', e: 'über- aquí es inseparable: sin ge-.' },
+      { s: 'Sie hat mir den Weg genau ___.', a: 'beschrieben', d: ['geschrieben', 'beschreiben'], t: 'Me describió el camino con detalle.', e: 'be- es inseparable: beschrieben, sin ge-.' },
+      { s: 'Der Brief ist gestern ___.', a: 'angekommen', d: ['ankommen', 'gekommen an'], t: 'La carta llegó ayer.', e: 'ankommen es separable: el ge- va en medio.' },
+      { s: 'Ich habe den Schlüssel ___.', a: 'verloren', d: ['geloren', 'verlieren'], t: 'He perdido la llave.', e: 'verlieren pasa a verloren, sin ge-.' },
+      { s: 'Wie erkennt man ein untrennbares Verb?', a: 'am Präfix', d: ['an der Länge', 'am Artikel'], t: '¿Cómo se reconoce un verbo inseparable?', e: 'be-, er-, ver-, ent-, emp-, ge-, miss-, zer-.' },
+      { s: 'Er hat die Arbeit gestern ___.', a: 'begonnen', d: ['gebegonnen', 'beginnen'], t: 'Empezó el trabajo ayer.', e: 'beginnen pasa a begonnen, sin ge-.' }
     ],
     orders: [
       { sol: ['Ich', 'habe', 'die', 'E-Mail', 'noch', 'nicht', 'bekommen'], t: 'Todavía no he recibido el correo.', e: 'Participio inseparable "bekommen" (sin ge-) al final de la frase.' },

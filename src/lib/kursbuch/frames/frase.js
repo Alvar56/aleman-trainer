@@ -1069,7 +1069,17 @@ export const FRASE = {
       { s: 'Ich hoffe, dass ihr Zeit ___.', a: 'habt', d: ['habt ihr', 'haben'], t: 'Espero que tengáis tiempo.', e: 'Con ihr: habt, al final.' },
       { s: 'Er kommt nicht, weil er arbeiten ___.', a: 'muss', d: ['muss er', 'müssen'], t: 'No viene porque tiene que trabajar.', e: 'Con dos verbos, el conjugado va el último.' },
       { s: 'Sag mir, ob du mitkommen ___.', a: 'willst', d: ['willst du', 'wollen'], t: 'Dime si quieres venir.', e: 'El modal al final.' },
-      { s: 'Es freut mich, dass du gekommen ___.', a: 'bist', d: ['bist du', 'sein'], t: 'Me alegra que hayas venido.', e: 'El auxiliar cierra.' }
+      { s: 'Es freut mich, dass du gekommen ___.', a: 'bist', d: ['bist du', 'sein'], t: 'Me alegra que hayas venido.', e: 'El auxiliar cierra.' },
+      { s: 'Ich glaube, dass er morgen ___.', a: 'kommt', d: ['kommt er', 'er kommt'], t: 'Creo que vendrá mañana.', e: 'En la subordinada el verbo va al final.' },
+      { s: 'Sie fragt, wann der Zug ___.', a: 'abfährt', d: ['fährt ab', 'ab fährt'], t: 'Pregunta cuándo sale el tren.', e: 'El verbo separable se junta al final.' },
+      { s: 'Wir wissen nicht, wo er ___.', a: 'wohnt', d: ['wohnt er', 'er wohnt'], t: 'No sabemos dónde vive.', e: 'Detrás de wo el verbo va al final.' },
+      { s: 'Er erzählt, dass er lange in Graz ___ hat.', a: 'gewohnt', d: ['hat gewohnt', 'wohnen'], t: 'Cuenta que vivió mucho tiempo en Graz.', e: 'El participio va antes del verbo conjugado.' },
+      { s: 'Sie bleibt zu Hause, weil sie lernen ___.', a: 'muss', d: ['muss sie', 'musse'], t: 'Se queda en casa porque tiene que estudiar.', e: 'El modal va el último de todo.' },
+      { s: 'Sie sagt, dass sie kein Deutsch ___.', a: 'spricht', d: ['spricht sie', 'sprechen'], t: 'Dice que no habla alemán.', e: 'Verbo al final de la subordinada.' },
+      { s: 'Wo steht das Verb im Nebensatz?', a: 'am Ende', d: ['an zweiter Stelle', 'am Anfang'], t: '¿Dónde va el verbo en la subordinada?', e: 'Siempre al final, no en segunda posición.' },
+      { s: 'Ich hoffe, dass du bald gesund ___.', a: 'wirst', d: ['wirst du', 'werden'], t: 'Espero que te pongas bien pronto.', e: 'werden conjugado, al final.' },
+      { s: 'Vor dem Nebensatz steht ___.', a: 'ein Komma', d: ['ein Punkt', 'nichts'], t: 'Antes de la subordinada va una coma.', e: 'En alemán la coma es obligatoria.' },
+      { s: 'Er weiß nicht, ob sie ihn ___ hat.', a: 'gesehen', d: ['hat gesehen', 'sehen'], t: 'No sabe si ella lo ha visto.', e: 'Participio y luego hat, los dos al final.' }
     ]
   },
   'obwohl-gegensatz': {
@@ -1083,7 +1093,17 @@ export const FRASE = {
       { s: 'Obwohl das Essen teuer ___, war es gut.', a: 'war', d: ['war es', 'sein'], t: 'Aunque la comida era cara, estaba buena.', e: 'Verbo al final.' },
       { s: 'Er hat wenig Zeit, ___ hilft er uns.', a: 'trotzdem', d: ['obwohl', 'weil'], t: 'Tiene poco tiempo, aun así nos ayuda.', e: 'trotzdem en posición 1.' },
       { s: 'Obwohl wir uns kaum ___, verstehen wir uns gut.', a: 'kennen', d: ['kennen wir', 'kennt'], t: 'Aunque apenas nos conocemos, nos llevamos bien.', e: 'Verbo al final de la subordinada.' },
-      { s: 'obwohl und trotzdem sagen ___.', a: 'dasselbe', d: ['das Gegenteil', 'nichts Ähnliches'], t: 'obwohl y trotzdem dicen lo mismo.', e: 'Lo que cambia es el orden de la frase.' }
+      { s: 'obwohl und trotzdem sagen ___.', a: 'dasselbe', d: ['das Gegenteil', 'nichts Ähnliches'], t: 'obwohl y trotzdem dicen lo mismo.', e: 'Lo que cambia es el orden de la frase.' },
+      { s: '___ er wenig verdient, ist er zufrieden.', a: 'Obwohl', d: ['Trotzdem', 'Deshalb'], t: 'Aunque gana poco, está contento.', e: 'obwohl abre una subordinada.' },
+      { s: 'Es war kalt. ___ sind wir schwimmen gegangen.', a: 'Trotzdem', d: ['Obwohl', 'Weil'], t: 'Hacía frío. Aun así fuimos a nadar.', e: 'trotzdem va en frase principal, en posición 1.' },
+      { s: 'Obwohl ich früh ___, kam ich zu spät.', a: 'losfuhr', d: ['fuhr los', 'los fuhr'], t: 'Aunque salí pronto, llegué tarde.', e: 'Verbo separable junto y al final.' },
+      { s: 'Sie kam zur Arbeit, ___ sie Fieber hatte.', a: 'obwohl', d: ['trotzdem', 'deshalb'], t: 'Vino a trabajar aunque tenía fiebre.', e: 'obwohl introduce el contraste.' },
+      { s: 'Nach „obwohl“ steht das Verb ___.', a: 'am Ende', d: ['an zweiter Stelle', 'am Anfang'], t: 'Después de «obwohl» el verbo va al final.', e: 'Es una conjunción subordinante.' },
+      { s: 'Nach „trotzdem“ steht das Verb ___.', a: 'direkt danach', d: ['am Ende', 'am Anfang'], t: 'Después de «trotzdem» el verbo va justo detrás.', e: 'trotzdem ocupa la posición 1, y el verbo la 2.' },
+      { s: '___ wir uns lange kennen, streiten wir nie.', a: 'Obwohl', d: ['Trotzdem', 'Darum'], t: 'Aunque nos conocemos hace mucho, nunca discutimos.', e: 'obwohl al principio, y el verbo al final.' },
+      { s: 'Das Hotel war teuer, ___ war es schlecht.', a: 'trotzdem', d: ['obwohl', 'weil'], t: 'El hotel era caro; aun así era malo.', e: 'trotzdem une dos frases principales.' },
+      { s: 'Obwohl es spät ___, rief er noch an.', a: 'war', d: ['ist', 'wäre'], t: 'Aunque era tarde, todavía llamó.', e: 'Pasado en la subordinada, verbo al final.' },
+      { s: '„obwohl“ und „aber“ bedeuten ___.', a: 'Ähnliches', d: ['das Gegenteil', 'gar nichts'], t: '«obwohl» y «aber» significan algo parecido.', e: 'Los dos marcan contraste, pero con otro orden.' }
     ]
   },
   'als-wann-wenn-vergangenheit': {
@@ -1097,7 +1117,17 @@ export const FRASE = {
       { s: 'Jedes Mal, ___ ich das höre, muss ich lachen.', a: 'wenn', d: ['als', 'wann'], t: 'Cada vez que oigo eso me río.', e: 'jedes Mal pide wenn.' },
       { s: 'Weißt du, ___ der Kurs anfängt?', a: 'wann', d: ['als', 'wenn'], t: '¿Sabes cuándo empieza el curso?', e: 'Pregunta indirecta: wann.' },
       { s: '___ ich den Job bekam, habe ich gefeiert.', a: 'Als', d: ['Wenn', 'Wann'], t: 'Cuando conseguí el trabajo, lo celebré.', e: 'Un momento único: als.' },
-      { s: 'Früher, ___ wir noch in Spanien wohnten, war alles anders.', a: 'als', d: ['wenn', 'wann'], t: 'Antes, cuando aún vivíamos en España, todo era distinto.', e: 'Un periodo del pasado: als.' }
+      { s: 'Früher, ___ wir noch in Spanien wohnten, war alles anders.', a: 'als', d: ['wenn', 'wann'], t: 'Antes, cuando aún vivíamos en España, todo era distinto.', e: 'Un periodo del pasado: als.' },
+      { s: '___ hast du geheiratet?', a: 'Wann', d: ['Als', 'Wenn'], t: '¿Cuándo te casaste?', e: 'wann solo en preguntas.' },
+      { s: '___ der Krieg zu Ende war, kamen viele zurück.', a: 'Als', d: ['Wenn', 'Wann'], t: 'Cuando acabó la guerra, muchos volvieron.', e: 'als para un hecho único en el pasado.' },
+      { s: '___ ich morgens aufstehe, trinke ich Kaffee.', a: 'Wenn', d: ['Als', 'Wann'], t: 'Cuando me levanto por la mañana, tomo café.', e: 'wenn para lo que se repite o para el presente.' },
+      { s: 'Er fragte mich, ___ ich zurückkomme.', a: 'wann', d: ['als', 'wenn'], t: 'Me preguntó cuándo vuelvo.', e: 'También en preguntas indirectas: wann.' },
+      { s: 'Für ein einmaliges Ereignis in der Vergangenheit nimmt man ___.', a: 'als', d: ['wenn', 'wann'], t: 'Para un hecho único en el pasado se usa «als».', e: 'Als ich geboren wurde …' },
+      { s: '___ ich das nächste Mal komme, bringe ich es mit.', a: 'Wenn', d: ['Als', 'Wann'], t: 'La próxima vez que venga, lo traigo.', e: 'Para el futuro siempre wenn.' },
+      { s: '___ wir Kinder waren, gab es kein Handy.', a: 'Als', d: ['Wenn', 'Wann'], t: 'Cuando éramos niños no había móviles.', e: 'Un periodo único del pasado: als.' },
+      { s: 'Immer ___ es regnete, spielten wir drinnen.', a: 'wenn', d: ['als', 'wann'], t: 'Siempre que llovía jugábamos dentro.', e: 'Con immer siempre wenn, aunque sea pasado.' },
+      { s: 'Nach als und wenn steht das Verb ___.', a: 'am Ende', d: ['an zweiter Stelle', 'am Anfang'], t: 'Después de «als» y «wenn» el verbo va al final.', e: 'Las dos abren subordinada.' },
+      { s: 'Weißt du noch, ___ wir uns kennengelernt haben?', a: 'als', d: ['wenn', 'wann'], t: '¿Te acuerdas de cuando nos conocimos?', e: 'Un momento único del pasado: als.' }
     ]
   },
   'wenn-satz-einladung': {

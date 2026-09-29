@@ -422,7 +422,17 @@ export const MODALES = {
       { s: '___ Ihnen noch etwas bringen?', a: 'Darf ich', d: ['Will ich', 'Mag ich'], t: '¿Le traigo algo más?', e: 'Darf ich …? para ofrecer con educación.' },
       { s: 'Nein, ___, ich bin wirklich satt.', a: 'danke', d: ['gern', 'bitte'], t: 'No, gracias, estoy lleno de verdad.', e: 'Rechazar con danke.' },
       { s: '___ ihr noch Nachtisch?', a: 'Möchtet', d: ['Mögt', 'Wollt'], t: '¿Queréis postre?', e: 'Con ihr: möchtet.' },
-      { s: 'Ein Stück Torte? – ___, sehr gern.', a: 'Ja', d: ['Danke', 'Nein danke'], t: '¿Un trozo de tarta? – Sí, con mucho gusto.', e: 'ja + gern deja claro que aceptas.' }
+      { s: 'Ein Stück Torte? – ___, sehr gern.', a: 'Ja', d: ['Danke', 'Nein danke'], t: '¿Un trozo de tarta? – Sí, con mucho gusto.', e: 'ja + gern deja claro que aceptas.' },
+      { s: '___ Sie noch einen Kaffee?', a: 'Möchten', d: ['Mögen', 'Wollen'], t: '¿Quiere otro café?', e: 'Ofrecer siempre con möchten.' },
+      { s: 'Danke, ich ___ nichts mehr.', a: 'möchte', d: ['mag', 'will'], t: 'Gracias, no quiero nada más.', e: 'Rechazar con educación: möchte.' },
+      { s: '___ Sie sich ruhig, es ist genug da.', a: 'Bedienen', d: ['Bediene', 'Bedient'], t: 'Sírvase tranquilo, hay de sobra.', e: 'Imperativo de cortesía: Bedienen Sie sich.' },
+      { s: 'Ich ___ gern noch ein Glas Wasser.', a: 'hätte', d: ['habe', 'hatte'], t: 'Querría otro vaso de agua.', e: 'ich hätte gern, la fórmula habitual.' },
+      { s: 'Noch ein Stück? – ___, ich habe schon zwei gehabt.', a: 'Nein danke', d: ['Ja bitte', 'Gern'], t: '¿Otro trozo? – No gracias, ya he tomado dos.', e: 'nein danke para rechazar con claridad.' },
+      { s: '___ Sie sich noch Suppe nehmen?', a: 'Möchten', d: ['Mögen', 'Sollen'], t: '¿Quiere servirse más sopa?', e: 'Ofrecer con möchten y el infinitivo al final.' },
+      { s: 'Was ___ ich Ihnen anbieten?', a: 'darf', d: ['will', 'mag'], t: '¿Qué le puedo ofrecer?', e: 'Was darf ich Ihnen anbieten es muy educado.' },
+      { s: 'Ja, sehr ___, das sieht köstlich aus.', a: 'gern', d: ['danke', 'bitte nicht'], t: 'Sí, con mucho gusto, tiene una pinta deliciosa.', e: 'gern para aceptar con ganas.' },
+      { s: '___ du dir noch etwas nehmen?', a: 'Willst', d: ['Magst nehmen', 'Möchtest du wollen'], t: '¿Quieres servirte más?', e: 'Entre amigos también vale wollen.' },
+      { s: 'Wenn man „danke“ allein sagt, bedeutet das meistens ___.', a: 'nein', d: ['ja', 'vielleicht'], t: 'Si dices solo «danke», normalmente significa que no.', e: 'Para aceptar hay que decir ja, bitte o gern.' }
     ]
   },
   'konjunktiv-ii-hoeflich-einladen': {

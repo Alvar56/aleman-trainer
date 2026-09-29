@@ -360,7 +360,17 @@ export const PREP_TIEMPO = {
       { s: 'Was schenkst du ihr ___ Namenstag?', a: 'zum', d: ['zur', 'am'], t: '¿Qué le regalas por su santo?', e: 'der Namenstag: zum.' },
       { s: '___ Silvester bleiben wir zu Hause.', a: 'Zu', d: ['Im', 'An dem'], t: 'En Nochevieja nos quedamos en casa.', e: 'zu Silvester.' },
       { s: 'Herzlichen Glückwunsch ___ Prüfung!', a: 'zur', d: ['zum', 'an die'], t: '¡Enhorabuena por el examen!', e: 'die Prüfung: zur.' },
-      { s: '___ Taufe kommen alle Verwandten.', a: 'Zur', d: ['Zum', 'Im'], t: 'Al bautizo vienen todos los parientes.', e: 'die Taufe: zur.' }
+      { s: '___ Taufe kommen alle Verwandten.', a: 'Zur', d: ['Zum', 'Im'], t: 'Al bautizo vienen todos los parientes.', e: 'die Taufe: zur.' },
+      { s: '___ meinem Geburtstag kommen alle Freunde.', a: 'Zu', d: ['An', 'In'], t: 'A mi cumpleaños vienen todos los amigos.', e: 'zu para las celebraciones.' },
+      { s: 'Alles Gute ___ neuen Jahr!', a: 'zum', d: ['zur', 'am'], t: '¡Feliz año nuevo!', e: 'zu dem se junta en zum.' },
+      { s: 'Herzlichen Glückwunsch ___ Führerschein!', a: 'zum', d: ['zur', 'am'], t: '¡Enhorabuena por el carné!', e: 'der Führerschein pasa a zum.' },
+      { s: '___ Pfingsten haben wir frei.', a: 'Zu', d: ['An', 'Im'], t: 'En Pentecostés tenemos fiesta.', e: 'Las fiestas van con zu.' },
+      { s: 'Was wünschst du dir ___ Weihnachten?', a: 'zu', d: ['an', 'in'], t: '¿Qué quieres por Navidad?', e: 'zu Weihnachten, sin artículo.' },
+      { s: 'Alles Gute ___ Hochzeitstag!', a: 'zum', d: ['zur', 'am'], t: '¡Feliz aniversario de boda!', e: 'der Hochzeitstag pasa a zum.' },
+      { s: 'Glückwunsch ___ bestandenen Prüfung!', a: 'zur', d: ['zum', 'an der'], t: '¡Enhorabuena por el examen aprobado!', e: 'zu der se junta en zur.' },
+      { s: '___ seinem Abschluss gab es eine große Feier.', a: 'Zu', d: ['An', 'In'], t: 'Por su graduación hubo una gran fiesta.', e: 'Motivo de la celebración con zu.' },
+      { s: 'Ich schenke ihr ___ Namenstag Blumen.', a: 'zum', d: ['zur', 'am'], t: 'Le regalo flores por su santo.', e: 'der Namenstag pasa a zum.' },
+      { s: 'Bei Glückwünschen benutzt man fast immer ___.', a: 'zu', d: ['an', 'für'], t: 'En las felicitaciones se usa casi siempre «zu».', e: 'zum Geburtstag, zur Hochzeit, zum Erfolg.' }
     ]
   },
   'seit-dauer-praesens': {

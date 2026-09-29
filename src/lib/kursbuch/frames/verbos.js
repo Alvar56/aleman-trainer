@@ -584,7 +584,17 @@ export const VERBOS = {
       { s: 'Ich möchte ___ Kollegin gratulieren.', a: 'der', d: ['die', 'den'], t: 'Quiero felicitar a la compañera.', e: 'Dativo femenino: der Kollegin.' },
       { s: 'Hast du ___ schon gratuliert?', a: 'ihm', d: ['ihn', 'er'], t: '¿Ya le has felicitado?', e: 'Dativo de er: ihm.' },
       { s: 'Wir gratulieren ___ Brautpaar.', a: 'dem', d: ['das', 'der'], t: 'Felicitamos a los novios.', e: 'das Brautpaar en dativo: dem.' },
-      { s: 'Danke ___ für die Blumen!', a: 'dir', d: ['dich', 'du'], t: '¡Gracias por las flores!', e: 'danken + dativo, también en imperativo.' }
+      { s: 'Danke ___ für die Blumen!', a: 'dir', d: ['dich', 'du'], t: '¡Gracias por las flores!', e: 'danken + dativo, también en imperativo.' },
+      { s: 'Ich danke ___ Lehrerin für die Hilfe.', a: 'der', d: ['die', 'den'], t: 'Doy las gracias a la profesora por la ayuda.', e: 'danken lleva dativo: die pasa a der.' },
+      { s: 'Sie gratuliert ___ Sohn zum Abschluss.', a: 'ihrem', d: ['ihren', 'ihr'], t: 'Felicita a su hijo por el título.', e: 'gratulieren más dativo masculino: ihrem.' },
+      { s: 'Wir danken ___ Nachbarn für das Paket.', a: 'den', d: ['die', 'der'], t: 'Damos las gracias a los vecinos por el paquete.', e: 'Dativo plural: den, y el nombre añade -n.' },
+      { s: 'Hast du ___ schon zum Geburtstag gratuliert?', a: 'ihm', d: ['ihn', 'er'], t: '¿Ya le has felicitado el cumpleaños?', e: 'El dativo de er es ihm.' },
+      { s: 'Ich möchte ___ allen herzlich danken.', a: 'euch', d: ['ihr', 'eure'], t: 'Quiero daros las gracias de corazón a todos.', e: 'El dativo de ihr es euch.' },
+      { s: 'Er dankt ___ Arzt für die schnelle Hilfe.', a: 'dem', d: ['den', 'der'], t: 'Da las gracias al médico por la ayuda rápida.', e: 'der Arzt pasa a dem Arzt en dativo.' },
+      { s: 'Gratulierst du ___ auch?', a: 'ihr', d: ['sie', 'ihre'], t: '¿La felicitas tú también?', e: 'El dativo de sie (ella) es ihr.' },
+      { s: 'Wir danken ___ für das Vertrauen.', a: 'Ihnen', d: ['Sie', 'Ihr'], t: 'Les damos las gracias por la confianza.', e: 'La forma de cortesía en dativo es Ihnen.' },
+      { s: 'Sie hat ___ Eltern zur Hochzeit gratuliert.', a: 'ihren', d: ['ihre', 'ihrer'], t: 'Felicitó a sus padres por la boda.', e: 'Dativo plural con posesivo: ihren.' },
+      { s: 'gratulieren und danken brauchen immer ___.', a: 'den Dativ', d: ['den Akkusativ', 'den Genitiv'], t: '«gratulieren» y «danken» llevan siempre dativo.', e: 'No llevan acusativo, aunque en español sea distinto.' }
     ]
   },
   'verben-mit-praeposition-gefuehl': {
@@ -598,7 +608,17 @@ export const VERBOS = {
       { s: 'Wir warten ___ die Antwort vom Amt.', a: 'auf', d: ['für', 'nach'], t: 'Esperamos la respuesta de la administración.', e: 'warten AUF + acusativo.' },
       { s: 'Er denkt oft ___ seine Heimat.', a: 'an', d: ['über', 'von'], t: 'Piensa a menudo en su tierra.', e: 'denken AN + acusativo.' },
       { s: 'Ich freue mich schon ___ den Sommer.', a: 'auf', d: ['über', 'für'], t: 'Ya tengo ganas de que llegue el verano.', e: 'sich freuen AUF es el futuro; ÜBER, lo que ya pasó.' },
-      { s: 'Sie träumt ___ einer eigenen Wohnung.', a: 'von', d: ['über', 'an'], t: 'Sueña con un piso propio.', e: 'träumen VON + dativo.' }
+      { s: 'Sie träumt ___ einer eigenen Wohnung.', a: 'von', d: ['über', 'an'], t: 'Sueña con un piso propio.', e: 'träumen VON + dativo.' },
+      { s: 'Ich ärgere mich ___ mich selbst.', a: 'über', d: ['auf', 'an'], t: 'Me enfado conmigo mismo.', e: 'sich ärgern über más acusativo.' },
+      { s: 'Wir hoffen ___ besseres Wetter.', a: 'auf', d: ['über', 'an'], t: 'Esperamos que haga mejor tiempo.', e: 'hoffen auf más acusativo.' },
+      { s: 'Sie hat sich ___ ihrem Mann getrennt.', a: 'von', d: ['über', 'auf'], t: 'Se ha separado de su marido.', e: 'sich trennen von más dativo.' },
+      { s: 'Er leidet ___ starkem Heimweh.', a: 'unter', d: ['über', 'auf'], t: 'Sufre de una fuerte morriña.', e: 'leiden unter más dativo.' },
+      { s: 'Ich erinnere mich gern ___ diese Zeit.', a: 'an', d: ['auf', 'über'], t: 'Me acuerdo con gusto de esa época.', e: 'sich erinnern an más acusativo.' },
+      { s: 'Sie freut sich ___ das Geschenk.', a: 'über', d: ['auf', 'an'], t: 'Se alegra del regalo.', e: 'freuen über para algo que ya ha pasado.' },
+      { s: 'Wir sprechen oft ___ die alte Zeit.', a: 'über', d: ['auf', 'an'], t: 'Hablamos a menudo de los viejos tiempos.', e: 'sprechen über más acusativo.' },
+      { s: 'Er hat sich ___ die Stelle beworben.', a: 'um', d: ['für', 'auf'], t: 'Se ha presentado para el puesto.', e: 'sich bewerben um más acusativo.' },
+      { s: 'Ich bin stolz ___ meine Kinder.', a: 'auf', d: ['über', 'an'], t: 'Estoy orgulloso de mis hijos.', e: 'stolz sein auf más acusativo.' },
+      { s: 'Die Präposition muss man ___ lernen.', a: 'mit dem Verb', d: ['allein', 'gar nicht'], t: 'La preposición hay que aprenderla con el verbo.', e: 'No se puede deducir del español.' }
     ]
   },
   'mitbringen-schenken-dativ': {
