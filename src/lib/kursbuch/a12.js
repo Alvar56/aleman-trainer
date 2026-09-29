@@ -911,15 +911,8 @@ export const A12 = {
           es: 'Hablar de las características de la vivienda',
           wendungen: [
             { de: 'Die Wohnung hat 60 m² und zwei Zimmer.', es: 'El piso tiene 60 m² y dos habitaciones.' },
-            { de: 'Unsere Wohnung hat fünfzig Quadratmeter.', es: 'Nuestro piso tiene cincuenta metros cuadrados.' },
-            { de: 'Die Wohnung ist leider nicht möbliert.', es: 'El piso no está amueblado.' },
-            { de: 'Von der Terrasse hat man eine tolle Aussicht.', es: 'Desde la terraza hay unas vistas estupendas.' },
-            { de: 'Altbau oder Neubau, was ist dir lieber?', es: '¿Edificio antiguo o nuevo, qué prefieres?' },
-            { de: 'In der Wohngemeinschaft spare ich viel Geld.', es: 'En el piso compartido ahorro mucho dinero.' },
-            { de: 'Die Wohnfläche ist kleiner als im Inserat.', es: 'La superficie es menor que en el anuncio.' },
-            { de: 'Wohnst du zur Miete oder im Eigentum?', es: '¿Vives de alquiler o en propiedad?' },
             { de: 'Ist die Gegend ruhig?', es: '¿La zona es tranquila?' },
-            { de: 'Wie weit ist die nächste U-Bahn?', es: '¿Cuánto hay hasta el metro más cercano?' }
+            { de: 'Altbau oder Neubau, was ist dir lieber?', es: '¿Edificio antiguo o nuevo, qué prefieres?' }
           ]
         },
         {
@@ -927,31 +920,17 @@ export const A12 = {
           es: 'Preguntar por gastos de alquiler y condiciones',
           wendungen: [
             { de: 'Wie hoch ist die Miete?', es: '¿Cuánto es el alquiler?' },
-            { de: 'Der Strom ist in der Miete nicht dabei.', es: 'La luz no está incluida en el alquiler.' },
-            { de: 'Im Winter sind die Heizkosten sehr hoch.', es: 'En invierno los gastos de calefacción son muy altos.' },
-            { de: 'Was kostet die Wohnung im Monat?', es: '¿Cuánto cuesta el piso al mes?' },
             { de: 'Wie viel Kaution muss ich zahlen?', es: '¿Cuánta fianza hay que pagar?' },
-            { de: 'Ab wann ist die Wohnung frei?', es: '¿A partir de cuándo está libre el piso?' },
-            { de: 'Wie hoch ist die Kaution?', es: '¿De cuánto es la fianza?' },
-            { de: 'Sind die Betriebskosten schon dabei?', es: '¿Están incluidos los gastos de comunidad?' },
-            { de: 'Wie lange läuft der Mietvertrag?', es: '¿Cuánto dura el contrato de alquiler?' },
-            { de: 'Wie hoch sind die Betriebskosten?', es: '¿Cuánto son los gastos de comunidad?' }
+            { de: 'Der Strom ist in der Miete nicht dabei.', es: 'La luz no está incluida en el alquiler.' }
           ]
         },
         {
           funktion: 'Wohnungsdetails und Ausstattung erfragen',
           es: 'Preguntar por detalles del piso y equipamiento',
           wendungen: [
-            { de: 'Die Küche ist klein, aber hell.', es: 'La cocina es pequeña, pero luminosa.' },
-            { de: 'Sie liegt im dritten Stock.', es: 'Está en la tercera planta.' },
             { de: 'Wie groß ist die Wohnung?', es: '¿Cuántos metros tiene el piso?' },
-            { de: 'Gibt es einen Aufzug?', es: '¿Hay ascensor?' },
-            { de: 'Ist die Wohnung möbliert?', es: '¿El piso está amueblado?' },
-            { de: 'Sind Haustiere erlaubt?', es: '¿Se admiten mascotas?' },
-            { de: 'Gibt es einen Stellplatz für das Auto?', es: '¿Hay plaza de aparcamiento para el coche?' },
-            { de: 'Darf ich die Wände streichen?', es: '¿Puedo pintar las paredes?' },
-            { de: 'Gibt es einen Keller oder einen Dachboden?', es: '¿Hay sótano o desván?' },
-            { de: 'Gibt es einen Balkon?', es: '¿Hay balcón?' }
+            { de: 'Die Küche ist klein, aber hell.', es: 'La cocina es pequeña, pero luminosa.' },
+            { de: 'Sind Haustiere erlaubt?', es: '¿Se admiten mascotas?' }
           ]
         },
         {
@@ -959,14 +938,7 @@ export const A12 = {
           es: 'Planificar visitas al piso y mudanza',
           wendungen: [
             { de: 'Wir suchen seit drei Monaten eine Wohnung.', es: 'Llevamos tres meses buscando piso.' },
-            { de: 'Wir ziehen im Mai um.', es: 'Nos mudamos en mayo.' },
-            { de: 'Wir wollen zuerst das Bad renovieren.', es: 'Primero queremos reformar el baño.' },
-            { de: 'Wir ziehen nächsten Monat endlich ein.', es: 'El mes que viene por fin nos mudamos.' },
-            { de: 'Wann kann ich sie besichtigen?', es: '¿Cuándo puedo verlo?' },
-            { de: 'Wann kann ich die Wohnung besichtigen?', es: '¿Cuándo puedo ver el piso?' },
-            { de: 'Wer kümmert sich um Reparaturen?', es: '¿Quién se ocupa de las reparaciones?' },
             { de: 'Ab wann kann ich einziehen?', es: '¿A partir de cuándo puedo mudarme?' },
-            { de: 'Wie viele Zimmer hat die Wohnung?', es: '¿Cuántas habitaciones tiene el piso?' },
             { de: 'Ist eine Küche schon eingebaut?', es: '¿Lleva cocina montada?' }
           ]
         },
@@ -975,31 +947,17 @@ export const A12 = {
           es: 'Expresar agrado o desagrado',
           wendungen: [
             { de: 'Das gefällt mir (nicht).', es: 'Eso (no) me gusta.' },
-            { de: 'Ich finde das Zimmer sehr gemütlich.', es: 'La habitación me parece muy acogedora.' },
-            { de: 'Das Wohnzimmer gefällt mir sehr gut.', es: 'El salón me gusta mucho.' },
             { de: 'Die Küche finde ich zu dunkel.', es: 'La cocina me parece demasiado oscura.' },
-            { de: 'Diese Farbe gefällt mir überhaupt nicht.', es: 'Este color no me gusta nada.' },
-            { de: 'Das Zimmer ist wirklich gemütlich.', es: 'La habitación es de verdad acogedora.' },
-            { de: 'Der Schrank passt hier gar nicht.', es: 'El armario no pega nada aquí.' },
-            { de: 'Mir gefällt die Aussicht am besten.', es: 'Lo que más me gusta son las vistas.' },
-            { de: 'Ich finde die Lage perfekt.', es: 'La ubicación me parece perfecta.' },
-            { de: 'Die hohen Decken finde ich wunderbar.', es: 'Los techos altos me parecen maravillosos.' }
+            { de: 'Mir gefällt die Aussicht am besten.', es: 'Lo que más me gusta son las vistas.' }
           ]
         },
         {
           funktion: 'Möbel und Einrichtung bewerten',
           es: 'Valorar muebles y decoración',
           wendungen: [
-            { de: 'Das ist mir zu modern.', es: 'Eso es demasiado moderno para mí.' },
-            { de: 'Der Schimmel im Bad gefällt mir gar nicht.', es: 'El moho del baño no me gusta nada.' },
-            { de: 'Der Innenhof gefällt mir am besten.', es: 'Lo que más me gusta es el patio interior.' },
-            { de: 'Diese Jalousien sehen sehr altmodisch aus.', es: 'Estas persianas parecen muy anticuadas.' },
             { de: 'Wie findest du die neue Küche?', es: '¿Qué te parece la cocina nueva?' },
-            { de: 'Das Sofa ist nicht mein Geschmack.', es: 'El sofá no es de mi gusto.' },
             { de: 'Mir gefällt der Boden ausgesprochen gut.', es: 'El suelo me gusta muchísimo.' },
-            { de: 'Haben Sie dieses Regal auch in Weiß?', es: '¿Tienen esta estantería también en blanco?' },
-            { de: 'Ist das Sofa auch als Bett verwendbar?', es: '¿El sofá se puede usar también de cama?' },
-            { de: 'Haben Sie den Tisch auch in Weiß?', es: '¿Tienen la mesa también en blanco?' }
+            { de: 'Haben Sie dieses Regal auch in Weiß?', es: '¿Tienen esta estantería también en blanco?' }
           ]
         },
         {
@@ -1007,15 +965,8 @@ export const A12 = {
           es: 'Preguntar por productos en la tienda de muebles',
           wendungen: [
             { de: 'Haben Sie auch Regale?', es: '¿Tienen también estanterías?' },
-            { de: 'Was kostet dieser Schrank?', es: '¿Cuánto cuesta este armario?' },
-            { de: 'Was kostet dieser Tisch?', es: '¿Cuánto cuesta esta mesa?' },
             { de: 'Muss ich den Schrank selbst aufbauen?', es: '¿Tengo que montar yo el armario?' },
-            { de: 'Liefern Sie auch nach Hause?', es: '¿Hacen también entrega a domicilio?' },
-            { de: 'Gibt es das auch in einer anderen Farbe?', es: '¿Lo tienen también en otro color?' },
-            { de: 'Wie lange ist die Garantie?', es: '¿Cuánto dura la garantía?' },
-            { de: 'Kann ich das zurückgeben, wenn es nicht passt?', es: '¿Lo puedo devolver si no encaja?' },
-            { de: 'Passt das Regal in einen normalen Kofferraum?', es: '¿La estantería cabe en un maletero normal?' },
-            { de: 'Wie lange dauert die Lieferung?', es: '¿Cuánto tarda la entrega?' }
+            { de: 'Passt das Regal in einen normalen Kofferraum?', es: '¿La estantería cabe en un maletero normal?' }
           ]
         },
         {
@@ -1023,15 +974,8 @@ export const A12 = {
           es: 'Hablar con vecinos y compañeros de piso',
           wendungen: [
             { de: 'Guten Tag, wir sind neu eingezogen.', es: 'Buenos días, nos acabamos de mudar aquí.' },
-            { de: 'Entschuldigung, war es gestern zu laut?', es: 'Perdone, ¿ayer hubo demasiado ruido?' },
             { de: 'Wann wird der Müll abgeholt?', es: '¿Cuándo recogen la basura?' },
-            { de: 'Wo ist die Waschküche?', es: '¿Dónde está el cuarto de lavado?' },
-            { de: 'Gibt es im Haus eine Hausordnung?', es: '¿Hay normas de la comunidad?' },
-            { de: 'Könnten Sie ein Paket für mich annehmen?', es: '¿Podría recogerme un paquete?' },
-            { de: 'Wir machen am Samstag eine kleine Feier.', es: 'El sábado hacemos una fiestecita.' },
-            { de: 'Haben Sie zufällig Werkzeug?', es: '¿Por casualidad tiene herramientas?' },
-            { de: 'Darf man im Innenhof grillen?', es: '¿Se puede hacer barbacoa en el patio?' },
-            { de: 'Wir sind Ihre neuen Nachbarn von oben.', es: 'Somos sus vecinos nuevos de arriba.' }
+            { de: 'Könnten Sie ein Paket für mich annehmen?', es: '¿Podría recogerme un paquete?' }
           ]
         }
       ]
@@ -1289,15 +1233,8 @@ export const A12 = {
           funktion: 'sich im Amt informieren',
           es: 'Informarse en la administración',
           wendungen: [
-            { de: 'Ich habe eine Frage: Wo muss ich das abgeben?', es: 'Tengo una pregunta: ¿dónde tengo que entregarlo?' },
-            { de: 'Können Sie mir bitte helfen?', es: '¿Me puede ayudar, por favor?' },
-            { de: 'Welche Unterlagen brauche ich?', es: '¿Qué documentación necesito?' },
-            { de: 'Bis wann muss ich das abgeben?', es: '¿Hasta cuándo tengo que entregarlo?' },
-            { de: 'Wie lange muss ich warten?', es: '¿Cuánto tengo que esperar?' },
-            { de: 'Zu welchem Schalter muss ich?', es: '¿A qué ventanilla tengo que ir?' },
-            { de: 'Fehlt noch etwas?', es: '¿Falta algo?' },
             { de: 'Entschuldigung, bin ich hier richtig?', es: 'Perdone, ¿es aquí?' },
-            { de: 'Ich möchte einen Ausweis beantragen.', es: 'Quisiera solicitar un documento de identidad.' },
+            { de: 'Können Sie mir bitte helfen?', es: '¿Me puede ayudar, por favor?' },
             { de: 'Welche Unterlagen muss ich mitbringen?', es: '¿Qué documentación tengo que traer?' }
           ]
         },
@@ -1305,16 +1242,9 @@ export const A12 = {
           funktion: 'Verfahren und Formalitäten klären',
           es: 'Aclarar trámites y formalidades',
           wendungen: [
-            { de: 'Kann ich den Antrag auch per Post schicken?', es: '¿Puedo enviar la solicitud también por correo?' },
             { de: 'Wer ist für diesen Fall zuständig?', es: '¿Quién se encarga de este caso?' },
-            { de: 'Wie lange dauert die Bearbeitung?', es: '¿Cuánto tarda la tramitación?' },
-            { de: 'Fehlt noch etwas in meinem Antrag?', es: '¿Falta algo en mi solicitud?' },
-            { de: 'Muss ich noch einmal persönlich kommen?', es: '¿Tengo que volver en persona?' },
-            { de: 'Könnten Sie mir das bitte erklären?', es: '¿Me lo podría explicar, por favor?' },
-            { de: 'Muss die Übersetzung beglaubigt sein?', es: '¿La traducción tiene que estar certificada?' },
-            { de: 'Wann bekomme ich den Bescheid?', es: '¿Cuándo recibiré la resolución?' },
-            { de: 'Kann ich das auch online erledigen?', es: '¿Puedo hacerlo también por internet?' },
-            { de: 'Wird mir der Bescheid zugeschickt?', es: '¿Me envían la resolución?' }
+            { de: 'Kann ich den Antrag auch per Post schicken?', es: '¿Puedo enviar la solicitud también por correo?' },
+            { de: 'Fehlt noch etwas in meinem Antrag?', es: '¿Falta algo en mi solicitud?' }
           ]
         },
         {
@@ -1322,15 +1252,8 @@ export const A12 = {
           es: 'Terminar una llamada formal',
           wendungen: [
             { de: 'Vielen Dank für Ihre Hilfe.', es: 'Muchas gracias por su ayuda.' },
-            { de: 'Auf Wiederhören!', es: '¡Hasta luego! (por teléfono)' },
-            { de: 'Vielen Dank für Ihre Auskunft.', es: 'Muchas gracias por la información.' },
-            { de: 'Dann bleiben wir so verblieben.', es: 'Entonces quedamos así.' },
-            { de: 'Ich melde mich nächste Woche wieder.', es: 'Vuelvo a ponerme en contacto la semana que viene.' },
-            { de: 'Entschuldigen Sie die Störung.', es: 'Disculpe la molestia.' },
-            { de: 'Auf Wiederhören und danke nochmals.', es: 'Hasta luego y gracias otra vez.' },
             { de: 'Könnten Sie mir das schriftlich bestätigen?', es: '¿Me lo podría confirmar por escrito?' },
-            { de: 'Ich bedanke mich für Ihre Geduld.', es: 'Le agradezco su paciencia.' },
-            { de: 'Dann verbleiben wir so, danke schön.', es: 'Quedamos así entonces, muchas gracias.' }
+            { de: 'Entschuldigen Sie die Störung.', es: 'Disculpe la molestia.' }
           ]
         },
         {
@@ -1338,15 +1261,8 @@ export const A12 = {
           es: 'Pedir permiso',
           wendungen: [
             { de: 'Darf ich hier parken?', es: '¿Puedo aparcar aquí?' },
-            { de: 'Darf ich hier kurz stehen bleiben?', es: '¿Puedo pararme aquí un momento?' },
             { de: 'Ist es erlaubt, hier zu fotografieren?', es: '¿Está permitido hacer fotos aquí?' },
-            { de: 'Dürfen die Kinder im Hof spielen?', es: '¿Pueden jugar los niños en el patio?' },
-            { de: 'Kann ich das Fenster aufmachen?', es: '¿Se puede abrir la ventana?' },
-            { de: 'Muss ich vorher um Erlaubnis fragen?', es: '¿Tengo que pedir permiso antes?' },
-            { de: 'Darf ich das kopieren?', es: '¿Puedo hacer una copia de esto?' },
-            { de: 'Darf mein Mann das für mich abgeben?', es: '¿Puede entregarlo mi marido por mí?' },
-            { de: 'Darf ich hier während der Wartezeit telefonieren?', es: '¿Puedo hablar por teléfono aquí mientras espero?' },
-            { de: 'Darf ich mich hier kurz hinsetzen?', es: '¿Me puedo sentar aquí un momento?' }
+            { de: 'Kann ich das Fenster aufmachen?', es: '¿Se puede abrir la ventana?' }
           ]
         },
         {
@@ -1355,14 +1271,7 @@ export const A12 = {
           wendungen: [
             { de: 'Ja, das dürfen Sie. / Nein, das ist verboten.', es: 'Sí, puede. / No, está prohibido.' },
             { de: 'Darf man hier mit dem Rad fahren?', es: '¿Se puede circular aquí en bici?' },
-            { de: 'Rauchen ist hier leider verboten.', es: 'Aquí está prohibido fumar.' },
-            { de: 'Sie dürfen das gern mitnehmen.', es: 'Se lo puede llevar sin problema.' },
-            { de: 'Ist das hier ein Parkplatz?', es: '¿Esto es un aparcamiento?' },
-            { de: 'Ist diese Angabe verpflichtend?', es: '¿Este dato es obligatorio?' },
-            { de: 'Kann ich gegen den Bescheid etwas machen?', es: '¿Puedo hacer algo contra la resolución?' },
-            { de: 'Darf man hier fotografieren?', es: '¿Se puede hacer fotos aquí?' },
-            { de: 'Dürfen wir hier kurz stehen bleiben?', es: '¿Podemos quedarnos aquí parados un momento?' },
-            { de: 'Ist es erlaubt, das mitzunehmen?', es: '¿Está permitido llevarse esto?' }
+            { de: 'Ist diese Angabe verpflichtend?', es: '¿Este dato es obligatorio?' }
           ]
         },
         {
@@ -1370,15 +1279,8 @@ export const A12 = {
           es: 'Informar sobre rutinas y hábitos',
           wendungen: [
             { de: 'Normalerweise arbeite ich bis 17 Uhr.', es: 'Normalmente trabajo hasta las 17.' },
-            { de: 'Normalerweise fange ich um acht an.', es: 'Normalmente empiezo a las ocho.' },
-            { de: 'Meistens esse ich mittags in der Kantine.', es: 'Casi siempre como al mediodía en el comedor.' },
             { de: 'Am Wochenende stehe ich nie vor neun auf.', es: 'El fin de semana nunca me levanto antes de las nueve.' },
-            { de: 'Ich lese jeden Abend eine Stunde Deutsch.', es: 'Leo alemán una hora todas las tardes.' },
-            { de: 'Normalerweise mache ich das am Freitag.', es: 'Normalmente eso lo hago el viernes.' },
-            { de: 'Ich telefoniere lieber, als zu schreiben.', es: 'Prefiero llamar antes que escribir.' },
-            { de: 'Ich vereinbare Termine immer online.', es: 'Las citas las concierto siempre por internet.' },
-            { de: 'Steuererklärungen mache ich immer im Februar.', es: 'La declaración de la renta la hago siempre en febrero.' },
-            { de: 'Wichtige Papiere hebe ich in einem Ordner auf.', es: 'Los papeles importantes los guardo en una carpeta.' }
+            { de: 'Ich vereinbare Termine immer online.', es: 'Las citas las concierto siempre por internet.' }
           ]
         },
         {
@@ -1386,31 +1288,17 @@ export const A12 = {
           es: 'Hacer propuestas y responder a ellas',
           wendungen: [
             { de: 'Sollen wir das zusammen machen?', es: '¿Lo hacemos juntos?' },
-            { de: 'Ja, gern. / Lieber nicht.', es: 'Sí, con gusto. / Mejor no.' },
-            { de: 'Sollen wir gleich anfangen?', es: '¿Empezamos ya?' },
-            { de: 'Wollen wir kurz Pause machen?', es: '¿Hacemos una pausa?' },
             { de: 'Ich schlage Freitag vor.', es: 'Propongo el viernes.' },
-            { de: 'Kannst du das übernehmen?', es: '¿Te puedes encargar tú?' },
-            { de: 'Sollen wir den Bericht zusammen schreiben?', es: '¿Escribimos el informe juntos?' },
-            { de: 'Wie wäre es, wenn wir früher anfangen?', es: '¿Qué tal si empezamos antes?' },
-            { de: 'Einverstanden, das machen wir so.', es: 'Vale, quedamos en eso.' },
-            { de: 'Hast du einen besseren Vorschlag?', es: '¿Tienes una propuesta mejor?' }
+            { de: 'Kannst du das übernehmen?', es: '¿Te puedes encargar tú?' }
           ]
         },
         {
           funktion: 'schriftliche Anträge und Schreiben formulieren',
           es: 'Formular solicitudes por escrito',
           wendungen: [
-            { de: 'Hiermit beantrage ich …', es: 'Por la presente solicito …' },
-            { de: 'Ich bitte um eine Bestätigung.', es: 'Ruego un justificante.' },
-            { de: 'Hiermit beantrage ich eine Verlängerung.', es: 'Por la presente solicito una prórroga.' },
-            { de: 'Ich bitte Sie um eine schriftliche Bestätigung.', es: 'Le pido una confirmación por escrito.' },
-            { de: 'Anbei sende ich Ihnen die Unterlagen.', es: 'Adjunto le envío la documentación.' },
-            { de: 'Leider kann ich die Frist nicht einhalten.', es: 'No puedo cumplir el plazo.' },
-            { de: 'Sehr geehrte Damen und Herren, ich wende mich an Sie wegen meines Antrags.', es: 'Muy señores míos, me dirijo a ustedes por mi solicitud.' },
-            { de: 'Mit freundlichen Grüßen und vielen Dank im Voraus.', es: 'Atentamente y gracias de antemano.' },
             { de: 'Wie beginne ich so ein Schreiben?', es: '¿Cómo empiezo una carta así?' },
-            { de: 'Bis wann muss ich den Antrag einreichen?', es: '¿Hasta cuándo tengo que presentar la solicitud?' }
+            { de: 'Hiermit beantrage ich eine Verlängerung.', es: 'Por la presente solicito una prórroga.' },
+            { de: 'Ich bitte um eine Bestätigung.', es: 'Ruego un justificante.' }
           ]
         }
       ]

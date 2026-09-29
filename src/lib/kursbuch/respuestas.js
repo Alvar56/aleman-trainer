@@ -687,50 +687,27 @@ const RESPUESTAS = {
 
 
   // ---- Lektion 11: Gefällt dir das Zimmer? -------------------------------
-  'Die Wohnung hat 60 m² und zwei Zimmer.':
-    { de: 'Und in welchem Stadtteil liegt sie?', es: '¿Y en qué barrio está?' },
-  'Wie hoch ist die Miete?':
-    { de: '600 Euro warm, mit Heizung.', es: '600 euros con gastos, calefacción incluida.' },
-  'Die Küche ist klein, aber hell.':
-    { de: 'Das ist mir wichtiger als groß.', es: 'Eso me importa más que el tamaño.' },
-  'Sie liegt im dritten Stock.':
-    { de: 'Gibt es einen Aufzug, oder muss man immer die Treppe nehmen?', es: '¿Hay ascensor o hay que subir siempre por la escalera?' },
-  'Das gefällt mir (nicht).':
-    { de: 'Wirklich? Mir gefällt es sehr.', es: '¿En serio? A mí me gusta mucho.' },
-  'Ich finde das Zimmer sehr gemütlich.':
-    { de: 'Ja, und die Farben passen gut zusammen.', es: 'Sí, y los colores pegan bien.' },
-  'Haben Sie auch Regale?':
-    { de: 'Ja, gleich hier hinten rechts.', es: 'Sí, aquí detrás a la derecha.' },
-  'Was kostet dieser Schrank?':
-    { de: 'Hundertneunundzwanzig Euro, und der Aufbau kostet noch einmal dreißig Euro extra.', es: 'Ciento veintinueve euros, y el montaje cuesta otros treinta euros más.' },
+
+
+
+
+
+
+
+
 
   // ---- Lektion 12: Danke für die Hilfe! ----------------------------------
-  'Ich habe eine Frage: Wo muss ich das abgeben?':
-    { de: 'Am Schalter zwei, dort drüben.', es: 'En la ventanilla dos, allí enfrente.' },
-  'Können Sie mir bitte helfen?':
-    { de: 'Natürlich, sagen Sie mir, worum es geht.', es: 'Por supuesto, dígame de qué se trata.' },
-  'Vielen Dank für Ihre Hilfe.':
-    { de: 'Gern geschehen. Melden Sie sich, wenn etwas ist.', es: 'De nada. Avise si hace falta algo.' },
-  'Auf Wiederhören!':
-    { de: 'Auf Wiederhören und schönen Tag noch!', es: '¡Hasta luego y que tenga buen día!' },
-  'Darf ich hier parken?':
-    { de: 'Nur mit Parkschein, und höchstens zwei Stunden.', es: 'Solo con tique, y dos horas como mucho.' },
-  'Ja, das dürfen Sie. / Nein, das ist verboten.':
-    { de: 'Danke, dann suche ich einen Automaten.', es: 'Gracias, pues busco un parquímetro.' },
-  'Normalerweise arbeite ich bis 17 Uhr.':
-    { de: 'Und freitags? Da ist doch früher Schluss.', es: '¿Y los viernes? Ahí se acaba antes.',
-      mas: [
-        { de: 'Ja, freitags bin ich um 14 Uhr fertig.', es: 'Sí, los viernes acabo a las 14.' },
-        { de: 'Das ist super. Was machst du dann?', es: 'Eso está genial. ¿Y qué haces luego?' }
-      ] },
-  'Sollen wir das zusammen machen?':
-    { de: 'Ja, zu zweit geht es schneller.', es: 'Sí, entre dos va más rápido.' },
-  'Ja, gern. / Lieber nicht.':
-    { de: 'Gut, dann sag mir Bescheid.', es: 'Vale, pues avísame.' },
-  'Hiermit beantrage ich …':
-    { de: 'Schicken Sie das bitte schriftlich.', es: 'Mándelo por escrito, por favor.' },
-  'Ich bitte um eine Bestätigung.':
-    { de: 'Die bekommen Sie per E-Mail.', es: 'Lo recibirá por correo electrónico.' },
+
+
+
+
+
+
+
+
+
+
+
 
   // ---- Lektion 13: Gesundheit! -------------------------------------------
   'Vorsicht! · Pass auf!':
@@ -934,24 +911,6 @@ const RESPUESTAS = {
 
 
 
-  'Welche Unterlagen brauche ich?':
-    { de: 'Ausweis und eine Kopie davon.', es: 'El documento de identidad y una copia.' },
-  'Bis wann muss ich das abgeben?':
-    { de: 'Bis Ende des Monats. Danach können wir den Antrag nicht mehr annehmen.', es: 'Antes de fin de mes. Después ya no podemos aceptar la solicitud.' },
-  'Wie lange muss ich warten?':
-    { de: 'Etwa zwanzig Minuten. Setzen Sie sich, ich rufe Ihre Nummer auf.', es: 'Unos veinte minutos. Siéntese, la llamo por su número.' },
-  'Zu welchem Schalter muss ich?':
-    { de: 'Nummer drei, gleich links. Ziehen Sie vorher bitte eine Wartenummer.', es: 'El número tres, a la izquierda. Coja antes un número de espera.' },
-  'Fehlt noch etwas?':
-    { de: 'Ja, Ihre Unterschrift hier unten.', es: 'Sí, su firma aquí abajo.' },
-  'Sollen wir gleich anfangen?':
-    { de: 'Ja, machen wir. Ich habe die Unterlagen schon auf dem Tisch.', es: 'Sí, empecemos. Ya tengo la documentación en la mesa.' },
-  'Wollen wir kurz Pause machen?':
-    { de: 'Gute Idee, ich brauche einen Kaffee.', es: 'Buena idea, necesito un café.' },
-  'Ich schlage Freitag vor.':
-    { de: 'Freitag passt mir gut, am besten am Vormittag um zehn.', es: 'El viernes me viene bien, mejor por la mañana a las diez.' },
-  'Kannst du das übernehmen?':
-    { de: 'Ja, kein Problem. Bis wann brauchst du es, Mittwoch oder Freitag?', es: 'Sí, sin problema. ¿Para cuándo lo necesitas, el miércoles o el viernes?' },
 
 
 
@@ -967,20 +926,22 @@ const RESPUESTAS = {
 
 
 
-  'Wie groß ist die Wohnung?':
-    { de: 'Sechzig Quadratmeter, zwei Zimmer und ein kleiner Balkon nach hinten.', es: 'Sesenta metros cuadrados, dos habitaciones y un balcón pequeño hacia atrás.' },
-  'Was kostet die Wohnung im Monat?':
-    { de: 'Achthundert Euro warm, also inklusive Betriebskosten, Heizung und Warmwasser.', es: 'Ochocientos euros con gastos, es decir, comunidad, calefacción y agua caliente incluidas.' },
-  'Gibt es einen Aufzug?':
-    { de: 'Ja, aber heute ist er kaputt.', es: 'Sí, pero hoy está averiado.' },
-  'Ist die Wohnung möbliert?':
-    { de: 'Nur die Küche ist eingerichtet, den Rest bringen Sie selbst mit.', es: 'Solo la cocina está equipada, el resto lo trae usted.' },
-  'Wann kann ich sie besichtigen?':
-    { de: 'Morgen um siebzehn Uhr. Bitte pünktlich, es kommen mehrere Interessenten.', es: 'Mañana a las cinco. Puntual, por favor, vienen varios interesados.' },
-  'Sind Haustiere erlaubt?':
-    { de: 'Katzen ja, Hunde leider nicht.', es: 'Gatos sí, perros no.' },
-  'Wie viel Kaution muss ich zahlen?':
-    { de: 'Drei Monatsmieten. Die bekommen Sie beim Auszug wieder zurück.', es: 'Tres mensualidades. Se las devuelven al mudarse.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Mir tut der Rücken weh.':
     { de: 'Seit wann denn? Und tut es beim Sitzen oder beim Gehen weh?', es: '¿Desde cuándo? ¿Y duele al estar sentado o al andar?' },
   'Ich habe seit Tagen Kopfschmerzen.':
@@ -1516,178 +1477,86 @@ const RESPUESTAS = {
 
 
 
-  'Wir suchen seit drei Monaten eine Wohnung.':
-    { de: 'Das ist zäh, ich weiß. Wie viele Besichtigungen hattet ihr schon?', es: 'Es duro, lo sé. ¿Cuántas visitas habéis hecho ya?',
-      mas: [
-        { de: 'Zwölf Besichtigungen, und jedes Mal waren dreißig Leute da.', es: 'Doce visitas, y cada vez había treinta personas.' },
-        { de: 'Das ist der Wahnsinn. Schreibt dem Vermieter vorher eine kurze Mail.', es: 'Es una locura. Escribid antes un correo corto al propietario.' }
-      ] },
-  'Unsere Wohnung hat fünfzig Quadratmeter.':
-    { de: 'Für zwei Personen reicht das gut, wenn der Grundriss stimmt.', es: 'Para dos personas está bien, si el plano es bueno.' },
-  'Wir ziehen im Mai um.':
-    { de: 'Braucht ihr Hilfe? Ich habe ein Auto und am Samstag Zeit.', es: '¿Necesitáis ayuda? Tengo coche y el sábado tengo tiempo.' },
-  'Der Strom ist in der Miete nicht dabei.':
-    { de: 'Das ist normal hier. Rechne mit ungefähr fünfzig Euro im Monat.', es: 'Aquí es lo normal. Cuenta unos cincuenta euros al mes.' },
-  'Wir wollen zuerst das Bad renovieren.':
-    { de: 'Gute Reihenfolge. Das Bad zuletzt zu machen ist immer ein Fehler.', es: 'Buen orden. Dejar el baño para el final siempre es un error.' },
-  'Die Wohnung ist leider nicht möbliert.':
-    { de: 'Dafür kannst du alles so machen, wie du es willst.', es: 'A cambio puedes ponerlo todo a tu gusto.' },
-  'Von der Terrasse hat man eine tolle Aussicht.':
-    { de: 'Dann zahlt man die Miete gern. Sieht man bis zum Berg?', es: 'Entonces el alquiler se paga a gusto. ¿Se ve hasta la montaña?' },
-  'Im Winter sind die Heizkosten sehr hoch.':
-    { de: 'Prüf mal die Fenster. Bei alten Fenstern geht die Wärme sofort raus.', es: 'Mira las ventanas. Con ventanas viejas el calor se va enseguida.' },
-  'Ab wann ist die Wohnung frei?':
-    { de: 'Ab dem ersten Juni. Die alten Mieter ziehen Ende Mai aus.', es: 'A partir del uno de junio. Los inquilinos anteriores se van a finales de mayo.' },
-  'Wie hoch ist die Kaution?':
-    { de: 'Drei Monatsmieten. Die bekommen Sie beim Auszug zurück.', es: 'Tres mensualidades. Se la devuelven al irse.' },
-  'Sind die Betriebskosten schon dabei?':
-    { de: 'Ja, aber Strom und Internet zahlen Sie selbst.', es: 'Sí, pero la luz e internet los paga usted.' },
-  'Gibt es einen Stellplatz für das Auto?':
-    { de: 'In der Garage, ja. Der kostet fünfzig Euro extra im Monat.', es: 'En el garaje, sí. Cuesta cincuenta euros más al mes.' },
-  'Wie lange läuft der Mietvertrag?':
-    { de: 'Drei Jahre, danach kann man verlängern. Das machen fast alle.', es: 'Tres años, después se puede prolongar. Casi todo el mundo lo hace.' },
-  'Darf ich die Wände streichen?':
-    { de: 'Ja, aber beim Auszug müssen sie wieder weiß sein.', es: 'Sí, pero al irse tienen que volver a ser blancas.' },
-  'Wann kann ich die Wohnung besichtigen?':
-    { de: 'Morgen um siebzehn Uhr. Kommen Sie bitte pünktlich, es sind mehrere Interessenten.', es: 'Mañana a las cinco. Venga puntual, por favor, hay varios interesados.' },
-  'Gibt es einen Keller oder einen Dachboden?':
-    { de: 'Einen Keller, vier Quadratmeter. Für Koffer und Winterreifen reicht er.', es: 'Un sótano de cuatro metros cuadrados. Para maletas y ruedas de invierno basta.' },
-  'Das Wohnzimmer gefällt mir sehr gut.':
-    { de: 'Mir auch, vor allem wegen der großen Fenster.', es: 'A mí también, sobre todo por las ventanas grandes.' },
-  'Die Küche finde ich zu dunkel.':
-    { de: 'Mit einer guten Lampe wird das viel besser, glaub mir.', es: 'Con una buena lámpara mejora mucho, créeme.' },
-  'Diese Farbe gefällt mir überhaupt nicht.':
-    { de: 'Dann streichen wir es einfach. Zwei Dosen Farbe sind schnell gekauft.', es: 'Pues lo pintamos y ya está. Dos botes de pintura se compran rápido.' },
-  'Das Zimmer ist wirklich gemütlich.':
-    { de: 'Danke! Der Teppich und die Kissen machen den Unterschied.', es: '¡Gracias! La alfombra y los cojines marcan la diferencia.' },
-  'Der Schrank passt hier gar nicht.':
-    { de: 'Stimmt, er ist zu groß. Im Schlafzimmer wäre er besser.', es: 'Es verdad, es demasiado grande. En el dormitorio quedaría mejor.' },
-  'Mir gefällt die Aussicht am besten.':
-    { de: 'Deshalb habe ich die Wohnung genommen. Der Rest war Nebensache.', es: 'Por eso cogí el piso. Lo demás era secundario.' },
-  'Das ist mir zu modern.':
-    { de: 'Verstehe. Magst du es lieber gemütlich und ein bisschen altmodisch?', es: 'Entiendo. ¿Lo prefieres acogedor y un poco a la antigua?' },
-  'Ich finde die Lage perfekt.':
-    { de: 'Ja, zehn Minuten zur U-Bahn und der Markt gleich ums Eck.', es: 'Sí, diez minutos al metro y el mercado a la vuelta.' },
-  'Haben Sie dieses Regal auch in Weiß?':
-    { de: 'Im Lager ja. Ich kann es Ihnen bis Freitag bestellen.', es: 'En el almacén sí. Se lo puedo pedir para el viernes.' },
-  'Was kostet dieser Tisch?':
-    { de: 'Hundertneunzig Euro. Mit den Stühlen zweihundertfünfzig.', es: 'Ciento noventa euros. Con las sillas doscientos cincuenta.' },
-  'Muss ich den Schrank selbst aufbauen?':
-    { de: 'Nicht unbedingt. Gegen dreißig Euro machen das unsere Leute.', es: 'No necesariamente. Por treinta euros lo hace nuestro personal.' },
-  'Liefern Sie auch nach Hause?':
-    { de: 'Ja, innerhalb von Wien. Die Lieferung kostet zwanzig Euro.', es: 'Sí, dentro de Viena. El envío cuesta veinte euros.' },
-  'Ist das Sofa auch als Bett verwendbar?':
-    { de: 'Ja, man klappt es einfach auf. Soll ich es Ihnen zeigen?', es: 'Sí, se abre y ya está. ¿Se lo enseño?' },
-  'Wie lange ist die Garantie?':
-    { de: 'Zwei Jahre auf alles, bei den Matratzen sogar zehn.', es: 'Dos años en todo, y en los colchones incluso diez.' },
-  'Kann ich das zurückgeben, wenn es nicht passt?':
-    { de: 'Innerhalb von dreißig Tagen, mit Rechnung und im Originalkarton.', es: 'Dentro de treinta días, con la factura y en la caja original.' },
-  'Guten Tag, wir sind neu eingezogen.':
-    { de: 'Herzlich willkommen! Ich wohne nebenan, wenn Sie etwas brauchen.', es: '¡Bienvenidos! Vivo al lado, por si necesitan algo.' },
-  'Entschuldigung, war es gestern zu laut?':
-    { de: 'Ein bisschen, aber Sie haben ja gerade den Schrank aufgebaut.', es: 'Un poco, pero estaban montando el armario.' },
-  'Wann wird der Müll abgeholt?':
-    { de: 'Dienstag und Freitag früh. Die Tonnen stehen unten im Hof.', es: 'Martes y viernes por la mañana. Los cubos están abajo en el patio.' },
-  'Wo ist die Waschküche?':
-    { de: 'Im Keller. Man trägt sich vorher in die Liste an der Tür ein.', es: 'En el sótano. Antes hay que apuntarse en la lista de la puerta.' },
-  'Gibt es im Haus eine Hausordnung?':
-    { de: 'Ja, sie hängt im Eingang. Wichtig ist nur die Ruhe ab zweiundzwanzig Uhr.', es: 'Sí, están colgadas en la entrada. Lo importante es el silencio a partir de las diez.' },
-  'Könnten Sie ein Paket für mich annehmen?':
-    { de: 'Klar, kein Problem. Ich bin vormittags fast immer zu Hause.', es: 'Claro, sin problema. Por la mañana estoy casi siempre en casa.' },
-  'Wir machen am Samstag eine kleine Feier.':
-    { de: 'Danke für die Info. Sagen Sie einfach Bescheid, wenn es später wird.', es: 'Gracias por avisar. Dígamelo si se alarga.' },
-  'Haben Sie zufällig Werkzeug?':
-    { de: 'Einen ganzen Kasten. Was brauchen Sie, einen Bohrer?', es: 'Una caja entera. ¿Qué necesita, un taladro?' },
-  'Entschuldigung, bin ich hier richtig?':
-    { de: 'Für die Anmeldung ja. Ziehen Sie bitte eine Wartenummer.', es: 'Para el empadronamiento sí. Coja un número de espera, por favor.' },
-  'Ich möchte einen Ausweis beantragen.':
-    { de: 'Dafür brauchen Sie ein Foto, den alten Ausweis und dreißig Euro.', es: 'Para eso necesita una foto, el documento antiguo y treinta euros.',
-      mas: [
-        { de: 'Das Foto habe ich dabei. Reicht ein normales Passfoto?', es: 'La foto la traigo. ¿Basta con una foto de carné normal?' },
-        { de: 'Wenn der Hintergrund weiß ist, ja. Sonst machen wir eines hier.', es: 'Si el fondo es blanco, sí. Si no, se la hacemos aquí.' }
-      ] },
-  'Welche Unterlagen muss ich mitbringen?':
-    { de: 'Den Mietvertrag, den Pass und eine Meldebestätigung.', es: 'El contrato de alquiler, el pasaporte y el certificado de empadronamiento.' },
-  'Kann ich den Antrag auch per Post schicken?':
-    { de: 'Ja, aber dann dauert es zwei Wochen länger.', es: 'Sí, pero entonces tarda dos semanas más.' },
-  'Wer ist für diesen Fall zuständig?':
-    { de: 'Mein Kollege am Schalter vier. Er ist ab vierzehn Uhr da.', es: 'Mi compañero de la ventanilla cuatro. Está a partir de las dos.' },
-  'Wie lange dauert die Bearbeitung?':
-    { de: 'Normalerweise drei Wochen. Wir schicken Ihnen dann ein Schreiben.', es: 'Normalmente tres semanas. Después le enviamos un escrito.' },
-  'Fehlt noch etwas in meinem Antrag?':
-    { de: 'Nur die Unterschrift auf Seite zwei, dann ist er vollständig.', es: 'Solo la firma de la página dos, y ya está completa.' },
-  'Muss ich noch einmal persönlich kommen?':
-    { de: 'Nein, wir melden uns bei Ihnen. Bleiben Sie einfach erreichbar.', es: 'No, nosotros le avisamos. Esté localizable, sin más.' },
-  'Könnten Sie mir das bitte erklären?':
-    { de: 'Gern, Schritt für Schritt. Hier oben tragen Sie Ihren Namen ein.', es: 'Con gusto, paso a paso. Aquí arriba pone su nombre.' },
-  'Vielen Dank für Ihre Auskunft.':
-    { de: 'Sehr gern. Rufen Sie an, wenn noch etwas unklar ist.', es: 'De nada. Llame si algo no queda claro.' },
-  'Dann bleiben wir so verblieben.':
-    { de: 'Genau. Ich schicke Ihnen heute noch eine Bestätigung per Mail.', es: 'Exacto. Hoy mismo le mando una confirmación por correo.' },
-  'Ich melde mich nächste Woche wieder.':
-    { de: 'Gut. Am besten am Dienstag, da bin ich den ganzen Tag da.', es: 'Bien. Mejor el martes, ese día estoy todo el día.' },
-  'Entschuldigen Sie die Störung.':
-    { de: 'Keine Ursache, dafür sind wir da. Schönen Tag noch!', es: 'De nada, para eso estamos. ¡Que pase buen día!' },
-  'Auf Wiederhören und danke nochmals.':
-    { de: 'Auf Wiederhören. Und viel Erfolg mit dem Antrag!', es: 'Hasta luego. ¡Y suerte con la solicitud!' },
-  'Könnten Sie mir das schriftlich bestätigen?':
-    { de: 'Selbstverständlich. Geben Sie mir bitte Ihre E-Mail-Adresse.', es: 'Por supuesto. Deme su correo electrónico, por favor.' },
-  'Darf ich hier kurz stehen bleiben?':
-    { de: 'Nur zum Ausladen. Länger als zehn Minuten ist verboten.', es: 'Solo para descargar. Más de diez minutos está prohibido.' },
-  'Ist es erlaubt, hier zu fotografieren?':
-    { de: 'Im Hof ja, im Gebäude leider nicht.', es: 'En el patio sí, en el edificio por desgracia no.' },
-  'Dürfen die Kinder im Hof spielen?':
-    { de: 'Bis zwanzig Uhr, ja. Danach muss es ruhig sein.', es: 'Hasta las ocho, sí. Después tiene que haber silencio.' },
-  'Kann ich das Fenster aufmachen?':
-    { de: 'Bitte, ja. Hier drinnen ist es wirklich zu warm.', es: 'Sí, por favor. Aquí dentro hace demasiado calor.' },
-  'Darf man hier mit dem Rad fahren?':
-    { de: 'Nein, im Park müssen Sie schieben. Das steht auf dem Schild.', es: 'No, en el parque hay que llevarla a mano. Lo pone en el cartel.' },
-  'Rauchen ist hier leider verboten.':
-    { de: 'Entschuldigung, das habe ich nicht gesehen. Wo darf man denn?', es: 'Perdón, no lo había visto. ¿Y dónde se puede?' },
-  'Sie dürfen das gern mitnehmen.':
-    { de: 'Danke! Dann lese ich es in Ruhe zu Hause.', es: '¡Gracias! Así lo leo con calma en casa.' },
-  'Muss ich vorher um Erlaubnis fragen?':
-    { de: 'Besser ja. Eine kurze Mail an die Hausverwaltung reicht.', es: 'Mejor sí. Basta con un correo corto a la administración.' },
-  'Ist das hier ein Parkplatz?':
-    { de: 'Nur für Anrainer. Ohne Ausweis wird sofort abgeschleppt.', es: 'Solo para residentes. Sin distintivo se lo llevan enseguida.' },
-  'Darf ich das kopieren?':
-    { de: 'Natürlich. Der Kopierer steht im Gang, gleich links.', es: 'Claro. La fotocopiadora está en el pasillo, a la izquierda.' },
-  'Normalerweise fange ich um acht an.':
-    { de: 'Und schaffen Sie das immer? Die U-Bahn ist um diese Zeit voll.', es: '¿Y lo consigue siempre? El metro a esa hora va lleno.' },
-  'Meistens esse ich mittags in der Kantine.':
-    { de: 'Ist das Essen gut? Bei uns kocht jeder selbst vor.', es: '¿Se come bien? En mi trabajo cada uno se lo prepara.' },
-  'Am Wochenende stehe ich nie vor neun auf.':
-    { de: 'Das ist gesund. Der Körper braucht diese zwei Tage.', es: 'Eso es sano. El cuerpo necesita esos dos días.' },
-  'Ich lese jeden Abend eine Stunde Deutsch.':
-    { de: 'Deshalb bist du so schnell besser geworden.', es: 'Por eso has mejorado tan rápido.' },
-  'Normalerweise mache ich das am Freitag.':
-    { de: 'Diese Woche wäre Donnerstag besser. Geht das auch?', es: 'Esta semana el jueves sería mejor. ¿También te va bien?' },
-  'Ich telefoniere lieber, als zu schreiben.':
-    { de: 'Ich genau umgekehrt. Beim Schreiben denke ich besser nach.', es: 'Yo justo al revés. Escribiendo pienso mejor.' },
-  'Sollen wir den Bericht zusammen schreiben?':
-    { de: 'Gute Idee. Du machst die Zahlen und ich den Text.', es: 'Buena idea. Tú haces los números y yo el texto.',
-      mas: [
-        { de: 'Dann schicke ich dir heute Abend meinen Teil.', es: 'Entonces esta tarde te mando mi parte.' },
-        { de: 'Perfekt. Ich baue es morgen früh zusammen und schicke es dir zurück.', es: 'Perfecto. Mañana por la mañana lo junto y te lo devuelvo.' }
-      ] },
-  'Wie wäre es, wenn wir früher anfangen?':
-    { de: 'Ab halb acht? Dann sind wir um drei fertig.', es: '¿A las siete y media? Así terminamos a las tres.' },
-  'Einverstanden, das machen wir so.':
-    { de: 'Super. Ich schreibe es gleich in die Besprechungsnotiz.', es: 'Estupendo. Lo apunto ahora en el acta de la reunión.' },
-  'Hast du einen besseren Vorschlag?':
-    { de: 'Vielleicht. Wir fragen zuerst die Kollegen und entscheiden danach.', es: 'Quizá. Primero preguntamos a los compañeros y luego decidimos.' },
-  'Hiermit beantrage ich eine Verlängerung.':
-    { de: 'Ihr Antrag ist angekommen. Wir melden uns innerhalb von zehn Tagen.', es: 'Su solicitud ha llegado. Le contestamos en un plazo de diez días.' },
-  'Ich bitte Sie um eine schriftliche Bestätigung.':
-    { de: 'Die schicken wir Ihnen per Post an die gemeldete Adresse.', es: 'Se la enviamos por correo a la dirección registrada.' },
-  'Anbei sende ich Ihnen die Unterlagen.':
-    { de: 'Danke. Eine Kopie des Ausweises fehlt allerdings noch.', es: 'Gracias. Aunque falta todavía una copia del documento.' },
-  'Leider kann ich die Frist nicht einhalten.':
-    { de: 'Schreiben Sie uns kurz warum. Meistens verlängern wir dann.', es: 'Escríbanos brevemente por qué. Normalmente lo prolongamos.' },
-  'Sehr geehrte Damen und Herren, ich wende mich an Sie wegen meines Antrags.':
-    { de: 'Nennen Sie bitte immer die Aktenzahl. Sonst finden wir den Akt nicht.', es: 'Indique siempre el número de expediente. Si no, no encontramos el caso.' },
-  'Mit freundlichen Grüßen und vielen Dank im Voraus.':
-    { de: 'Wir haben Ihre Nachricht erhalten und leiten sie weiter.', es: 'Hemos recibido su mensaje y lo pasamos al departamento correspondiente.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Vorsicht, der Boden ist nass!':
     { de: 'Danke, fast wäre ich ausgerutscht.', es: 'Gracias, casi me resbalo.' },
   'Pass auf, das Wasser ist heiß.':
@@ -3090,46 +2959,26 @@ const RESPUESTAS = {
 
 
 
-  'Wir ziehen nächsten Monat endlich ein.':
-    { de: 'Herzlichen Glückwunsch! Ist schon alles renoviert?', es: '¡Enhorabuena! ¿Ya está todo reformado?' },
-  'Altbau oder Neubau, was ist dir lieber?':
-    { de: 'Altbau, wegen der hohen Decken. Die Heizkosten sind der Preis dafür.', es: 'Antiguo, por los techos altos. El precio son los gastos de calefacción.' },
-  'In der Wohngemeinschaft spare ich viel Geld.':
-    { de: 'Und wie kommst du mit den Mitbewohnern zurecht?', es: '¿Y qué tal te llevas con los compañeros?' },
-  'Die Wohnfläche ist kleiner als im Inserat.':
-    { de: 'Das ist leider üblich. Miss selbst nach, bevor du unterschreibst.', es: 'Por desgracia es lo habitual. Mídelo tú antes de firmar.' },
-  'Wer kümmert sich um Reparaturen?':
-    { de: 'Der Hausmeister, für alles Kleine. Sonst die Hausverwaltung.', es: 'El conserje, para todo lo pequeño. Si no, la administración.' },
-  'Ab wann kann ich einziehen?':
-    { de: 'Ab dem ersten Juli. Vorher wird noch gestrichen.', es: 'A partir del uno de julio. Antes todavía se pinta.' },
-  'Der Schimmel im Bad gefällt mir gar nicht.':
-    { de: 'Das muss der Vermieter beheben, bevor du einziehst.', es: 'Eso lo tiene que arreglar el propietario antes de que entres.' },
-  'Die hohen Decken finde ich wunderbar.':
-    { de: 'Ja, aber Lampen aufhängen wird eine Herausforderung.', es: 'Sí, pero colgar las lámparas va a ser un reto.' },
-  'Der Innenhof gefällt mir am besten.':
-    { de: 'Mir auch. Im Sommer sitzen dort abends alle Nachbarn.', es: 'A mí también. En verano por la tarde se sientan allí todos los vecinos.' },
-  'Diese Jalousien sehen sehr altmodisch aus.':
-    { de: 'Dafür halten sie die Hitze draußen, besser als jeder Vorhang.', es: 'A cambio dejan fuera el calor, mejor que cualquier cortina.' },
-  'Darf man im Innenhof grillen?':
-    { de: 'Leider nein. Die Hausordnung verbietet offenes Feuer.', es: 'Por desgracia no. Las normas prohíben el fuego.' },
-  'Muss die Übersetzung beglaubigt sein?':
-    { de: 'Unbedingt. Eine einfache Übersetzung nehmen wir nicht an.', es: 'Sin falta. Una traducción simple no la aceptamos.' },
-  'Wann bekomme ich den Bescheid?':
-    { de: 'In zwei bis drei Wochen, per Post an Ihre Meldeadresse.', es: 'En dos o tres semanas, por correo a su dirección registrada.' },
-  'Ist diese Angabe verpflichtend?':
-    { de: 'Nein, freiwillig. Sie können das Feld auch leer lassen.', es: 'No, es voluntario. Puede dejar la casilla vacía.' },
-  'Darf mein Mann das für mich abgeben?':
-    { de: 'Nur mit einer schriftlichen Vollmacht von Ihnen.', es: 'Solo con una autorización por escrito suya.' },
-  'Kann ich gegen den Bescheid etwas machen?':
-    { de: 'Ja, Einspruch, innerhalb von vier Wochen und schriftlich.', es: 'Sí, recurso, en el plazo de cuatro semanas y por escrito.' },
-  'Darf ich hier während der Wartezeit telefonieren?':
-    { de: 'Bitte draußen im Gang. Hier drinnen stört es die anderen.', es: 'Fuera en el pasillo, por favor. Aquí dentro molesta a los demás.' },
-  'Ich vereinbare Termine immer online.':
-    { de: 'Das ist klüger. Am Telefon wartet man zwanzig Minuten.', es: 'Es más inteligente. Por teléfono esperas veinte minutos.' },
-  'Steuererklärungen mache ich immer im Februar.':
-    { de: 'So früh? Ich schiebe es jedes Jahr bis zum letzten Tag.', es: '¿Tan pronto? Yo lo aplazo cada año hasta el último día.' },
-  'Wichtige Papiere hebe ich in einem Ordner auf.':
-    { de: 'Sehr vernünftig. Ich suche jedes Mal eine halbe Stunde.', es: 'Muy sensato. Yo busco media hora cada vez.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Atmen Sie bitte ruhig weiter.':
     { de: 'Ich versuche es. Beim Arzt werde ich immer nervös.', es: 'Lo intento. En el médico siempre me pongo nervioso.' },
   'Vorsicht, die Wunde darf nicht nass werden.':
@@ -3663,54 +3512,30 @@ const RESPUESTAS = {
 
 
 
-  'Wie viele Zimmer hat die Wohnung?':
-    { de: 'Zwei Zimmer, Küche, Bad, insgesamt etwa fünfzig Quadratmeter.', es: 'Dos habitaciones, cocina y baño; en total unos cincuenta metros cuadrados.' },
-  'Ist eine Küche schon eingebaut?':
-    { de: 'Ja, sie bleibt drin, der Vormieter lässt sie gegen Ablöse da.', es: 'Sí, se queda; el inquilino anterior la deja a cambio de un traspaso.' },
-  'Wie hoch sind die Betriebskosten?':
-    { de: 'Ungefähr hundertzwanzig Euro im Monat, Heizung ist da schon dabei.', es: 'Unos ciento veinte euros al mes, calefacción incluida.' },
-  'Gibt es einen Balkon?':
-    { de: 'Keinen Balkon, aber einen kleinen Hof, den alle Mieter nutzen dürfen.', es: 'Balcón no, pero hay un patio pequeño para todos los inquilinos.' },
-  'Wohnst du zur Miete oder im Eigentum?':
-    { de: 'Zur Miete, kaufen kann sich hier kaum noch jemand leisten.', es: 'De alquiler; comprar aquí casi nadie se lo puede permitir.' },
-  'Ist die Gegend ruhig?':
-    { de: 'Nachts völlig, nur morgens hört man die Straßenbahn ganz leise.', es: 'De noche del todo; solo por la mañana se oye un poco el tranvía.' },
-  'Wie weit ist die nächste U-Bahn?':
-    { de: 'Fünf Minuten zu Fuß, das war für mich das wichtigste Kriterium.', es: 'Cinco minutos a pie; para mí ese fue el criterio principal.' },
-  'Haben Sie den Tisch auch in Weiß?':
-    { de: 'Momentan leider nicht, wir könnten ihn aber für Sie bestellen.', es: 'Ahora mismo no, pero se la podríamos encargar.' },
-  'Passt das Regal in einen normalen Kofferraum?':
-    { de: 'Zerlegt schon, der Karton ist knapp einen Meter achtzig lang.', es: 'Desmontada sí; la caja mide casi un metro ochenta.' },
-  'Wie lange dauert die Lieferung?':
-    { de: 'Etwa zehn Tage, bei Sonderfarben kann es etwas länger dauern.', es: 'Unos diez días; con colores especiales puede tardar algo más.' },
-  'Wie findest du die neue Küche?':
-    { de: 'Wirklich schön, nur die Farbe der Fronten gefällt mir nicht.', es: 'Muy bonita; solo el color de las puertas no me gusta.' },
-  'Das Sofa ist nicht mein Geschmack.':
-    { de: 'Verstehe ich, es ist tatsächlich ziemlich groß für den Raum.', es: 'Lo entiendo; la verdad es que es bastante grande para la sala.' },
-  'Mir gefällt der Boden ausgesprochen gut.':
-    { de: 'Mir auch, das Holz macht das ganze Zimmer sofort wärmer.', es: 'A mí también; la madera hace la habitación mucho más cálida.' },
-  'Wir sind Ihre neuen Nachbarn von oben.':
-    { de: 'Herzlich willkommen, wenn Sie etwas brauchen, klingeln Sie einfach.', es: 'Bienvenidos; si necesitan algo, llamen al timbre sin más.' },
-  'Kann ich das auch online erledigen?':
-    { de: 'Den Antrag ja, unterschreiben müssen Sie aber trotzdem persönlich hier.', es: 'La solicitud sí, pero firmar tiene que hacerlo aquí en persona.' },
-  'Wird mir der Bescheid zugeschickt?':
-    { de: 'Ja, per Post an die Adresse, die Sie hier angegeben haben.', es: 'Sí, por correo a la dirección que ha indicado aquí.' },
-  'Darf man hier fotografieren?':
-    { de: 'Im Vorraum ja, in den Büros ist es leider verboten.', es: 'En el vestíbulo sí; en las oficinas está prohibido.' },
-  'Dürfen wir hier kurz stehen bleiben?':
-    { de: 'Nur ganz kurz bitte, der Gang muss unbedingt frei bleiben.', es: 'Solo un momentito, por favor; el pasillo tiene que quedar libre.' },
-  'Ist es erlaubt, das mitzunehmen?':
-    { de: 'Selbstverständlich, die Broschüren liegen extra für die Kunden dort.', es: 'Por supuesto; los folletos están ahí justo para los clientes.' },
-  'Darf ich mich hier kurz hinsetzen?':
-    { de: 'Natürlich, der Platz ist frei, setzen Sie sich ruhig hin.', es: 'Claro, el sitio está libre; siéntese tranquilamente.' },
-  'Wie beginne ich so ein Schreiben?':
-    { de: 'Mit Sehr geehrte Damen und Herren, das passt eigentlich immer.', es: 'Con Sehr geehrte Damen und Herren; eso vale siempre.' },
-  'Bis wann muss ich den Antrag einreichen?':
-    { de: 'Spätestens bis Monatsende, danach gilt er erst für das Folgejahr.', es: 'Como muy tarde a final de mes; después ya vale para el año siguiente.' },
-  'Ich bedanke mich für Ihre Geduld.':
-    { de: 'Aber bitte, dafür sind wir schließlich da, einen schönen Tag noch.', es: 'Nada, para eso estamos; que tenga buen día.' },
-  'Dann verbleiben wir so, danke schön.':
-    { de: 'Gerne, ich schicke Ihnen die Bestätigung noch heute per Mail.', es: 'Con gusto; le mando la confirmación hoy mismo por correo.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Wo genau tut es weh?':
     { de: 'Hier unten links, besonders wenn ich mich nach vorne beuge.', es: 'Aquí abajo a la izquierda, sobre todo al inclinarme hacia delante.' },
   'Seit wann haben Sie die Beschwerden?':
@@ -3973,8 +3798,7 @@ const RESPUESTAS = {
 
 
 
-  'Gibt es das auch in einer anderen Farbe?':
-    { de: 'In Grau und in Weiß, ja.', es: 'En gris y en blanco, sí.' },
+
   'Und was hast du dann gemacht?':
     { de: 'Ich habe erst mal mit meiner Schwester geredet.', es: 'Primero hablé con mi hermana.' },
   'Entschuldige, ich habe mich versprochen.':
@@ -6636,6 +6460,456 @@ const RESPUESTAS = {
         { de: 'Dann fahre besser ich, das ist zu riskant.', es: 'Entonces mejor conduzco yo, es muy arriesgado.' },
         { de: 'Hier ist die Geschwindigkeit stark begrenzt.', es: 'Aquí la velocidad está muy limitada.' },
         { de: 'Dreißig, und es wird oft kontrolliert.', es: 'Treinta, y controlan a menudo.' }
+      ] },
+
+
+  // ---- a12-l11 · über Wohnungsmerkmale sprechen ---------------------
+  'Die Wohnung hat 60 m² und zwei Zimmer.':
+    { de: 'Für zwei Personen reicht das gut.', es: 'Para dos personas está bien.',
+      mas: [
+        { de: 'Unsere Wohnung hat fünfzig Quadratmeter.', es: 'Nuestro piso tiene cincuenta metros cuadrados.' },
+        { de: 'Und wie viele Zimmer sind das?', es: '¿Y cuántas habitaciones son?' },
+        { de: 'Die Wohnfläche ist kleiner als im Inserat.', es: 'La superficie es menor que en el anuncio.' },
+        { de: 'Das ist leider oft so. Hast du nachgemessen?', es: 'Por desgracia pasa a menudo. ¿Lo has medido?' },
+        { de: 'Die Wohnung ist leider nicht möbliert.', es: 'El piso no está amueblado.' },
+        { de: 'Dann brauchst du erst mal ein Bett und einen Tisch.', es: 'Entonces necesitas primero una cama y una mesa.' }
+      ] },
+  'Ist die Gegend ruhig?':
+    { de: 'Sehr. Nur am Samstag ist der Markt laut.', es: 'Mucho. Solo el sábado el mercado hace ruido.',
+      mas: [
+        { de: 'Wie weit ist die nächste U-Bahn?', es: '¿Cuánto hay hasta el metro más cercano?' },
+        { de: 'Vier Minuten zu Fuß, das ist der größte Vorteil.', es: 'Cuatro minutos a pie, esa es la mayor ventaja.' },
+        { de: 'Von der Terrasse hat man eine tolle Aussicht.', es: 'Desde la terraza hay unas vistas estupendas.' },
+        { de: 'Bis zu den Bergen? Dann ist die Miete berechtigt.', es: '¿Hasta las montañas? Entonces el alquiler se justifica.' }
+      ] },
+  'Altbau oder Neubau, was ist dir lieber?':
+    { de: 'Altbau, wegen der hohen Decken. Aber es zieht mehr.', es: 'Antiguo, por los techos altos. Pero entra más corriente.',
+      mas: [
+        { de: 'Wohnst du zur Miete oder im Eigentum?', es: '¿Vives de alquiler o en propiedad?' },
+        { de: 'Zur Miete. Kaufen kann sich hier kaum jemand leisten.', es: 'De alquiler. Aquí casi nadie puede permitirse comprar.' },
+        { de: 'In der Wohngemeinschaft spare ich viel Geld.', es: 'En el piso compartido ahorro mucho dinero.' },
+        { de: 'Und man ist nie allein, das ist auch etwas wert.', es: 'Y nunca estás solo, eso también vale algo.' }
+      ] },
+
+  // ---- a12-l11 · nach Mietkosten und Bedingungen fragen -------------
+  'Wie hoch ist die Miete?':
+    { de: 'Siebenhundertzwanzig Euro kalt.', es: 'Setecientos veinte euros sin gastos.',
+      mas: [
+        { de: 'Sind die Betriebskosten schon dabei?', es: '¿Están incluidos los gastos de comunidad?' },
+        { de: 'Nein, die kommen dazu, etwa hundertdreißig.', es: 'No, van aparte, unos ciento treinta.' },
+        { de: 'Wie hoch sind die Betriebskosten?', es: '¿Cuánto son los gastos de comunidad?' },
+        { de: 'Im Jahr etwa tausendsechshundert, monatlich verteilt.', es: 'Al año unos mil seiscientos, repartidos por meses.' },
+        { de: 'Was kostet die Wohnung im Monat?', es: '¿Cuánto cuesta el piso al mes?' },
+        { de: 'Alles zusammen knapp neunhundert Euro.', es: 'Todo junto, casi novecientos euros.' }
+      ] },
+  'Wie viel Kaution muss ich zahlen?':
+    { de: 'Drei Monatsmieten, wie fast überall.', es: 'Tres mensualidades, como casi en todas partes.',
+      mas: [
+        { de: 'Wie hoch ist die Kaution?', es: '¿De cuánto es la fianza?' },
+        { de: 'Zweitausendeinhundert Euro, zurück beim Auszug.', es: 'Dos mil cien euros, se devuelven al irse.' },
+        { de: 'Wie lange läuft der Mietvertrag?', es: '¿Cuánto dura el contrato de alquiler?' },
+        { de: 'Drei Jahre, danach verlängert er sich automatisch.', es: 'Tres años; después se prorroga automáticamente.' }
+      ] },
+  'Der Strom ist in der Miete nicht dabei.':
+    { de: 'Muss ich mich selbst anmelden?', es: '¿Tengo que darme de alta yo?',
+      mas: [
+        { de: 'Im Winter sind die Heizkosten sehr hoch.', es: 'En invierno los gastos de calefacción son muy altos.' },
+        { de: 'Wie viel ungefähr? Das muss ich einplanen.', es: '¿Cuánto más o menos? Tengo que contar con ello.' },
+        { de: 'Ab wann ist die Wohnung frei?', es: '¿A partir de cuándo está libre el piso?' },
+        { de: 'Ab dem ersten Juni, die Vormieter ziehen Ende Mai aus.', es: 'Desde el uno de junio, los anteriores se van a final de mayo.' }
+      ] },
+
+  // ---- a12-l11 · Wohnungsdetails und Ausstattung erfragen -----------
+  'Wie groß ist die Wohnung?':
+    { de: 'Fünfundsechzig Quadratmeter, plus Balkon.', es: 'Sesenta y cinco metros cuadrados, más balcón.',
+      mas: [
+        { de: 'Gibt es einen Balkon?', es: '¿Hay balcón?' },
+        { de: 'Ja, nach Süden, mit Platz für einen kleinen Tisch.', es: 'Sí, al sur, con sitio para una mesita.' },
+        { de: 'Sie liegt im dritten Stock.', es: 'Está en la tercera planta.' },
+        { de: 'Und gibt es dafür einen Aufzug?', es: '¿Y hay ascensor para eso?' },
+        { de: 'Gibt es einen Aufzug?', es: '¿Hay ascensor?' },
+        { de: 'Leider nein. Dafür ist die Miete etwas niedriger.', es: 'Por desgracia no. A cambio el alquiler es algo menor.' }
+      ] },
+  'Die Küche ist klein, aber hell.':
+    { de: 'Hell ist wichtiger als groß, finde ich.', es: 'Luminosa es más importante que grande, creo yo.',
+      mas: [
+        { de: 'Ist die Wohnung möbliert?', es: '¿El piso está amueblado?' },
+        { de: 'Teilweise: Küche und Schränke bleiben drin.', es: 'En parte: la cocina y los armarios se quedan.' },
+        { de: 'Gibt es einen Keller oder einen Dachboden?', es: '¿Hay sótano o desván?' },
+        { de: 'Einen Kellerabteil, klein, aber trocken.', es: 'Un trastero en el sótano, pequeño pero seco.' }
+      ] },
+  'Sind Haustiere erlaubt?':
+    { de: 'Katzen ja, Hunde nur mit Erlaubnis.', es: 'Gatos sí, perros solo con permiso.',
+      mas: [
+        { de: 'Darf ich die Wände streichen?', es: '¿Puedo pintar las paredes?' },
+        { de: 'Ja, aber beim Auszug wieder weiß.', es: 'Sí, pero al irse otra vez en blanco.' },
+        { de: 'Gibt es einen Stellplatz für das Auto?', es: '¿Hay plaza de aparcamiento para el coche?' },
+        { de: 'In der Garage, gegen achtzig Euro extra im Monat.', es: 'En el garaje, por ochenta euros más al mes.' }
+      ] },
+
+  // ---- a12-l11 · Wohnungsbesichtigung und Einzug planen -------------
+  'Wir suchen seit drei Monaten eine Wohnung.':
+    { de: 'Der Markt ist hart. Was ist euer Budget?', es: 'El mercado está duro. ¿Cuál es vuestro presupuesto?',
+      mas: [
+        { de: 'Wie viele Zimmer hat die Wohnung?', es: '¿Cuántas habitaciones tiene el piso?' },
+        { de: 'Drei, plus Küche und Bad.', es: 'Tres, más cocina y baño.' },
+        { de: 'Wann kann ich die Wohnung besichtigen?', es: '¿Cuándo puedo ver el piso?' },
+        { de: 'Donnerstag um siebzehn Uhr, zusammen mit anderen.', es: 'El jueves a las diecisiete, junto con otros.' },
+        { de: 'Wann kann ich sie besichtigen?', es: '¿Cuándo puedo verlo?' },
+        { de: 'Wenn Donnerstag nicht passt, ginge auch Samstag früh.', es: 'Si el jueves no va bien, también podría el sábado temprano.' }
+      ] },
+  'Ab wann kann ich einziehen?':
+    { de: 'Sobald der Vertrag unterschrieben ist, also ab Juni.', es: 'En cuanto se firme el contrato, o sea desde junio.',
+      mas: [
+        { de: 'Wir ziehen im Mai um.', es: 'Nos mudamos en mayo.' },
+        { de: 'Braucht ihr Hilfe? Ich habe einen Transporter.', es: '¿Necesitáis ayuda? Tengo una furgoneta.' },
+        { de: 'Wir ziehen nächsten Monat endlich ein.', es: 'El mes que viene por fin nos mudamos.' },
+        { de: 'Endlich! Nach drei Monaten Suche habt ihr es verdient.', es: '¡Por fin! Después de tres meses buscando os lo merecéis.' }
+      ] },
+  'Ist eine Küche schon eingebaut?':
+    { de: 'Ja, komplett, mit Herd und Kühlschrank.', es: 'Sí, completa, con cocina y nevera.',
+      mas: [
+        { de: 'Wir wollen zuerst das Bad renovieren.', es: 'Primero queremos reformar el baño.' },
+        { de: 'Zahlt der Vermieter etwas dazu?', es: '¿El casero pone algo?' },
+        { de: 'Wer kümmert sich um Reparaturen?', es: '¿Quién se ocupa de las reparaciones?' },
+        { de: 'Die Hausverwaltung, aber Kleinigkeiten zahlt der Mieter.', es: 'La administración, pero las pequeñeces las paga el inquilino.' }
+      ] },
+
+  // ---- a12-l11 · Gefallen und Missfallen ausdrücken -----------------
+  'Das gefällt mir (nicht).':
+    { de: 'Sag ruhig ehrlich, was dich stört.', es: 'Di con sinceridad qué te molesta.',
+      mas: [
+        { de: 'Das Wohnzimmer gefällt mir sehr gut.', es: 'El salón me gusta mucho.' },
+        { de: 'Vor allem das große Fenster, oder?', es: 'Sobre todo la ventana grande, ¿no?' },
+        { de: 'Ich finde das Zimmer sehr gemütlich.', es: 'La habitación me parece muy acogedora.' },
+        { de: 'Mit einem Teppich wird es noch wärmer.', es: 'Con una alfombra será aún más cálida.' },
+        { de: 'Das Zimmer ist wirklich gemütlich.', es: 'La habitación es de verdad acogedora.' },
+        { de: 'Dann nehmen wir es, oder? Ich bin überzeugt.', es: 'Entonces lo cogemos, ¿no? Yo estoy convencido.' }
+      ] },
+  'Die Küche finde ich zu dunkel.':
+    { de: 'Mit einer anderen Lampe wäre das kein Problem.', es: 'Con otra lámpara no sería problema.',
+      mas: [
+        { de: 'Diese Farbe gefällt mir überhaupt nicht.', es: 'Este color no me gusta nada.' },
+        { de: 'Streichen dürfen wir ja, das ist schnell gemacht.', es: 'Podemos pintar, eso se hace rápido.' },
+        { de: 'Der Schrank passt hier gar nicht.', es: 'El armario no pega nada aquí.' },
+        { de: 'Stimmt, der ist viel zu groß für die Wand.', es: 'Es verdad, es demasiado grande para la pared.' }
+      ] },
+  'Mir gefällt die Aussicht am besten.':
+    { de: 'Die verkauft die Wohnung, ehrlich gesagt.', es: 'Eso es lo que vende el piso, la verdad.',
+      mas: [
+        { de: 'Ich finde die Lage perfekt.', es: 'La ubicación me parece perfecta.' },
+        { de: 'Nah an der Arbeit und trotzdem ruhig, ja.', es: 'Cerca del trabajo y aun así tranquila, sí.' },
+        { de: 'Die hohen Decken finde ich wunderbar.', es: 'Los techos altos me parecen maravillosos.' },
+        { de: 'Nur heizen musst du sie im Winter auch.', es: 'Solo que en invierno también hay que calentarlos.' }
+      ] },
+
+  // ---- a12-l11 · Möbel und Einrichtung bewerten ---------------------
+  'Wie findest du die neue Küche?':
+    { de: 'Praktisch, aber sehr weiß. Fast wie im Labor.', es: 'Práctica, pero muy blanca. Casi como un laboratorio.',
+      mas: [
+        { de: 'Das ist mir zu modern.', es: 'Eso es demasiado moderno para mí.' },
+        { de: 'Was gefällt dir denn besser? Etwas aus Holz?', es: '¿Qué te gusta más? ¿Algo de madera?' },
+        { de: 'Das Sofa ist nicht mein Geschmack.', es: 'El sofá no es de mi gusto.' },
+        { de: 'Meins auch nicht, aber es ist sehr bequem.', es: 'El mío tampoco, pero es muy cómodo.' },
+        { de: 'Diese Jalousien sehen sehr altmodisch aus.', es: 'Estas persianas parecen muy anticuadas.' },
+        { de: 'Die sind aus den Achtzigern, das sieht man.', es: 'Son de los ochenta, se nota.' }
+      ] },
+  'Mir gefällt der Boden ausgesprochen gut.':
+    { de: 'Echtes Parkett, das findet man selten.', es: 'Parqué de verdad, eso se ve poco.',
+      mas: [
+        { de: 'Der Innenhof gefällt mir am besten.', es: 'Lo que más me gusta es el patio interior.' },
+        { de: 'Da sitzt im Sommer das halbe Haus draußen.', es: 'En verano media casa se sienta ahí fuera.' },
+        { de: 'Der Schimmel im Bad gefällt mir gar nicht.', es: 'El moho del baño no me gusta nada.' },
+        { de: 'Das musst du sofort melden, bevor du unterschreibst.', es: 'Eso hay que avisarlo antes de firmar.' }
+      ] },
+  'Haben Sie dieses Regal auch in Weiß?':
+    { de: 'In Weiß und in Eiche, beides am Lager.', es: 'En blanco y en roble, los dos en almacén.',
+      mas: [
+        { de: 'Haben Sie den Tisch auch in Weiß?', es: '¿Tienen la mesa también en blanco?' },
+        { de: 'Nur auf Bestellung, das dauert vier Wochen.', es: 'Solo por encargo, tarda cuatro semanas.' },
+        { de: 'Ist das Sofa auch als Bett verwendbar?', es: '¿El sofá se puede usar también de cama?' },
+        { de: 'Ja, man klappt die Rückenlehne einfach nach hinten.', es: 'Sí, se abate el respaldo hacia atrás.' }
+      ] },
+
+  // ---- a12-l11 · im Möbelhaus nach Produkten fragen -----------------
+  'Haben Sie auch Regale?':
+    { de: 'Gleich hier hinten, eine ganze Abteilung.', es: 'Aquí detrás, toda una sección.',
+      mas: [
+        { de: 'Was kostet dieser Schrank?', es: '¿Cuánto cuesta este armario?' },
+        { de: 'Zweihundertneunzig, im Moment mit Rabatt.', es: 'Doscientos noventa, ahora con descuento.' },
+        { de: 'Was kostet dieser Tisch?', es: '¿Cuánto cuesta esta mesa?' },
+        { de: 'Hundertzwanzig. Die Stühle kosten extra.', es: 'Ciento veinte. Las sillas van aparte.' },
+        { de: 'Gibt es das auch in einer anderen Farbe?', es: '¿Lo tienen también en otro color?' },
+        { de: 'In Schwarz und in Naturholz, beides im Katalog.', es: 'En negro y en madera natural, los dos en el catálogo.' }
+      ] },
+  'Muss ich den Schrank selbst aufbauen?':
+    { de: 'Ja, aber der Aufbauservice kostet nur vierzig Euro.', es: 'Sí, pero el servicio de montaje cuesta solo cuarenta euros.',
+      mas: [
+        { de: 'Liefern Sie auch nach Hause?', es: '¿Hacen también entrega a domicilio?' },
+        { de: 'Innerhalb von Wien ja, für neunundzwanzig Euro.', es: 'Dentro de Viena sí, por veintinueve euros.' },
+        { de: 'Wie lange dauert die Lieferung?', es: '¿Cuánto tarda la entrega?' },
+        { de: 'Fünf bis sieben Werktage, meistens schneller.', es: 'De cinco a siete días laborables, normalmente antes.' }
+      ] },
+  'Passt das Regal in einen normalen Kofferraum?':
+    { de: 'Das Paket ist zwei Meter lang, eher nicht.', es: 'El paquete mide dos metros, más bien no.',
+      mas: [
+        { de: 'Wie lange ist die Garantie?', es: '¿Cuánto dura la garantía?' },
+        { de: 'Zwei Jahre, auf Matratzen sogar zehn.', es: 'Dos años; en colchones incluso diez.' },
+        { de: 'Kann ich das zurückgeben, wenn es nicht passt?', es: '¿Lo puedo devolver si no encaja?' },
+        { de: 'Innerhalb von dreißig Tagen, mit dem Kassenbon.', es: 'Dentro de treinta días, con el tíquet.' }
+      ] },
+
+  // ---- a12-l11 · mit Nachbarn und Mitbewohnern sprechen -------------
+  'Guten Tag, wir sind neu eingezogen.':
+    { de: 'Herzlich willkommen! In welche Wohnung denn?', es: '¡Bienvenidos! ¿A qué piso?',
+      mas: [
+        { de: 'Wir sind Ihre neuen Nachbarn von oben.', es: 'Somos sus vecinos nuevos de arriba.' },
+        { de: 'Sehr angenehm. Klopfen Sie, wenn Sie etwas brauchen.', es: 'Mucho gusto. Llamen si necesitan algo.' },
+        { de: 'Wir machen am Samstag eine kleine Feier.', es: 'El sábado hacemos una fiestecita.' },
+        { de: 'Danke fürs Bescheidsagen. Bis zehn ist alles erlaubt.', es: 'Gracias por avisar. Hasta las diez todo vale.' },
+        { de: 'Entschuldigung, war es gestern zu laut?', es: 'Perdone, ¿ayer hubo demasiado ruido?' },
+        { de: 'Überhaupt nicht, wir haben nichts gehört.', es: 'En absoluto, no hemos oído nada.' }
+      ] },
+  'Wann wird der Müll abgeholt?':
+    { de: 'Papier montags, Restmüll donnerstags.', es: 'El papel los lunes, el resto los jueves.',
+      mas: [
+        { de: 'Wo ist die Waschküche?', es: '¿Dónde está el cuarto de lavado?' },
+        { de: 'Im Keller. Die Liste zum Eintragen hängt an der Tür.', es: 'En el sótano. La lista para apuntarse está en la puerta.' },
+        { de: 'Gibt es im Haus eine Hausordnung?', es: '¿Hay normas de la comunidad?' },
+        { de: 'Ja, im Eingang. Wichtig ist nur die Mittagsruhe.', es: 'Sí, en la entrada. Lo importante es la siesta.' }
+      ] },
+  'Könnten Sie ein Paket für mich annehmen?':
+    { de: 'Natürlich, ich bin den ganzen Tag da.', es: 'Por supuesto, estoy todo el día.',
+      mas: [
+        { de: 'Haben Sie zufällig Werkzeug?', es: '¿Por casualidad tiene herramientas?' },
+        { de: 'Einen ganzen Kasten. Was brauchen Sie denn?', es: 'Una caja entera. ¿Qué necesita?' },
+        { de: 'Darf man im Innenhof grillen?', es: '¿Se puede hacer barbacoa en el patio?' },
+        { de: 'Mit Gas ja, mit Kohle leider nicht.', es: 'Con gas sí, con carbón por desgracia no.' }
+      ] },
+
+
+  // ---- a12-l12 · sich im Amt informieren ----------------------------
+  'Entschuldigung, bin ich hier richtig?':
+    { de: 'Das kommt darauf an. Worum geht es denn?', es: 'Depende. ¿De qué se trata?',
+      mas: [
+        { de: 'Ich möchte einen Ausweis beantragen.', es: 'Quisiera solicitar un documento de identidad.' },
+        { de: 'Dann sind Sie hier richtig. Nehmen Sie eine Nummer.', es: 'Entonces está en el sitio correcto. Coja un número.' },
+        { de: 'Welche Unterlagen brauche ich?', es: '¿Qué documentación necesito?' },
+        { de: 'Pass, Meldezettel und ein aktuelles Foto.', es: 'Pasaporte, empadronamiento y una foto actual.' },
+        { de: 'Zu welchem Schalter muss ich?', es: '¿A qué ventanilla tengo que ir?' },
+        { de: 'Schalter vier, aber warten Sie auf Ihre Nummer.', es: 'Ventanilla cuatro, pero espere a su número.' }
+      ] },
+  'Können Sie mir bitte helfen?':
+    { de: 'Natürlich, dafür bin ich da.', es: 'Por supuesto, para eso estoy.',
+      mas: [
+        { de: 'Ich habe eine Frage: Wo muss ich das abgeben?', es: 'Tengo una pregunta: ¿dónde tengo que entregarlo?' },
+        { de: 'In den Kasten rechts neben dem Eingang.', es: 'En el buzón a la derecha de la entrada.' },
+        { de: 'Fehlt noch etwas?', es: '¿Falta algo?' },
+        { de: 'Die Unterschrift auf Seite zwei, sonst ist alles da.', es: 'La firma de la página dos; por lo demás está todo.' }
+      ] },
+  'Welche Unterlagen muss ich mitbringen?':
+    { de: 'Alles im Original, und von jedem eine Kopie.', es: 'Todo en original, y una copia de cada uno.',
+      mas: [
+        { de: 'Bis wann muss ich das abgeben?', es: '¿Hasta cuándo tengo que entregarlo?' },
+        { de: 'Bis Ende des Monats, sonst fangen wir von vorne an.', es: 'Hasta fin de mes, si no empezamos de nuevo.' },
+        { de: 'Wie lange muss ich warten?', es: '¿Cuánto tengo que esperar?' },
+        { de: 'Heute etwa vierzig Minuten. Montags ist es schlimmer.', es: 'Hoy unos cuarenta minutos. Los lunes es peor.' }
+      ] },
+
+  // ---- a12-l12 · Verfahren und Formalitäten klären ------------------
+  'Wer ist für diesen Fall zuständig?':
+    { de: 'Frau Berger, Zimmer 204, im zweiten Stock.', es: 'La señora Berger, sala 204, en la segunda planta.',
+      mas: [
+        { de: 'Wie lange dauert die Bearbeitung?', es: '¿Cuánto tarda la tramitación?' },
+        { de: 'Vier bis sechs Wochen, im Sommer eher länger.', es: 'De cuatro a seis semanas; en verano más bien más.' },
+        { de: 'Wann bekomme ich den Bescheid?', es: '¿Cuándo recibiré la resolución?' },
+        { de: 'Sobald die Prüfung fertig ist, meist im Mai.', es: 'En cuanto acabe la revisión, normalmente en mayo.' },
+        { de: 'Wird mir der Bescheid zugeschickt?', es: '¿Me envían la resolución?' },
+        { de: 'Ja, per Post an die gemeldete Adresse.', es: 'Sí, por correo a la dirección registrada.' }
+      ] },
+  'Kann ich den Antrag auch per Post schicken?':
+    { de: 'Ja, aber bitte eingeschrieben, wegen der Frist.', es: 'Sí, pero certificado, por el plazo.',
+      mas: [
+        { de: 'Kann ich das auch online erledigen?', es: '¿Puedo hacerlo también por internet?' },
+        { de: 'Mit Handysignatur ja, sonst leider nicht.', es: 'Con firma digital sí, si no, por desgracia no.' },
+        { de: 'Muss ich noch einmal persönlich kommen?', es: '¿Tengo que volver en persona?' },
+        { de: 'Nur zum Abholen, und das dauert fünf Minuten.', es: 'Solo a recogerlo, y eso tarda cinco minutos.' }
+      ] },
+  'Fehlt noch etwas in meinem Antrag?':
+    { de: 'Die Geburtsurkunde, übersetzt.', es: 'La partida de nacimiento, traducida.',
+      mas: [
+        { de: 'Muss die Übersetzung beglaubigt sein?', es: '¿La traducción tiene que estar certificada?' },
+        { de: 'Ja, von einem gerichtlich beeideten Übersetzer.', es: 'Sí, por un traductor jurado.' },
+        { de: 'Könnten Sie mir das bitte erklären?', es: '¿Me lo podría explicar, por favor?' },
+        { de: 'Gern, ich schreibe Ihnen die Schritte auf einen Zettel.', es: 'Con gusto, le apunto los pasos en un papel.' }
+      ] },
+
+  // ---- a12-l12 · ein formelles Telefonat beenden --------------------
+  'Vielen Dank für Ihre Hilfe.':
+    { de: 'Sehr gern geschehen. Melden Sie sich jederzeit.', es: 'Con mucho gusto. Llámeme cuando quiera.',
+      mas: [
+        { de: 'Vielen Dank für Ihre Auskunft.', es: 'Muchas gracias por la información.' },
+        { de: 'Kein Problem. Ich hoffe, es hat weitergeholfen.', es: 'No hay problema. Espero que le haya servido.' },
+        { de: 'Ich melde mich nächste Woche wieder.', es: 'Vuelvo a ponerme en contacto la semana que viene.' },
+        { de: 'Sehr gut, dann haben wir bis dahin die Antwort.', es: 'Muy bien, para entonces tendremos la respuesta.' },
+        { de: 'Auf Wiederhören!', es: '¡Hasta luego! (por teléfono)' },
+        { de: 'Auf Wiederhören, einen schönen Tag noch.', es: 'Hasta luego, que tenga buen día.' }
+      ] },
+  'Könnten Sie mir das schriftlich bestätigen?':
+    { de: 'Natürlich, ich schicke Ihnen heute noch eine Mail.', es: 'Por supuesto, hoy mismo le mando un correo.',
+      mas: [
+        { de: 'Dann bleiben wir so verblieben.', es: 'Entonces quedamos así.' },
+        { de: 'Genau. Ich notiere es mir gleich.', es: 'Exacto. Lo anoto ahora mismo.' },
+        { de: 'Dann verbleiben wir so, danke schön.', es: 'Quedamos así entonces, muchas gracias.' },
+        { de: 'Sehr gern. Bis nächste Woche also.', es: 'Con mucho gusto. Hasta la semana que viene, pues.' }
+      ] },
+  'Entschuldigen Sie die Störung.':
+    { de: 'Sie stören überhaupt nicht, fragen Sie ruhig.', es: 'No molesta en absoluto, pregunte tranquilo.',
+      mas: [
+        { de: 'Ich bedanke mich für Ihre Geduld.', es: 'Le agradezco su paciencia.' },
+        { de: 'Das ist mein Beruf. Dafür ist die Zeit da.', es: 'Es mi trabajo. Para eso está el tiempo.' },
+        { de: 'Auf Wiederhören und danke nochmals.', es: 'Hasta luego y gracias otra vez.' },
+        { de: 'Auf Wiederhören. Und viel Erfolg mit dem Antrag.', es: 'Hasta luego. Y suerte con la solicitud.' }
+      ] },
+
+  // ---- a12-l12 · um Erlaubnis bitten --------------------------------
+  'Darf ich hier parken?':
+    { de: 'Nur mit Parkschein, und höchstens zwei Stunden.', es: 'Solo con tique, y dos horas como máximo.',
+      mas: [
+        { de: 'Darf ich hier kurz stehen bleiben?', es: '¿Puedo pararme aquí un momento?' },
+        { de: 'Zum Ausladen ja, aber bleiben Sie beim Auto.', es: 'Para descargar sí, pero quédese junto al coche.' },
+        { de: 'Darf ich mich hier kurz hinsetzen?', es: '¿Me puedo sentar aquí un momento?' },
+        { de: 'Bitte, der Platz ist frei.', es: 'Por favor, el sitio está libre.' },
+        { de: 'Darf ich hier während der Wartezeit telefonieren?', es: '¿Puedo hablar por teléfono aquí mientras espero?' },
+        { de: 'Besser draußen im Gang, hier stört es die anderen.', es: 'Mejor fuera en el pasillo, aquí molesta a los demás.' }
+      ] },
+  'Ist es erlaubt, hier zu fotografieren?':
+    { de: 'Ohne Blitz ja, mit Blitz nicht.', es: 'Sin flash sí, con flash no.',
+      mas: [
+        { de: 'Darf ich das kopieren?', es: '¿Puedo hacer una copia de esto?' },
+        { de: 'Gern, der Kopierer steht draußen im Gang.', es: 'Con gusto, la fotocopiadora está fuera en el pasillo.' },
+        { de: 'Muss ich vorher um Erlaubnis fragen?', es: '¿Tengo que pedir permiso antes?' },
+        { de: 'Bei Fotos im Amt schon, sonst nicht.', es: 'Para fotos en la oficina sí, si no, no.' }
+      ] },
+  'Kann ich das Fenster aufmachen?':
+    { de: 'Ja bitte, hier ist die Luft schrecklich.', es: 'Sí, por favor, aquí el aire está horrible.',
+      mas: [
+        { de: 'Dürfen die Kinder im Hof spielen?', es: '¿Pueden jugar los niños en el patio?' },
+        { de: 'Bis acht Uhr abends, danach muss es ruhig sein.', es: 'Hasta las ocho de la tarde; después tiene que haber silencio.' },
+        { de: 'Darf mein Mann das für mich abgeben?', es: '¿Puede entregarlo mi marido por mí?' },
+        { de: 'Ja, mit einer Vollmacht und seinem Ausweis.', es: 'Sí, con un poder y su documento.' }
+      ] },
+
+  // ---- a12-l12 · Erlaubnis und Verbot ausdrücken --------------------
+  'Ja, das dürfen Sie. / Nein, das ist verboten.':
+    { de: 'Gut, dann weiß ich Bescheid. Danke.', es: 'Bien, entonces ya lo sé. Gracias.',
+      mas: [
+        { de: 'Darf man hier fotografieren?', es: '¿Se puede hacer fotos aquí?' },
+        { de: 'Im Hof ja, in den Büros nicht.', es: 'En el patio sí, en las oficinas no.' },
+        { de: 'Rauchen ist hier leider verboten.', es: 'Aquí está prohibido fumar.' },
+        { de: 'Verstehe. Gibt es draußen einen Platz dafür?', es: 'Entiendo. ¿Hay un sitio fuera para eso?' },
+        { de: 'Ist es erlaubt, das mitzunehmen?', es: '¿Está permitido llevarse esto?' },
+        { de: 'Das Formular ja, den Stift bitte nicht.', es: 'El formulario sí, el bolígrafo no, por favor.' }
+      ] },
+  'Darf man hier mit dem Rad fahren?':
+    { de: 'Nur schieben. Es ist eine Fußgängerzone.', es: 'Solo empujando. Es zona peatonal.',
+      mas: [
+        { de: 'Ist das hier ein Parkplatz?', es: '¿Esto es un aparcamiento?' },
+        { de: 'Nur für Mitarbeiter, das Schild steht dort hinten.', es: 'Solo para empleados, el cartel está allá atrás.' },
+        { de: 'Dürfen wir hier kurz stehen bleiben?', es: '¿Podemos quedarnos aquí parados un momento?' },
+        { de: 'Fünf Minuten, länger kommt die Polizei.', es: 'Cinco minutos; más y viene la policía.' }
+      ] },
+  'Ist diese Angabe verpflichtend?':
+    { de: 'Die mit dem Stern ja, die anderen freiwillig.', es: 'Los que tienen asterisco sí, los demás voluntarios.',
+      mas: [
+        { de: 'Kann ich gegen den Bescheid etwas machen?', es: '¿Puedo hacer algo contra la resolución?' },
+        { de: 'Sie können innerhalb von vier Wochen Einspruch erheben.', es: 'Puede recurrir en el plazo de cuatro semanas.' },
+        { de: 'Sie dürfen das gern mitnehmen.', es: 'Se lo puede llevar sin problema.' },
+        { de: 'Danke, dann lese ich es in Ruhe zu Hause.', es: 'Gracias, así lo leo con calma en casa.' }
+      ] },
+
+  // ---- a12-l12 · Auskunft über Gewohnheiten geben -------------------
+  'Normalerweise arbeite ich bis 17 Uhr.':
+    { de: 'Dann schaffen Sie es noch zum Amt, das schließt um sechs.', es: 'Entonces llega a la oficina, cierra a las seis.',
+      mas: [
+        { de: 'Normalerweise fange ich um acht an.', es: 'Normalmente empiezo a las ocho.' },
+        { de: 'Und wie lange dauert Ihr Weg in die Arbeit?', es: '¿Y cuánto tarda en llegar al trabajo?' },
+        { de: 'Meistens esse ich mittags in der Kantine.', es: 'Casi siempre como al mediodía en el comedor.' },
+        { de: 'Ist das Essen dort gut? Bei uns leider nicht.', es: '¿Se come bien allí? En el nuestro no.' },
+        { de: 'Normalerweise mache ich das am Freitag.', es: 'Normalmente eso lo hago el viernes.' },
+        { de: 'Dann passt es ja, der Termin ist auch am Freitag.', es: 'Entonces encaja, la cita también es el viernes.' }
+      ] },
+  'Am Wochenende stehe ich nie vor neun auf.':
+    { de: 'Sehr vernünftig. Unter der Woche reicht das Frühaufstehen.', es: 'Muy sensato. Entre semana ya basta de madrugar.',
+      mas: [
+        { de: 'Ich lese jeden Abend eine Stunde Deutsch.', es: 'Leo alemán una hora todas las tardes.' },
+        { de: 'Deshalb sprechen Sie so gut. Das merkt man.', es: 'Por eso habla tan bien. Se nota.' },
+        { de: 'Ich telefoniere lieber, als zu schreiben.', es: 'Prefiero llamar antes que escribir.' },
+        { de: 'Bei Ämtern ist Schreiben trotzdem sicherer.', es: 'Con la administración escribir es más seguro igualmente.' }
+      ] },
+  'Ich vereinbare Termine immer online.':
+    { de: 'Das geht schneller, und man sieht alle freien Zeiten.', es: 'Va más rápido y se ven todos los huecos.',
+      mas: [
+        { de: 'Steuererklärungen mache ich immer im Februar.', es: 'La declaración de la renta la hago siempre en febrero.' },
+        { de: 'So früh? Die meisten warten bis zum letzten Tag.', es: '¿Tan pronto? La mayoría espera al último día.' },
+        { de: 'Wichtige Papiere hebe ich in einem Ordner auf.', es: 'Los papeles importantes los guardo en una carpeta.' },
+        { de: 'Das rettet einem hier wirklich das Leben.', es: 'Eso aquí te salva la vida de verdad.' }
+      ] },
+
+  // ---- a12-l12 · Vorschläge machen und darauf reagieren -------------
+  'Sollen wir das zusammen machen?':
+    { de: 'Sehr gern, zu zweit geht es viel schneller.', es: 'Con mucho gusto, entre dos va mucho más rápido.',
+      mas: [
+        { de: 'Ja, gern. / Lieber nicht.', es: 'Sí, con gusto. / Mejor no.' },
+        { de: 'Dann sag mir einfach, was dir lieber ist.', es: 'Entonces dime qué prefieres.' },
+        { de: 'Sollen wir gleich anfangen?', es: '¿Empezamos ya?' },
+        { de: 'Ja, je früher wir anfangen, desto besser.', es: 'Sí, cuanto antes empecemos, mejor.' },
+        { de: 'Sollen wir den Bericht zusammen schreiben?', es: '¿Escribimos el informe juntos?' },
+        { de: 'Gute Idee. Du die Zahlen, ich den Text?', es: 'Buena idea. ¿Tú los números y yo el texto?' }
+      ] },
+  'Ich schlage Freitag vor.':
+    { de: 'Freitag ist knapp. Ginge auch Donnerstag?', es: 'El viernes va justo. ¿Podría ser el jueves?',
+      mas: [
+        { de: 'Wie wäre es, wenn wir früher anfangen?', es: '¿Qué tal si empezamos antes?' },
+        { de: 'Einverstanden, dann sind wir vor dem Mittag fertig.', es: 'De acuerdo, así terminamos antes de mediodía.' },
+        { de: 'Einverstanden, das machen wir so.', es: 'Vale, quedamos en eso.' },
+        { de: 'Gut, ich schreibe es allen kurz per Mail.', es: 'Bien, se lo escribo a todos por correo.' }
+      ] },
+  'Kannst du das übernehmen?':
+    { de: 'Diese Woche nicht, nächste gern.', es: 'Esta semana no, la que viene con gusto.',
+      mas: [
+        { de: 'Hast du einen besseren Vorschlag?', es: '¿Tienes una propuesta mejor?' },
+        { de: 'Vielleicht: Wir fragen einfach Frau Berger.', es: 'Quizá: preguntamos a la señora Berger y ya.' },
+        { de: 'Wollen wir kurz Pause machen?', es: '¿Hacemos una pausa?' },
+        { de: 'Bitte. Danach sehen wir das Ganze klarer.', es: 'Por favor. Después lo veremos todo más claro.' }
+      ] },
+
+  // ---- a12-l12 · schriftliche Anträge und Schreiben formulieren -----
+  'Wie beginne ich so ein Schreiben?':
+    { de: 'Ganz formell, mit „Sehr geehrte Damen und Herren“.', es: 'Muy formal, con «Sehr geehrte Damen und Herren».',
+      mas: [
+        { de: 'Sehr geehrte Damen und Herren, ich wende mich an Sie wegen meines Antrags.', es: 'Muy señores míos, me dirijo a ustedes por mi solicitud.' },
+        { de: 'Perfekt. Danach kommt gleich, was Sie wollen.', es: 'Perfecto. Después va directamente lo que quiere.' },
+        { de: 'Hiermit beantrage ich …', es: 'Por la presente solicito …' },
+        { de: 'Genau diese Formel erwarten die Ämter.', es: 'Justo esa fórmula esperan en la administración.' },
+        { de: 'Mit freundlichen Grüßen und vielen Dank im Voraus.', es: 'Atentamente y gracias de antemano.' },
+        { de: 'Und darunter die Unterschrift, dann ist es fertig.', es: 'Y debajo la firma, y ya está.' }
+      ] },
+  'Hiermit beantrage ich eine Verlängerung.':
+    { de: 'Schreiben Sie auch dazu, warum. Das hilft immer.', es: 'Escriba también por qué. Eso siempre ayuda.',
+      mas: [
+        { de: 'Leider kann ich die Frist nicht einhalten.', es: 'No puedo cumplir el plazo.' },
+        { de: 'Dann melden Sie sich vorher, nicht nachher.', es: 'Entonces avise antes, no después.' },
+        { de: 'Bis wann muss ich den Antrag einreichen?', es: '¿Hasta cuándo tengo que presentar la solicitud?' },
+        { de: 'Bis zum dreißigsten, Poststempel zählt.', es: 'Hasta el treinta, cuenta el matasellos.' }
+      ] },
+  'Ich bitte um eine Bestätigung.':
+    { de: 'Die schicken wir Ihnen innerhalb einer Woche.', es: 'Se la enviamos en una semana.',
+      mas: [
+        { de: 'Ich bitte Sie um eine schriftliche Bestätigung.', es: 'Le pido una confirmación por escrito.' },
+        { de: 'Kein Problem, per Mail oder per Post?', es: 'No hay problema, ¿por correo electrónico o postal?' },
+        { de: 'Anbei sende ich Ihnen die Unterlagen.', es: 'Adjunto le envío la documentación.' },
+        { de: 'Angekommen, danke. Ich prüfe sie diese Woche.', es: 'Recibido, gracias. Los reviso esta semana.' }
       ] },
 
 };
