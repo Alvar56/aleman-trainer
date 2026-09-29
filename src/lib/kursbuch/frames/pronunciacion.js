@@ -512,7 +512,17 @@ export const PRONUNCIACION = {
       { s: 'chs ist einer der wenigen Fälle, wo ch ___.', a: 'nicht wie ch klingt', d: ['wie ch klingt', 'stumm ist'], t: 'chs es de los pocos casos en que ch no suena como ch.', e: 'Por eso conviene fijarse.' },
       { s: '„Praxis“ spricht man mit ___.', a: 'ks', d: ['chs', 'sch'], t: '«Praxis» se pronuncia con «ks».', e: 'La x normal.' },
       { s: 'Das chs in „Ochs“ klingt wie ___.', a: 'ks', d: ['ch', 'sch'], t: 'El chs de «Ochs» suena «ks».', e: 'Mismo caso.' },
-      { s: '„sechs“ und „Sex“ klingen ___.', a: 'fast gleich', d: ['ganz anders', 'gleich'], t: '«sechs» y «Sex» suenan casi igual.', e: 'Solo cambia la vocal.' }
+      { s: '„sechs“ und „Sex“ klingen ___.', a: 'fast gleich', d: ['ganz anders', 'gleich'], t: '«sechs» y «Sex» suenan casi igual.', e: 'Solo cambia la vocal.' },
+      { s: '„wechseln“ spricht man mit ___.', a: 'ks', d: ['ch plus s', 'sch'], t: '«wechseln» se pronuncia con «ks».', e: 'chs suena ks, como una x.' },
+      { s: '„Taxi“ hat den Laut ___.', a: 'ks', d: ['ch', 'sch'], t: '«Taxi» tiene el sonido «ks».', e: 'La x suena siempre ks.' },
+      { s: 'In „Büchse“ klingt chs wie ___.', a: 'ks', d: ['ch plus s', 'sch'], t: 'En «Büchse» el chs suena «ks».', e: 'Mismo caso que sechs y Fuchs.' },
+      { s: 'In „du machst“ ist chs ___.', a: 'ch plus s', d: ['ks', 'sch'], t: 'En «du machst» el chs no suena «ks».', e: 'Aquí la s es la terminación del verbo.' },
+      { s: 'Warum ist „machst“ anders als „Fuchs“?', a: 'die s gehört zur Endung', d: ['es ist ein Fehler', 'es ist ein Fremdwort'], t: '¿Por qué «machst» es distinto de «Fuchs»?', e: 'En Fuchs el chs es una sola raíz.' },
+      { s: '„Achse“ spricht man wie ___.', a: 'Akse', d: ['Achse mit ch', 'Asche'], t: '«Achse» se pronuncia como «Akse».', e: 'Otro caso de chs igual a ks.' },
+      { s: 'Der Buchstabe x ist im Deutschen ___.', a: 'selten', d: ['sehr häufig', 'verboten'], t: 'La letra x es rara en alemán.', e: 'Sale sobre todo en extranjerismos.' },
+      { s: '„sechzehn“ spricht man mit ___.', a: 'ch', d: ['ks', 'sch'], t: '«sechzehn» se pronuncia con «ch».', e: 'Ojo: sechs lleva ks, pero sechzehn no.' },
+      { s: 'In „Nächte“ hört man ___.', a: 'ch', d: ['ks', 'sch'], t: 'En «Nächte» se oye «ch».', e: 'No hay s detrás, así que ch normal.' },
+      { s: '„Erwachsener“ und „Examen“ haben ___.', a: 'denselben Laut', d: ['verschiedene Laute', 'kein ks'], t: '«Erwachsener» y «Examen» tienen el mismo sonido.', e: 'Los dos llevan ks, escrito chs y x.' }
     ]
   },
   'aussprache-diphthonge': {

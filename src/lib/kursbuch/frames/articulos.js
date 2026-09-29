@@ -712,7 +712,17 @@ export const ARTICULOS = {
       { s: 'Das Gehalt ___ Mitarbeiter ist gestiegen.', a: 'der', d: ['des', 'dem'], t: 'El sueldo de los empleados ha subido.', e: 'Plural en genitivo: der.' },
       { s: 'Der Anfang ___ Projekts war schwierig.', a: 'des', d: ['der', 'dem'], t: 'El principio del proyecto fue difícil.', e: 'das Projekt: des Projekts.' },
       { s: 'Im Alltag sagt man oft ___ statt Genitiv.', a: 'von', d: ['zu', 'bei'], t: 'En el día a día se dice a menudo «von» en vez del genitivo.', e: 'das Büro von dem Chef.' },
-      { s: 'Die Unterlagen ___ Kunden liegen hier.', a: 'des', d: ['der', 'dem'], t: 'La documentación del cliente está aquí.', e: 'der Kunde: des Kunden.' }
+      { s: 'Die Unterlagen ___ Kunden liegen hier.', a: 'des', d: ['der', 'dem'], t: 'La documentación del cliente está aquí.', e: 'der Kunde: des Kunden.' },
+      { s: 'Das ist der Wagen ___ Nachbarn.', a: 'des', d: ['der', 'dem'], t: 'Ese es el coche del vecino.', e: 'Masculino en genitivo: des.' },
+      { s: 'Die Farbe ___ Wand gefällt mir nicht.', a: 'der', d: ['des', 'dem'], t: 'El color de la pared no me gusta.', e: 'Femenino en genitivo: der.' },
+      { s: 'Im Genitiv bekommen maskuline Nomen oft ___.', a: 'ein -s', d: ['ein -n', 'ein -e'], t: 'En genitivo los masculinos suelen llevar una «-s».', e: 'des Chefs, des Vertrags, des Projekts.' },
+      { s: 'Die Fenster ___ Häuser sind neu.', a: 'der', d: ['des', 'den'], t: 'Las ventanas de las casas son nuevas.', e: 'Plural en genitivo: der.' },
+      { s: 'Das Dach ___ Hauses ist undicht.', a: 'des', d: ['der', 'dem'], t: 'El tejado de la casa tiene goteras.', e: 'Neutro en genitivo: des, y el nombre añade -es.' },
+      { s: 'Statt „das Auto des Vaters“ sagt man oft ___.', a: 'dem Vater sein Auto', d: ['das Auto der Vater', 'des Vater Auto'], t: 'En vez de «das Auto des Vaters» se suele decir otra cosa.', e: 'En el habla coloquial se usa von o el dativo.' },
+      { s: 'Das Ergebnis ___ Prüfung kommt morgen.', a: 'der', d: ['des', 'dem'], t: 'El resultado del examen llega mañana.', e: 'die Prüfung pasa a der Prüfung.' },
+      { s: 'Der Titel ___ Buches ist lang.', a: 'des', d: ['der', 'dem'], t: 'El título del libro es largo.', e: 'das Buch pasa a des Buches.' },
+      { s: 'Der Genitiv antwortet auf die Frage ___.', a: 'wessen', d: ['wem', 'wen'], t: 'El genitivo responde a la pregunta «wessen».', e: '¿De quién? Wessen Auto ist das?' },
+      { s: 'Die Meinung ___ Kollegen ist mir wichtig.', a: 'der', d: ['des', 'den'], t: 'La opinión de los compañeros me importa.', e: 'Genitivo plural: der Kollegen.' }
     ]
   },
   'adjektiv-alle-faelle-wdh': {
@@ -726,7 +736,17 @@ export const ARTICULOS = {
       { s: 'Ein ___ Zeugnis freut die Eltern.', a: 'gutes', d: ['gute', 'guter'], t: 'Un buen boletín alegra a los padres.', e: 'ein + neutro: -es.' },
       { s: 'Die ___ Schüler helfen den anderen.', a: 'älteren', d: ['ältere', 'älteres'], t: 'Los alumnos mayores ayudan a los demás.', e: 'Plural con die: -en.' },
       { s: 'Er ist ein ___ Schüler.', a: 'fleißiger', d: ['fleißige', 'fleißiges'], t: 'Es un alumno aplicado.', e: 'ein + masculino: -er.' },
-      { s: 'Wenn der Artikel nichts sagt, sagt es ___.', a: 'das Adjektiv', d: ['das Nomen', 'das Verb'], t: 'Si el artículo no lo dice, lo dice el adjetivo.', e: 'Es la regla corta que vale casi siempre.' }
+      { s: 'Wenn der Artikel nichts sagt, sagt es ___.', a: 'das Adjektiv', d: ['das Nomen', 'das Verb'], t: 'Si el artículo no lo dice, lo dice el adjetivo.', e: 'Es la regla corta que vale casi siempre.' },
+      { s: 'Ich gebe dem ___ Schüler das Buch.', a: 'neuen', d: ['neue', 'neuer'], t: 'Le doy el libro al alumno nuevo.', e: 'Tras dem siempre -en.' },
+      { s: 'Die ___ Aufgabe war für alle schwer.', a: 'letzte', d: ['letzten', 'letzter'], t: 'El último ejercicio fue difícil para todos.', e: 'Tras die en nominativo: -e.' },
+      { s: 'Wir sprechen über das ___ Thema.', a: 'gleiche', d: ['gleichen', 'gleicher'], t: 'Hablamos del mismo tema.', e: 'Tras das en acusativo: -e.' },
+      { s: 'Er hilft den ___ Schülern.', a: 'jüngeren', d: ['jüngere', 'jüngerer'], t: 'Ayuda a los alumnos más pequeños.', e: 'Dativo plural: siempre -en.' },
+      { s: 'Das ist der Test einer ___ Klasse.', a: 'anderen', d: ['andere', 'anderer'], t: 'Ese es el examen de otra clase.', e: 'Tras einer en genitivo: -en.' },
+      { s: 'Mit dem ___ Lehrer verstehe ich mich gut.', a: 'neuen', d: ['neue', 'neuer'], t: 'Con el profesor nuevo me llevo bien.', e: 'Tras dem en dativo: -en.' },
+      { s: 'Sie hat eine ___ Note bekommen.', a: 'gute', d: ['guten', 'guter'], t: 'Ha sacado una buena nota.', e: 'Tras eine en acusativo femenino: -e.' },
+      { s: 'Im Akkusativ maskulin endet das Adjektiv auf ___.', a: '-en', d: ['-e', '-er'], t: 'En masculino acusativo el adjetivo acaba en «-en».', e: 'den guten Test, einen guten Test.' },
+      { s: 'Die ___ Schüler haben schon abgegeben.', a: 'meisten', d: ['meiste', 'meister'], t: 'La mayoría de los alumnos ya ha entregado.', e: 'Plural tras die: -en.' },
+      { s: 'Nach „ein“ maskulin nominativ endet es auf ___.', a: '-er', d: ['-en', '-e'], t: 'Tras «ein» masculino en nominativo acaba en «-er».', e: 'ein guter Lehrer, porque ein no marca el caso.' }
     ]
   }
 };

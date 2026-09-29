@@ -494,7 +494,17 @@ export const MODALES = {
       { s: 'Ich ___ gern früher Feierabend machen.', a: 'würde', d: ['werde', 'will'], t: 'Me gustaría salir antes hoy.', e: 'würde gern, sin exigir.' },
       { s: '___ wir das kurz besprechen?', a: 'Könnten', d: ['Konnten', 'Müssen'], t: '¿Lo podríamos comentar un momento?', e: 'könnten wir, para proponer.' },
       { s: '___ ich Sie um einen Gefallen bitten?', a: 'Dürfte', d: ['Durfte', 'Muss'], t: '¿Le podría pedir un favor?', e: 'dürfte ich, máxima cortesía.' },
-      { s: 'Im Büro ___ man fast alles im Konjunktiv II.', a: 'fragt', d: ['fragen', 'fragst'], t: 'En la oficina casi todo se pregunta en Konjunktiv II.', e: 'Con man, tercera del singular.' }
+      { s: 'Im Büro ___ man fast alles im Konjunktiv II.', a: 'fragt', d: ['fragen', 'fragst'], t: 'En la oficina casi todo se pregunta en Konjunktiv II.', e: 'Con man, tercera del singular.' },
+      { s: '___ Sie kurz Zeit für mich?', a: 'Hätten', d: ['Hatten', 'Haben hätten'], t: '¿Tendría un momento para mí?', e: 'hätten Sie suena más suave que haben Sie.' },
+      { s: 'Ich ___ gern etwas mit Ihnen besprechen.', a: 'würde', d: ['werde', 'wurde'], t: 'Querría comentar algo con usted.', e: 'würde gern más infinitivo.' },
+      { s: '___ Sie das bitte noch einmal prüfen?', a: 'Könnten', d: ['Konnten', 'Können prüften'], t: '¿Podría comprobarlo otra vez?', e: 'könnten Sie, la petición estándar.' },
+      { s: '___ ich Sie kurz unterbrechen?', a: 'Dürfte', d: ['Durfte', 'Darf dürfte'], t: '¿Le podría interrumpir un momento?', e: 'dürfte para pedir permiso con suavidad.' },
+      { s: 'Es ___ mir sehr helfen, wenn Sie das machen.', a: 'würde', d: ['wird', 'wurde'], t: 'Me ayudaría mucho si usted lo hiciera.', e: 'würde para algo hipotético.' },
+      { s: '___ Sie mir kurz erklären, wie das geht?', a: 'Könnten', d: ['Konnten', 'Können erklärten'], t: '¿Me podría explicar cómo funciona?', e: 'Pregunta educada en el trabajo.' },
+      { s: 'Ich ___ eine Bitte, wenn es geht.', a: 'hätte', d: ['habe', 'hatte'], t: 'Tendría una petición, si es posible.', e: 'ich hätte eine Bitte, fórmula fija.' },
+      { s: '___ es Ihnen etwas ausmachen, wenn ich gehe?', a: 'Würde', d: ['Wird', 'Wurde'], t: '¿Le importaría que me fuera?', e: 'würde es Ihnen etwas ausmachen, muy educado.' },
+      { s: '___ wir den Termin vielleicht verschieben?', a: 'Könnten', d: ['Konnten', 'Können verschöben'], t: '¿Podríamos cambiar la cita quizá?', e: 'vielleicht suaviza aún más la petición.' },
+      { s: 'Der Konjunktiv II macht die Bitte ___.', a: 'höflicher', d: ['kürzer', 'unklarer'], t: 'El Konjunktiv II hace la petición más educada.', e: 'Por eso en la oficina se usa tanto.' }
     ]
   },
   'praeteritum-modalverben': {
@@ -508,7 +518,17 @@ export const MODALES = {
       { s: 'Die Modalverben im Präteritum verlieren ___.', a: 'den Umlaut', d: ['die Endung', 'das t'], t: 'Los modales en Präteritum pierden el Umlaut.', e: 'musste, konnte, durfte, mochte.' },
       { s: '___ ihr gestern lange arbeiten?', a: 'Musstet', d: ['Müsstet', 'Müsst'], t: '¿Tuvisteis que trabajar mucho ayer?', e: 'Con ihr: musstet.' },
       { s: 'Wir ___ das Klassenzimmer nicht betreten.', a: 'durften', d: ['dürften', 'dürfen'], t: 'No podíamos entrar en el aula.', e: 'dürfen en plural: durften.' },
-      { s: 'Statt „ich habe gekonnt“ sagt man ___.', a: 'ich konnte', d: ['ich habe können', 'ich bin gekonnt'], t: 'En vez de «ich habe gekonnt» se dice «ich konnte».', e: 'Los modales no van en Perfekt al hablar.' }
+      { s: 'Statt „ich habe gekonnt“ sagt man ___.', a: 'ich konnte', d: ['ich habe können', 'ich bin gekonnt'], t: 'En vez de «ich habe gekonnt» se dice «ich konnte».', e: 'Los modales no van en Perfekt al hablar.' },
+      { s: 'Als Kind ___ ich sehr gut schwimmen.', a: 'konnte', d: ['könnte', 'gekonnt'], t: 'De niño sabía nadar muy bien.', e: 'Präteritum de können: konnte, sin Umlaut.' },
+      { s: 'Wir ___ gestern länger bleiben.', a: 'durften', d: ['dürften', 'gedurft'], t: 'Ayer nos dejaron quedarnos más.', e: 'dürfen pasa a durften, pierde el Umlaut.' },
+      { s: 'Er ___ als Kind immer Feuerwehrmann werden.', a: 'wollte', d: ['wollen', 'gewollt'], t: 'De niño siempre quiso ser bombero.', e: 'wollen pasa a wollte.' },
+      { s: 'Ich ___ leider früher gehen.', a: 'musste', d: ['müsste', 'gemusst'], t: 'Por desgracia tuve que irme antes.', e: 'müssen pasa a musste, sin Umlaut.' },
+      { s: '___ du gestern zur Schule gehen?', a: 'Musstest', d: ['Müsstest', 'Gemusst'], t: '¿Tuviste que ir ayer al colegio?', e: 'Con du: musstest.' },
+      { s: 'Sie ___ das Buch nicht lesen.', a: 'mochte', d: ['möchte', 'gemocht'], t: 'No le gustaba leer ese libro.', e: 'mögen pasa a mochte en Präteritum.' },
+      { s: 'Bei Modalverben benutzt man lieber ___.', a: 'das Präteritum', d: ['das Perfekt', 'das Futur'], t: 'Con los verbos modales se prefiere el Präteritum.', e: 'Ich musste suena mejor que ich habe gemusst.' },
+      { s: 'Wir ___ damals jeden Tag früh aufstehen.', a: 'mussten', d: ['müssten', 'gemusst'], t: 'Entonces teníamos que levantarnos pronto cada día.', e: 'Plural: mussten.' },
+      { s: 'Ihr ___ gestern nicht mitkommen.', a: 'wolltet', d: ['wollet', 'gewollt'], t: 'Ayer no quisisteis venir.', e: 'Con ihr: wolltet.' },
+      { s: 'Im Präteritum haben Modalverben nie ___.', a: 'einen Umlaut', d: ['ein -t', 'ein -e'], t: 'En Präteritum los modales nunca llevan Umlaut.', e: 'konnte, musste, durfte, mochte.' }
     ]
   }
 };

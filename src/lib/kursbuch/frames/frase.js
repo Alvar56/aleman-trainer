@@ -1189,7 +1189,17 @@ export const FRASE = {
       { s: 'Er übt täglich, ___ besser zu werden.', a: 'um', d: ['damit', 'dass'], t: 'Practica a diario para mejorar.', e: 'El sujeto no cambia: um … zu.' },
       { s: 'Der Chef erklärt alles, damit es keine Fehler ___.', a: 'gibt', d: ['gibt es', 'geben'], t: 'El jefe lo explica todo para que no haya errores.', e: 'es gibt, con el verbo al final.' },
       { s: 'Ich mache eine Liste, ___ ich nichts vergesse.', a: 'damit', d: ['um', 'weil'], t: 'Hago una lista para no olvidarme de nada.', e: 'Aunque el sujeto sea el mismo, con damit también vale.' },
-      { s: 'Er arbeitet abends, ___ mehr Geld zu verdienen.', a: 'um', d: ['damit', 'dass'], t: 'Trabaja por las noches para ganar más dinero.', e: 'Mismo sujeto: um … zu.' }
+      { s: 'Er arbeitet abends, ___ mehr Geld zu verdienen.', a: 'um', d: ['damit', 'dass'], t: 'Trabaja por las noches para ganar más dinero.', e: 'Mismo sujeto: um … zu.' },
+      { s: 'Ich schreibe es auf, ___ ich es nicht vergesse.', a: 'damit', d: ['um', 'weil'], t: 'Lo apunto para no olvidarlo.', e: 'damit abre una subordinada con su propio sujeto.' },
+      { s: 'Nach „damit“ steht das Verb ___.', a: 'am Ende', d: ['an zweiter Stelle', 'am Anfang'], t: 'Después de «damit» el verbo va al final.', e: 'Es una conjunción subordinante.' },
+      { s: 'Wir sprechen leise, ___ das Kind schlafen kann.', a: 'damit', d: ['um', 'denn'], t: 'Hablamos bajo para que el niño pueda dormir.', e: 'Sujetos distintos, así que damit.' },
+      { s: 'Sie erklärt es zweimal, damit es alle ___.', a: 'verstehen', d: ['verstehen es', 'zu verstehen'], t: 'Lo explica dos veces para que lo entiendan todos.', e: 'Verbo al final de la subordinada.' },
+      { s: 'Ich gehe früher, ___ pünktlich zu sein.', a: 'um', d: ['damit', 'weil'], t: 'Salgo antes para llegar puntual.', e: 'Mismo sujeto, así que um … zu.' },
+      { s: '„damit“ benutzt man, wenn die Subjekte ___ sind.', a: 'verschieden', d: ['gleich', 'unbekannt'], t: '«damit» se usa cuando los sujetos son distintos.', e: 'Si son el mismo, se usa um … zu.' },
+      { s: 'Er wiederholt die Zahl, damit ich sie notieren ___.', a: 'kann', d: ['kann ich', 'können'], t: 'Repite el número para que pueda anotarlo.', e: 'El modal va el último de todo.' },
+      { s: 'Ich stelle den Wecker, ___ ich nicht verschlafe.', a: 'damit', d: ['um', 'obwohl'], t: 'Pongo el despertador para no quedarme dormido.', e: 'damit con sujeto propio en la subordinada.' },
+      { s: 'Wir üben viel, damit die Prüfung leichter ___.', a: 'wird', d: ['wird sie', 'werden'], t: 'Practicamos mucho para que el examen sea más fácil.', e: 'Verbo conjugado al final.' },
+      { s: 'Vor „damit“ steht im Satz ___.', a: 'ein Komma', d: ['ein Punkt', 'nichts'], t: 'Antes de «damit» va una coma.', e: 'Separa la principal de la subordinada.' }
     ]
   },
   'deshalb-darum-daher': {
@@ -1203,7 +1213,17 @@ export const FRASE = {
       { s: 'Die Klasse war laut, deshalb ___ die Lehrerin.', a: 'schimpfte', d: ['die Lehrerin schimpfte', 'schimpfen'], t: 'La clase estaba ruidosa, por eso la profesora regañó.', e: 'deshalb + verbo + sujeto.' },
       { s: 'Ich habe den Stoff nicht verstanden, ___ nehme ich Nachhilfe.', a: 'daher', d: ['weil', 'obwohl'], t: 'No he entendido la materia, por eso voy a clases de refuerzo.', e: 'daher en posición 1.' },
       { s: 'deshalb, darum und daher sagen ___.', a: 'dasselbe', d: ['etwas anderes', 'das Gegenteil'], t: 'deshalb, darum y daher dicen lo mismo.', e: 'Se pueden intercambiar.' },
-      { s: 'Sie hat die Matura, deshalb ___ sie studieren.', a: 'kann', d: ['sie kann', 'können'], t: 'Tiene el bachillerato, por eso puede estudiar.', e: 'El modal justo detrás.' }
+      { s: 'Sie hat die Matura, deshalb ___ sie studieren.', a: 'kann', d: ['sie kann', 'können'], t: 'Tiene el bachillerato, por eso puede estudiar.', e: 'El modal justo detrás.' },
+      { s: 'Es war kalt, ___ blieben wir zu Hause.', a: 'deshalb', d: ['weil', 'obwohl'], t: 'Hacía frío, por eso nos quedamos en casa.', e: 'deshalb da la consecuencia.' },
+      { s: 'Nach „deshalb“ steht das Verb ___.', a: 'direkt danach', d: ['am Ende', 'am Anfang'], t: 'Después de «deshalb» el verbo va justo detrás.', e: 'deshalb ocupa la posición 1.' },
+      { s: 'Ich hatte keine Zeit, ___ habe ich nicht angerufen.', a: 'darum', d: ['weil', 'damit'], t: 'No tenía tiempo, por eso no llamé.', e: 'darum funciona igual que deshalb.' },
+      { s: 'Sie ist umgezogen, daher ___ wir uns selten.', a: 'sehen', d: ['wir sehen', 'gesehen'], t: 'Se ha mudado, por eso nos vemos poco.', e: 'Verbo justo detrás de daher.' },
+      { s: 'Das Wetter war schlecht, deshalb ___ der Ausflug aus.', a: 'fiel', d: ['fiel er', 'ausfiel'], t: 'Hacía mal tiempo, por eso se canceló la excursión.', e: 'Verbo separable: fiel … aus.' },
+      { s: 'Er hatte einen Unfall, ___ kann er nicht arbeiten.', a: 'daher', d: ['weil', 'obwohl'], t: 'Tuvo un accidente, por eso no puede trabajar.', e: 'daher introduce la consecuencia.' },
+      { s: 'deshalb, darum und daher verbinden ___.', a: 'zwei Hauptsätze', d: ['Haupt- und Nebensatz', 'zwei Nebensätze'], t: '«deshalb», «darum» y «daher» unen dos frases principales.', e: 'Por eso el verbo no se va al final.' },
+      { s: 'Ich habe verschlafen, darum ___ ich den Zug verpasst.', a: 'habe', d: ['ich habe', 'hatte ich'], t: 'Me he dormido, por eso he perdido el tren.', e: 'Verbo en segunda posición, detrás de darum.' },
+      { s: 'Sie hat wenig geschlafen, deshalb ___ sie müde.', a: 'ist', d: ['sie ist', 'sein'], t: 'Ha dormido poco, por eso está cansada.', e: 'Verbo justo detrás de deshalb.' },
+      { s: 'Der Grund steht ___ deshalb.', a: 'vor', d: ['nach', 'in'], t: 'La causa va antes de «deshalb».', e: 'Primero la causa, luego la consecuencia.' }
     ]
   },
   'weil-oder-deshalb': {
@@ -1217,7 +1237,17 @@ export const FRASE = {
       { s: 'Der Unterschied ist ___.', a: 'die Wortstellung', d: ['die Bedeutung', 'das Verb'], t: 'La diferencia está en el orden de la frase.', e: 'Dicen lo mismo, pero se colocan al revés.' },
       { s: 'Weil der Bus Verspätung ___, kam ich zu spät.', a: 'hatte', d: ['hatte er', 'haben'], t: 'Como el autobús llegó tarde, llegué tarde.', e: 'Verbo al final con weil.' },
       { s: 'Die Straßenbahn war voll, ___ bin ich gelaufen.', a: 'deshalb', d: ['weil', 'dass'], t: 'El tranvía iba lleno, por eso fui andando.', e: 'deshalb y el verbo detrás.' },
-      { s: 'Nach weil kommt ___.', a: 'ein Nebensatz', d: ['ein Hauptsatz', 'nichts'], t: 'Después de weil viene una subordinada.', e: 'Y por eso el verbo se va al final.' }
+      { s: 'Nach weil kommt ___.', a: 'ein Nebensatz', d: ['ein Hauptsatz', 'nichts'], t: 'Después de weil viene una subordinada.', e: 'Y por eso el verbo se va al final.' },
+      { s: 'Ich bleibe zu Hause, ___ es regnet.', a: 'weil', d: ['deshalb', 'trotzdem'], t: 'Me quedo en casa porque llueve.', e: 'weil introduce la causa.' },
+      { s: 'Es regnet, ___ bleibe ich zu Hause.', a: 'deshalb', d: ['weil', 'obwohl'], t: 'Llueve, por eso me quedo en casa.', e: 'deshalb introduce la consecuencia.' },
+      { s: 'Nach „weil“ geht das Verb ___.', a: 'ans Ende', d: ['an Position zwei', 'an Position eins'], t: 'Después de «weil» el verbo va al final.', e: 'weil abre subordinada.' },
+      { s: 'Sie geht nicht mit, weil sie lernen ___.', a: 'muss', d: ['muss sie', 'musste sie'], t: 'No va porque tiene que estudiar.', e: 'El modal va el ultimo.' },
+      { s: 'Ich habe Hunger, ___ esse ich etwas.', a: 'darum', d: ['weil', 'damit'], t: 'Tengo hambre, por eso como algo.', e: 'darum es como deshalb.' },
+      { s: 'Weil sie krank ___, kam sie nicht.', a: 'war', d: ['war sie', 'ist'], t: 'Como estaba enferma, no vino.', e: 'Verbo al final de la subordinada.' },
+      { s: '„weil“ und „deshalb“ sagen ___.', a: 'dasselbe anders', d: ['das Gegenteil', 'nichts Ähnliches'], t: '«weil» y «deshalb» dicen lo mismo de otra forma.', e: 'Cambia el orden, no el sentido.' },
+      { s: 'Ich nehme das Rad, ___ es schneller ist.', a: 'weil', d: ['deshalb', 'darum'], t: 'Cojo la bici porque es más rápido.', e: 'Detrás de weil, verbo al final.' },
+      { s: 'Der Zug hatte Verspätung, ___ kam ich zu spät.', a: 'deshalb', d: ['weil', 'obwohl'], t: 'El tren llegó tarde, por eso llegué tarde.', e: 'Causa primero, consecuencia con deshalb.' },
+      { s: 'Nach „deshalb“ kommt ___.', a: 'das Verb', d: ['das Subjekt', 'ein Komma'], t: 'Después de «deshalb» viene el verbo.', e: 'deshalb ocupa la posición 1 de la frase.' }
     ]
   },
   'nebensatz-mit-wenn-schule': {
@@ -1231,7 +1261,17 @@ export const FRASE = {
       { s: 'Wenn man krank ___, bleibt man zu Hause.', a: 'ist', d: ['ist man', 'sein'], t: 'Si uno está enfermo, se queda en casa.', e: 'man va con la tercera del singular.' },
       { s: 'Wenn du die Matura ___, kannst du studieren.', a: 'machst', d: ['machst du', 'machen'], t: 'Si haces el bachillerato, puedes estudiar.', e: 'Verbo al final.' },
       { s: '___ es einen Test gibt, lerne ich abends.', a: 'Wenn', d: ['Als', 'Weil'], t: 'Si hay examen, estudio por la noche.', e: 'Repetido y en presente: wenn.' },
-      { s: 'Wenn wir früher ___, gehen wir noch in den Park.', a: 'aufhören', d: ['hören auf', 'aufhören wir'], t: 'Si terminamos antes, vamos al parque.', e: 'En subordinada el separable NO se parte.' }
+      { s: 'Wenn wir früher ___, gehen wir noch in den Park.', a: 'aufhören', d: ['hören auf', 'aufhören wir'], t: 'Si terminamos antes, vamos al parque.', e: 'En subordinada el separable NO se parte.' },
+      { s: 'Wenn du Fragen ___, melde dich einfach.', a: 'hast', d: ['hast du', 'haben'], t: 'Si tienes preguntas, avisa sin más.', e: 'Verbo al final de la subordinada.' },
+      { s: 'Wenn das Kind Fieber hat, ___ es zu Hause.', a: 'bleibt', d: ['es bleibt', 'bleiben'], t: 'Si el niño tiene fiebre, se queda en casa.', e: 'Verbo justo detrás de la coma.' },
+      { s: 'Ruf an, wenn du später ___.', a: 'kommst', d: ['kommst du', 'kommen'], t: 'Llama si vienes más tarde.', e: 'La subordinada puede ir la segunda.' },
+      { s: 'Wenn ihr fertig ___, gebt die Blätter ab.', a: 'seid', d: ['seid ihr', 'sein'], t: 'Cuando terminéis, entregad las hojas.', e: 'Verbo al final, detrás de fertig.' },
+      { s: 'Wenn die Schule ___, fahren wir weg.', a: 'aus ist', d: ['ist aus', 'aus sein'], t: 'Cuando acabe el colegio, nos vamos.', e: 'Verbo separable junto y al final.' },
+      { s: 'Wenn du mehr ___, verstehst du es besser.', a: 'übst', d: ['übst du', 'üben'], t: 'Si practicas más, lo entiendes mejor.', e: 'Verbo conjugado al final.' },
+      { s: 'Wenn der Lehrer es erklärt, ___ es einfach.', a: 'wirkt', d: ['es wirkt', 'wirken'], t: 'Cuando lo explica el profesor, parece fácil.', e: 'Verbo en primera posición de la principal.' },
+      { s: 'Wenn ein Kind oft ___, sprechen die Lehrer mit den Eltern.', a: 'fehlt', d: ['fehlt es', 'fehlen'], t: 'Si un niño falta mucho, los profesores hablan con los padres.', e: 'Verbo al final de la subordinada.' },
+      { s: 'Wenn wir Zeit ___, machen wir einen Ausflug.', a: 'haben', d: ['haben wir', 'hätten'], t: 'Si tenemos tiempo, hacemos una excursión.', e: 'Verbo al final, detrás de Zeit.' },
+      { s: 'Der Nebensatz mit „wenn“ braucht ___.', a: 'ein Komma', d: ['einen Punkt', 'nichts'], t: 'La subordinada con «wenn» necesita una coma.', e: 'En alemán es obligatoria.' }
     ]
   },
   'indirekte-rede-dass': {

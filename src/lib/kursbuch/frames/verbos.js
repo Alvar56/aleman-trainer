@@ -680,7 +680,17 @@ export const VERBOS = {
       { s: 'Die Termine ___ telefonisch vereinbart.', a: 'werden', d: ['sind', 'haben'], t: 'Las citas se concretan por teléfono.', e: 'Plural: werden.' },
       { s: 'Im Passiv steht das Partizip ___.', a: 'am Ende', d: ['am Anfang', 'in der Mitte'], t: 'En la pasiva el participio va al final.', e: 'Como en el Perfekt.' },
       { s: 'Das Protokoll ___ nach der Besprechung geschrieben.', a: 'wird', d: ['ist', 'hat'], t: 'El acta se escribe después de la reunión.', e: 'Singular: wird.' },
-      { s: 'Die Rechnungen ___ am Monatsende bezahlt.', a: 'werden', d: ['sind', 'haben'], t: 'Las facturas se pagan a final de mes.', e: 'Plural: werden.' }
+      { s: 'Die Rechnungen ___ am Monatsende bezahlt.', a: 'werden', d: ['sind', 'haben'], t: 'Las facturas se pagan a final de mes.', e: 'Plural: werden.' },
+      { s: 'Das Haus ___ gerade renoviert.', a: 'wird', d: ['werden', 'wurde'], t: 'La casa se está reformando.', e: 'Pasivo: werden más participio.' },
+      { s: 'Die Briefe ___ jeden Tag abgeholt.', a: 'werden', d: ['wird', 'worden'], t: 'Las cartas se recogen todos los días.', e: 'Sujeto plural: werden.' },
+      { s: 'Im Passiv benutzt man das Hilfsverb ___.', a: 'werden', d: ['sein', 'haben'], t: 'En la pasiva se usa el auxiliar «werden».', e: 'sein da el estado, werden la acción.' },
+      { s: 'Hier ___ Deutsch gesprochen.', a: 'wird', d: ['werden', 'ist'], t: 'Aquí se habla alemán.', e: 'Sin sujeto concreto: wird.' },
+      { s: 'Die Tür ___ um acht geöffnet.', a: 'wird', d: ['werden', 'worden'], t: 'La puerta se abre a las ocho.', e: 'Sujeto singular: wird.' },
+      { s: 'Wer die Handlung macht, steht mit ___.', a: 'von', d: ['mit', 'durch die'], t: 'Quien hace la acción va con «von».', e: 'von der Chefin, von den Kollegen.' },
+      { s: 'Die Zimmer ___ täglich geputzt.', a: 'werden', d: ['wird', 'worden'], t: 'Las habitaciones se limpian a diario.', e: 'Plural: werden.' },
+      { s: 'Das Auto ___ in der Werkstatt repariert.', a: 'wird', d: ['werden', 'hat'], t: 'El coche se repara en el taller.', e: 'Singular: wird más participio.' },
+      { s: 'Im Passiv ist wichtig, ___.', a: 'was passiert', d: ['wer es macht', 'wann es war'], t: 'En la pasiva lo importante es qué pasa.', e: 'Por eso quien lo hace se puede omitir.' },
+      { s: 'Die Fenster ___ im Frühling gestrichen.', a: 'werden', d: ['wird', 'worden'], t: 'Las ventanas se pintan en primavera.', e: 'Sujeto plural: werden.' }
     ]
   }
 };
