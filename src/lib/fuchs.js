@@ -186,17 +186,20 @@ export function comprarNombre() {
   setFuchs({ comprado: [...f.comprado, LLAVE_NOMBRE] });
   return { ok: true, saldo: saldo() };
 }
+// `gen` es el genero del sustantivo aleman, y no es decoracion: decide si la
+// etiqueta dice "Dein Fuchs" o "Deine Katze". En una app para aprender aleman
+// poner mal el posesivo es enseniar mal.
 export const ANIMALES = [
-  { id: 'zorro', de: 'Fuchs', es: 'Zorro', en: 'Fox', precio: 0 },
-  { id: 'gato', de: 'Katze', es: 'Gato', en: 'Cat', precio: PRECIO_ANIMAL },
-  { id: 'perro', de: 'Hund', es: 'Perro', en: 'Dog', precio: PRECIO_ANIMAL },
-  { id: 'conejo', de: 'Hase', es: 'Conejo', en: 'Rabbit', precio: PRECIO_ANIMAL },
-  { id: 'oso', de: 'Bär', es: 'Oso', en: 'Bear', precio: PRECIO_ANIMAL },
-  { id: 'buho', de: 'Eule', es: 'Búho', en: 'Owl', precio: PRECIO_ANIMAL },
-  { id: 'rana', de: 'Frosch', es: 'Rana', en: 'Frog', precio: PRECIO_ANIMAL },
-  { id: 'pato', de: 'Ente', es: 'Pato', en: 'Duck', precio: PRECIO_ANIMAL },
-  { id: 'erizo', de: 'Igel', es: 'Erizo', en: 'Hedgehog', precio: PRECIO_ANIMAL },
-  { id: 'mapache', de: 'Waschbär', es: 'Mapache', en: 'Raccoon', precio: PRECIO_ANIMAL }
+  { id: 'zorro', de: 'Fuchs', gen: 'm', es: 'Zorro', en: 'Fox', precio: 0 },
+  { id: 'gato', de: 'Katze', gen: 'f', es: 'Gato', en: 'Cat', precio: PRECIO_ANIMAL },
+  { id: 'perro', de: 'Hund', gen: 'm', es: 'Perro', en: 'Dog', precio: PRECIO_ANIMAL },
+  { id: 'conejo', de: 'Hase', gen: 'm', es: 'Conejo', en: 'Rabbit', precio: PRECIO_ANIMAL },
+  { id: 'oso', de: 'Bär', gen: 'm', es: 'Oso', en: 'Bear', precio: PRECIO_ANIMAL },
+  { id: 'buho', de: 'Eule', gen: 'f', es: 'Búho', en: 'Owl', precio: PRECIO_ANIMAL },
+  { id: 'rana', de: 'Frosch', gen: 'm', es: 'Rana', en: 'Frog', precio: PRECIO_ANIMAL },
+  { id: 'pato', de: 'Ente', gen: 'f', es: 'Pato', en: 'Duck', precio: PRECIO_ANIMAL },
+  { id: 'erizo', de: 'Igel', gen: 'm', es: 'Erizo', en: 'Hedgehog', precio: PRECIO_ANIMAL },
+  { id: 'mapache', de: 'Waschbär', gen: 'm', es: 'Mapache', en: 'Raccoon', precio: PRECIO_ANIMAL }
 ];
 
 // ---- fondos: donde esta Felix ------------------------------------------
@@ -211,9 +214,11 @@ const FONDOS = [
   { id: 'wueste', de: 'Wüste', ranura: 'fondo', es: 'Desierto', en: 'Desert', precio: 0 },
   { id: 'eis', de: 'Eis und Schnee', ranura: 'fondo', es: 'Hielo y nieve', en: 'Ice and snow', precio: 0 },
   { id: 'berge', de: 'Berge', ranura: 'fondo', es: 'Montañas', en: 'Mountains', precio: 0 },
-  { id: 'schloss', de: 'Märchenschloss', ranura: 'fondo', es: 'Castillo', en: 'Castle', precio: 0 },
+  // Aquí estaban 'schloss' (Märchenschloss) y 'cafe' (Deutsches Café). Se
+  // retiraron: eran los dos más flojos y no había manera de arreglarlos sin
+  // rehacerlos enteros. Quien los tuviera puestos vuelve al fondo por
+  // defecto (ver getFuchs).
   { id: 'klasse', de: 'Klassenzimmer', ranura: 'fondo', es: 'Clase', en: 'Classroom', precio: 0 },
-  { id: 'cafe', de: 'Deutsches Café', ranura: 'fondo', es: 'Cafetería', en: 'Café', precio: 0 },
   { id: 'stadt', de: 'Stadt bei Nacht', ranura: 'fondo', es: 'Ciudad de noche', en: 'City at night', precio: 0 },
   { id: 'weltraum', de: 'Weltraum', ranura: 'fondo', es: 'Espacio', en: 'Outer space', precio: 0 }
 ];
@@ -242,6 +247,14 @@ export function getFuchs() {
   if (col?.req && !cumple(col.req)) {
     f.color = DEFAULT.color;
   }
+  // Un fondo que ya no existe deja de pintarse pero la clase se sigue
+  // poniendo, así que el zorro se quedaría sobre un hueco en blanco sin que
+  // nada lo explique. Pasó al retirar el castillo y la cafetería. Se
+  // comprueba aquí y no con una migración suelta para que valga también si
+  // mañana se retira otro.
+  if (!FONDOS.some((x) => x.id === f.fondo)) {
+    f.fondo = DEFAULT.fondo;
+  }
   return f;
 }
 
@@ -249,6 +262,13 @@ export function setFuchs(patch) {
   const next = { ...getFuchs(), ...patch };
   storage.set(KEY, next);
   return next;
+}
+
+// "Dein Fuchs" estaba escrito a mano y se quedaba ahi aunque te compraras un
+// gato: hay diez animales y en nueve la etiqueta mentia.
+export function tuAnimal(f = getFuchs()) {
+  const a = ANIMALES.find((x) => x.id === f.especie) || ANIMALES[0];
+  return (a.gen === 'f' ? 'Deine ' : 'Dein ') + a.de;
 }
 
 export function colorDe(f = getFuchs()) {

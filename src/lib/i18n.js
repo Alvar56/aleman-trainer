@@ -415,7 +415,8 @@ const DICT = {
   'fox.clear': ['Borrar la conversación', 'Clear the conversation'],
   'fox.clearAsk': ['¿Borrar toda la conversación?', 'Clear the whole conversation?'],
   // el panel entero esta en aleman, asi que el boton que lo abre tambien
-  'fox.customise': ['Dein Fuchs', 'Dein Fuchs'],
+  // Ya no se usa: la etiqueta la construye tuAnimal() en fuchs.js, porque
+  // esto decía "Dein Fuchs" aunque te compraras un gato.
   // Con el nombre dentro: si lo rebautizas, el botón lo dice.
   'fox.customiseName': ['Personalizar a {nombre}', 'Customise {nombre}'],
   'fox.name': ['Su nombre', 'His name'],

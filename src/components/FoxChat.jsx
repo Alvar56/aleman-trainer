@@ -3,7 +3,7 @@ import FoxFace from './FoxFace.jsx';
 import FoxAjustes from './FoxAjustes.jsx';
 import { foxChat } from '../lib/ai.js';
 import { aiAvailable } from '../lib/settings.js';
-import { getFuchs, nombreEspecie } from '../lib/fuchs.js';
+import { getFuchs, nombreEspecie, tuAnimal } from '../lib/fuchs.js';
 import { storage } from '../lib/storage.js';
 import { ganar, MONEDAS_FELIX } from '../lib/monedas.js';
 import { t, pick } from '../lib/i18n.js';
@@ -227,7 +227,9 @@ export default function FoxChat({ abrirCon = null, onClose }) {
           </p>
         </div>
         <button className="btn-ghost btn-sm" onClick={() => setAjustes(true)}>
-          {t('fox.customise')}
+          {/* El animal que tengas puesto, con su artículo: decía "Dein Fuchs"
+              fijo y hay diez animales, así que en nueve mentía. */}
+          {tuAnimal(fuchs)}
         </button>
         {onClose && (
           <button className="lied-cerrar" onClick={onClose} title={t('back')}>

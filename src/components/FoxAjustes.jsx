@@ -199,7 +199,10 @@ export default function FoxAjustes({ onClose, onChange }) {
         <div className={'fox-hero-escena fox-escena-' + (f.fondo || 'nadaFondo')}>
           <div className="fox-hero-topbar">
             <div className="fox-hero-top-left">
-              <h2 className="fox-hero-titulo">Dein Fuchs</h2>
+              {/* El nombre del zorro va en una tarjeta como las de la derecha,
+                  con las monedas justo debajo: así las dos esquinas de arriba
+                  tienen la misma forma. */}
+              <h2 className="fox-hero-tarjeta-nombre">{f.nombre || 'Fuchs'}</h2>
               <div className="fox-hero-saldo monedero">
                 <span className="mnd-icono">🪙</span>
                 <strong className="mnd-total">{monedas}</strong>
@@ -221,12 +224,12 @@ export default function FoxAjustes({ onClose, onChange }) {
             </ul>
           </div>
 
-          {/* Transición orgánica de curva suave hacia el cuerpo del modal */}
-          <div className="fox-hero-transicion" aria-hidden="true">
-            <svg viewBox="0 0 1200 36" preserveAspectRatio="none">
-              <path d="M0,14 C 300,32 600,6 1200,20 L 1200,36 L 0,36 Z" fill="var(--surface)" />
-            </svg>
-          </div>
+          {/* Paso del paisaje al cuerpo del modal. Antes aquí había además una
+              curva que pintaba blanco opaco sobre los últimos 13px: como el
+              degradado a esa altura ya va por el 90%, el borde de la curva se
+              veía como una raya clara cruzando el pie de la escena. Con el
+              degradado alto basta, así que la curva sobra. */}
+          <div className="fox-hero-transicion" aria-hidden="true" />
         </div>
 
         <div className="fox-modal-cuerpo">
