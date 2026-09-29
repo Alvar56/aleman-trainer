@@ -306,7 +306,17 @@ export const PRONOMBRES = {
       { s: 'Wie lange ___ man den Teig kneten?', a: 'muss', d: ['müssen', 'musst'], t: '¿Cuánto hay que amasar la masa?', e: 'man + müssen en singular.' },
       { s: 'Zu einer Hochzeit ___ man sich schön an.', a: 'zieht', d: ['ziehen', 'ziehst'], t: 'A una boda uno se arregla.', e: 'sich anziehen con man: sich, tercera persona.' },
       { s: '___ braucht nicht viel für dieses Rezept.', a: 'Man', d: ['Es', 'Sie'], t: 'No hace falta mucho para esta receta.', e: 'man en posición 1.' },
-      { s: 'Wo ___ man hier gut essen?', a: 'kann', d: ['können', 'kannst'], t: '¿Dónde se come bien por aquí?', e: 'Pregunta general con man.' }
+      { s: 'Wo ___ man hier gut essen?', a: 'kann', d: ['können', 'kannst'], t: '¿Dónde se come bien por aquí?', e: 'Pregunta general con man.' },
+      { s: 'In Österreich ___ man viel Kartoffeln.', a: 'isst', d: ['essen', 'esst'], t: 'En Austria se comen muchas patatas.', e: 'man lleva siempre verbo en tercera del singular.' },
+      { s: 'Wie ___ man dieses Wort?', a: 'schreibt', d: ['schreiben', 'schreibst'], t: '¿Cómo se escribe esta palabra?', e: 'man schreibt, tercera persona.' },
+      { s: 'Hier ___ man nicht rauchen.', a: 'darf', d: ['dürfen', 'darfst'], t: 'Aquí no se puede fumar.', e: 'man darf, singular.' },
+      { s: 'Was ___ man in dieser Stadt sehen?', a: 'sollte', d: ['sollten', 'solltest'], t: '¿Qué se debería ver en esta ciudad?', e: 'man sollte, singular.' },
+      { s: '„man“ übersetzt man auf Spanisch oft mit ___.', a: 'se', d: ['hombre', 'uno Mann'], t: '«man» se traduce al español a menudo por «se».', e: 'Se dice, se come, se hace.' },
+      { s: 'In diesem Lokal ___ man gut und billig.', a: 'isst', d: ['essen', 'esse'], t: 'En este local se come bien y barato.', e: 'man isst, con la forma irregular.' },
+      { s: '___ man hier einen Tisch reservieren?', a: 'Muss', d: ['Müssen', 'Musst'], t: '¿Hay que reservar mesa aquí?', e: 'man muss, tercera del singular.' },
+      { s: 'Zum Kaffee ___ man oft ein Glas Wasser.', a: 'bekommt', d: ['bekommen', 'bekommst'], t: 'Con el café se suele dar un vaso de agua.', e: 'man bekommt, singular.' },
+      { s: '„man“ ist ___, nicht „der Mann“.', a: 'unpersönlich', d: ['männlich', 'ein Nomen'], t: '«man» es impersonal, no es «der Mann».', e: 'Se escribe con una sola n y en minúscula.' },
+      { s: 'Wie lange ___ man die Nudeln kochen?', a: 'muss', d: ['müssen', 'musst'], t: '¿Cuánto hay que hervir la pasta?', e: 'man muss, singular siempre.' }
     ]
   }
 };

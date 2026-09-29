@@ -688,7 +688,17 @@ export const ARTICULOS = {
       { s: 'Ich brauche ___ Training, keine Ausreden.', a: 'hartes', d: ['harte', 'harter'], t: 'Necesito entrenamiento duro, no excusas.', e: 'das Training: -es.' },
       { s: '___ Sportler trainieren jeden Tag.', a: 'Gute', d: ['Guter', 'Gutes'], t: 'Los buenos deportistas entrenan cada día.', e: 'Plural sin artículo: -e.' },
       { s: 'Bei ___ Wetter laufe ich draußen.', a: 'schönem', d: ['schöne', 'schönes'], t: 'Con buen tiempo corro fuera.', e: 'Dativo neutro sin artículo: -em.' },
-      { s: 'Er trinkt nur ___ Tee.', a: 'grünen', d: ['grüne', 'grünes'], t: 'Solo bebe té verde.', e: 'der Tee en acusativo: -en.' }
+      { s: 'Er trinkt nur ___ Tee.', a: 'grünen', d: ['grüne', 'grünes'], t: 'Solo bebe té verde.', e: 'der Tee en acusativo: -en.' },
+      { s: 'Ich trinke gern ___ Kaffee.', a: 'starken', d: ['starker', 'starkes'], t: 'Me gusta el café fuerte.', e: 'Sin artículo, masculino acusativo: -en.' },
+      { s: '___ Milch ist gesund.', a: 'Frische', d: ['Frischer', 'Frisches'], t: 'La leche fresca es sana.', e: 'Femenino nominativo sin artículo: -e.' },
+      { s: 'Er isst nur ___ Brot.', a: 'dunkles', d: ['dunkler', 'dunklen'], t: 'Solo come pan integral.', e: 'Neutro acusativo sin artículo: -es.' },
+      { s: 'Mit ___ Geduld schafft man alles.', a: 'viel', d: ['vieler', 'vielem'], t: 'Con mucha paciencia se consigue todo.', e: 'viel no se declina delante de incontables.' },
+      { s: '___ Kinder brauchen viel Schlaf.', a: 'Kleine', d: ['Kleiner', 'Kleines'], t: 'Los niños pequeños necesitan dormir mucho.', e: 'Plural sin artículo: -e.' },
+      { s: 'Ich suche Arbeit mit ___ Bezahlung.', a: 'guter', d: ['gute', 'gutes'], t: 'Busco trabajo con buena remuneración.', e: 'Femenino dativo sin artículo: -er.' },
+      { s: 'Er kommt aus ___ Familie.', a: 'guter', d: ['gute', 'gutem'], t: 'Viene de buena familia.', e: 'aus más dativo femenino: -er.' },
+      { s: '___ Wein trinke ich nicht.', a: 'Roten', d: ['Roter', 'Rotes'], t: 'El vino tinto no lo bebo.', e: 'Masculino acusativo delante del verbo: -en.' },
+      { s: 'Sie hat ___ Haare.', a: 'lange', d: ['langer', 'langes'], t: 'Tiene el pelo largo.', e: 'Plural acusativo sin artículo: -e.' },
+      { s: 'Ohne Artikel trägt das Adjektiv ___.', a: 'die Endung des Artikels', d: ['gar keine Endung', 'immer -en'], t: 'Sin artículo, el adjetivo lleva la terminación del artículo.', e: 'Por eso se dice guter Wein, como der Wein.' }
     ]
   },
   'genitiv-mit-des-der': {

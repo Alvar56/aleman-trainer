@@ -632,7 +632,17 @@ export const VERBOS = {
       { s: 'Ich bringe es ___ morgen mit.', a: 'dir', d: ['dich', 'deiner'], t: 'Te lo llevo mañana.', e: 'Con el qué en pronombre, el dativo va detrás.' },
       { s: 'Sie schenkt ___ Kindern jedes Jahr Bücher.', a: 'den', d: ['die', 'der'], t: 'Cada año les regala libros a los niños.', e: 'Dativo plural con -n.' },
       { s: 'Was hast du ___ zum Geburtstag geschenkt?', a: 'ihr', d: ['sie', 'ihre'], t: '¿Qué le regalaste por su cumpleaños?', e: 'Dativo femenino: ihr.' },
-      { s: 'Bringt ___ bitte nichts mit!', a: 'uns', d: ['wir', 'unser'], t: '¡No nos traigáis nada!', e: 'uns en dativo.' }
+      { s: 'Bringt ___ bitte nichts mit!', a: 'uns', d: ['wir', 'unser'], t: '¡No nos traigáis nada!', e: 'uns en dativo.' },
+      { s: 'Er schenkt ___ Frau eine Kette.', a: 'seiner', d: ['seine', 'seinen'], t: 'Le regala un collar a su mujer.', e: 'Quien recibe va en dativo: seiner Frau.' },
+      { s: 'Wir bringen ___ Nachbarn einen Kuchen mit.', a: 'den', d: ['die', 'der'], t: 'Les llevamos un pastel a los vecinos.', e: 'Dativo plural: den, con -n en el nombre.' },
+      { s: 'Was schenkst du ___ zum Abschied?', a: 'ihm', d: ['ihn', 'er'], t: '¿Qué le regalas de despedida?', e: 'El dativo de er es ihm.' },
+      { s: 'Ich habe ___ etwas aus Spanien mitgebracht.', a: 'dir', d: ['dich', 'du'], t: 'Te he traído algo de España.', e: 'El dativo de du es dir.' },
+      { s: 'Sie schenkt ___ Bruder eine Uhr.', a: 'ihrem', d: ['ihren', 'ihr'], t: 'Le regala un reloj a su hermano.', e: 'Dativo masculino: ihrem.' },
+      { s: 'Bring ___ bitte den Schlüssel mit!', a: 'mir', d: ['mich', 'ich'], t: '¡Tráeme la llave, por favor!', e: 'El dativo de ich es mir.' },
+      { s: 'Wir schenken ___ Lehrerin Blumen.', a: 'der', d: ['die', 'den'], t: 'Le regalamos flores a la profesora.', e: 'die pasa a der en dativo.' },
+      { s: 'Habt ihr ___ schon etwas geschenkt?', a: 'ihnen', d: ['sie', 'ihr'], t: '¿Ya les habéis regalado algo?', e: 'El dativo plural de sie es ihnen.' },
+      { s: 'Was bringen wir ___ Kindern mit?', a: 'den', d: ['die', 'der'], t: '¿Qué les llevamos a los niños?', e: 'Dativo plural con -n: den Kindern.' },
+      { s: 'Bei schenken steht die Person ___.', a: 'im Dativ', d: ['im Akkusativ', 'im Genitiv'], t: 'Con «schenken» la persona va en dativo.', e: 'Y la cosa regalada en acusativo.' }
     ]
   },
   'reflexive-verben-sport': {
@@ -646,7 +656,17 @@ export const VERBOS = {
       { s: 'Sie meldet ___ für den Marathon an.', a: 'sich', d: ['ihr', 'ihre'], t: 'Se apunta al maratón.', e: 'sich anmelden, tercera persona.' },
       { s: 'Ich habe ___ beim Skifahren das Knie verletzt.', a: 'mir', d: ['mich', 'meiner'], t: 'Me lesioné la rodilla esquiando.', e: 'Con das Knie de directo, el pronombre va en dativo.' },
       { s: 'Wie fühlst du ___ nach dem Training?', a: 'dich', d: ['dir', 'du'], t: '¿Cómo te encuentras después de entrenar?', e: 'sich fühlen: dich.' },
-      { s: 'Die Läufer wärmen ___ gemeinsam auf.', a: 'sich', d: ['ihnen', 'uns'], t: 'Los corredores calientan juntos.', e: 'Plural de tercera: sich.' }
+      { s: 'Die Läufer wärmen ___ gemeinsam auf.', a: 'sich', d: ['ihnen', 'uns'], t: 'Los corredores calientan juntos.', e: 'Plural de tercera: sich.' },
+      { s: 'Er zieht ___ vor dem Training um.', a: 'sich', d: ['ihm', 'seine'], t: 'Se cambia de ropa antes de entrenar.', e: 'sich umziehen, con acusativo.' },
+      { s: 'Wir treffen ___ um sieben im Park.', a: 'uns', d: ['sich', 'unsere'], t: 'Quedamos a las siete en el parque.', e: 'sich treffen, reflexivo recíproco.' },
+      { s: 'Ich konzentriere ___ beim Laufen auf den Atem.', a: 'mich', d: ['mir', 'meine'], t: 'Al correr me concentro en la respiración.', e: 'sich konzentrieren auf, con acusativo.' },
+      { s: 'Streng dich nicht zu sehr ___!', a: 'an', d: ['auf', 'aus'], t: '¡No te esfuerces demasiado!', e: 'sich anstrengen, con el prefijo al final.' },
+      { s: 'Habt ihr ___ schon aufgewärmt?', a: 'euch', d: ['ihr', 'eure'], t: '¿Ya habéis calentado?', e: 'El reflexivo de ihr es euch.' },
+      { s: 'Sie freut ___ auf den Wettkampf.', a: 'sich', d: ['ihr', 'ihre'], t: 'Está deseando la competición.', e: 'sich freuen auf, con acusativo.' },
+      { s: 'Ich melde ___ für den Kurs an.', a: 'mich', d: ['mir', 'meine'], t: 'Me apunto al curso.', e: 'sich anmelden, con acusativo.' },
+      { s: 'Nach dem Spiel duschen ___ alle.', a: 'sich', d: ['ihnen', 'ihre'], t: 'Después del partido se ducha todo el mundo.', e: 'sich duschen, tercera persona: sich.' },
+      { s: 'Bewegt ___ jeden Tag ein bisschen!', a: 'euch', d: ['ihr', 'sich'], t: '¡Moveos un poco cada día!', e: 'Imperativo con ihr: el reflexivo es euch.' },
+      { s: 'Er hat ___ beim Training überanstrengt.', a: 'sich', d: ['ihm', 'seinen'], t: 'Se ha sobreesforzado entrenando.', e: 'Reflexivo en acusativo, sin parte del cuerpo.' }
     ]
   },
   'passiv-praesens': {

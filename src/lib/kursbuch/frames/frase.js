@@ -1141,7 +1141,17 @@ export const FRASE = {
       { s: 'Wenn du magst, ___ ich dich ab.', a: 'hole', d: ['ich hole', 'holst du'], t: 'Si quieres, te recojo.', e: 'abholen: el prefijo al final.' },
       { s: 'Bevor die Gäste kommen, ___ wir noch auf.', a: 'räumen', d: ['wir räumen', 'räumen wir es'], t: 'Antes de que lleguen los invitados, ordenamos.', e: 'bevor también es subordinada.' },
       { s: 'Wenn alle da sind, ___ wir an.', a: 'fangen', d: ['wir fangen', 'fangen wir es'], t: 'Cuando estén todos, empezamos.', e: 'anfangen, con an al final.' },
-      { s: 'Nachdem wir gegessen haben, ___ es einen Kuchen.', a: 'gibt', d: ['es gibt', 'gibt es einen'], t: 'Después de comer hay tarta.', e: 'nachdem, subordinada delante.' }
+      { s: 'Nachdem wir gegessen haben, ___ es einen Kuchen.', a: 'gibt', d: ['es gibt', 'gibt es einen'], t: 'Después de comer hay tarta.', e: 'nachdem, subordinada delante.' },
+      { s: 'Wenn du Hunger hast, ___ es noch Suppe.', a: 'gibt', d: ['gibt es es', 'es gibt'], t: 'Si tienes hambre, todavía hay sopa.', e: 'Tras la subordinada el verbo va justo detrás de la coma.' },
+      { s: 'Wenn ihr früher kommt, ___ wir zusammen kochen.', a: 'können', d: ['wir können', 'könnten wir'], t: 'Si venís antes, podemos cocinar juntos.', e: 'Verbo en primera posición de la principal.' },
+      { s: 'Falls es regnet, ___ wir drinnen.', a: 'bleiben', d: ['wir bleiben', 'bleiben wir wir'], t: 'Si llueve, nos quedamos dentro.', e: 'falls funciona igual que wenn.' },
+      { s: 'Wenn du willst, ___ ich dich vom Bahnhof ab.', a: 'hole', d: ['ich hole', 'abhole'], t: 'Si quieres, te recojo en la estación.', e: 'Verbo separable: hole … ab.' },
+      { s: 'Wenn alle satt sind, ___ wir den Tisch ab.', a: 'räumen', d: ['wir räumen', 'abräumen'], t: 'Cuando todos estén llenos, recogemos la mesa.', e: 'räumen … ab, con el prefijo al final.' },
+      { s: 'Wenn ihr Lust ___, kommt einfach vorbei.', a: 'habt', d: ['habt ihr', 'haben'], t: 'Si os apetece, pasaos sin más.', e: 'En la subordinada el verbo va al final.' },
+      { s: 'Wenn wir uns beeilen, ___ wir den Zug noch.', a: 'schaffen', d: ['wir schaffen', 'schafften'], t: 'Si nos damos prisa, todavía cogemos el tren.', e: 'Verbo justo detrás de la coma.' },
+      { s: 'Sag Bescheid, wenn du etwas ___.', a: 'brauchst', d: ['brauchst du', 'brauchen'], t: 'Avisa si necesitas algo.', e: 'La subordinada puede ir también detrás.' },
+      { s: 'Wenn das Essen fertig ___, rufe ich euch.', a: 'ist', d: ['ist es', 'sein'], t: 'Cuando la comida esté lista, os llamo.', e: 'Verbo al final de la subordinada.' },
+      { s: 'Wenn du keine Zeit ___, macht das gar nichts.', a: 'hast', d: ['hast du', 'haben'], t: 'Si no tienes tiempo, no pasa nada.', e: 'Verbo al final, detrás de keine Zeit.' }
     ]
   },
   'zweiteilige-konnektoren': {
@@ -1155,7 +1165,17 @@ export const FRASE = {
       { s: 'Weder der Trainer ___ die Mannschaft war zufrieden.', a: 'noch', d: ['oder', 'und'], t: 'Ni el entrenador ni el equipo quedaron contentos.', e: 'weder … noch.' },
       { s: 'Das Training ist nicht nur hart, ___ auch lang.', a: 'sondern', d: ['aber', 'oder'], t: 'El entrenamiento no solo es duro, sino también largo.', e: 'Después de una negación: sondern.' },
       { s: 'Er läuft ___ morgens als auch abends.', a: 'sowohl', d: ['entweder', 'weder'], t: 'Corre tanto por la mañana como por la tarde.', e: 'La primera pieza es sowohl.' },
-      { s: 'Ich habe keine Zeit, ___ auch keine Lust.', a: 'und', d: ['sondern', 'als'], t: 'No tengo tiempo, y tampoco ganas.', e: 'Aquí basta con und: no hay contraposición.' }
+      { s: 'Ich habe keine Zeit, ___ auch keine Lust.', a: 'und', d: ['sondern', 'als'], t: 'No tengo tiempo, y tampoco ganas.', e: 'Aquí basta con und: no hay contraposición.' },
+      { s: '___ du kommst mit oder du bleibst zu Hause.', a: 'Entweder', d: ['Sowohl', 'Weder'], t: 'O te vienes o te quedas en casa.', e: 'entweder … oder, dos posibilidades.' },
+      { s: 'Sie mag ___ Tee noch Kaffee.', a: 'weder', d: ['sowohl', 'entweder'], t: 'No le gusta ni el té ni el café.', e: 'weder … noch niega las dos cosas.' },
+      { s: 'Er spricht sowohl Spanisch ___ auch Deutsch.', a: 'als', d: ['wie', 'und'], t: 'Habla tanto español como alemán.', e: 'sowohl … als auch, siempre con als.' },
+      { s: 'Das Zimmer ist nicht nur klein, ___ auch dunkel.', a: 'sondern', d: ['aber', 'und'], t: 'La habitación no solo es pequeña, sino también oscura.', e: 'nicht nur … sondern auch.' },
+      { s: 'Wir fahren ___ mit dem Zug oder mit dem Bus.', a: 'entweder', d: ['weder', 'sowohl'], t: 'Vamos o en tren o en autobús.', e: 'entweder abre la alternativa.' },
+      { s: 'Weder er ___ sie hat angerufen.', a: 'noch', d: ['oder', 'und'], t: 'Ni él ni ella han llamado.', e: 'weder … noch, la pareja fija.' },
+      { s: 'Sowohl am Montag ___ auch am Freitag habe ich frei.', a: 'als', d: ['wie', 'oder'], t: 'Tanto el lunes como el viernes libro.', e: 'sowohl … als auch.' },
+      { s: 'Sie ist nicht nur Ärztin, ___ auch Musikerin.', a: 'sondern', d: ['aber', 'oder'], t: 'No solo es médica, sino también música.', e: 'Detrás de nicht nur va siempre sondern.' },
+      { s: '„weder … noch“ bedeutet ___.', a: 'zweimal nein', d: ['zweimal ja', 'ja und nein'], t: '«weder … noch» significa dos veces no.', e: 'No hace falta añadir nicht.' },
+      { s: 'Entweder ___ wir jetzt, oder wir kommen zu spät.', a: 'gehen', d: ['wir gehen', 'zu gehen'], t: 'O nos vamos ahora o llegamos tarde.', e: 'Detrás de entweder el verbo va delante del sujeto.' }
     ]
   },
   'nebensatz-damit': {

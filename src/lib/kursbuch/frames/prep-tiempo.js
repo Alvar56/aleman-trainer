@@ -384,7 +384,17 @@ export const PREP_TIEMPO = {
       { s: 'Vor zwei Jahren ___ ich mit dem Laufen angefangen.', a: 'habe', d: ['bin', 'war'], t: 'Hace dos años empecé a correr.', e: 'vor + pasado: la acción terminó.' },
       { s: 'Seit dem Unfall ___ er keinen Sport mehr.', a: 'macht', d: ['machte', 'hat gemacht'], t: 'Desde el accidente ya no hace deporte.', e: 'Presente con seit.' },
       { s: 'Wie lange trainierst du schon? – ___ Mai.', a: 'Seit', d: ['Vor', 'Ab'], t: '¿Cuánto llevas entrenando? – Desde mayo.', e: 'seit + un punto del pasado.' },
-      { s: 'Seit ___ Verletzung ist er vorsichtiger.', a: 'der', d: ['die', 'den'], t: 'Desde la lesión es más cuidadoso.', e: 'die Verletzung en dativo: der.' }
+      { s: 'Seit ___ Verletzung ist er vorsichtiger.', a: 'der', d: ['die', 'den'], t: 'Desde la lesión es más cuidadoso.', e: 'die Verletzung en dativo: der.' },
+      { s: 'Ich wohne ___ 2015 in Wien.', a: 'seit', d: ['vor', 'für'], t: 'Vivo en Viena desde 2015.', e: 'seit para algo que sigue pasando.' },
+      { s: 'Seit drei Jahren ___ er Deutsch.', a: 'lernt', d: ['lernte', 'hat gelernt'], t: 'Lleva tres años aprendiendo alemán.', e: 'Con seit se usa presente, no pasado.' },
+      { s: '___ wann arbeitest du hier?', a: 'Seit', d: ['Vor', 'Für'], t: '¿Desde cuándo trabajas aquí?', e: 'Seit wann para preguntar por la duración.' },
+      { s: 'Seit ___ Operation geht es ihm besser.', a: 'der', d: ['die', 'den'], t: 'Desde la operación está mejor.', e: 'seit lleva dativo: die pasa a der.' },
+      { s: 'Ich kenne ihn ___ der Schulzeit.', a: 'seit', d: ['vor', 'ab'], t: 'Lo conozco desde el colegio.', e: 'seit más dativo.' },
+      { s: 'Seit einem Monat ___ ich nicht mehr.', a: 'rauche', d: ['rauchte', 'geraucht'], t: 'Hace un mes que no fumo.', e: 'Presente, aunque en español suene a pasado.' },
+      { s: 'Seit ___ Wochen regnet es jeden Tag.', a: 'zwei', d: ['zweien', 'zweite'], t: 'Desde hace dos semanas llueve todos los días.', e: 'El número no cambia delante del nombre.' },
+      { s: '„Vor zwei Jahren“ bedeutet: es ist ___.', a: 'vorbei', d: ['noch so', 'gerade erst'], t: '«Vor zwei Jahren» significa que ya pasó.', e: 'vor mira a un punto, seit a una duración.' },
+      { s: 'Seit ___ Jahr spiele ich Gitarre.', a: 'einem', d: ['ein', 'einen'], t: 'Llevo un año tocando la guitarra.', e: 'das Jahr pasa a einem Jahr en dativo.' },
+      { s: 'Seit dem Umzug ___ wir uns seltener.', a: 'sehen', d: ['sahen', 'gesehen'], t: 'Desde la mudanza nos vemos menos.', e: 'Presente con seit.' }
     ]
   }
 };

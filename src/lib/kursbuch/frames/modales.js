@@ -446,7 +446,17 @@ export const MODALES = {
       { s: 'Wir ___ uns sehr freuen, wenn du kommst.', a: 'würden', d: ['werden', 'wurden'], t: 'Nos alegraría mucho que vinieras.', e: 'Fórmula habitual en una invitación.' },
       { s: '___ ich jemanden mitbringen?', a: 'Dürfte', d: ['Durfte', 'Darf ich dürfte'], t: '¿Podría llevar a alguien?', e: 'dürfte, la versión educada.' },
       { s: 'Es ___ schön, wenn ihr alle kommt.', a: 'wäre', d: ['war', 'ist'], t: 'Sería bonito que vinierais todos.', e: 'wäre en la parte principal.' },
-      { s: '___ Sie so nett, uns Bescheid zu geben?', a: 'Wären', d: ['Waren', 'Sind'], t: '¿Sería tan amable de avisarnos?', e: 'Máxima cortesía.' }
+      { s: '___ Sie so nett, uns Bescheid zu geben?', a: 'Wären', d: ['Waren', 'Sind'], t: '¿Sería tan amable de avisarnos?', e: 'Máxima cortesía.' },
+      { s: '___ du am Freitag mitkommen?', a: 'Würdest', d: ['Wurdest', 'Werdest'], t: '¿Vendrías el viernes?', e: 'würdest para invitar sin presionar.' },
+      { s: 'Wir ___ gern mit euch feiern.', a: 'würden', d: ['werden', 'wurden'], t: 'Nos gustaría celebrarlo con vosotros.', e: 'würden gern más infinitivo.' },
+      { s: '___ du mir mit dem Essen helfen?', a: 'Könntest', d: ['Konntest', 'Kannst könntest'], t: '¿Me ayudarías con la comida?', e: 'könntest suena más suave que kannst.' },
+      { s: 'Es ___ toll, wenn du Zeit hättest.', a: 'wäre', d: ['war', 'ist'], t: 'Sería estupendo si tuvieras tiempo.', e: 'wäre en la parte principal de la frase.' },
+      { s: '___ ihr am Sonntag Zeit für uns?', a: 'Hättet', d: ['Hattet', 'Habt hättet'], t: '¿Tendríais tiempo para nosotros el domingo?', e: 'Con ihr: hättet.' },
+      { s: 'Ich ___ mich sehr über deinen Besuch freuen.', a: 'würde', d: ['werde', 'wurde'], t: 'Me alegraría mucho tu visita.', e: 'würde más infinitivo al final.' },
+      { s: '___ es Ihnen recht, wenn wir früher kommen?', a: 'Wäre', d: ['War', 'Wird'], t: '¿Le parecería bien si viniéramos antes?', e: 'wäre para preguntar con delicadeza.' },
+      { s: '___ du vielleicht einen Nachtisch mitbringen?', a: 'Könntest', d: ['Konntest', 'Kannst würdest'], t: '¿Podrías traer quizá un postre?', e: 'vielleicht suaviza todavía más.' },
+      { s: 'Wir ___ uns freuen, euch endlich kennenzulernen.', a: 'würden', d: ['werden', 'wurden'], t: 'Nos alegraría conoceros por fin.', e: 'Fórmula habitual en una invitación.' },
+      { s: '___ ich meinen Hund mitbringen?', a: 'Dürfte', d: ['Durfte', 'Darf dürfte'], t: '¿Podría traer a mi perro?', e: 'dürfte para pedir permiso con suavidad.' }
     ]
   },
   'im-restaurant-konjunktiv-bestellen': {
@@ -460,7 +470,17 @@ export const MODALES = {
       { s: 'Wir ___ gern draußen sitzen.', a: 'würden', d: ['werden', 'wollen'], t: 'Nos gustaría sentarnos fuera.', e: 'würden gern, muy suave.' },
       { s: '___ ich noch ein Glas Wasser haben?', a: 'Dürfte', d: ['Durfte', 'Will'], t: '¿Me podría traer otro vaso de agua?', e: 'dürfte, muy educado.' },
       { s: 'Ich ___ gern reservieren, für vier Personen.', a: 'würde', d: ['werde', 'will'], t: 'Querría reservar para cuatro personas.', e: 'Reservando por teléfono.' },
-      { s: '___ es möglich, den Tisch zu wechseln?', a: 'Wäre', d: ['War', 'Wird'], t: '¿Sería posible cambiar de mesa?', e: 'wäre para pedir con delicadeza.' }
+      { s: '___ es möglich, den Tisch zu wechseln?', a: 'Wäre', d: ['War', 'Wird'], t: '¿Sería posible cambiar de mesa?', e: 'wäre para pedir con delicadeza.' },
+      { s: '___ Sie uns die Karte bringen?', a: 'Könnten', d: ['Konnten', 'Können brächten'], t: '¿Nos podría traer la carta?', e: 'könnten Sie es la fórmula educada.' },
+      { s: 'Wir ___ gern bestellen, bitte.', a: 'würden', d: ['werden', 'wurden'], t: 'Querríamos pedir, por favor.', e: 'würden gern más infinitivo.' },
+      { s: 'Ich ___ lieber etwas ohne Fleisch.', a: 'hätte', d: ['habe', 'hatte'], t: 'Preferiría algo sin carne.', e: 'ich hätte lieber, muy natural al pedir.' },
+      { s: '___ wir bitte noch etwas Brot bekommen?', a: 'Könnten', d: ['Konnten', 'Können bekämen'], t: '¿Nos podrían traer un poco más de pan?', e: 'könnten para pedir algo extra.' },
+      { s: '___ Sie so freundlich, die Rechnung zu bringen?', a: 'Wären', d: ['Waren', 'Sind'], t: '¿Sería tan amable de traer la cuenta?', e: 'Wären Sie so freundlich, máxima cortesía.' },
+      { s: 'Ich ___ gern einen Tisch für heute Abend.', a: 'hätte', d: ['habe', 'hatte'], t: 'Querría una mesa para esta noche.', e: 'ich hätte gern también vale para reservar.' },
+      { s: '___ es auch eine kleine Portion geben?', a: 'Könnte', d: ['Konnte', 'Kann gäbe'], t: '¿Podría haber también una ración pequeña?', e: 'könnte es geben, forma impersonal.' },
+      { s: 'Wir ___ gern getrennt zahlen.', a: 'würden', d: ['werden', 'wurden'], t: 'Querríamos pagar por separado.', e: 'würden gern, más suave que wollen.' },
+      { s: '___ Sie mir sagen, was da drin ist?', a: 'Könnten', d: ['Konnten', 'Können sagten'], t: '¿Me podría decir qué lleva?', e: 'Pregunta educada al camarero.' },
+      { s: 'Beim Bestellen klingt „ich hätte gern“ ___.', a: 'höflich', d: ['unhöflich', 'falsch'], t: 'Al pedir, «ich hätte gern» suena educado.', e: 'Mejor que ich will, que suena brusco.' }
     ]
   },
   'hoefliche-frage-am-arbeitsplatz': {

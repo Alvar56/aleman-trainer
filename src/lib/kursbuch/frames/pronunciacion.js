@@ -488,7 +488,17 @@ export const PRONUNCIACION = {
       { s: 'Die Endung -er spricht man wie ___.', a: 'a', d: ['er', 'ar'], t: 'La terminación «-er» suena como una a.', e: 'Kellner, Zimmer, Vater.' },
       { s: '„Kellner“ und „Keller“ enden ___.', a: 'fast gleich', d: ['ganz anders', 'mit r'], t: '«Kellner» y «Keller» acaban casi igual.', e: 'Las dos con esa a floja.' },
       { s: 'Ein spanisches r im Deutschen klingt ___.', a: 'auffällig', d: ['normal', 'besser'], t: 'Una r española en alemán se nota mucho.', e: 'Es de lo que más delata el acento.' },
-      { s: 'In „Uhr“ ist das r am Ende ___.', a: 'schwach', d: ['stark', 'ein h'], t: 'En «Uhr» la r final es floja.', e: 'Suena casi como «úa».' }
+      { s: 'In „Uhr“ ist das r am Ende ___.', a: 'schwach', d: ['stark', 'ein h'], t: 'En «Uhr» la r final es floja.', e: 'Suena casi como «úa».' },
+      { s: '„Tür“ endet mit einem Laut wie ___.', a: 'a', d: ['r wie in Reis', 'e'], t: '«Tür» acaba con un sonido parecido a una «a».', e: 'La r final se vocaliza.' },
+      { s: 'In „Mutter“ klingt die Endung wie ___.', a: 'a', d: ['er mit rollendem r', 'ä'], t: 'En «Mutter» la terminación suena como una «a».', e: 'La terminación -er suena casi como -a.' },
+      { s: 'Das r in „braun“ spricht man ___.', a: 'deutlich', d: ['gar nicht', 'wie a'], t: 'La r de «braun» se pronuncia claramente.', e: 'Delante de vocal la r es consonante.' },
+      { s: '„Jahr“ und „ja“ klingen am Ende ___.', a: 'ähnlich', d: ['ganz verschieden', 'gleich lang'], t: '«Jahr» y «ja» suenan parecido al final.', e: 'La r final apenas se oye como consonante.' },
+      { s: 'Wo spricht man das r als Konsonant?', a: 'vor einem Vokal', d: ['am Wortende', 'nach einem Vokal'], t: '¿Dónde se pronuncia la r como consonante?', e: 'rot, Reis, braun, Frage.' },
+      { s: '„Lehrer“ hat am Ende ___.', a: 'einen a-Laut', d: ['ein rollendes r', 'kein Geräusch'], t: '«Lehrer» acaba con un sonido de «a».', e: 'Las dos erres suenan distinto en la misma palabra.' },
+      { s: 'Das deutsche r macht man ___.', a: 'hinten im Mund', d: ['mit der Zungenspitze', 'mit den Lippen'], t: 'La r alemana se hace atrás en la boca.', e: 'Por eso no suena como la r española.' },
+      { s: 'In „Bier“ und „Tier“ endet das Wort ___.', a: 'gleich', d: ['verschieden', 'mit t'], t: '«Bier» y «Tier» acaban igual.', e: 'Las dos con r vocalizada.' },
+      { s: 'Ein gerolltes r klingt im Deutschen ___.', a: 'fremd', d: ['richtig', 'besser'], t: 'Una r vibrante suena extranjera en alemán.', e: 'Se entiende, pero se nota el acento.' },
+      { s: 'In „Uhr“ ist die Vokallänge ___.', a: 'lang', d: ['kurz', 'egal'], t: 'En «Uhr» la vocal es larga.', e: 'La h alarga la u, y la r se vocaliza.' }
     ]
   },
   'aussprache-chs-x': {
