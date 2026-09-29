@@ -337,14 +337,7 @@ export const A11 = {
           wendungen: [
             { de: 'Guten Morgen! / Guten Tag! / Guten Abend!', es: '¡Buenos días! / ¡Buenas tardes! / ¡Buenas noches!' },
             { de: 'Hallo! · Servus! · Grüß Gott! (AT)', es: '¡Hola! · ¡Hola! (informal, AT) · ¡Buenos días! (formal, AT)' },
-            { de: 'Guten Morgen, schön, dass Sie da sind!', es: '¡Buenos días, qué bien que esté aquí!' },
-            { de: 'Hallo, lange nicht gesehen!', es: '¡Hola, cuánto tiempo!' },
-            { de: 'Guten Tag, Herr Müller!', es: '¡Buenas tardes, señor Müller!' },
-            { de: 'Hallo zusammen!', es: '¡Hola a todos!' },
-            { de: 'Grüß dich, Anna!', es: '¡Hola, Anna!' },
-            { de: 'Guten Abend allerseits!', es: '¡Buenas tardes/noches a todos!' },
-            { de: 'Hi, wie läuft\'s?', es: '¡Hola! ¿Cómo va?' },
-            { de: 'Schön, dich wiederzusehen!', es: '¡Qué bien verte otra vez!' }
+            { de: 'Hallo, lange nicht gesehen!', es: '¡Hola, cuánto tiempo!' }
           ]
         },
         {
@@ -352,47 +345,26 @@ export const A11 = {
           es: 'Despedirse',
           wendungen: [
             { de: 'Auf Wiedersehen! · Tschüss! · Bis bald!', es: '¡Adiós! · ¡Chao! · ¡Hasta pronto!' },
-            { de: 'Bis nächste Woche im Kurs!', es: '¡Hasta la semana que viene en clase!' },
-            { de: 'Schönen Abend noch!', es: '¡Que pase buena tarde!' },
-            { de: 'Schönen Feierabend noch!', es: '¡Que descanses esta tarde!' },
             { de: 'Bis morgen!', es: '¡Hasta mañana!' },
-            { de: 'Mach\'s gut, wir hören uns!', es: '¡Cuídate, hablamos!' },
-            { de: 'Bis später!', es: '¡Hasta luego!' },
-            { de: 'Mach\'s gut!', es: '¡Cuídate! / ¡Que te vaya bien!' },
-            { de: 'Schönen Sonntag noch!', es: '¡Que tengas un buen domingo!' },
-            { de: 'Gute Nacht!', es: '¡Buenas noches!' }
+            { de: 'Schönen Feierabend noch!', es: '¡Que descanses esta tarde!' }
           ]
         },
         {
           funktion: 'nach dem Namen fragen',
           es: 'Preguntar el nombre',
           wendungen: [
-            { de: 'Wie heißt du? – Ich heiße Nuria.', es: '¿Cómo te llamas? – Me llamo Nuria.' },
             { de: 'Wie heißen Sie? – Mein Name ist Gruber.', es: '¿Cómo se llama usted? – Me llamo Gruber.' },
-            { de: 'Wie ist dein Vorname?', es: '¿Cuál es tu nombre de pila?' },
-            { de: 'Wie heißen Sie mit Vornamen?', es: '¿Cuál es su nombre de pila?' },
-            { de: 'Wie war Ihr Name noch einmal?', es: '¿Cómo era su nombre?' },
-            { de: 'Sagt man zu dir Luna oder Luní?', es: '¿Te llaman Luna o Luní?' },
-            { de: 'Und wie ist Ihr Nachname, bitte?', es: '¿Y su apellido, por favor?' },
-            { de: 'Wer bist du?', es: '¿Quién eres tú?' },
-            { de: 'Wie heißen Sie mit Nachnamen?', es: '¿Cuál es su apellido?' },
-            { de: 'Wie ist dein Familienname?', es: '¿Cuál es tu apellido?' }
+            { de: 'Wie heißt du? – Ich heiße Nuria.', es: '¿Cómo te llamas? – Me llamo Nuria.' },
+            { de: 'Wer bist du?', es: '¿Quién eres tú?' }
           ]
         },
         {
           funktion: 'sich vorstellen',
           es: 'Presentarse',
           wendungen: [
-            { de: 'Ich heiße Maria.', es: 'Me llamo Maria.' },
-            { de: 'Mein Name ist Maria López.', es: 'Mi nombre es Maria López.' },
-            { de: 'Ich bin Ahmet. Und du?', es: 'Soy Ahmet. ¿Y tú?' },
             { de: 'Ich bin neu im Kurs, ich heiße Nuria.', es: 'Soy nueva en el curso, me llamo Nuria.' },
-            { de: 'Darf ich mich vorstellen? Ich komme aus Syrien.', es: '¿Me presento? Soy de Siria.' },
-            { de: 'Wir kennen uns noch nicht, oder?', es: 'Todavía no nos conocemos, ¿no?' },
-            { de: 'Ich bin neu hier im Kurs.', es: 'Soy nuevo en el curso.' },
-            { de: 'Darf ich Ihnen meine Kollegin vorstellen?', es: '¿Le presento a mi compañera?' },
-            { de: 'Freut mich, ich bin David.', es: 'Mucho gusto, soy David.' },
-            { de: 'Hallo, mein Vorname ist Clara.', es: 'Hola, mi nombre de pila es Clara.' }
+            { de: 'Ich heiße Maria.', es: 'Me llamo Maria.' },
+            { de: 'Ich bin Ahmet. Und du?', es: 'Soy Ahmet. ¿Y tú?' }
           ]
         },
         {
@@ -401,14 +373,7 @@ export const A11 = {
           wendungen: [
             { de: 'Wie geht\'s? – Danke, gut. Und dir?', es: '¿Qué tal? – Bien, gracias. ¿Y tú?' },
             { de: 'Wie geht es Ihnen? – Danke, sehr gut.', es: '¿Cómo está usted? – Muy bien, gracias.' },
-            { de: 'Nicht so gut.', es: 'No muy bien.' },
-            { de: 'Es geht.', es: 'Regular.' },
-            { de: 'Wie fühlst du dich heute?', es: '¿Cómo te encuentras hoy?' },
-            { de: 'Alles in Ordnung bei dir?', es: '¿Todo bien contigo?' },
-            { de: 'Geht es Ihnen wieder besser?', es: '¿Se encuentra ya mejor?' },
-            { de: 'Du wirkst heute so fröhlich.', es: 'Hoy se te ve muy contento.' },
-            { de: 'Wie war dein Wochenende?', es: '¿Qué tal el fin de semana?' },
-            { de: 'Du wirkst heute so gut gelaunt.', es: 'Hoy se te ve de muy buen humor.' }
+            { de: 'Wie fühlst du dich heute?', es: '¿Cómo te encuentras hoy?' }
           ]
         },
         {
@@ -417,14 +382,7 @@ export const A11 = {
           wendungen: [
             { de: 'Woher kommst du? – Ich komme aus Spanien.', es: '¿De dónde eres? – Soy de España.' },
             { de: 'Woher kommen Sie? – Aus Wien.', es: '¿De dónde es usted? – De Viena.' },
-            { de: 'Aus welcher Stadt kommst du genau?', es: '¿De qué ciudad eres exactamente?' },
-            { de: 'Bist du hier geboren?', es: '¿Naciste aquí?' },
-            { de: 'Sprichst du die Sprache deiner Eltern?', es: '¿Hablas el idioma de tus padres?' },
-            { de: 'Wie lange lebst du schon in Österreich?', es: '¿Cuánto llevas viviendo en Austria?' },
-            { de: 'Und wo genau in Spanien liegt das?', es: '¿Y dónde está eso exactamente en España?' },
-            { de: 'Bist du schon lange in Wien?', es: '¿Llevas mucho en Viena?' },
-            { de: 'Kommst du aus Deutschland?', es: '¿Vienes de Alemania?' },
-            { de: 'Sind Sie aus der Schweiz?', es: '¿Es usted de Suiza?' }
+            { de: 'Kommst du aus Deutschland?', es: '¿Vienes de Alemania?' }
           ]
         },
         {
@@ -433,14 +391,7 @@ export const A11 = {
           wendungen: [
             { de: 'Wie ist deine Telefonnummer? – 0664 123 45 67.', es: '¿Cuál es tu teléfono? – 0664 123 45 67.' },
             { de: 'Wie ist Ihre E-Mail-Adresse?', es: '¿Cuál es su correo electrónico?' },
-            { de: 'Wo wohnst du? – In Wien, Hauptstraße 12.', es: '¿Dónde vives? – En Viena, Hauptstraße 12.' },
-            { de: 'Unter welcher Nummer erreiche ich dich am besten?', es: '¿En qué número te localizo mejor?' },
-            { de: 'Hast du eine neue Nummer?', es: '¿Tienes un número nuevo?' },
-            { de: 'Wo genau wohnst du in Wien?', es: '¿Dónde vives exactamente en Viena?' },
-            { de: 'Schreib mir bitte deine Adresse auf.', es: 'Escríbeme tu dirección, por favor.' },
-            { de: 'Unter welcher Nummer erreiche ich Sie am besten?', es: '¿En qué número le localizo mejor?' },
-            { de: 'Haben Sie eine Handynummer?', es: '¿Tiene un número de móvil?' },
-            { de: 'Wie lautet Ihre Postleitzahl?', es: '¿Cuál es su código postal?' }
+            { de: 'Wo genau wohnst du in Wien?', es: '¿Dónde vives exactamente en Viena?' }
           ]
         },
         {
@@ -448,15 +399,8 @@ export const A11 = {
           es: 'Deletrear',
           wendungen: [
             { de: 'Wie schreibt man das?', es: '¿Cómo se escribe eso?' },
-            { de: 'Können Sie das bitte buchstabieren?', es: '¿Puede deletrearlo, por favor?' },
-            { de: 'M wie Martha, A wie Anton.', es: 'M de Martha, A de Anton.' },
             { de: 'Wie schreibt man das mit ü oder mit ue?', es: '¿Se escribe con ü o con ue?' },
-            { de: 'Ist das ein ß oder ein Doppel-s?', es: '¿Eso es una ß o una doble s?' },
-            { de: 'Können Sie den Namen langsam buchstabieren?', es: '¿Puede deletrear el nombre despacio?' },
-            { de: 'Schreibt man deinen Namen mit K oder mit C?', es: '¿Se escribe tu nombre con K o con C?' },
-            { de: 'Buchstabieren Sie bitte Ihren Nachnamen.', es: 'Deletree su apellido, por favor.' },
-            { de: 'Ist das ein langes oder ein kurzes i?', es: '¿Es una i larga o corta?' },
-            { de: 'Schreibt man das groß oder klein?', es: '¿Se escribe eso con mayúscula o minúscula?' }
+            { de: 'Schreibt man deinen Namen mit K oder mit C?', es: '¿Se escribe tu nombre con K o con C?' }
           ]
         },
         {
@@ -465,14 +409,7 @@ export const A11 = {
           wendungen: [
             { de: 'Wie bitte? Können Sie das wiederholen?', es: '¿Cómo dice? ¿Puede repetirlo?' },
             { de: 'Was heißt „Tafel“ auf Spanisch?', es: '¿Qué significa «Tafel» en español?' },
-            { de: 'Wie sagt man das auf Deutsch?', es: '¿Cómo se dice eso en alemán?' },
-            { de: 'Ich verstehe das nicht.', es: 'No lo entiendo.' },
-            { de: 'Langsamer, bitte!', es: '¡Más despacio, por favor!' },
-            { de: 'Ich habe eine Frage zu Übung vier.', es: 'Tengo una pregunta sobre el ejercicio cuatro.' },
-            { de: 'Arbeiten wir zu zweit oder allein?', es: '¿Trabajamos por parejas o solos?' },
-            { de: 'Ich brauche noch zwei Minuten, bitte.', es: 'Necesito dos minutos más, por favor.' },
-            { de: 'Was bedeutet dieses Wort?', es: '¿Qué significa esta palabra?' },
-            { de: 'Können wir das noch einmal zusammen üben?', es: '¿Podemos practicarlo otra vez juntos?' }
+            { de: 'Ich habe eine Frage zu Übung vier.', es: 'Tengo una pregunta sobre el ejercicio cuatro.' }
           ]
         },
         {
@@ -480,15 +417,8 @@ export const A11 = {
           es: 'Preguntar a la profesora',
           wendungen: [
             { de: 'Entschuldigung, ich habe eine Frage.', es: 'Perdone, tengo una pregunta.' },
-            { de: 'Können Sie das bitte an die Tafel schreiben?', es: '¿Puede escribirlo en la pizarra, por favor?' },
             { de: 'Wie heißt das auf Deutsch?', es: '¿Cómo se dice esto en alemán?' },
-            { de: 'Auf welcher Seite sind wir?', es: '¿En qué página estamos?' },
-            { de: 'Wo sind wir gerade?', es: '¿Por dónde vamos?' },
-            { de: 'Was ist die Hausaufgabe?', es: '¿Cuáles son los deberes?' },
-            { de: 'Ist das richtig so?', es: '¿Está bien así?' },
-            { de: 'Können Sie das noch einmal erklären?', es: '¿Puede explicarlo otra vez?' },
-            { de: 'Wie spricht man das aus?', es: '¿Cómo se pronuncia?' },
-            { de: 'Wann ist die nächste Prüfung?', es: '¿Cuándo es el próximo examen?' }
+            { de: 'Können Sie das noch einmal erklären?', es: '¿Puede explicarlo otra vez?' }
           ]
         },
         {
@@ -496,15 +426,8 @@ export const A11 = {
           es: 'Pedir permiso en el aula',
           wendungen: [
             { de: 'Darf ich auf die Toilette gehen?', es: '¿Puedo ir al baño?' },
-            { de: 'Darf ich heute früher gehen?', es: '¿Puedo irme hoy antes?' },
-            { de: 'Darf ich das Licht anmachen?', es: '¿Puedo encender la luz?' },
-            { de: 'Können wir das Licht ausmachen?', es: '¿Podemos apagar la luz?' },
             { de: 'Darf ich das Fenster aufmachen?', es: '¿Puedo abrir la ventana?' },
-            { de: 'Können Sie bitte das Fenster zumachen?', es: '¿Puede cerrar la ventana, por favor?' },
-            { de: 'Können wir eine kurze Pause machen?', es: '¿Podemos hacer una pausa corta?' },
-            { de: 'Was machen wir in der nächsten Stunde?', es: '¿Qué hacemos la próxima clase?' },
-            { de: 'Können Sie mir bitte helfen? Ich finde die Übung nicht.', es: '¿Me puede ayudar, por favor? No encuentro el ejercicio.' },
-            { de: 'Darf ich kurz auf die Toilette gehen?', es: '¿Puedo ir un momento al baño?' }
+            { de: 'Können wir das Licht ausmachen?', es: '¿Podemos apagar la luz?' }
           ]
         },
         {
@@ -512,15 +435,8 @@ export const A11 = {
           es: 'Agradecer y disculparse',
           wendungen: [
             { de: 'Danke schön! – Bitte schön!', es: '¡Muchas gracias! – ¡De nada!' },
-            { de: 'Vielen Dank für die Hilfe.', es: 'Muchas gracias por la ayuda.' },
             { de: 'Entschuldigung, ich bin zu spät.', es: 'Perdón, llego tarde.' },
-            { de: 'Es tut mir leid.', es: 'Lo siento.' },
-            { de: 'Vielen Dank, das war sehr nett von Ihnen.', es: 'Muchas gracias, ha sido muy amable.' },
-            { de: 'Entschuldigung, der Bus hatte Verspätung.', es: 'Perdón, el autobús llegó tarde.' },
-            { de: 'Das tut mir wirklich leid.', es: 'Lo siento de verdad.' },
-            { de: 'Darf ich mich für die Verspätung entschuldigen?', es: '¿Me disculpa por el retraso?' },
-            { de: 'Entschuldigung, ich habe Sie unterbrochen.', es: 'Perdone, le he interrumpido.' },
-            { de: 'Kein Problem, schon gut!', es: '¡No hay problema, no pasa nada!' }
+            { de: 'Es tut mir leid.', es: 'Lo siento.' }
           ]
         }
       ]

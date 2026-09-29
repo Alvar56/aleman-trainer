@@ -556,173 +556,39 @@ const RESPUESTAS = {
     { de: 'Gern. Hat alles gepasst, oder gab es etwas zu bemängeln?', es: 'Con gusto. ¿Ha estado todo bien o hubo algo que objetar?' },
 
   // ---- A1.1 Start: Wie geht's? -------------------------------------------
-  'Wie geht\'s? – Danke, gut. Und dir?':
-    { de: 'Auch gut, danke. Ein bisschen müde, aber sonst alles super.', es: 'Bien también, gracias. Un poco cansado, pero por lo demás todo bien.',
-      mas: [
-        { de: 'Bist du fertig mit den Hausaufgaben?', es: '¿Has terminado los deberes?' },
-        { de: 'Fast, mir fehlt nur die letzte Übung.', es: 'Casi, me falta solo el último ejercicio.' }
-      ] },
-  'Wie geht es Ihnen? – Danke, sehr gut.':
-    { de: 'Das freut mich. Und wie läuft es in der Arbeit?', es: 'Me alegro. ¿Y cómo va el trabajo?',
-      mas: [
-        { de: 'Viel zu tun, aber es macht Spaß.', es: 'Mucho trabajo, pero me gusta.' },
-        { de: 'Das ist die beste Kombination.', es: 'Esa es la mejor combinación.' }
-      ] },
-  'Nicht so gut.':
-    { de: 'Oh, was ist denn los? Setz dich kurz, ich hole dir ein Wasser.', es: 'Vaya, ¿qué pasa? Siéntate un momento, te traigo un agua.',
-      mas: [
-        { de: 'Ich bin müde, ich habe schlecht geschlafen.', es: 'Estoy cansado, he dormido mal.' },
-        { de: 'Dann trink einen Kaffee in der Pause.', es: 'Pues tómate un café en la pausa.' }
-      ] },
-  'Es geht.':
-    { de: 'Na ja, das kenne ich.', es: 'Bueno, eso me suena.' },
-  'Wie heißt du? – Ich heiße Nuria.':
-    { de: 'Freut mich, Nuria! Schön, dass du da bist.', es: '¡Encantado, Nuria! Me alegro de que estés aquí.',
-      mas: [
-        { de: 'Und wie heißt du?', es: '¿Y tú cómo te llamas?' },
-        { de: 'Ich heiße Jonas. Ich sitze hinter dir.', es: 'Me llamo Jonas. Me siento detrás de ti.' }
-      ] },
-  'Wie heißen Sie? – Mein Name ist Gruber.':
-    { de: 'Angenehm, Frau Gruber. Ich bin Nuria, die neue Kollegin.', es: 'Mucho gusto, señora Gruber. Soy Nuria, la compañera nueva.',
-      mas: [
-        { de: 'Freut mich, Nuria. Woher kommen Sie?', es: 'Encantada, Nuria. ¿De dónde es usted?' },
-        { de: 'Aus Spanien, aus Valencia.', es: 'De España, de Valencia.' }
-      ] },
-  'Wie ist dein Vorname?':
-    { de: 'Mein Vorname ist Leon, mit e-o, nicht mit i. Das schreiben viele falsch.', es: 'Me llamo Leon, con e-o, no con i. Mucha gente lo escribe mal.',
-      mas: [
-        { de: 'Und dein Familienname?', es: '¿Y tu apellido?' },
-        { de: 'Meier, mit E-I.', es: 'Meier, con E-I.' }
-      ] },
-  'Wie bitte? Können Sie das wiederholen?':
-    { de: 'Ja, natürlich. Ich sage es noch einmal, diesmal langsamer und lauter.', es: 'Sí, claro. Lo digo otra vez, esta vez más despacio y más alto.',
-      mas: [
-        { de: 'Jetzt habe ich es verstanden, danke.', es: 'Ahora sí lo he entendido, gracias.' },
-        { de: 'Sehr gut. Fragen Sie immer, wenn etwas zu schnell geht.', es: 'Muy bien. Pregunte siempre que algo vaya muy rápido.' }
-      ] },
-  'Was heißt „Tafel“ auf Spanisch?':
-    { de: '„Tafel“ heißt „pizarra“. Schreib es dir am besten auf.', es: '«Tafel» significa «pizarra». Mejor apúntatelo.' },
-  'Wie sagt man das auf Deutsch?':
-    { de: 'Auf Deutsch sagt man „die Pause“.', es: 'En alemán se dice «die Pause».' },
-  'Ich verstehe das nicht.':
-    { de: 'Kein Problem, ich erkläre es noch einmal.', es: 'No pasa nada, lo explico otra vez.',
-      mas: [
-        { de: 'Können Sie ein Beispiel geben?', es: '¿Puede poner un ejemplo?' },
-        { de: 'Ja: „Ich fahre mit dem Bus.“', es: 'Sí: «Ich fahre mit dem Bus».' }
-      ] },
-  'Langsamer, bitte!':
-    { de: 'Entschuldigung, ich rede zu schnell.', es: 'Perdona, hablo muy rápido.',
-      mas: [
-        { de: 'Jetzt verstehe ich es gut.', es: 'Ahora lo entiendo bien.' },
-        { de: 'Sehr gut, dann machen wir weiter.', es: 'Muy bien, entonces seguimos.' }
-      ] },
-  'Danke schön! – Bitte schön!':
-    { de: 'Gern geschehen. Frag ruhig wieder, wenn du etwas brauchst.', es: 'Un placer. Pregunta otra vez si necesitas algo.',
-      mas: [
-        { de: 'Ohne dich hätte ich das Formular nicht verstanden.', es: 'Sin ti no habría entendido el formulario.' },
-        { de: 'Die Formulare versteht am Anfang niemand.', es: 'Los formularios no los entiende nadie al principio.' }
-      ] },
-  'Vielen Dank für die Hilfe.':
-    { de: 'Nichts zu danken. Das mache ich doch gern.', es: 'No hay de qué. Lo hago con gusto.',
-      mas: [
-        { de: 'Darf ich dich morgen wieder fragen?', es: '¿Te puedo preguntar otra vez mañana?' },
-        { de: 'Jederzeit. Ich sitze immer hier vorne.', es: 'Cuando quieras. Siempre estoy aquí delante.' }
-      ] },
-  'Entschuldigung, ich bin zu spät.':
-    { de: 'Kein Problem, setz dich einfach. Wir sind gerade erst bei Übung eins.', es: 'No pasa nada, siéntate. Acabamos de empezar el ejercicio uno.',
-      mas: [
-        { de: 'Mein Bus hatte Verspätung.', es: 'Mi autobús venía con retraso.' },
-        { de: 'Das passiert. Wir sind auf Seite 12.', es: 'Pasa. Vamos por la página 12.' }
-      ] },
-  'Es tut mir leid.':
-    { de: 'Schon gut. Das kann jedem passieren.', es: 'No importa. Le puede pasar a cualquiera.' },
-  'Wie ist deine Telefonnummer? – 0664 123 45 67.':
-    { de: 'Danke, ich schreibe sie auf.', es: 'Gracias, la apunto.',
-      mas: [
-        { de: 'Schreibst du mir dann eine Nachricht?', es: '¿Me escribes luego un mensaje?' },
-        { de: 'Ja, heute Abend.', es: 'Sí, esta noche.' }
-      ] },
-  'Wie ist Ihre E-Mail-Adresse?':
-    { de: 'Nuria Punkt Lopez at mail Punkt at, alles klein und ohne Akzent.', es: 'Nuria punto Lopez arroba mail punto at, todo en minúscula y sin acento.',
-      mas: [
-        { de: 'Soll ich sie Ihnen aufschreiben?', es: '¿Se la escribo?' },
-        { de: 'Ja bitte, beim Buchstabieren verliere ich immer den Faden.', es: 'Sí, por favor, deletreando siempre me pierdo.' }
-      ] },
-  'Wo wohnst du? – In Wien, Hauptstraße 12.':
-    { de: 'Das ist ja ganz in der Nähe!', es: '¡Pero si eso está al lado!',
-      mas: [
-        { de: 'Ja, ich gehe zu Fuß zum Kurs.', es: 'Sí, voy andando a clase.' },
-        { de: 'Ich fahre mit der U-Bahn, zehn Minuten.', es: 'Yo voy en metro, diez minutos.' }
-      ] },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Las de la Start que ya estaban. Sin respuesta, la practica de esa
   // leccion solo podia montar dos de los cuatro tipos de ejercicio.
-  'Guten Morgen! / Guten Tag! / Guten Abend!':
-    { de: 'Guten Tag! Schön, Sie zu sehen.', es: '¡Buenos días! Me alegro de verle.',
-      mas: [
-        { de: 'Sind Sie auch neu im Kurs?', es: '¿Usted también es nuevo en el curso?' },
-        { de: 'Ja, heute ist mein erster Tag.', es: 'Sí, hoy es mi primer día.' }
-      ] },
-  'Hallo! · Servus! · Grüß Gott! (AT)':
-    { de: 'Servus! Alles klar bei dir? Lange nicht gesehen.', es: '¡Hola! ¿Todo bien? Hace mucho que no te veo.',
-      mas: [
-        { de: 'Ja, alles gut. Und bei dir?', es: 'Sí, todo bien. ¿Y tú?' },
-        { de: 'Auch gut, danke.', es: 'Bien también, gracias.' }
-      ] },
-  'Auf Wiedersehen! · Tschüss! · Bis bald!':
-    { de: 'Tschüss, bis morgen! Vergiss die Hausaufgabe nicht.', es: '¡Chao, hasta mañana! No te olvides de los deberes.',
-      mas: [
-        { de: 'Welche Seite war es noch mal?', es: '¿Qué página era?' },
-        { de: 'Seite zwölf, die Übungen unten.', es: 'La página doce, los ejercicios de abajo.' }
-      ] },
-  'Ich heiße Maria.':
-    { de: 'Freut mich, Maria. Ich bin Jonas.', es: 'Encantado, Maria. Yo soy Jonas.',
-      mas: [
-        { de: 'Bist du auch im Kurs A2?', es: '¿Tú también estás en el curso A2?' },
-        { de: 'Ja, jeden Dienstag und Donnerstag.', es: 'Sí, todos los martes y jueves.' }
-      ] },
-  'Mein Name ist Maria López.':
-    { de: 'Guten Tag, Frau López. Nehmen Sie bitte Platz, wir fangen gleich an.', es: 'Buenos días, señora López. Siéntese, por favor, empezamos enseguida.',
-      mas: [
-        { de: 'Entschuldigung, ich bin ein bisschen zu spät.', es: 'Perdone, llego un poco tarde.' },
-        { de: 'Kein Problem, wir haben noch nicht angefangen.', es: 'No pasa nada, todavía no hemos empezado.' }
-      ] },
-  'Ich bin Ahmet. Und du?':
-    { de: 'Ich bin Lena. Ich sitze immer da vorne.', es: 'Yo soy Lena. Me siento siempre ahí delante.',
-      mas: [
-        { de: 'Woher kommst du, Lena?', es: '¿De dónde eres, Lena?' },
-        { de: 'Aus Graz. Und du?', es: 'De Graz. ¿Y tú?' }
-      ] },
-  'Woher kommst du? – Ich komme aus Spanien.':
-    { de: 'Aus Spanien? Aus welcher Stadt?', es: '¿De España? ¿De qué ciudad?',
-      mas: [
-        { de: 'Aus Valencia, im Osten.', es: 'De Valencia, en el este.' },
-        { de: 'Da war ich schon! Sehr schön.', es: '¡Yo he estado! Muy bonito.' }
-      ] },
-  'Woher kommen Sie? – Aus Wien.':
-    { de: 'Ah, ein Wiener! Ich komme aus Graz.', es: '¡Ah, vienés! Yo soy de Graz.',
-      mas: [
-        { de: 'Und wie lange leben Sie schon hier?', es: '¿Y cuánto tiempo lleva aquí?' },
-        { de: 'Seit zwanzig Jahren. Graz vermisse ich trotzdem.', es: 'Veinte años. Aun así echo de menos Graz.' }
-      ] },
-  'Wie schreibt man das?':
-    { de: 'Das schreibt man mit zwei L.', es: 'Eso se escribe con dos eles.',
-      mas: [
-        { de: 'Mit zwei L und einem H am Ende?', es: '¿Con dos eles y una hache al final?' },
-        { de: 'Genau so. Sie haben es gleich beim ersten Mal.', es: 'Exactamente. Lo tiene a la primera.' }
-      ] },
-  'Können Sie das bitte buchstabieren?':
-    { de: 'Natürlich: M-A-R-I-A, wie der Name Maria.', es: 'Claro: M-A-R-I-A, como el nombre María.',
-      mas: [
-        { de: 'Danke, und den Familiennamen?', es: 'Gracias, ¿y el apellido?' },
-        { de: 'L-Ó-P-E-Z.', es: 'L-Ó-P-E-Z.' }
-      ] },
-  'M wie Martha, A wie Anton.':
-    { de: 'Danke, jetzt habe ich es.', es: 'Gracias, ahora sí lo tengo.',
-      mas: [
-        { de: 'Gibt es diese Namen für alle Buchstaben?', es: '¿Hay esos nombres para todas las letras?' },
-        { de: 'Für alle. Am Telefon spart das viel Zeit.', es: 'Para todas. Por teléfono ahorra mucho tiempo.' }
-      ] },
+
+
+
+
+
+
+
+
+
+
+
 
   // ======================================================================
   // A1.1 y A1.2. Antes solo estaban las de A2.1 y las de la Start: media
@@ -811,8 +677,7 @@ const RESPUESTAS = {
     { de: 'Ja, ehrlich! Ich war selbst überrascht.', es: '¡Sí, en serio! Yo mismo me sorprendí.' },
   'Das ist ja interessant!':
     { de: 'Finde ich auch. Erzähl mehr.', es: 'A mí también me lo parece. Cuenta más.' },
-  'Wie war dein Wochenende?':
-    { de: 'Ruhig, ich war zu Hause.', es: 'Tranquilo, estuve en casa.' },
+
   'Schönes Wetter heute, oder?':
     { de: 'Ja, endlich! Nach dieser Woche.', es: '¡Sí, por fin! Después de esta semana.' },
   '2015 bin ich nach Österreich gekommen.':
@@ -983,58 +848,22 @@ const RESPUESTAS = {
     { de: 'Das merkt man gleich. Arbeitet ihr schon lange zusammen?', es: 'Se nota enseguida. ¿Lleváis mucho trabajando juntos?' },
 
   // ---- Start: preguntas para la profesora ----------------------------
-  'Entschuldigung, ich habe eine Frage.':
-    { de: 'Ja, bitte. Was möchtest du wissen?', es: 'Sí, dime. ¿Qué quieres saber?',
-      mas: [
-        { de: 'Was bedeutet dieses Wort hier?', es: '¿Qué significa esta palabra de aquí?' },
-        { de: 'Das ist ein Adjektiv: „schnell“.', es: 'Es un adjetivo: «rápido».' }
-      ] },
-  'Können Sie das bitte an die Tafel schreiben?':
-    { de: 'Natürlich. Ich schreibe es groß.', es: 'Claro. Lo escribo grande.' },
-  'Auf welcher Seite sind wir?':
-    { de: 'Auf Seite 24, Übung 3.', es: 'En la página 24, ejercicio 3.',
-      mas: [
-        { de: 'Danke, ich war auf der falschen Seite.', es: 'Gracias, estaba en la página equivocada.' },
-        { de: 'Kein Problem, wir fangen gleich an.', es: 'No pasa nada, empezamos ya.' }
-      ] },
-  'Was ist die Hausaufgabe?':
-    { de: 'Übung 5 und 6 für Montag.', es: 'Los ejercicios 5 y 6 para el lunes.' },
-  'Ist das richtig so?':
-    { de: 'Fast. Schau noch einmal auf das Verb.', es: 'Casi. Mira otra vez el verbo.' },
-  'Können Sie das noch einmal erklären?':
-    { de: 'Gern. Ich mache ein Beispiel.', es: 'Con gusto. Pongo un ejemplo.' },
-  'Wie spricht man das aus?':
-    { de: 'Hör zu und sprich mir nach.', es: 'Escucha y repite conmigo.' },
-  'Darf ich auf die Toilette gehen?':
-    { de: 'Ja, natürlich. Beeil dich bitte, wir fangen gleich mit der Übung an.', es: 'Sí, claro. Date prisa, por favor, empezamos ya con el ejercicio.',
-      mas: [
-        { de: 'Ich bin gleich wieder da.', es: 'Vuelvo enseguida.' },
-        { de: 'Wir machen in fünf Minuten Pause.', es: 'Hacemos la pausa en cinco minutos.' }
-      ] },
-  'Wie heißt das auf Deutsch?':
-    { de: 'Das heißt der Radiergummi. Schreib es dir auf, das Wort vergisst man schnell.', es: 'Se dice der Radiergummi. Apúntatelo, esa palabra se olvida rápido.',
-      mas: [
-        { de: 'Und wie schreibt man das?', es: '¿Y cómo se escribe?' },
-        { de: 'Mit zwei M: Radiergummi.', es: 'Con dos emes: Radiergummi.' }
-      ] },
-  'Darf ich heute früher gehen?':
-    { de: 'Ja, aber sag es mir vorher.', es: 'Sí, pero dímelo antes.',
-      mas: [
-        { de: 'Ich habe um fünf einen Arzttermin.', es: 'Tengo cita con el médico a las cinco.' },
-        { de: 'Alles klar. Dann nimm dir die Übungen mit nach Hause.', es: 'Muy bien. Pues llévate los ejercicios a casa.' }
-      ] },
-  'Darf ich das Licht anmachen?':
-    { de: 'Ja, bitte. Hier ist es dunkel.', es: 'Sí, por favor. Aquí está oscuro.' },
-  'Können wir das Licht ausmachen?':
-    { de: 'Gute Idee, für das Video.', es: 'Buena idea, para el vídeo.' },
-  'Darf ich das Fenster aufmachen?':
-    { de: 'Ja, hier ist es warm.', es: 'Sí, aquí hace calor.' },
-  'Können Sie bitte das Fenster zumachen?':
-    { de: 'Natürlich, es zieht hier ziemlich.', es: 'Claro, aquí hay bastante corriente.' },
-  'Wo sind wir gerade?':
-    { de: 'Bei Übung 4, oben rechts.', es: 'Por el ejercicio 4, arriba a la derecha.' },
-  'Wann ist die nächste Prüfung?':
-    { de: 'In zwei Wochen, am Freitag.', es: 'Dentro de dos semanas, el viernes.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1385,52 +1214,21 @@ const RESPUESTAS = {
 
 
 
-  'Können wir eine kurze Pause machen?':
-    { de: 'Ja, fünf Minuten. Danach machen wir mit Übung drei weiter.', es: 'Sí, cinco minutos. Después seguimos con el ejercicio tres.',
-      mas: [
-        { de: 'Darf ich schnell einen Kaffee holen?', es: '¿Puedo ir rápido a por un café?' },
-        { de: 'Natürlich, aber bitte pünktlich zurück.', es: 'Claro, pero vuelva puntual, por favor.' }
-      ] },
-  'Was machen wir in der nächsten Stunde?':
-    { de: 'Wir wiederholen die Zahlen und danach hören wir einen kurzen Dialog.', es: 'Repasamos los números y después escuchamos un diálogo corto.' },
-  'Können Sie mir bitte helfen? Ich finde die Übung nicht.':
-    { de: 'Natürlich. Sie ist auf Seite zweiundzwanzig, unten rechts.', es: 'Por supuesto. Está en la página veintidós, abajo a la derecha.' },
-  'Ich habe eine Frage zu Übung vier.':
-    { de: 'Gern. Was genau verstehst du dort nicht? Wir gehen es zusammen durch.', es: 'Claro. ¿Qué es exactamente lo que no entiendes ahí? Lo vemos juntos.' },
-  'Arbeiten wir zu zweit oder allein?':
-    { de: 'Zu zweit, bitte. Suchen Sie sich einen Partner an Ihrem Tisch.', es: 'Por parejas, por favor. Busquen a un compañero en su mesa.' },
-  'Ich brauche noch zwei Minuten, bitte.':
-    { de: 'In Ordnung. Nehmen Sie sich Zeit, wir warten auf alle.', es: 'De acuerdo. Tómese su tiempo, esperamos a todos.' },
-  'Was bedeutet dieses Wort?':
-    { de: 'Das heißt Übung, auf Spanisch ejercicio. Schreib es dir gleich ins Heft.', es: 'Significa Übung, en español ejercicio. Apúntalo ahora mismo en el cuaderno.' },
-  'Vielen Dank, das war sehr nett von Ihnen.':
-    { de: 'Keine Ursache. Melden Sie sich, wenn Sie noch etwas brauchen.', es: 'De nada. Avíseme si necesita algo más.' },
-  'Entschuldigung, der Bus hatte Verspätung.':
-    { de: 'Macht nichts, setzen Sie sich. Wir sind gerade bei Übung zwei.', es: 'No pasa nada, siéntese. Estamos justo en el ejercicio dos.' },
-  'Das tut mir wirklich leid.':
-    { de: 'Schon gut, das kann passieren. Wir machen einfach weiter.', es: 'Está bien, puede pasar. Simplemente seguimos.' },
-  'Darf ich mich für die Verspätung entschuldigen?':
-    { de: 'Natürlich, kein Problem. Der Verkehr war heute wirklich schlimm.', es: 'Claro, no hay problema. Hoy el tráfico estaba fatal.' },
-  'Guten Morgen, schön, dass Sie da sind!':
-    { de: 'Guten Morgen! Ich bin heute extra früher gekommen.', es: '¡Buenos días! Hoy he venido más temprano a propósito.' },
-  'Hallo, lange nicht gesehen!':
-    { de: 'Stimmt, das ist Monate her. Wie geht es dir denn?', es: 'Es verdad, hace meses. ¿Y qué tal estás?',
-      mas: [
-        { de: 'Gut, danke. Ich war ein halbes Jahr in Spanien.', es: 'Bien, gracias. Estuve medio año en España.' },
-        { de: 'Deshalb! Erzähl, wie war es dort?', es: '¡Por eso! Cuenta, ¿qué tal por allí?' }
-      ] },
-  'Bis nächste Woche im Kurs!':
-    { de: 'Bis dann! Vergiss die Hausaufgabe auf Seite dreißig nicht.', es: '¡Hasta entonces! No olvides los deberes de la página treinta.',
-      mas: [
-        { de: 'Danke, sonst hätte ich sie vergessen.', es: 'Gracias, si no se me olvida.' },
-        { de: 'Dafür sind Kolleginnen da. Schönes Wochenende!', es: 'Para eso están las compañeras. ¡Buen finde!' }
-      ] },
-  'Schönen Abend noch!':
-    { de: 'Danke, Ihnen auch. Kommen Sie gut nach Hause.', es: 'Gracias, igualmente. Que llegue bien a casa.',
-      mas: [
-        { de: 'Ich nehme die Straßenbahn, das geht schnell.', es: 'Cojo el tranvía, es rápido.' },
-        { de: 'Gut. Bis morgen um neun!', es: 'Bien. ¡Hasta mañana a las nueve!' }
-      ] },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3277,54 +3075,28 @@ const RESPUESTAS = {
     { de: 'Hier bitte. Ich markiere Ihnen kurz den Weg zum Dom.', es: 'Aquí tiene. Le marco el camino a la catedral.' },
   'Ab wann kann ich das Zimmer beziehen?':
     { de: 'Ab vierzehn Uhr. Vorher wird noch geputzt.', es: 'A partir de las dos. Antes todavía se limpia.' },
-  'Wie fühlst du dich heute?':
-    { de: 'Viel besser als gestern, danke. Der Kopf tut nicht mehr weh.', es: 'Mucho mejor que ayer, gracias. Ya no me duele la cabeza.' },
-  'Alles in Ordnung bei dir?':
-    { de: 'Ja, alles gut. Ich war nur kurz in Gedanken.', es: 'Sí, todo bien. Solo estaba un momento pensando en mis cosas.' },
-  'Geht es Ihnen wieder besser?':
-    { de: 'Danke der Nachfrage, ja. Die Erkältung ist fast weg.', es: 'Gracias por preguntar, sí. El resfriado ya casi ha pasado.' },
-  'Du wirkst heute so fröhlich.':
-    { de: 'Bin ich auch! Ich habe die Prüfung endlich bestanden.', es: '¡Lo estoy! Por fin he aprobado el examen.' },
-  'Wie heißen Sie mit Vornamen?':
-    { de: 'Mit Vornamen heiße ich Nuria, mit Nachnamen López.', es: 'De nombre me llamo Nuria y de apellido López.' },
-  'Wie war Ihr Name noch einmal?':
-    { de: 'Gruber, wie die Firma an der Ecke. Das merkt sich gut.', es: 'Gruber, como la empresa de la esquina. Así se recuerda bien.' },
-  'Sagt man zu dir Luna oder Luní?':
-    { de: 'Luna reicht. Luní sagen nur meine Großeltern.', es: 'Con Luna basta. Luní solo me llaman mis abuelos.' },
-  'Und wie ist Ihr Nachname, bitte?':
-    { de: 'Öztürk, mit Ö am Anfang. Soll ich ihn buchstabieren?', es: 'Öztürk, con Ö al principio. ¿Se lo deletreo?' },
-  'Unter welcher Nummer erreiche ich dich am besten?':
-    { de: 'Am Handy, immer nach achtzehn Uhr. Vorher bin ich im Kurs.', es: 'En el móvil, siempre después de las seis. Antes estoy en clase.' },
-  'Hast du eine neue Nummer?':
-    { de: 'Ja, seit letzter Woche. Ich schicke sie dir gleich.', es: 'Sí, desde la semana pasada. Te lo mando ahora.' },
-  'Wo genau wohnst du in Wien?':
-    { de: 'Im fünften Bezirk, fünf Minuten von der U-Bahn.', es: 'En el distrito cinco, a cinco minutos del metro.' },
-  'Schreib mir bitte deine Adresse auf.':
-    { de: 'Mache ich. Soll ich auch die Türnummer dazuschreiben?', es: 'Lo hago. ¿Apunto también el número de puerta?' },
-  'Ich bin neu im Kurs, ich heiße Nuria.':
-    { de: 'Willkommen, Nuria! Setz dich zu uns, hier ist noch frei.', es: '¡Bienvenida, Nuria! Siéntate con nosotros, aquí hay sitio.' },
-  'Darf ich mich vorstellen? Ich komme aus Syrien.':
-    { de: 'Freut mich sehr. Und wie lange sind Sie schon in Wien?', es: 'Encantado. ¿Y cuánto tiempo lleva en Viena?' },
-  'Wir kennen uns noch nicht, oder?':
-    { de: 'Ich glaube nicht. Ich bin Ahmet, ich sitze meistens vorne.', es: 'Creo que no. Soy Ahmet, suelo sentarme delante.' },
-  'Aus welcher Stadt kommst du genau?':
-    { de: 'Aus Aleppo. Meine Familie lebt jetzt aber in der Türkei.', es: 'De Alepo. Pero mi familia vive ahora en Turquía.',
-      mas: [
-        { de: 'Warst du seitdem noch einmal dort?', es: '¿Has vuelto desde entonces?' },
-        { de: 'Nein, noch nicht. Vielleicht nächstes Jahr.', es: 'No, todavía no. Quizá el año que viene.' }
-      ] },
-  'Bist du hier geboren?':
-    { de: 'Nein, ich bin mit sechs Jahren hergekommen.', es: 'No, vine aquí con seis años.' },
-  'Sprichst du die Sprache deiner Eltern?':
-    { de: 'Ja, zu Hause immer. Schreiben kann ich sie aber kaum.', es: 'Sí, en casa siempre. Pero escribirlo casi no sé.' },
-  'Wie lange lebst du schon in Österreich?':
-    { de: 'Seit vier Jahren. Die ersten zwei waren die schwersten.', es: 'Desde hace cuatro años. Los dos primeros fueron los más duros.' },
-  'Wie schreibt man das mit ü oder mit ue?':
-    { de: 'Mit ü. Auf dem Formular geht aber auch ue.', es: 'Con ü. Pero en el formulario también vale ue.' },
-  'Ist das ein ß oder ein Doppel-s?':
-    { de: 'Ein ß. In der Schweiz schreibt man dafür immer ss.', es: 'Una ß. En Suiza en su lugar se escribe siempre ss.' },
-  'Können Sie den Namen langsam buchstabieren?':
-    { de: 'Gern: P-A-S-C-U-A-L, alles mit einem A am Ende.', es: 'Con gusto: P-A-S-C-U-A-L, con una A al final.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3929,24 +3701,15 @@ const RESPUESTAS = {
     { de: 'Acht Minuten, immer geradeaus und dann links.', es: 'Ocho minutos, todo recto y luego a la izquierda.' },
   'Komme ich zu Fuß zur Innenstadt?':
     { de: 'Locker. Über die Brücke sind es zehn Minuten.', es: 'Sin problema. Por el puente son diez minutos.' },
-  'Können wir das noch einmal zusammen üben?':
-    { de: 'Ja, natürlich, wir machen die Übung einfach noch einmal von vorne.', es: 'Sí, claro, repetimos el ejercicio otra vez desde el principio.' },
-  'Darf ich kurz auf die Toilette gehen?':
-    { de: 'Ja, gehen Sie ruhig, wir warten kurz mit der nächsten Übung.', es: 'Sí, vaya tranquilo, esperamos un momento con el siguiente ejercicio.' },
-  'Du wirkst heute so gut gelaunt.':
-    { de: 'Bin ich auch, ich habe nach drei Monaten endlich eine Wohnung gefunden.', es: 'Y lo estoy: después de tres meses por fin he encontrado piso.' },
-  'Ich bin neu hier im Kurs.':
-    { de: 'Herzlich willkommen, setz dich einfach zu uns, hier ist noch ein Platz frei.', es: 'Bienvenido, siéntate con nosotros, aquí queda un sitio libre.' },
-  'Und wo genau in Spanien liegt das?':
-    { de: 'Ganz im Osten, direkt am Meer, ungefähr vier Stunden von Madrid.', es: 'Al este del todo, justo al lado del mar, a unas cuatro horas de Madrid.' },
-  'Bist du schon lange in Wien?':
-    { de: 'Seit knapp einem Jahr, und langsam fühlt es sich wie zu Hause an.', es: 'Desde hace casi un año, y poco a poco me siento como en casa.' },
-  'Entschuldigung, ich habe Sie unterbrochen.':
-    { de: 'Macht nichts, sagen Sie ruhig, was Sie sagen wollten.', es: 'No pasa nada, diga tranquilamente lo que quería decir.' },
-  'Unter welcher Nummer erreiche ich Sie am besten?':
-    { de: 'Am besten am Handy, ich schreibe Ihnen die Nummer kurz auf.', es: 'Mejor en el móvil, le apunto el número ahora mismo.' },
-  'Schönen Feierabend noch!':
-    { de: 'Danke, dir auch, und bis nächsten Montag im Kurs!', es: 'Gracias, igualmente, ¡y hasta el lunes que viene en clase!' },
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4350,60 +4113,33 @@ const RESPUESTAS = {
     { de: 'Natürlich, es ist ohnehin gemütlicher als allein am Tisch.', es: 'Claro; de todos modos se está mejor que solo en la mesa.' },
 
 
-  'Guten Tag, Herr Müller!':
-    { de: 'Guten Tag, Frau Schmidt!', es: '¡Buenas tardes, señora Schmidt!' },
-  'Hallo zusammen!':
-    { de: 'Hallo! Schön dich zu sehen.', es: '¡Hola! Qué bien verte.' },
-  'Grüß dich, Anna!':
-    { de: 'Hallo Peter, wie geht\'s?', es: 'Hola Peter, ¿qué tal?' },
-  'Guten Abend allerseits!':
-    { de: 'Guten Abend! Kommen Sie rein.', es: '¡Buenas noches! Pasen.' },
-  'Hi, wie läuft\'s?':
-    { de: 'Ganz gut, danke!', es: 'Bastante bien, gracias.' },
-  'Schön, dich wiederzusehen!':
-    { de: 'Gleichfalls, freut mich auch!', es: '¡Igualmente, a mí también!' },
-  'Bis morgen!':
-    { de: 'Bis morgen, schlaf gut!', es: '¡Hasta mañana, duerme bien!' },
-  'Bis später!':
-    { de: 'Ja, bis nachher!', es: '¡Sí, hasta luego!' },
-  'Mach\'s gut!':
-    { de: 'Du auch, mach\'s gut!', es: '¡Tú también, cuídate!' },
-  'Schönen Sonntag noch!':
-    { de: 'Danke, dir auch!', es: '¡Gracias, a ti también!' },
-  'Gute Nacht!':
-    { de: 'Gute Nacht, träum was Schönes!', es: '¡Buenas noches, dulces sueños!' },
-  'Wer bist du?':
-    { de: 'Ich bin Marco aus Italien.', es: 'Soy Marco, de Italia.' },
-  'Wie heißen Sie mit Nachnamen?':
-    { de: 'Ich heiße Bauer mit Nachnamen.', es: 'Me apellido Bauer.' },
-  'Wie ist dein Familienname?':
-    { de: 'Mein Familienname ist Santos.', es: 'Mi apellido es Santos.' },
-  'Freut mich, ich bin David.':
-    { de: 'Freut mich auch, David! Ich bin Lisa.', es: '¡Mucho gusto también, David! Soy Lisa.' },
-  'Hallo, mein Vorname ist Clara.':
-    { de: 'Hallo Clara, schön dich kennenzulernen.', es: 'Hola Clara, encantado de conocerte.' },
-  'Kommst du aus Deutschland?':
-    { de: 'Nein, ich komme aus Österreich.', es: 'No, vengo de Austria.' },
-  'Sind Sie aus der Schweiz?':
-    { de: 'Ja, genau, ich komme aus Zürich.', es: 'Sí, exacto, soy de Zúrich.' },
-  'Haben Sie eine Handynummer?':
-    { de: 'Ja, meine Nummer ist 0176 555 432.', es: 'Sí, mi número es 0176 555 432.' },
-  'Wie lautet Ihre Postleitzahl?':
-    { de: 'Meine Postleitzahl ist 1010 Wien.', es: 'Mi código postal es 1010 Viena.' },
-  'Schreibt man deinen Namen mit K oder mit C?':
-    { de: 'Mit K, wie Klaus.', es: 'Con K, como Klaus.' },
-  'Buchstabieren Sie bitte Ihren Nachnamen.':
-    { de: 'M-Ü-L-L-E-R, mit Umlaut.', es: 'M-Ü-L-L-E-R, con diéresis.' },
-  'Ist das ein langes oder ein kurzes i?':
-    { de: 'Ein langes i, geschrieben mit ie.', es: 'Una i larga, escrita con ie.' },
-  'Schreibt man das groß oder klein?':
-    { de: 'Das schreibt man groß, weil es ein Nomen ist.', es: 'Se escribe con mayúscula porque es un sustantivo.' },
-  'Kein Problem, schon gut!':
-    { de: 'Danke für dein Verständnis.', es: 'Gracias por tu comprensión.' },
-  'Darf ich Ihnen meine Kollegin vorstellen?':
-    { de: 'Ja, gern. Guten Tag, freut mich!', es: 'Sí, claro. Buenos días, ¡encantado!' },
-  'Mach\'s gut, wir hören uns!':
-    { de: 'Du auch, bis bald!', es: 'Tú también, ¡hasta pronto!' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6288,6 +6024,344 @@ const RESPUESTAS = {
         { de: 'Dann komm mit und schau es dir selbst an.', es: 'Pues ven y míralo tú mismo.' },
         { de: 'Doch, ich kann sehr gut kochen!', es: '¡Que sí, sé cocinar muy bien!' },
         { de: 'Dann lade ich mich für Samstag selbst ein.', es: 'Entonces me invito yo mismo el sábado.' }
+      ] },
+
+
+  // ---- a11-start · begrüßen -----------------------------------------
+  'Guten Morgen! / Guten Tag! / Guten Abend!':
+    { de: 'Guten Morgen! Sie sind heute aber früh dran.', es: '¡Buenos días! Hoy viene usted pronto.',
+      mas: [
+        { de: 'Guten Morgen, schön, dass Sie da sind!', es: '¡Buenos días, qué bien que esté aquí!' },
+        { de: 'Danke, ich freue mich auch. Wo soll ich mich hinsetzen?', es: 'Gracias, yo también me alegro. ¿Dónde me siento?' },
+        { de: 'Guten Tag, Herr Müller!', es: '¡Buenas tardes, señor Müller!' },
+        { de: 'Guten Tag! Schön, dass wir uns hier treffen.', es: '¡Buenas tardes! Qué bien encontrarnos aquí.' },
+        { de: 'Guten Abend allerseits!', es: '¡Buenas tardes/noches a todos!' },
+        { de: 'Guten Abend! Kommen Sie, es ist noch ein Platz frei.', es: '¡Buenas noches! Venga, queda un sitio libre.' }
+      ] },
+  'Hallo! · Servus! · Grüß Gott! (AT)':
+    { de: 'Servus! Setz dich zu uns.', es: '¡Hola! Siéntate con nosotros.',
+      mas: [
+        { de: 'Hallo zusammen!', es: '¡Hola a todos!' },
+        { de: 'Hallo! Wir haben gerade von dir gesprochen.', es: '¡Hola! Justo estábamos hablando de ti.' },
+        { de: 'Grüß dich, Anna!', es: '¡Hola, Anna!' },
+        { de: 'Grüß dich! Wie schön, dass du doch noch kommst.', es: '¡Hola! Qué bien que al final vengas.' }
+      ] },
+  'Hallo, lange nicht gesehen!':
+    { de: 'Viel zu lange! Wie geht es dir?', es: '¡Demasiado! ¿Cómo estás?',
+      mas: [
+        { de: 'Schön, dich wiederzusehen!', es: '¡Qué bien verte otra vez!' },
+        { de: 'Ganz meinerseits. Du hast dich gar nicht verändert.', es: 'Igualmente. No has cambiado nada.' },
+        { de: 'Hi, wie läuft\'s?', es: '¡Hola! ¿Cómo va?' },
+        { de: 'Ganz gut! Viel zu tun, aber alles in Ordnung.', es: '¡Bastante bien! Mucho que hacer, pero todo en orden.' }
+      ] },
+
+  // ---- a11-start · sich verabschieden -------------------------------
+  'Auf Wiedersehen! · Tschüss! · Bis bald!':
+    { de: 'Auf Wiedersehen! Kommen Sie gut nach Hause.', es: '¡Adiós! Que llegue bien a casa.',
+      mas: [
+        { de: 'Schönen Abend noch!', es: '¡Que pase buena tarde!' },
+        { de: 'Danke, Ihnen auch. Bis zum nächsten Mal.', es: 'Gracias, igualmente. Hasta la próxima.' },
+        { de: 'Bis nächste Woche im Kurs!', es: '¡Hasta la semana que viene en clase!' },
+        { de: 'Bis nächste Woche! Vergiss die Hausaufgabe nicht.', es: '¡Hasta la semana que viene! No olvides los deberes.' },
+        { de: 'Schönen Sonntag noch!', es: '¡Que tengas un buen domingo!' },
+        { de: 'Danke, dir auch. Wir telefonieren am Montag.', es: 'Gracias, igualmente. Hablamos el lunes.' }
+      ] },
+  'Bis morgen!':
+    { de: 'Bis morgen! Gleiche Zeit wie heute?', es: '¡Hasta mañana! ¿A la misma hora que hoy?',
+      mas: [
+        { de: 'Bis später!', es: '¡Hasta luego!' },
+        { de: 'Bis später, ich bin ab fünf wieder da.', es: 'Hasta luego, vuelvo a partir de las cinco.' },
+        { de: 'Gute Nacht!', es: '¡Buenas noches!' },
+        { de: 'Gute Nacht, schlaf gut.', es: 'Buenas noches, que duermas bien.' }
+      ] },
+  'Schönen Feierabend noch!':
+    { de: 'Danke! Endlich Wochenende.', es: '¡Gracias! Por fin fin de semana.',
+      mas: [
+        { de: 'Mach\'s gut, wir hören uns!', es: '¡Cuídate, hablamos!' },
+        { de: 'Ja, ich schreibe dir am Wochenende.', es: 'Sí, te escribo el fin de semana.' },
+        { de: 'Mach\'s gut!', es: '¡Cuídate! / ¡Que te vaya bien!' },
+        { de: 'Du auch! Und pass auf dich auf.', es: '¡Tú también! Y cuídate.' }
+      ] },
+
+  // ---- a11-start · nach dem Namen fragen ----------------------------
+  'Wie heißen Sie? – Mein Name ist Gruber.':
+    { de: 'Freut mich, Frau Gruber. Ich bin die Kursleiterin.', es: 'Encantada, señora Gruber. Soy la profesora del curso.',
+      mas: [
+        { de: 'Wie heißen Sie mit Vornamen?', es: '¿Cuál es su nombre de pila?' },
+        { de: 'Eva. Aber alle sagen Evi zu mir.', es: 'Eva. Pero todos me llaman Evi.' },
+        { de: 'Und wie ist Ihr Nachname, bitte?', es: '¿Y su apellido, por favor?' },
+        { de: 'Gruber, mit einem B wie Berta.', es: 'Gruber, con be de Berta.' },
+        { de: 'Wie war Ihr Name noch einmal?', es: '¿Cómo era su nombre?' },
+        { de: 'Gruber. Kein Problem, das vergessen alle am ersten Tag.', es: 'Gruber. No pasa nada, el primer día se le olvida a todos.' }
+      ] },
+  'Wie heißt du? – Ich heiße Nuria.':
+    { de: 'Nuria, schöner Name. Woher kommt der?', es: 'Nuria, bonito nombre. ¿De dónde viene?',
+      mas: [
+        { de: 'Wie ist dein Vorname?', es: '¿Cuál es tu nombre de pila?' },
+        { de: 'Nuria, und mein zweiter ist Isabel.', es: 'Nuria, y el segundo es Isabel.' },
+        { de: 'Sagt man zu dir Luna oder Luní?', es: '¿Te llaman Luna o Luní?' },
+        { de: 'Luna reicht. Luní sagt nur meine Großmutter.', es: 'Con Luna basta. Luní solo me llama mi abuela.' }
+      ] },
+  'Wer bist du?':
+    { de: 'Ich bin David, ich fange heute im Kurs an.', es: 'Soy David, empiezo hoy en el curso.',
+      mas: [
+        { de: 'Wie ist dein Familienname?', es: '¿Cuál es tu apellido?' },
+        { de: 'Horvat, wie in Kroatien üblich.', es: 'Horvat, como es común en Croacia.' },
+        { de: 'Wie heißen Sie mit Nachnamen?', es: '¿Cuál es su apellido?' },
+        { de: 'Öztürk. Soll ich es Ihnen aufschreiben?', es: 'Öztürk. ¿Se lo escribo?' }
+      ] },
+
+  // ---- a11-start · sich vorstellen ----------------------------------
+  'Ich bin neu im Kurs, ich heiße Nuria.':
+    { de: 'Willkommen, Nuria! Setz dich einfach zu uns.', es: '¡Bienvenida, Nuria! Siéntate con nosotros.',
+      mas: [
+        { de: 'Wir kennen uns noch nicht, oder?', es: 'Todavía no nos conocemos, ¿no?' },
+        { de: 'Nein, noch nicht. Ich bin Clara.', es: 'No, todavía no. Yo soy Clara.' },
+        { de: 'Freut mich, ich bin David.', es: 'Mucho gusto, soy David.' },
+        { de: 'Freut mich auch, David. Bist du auch neu hier?', es: 'Igualmente, David. ¿Tú también eres nuevo?' },
+        { de: 'Ich bin neu hier im Kurs.', es: 'Soy nuevo en el curso.' },
+        { de: 'Dann zeige ich dir gleich alles. Es ist ganz einfach.', es: 'Entonces te enseño todo ahora. Es muy fácil.' }
+      ] },
+  'Ich heiße Maria.':
+    { de: 'Hallo Maria! Ich bin Ahmet.', es: '¡Hola, Maria! Yo soy Ahmet.',
+      mas: [
+        { de: 'Mein Name ist Maria López.', es: 'Mi nombre es Maria López.' },
+        { de: 'López, mit Akzent auf dem o, richtig?', es: 'López, con acento en la o, ¿verdad?' },
+        { de: 'Hallo, mein Vorname ist Clara.', es: 'Hola, mi nombre de pila es Clara.' },
+        { de: 'Schön, Clara. Sitzt du auch im Abendkurs?', es: 'Qué bien, Clara. ¿Tú también estás en el curso de tarde?' }
+      ] },
+  'Ich bin Ahmet. Und du?':
+    { de: 'Ich bin Nuria, aus Valencia.', es: 'Soy Nuria, de Valencia.',
+      mas: [
+        { de: 'Darf ich mich vorstellen? Ich komme aus Syrien.', es: '¿Me presento? Soy de Siria.' },
+        { de: 'Willkommen! Aus welcher Stadt genau?', es: '¡Bienvenido! ¿De qué ciudad exactamente?' },
+        { de: 'Darf ich Ihnen meine Kollegin vorstellen?', es: '¿Le presento a mi compañera?' },
+        { de: 'Sehr gern. Guten Tag, freut mich.', es: 'Con mucho gusto. Buenas tardes, encantado.' }
+      ] },
+
+  // ---- a11-start · nach dem Befinden fragen -------------------------
+  'Wie geht\'s? – Danke, gut. Und dir?':
+    { de: 'Auch gut. Das Wochenende war schön lang.', es: 'Bien también. El fin de semana fue bien largo.',
+      mas: [
+        { de: 'Wie war dein Wochenende?', es: '¿Qué tal el fin de semana?' },
+        { de: 'Ruhig, viel geschlafen. Genau das brauchte ich.', es: 'Tranquilo, dormí mucho. Justo lo que necesitaba.' },
+        { de: 'Du wirkst heute so fröhlich.', es: 'Hoy se te ve muy contento.' },
+        { de: 'Bin ich auch. Ich habe die Prüfung bestanden!', es: 'Lo estoy. ¡He aprobado el examen!' },
+        { de: 'Du wirkst heute so gut gelaunt.', es: 'Hoy se te ve de muy buen humor.' },
+        { de: 'Die Sonne scheint, und morgen habe ich frei.', es: 'Hace sol y mañana libro.' }
+      ] },
+  'Wie geht es Ihnen? – Danke, sehr gut.':
+    { de: 'Das freut mich zu hören. Und die Familie?', es: 'Me alegra oírlo. ¿Y la familia?',
+      mas: [
+        { de: 'Geht es Ihnen wieder besser?', es: '¿Se encuentra ya mejor?' },
+        { de: 'Deutlich, danke der Nachfrage. Ab Montag arbeite ich wieder.', es: 'Bastante, gracias por preguntar. Desde el lunes vuelvo a trabajar.' },
+        { de: 'Alles in Ordnung bei dir?', es: '¿Todo bien contigo?' },
+        { de: 'Ja, alles gut. Nur ein bisschen müde.', es: 'Sí, todo bien. Solo un poco cansado.' }
+      ] },
+  'Wie fühlst du dich heute?':
+    { de: 'Ehrlich? Nicht besonders.', es: '¿Sinceramente? No muy allá.',
+      mas: [
+        { de: 'Nicht so gut.', es: 'No muy bien.' },
+        { de: 'Was ist denn los? Kann ich etwas tun?', es: '¿Qué pasa? ¿Puedo hacer algo?' },
+        { de: 'Es geht.', es: 'Regular.' },
+        { de: 'Dann setz dich und trink erst mal einen Tee.', es: 'Entonces siéntate y tómate primero un té.' }
+      ] },
+
+  // ---- a11-start · über die Herkunft sprechen -----------------------
+  'Woher kommst du? – Ich komme aus Spanien.':
+    { de: 'Aus Spanien! Und wo hast du so gut Deutsch gelernt?', es: '¡De España! ¿Y dónde has aprendido tan bien alemán?',
+      mas: [
+        { de: 'Aus welcher Stadt kommst du genau?', es: '¿De qué ciudad eres exactamente?' },
+        { de: 'Aus Valencia, direkt am Meer.', es: 'De Valencia, justo al lado del mar.' },
+        { de: 'Und wo genau in Spanien liegt das?', es: '¿Y dónde está eso exactamente en España?' },
+        { de: 'An der Ostküste, etwa vier Stunden von Madrid.', es: 'En la costa este, a unas cuatro horas de Madrid.' },
+        { de: 'Wie lange lebst du schon in Österreich?', es: '¿Cuánto llevas viviendo en Austria?' },
+        { de: 'Seit drei Jahren. Die ersten Monate waren hart.', es: 'Desde hace tres años. Los primeros meses fueron duros.' }
+      ] },
+  'Woher kommen Sie? – Aus Wien.':
+    { de: 'Ein echter Wiener also. Aus welchem Bezirk?', es: 'Un vienés de verdad, entonces. ¿De qué distrito?',
+      mas: [
+        { de: 'Bist du hier geboren?', es: '¿Naciste aquí?' },
+        { de: 'Ja, im dritten Bezirk, und nie weggezogen.', es: 'Sí, en el distrito tres, y nunca me he mudado.' },
+        { de: 'Bist du schon lange in Wien?', es: '¿Llevas mucho en Viena?' },
+        { de: 'Mein ganzes Leben. Deshalb kenne ich jede Straßenbahn.', es: 'Toda mi vida. Por eso me sé todos los tranvías.' }
+      ] },
+  'Kommst du aus Deutschland?':
+    { de: 'Nein, aus Österreich. Das hört man am Akzent.', es: 'No, de Austria. Se nota en el acento.',
+      mas: [
+        { de: 'Sind Sie aus der Schweiz?', es: '¿Es usted de Suiza?' },
+        { de: 'Fast. Aus Vorarlberg, das klingt sehr ähnlich.', es: 'Casi. De Vorarlberg, suena muy parecido.' },
+        { de: 'Sprichst du die Sprache deiner Eltern?', es: '¿Hablas el idioma de tus padres?' },
+        { de: 'Verstehen ja, sprechen kaum. Das tut mir heute leid.', es: 'Entenderlo sí, hablarlo casi nada. Hoy lo lamento.' }
+      ] },
+
+
+  // ---- a11-start · Telefonnummer und Adresse angeben ----------------
+  'Wie ist deine Telefonnummer? – 0664 123 45 67.':
+    { de: 'Moment, ich tippe mit. Null sechs sechs vier …', es: 'Un momento, lo voy escribiendo. Cero seis seis cuatro…',
+      mas: [
+        { de: 'Hast du eine neue Nummer?', es: '¿Tienes un número nuevo?' },
+        { de: 'Ja, seit letztem Monat. Die alte geht nicht mehr.', es: 'Sí, desde el mes pasado. La antigua ya no funciona.' },
+        { de: 'Unter welcher Nummer erreiche ich dich am besten?', es: '¿En qué número te localizo mejor?' },
+        { de: 'Am Handy, aber schreib lieber, ich telefoniere ungern.', es: 'Al móvil, pero mejor escribe, no me gusta hablar por teléfono.' },
+        { de: 'Wo wohnst du? – In Wien, Hauptstraße 12.', es: '¿Dónde vives? – En Viena, Hauptstraße 12.' },
+        { de: 'Das ist ja ganz in meiner Nähe.', es: 'Eso está muy cerca de mí.' }
+      ] },
+  'Wie ist Ihre E-Mail-Adresse?':
+    { de: 'Vorname punkt Nachname, alles klein, bei gmx punkt at.', es: 'Nombre punto apellido, todo en minúsculas, arroba gmx punto at.',
+      mas: [
+        { de: 'Haben Sie eine Handynummer?', es: '¿Tiene un número de móvil?' },
+        { de: 'Ja, aber tagsüber erreichen Sie mich besser im Büro.', es: 'Sí, pero durante el día me localiza mejor en la oficina.' },
+        { de: 'Unter welcher Nummer erreiche ich Sie am besten?', es: '¿En qué número le localizo mejor?' },
+        { de: 'Vormittags im Büro, ab drei nur noch am Handy.', es: 'Por la mañana en la oficina; a partir de las tres, solo en el móvil.' }
+      ] },
+  'Wo genau wohnst du in Wien?':
+    { de: 'Im zehnten Bezirk, zwei Minuten vom Hauptbahnhof.', es: 'En el distrito diez, a dos minutos de la estación central.',
+      mas: [
+        { de: 'Schreib mir bitte deine Adresse auf.', es: 'Escríbeme tu dirección, por favor.' },
+        { de: 'Mache ich, die Straße schreibt man ziemlich kompliziert.', es: 'Lo hago, la calle se escribe bastante complicada.' },
+        { de: 'Wie lautet Ihre Postleitzahl?', es: '¿Cuál es su código postal?' },
+        { de: '1100, das ist Favoriten.', es: '1100, eso es Favoriten.' }
+      ] },
+
+  // ---- a11-start · buchstabieren ------------------------------------
+  'Wie schreibt man das?':
+    { de: 'Ich buchstabiere es Ihnen langsam.', es: 'Se lo deletreo despacio.',
+      mas: [
+        { de: 'Können Sie das bitte buchstabieren?', es: '¿Puede deletrearlo, por favor?' },
+        { de: 'Gern: G-R-U-B-E-R.', es: 'Con gusto: G-R-U-B-E-R.' },
+        { de: 'M wie Martha, A wie Anton.', es: 'M de Martha, A de Anton.' },
+        { de: 'Danke, so ist es viel klarer.', es: 'Gracias, así está mucho más claro.' },
+        { de: 'Können Sie den Namen langsam buchstabieren?', es: '¿Puede deletrear el nombre despacio?' },
+        { de: 'Natürlich, Buchstabe für Buchstabe.', es: 'Por supuesto, letra por letra.' }
+      ] },
+  'Wie schreibt man das mit ü oder mit ue?':
+    { de: 'Mit ü. Im Ausland schreiben es viele mit ue.', es: 'Con ü. En el extranjero muchos lo escriben con ue.',
+      mas: [
+        { de: 'Ist das ein ß oder ein Doppel-s?', es: '¿Eso es una ß o una doble s?' },
+        { de: 'Ein ß. In der Schweiz würde man ss schreiben.', es: 'Una ß. En Suiza se escribiría ss.' },
+        { de: 'Ist das ein langes oder ein kurzes i?', es: '¿Es una i larga o corta?' },
+        { de: 'Ein langes, deshalb steht ein h dahinter.', es: 'Larga, por eso lleva una h detrás.' }
+      ] },
+  'Schreibt man deinen Namen mit K oder mit C?':
+    { de: 'Mit C, wie in Clara. Mit K sieht es ganz anders aus.', es: 'Con C, como Clara. Con K queda muy distinto.',
+      mas: [
+        { de: 'Buchstabieren Sie bitte Ihren Nachnamen.', es: 'Deletree su apellido, por favor.' },
+        { de: 'Ö wie Österreich, Z, T, Ü, R, K.', es: 'Ö de Österreich, Z, T, Ü, R, K.' },
+        { de: 'Schreibt man das groß oder klein?', es: '¿Se escribe eso con mayúscula o minúscula?' },
+        { de: 'Groß, es ist ein Nomen. Die schreibt man immer groß.', es: 'Con mayúscula, es un sustantivo. Esos siempre van en mayúscula.' }
+      ] },
+
+  // ---- a11-start · sich im Kurs verständigen ------------------------
+  'Wie bitte? Können Sie das wiederholen?':
+    { de: 'Natürlich. Ich sagte: Übung vier auf Seite zwölf.', es: 'Por supuesto. He dicho: ejercicio cuatro en la página doce.',
+      mas: [
+        { de: 'Ich verstehe das nicht.', es: 'No lo entiendo.' },
+        { de: 'Kein Problem, ich erkläre es noch einmal anders.', es: 'No pasa nada, lo explico otra vez de otra manera.' },
+        { de: 'Langsamer, bitte!', es: '¡Más despacio, por favor!' },
+        { de: 'Entschuldigung, ich spreche viel zu schnell.', es: 'Perdón, hablo demasiado rápido.' },
+        { de: 'Können wir das noch einmal zusammen üben?', es: '¿Podemos practicarlo otra vez juntos?' },
+        { de: 'Gern, wir machen es in Ruhe zu zweit.', es: 'Con gusto, lo hacemos con calma entre los dos.' }
+      ] },
+  'Was heißt „Tafel“ auf Spanisch?':
+    { de: '„Pizarra“. Das Wort brauchst du hier jeden Tag.', es: '«Pizarra». Esa palabra la necesitas aquí a diario.',
+      mas: [
+        { de: 'Wie sagt man das auf Deutsch?', es: '¿Cómo se dice eso en alemán?' },
+        { de: 'Man sagt „der Radiergummi“. Ein langes Wort für etwas Kleines.', es: 'Se dice «der Radiergummi». Una palabra larga para algo pequeño.' },
+        { de: 'Was bedeutet dieses Wort?', es: '¿Qué significa esta palabra?' },
+        { de: 'Das heißt „Feierabend“: der freie Teil nach der Arbeit.', es: 'Significa «Feierabend»: la parte libre después del trabajo.' }
+      ] },
+  'Ich habe eine Frage zu Übung vier.':
+    { de: 'Sag sie ruhig, die haben bestimmt mehrere.', es: 'Dila tranquilo, seguro que la tienen varios.',
+      mas: [
+        { de: 'Arbeiten wir zu zweit oder allein?', es: '¿Trabajamos por parejas o solos?' },
+        { de: 'Zu zweit, bitte. Such dir jemanden aus der Reihe.', es: 'Por parejas, por favor. Busca a alguien de la fila.' },
+        { de: 'Ich brauche noch zwei Minuten, bitte.', es: 'Necesito dos minutos más, por favor.' },
+        { de: 'Kein Problem, wir warten auf alle.', es: 'No pasa nada, esperamos a todos.' }
+      ] },
+
+  // ---- a11-start · Fragen an die Lehrerin ---------------------------
+  'Entschuldigung, ich habe eine Frage.':
+    { de: 'Bitte, immer gern. Worum geht es?', es: 'Adelante, con gusto. ¿De qué se trata?',
+      mas: [
+        { de: 'Auf welcher Seite sind wir?', es: '¿En qué página estamos?' },
+        { de: 'Seite dreiundzwanzig, oben links.', es: 'Página veintitrés, arriba a la izquierda.' },
+        { de: 'Wo sind wir gerade?', es: '¿Por dónde vamos?' },
+        { de: 'Bei Aufgabe zwei b, der zweiten Zeile.', es: 'En el ejercicio dos b, la segunda línea.' },
+        { de: 'Können Sie das bitte an die Tafel schreiben?', es: '¿Puede escribirlo en la pizarra, por favor?' },
+        { de: 'Mache ich, dann können es alle abschreiben.', es: 'Lo hago, así lo pueden copiar todos.' }
+      ] },
+  'Wie heißt das auf Deutsch?':
+    { de: '„Der Kugelschreiber“, kurz sagt man „Kuli“.', es: '«Der Kugelschreiber»; en corto se dice «Kuli».',
+      mas: [
+        { de: 'Wie spricht man das aus?', es: '¿Cómo se pronuncia?' },
+        { de: 'Mit dem Ton auf der ersten Silbe. Hören Sie: „Kugel“.', es: 'Con el acento en la primera sílaba. Escuche: «Kugel».' },
+        { de: 'Ist das richtig so?', es: '¿Está bien así?' },
+        { de: 'Fast. Der Artikel muss „der“ sein, nicht „das“.', es: 'Casi. El artículo tiene que ser «der», no «das».' }
+      ] },
+  'Können Sie das noch einmal erklären?':
+    { de: 'Gern, diesmal mit einem Beispiel an der Tafel.', es: 'Con gusto, esta vez con un ejemplo en la pizarra.',
+      mas: [
+        { de: 'Was ist die Hausaufgabe?', es: '¿Cuáles son los deberes?' },
+        { de: 'Seite dreißig, Übungen eins bis drei.', es: 'Página treinta, ejercicios uno a tres.' },
+        { de: 'Wann ist die nächste Prüfung?', es: '¿Cuándo es el próximo examen?' },
+        { de: 'In zwei Wochen, am Donnerstag. Wir üben vorher.', es: 'Dentro de dos semanas, el jueves. Practicamos antes.' }
+      ] },
+
+  // ---- a11-start · im Kursraum um Erlaubnis bitten ------------------
+  'Darf ich auf die Toilette gehen?':
+    { de: 'Natürlich, sie ist den Gang runter rechts.', es: 'Por supuesto, está por el pasillo a la derecha.',
+      mas: [
+        { de: 'Darf ich kurz auf die Toilette gehen?', es: '¿Puedo ir un momento al baño?' },
+        { de: 'Gehen Sie ruhig, wir warten mit der Übung.', es: 'Vaya tranquilo, esperamos con el ejercicio.' },
+        { de: 'Können wir eine kurze Pause machen?', es: '¿Podemos hacer una pausa corta?' },
+        { de: 'Gute Idee, zehn Minuten. Danach machen wir weiter.', es: 'Buena idea, diez minutos. Después seguimos.' },
+        { de: 'Darf ich heute früher gehen?', es: '¿Puedo irme hoy antes?' },
+        { de: 'Ja, aber sagen Sie mir kurz, warum.', es: 'Sí, pero dígame brevemente por qué.' }
+      ] },
+  'Darf ich das Fenster aufmachen?':
+    { de: 'Bitte, hier ist es wirklich zu warm.', es: 'Por favor, aquí hace demasiado calor.',
+      mas: [
+        { de: 'Können Sie bitte das Fenster zumachen?', es: '¿Puede cerrar la ventana, por favor?' },
+        { de: 'Sofort, es zieht wohl auf Ihrer Seite.', es: 'Enseguida, parece que le da corriente.' },
+        { de: 'Darf ich das Licht anmachen?', es: '¿Puedo encender la luz?' },
+        { de: 'Ja bitte, man sieht die Tafel kaum noch.', es: 'Sí, por favor, casi no se ve la pizarra.' }
+      ] },
+  'Können wir das Licht ausmachen?':
+    { de: 'Ja, für den Film ist es besser dunkel.', es: 'Sí, para la película es mejor a oscuras.',
+      mas: [
+        { de: 'Können Sie mir bitte helfen? Ich finde die Übung nicht.', es: '¿Me puede ayudar, por favor? No encuentro el ejercicio.' },
+        { de: 'Seite achtzehn, ganz unten auf der Seite.', es: 'Página dieciocho, al final del todo.' },
+        { de: 'Was machen wir in der nächsten Stunde?', es: '¿Qué hacemos la próxima clase?' },
+        { de: 'Die Zahlen bis hundert und ein kurzes Hörverstehen.', es: 'Los números hasta cien y una comprensión oral corta.' }
+      ] },
+
+  // ---- a11-start · sich bedanken und entschuldigen ------------------
+  'Danke schön! – Bitte schön!':
+    { de: 'Gern geschehen, dafür bin ich ja da.', es: 'De nada, para eso estoy.',
+      mas: [
+        { de: 'Vielen Dank für die Hilfe.', es: 'Muchas gracias por la ayuda.' },
+        { de: 'Keine Ursache. Melden Sie sich einfach wieder.', es: 'No hay de qué. Vuelva a avisarme cuando quiera.' },
+        { de: 'Vielen Dank, das war sehr nett von Ihnen.', es: 'Muchas gracias, ha sido muy amable.' },
+        { de: 'Das mache ich doch gern für Sie.', es: 'Lo hago con gusto por usted.' },
+        { de: 'Kein Problem, schon gut!', es: '¡No hay problema, no pasa nada!' },
+        { de: 'Trotzdem danke, dass du so ruhig geblieben bist.', es: 'Aun así, gracias por mantener la calma.' }
+      ] },
+  'Entschuldigung, ich bin zu spät.':
+    { de: 'Kommen Sie rein, wir haben gerade erst angefangen.', es: 'Pase, acabamos de empezar.',
+      mas: [
+        { de: 'Entschuldigung, der Bus hatte Verspätung.', es: 'Perdón, el autobús llegó tarde.' },
+        { de: 'Das kennen wir alle. Setzen Sie sich einfach.', es: 'Eso nos pasa a todos. Siéntese sin más.' },
+        { de: 'Darf ich mich für die Verspätung entschuldigen?', es: '¿Me disculpa por el retraso?' },
+        { de: 'Nicht nötig, aber danke, dass Sie es sagen.', es: 'No hace falta, pero gracias por decirlo.' }
+      ] },
+  'Es tut mir leid.':
+    { de: 'Das ist schon in Ordnung, wirklich.', es: 'No pasa nada, de verdad.',
+      mas: [
+        { de: 'Das tut mir wirklich leid.', es: 'Lo siento de verdad.' },
+        { de: 'Ich weiß. Machen wir es einfach nächstes Mal besser.', es: 'Lo sé. La próxima vez lo hacemos mejor.' },
+        { de: 'Entschuldigung, ich habe Sie unterbrochen.', es: 'Perdone, le he interrumpido.' },
+        { de: 'Kein Problem, sprechen Sie ruhig zu Ende.', es: 'No pasa nada, termine tranquilo.' }
       ] },
 
 };
