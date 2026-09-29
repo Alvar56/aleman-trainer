@@ -180,7 +180,11 @@ export const WECHSEL = {
       { s: 'Die Kisten stehen ___ im Keller.', a: 'unten', d: ['runter', 'hinunter'], t: 'Las cajas están abajo en el sótano.', e: 'unten dice dónde están, sin movimiento.' },
       { s: 'Das Werkzeug liegt ___ auf dem Dachboden.', a: 'oben', d: ['rauf', 'hinauf'], t: 'Las herramientas están arriba en el desván.', e: 'oben indica el lugar.' },
       { s: 'Der Wäschekorb steht ___ im Bad.', a: 'hinten', d: ['nach hinten', 'rüber'], t: 'El cesto de la ropa está al fondo del baño.', e: 'hinten dice dónde, no adónde.' },
-      { s: '___ im Auto ist noch Platz.', a: 'Vorn', d: ['Nach vorn', 'Rein'], t: 'Delante en el coche todavía hay sitio.', e: 'vorn indica el lugar.' }
+      { s: '___ im Auto ist noch Platz.', a: 'Vorn', d: ['Nach vorn', 'Rein'], t: 'Delante en el coche todavía hay sitio.', e: 'vorn indica el lugar.' },
+      { s: 'Wo ist die Post? – Gleich ___.', a: 'dort', d: ['dorthin', 'hierher'], t: '¿Dónde está correos? – Justo ahí.', e: 'dort indica lugar, no direccion.' },
+      { s: 'Die Kinder spielen ___.', a: 'draußen', d: ['hinaus', 'heraus'], t: 'Los niños juegan fuera.', e: 'draußen es lugar.' },
+      { s: 'Ich wohne ___ im dritten Stock.', a: 'oben', d: ['nach oben', 'hinauf'], t: 'Vivo arriba, en la tercera planta.', e: 'oben indica donde, no adonde.' },
+      { s: 'Der Schlüssel liegt ___ in der Schublade.', a: 'drinnen', d: ['hinein', 'herein'], t: 'La llave está dentro, en el cajón.', e: 'drinnen es lugar.' }
     ],
     orders: [
       { sol: ['Die', 'Kartons', 'stehen', 'unten', 'im', 'Keller'], t: 'Las cajas están abajo en el sótano.', e: 'unten = posición.' },
@@ -211,7 +215,11 @@ export const WECHSEL = {
       { s: 'Bring die Kiste bitte ___ in den Keller.', a: 'runter', d: ['unten', 'hinten'], t: 'Baja la caja al sótano, por favor.', e: 'runter indica movimiento hacia abajo.' },
       { s: 'Komm ___, es ist kalt draußen!', a: 'rein', d: ['drinnen', 'innen'], t: '¡Entra, hace frío fuera!', e: 'rein indica movimiento hacia dentro.' },
       { s: 'Trag den Spiegel bitte ___ in den ersten Stock.', a: 'rauf', d: ['oben', 'auf'], t: 'Sube el espejo al primer piso, por favor.', e: 'rauf: movimiento hacia arriba.' },
-      { s: 'Geh bitte kurz ___ zum Nachbarn.', a: 'rüber', d: ['drüben', 'hinten'], t: 'Pásate un momento a casa del vecino.', e: 'rüber indica movimiento al otro lado.' }
+      { s: 'Geh bitte kurz ___ zum Nachbarn.', a: 'rüber', d: ['drüben', 'hinten'], t: 'Pásate un momento a casa del vecino.', e: 'rüber indica movimiento al otro lado.' },
+      { s: 'Komm bitte ___!', a: 'herein', d: ['drinnen', 'innen'], t: '¡Pasa, por favor!', e: 'herein indica movimiento hacia el hablante.' },
+      { s: 'Geh bitte ___, es ist zu laut hier.', a: 'hinaus', d: ['draußen', 'außen'], t: 'Sal fuera, por favor, aquí hay mucho ruido.', e: 'hinaus indica movimiento alejandose.' },
+      { s: 'Wir gehen ___ auf den Berg.', a: 'hinauf', d: ['oben', 'droben'], t: 'Subimos a la montaña.', e: 'hinauf indica direccion hacia arriba.' },
+      { s: '„her“ zeigt die Richtung ___.', a: 'zum Sprecher', d: ['vom Sprecher weg', 'nach unten'], t: '«her» indica la dirección hacia el hablante.', e: 'hin se aleja, her se acerca.' }
     ],
     orders: [
       { sol: ['Trag', 'die', 'Schachtel', 'bitte', 'rauf!'], t: '¡Sube la caja, por favor!', e: 'rauf = movimiento hacia arriba.' },

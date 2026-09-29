@@ -64,7 +64,9 @@ export const PASADO = {
       { s: 'Es ___ einmal ein König...', a: 'war', d: ['hatte', 'ist'], t: 'Érase una vez un rey...', e: 'Así empiezan los cuentos de hadas en alemán: Es war einmal...' },
       { s: 'Im ersten Winter ___ ich großes Heimweh.', a: 'hatte', d: ['habe', 'war'], t: 'El primer invierno tenía mucha morriña.', e: 'haben en Präteritum: ich hatte.' },
       { s: 'Damals ___ hier alles sehr fremd.', a: 'war', d: ['ist', 'hatte'], t: 'Entonces aquí todo era muy extraño.', e: 'sein en Präteritum: es war.' },
-      { s: 'Wir ___ am Anfang keine Freunde hier.', a: 'hatten', d: ['haben', 'waren'], t: 'Al principio no teníamos amigos aquí.', e: 'Plural en Präteritum: hatten.' }
+      { s: 'Wir ___ am Anfang keine Freunde hier.', a: 'hatten', d: ['haben', 'waren'], t: 'Al principio no teníamos amigos aquí.', e: 'Plural en Präteritum: hatten.' },
+      { s: 'Gestern ___ wir im Kino.', a: 'waren', d: ['warst', 'wart'], t: 'Ayer estuvimos en el cine.', e: 'wir waren.' },
+      { s: 'Ich ___ als Kind viele Tiere.', a: 'hatte', d: ['hattest', 'hatten'], t: 'De niño tenía muchos animales.', e: 'ich hatte.' }
     ],
     orders: [
       { sol: ['Ich', 'war', 'gestern', 'Abend', 'sehr', 'müde'], t: 'Ayer por la noche estaba muy cansado.', e: 'Verbo "war" en segunda posición.' },
@@ -137,7 +139,10 @@ export const PASADO = {
       { s: 'Wir haben den Vertrag schon ___.', a: 'unterschrieben', d: ['geunterschrieben', 'unterschreiben'], t: 'Ya hemos firmado el contrato.', e: 'Los prefijos inseparables no llevan ge-.' },
       { s: 'Er hat mich über alles ___.', a: 'informiert', d: ['geinformiert', 'informieren'], t: 'Me informó de todo.', e: 'Los verbos en -ieren no llevan ge-.' },
       { s: 'Sie ist gestern Abend hier ___.', a: 'angekommen', d: ['ankommen', 'geankommen'], t: 'Llegó aquí ayer por la tarde.', e: 'ankommen: participio angekommen, con sein.' },
-      { s: 'Ich habe den letzten Zug ___.', a: 'verpasst', d: ['geverpasst', 'verpassen'], t: 'He perdido el último tren.', e: 'ver- es inseparable: sin ge-.' }
+      { s: 'Ich habe den letzten Zug ___.', a: 'verpasst', d: ['geverpasst', 'verpassen'], t: 'He perdido el último tren.', e: 'ver- es inseparable: sin ge-.' },
+      { s: 'Ich habe die Tür ___.', a: 'aufgemacht', d: ['gemachtauf', 'aufmachen'], t: 'He abierto la puerta.', e: 'El ge- va entre el prefijo y el verbo.' },
+      { s: 'Wir haben zwei Stunden ___.', a: 'telefoniert', d: ['getelefoniert', 'telefonieren'], t: 'Hemos hablado dos horas por teléfono.', e: 'Los verbos en -ieren no llevan ge-.' },
+      { s: 'Sie hat das Zimmer ___.', a: 'reserviert', d: ['gereserviert', 'reservieren'], t: 'Ha reservado la habitación.', e: 'reservieren acaba en -ieren: sin ge-.' }
     ],
     orders: [
       { sol: ['Ich', 'habe', 'heute', 'im', 'Supermarkt', 'eingekauft'], t: 'Hoy he hecho la compra en el súper.', e: 'El participio del separable cierra la frase.' },

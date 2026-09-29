@@ -138,7 +138,9 @@ export const NOMBRES = {
       { s: 'die Milch + das Brot = ___', a: 'das Milchbrot', d: ['die Milchbrot', 'der Milchbrot'], t: 'el pan de leche', e: 'das Brot manda → das Milchbrot.' },
       { s: 'der Käse + das Brot = ___', a: 'das Käsebrot', d: ['der Käsebrot', 'die Käsebrot'], t: 'el pan con queso', e: 'La última palabra da el género.' },
       { s: 'das Obst + der Salat = ___', a: 'der Obstsalat', d: ['das Obstsalat', 'die Obstsalat'], t: 'la macedonia', e: 'der Salat → der Obstsalat.' },
-      { s: 'die Kartoffel + die Suppe = ___', a: 'die Kartoffelsuppe', d: ['der Kartoffelsuppe', 'das Kartoffelsuppe'], t: 'la sopa de patata', e: 'die Suppe manda.' }
+      { s: 'die Kartoffel + die Suppe = ___', a: 'die Kartoffelsuppe', d: ['der Kartoffelsuppe', 'das Kartoffelsuppe'], t: 'la sopa de patata', e: 'die Suppe manda.' },
+      { s: 'Der Artikel eines Kompositums kommt von ___.', a: 'dem letzten Wort', d: ['dem ersten Wort', 'beiden Wörtern'], t: 'El artículo de un compuesto viene de la última palabra.', e: 'die Haustür, porque es die Tür.' },
+      { s: 'Haus plus Aufgabe ergibt ___.', a: 'die Hausaufgabe', d: ['das Hausaufgabe', 'der Hausaufgabe'], t: '«Haus» más «Aufgabe» da «die Hausaufgabe».', e: 'El genero lo marca Aufgabe.' }
     ],
     orders: [
       { sol: ['Ich', 'möchte', 'bitte', 'einen', 'Apfelsaft'], t: 'Quisiera un zumo de manzana, por favor.', e: 'der Apfelsaft → einen en acusativo.' },
@@ -266,7 +268,11 @@ export const NOMBRES = {
       { s: 'Diese Jacke gefällt mir ___ als die andere.', a: 'besser', d: ['gut', 'am besten'], t: 'Esta chaqueta me gusta más que la otra.', e: 'Comparativo irregular de gut: besser.' },
       { s: 'Am ___ trage ich einfache Jeans.', a: 'liebsten', d: ['lieber', 'gern'], t: 'Lo que más me gusta llevar son vaqueros sencillos.', e: 'Superlativo de gern: am liebsten.' },
       { s: 'Dieses Geschäft hat ___ Auswahl als das andere.', a: 'mehr', d: ['viel', 'am meisten'], t: 'Esta tienda tiene más variedad que la otra.', e: 'Comparativo de viel: mehr.' },
-      { s: 'Welches Modell ist ___?', a: 'am besten', d: ['besser', 'gut'], t: '¿Qué modelo es el mejor?', e: 'Superlativo de gut: am besten.' }
+      { s: 'Welches Modell ist ___?', a: 'am besten', d: ['besser', 'gut'], t: '¿Qué modelo es el mejor?', e: 'Superlativo de gut: am besten.' },
+      { s: 'Heute geht es mir ___ als gestern.', a: 'besser', d: ['guter', 'gutter'], t: 'Hoy estoy mejor que ayer.', e: 'gut pasa a besser, es irregular.' },
+      { s: 'Er hat ___ Geld als ich.', a: 'mehr', d: ['vieler', 'mehrer'], t: 'Tiene más dinero que yo.', e: 'viel pasa a mehr.' },
+      { s: 'Am ___ trinke ich Tee.', a: 'liebsten', d: ['lieber', 'gernsten'], t: 'Lo que más me gusta beber es té.', e: 'gern pasa a lieber y am liebsten.' },
+      { s: 'Sie ist die ___ Schülerin der Klasse.', a: 'beste', d: ['guteste', 'bessere'], t: 'Es la mejor alumna de la clase.', e: 'El superlativo de gut es best-.' }
     ],
     orders: [
       { sol: ['Diese', 'Jacke', 'gefällt', 'mir', 'besser'], t: 'Esta chaqueta me gusta más.', e: 'besser (comparativo de gut).' },

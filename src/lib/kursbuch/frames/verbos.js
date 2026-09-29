@@ -218,7 +218,10 @@ export const VERBOS = {
       { s: 'Er ___ kein Fleisch.', a: 'isst', d: ['esst', 'essen'], t: 'No come carne.', e: 'essen con er: isst.' },
       { s: '___ Sie einen Kaffee?', a: 'Möchten', d: ['Möchtet', 'Magst'], t: '¿Desea un café?', e: 'Fórmula de cortesía: Möchten Sie…?' },
       { s: 'Ich ___ keinen Fisch.', a: 'mag', d: ['möchte', 'magst'], t: 'No me gusta el pescado.', e: '"mögen" es el gusto general; "möchten" es lo que quieres ahora.' },
-      { s: 'Was ___ ihr zum Frühstück?', a: 'esst', d: ['isst', 'essen'], t: '¿Qué desayunáis?', e: 'essen con ihr: esst.' }
+      { s: 'Was ___ ihr zum Frühstück?', a: 'esst', d: ['isst', 'essen'], t: '¿Qué desayunáis?', e: 'essen con ihr: esst.' },
+      { s: '___ du auch ein Stück Kuchen?', a: 'Nimmst', d: ['Nehmst', 'Nimmt'], t: '¿Tomas también un trozo de tarta?', e: 'nehmen cambia e por i: du nimmst.' },
+      { s: 'Sie ___ am liebsten Nudeln.', a: 'isst', d: ['esst', 'essen'], t: 'Lo que más le gusta comer es pasta.', e: 'essen cambia e por i: sie isst.' },
+      { s: 'Ich ___ lieber Wasser als Limonade.', a: 'mag', d: ['möchte', 'magst'], t: 'Prefiero el agua a la limonada.', e: 'Gusto general: mögen.' }
     ],
     orders: [
       { sol: ['Ich', 'möchte', 'bitte', 'einen', 'Kaffee'], t: 'Quisiera un café, por favor.', e: 'möchte + acusativo.' },
@@ -251,7 +254,9 @@ export const VERBOS = {
       { s: '___ du bitte die Tür zu?', a: 'Machst', d: ['Zumachst', 'Macht'], t: '¿Cierras la puerta, por favor?', e: 'zumachen se separa: machst … zu.' },
       { s: 'Er ___ jeden Abend fern.', a: 'sieht', d: ['seht', 'sehen'], t: 'Él ve la tele todas las tardes.', e: 'sehen cambia la vocal en la 3ª: er sieht.' },
       { s: 'Wir ___ heute früher an.', a: 'fangen', d: ['anfangen', 'fängt'], t: 'Hoy empezamos antes.', e: 'wir fangen … an, sin cambio de vocal en plural.' },
-      { s: '___ du am Samstag ein?', a: 'Kaufst', d: ['Einkaufst', 'Kauft'], t: '¿Haces la compra el sábado?', e: 'einkaufen se separa: kaufst … ein.' }
+      { s: '___ du am Samstag ein?', a: 'Kaufst', d: ['Einkaufst', 'Kauft'], t: '¿Haces la compra el sábado?', e: 'einkaufen se separa: kaufst … ein.' },
+      { s: 'Sie ___ jeden Morgen die Zeitung.', a: 'liest', d: ['lest', 'liesst'], t: 'Lee el periódico cada mañana.', e: 'lesen cambia e por ie: sie liest.' },
+      { s: 'Er ___ das Fenster auf.', a: 'macht', d: ['machst', 'machen'], t: 'Abre la ventana.', e: 'El prefijo auf se va al final.' }
     ],
     orders: [
       { sol: ['Ich', 'stehe', 'jeden', 'Tag', 'um', 'sechs', 'auf'], t: 'Me levanto todos los días a las seis.', e: 'El prefijo separable cierra la frase.' },

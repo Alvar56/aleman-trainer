@@ -153,7 +153,8 @@ export const ARTICULOS = {
       { s: 'Ich möchte ___ Apfel, bitte.', a: 'den', d: ['der', 'dem'], t: 'Quiero la manzana, por favor.', e: 'der Apfel → den.' },
       { s: 'Sie isst ___ Nachspeise nicht.', a: 'die', d: ['der', 'den'], t: 'Ella no se come el postre.', e: 'die Nachspeise → die.' },
       { s: 'Nimmst du ___ Käse oder den Fisch?', a: 'den', d: ['der', 'dem'], t: '¿Coges el queso o el pescado?', e: 'der Käse → den en acusativo.' },
-      { s: 'Wir kaufen ___ Mineralwasser im Angebot.', a: 'das', d: ['der', 'den'], t: 'Compramos el agua mineral de oferta.', e: 'das Mineralwasser → das.' }
+      { s: 'Wir kaufen ___ Mineralwasser im Angebot.', a: 'das', d: ['der', 'den'], t: 'Compramos el agua mineral de oferta.', e: 'das Mineralwasser → das.' },
+      { s: 'Hast du ___ Kugelschreiber dabei?', a: 'einen', d: ['ein', 'eine'], t: '¿Llevas un bolígrafo?', e: 'der Kugelschreiber pasa a einen en acusativo.' }
     ],
     orders: [
       { sol: ['Ich', 'nehme', 'den', 'Salat', 'und', 'das', 'Brot'], t: 'Tomo la ensalada y el pan.', e: 'den (masc.) y das (neutro) en acusativo.' },
@@ -456,7 +457,10 @@ export const ARTICULOS = {
       { s: '___ Lampe gefällt mir am besten.', a: 'Diese', d: ['Dieser', 'Dieses'], t: 'Esta lámpara es la que más me gusta.', e: 'die Lampe → diese.' },
       { s: '___ Regal nehme ich auf jeden Fall.', a: 'Dieses', d: ['Dieser', 'Diese'], t: 'Esta estantería me la llevo seguro.', e: 'das Regal → dieses.' },
       { s: 'Was kostet ___ Sofa?', a: 'dieses', d: ['dieser', 'diese'], t: '¿Cuánto cuesta este sofá?', e: 'das Sofa → dieses.' },
-      { s: '___ Wohnung ist mir zu teuer.', a: 'Diese', d: ['Dieser', 'Dieses'], t: 'Este piso me sale demasiado caro.', e: 'die Wohnung → diese.' }
+      { s: '___ Wohnung ist mir zu teuer.', a: 'Diese', d: ['Dieser', 'Dieses'], t: 'Este piso me sale demasiado caro.', e: 'die Wohnung → diese.' },
+      { s: '___ Mantel gefällt mir sehr.', a: 'Dieser', d: ['Diese', 'Dieses'], t: 'Este abrigo me gusta mucho.', e: 'der Mantel pasa a dieser.' },
+      { s: 'Ich nehme ___ Tasche.', a: 'diese', d: ['dieser', 'dieses'], t: 'Cojo este bolso.', e: 'die Tasche en acusativo: diese.' },
+      { s: 'Mit ___ Bus kommst du schneller.', a: 'diesem', d: ['dieser', 'diesen'], t: 'Con este autobús llegas antes.', e: 'mit lleva dativo: diesem.' }
     ],
     orders: [
       { sol: ['Dieses', 'Sofa', 'ist', 'sehr', 'bequem'], t: 'Este sofá es muy cómodo.', e: 'Neutro en nominativo: dieses.' },
@@ -521,7 +525,13 @@ export const ARTICULOS = {
       { s: '___ Wohnung ist sehr schön.', a: 'Marcos', d: ['Marco', "Marco's"], t: 'El piso de Marco es muy bonito.', e: 'Marcos Wohnung.' },
       { s: 'Ich habe ___ Nummer nicht.', a: 'Hannas', d: ['Hanna', "Hanna's"], t: 'No tengo el número de Hanna.', e: 'Hannas Nummer.' },
       { s: 'Das ist ___ Fahrrad.', a: 'Lisas', d: ['Lisa', 'Lisa\'s'], t: 'Esta es la bici de Lisa.', e: 'Con nombres propios el genitivo es una -s pegada, sin apóstrofo.' },
-      { s: '___ Bruder wohnt in Berlin.', a: 'Tobias\'', d: ['Tobiass', 'Tobias'], t: 'El hermano de Tobias vive en Berlín.', e: 'Si el nombre ya acaba en -s, se pone solo el apóstrofo.' }
+      { s: '___ Bruder wohnt in Berlin.', a: 'Tobias\'', d: ['Tobiass', 'Tobias'], t: 'El hermano de Tobias vive en Berlín.', e: 'Si el nombre ya acaba en -s, se pone solo el apóstrofo.' },
+      { s: '___ Schwester heißt Lena.', a: 'Marias', d: ['Maria', 'Der Maria'], t: 'La hermana de María se llama Lena.', e: 'Los nombres forman el genitivo con -s, sin apostrofo.' },
+      { s: 'Wir waren auf ___ Hochzeit.', a: 'Annas', d: ['Anna', 'Die Anna'], t: 'Estuvimos en la boda de Anna.', e: 'Nombre mas -s, delante del sustantivo.' },
+      { s: '___ Eltern kommen aus Polen.', a: 'Toms', d: ['Tom', 'Dem Tom'], t: 'Los padres de Tom son de Polonia.', e: 'El genitivo del nombre va primero.' },
+      { s: 'Kennst du ___ Schwester?', a: 'Lauras', d: ['Laura', 'Der Laura'], t: '¿Conoces a la hermana de Laura?', e: 'Tambien en acusativo el nombre lleva -s.' },
+      { s: 'Bei Namen auf -s schreibt man ___.', a: 'einen Apostroph', d: ['ein zweites s', 'gar nichts'], t: 'Con nombres acabados en -s se pone un apóstrofo.', e: 'Hans’ Auto, Max’ Buch.' },
+      { s: '___ Hund heißt Bello.', a: 'Peters', d: ['Peter', 'Dem Peter'], t: 'El perro de Peter se llama Bello.', e: 'Nombre mas -s, sin articulo.' }
     ],
     orders: [
       { sol: ['Das', 'ist', 'Ahmets', 'Familie'], t: 'Esta es la familia de Ahmet.', e: 'El poseedor con -s va delante del sustantivo.' },

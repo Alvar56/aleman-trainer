@@ -57,7 +57,11 @@ export const PRONOMBRES = {
       { s: 'Den Mantel nehme ich, ___ finde ich schön.', a: 'ihn', d: ['er', 'ihm'], t: 'El abrigo me lo llevo, me parece bonito.', e: 'der Mantel en acusativo → ihn.' },
       { s: 'Die Hose ist toll, willst du ___ anprobieren?', a: 'sie', d: ['ihr', 'ihnen'], t: 'El pantalón es estupendo, ¿te lo quieres probar?', e: 'die Hose en acusativo → sie.' },
       { s: 'Das Hemd passt nicht, ich möchte ___ umtauschen.', a: 'es', d: ['ihm', 'er'], t: 'La camisa no me queda, quiero cambiarla.', e: 'das Hemd en acusativo → es.' },
-      { s: 'Rufen Sie ___ bitte morgen Vormittag an.', a: 'mich', d: ['mir', 'ich'], t: 'Llámeme mañana por la mañana, por favor.', e: 'anrufen pide acusativo: mich.' }
+      { s: 'Rufen Sie ___ bitte morgen Vormittag an.', a: 'mich', d: ['mir', 'ich'], t: 'Llámeme mañana por la mañana, por favor.', e: 'anrufen pide acusativo: mich.' },
+      { s: 'Ich hole ___ um acht ab.', a: 'dich', d: ['dir', 'du'], t: 'Te recojo a las ocho.', e: 'abholen lleva acusativo: dich.' },
+      { s: 'Kennst du ___ schon?', a: 'ihn', d: ['ihm', 'er'], t: '¿Ya lo conoces?', e: 'El acusativo de er es ihn.' },
+      { s: 'Wir laden ___ zum Essen ein.', a: 'euch', d: ['ihr', 'eure'], t: 'Os invitamos a comer.', e: 'El acusativo de ihr es euch.' },
+      { s: 'Sie hat ___ gar nicht gesehen.', a: 'uns', d: ['wir', 'unser'], t: 'No nos ha visto.', e: 'El acusativo de wir es uns.' }
     ],
     orders: [
       { sol: ['Ich', 'rufe', 'dich', 'morgen', 'an'], t: 'Te llamo mañana.', e: 'dich en acusativo; anrufen separable.' },
@@ -170,7 +174,10 @@ export const PRONOMBRES = {
       { s: 'Kannst du ___ kurz helfen?', a: 'mir', d: ['mich', 'ich'], t: '¿Me puedes ayudar un momento?', e: 'helfen pide dativo.' },
       { s: 'Ich danke ___ für deine Hilfe.', a: 'dir', d: ['dich', 'du'], t: 'Te doy las gracias por tu ayuda.', e: 'danken pide dativo: dir.' },
       { s: 'Der Schlüssel gehört ___ Nachbarin.', a: 'der', d: ['die', 'den'], t: 'La llave es de la vecina.', e: 'gehören + dativo: die Nachbarin → der.' },
-      { s: 'Wir helfen ___ gern beim Umzug.', a: 'ihnen', d: ['sie', 'ihr'], t: 'Les ayudamos con gusto con la mudanza.', e: 'helfen + dativo plural: ihnen.' }
+      { s: 'Wir helfen ___ gern beim Umzug.', a: 'ihnen', d: ['sie', 'ihr'], t: 'Les ayudamos con gusto con la mudanza.', e: 'helfen + dativo plural: ihnen.' },
+      { s: 'Das Buch ___ meinem Bruder.', a: 'gehört', d: ['gehören', 'gehörst'], t: 'El libro es de mi hermano.', e: 'gehören lleva dativo.' },
+      { s: 'Kannst du ___ bitte helfen?', a: 'mir', d: ['mich', 'ich'], t: '¿Me puedes ayudar, por favor?', e: 'helfen lleva dativo.' },
+      { s: 'Die Stadt ___ uns sehr gut.', a: 'gefällt', d: ['gefallen', 'gefällst'], t: 'La ciudad nos gusta mucho.', e: 'El sujeto es die Stadt, singular.' }
     ],
     orders: [
       { sol: ['Das', 'Buch', 'gehört', 'meiner', 'Schwester'], t: 'El libro es de mi hermana.', e: 'gehören + dativo femenino.' },

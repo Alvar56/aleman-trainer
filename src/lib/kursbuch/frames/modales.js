@@ -254,7 +254,10 @@ export const MODALES = {
       { s: 'Ich ___ gern ein Nichtraucherzimmer.', a: 'hätte', d: ['habe', 'hatte'], t: 'Quisiera una habitación de no fumadores.', e: 'hätte: Konjunktiv II de haben.' },
       { s: '___ es Ihnen recht, wenn wir später kommen?', a: 'Wäre', d: ['War', 'Wird'], t: '¿Le parecería bien si llegamos más tarde?', e: 'wäre para una pregunta cortés.' },
       { s: 'Wir ___ gern zwei Plätze im Ruhebereich.', a: 'hätten', d: ['haben', 'hatten'], t: 'Quisiéramos dos plazas en la zona de silencio.', e: 'hätten, plural del Konjunktiv II.' },
-      { s: 'Das ___ wirklich sehr nett von Ihnen.', a: 'wäre', d: ['war', 'wird'], t: 'Eso sería muy amable por su parte.', e: 'wäre expresa algo hipotético.' }
+      { s: 'Das ___ wirklich sehr nett von Ihnen.', a: 'wäre', d: ['war', 'wird'], t: 'Eso sería muy amable por su parte.', e: 'wäre expresa algo hipotético.' },
+      { s: 'Wenn ich Zeit ___, käme ich mit.', a: 'hätte', d: ['habe', 'hatte'], t: 'Si tuviera tiempo, iría.', e: 'hätte en la condición.' },
+      { s: 'Das ___ ich nie gemacht.', a: 'hätte', d: ['habe', 'würde'], t: 'Eso yo no lo habría hecho.', e: 'hätte mas participio para el pasado.' },
+      { s: 'An deiner Stelle ___ ich mich freuen.', a: 'würde', d: ['werde', 'wurde'], t: 'Yo en tu lugar me alegraría.', e: 'würde mas infinitivo.' }
     ],
     orders: [
       { sol: ['Ich', 'würde', 'gern', 'einen', 'Platz', 'am', 'Fenster', 'reservieren'], t: 'Me gustaría reservar un asiento junto a la ventana.', e: 'Satzklammer: "würde" en 2ª posición, el infinitivo "reservieren" al final.' },
