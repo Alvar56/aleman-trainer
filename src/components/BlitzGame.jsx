@@ -14,6 +14,10 @@ import { useTeclas, teclasDeOpciones } from '../lib/teclas.js';
 // entera antes de poder elegir, asi que pasan un minuto.
 const SEGUNDOS = 30;
 const OBJETIVO = 10;
+// Segundos que regala un acierto. En Vocabulario la pregunta es una palabra y
+// se responde de un vistazo; en Gramatica y Kommunikation hay que leerse una
+// frase entera antes de elegir, asi que alli el premio es mayor.
+const BONO = 3;
 
 function revuelve(a) {
   const x = [...a];
@@ -34,7 +38,8 @@ function revuelve(a) {
 //   cartas     las parejas [{ de, es }] que se preguntan; por defecto, el mazo
 //   apuntar    (de, acerto) => void; por defecto, recordCard del vocabulario
 //   contexto   { id, nombre, emoji, pct } para el marcador y el ranking
-export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas, segundos = SEGUNDOS, onExit, onFinish }) {
+//   bono       segundos que suma cada acierto
+export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas, segundos = SEGUNDOS, bono = BONO, onExit, onFinish }) {
   const fox = useFox();
   const ctx = contexto || {
     id: 'vocab:' + deck?.id,
@@ -56,8 +61,10 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
   const [racha, setRacha] = useState(0);
   const [mejorRacha, setMejorRacha] = useState(0);
   const [marcado, setMarcado] = useState(null); // { elegido, correcto }
+  const [avisoBono, setAvisoBono] = useState(0); // el "+3s" que sale y se va
   const results = useRef([]);
   const timerEspera = useRef(null);
+  const timerBono = useRef(null);
   const mejorSeguidas = useRef(0);
   const ultimaSeguidas = useRef(null);
   const monedas = useRef(0);
@@ -119,6 +126,15 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
 
     if (ok) {
       setAciertos((n) => n + 1);
+      // Acertar alarga el reloj. Va en forma de funcion porque el tic del
+      // intervalo puede caer en el mismo lote que esto y los dos tienen que
+      // contar: si se pusiera `seg + bono` se perderia el segundo del tic.
+      if (bono > 0) {
+        setSeg((s) => s + bono);
+        setAvisoBono(bono);
+        clearTimeout(timerBono.current);
+        timerBono.current = setTimeout(() => setAvisoBono(0), 900);
+      }
       setRacha((r) => {
         const nueva = r + 1;
         setMejorRacha((m) => Math.max(m, nueva));
@@ -134,8 +150,16 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
     timerEspera.current = setTimeout(avanzar, ok ? 280 : 750);
   }
 
+  // Al salir a media partida los dos temporizadores seguian vivos y llamaban a
+  // setState sobre un componente ya desmontado.
+  useEffect(() => () => {
+    clearTimeout(timerEspera.current);
+    clearTimeout(timerBono.current);
+  }, []);
+
   function terminar() {
     clearTimeout(timerEspera.current);
+    clearTimeout(timerBono.current);
     const seconds = Math.max(1, Math.round((Date.now() - started.current) / 1000));
     const total = results.current.length;
     const correct = aciertos;
@@ -197,8 +221,13 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
     <div className="vocab-session">
       <div className="progress-top">
         <button className="btn-ghost" onClick={onExit} title="Salir (Esc)">✕</button>
-        <div className="bar"><span style={{ width: (seg / segundos) * 100 + '%' }} /></div>
-        <span className={'timer blitz-timer' + (seg <= 5 ? ' urgente' : '')}>{seg}s</span>
+        {/* Tope al 100%: ahora acertar suma segundos y el reloj puede pasar
+            del tiempo de salida, con lo que la barra se saldria del carril. */}
+        <div className="bar"><span style={{ width: Math.min(100, (seg / segundos) * 100) + '%' }} /></div>
+        <span className={'timer blitz-timer' + (seg <= 5 ? ' urgente' : '')}>
+          {seg}s
+          {avisoBono > 0 && <span key={seg} className="blitz-bono">+{avisoBono}s</span>}
+        </span>
       </div>
 
       <div className="ctx-fila">
@@ -230,8 +259,8 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
         </div>
 
         <p className="wo-hint muted">
-          {pick(`Objetivo: ${OBJETIVO} aciertos en ${segundos}s · Fallar resta 1 punto · Atajos: 1, 2, 3, Esc`,
-                `Goal: ${OBJETIVO} correct in ${segundos}s · Mistakes subtract 1 point · Keys: 1, 2, 3, Esc`)}
+          {pick(`Objetivo: ${OBJETIVO} aciertos en ${segundos}s · Acertar suma ${bono}s · Fallar resta 1 punto y 2s · Atajos: 1, 2, 3, Esc`,
+                `Goal: ${OBJETIVO} correct in ${segundos}s · Each correct adds ${bono}s · Mistakes subtract 1 point and 2s · Keys: 1, 2, 3, Esc`)}
         </p>
       <FoxOverlay fox={fox} racha={racha} />
       </div>

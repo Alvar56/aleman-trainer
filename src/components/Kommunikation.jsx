@@ -411,7 +411,7 @@ function KommDetail({
       <MatchGame pares={pares} apuntar={apuntar} contexto={ctx} onExit={salir} onFinish={acabar} />
     ) : (
       // Un minuto: aqui la pregunta es una frase, no una palabra suelta.
-      <BlitzGame cartas={pares} apuntar={apuntar} contexto={ctx} segundos={60} onExit={salir} onFinish={acabar} />
+      <BlitzGame cartas={pares} apuntar={apuntar} contexto={ctx} segundos={60} bono={4} onExit={salir} onFinish={acabar} />
     );
   }
 
