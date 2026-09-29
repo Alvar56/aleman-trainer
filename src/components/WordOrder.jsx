@@ -13,16 +13,19 @@ import { useTeclas } from '../lib/teclas.js';
 // Nada se pinta de verde hasta que le das a Comprobar: si la app te va
 // diciendo cuáles llevas bien, acabas resolviendo a base de probar.
 export default function WordOrder({ item, onAnswer }) {
-  if (!item || !item.tokens || !item.solution) {
-    return <div className="error">Invalid item</div>;
-  }
-  const solution = item.solution;
-  const validas = item.alternativas && item.alternativas.length
+  // El aviso de item invalido se pinta al final, por debajo de los hooks. Si
+  // cortase aqui arriba, un item que pasa de invalido a valido sin que el
+  // componente se desmonte dejaria a React con menos hooks de los que vio en el
+  // render anterior, y eso no lo avisa: tira la pantalla entera.
+  const valido = !!(item && item.tokens && item.solution);
+  const solution = valido ? item.solution : [];
+  const validas = valido && item.alternativas && item.alternativas.length
     ? item.alternativas
     : [solution.join(' ')];
 
   // Empieza desordenado, pero nunca con la frase ya resuelta.
   const initial = useMemo(() => {
+    if (!valido) return [];
     const toks = item.tokens.map((tok, i) => ({ id: i, text: tok }));
     if (toks.length > 1 && toks.map((x) => x.text).join(' ') === solution.join(' ')) {
       return [toks[1], toks[0], ...toks.slice(2)];
@@ -236,7 +239,7 @@ export default function WordOrder({ item, onAnswer }) {
       });
       wordsEls[nextIdx]?.focus();
     }
-  }, !checked);
+  }, !checked && valido);
 
   function check() {
     // No basta con comparar contra la frase guardada: en alemán suele haber
@@ -248,6 +251,8 @@ export default function WordOrder({ item, onAnswer }) {
     setChecked(true);
     onAnswer(ok);
   }
+
+  if (!valido) return <div className="error">Invalid item</div>;
 
   const hueco = drag ? (
     <span className="wo-hueco" style={{ width: drag.w, height: drag.h }} aria-hidden="true" />

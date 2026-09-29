@@ -49,19 +49,15 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
     inputRef.current?.focus();
   }, [idx]);
 
-  if (!frases.length) {
-    return (
-      <div className="card center stack">
-        <p>{t('ueb.vacio')}</p>
-        <button className="btn-ghost" onClick={onExit}>{t('back')}</button>
-      </div>
-    );
-  }
-
-  const cur = frases[idx];
-  const buena = cur.dir === 'de-es' ? tc(cur.es) : cur.de;
-  const origen = cur.dir === 'de-es' ? cur.de : tc(cur.es);
-  const listaPistas = pistasDe(cur, buena);
+  // El aviso de tanda vacia se pinta mas abajo, por debajo de useTeclas. Si
+  // cortase aqui, una tanda que llega vacia y se rellena sin desmontar el
+  // componente dejaria a React con menos hooks de los que vio antes, y eso tira
+  // la pantalla en vez de avisar.
+  const vacia = frases.length === 0;
+  const cur = vacia ? null : frases[idx];
+  const buena = !cur ? '' : cur.dir === 'de-es' ? tc(cur.es) : cur.de;
+  const origen = !cur ? '' : cur.dir === 'de-es' ? cur.de : tc(cur.es);
+  const listaPistas = cur ? pistasDe(cur, buena) : [];
   const corregido = fallo !== null;
 
   function pedirPistaTranslate() {
@@ -82,6 +78,15 @@ export default function TranslateGame({ onExit, onFinish, lektionId = null, dir 
         },
     frases.length > 0
   );
+
+  if (vacia) {
+    return (
+      <div className="card center stack">
+        <p>{t('ueb.vacio')}</p>
+        <button className="btn-ghost" onClick={onExit}>{t('back')}</button>
+      </div>
+    );
+  }
 
   function comprobar() {
     if (corregido || !texto.trim()) return;
