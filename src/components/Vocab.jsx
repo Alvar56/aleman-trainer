@@ -186,6 +186,15 @@ function nivelDe(lektion) {
 
 function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onReto, onBack }) {
   const [, forceUpdate] = React.useReducer(x => x + 1, 0);
+  // Todos los hooks por delante del `return` de "lección no encontrada".
+  // Estaban por debajo, así que pasar de un lektionId malo a uno bueno sin
+  // desmontar cambiaba el número de hooks entre dos pintados y React tiraba
+  // la pantalla. Es el mismo fallo que reventaba Emparejar y Blitz en
+  // Gramática. Arrancan con constantes, así que subirlos no cambia nada.
+  useStars();
+  const [loadingVerb, setLoadingVerb] = useState(null);
+  const [selectedDeckId, setSelectedDeckId] = useState('');
+  const [conjugation, setConjugation] = useState(null);
   const setTab = (t) => onTab?.(t);
   const lektion = getLektion(lektionId);
   if (!lektion) {
@@ -196,7 +205,6 @@ function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onReto, onBac
       </div>
     );
   }
-  useStars();
   const decks = lektionDecks(lektion);
   const todo = lektionDeckTodo(lektion);
   const total = decks.reduce((s2, d) => s2 + d.cards.length, 0);
@@ -213,10 +221,7 @@ function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onReto, onBac
     )
   );
 
-  const [loadingVerb, setLoadingVerb] = useState(null);
-  const [selectedDeckId, setSelectedDeckId] = useState('');
   const activeDeckId = selectedDeckId || (todo ? todo.id : null);
-  const [conjugation, setConjugation] = useState(null);
 
   const handleConjugate = async (verb, traduccion) => {
     // Primero el conjugador local: es instantaneo, va sin red y acierta con

@@ -271,10 +271,26 @@ grupo('Practicar mueve la barra del mazo');
   comprobar('una tanda acertada sube el porcentaje', despues.pct > antes.pct,
     `${antes.pct}% → ${despues.pct}%`);
   // Y no por casualidad: la tanda tiene que traer palabras que aun cuenten.
+  //
+  // Esto pedia ">= 8 de 10" y por eso tapaba el fallo a medias: colarse dos
+  // llenas estaba permitido. Y se colaban, porque una nueva puntuaba 5+8=13 y
+  // una llena por repasar 10+(6-3)=13, el mismo numero, con +-3 de azar
+  // decidiendo. Fallaba dos veces de cada diez ejecuciones. Ahora que el
+  // criterio va aparte de la puntuacion, tienen que entrar las diez.
   const quedan = cartas.filter((c) => (prog[`${deck.id}::${c.de}`]?.correct || 0) < 2).length;
   comprobar('mientras queden palabras sin llenar, la tanda las prefiere',
-    quedan > 10 && despues.aciertos - antes.aciertos >= 8,
+    quedan > 10 && despues.aciertos - antes.aciertos === 10,
     `+${despues.aciertos - antes.aciertos} aciertos de 10 preguntas`);
+
+  // Y la tanda siguiente tambien, que era la otra mitad del problema: al
+  // gastar en la primera las que faltaban, la regla de "no repetir lo de la
+  // vez pasada" traia llenas y la barra se paraba igual.
+  const entre = v.deckStats(deck);
+  for (const c of v.pickCards(deck, 10)) v.recordCard(c.de, true, { mode: 'quiz' });
+  const alFinal = v.deckStats(deck);
+  comprobar('y la tanda siguiente sigue prefiriendolas',
+    alFinal.aciertos - entre.aciertos === 10,
+    `+${alFinal.aciertos - entre.aciertos} aciertos de 10 preguntas`);
 }
 
 // ---------------------------------------------------------------------------

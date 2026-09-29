@@ -1512,7 +1512,7 @@ export function pickCards(deck, size = 12) {
     if (!c || c.correct + c.wrong === 0) score = 5; // nuevas: prioridad media
     else if (c.due <= now) score = 10 + (6 - c.strength); // toca repasar
     else score = -c.strength; // ya dominadas: al final
-    // Y un empujon a las que TODAVIA cuentan para la barra.
+    // ¿Esta palabra todavia suma en la barra?
     //
     // La barra es la suma de aciertos con tope de ACIERTOS_POR_PALABRA por
     // palabra: a partir de ahi, acertarla otra vez no sube nada. Pero el
@@ -1521,13 +1521,15 @@ export function pickCards(deck, size = 12) {
     // el porcentaje clavado en el mismo numero. Que es exactamente lo que
     // parece: que el ejercicio no ha servido para nada.
     //
-    // Con el empujon, mientras queden palabras por debajo del tope entran
-    // ellas primero; cuando ya no queda ninguna, el mazo esta al 100% y la
-    // tanda vuelve a ser repaso puro, que es lo que toca.
-    if ((c?.correct || 0) < ACIERTOS_POR_PALABRA) score += 8;
+    // Esto NO se arregla sumando puntos. Se intento con un +8 y no bastaba:
+    // una palabra nueva se quedaba en 5+8=13 y una llena que tocaba repasar
+    // valia 10+(6-3)=13, o sea el mismo numero, y el azar de +-3 decidia. Se
+    // colaban dos o tres llenas en cada tanda de diez. Asi que va aparte, como
+    // criterio de orden, y no compite con la puntuacion.
+    const cuenta = (c?.correct || 0) < ACIERTOS_POR_PALABRA;
     // El azar reparte DENTRO de cada grupo -las nuevas entre ellas, las de
     // repasar entre ellas- sin colar una dominada por delante de una fallada.
-    return { card, score: score + Math.random() * 3 };
+    return { card, cuenta, score: score + Math.random() * 3 };
   });
 
   // Primero las que NO salieron en la tanda anterior.
@@ -1539,9 +1541,21 @@ export function pickCards(deck, size = 12) {
   // nada, y lo fallado vuelve en la tanda siguiente, no en la misma.
   const cabe = Math.min(size, deck.cards.length);
   const orden = (a, b) => b.score - a.score;
-  const frescas = scored.filter((x) => !previas.has(x.card.de)).sort(orden);
-  const repetidas = scored.filter((x) => previas.has(x.card.de)).sort(orden);
-  const elegidas = [...frescas, ...repetidas].slice(0, cabe).map((x) => x.card);
+  // Cuatro cajones, y se van llenando en este orden:
+  //   1. suma en la barra y no salio la vez pasada
+  //   2. suma en la barra aunque se repita
+  //   3. ya esta llena, pero es cara nueva
+  //   4. ya esta llena y ademas se repite
+  // Que "suma en la barra" mande sobre "no repetir" es a proposito: si no, al
+  // gastar en una tanda las palabras que faltaban, la siguiente volvia a
+  // traer llenas y el porcentaje se quedaba parado otra vez.
+  const cajon = (cuenta, repetida) => scored
+    .filter((x) => x.cuenta === cuenta && previas.has(x.card.de) === repetida)
+    .sort(orden);
+  const elegidas = [
+    ...cajon(true, false), ...cajon(true, true),
+    ...cajon(false, false), ...cajon(false, true),
+  ].slice(0, cabe).map((x) => x.card);
 
   ULTIMA_TANDA.set(deck.id, new Set(elegidas.map((c) => c.de)));
   return elegidas;

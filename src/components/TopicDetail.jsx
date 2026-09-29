@@ -117,6 +117,13 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
   // no pasan por onStart: se pintan aqui mismo en lugar del tema.
   const [juego, setJuego] = useState(null);
   const [resumenJuego, setResumenJuego] = useState(null);
+  // Arriba del todo, antes de cualquier return.
+  //
+  // Estaba abajo, junto al resto del cuerpo, y por eso abrir Emparejar o Blitz
+  // desde Gramática reventaba la pantalla: esas dos ramas salen por un return
+  // temprano, el componente pasaba a renderizar dos hooks en vez de tres y
+  // React aborta con "Rendered fewer hooks than expected".
+  useStars();
   if (topic && juego) {
     const pares = paresDeGramatica(topic);
     const porFrase = new Map(pares.map((x) => [x.de, x]));
@@ -143,7 +150,7 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
       <MatchGame pares={pares} apuntar={apuntar} contexto={ctx} onExit={salir} onFinish={acabar} />
     ) : (
       // Un minuto: aqui la pregunta es una frase con hueco, no una palabra.
-      <BlitzGame cartas={pares} apuntar={apuntar} contexto={ctx} segundos={60} onExit={salir} onFinish={acabar} />
+      <BlitzGame cartas={pares} apuntar={apuntar} contexto={ctx} segundos={60} bono={4} onExit={salir} onFinish={acabar} />
     );
   }
 
@@ -165,11 +172,10 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
   }
   const ids = topic.concepts.map((c) => c.id);
   const m = topicMastery(ids);
-  if (m.pct >= 100) {
-  }
+  // Aquí había un `if (m.pct >= 100) {}` vacío: es lo que quedó al quitar el
+  // premio por dejar un tema al 100%.
   const weak = weakConcepts(ids);
   const aiOn = aiAvailable();
-  useStars();
   const topicLektionId = topic.lektionId || (topic.id?.startsWith('kb-') ? topic.id.replace('kb-', '') : null);
   const topicIdClean = topic.id?.replace(/^kb-/, '');
 
