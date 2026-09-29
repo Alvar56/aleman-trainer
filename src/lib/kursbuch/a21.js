@@ -1767,15 +1767,6 @@ export const A21 = {
           funktion: 'organisatorische Fragen in der Schule klären',
           es: 'Aclarar cuestiones organizativas en la escuela',
           wendungen: [
-            { de: 'Wann bekommen wir das Zeugnis?', es: '¿Cuándo nos dan las notas?' },
-            { de: 'Mein Sohn war krank.', es: 'Mi hijo ha estado enfermo.' },
-            { de: 'Wie läuft es in der Klasse?', es: '¿Qué tal va en clase?' },
-            { de: 'Gibt es Hausaufgaben über die Ferien?', es: '¿Hay deberes para las vacaciones?' },
-            { de: 'Wann bekommen die Kinder das Zeugnis?', es: '¿Cuándo reciben los niños las notas?' },
-            { de: 'Mein Sohn war gestern krank.', es: 'Mi hijo estuvo ayer enfermo.' },
-            { de: 'Wie kommt mein Kind in der Klasse zurecht?', es: '¿Cómo se desenvuelve mi hijo en clase?' },
-            { de: 'Bekommen die Kinder Aufgaben für die Ferien?', es: '¿Les mandan tareas para las vacaciones?' },
-            { de: 'Braucht mein Kind Nachhilfe?', es: '¿Mi hijo necesita clases particulares?' },
             { de: 'Wann ist der nächste Elternsprechtag?', es: '¿Cuándo es el próximo día de tutorías?' }
           ]
         },
@@ -1783,112 +1774,49 @@ export const A21 = {
           funktion: 'den Schulalltag und Kosten besprechen',
           es: 'Hablar de la vida escolar y gastos',
           wendungen: [
-            { de: 'Welche Schulbücher müssen wir kaufen?', es: '¿Qué libros de texto tenemos que comprar?' },
-            { de: 'Wie viel kostet die Nachmittagsbetreuung?', es: '¿Cuánto cuesta la atención de tarde?' },
-            { de: 'Darf mein Kind allein nach Hause gehen?', es: '¿Puede mi hijo irse solo a casa?' },
-            { de: 'Ist die Schularbeit schon korrigiert?', es: '¿Ya está corregido el examen?' },
-            { de: 'Was kostet die Klassenfahrt insgesamt?', es: '¿Cuánto cuesta en total el viaje de clase?' },
-            { de: 'Wann ist die Einschreibung für nächstes Jahr?', es: '¿Cuándo es la matrícula para el año que viene?' },
-            { de: 'Gibt es an dieser Schule Schulgeld?', es: '¿En este colegio hay que pagar tasas?' },
-            { de: 'Wie läuft es bei meinem Sohn im Unterricht?', es: '¿Cómo le va a mi hijo en clase?' },
-            { de: 'Wann sind die nächsten Schularbeiten?', es: '¿Cuándo son los próximos exámenes?' },
-            { de: 'Braucht sie zusätzliche Unterstützung?', es: '¿Necesita apoyo adicional?' }
+            { de: 'Welche Schulbücher müssen wir kaufen?', es: '¿Qué libros de texto tenemos que comprar?' }
           ]
         },
         {
           funktion: 'mit der Lehrkraft über Lernschwierigkeiten sprechen',
           es: 'Hablar con el profesor sobre dificultades de aprendizaje',
           wendungen: [
-            { de: 'Mein Kind hat Schwierigkeiten mit der Sprache.', es: 'Mi hijo tiene dificultades con el idioma.' },
-            { de: 'Er kann sich in der Klasse schlecht konzentrieren.', es: 'En clase le cuesta concentrarse.' },
-            { de: 'Wie kann ich zu Hause besser helfen?', es: '¿Cómo puedo ayudar mejor en casa?' },
-            { de: 'Ist meine Tochter im Unterricht aktiv?', es: '¿Participa mi hija en clase?' },
-            { de: 'Seine Noten haben sich stark verbessert.', es: 'Sus notas han mejorado mucho.' },
-            { de: 'Gibt es Probleme mit den Mitschülern?', es: '¿Hay problemas con los compañeros?' },
-            { de: 'Sollten wir die Schule wechseln?', es: '¿Deberíamos cambiar de colegio?' },
-            { de: 'Welchen Abschluss kann er später machen?', es: '¿Qué título puede sacarse después?' },
-            { de: 'Er ist begabt, aber ziemlich faul.', es: 'Es listo, pero bastante vago.' },
-            { de: 'Vielen Dank für Ihre Geduld mit ihm.', es: 'Muchas gracias por su paciencia con él.' }
+            { de: 'Mein Kind hat Schwierigkeiten mit der Sprache.', es: 'Mi hijo tiene dificultades con el idioma.' }
           ]
         },
         {
           funktion: 'Unterstützung und Förderung zu Hause besprechen',
           es: 'Acordar apoyo y refuerzo en casa',
           wendungen: [
-            { de: 'Wie ist sein Verhalten in der Klasse?', es: '¿Cómo es su comportamiento en clase?' },
-            { de: 'Hilft Loben bei ihm mehr als Schimpfen?', es: '¿Con él funciona mejor elogiar que regañar?' },
-            { de: 'Was können wir für sein Selbstvertrauen tun?', es: '¿Qué podemos hacer por su autoconfianza?' },
-            { de: 'Können wir einen Termin vereinbaren?', es: '¿Podemos concertar una cita?' },
-            { de: 'Mein Sohn hat gestern gefehlt.', es: 'Mi hijo faltó ayer.' },
-            { de: 'Er tut sich mit den Artikeln sehr schwer.', es: 'Le cuestan mucho los artículos.' },
-            { de: 'Was können wir zu Hause üben?', es: '¿Qué podemos practicar en casa?' },
-            { de: 'Wie viele Stunden hat er am Freitag?', es: '¿Cuántas horas tiene el viernes?' },
-            { de: 'Gibt es dieses Jahr einen Ausflug?', es: '¿Hay excursión este año?' },
-            { de: 'Wir üben zu Hause jeden Tag ein bisschen.', es: 'En casa practicamos un poco cada día.' }
+            { de: 'Was können wir zu Hause üben?', es: '¿Qué podemos practicar en casa?' }
           ]
         },
         {
           funktion: 'um sprachliche Hilfe bitten und Hilfen anbieten',
           es: 'Pedir ayuda lingüística y ofrecer apoyos',
           wendungen: [
-            { de: 'Können Sie bitte langsamer sprechen?', es: '¿Puede hablar más despacio?' },
-            { de: 'Soll ich es Ihnen aufschreiben?', es: '¿Se lo escribo?' },
-            { de: 'Ich erkläre es Ihnen gern noch einmal.', es: 'Se lo explico otra vez con gusto.' },
-            { de: 'Könnten Sie bitte etwas langsamer sprechen?', es: '¿Podría hablar un poco más despacio?' },
-            { de: 'Sprechen Sie bitte etwas langsamer mit mir.', es: 'Hábleme un poco más despacio, por favor.' },
-            { de: 'Ich kann es Ihnen gern noch einmal erklären.', es: 'Se lo puedo volver a explicar con gusto.' },
-            { de: 'Ich brauche manchmal etwas länger zum Verstehen.', es: 'A veces necesito un poco más de tiempo para entender.' },
-            { de: 'Ist das so richtig, wie ich es sage?', es: '¿Está bien dicho así?' },
-            { de: 'Gibt es das auch auf Spanisch?', es: '¿Está también en español?' },
-            { de: 'Sagen Sie es bitte mit einfachen Worten.', es: 'Dígamelo con palabras sencillas, por favor.' }
+            { de: 'Könnten Sie bitte etwas langsamer sprechen?', es: '¿Podría hablar un poco más despacio?' }
           ]
         },
         {
           funktion: 'Unsicherheit und Zweifel ausdrücken',
           es: 'Expresar inseguridad y dudas',
           wendungen: [
-            { de: 'Ich bin mir nicht sicher.', es: 'No estoy seguro.' },
-            { de: 'Ich glaube schon, aber ich weiß es nicht genau.', es: 'Creo que sí, pero no lo sé con exactitud.' },
-            { de: 'Vielleicht, das kann ich nicht sagen.', es: 'Quizá, no lo sabría decir.' },
-            { de: 'Ich bin mir da nicht ganz sicher.', es: 'En eso no estoy del todo seguro.' },
-            { de: 'Ich denke ja, sicher bin ich mir aber nicht.', es: 'Creo que sí, aunque no estoy seguro.' },
-            { de: 'Das kann ich leider nicht sagen.', es: 'Eso no se lo puedo decir.' },
-            { de: 'Vielleicht, vielleicht auch nicht.', es: 'Quizá sí, quizá no.' },
-            { de: 'Ich müsste das erst nachlesen.', es: 'Tendría que consultarlo antes.' },
-            { de: 'Ehrlich gesagt habe ich keine Ahnung.', es: 'Sinceramente, no tengo ni idea.' },
-            { de: 'Ich weiß nicht, ob Nachhilfe wirklich hilft.', es: 'No sé si las clases particulares ayudan de verdad.' }
+            { de: 'Kommt Ihr Sohn nächstes Jahr ins Gymnasium?', es: '¿Su hijo va el año que viene al instituto?' }
           ]
         },
         {
           funktion: 'Gleichgültigkeit ausdrücken',
           es: 'Expresar indiferencia',
           wendungen: [
-            { de: 'Das ist mir egal.', es: 'Me da igual.' },
-            { de: 'Mir ist beides recht.', es: 'Me vale cualquiera de las dos.' },
-            { de: 'Wie du willst.', es: 'Como quieras.' },
-            { de: 'Das ist mir ehrlich gesagt egal.', es: 'Sinceramente, me da igual.' },
-            { de: 'Von mir aus beides, such du aus.', es: 'Por mí las dos, elige tú.' },
-            { de: 'Mach einfach, wie du willst.', es: 'Haz simplemente lo que quieras.' },
-            { de: 'Das spielt für mich keine Rolle.', es: 'Eso para mí no importa.' },
-            { de: 'Von mir aus gern, aber es muss nicht sein.', es: 'Por mí bien, pero no hace falta.' },
-            { de: 'Ist mir eigentlich ziemlich gleich.', es: 'La verdad es que me da bastante igual.' },
-            { de: 'Ob Mathe oder Deutsch, ist mir gleich.', es: 'Sea mates o alemán, me da igual.' }
+            { de: 'Sollen wir am Dienstag oder am Donnerstag reden?', es: '¿Hablamos el martes o el jueves?' }
           ]
         },
         {
           funktion: 'ein Elterngespräch abschließen',
           es: 'Concluir una reunión de padres y profesores',
           wendungen: [
-            { de: 'Ich denke, wir haben alles besprochen.', es: 'Creo que lo hemos hablado todo.' },
-            { de: 'Schönen Tag noch und auf Wiedersehen.', es: 'Que pase buen día y hasta la vista.' },
-            { de: 'Dann probieren wir es bis zum Semesterende so.', es: 'Entonces lo probamos así hasta final de semestre.' },
-            { de: 'Ich denke, wir sind uns einig.', es: 'Creo que estamos de acuerdo.' },
-            { de: 'Sagen Sie mir Bescheid, wenn sich etwas ändert.', es: 'Avíseme si algo cambia.' },
-            { de: 'Dann hätten wir alles besprochen.', es: 'Entonces ya lo hemos hablado todo.' },
-            { de: 'Bitte unterbrechen Sie mich, wenn etwas unklar ist.', es: 'Interrúmpame si algo no queda claro.' },
-            { de: 'Können Sie mir den Lernstoff kurz zusammenfassen?', es: '¿Me puede resumir brevemente la materia?' },
-            { de: 'Ich verstehe das Schulsystem hier noch nicht ganz.', es: 'Todavía no entiendo bien el sistema escolar de aquí.' },
-            { de: 'Ich kann es Ihnen auch zeigen.', es: 'También se lo puedo enseñar.' }
+            { de: 'Ich verstehe das Schulsystem hier noch nicht ganz.', es: 'Todavía no entiendo bien el sistema escolar de aquí.' }
           ]
         }
       ]
@@ -2184,95 +2112,41 @@ export const A21 = {
           funktion: 'über den Feierabend sprechen',
           es: 'Hablar del descanso tras el trabajo',
           wendungen: [
-            { de: 'Was machst du nach der Arbeit meistens?', es: '¿Qué sueles hacer después del trabajo?' },
-            { de: 'Ich brauche nach der Arbeit erst einmal Ruhe.', es: 'Después del trabajo necesito primero tranquilidad.' },
-            { de: 'Gehst du unter der Woche aus?', es: '¿Sales entre semana?' },
-            { de: 'Heute faulenze ich einfach.', es: 'Hoy simplemente me dedico a no hacer nada.' },
-            { de: 'Hast du Lust, heute noch wegzugehen?', es: '¿Te apetece salir hoy?' },
-            { de: 'Am Freitag bleibe ich prinzipiell zu Hause.', es: 'Los viernes por principio me quedo en casa.' },
-            { de: 'Wie schaltest du nach einem harten Tag ab?', es: '¿Cómo desconectas después de un día duro?' },
-            { de: 'Nach der Spätschicht bin ich zu nichts zu gebrauchen.', es: 'Después del turno de tarde no sirvo para nada.' },
-            { de: 'Schaffst du es, abends wirklich abzuschalten?', es: '¿Consigues desconectar de verdad por la noche?' },
-            { de: 'Was ist für dich die größte Ablenkung?', es: '¿Cuál es para ti la mayor distracción?' }
+            { de: 'Was machst du nach der Arbeit meistens?', es: '¿Qué sueles hacer después del trabajo?' }
           ]
         },
         {
           funktion: 'jemanden überreden und animieren',
           es: 'Convencer y animar a alguien',
           wendungen: [
-            { de: 'Komm schon, das wird bestimmt lustig!', es: '¡Venga, seguro que es divertido!' },
-            { de: 'Nur eine Folge, bitte!', es: '¡Solo un capítulo, porfa!' },
-            { de: 'Sei doch nicht so!', es: '¡No seas así!' },
-            { de: 'Jetzt komm mit, das wird sicher lustig!', es: '¡Vente ya, seguro que es divertido!' },
-            { de: 'Eine Folge noch, bitte!', es: '¡Un episodio más, porfa!' },
-            { de: 'Sei doch nicht so, das macht Spaß.', es: 'No seas así, es divertido.' },
-            { de: 'Probier es wenigstens einmal.', es: 'Pruébalo al menos una vez.' },
-            { de: 'Alle anderen kommen auch mit.', es: 'Todos los demás también vienen.' },
-            { de: 'Du bereust es sicher nicht.', es: 'Seguro que no te arrepientes.' },
-            { de: 'Es dauert doch nur eine halbe Stunde.', es: 'Si solo dura media hora.' }
+            { de: 'Jetzt komm mit, das wird sicher lustig!', es: '¡Vente ya, seguro que es divertido!' }
           ]
         },
         {
           funktion: 'etwas versprechen',
           es: 'Hacer una promesa',
           wendungen: [
-            { de: 'Ich verspreche dir, dass ich morgen früh aufstehe.', es: 'Te prometo que mañana me levanto pronto.' },
-            { de: 'Ich halte mein Wort, das schwöre ich dir.', es: 'Cumplo mi palabra, te lo juro.' },
-            { de: 'Ich verspreche dir, morgen stehe ich früh auf.', es: 'Te prometo que mañana me levanto temprano.' },
-            { de: 'Darauf kannst du dich hundertprozentig verlassen.', es: 'Puedes contar con ello al cien por cien.' },
-            { de: 'Ich schwöre, ich habe es nicht gelöscht.', es: 'Te juro que no lo he borrado.' },
-            { de: 'Ich mache es heute Abend, ganz sicher.', es: 'Lo hago esta noche, seguro.' },
-            { de: 'Ich halte immer, was ich verspreche.', es: 'Siempre cumplo lo que prometo.' },
-            { de: 'Ich verspreche dir, ich prüfe künftig die Quelle.', es: 'Te prometo que a partir de ahora compruebo la fuente.' },
-            { de: 'Ab morgen reduziere ich meine Bildschirmzeit.', es: 'A partir de mañana reduzco mi tiempo de pantalla.' },
-            { de: 'Darauf kannst du dich verlassen, ich teile nichts.', es: 'Puedes contar con ello, no comparto nada.' }
+            { de: 'Ich verspreche dir, morgen stehe ich früh auf.', es: 'Te prometo que mañana me levanto temprano.' }
           ]
         },
         {
           funktion: 'auf ein Versprechen reagieren',
           es: 'Reaccionar a una promesa',
           wendungen: [
-            { de: 'Versprochen? – Versprochen!', es: '¿Prometido? – ¡Prometido!' },
-            { de: 'Ist das ein Versprechen?', es: '¿Eso es una promesa?' },
-            { de: 'Ich schaue nur eine Folge, versprochen.', es: 'Solo veo un episodio, prometido.' },
-            { de: 'Ich kümmere mich morgen darum, versprochen.', es: 'Me ocupo mañana, te lo prometo.' },
-            { de: 'Verlass dich drauf, das vergesse ich nicht.', es: 'Cuenta con ello, no se me olvida.' },
-            { de: 'Ich stehe dir jederzeit zur Verfügung.', es: 'Estoy a tu disposición cuando quieras.' },
-            { de: 'Wann hast du das letzte Mal etwas Neues probiert?', es: '¿Cuándo probaste algo nuevo por última vez?' },
-            { de: 'Lies wenigstens den Artikel zu Ende.', es: 'Léete al menos el artículo hasta el final.' },
-            { de: 'Komm schon, einmal offline schadet dir nicht.', es: 'Venga, un rato sin conexión no te hace daño.' },
-            { de: 'Hör dir den Podcast an, nur eine Folge.', es: 'Escucha el pódcast, solo un episodio.' }
+            { de: 'Ich schaue nur eine Folge, versprochen.', es: 'Solo veo un episodio, prometido.' }
           ]
         },
         {
           funktion: 'eine eigene Meinung äußern',
           es: 'Expresar una opinión propia',
           wendungen: [
-            { de: 'Meiner Meinung nach ist die Serie überbewertet.', es: 'En mi opinión, la serie está sobrevalorada.' },
-            { de: 'Ich finde, dass …', es: 'Yo creo que …' },
-            { de: 'Ich halte die Serie für überbewertet.', es: 'Considero que la serie está sobrevalorada.' },
-            { de: 'Ich finde, dass zu viel Werbung läuft.', es: 'Me parece que hay demasiada publicidad.' },
-            { de: 'Ich halte diese Nachricht für falsch.', es: 'Creo que esa noticia es falsa.' },
-            { de: 'Für mich ist das nur ein Gerücht.', es: 'Para mí eso es solo un rumor.' },
-            { de: 'Der Hauptdarsteller spielt hervorragend.', es: 'El protagonista actúa de maravilla.' },
-            { de: 'Ich bin der Meinung, dass man weniger Handy nutzen sollte.', es: 'Opino que se debería usar menos el móvil.' },
-            { de: 'Diese Schlagzeile finde ich übertrieben.', es: 'Ese titular me parece exagerado.' },
-            { de: 'Meiner Meinung nach ist die Quelle glaubwürdig.', es: 'En mi opinión la fuente es creíble.' }
+            { de: 'Meiner Meinung nach ist die Serie überbewertet.', es: 'En mi opinión, la serie está sobrevalorada.' }
           ]
         },
         {
           funktion: 'die Meinung anderer wiedergeben',
           es: 'Transmitir la opinión de otros',
           wendungen: [
-            { de: 'Er sagt, dass er lieber Dokus schaut.', es: 'Dice que prefiere ver documentales.' },
-            { de: 'Er meint, Dokus seien ihm lieber.', es: 'Dice que a él le gustan más los documentales.' },
-            { de: 'Sie meint, das Ende war unlogisch.', es: 'Ella opina que el final no tenía lógica.' },
-            { de: 'Sie sagt, der Bericht sei völlig neutral.', es: 'Ella dice que el informe es totalmente neutral.' },
-            { de: 'Für mich ist das reine Unterhaltung.', es: 'Para mí eso es puro entretenimiento.' },
-            { de: 'Wie stehst du zu dem Thema?', es: '¿Qué postura tienes sobre el tema?' },
-            { de: 'Was sagen deine Kollegen dazu?', es: '¿Qué dicen tus compañeros de eso?' },
-            { de: 'Sie behauptet, das sei längst entschieden.', es: 'Ella afirma que eso está decidido hace tiempo.' },
-            { de: 'Meiner Meinung nach ist das der falsche Weg.', es: 'En mi opinión ese es el camino equivocado.' },
             { de: 'Was hältst du von dem Interview?', es: '¿Qué te parece la entrevista?' }
           ]
         },
@@ -2280,15 +2154,6 @@ export const A21 = {
           funktion: 'sich über Fernsehserien und Medien austauschen',
           es: 'Hablar de series y consumo de medios',
           wendungen: [
-            { de: 'Wie viel Zeit verbringst du am Handy?', es: '¿Cuánto tiempo pasas con el móvil?' },
-            { de: 'Ich schaue kaum fern, aber ich höre viele Podcasts.', es: 'Casi no veo la tele, pero escucho muchos pódcast.' },
-            { de: 'Am Abend lese ich lieber.', es: 'Por la tarde prefiero leer.' },
-            { de: 'Was schaust du gerade?', es: '¿Qué estás viendo?' },
-            { de: 'Siehst du viel fern?', es: '¿Ves mucho la tele?' },
-            { de: 'Hörst du Podcasts?', es: '¿Escuchas pódcasts?' },
-            { de: 'Wie findest du die Serie?', es: '¿Qué te parece la serie?' },
-            { de: 'Wo hast du das gelesen?', es: '¿Dónde has leído eso?' },
-            { de: 'Schaltest du abends ab?', es: '¿Desconectas por la noche?' },
             { de: 'Welche Serie schaust du im Moment?', es: '¿Qué serie estás viendo ahora?' }
           ]
         },
@@ -2296,16 +2161,7 @@ export const A21 = {
           funktion: 'über Informationsquellen und Handyzeit sprechen',
           es: 'Hablar de fuentes de información y uso del móvil',
           wendungen: [
-            { de: 'Wie viel Zeit verbringst du täglich am Handy?', es: '¿Cuánto tiempo pasas al día con el móvil?' },
-            { de: 'Siehst du überhaupt noch fern?', es: '¿Todavía ves la tele?' },
-            { de: 'Hörst du Podcasts beim Pendeln?', es: '¿Escuchas pódcast al ir al trabajo?' },
-            { de: 'Wo informierst du dich über Nachrichten?', es: '¿Dónde te informas de las noticias?' },
-            { de: 'Schaust du mit oder ohne Untertitel?', es: '¿Ves con subtítulos o sin ellos?' },
-            { de: 'Hast du das Abo eigentlich gekündigt?', es: '¿Al final cancelaste la suscripción?' },
-            { de: 'Bist du in sozialen Medien aktiv?', es: '¿Eres activo en redes sociales?' },
-            { de: 'Wie findest du die neue Staffel?', es: '¿Qué te parece la nueva temporada?' },
-            { de: 'Schaltest du am Abend wirklich ab?', es: '¿De verdad desconectas por la noche?' },
-            { de: 'Wie hoch ist deine Bildschirmzeit pro Tag?', es: '¿Cuál es tu tiempo de pantalla al día?' }
+            { de: 'Wo informierst du dich über Nachrichten?', es: '¿Dónde te informas de las noticias?' }
           ]
         }
       ]

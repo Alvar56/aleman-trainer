@@ -72,129 +72,29 @@ const RESPUESTAS = {
 
 
   // ---- Lektion 5: In der Schule -------------------------------------------
-  'Das ist mir egal.':
-    { de: 'Dann entscheide ich einfach. Beschwer dich nachher nicht!', es: 'Pues decido yo. ¡Luego no te quejes!',
-      mas: [
-        { de: 'Na gut, dann sag ich doch was: lieber der Nachmittag.', es: 'Vale, pues sí digo algo: mejor por la tarde.' },
-        { de: 'Siehst du, es war dir doch nicht egal.', es: '¿Ves? Sí que te daba igual.' }
-      ] },
-  'Mir ist beides recht.':
-    { de: 'Gut, dann nehmen wir das erste.', es: 'Bien, pues el primero.',
-      mas: [
-        { de: 'Aber wenn es regnet, lieber drinnen.', es: 'Pero si llueve, mejor dentro.' },
-        { de: 'Klar. Ich schaue morgen früh auf das Wetter.', es: 'Claro. Mañana miro el tiempo.' }
-      ] },
-  'Wie du willst.':
-    { de: 'Nein, sag du es. Ich will dich nicht überreden.', es: 'No, dilo tú. No te quiero convencer.',
-      mas: [
-        { de: 'Dann sage ich es: lieber später.', es: 'Pues lo digo: mejor más tarde.' },
-        { de: 'Perfekt. Genau das wollte ich wissen.', es: 'Perfecto. Eso es justo lo que quería saber.' }
-      ] },
-  'Können Sie bitte langsamer sprechen?':
-    { de: 'Ja, natürlich. Entschuldigung, ich rede oft zu schnell.', es: 'Sí, claro. Perdone, hablo muy rápido a menudo.',
-      mas: [
-        { de: 'Jetzt verstehe ich Sie gut.', es: 'Ahora le entiendo bien.' },
-        { de: 'Sagen Sie es ruhig wieder, wenn ich schneller werde.', es: 'Dígamelo otra vez si vuelvo a acelerar.' }
-      ] },
-  'Soll ich es Ihnen aufschreiben?':
-    { de: 'Ja bitte, das wäre super.', es: 'Sí, por favor, sería genial.',
-      mas: [
-        { de: 'Vor allem die Namen und die Uhrzeit.', es: 'Sobre todo los nombres y la hora.' },
-        { de: 'Mache ich. Ich gebe es Ihnen gleich mit.', es: 'Lo hago. Se lo doy ahora mismo.' }
-      ] },
-  'Ich erkläre es Ihnen gern noch einmal.':
-    { de: 'Das ist sehr nett von Ihnen.', es: 'Es muy amable por su parte.',
-      mas: [
-        { de: 'Es ist mir ein bisschen unangenehm zu fragen.', es: 'Me da un poco de apuro preguntar.' },
-        { de: 'Das muss es nicht. Mir ist eine Frage lieber als ein Missverständnis.', es: 'No hace falta. Prefiero una pregunta a un malentendido.' }
-      ] },
-  'Ich bin mir nicht sicher.':
-    { de: 'Dann fragen wir lieber nach.', es: 'Pues mejor preguntamos.',
-      mas: [
-        { de: 'Wen fragen wir am besten?', es: '¿A quién preguntamos mejor?' },
-        { de: 'Die Klassenlehrerin. Sie weiß so etwas immer.', es: 'A la tutora. Esas cosas siempre las sabe.' }
-      ] },
-  'Ich glaube schon, aber ich weiß es nicht genau.':
-    { de: 'Wir schauen einfach nach. Das Mitteilungsheft liegt in der Schultasche.', es: 'Lo miramos y ya está. El cuaderno de notas está en la mochila.',
-      mas: [
-        { de: 'Hier steht es: Ausflug am Freitag.', es: 'Aquí está: excursión el viernes.' },
-        { de: 'Gut, dass wir nachgeschaut haben.', es: 'Menos mal que lo hemos mirado.' }
-      ] },
-  'Vielleicht, das kann ich nicht sagen.':
-    { de: 'Kein Problem, ich frage jemand anderen.', es: 'No pasa nada, pregunto a otra persona.',
-      mas: [
-        { de: 'Ich frage heute Abend zu Hause nach.', es: 'Lo pregunto esta noche en casa.' },
-        { de: 'Danke. Dann warten wir damit bis morgen.', es: 'Gracias. Pues lo dejamos para mañana.' }
-      ] },
+
+
+
+
+
+
+
+
+
 
   // ---- Lektion 6: Feierabend ----------------------------------------------
-  'Komm schon, das wird bestimmt lustig!':
-    { de: 'Na gut, du hast mich überredet.', es: 'Está bien, me has convencido.',
-      mas: [
-        { de: 'Aber ich bleibe nicht bis zwei Uhr nachts.', es: 'Pero no me quedo hasta las dos.' },
-        { de: 'Abgemacht. Um zwölf gehen wir beide.', es: 'Hecho. A las doce nos vamos los dos.' }
-      ] },
-  'Nur eine Folge, bitte!':
-    { de: 'Das sagst du jedes Mal!', es: '¡Eso dices siempre!',
-      mas: [
-        { de: 'Diesmal meine ich es ernst.', es: 'Esta vez lo digo en serio.' },
-        { de: 'Dann stelle ich den Wecker auf eine Stunde.', es: 'Pues pongo la alarma en una hora.' }
-      ] },
-  'Sei doch nicht so!':
-    { de: 'Ist ja gut, ich komme mit.', es: 'Vale, vale, me apunto.',
-      mas: [
-        { de: 'Aber wir gehen früh, ja?', es: 'Pero nos vamos pronto, ¿eh?' },
-        { de: 'Klar. Ich muss morgen auch um sechs raus.', es: 'Claro. Yo también me levanto a las seis.' }
-      ] },
-  'Ich verspreche dir, dass ich morgen früh aufstehe.':
-    { de: 'Das will ich sehen! Stell dir lieber gleich zwei Wecker.', es: '¡Eso quiero verlo! Ponte mejor dos despertadores.',
-      mas: [
-        { de: 'Zwei sind schon gestellt, einer im Bad.', es: 'Ya tengo dos puestos, uno en el baño.' },
-        { de: 'Im Bad? Das ist die einzige Methode, die bei dir wirkt.', es: '¿En el baño? Es lo único que te funciona.' }
-      ] },
-  'Versprochen? – Versprochen!':
-    { de: 'Gut, ich verlasse mich auf dich.', es: 'Bien, cuento contigo.',
-      mas: [
-        { de: 'Diesmal enttäusche ich dich nicht.', es: 'Esta vez no te fallo.' },
-        { de: 'Das hoffe ich. Sonst gehe ich allein.', es: 'Eso espero. Si no, voy sola.' }
-      ] },
 
-  'Meiner Meinung nach ist die Serie überbewertet.':
-    { de: 'Da bin ich anderer Meinung.', es: 'Yo opino lo contrario.',
-      mas: [
-        { de: 'Mir ist sie einfach zu langsam.', es: 'A mí se me hace muy lenta.' },
-        { de: 'Das stimmt, aber genau das mag ich daran.', es: 'Es verdad, pero eso es lo que me gusta.' }
-      ] },
-  'Ich finde, dass …':
-    { de: 'Interessant. Warum siehst du das so?', es: 'Interesante. ¿Por qué lo ves así?',
-      mas: [
-        { de: 'Weil das Ende einfach nicht passt.', es: 'Porque el final no encaja.' },
-        { de: 'Da hast du vielleicht recht. Darüber habe ich nicht nachgedacht.', es: 'Quizá tengas razón. No lo había pensado.' }
-      ] },
-  'Er sagt, dass er lieber Dokus schaut.':
-    { de: 'Typisch! Er sieht nie etwas Lustiges.', es: '¡Típico! Nunca ve nada divertido.',
-      mas: [
-        { de: 'Er hat mir eine über Wien empfohlen.', es: 'Me recomendó una sobre Viena.' },
-        { de: 'Die kenne ich. Die ist wirklich gut gemacht.', es: 'Esa la conozco. Está muy bien hecha.' }
-      ] },
-  'Wie viel Zeit verbringst du am Handy?':
-    { de: 'Zu viel, ehrlich gesagt. Die App zeigt mir jeden Sonntag drei Stunden.', es: 'Demasiado, sinceramente. La aplicación me marca tres horas cada domingo.',
-      mas: [
-        { de: 'Drei Stunden? Bei mir sind es vier.', es: '¿Tres horas? Yo tengo cuatro.' },
-        { de: 'Dann sind wir beide verloren.', es: 'Pues estamos los dos perdidos.' }
-      ] },
-  'Ich schaue kaum fern, aber ich höre viele Podcasts.':
-    { de: 'Welchen kannst du empfehlen? Am liebsten etwas auf einfachem Deutsch.', es: '¿Cuál me recomiendas? Preferiblemente algo en alemán sencillo.',
-      mas: [
-        { de: 'Es gibt einen für Deutschlernende, zehn Minuten am Tag.', es: 'Hay uno para quien aprende alemán, diez minutos al día.' },
-        { de: 'Zehn Minuten schaffe ich. Schick ihn mir bitte.', es: 'Diez minutos los saco. Mándamelo.' }
-      ] },
-  'Am Abend lese ich lieber.':
-    { de: 'Und was liest du gerade?', es: '¿Y qué estás leyendo?',
-      mas: [
-        { de: 'Einen Krimi, auf Deutsch. Langsam, aber es geht.', es: 'Una novela policíaca, en alemán. Despacio, pero va.' },
-        { de: 'Respekt. Ich lese immer noch auf Spanisch.', es: 'Respeto. Yo sigo leyendo en español.' }
-      ] },
+
+
+
+
+
+
+
+
+
+
+
 
   // ---- Lektion 7: Der Umzug -----------------------------------------------
   'Na gut, von mir aus.':
@@ -737,34 +637,16 @@ const RESPUESTAS = {
 
 
 
-  'Was schaust du gerade?':
-    { de: 'Eine Serie auf Deutsch, mit Untertiteln.', es: 'Una serie en alemán, con subtítulos.' },
-  'Siehst du viel fern?':
-    { de: 'Kaum, ich streame lieber. Dann schaue ich, wann ich will.', es: 'Casi nada, prefiero el streaming. Así veo cuando quiero.' },
-  'Hörst du Podcasts?':
-    { de: 'Ja, jeden Morgen im Zug.', es: 'Sí, cada mañana en el tren.' },
-  'Wie findest du die Serie?':
-    { de: 'Die ersten Folgen waren besser.', es: 'Los primeros capítulos eran mejores.' },
-  'Wo hast du das gelesen?':
-    { de: 'In den Nachrichten heute Morgen.', es: 'En las noticias de esta mañana.' },
-  'Schaltest du abends ab?':
-    { de: 'Ich versuche es, klappt aber selten.', es: 'Lo intento, pero casi nunca lo consigo.' },
-  'Wann bekommen wir das Zeugnis?':
-    { de: 'Am letzten Schultag, zusammen mit der Information über das nächste Jahr.', es: 'El último día de clase, junto con la información del curso que viene.',
-      mas: [
-        { de: 'Kommt die Information auch per Mail?', es: '¿La información llega también por correo?' },
-        { de: 'Ja, am selben Tag. Prüfen Sie bitte den Spam-Ordner.', es: 'Sí, el mismo día. Mire también en la carpeta de spam.' }
-      ] },
-  'Mein Sohn war krank.':
-    { de: 'Bringen Sie bitte eine Entschuldigung mit.', es: 'Traiga un justificante, por favor.',
-      mas: [
-        { de: 'Reicht eine von mir oder muss sie vom Arzt sein?', es: '¿Basta una mía o tiene que ser del médico?' },
-        { de: 'Bis drei Tage reicht Ihre. Danach brauchen wir ein Attest.', es: 'Hasta tres días basta la suya. Después necesitamos un justificante médico.' }
-      ] },
-  'Wie läuft es in der Klasse?':
-    { de: 'Sehr gut, er macht gut mit.', es: 'Muy bien, participa mucho.' },
-  'Gibt es Hausaufgaben über die Ferien?':
-    { de: 'Nur ein bisschen Lesen, zwanzig Minuten am Tag reichen völlig.', es: 'Solo leer un poco, veinte minutos al día bastan de sobra.' },
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1582,246 +1464,86 @@ const RESPUESTAS = {
 
 
 
-  'Ich denke, wir haben alles besprochen.':
-    { de: 'Von meiner Seite ja. Vielen Dank für Ihre Zeit.', es: 'Por mi parte sí. Muchas gracias por su tiempo.',
-      mas: [
-        { de: 'Eine Sache noch: der Ausflug im Mai.', es: 'Una cosa más: la excursión de mayo.' },
-        { de: 'Stimmt. Die Anmeldung kommt nächste Woche.', es: 'Es verdad. La inscripción llega la semana que viene.' }
-      ] },
-  'Schönen Tag noch und auf Wiedersehen.':
-    { de: 'Ihnen auch. Grüßen Sie bitte Ihre Frau von mir.', es: 'Igualmente. Salude a su mujer de mi parte.',
-      mas: [
-        { de: 'Mache ich gern. Bis zum nächsten Mal.', es: 'Con mucho gusto. Hasta la próxima.' },
-        { de: 'Bis dann. Und melden Sie sich, wenn etwas ist.', es: 'Hasta entonces. Y avise si pasa algo.' }
-      ] },
-  'Das ist mir ehrlich gesagt egal.':
-    { de: 'Dann entscheide ich. Wir nehmen den Donnerstag.', es: 'Pues decido yo. Cogemos el jueves.' },
-  'Von mir aus beides, such du aus.':
-    { de: 'Gut, dann machen wir es so, wie es für die Kinder passt.', es: 'Bien, lo hacemos como les venga bien a los niños.' },
-  'Mach einfach, wie du willst.':
-    { de: 'Sag mir ruhig deine Meinung. Ich frage ja nicht umsonst.', es: 'Dime tu opinión tranquilamente. Por algo pregunto.' },
-  'Das spielt für mich keine Rolle.':
-    { de: 'Für mich schon. Deswegen frage ich noch einmal nach.', es: 'Para mí sí. Por eso lo vuelvo a preguntar.' },
-  'Von mir aus gern, aber es muss nicht sein.':
-    { de: 'Dann lassen wir es. Wir haben ohnehin genug zu tun.', es: 'Pues lo dejamos. De todos modos tenemos bastante que hacer.' },
-  'Ist mir eigentlich ziemlich gleich.':
-    { de: 'Das merkt man. Interessiert dich das Thema gar nicht?', es: 'Se nota. ¿No te interesa nada el tema?' },
-  'Könnten Sie bitte etwas langsamer sprechen?':
-    { de: 'Natürlich. Sagen Sie mir Bescheid, wenn ich wieder zu schnell werde.', es: 'Claro. Dígame si vuelvo a ir demasiado rápido.' },
-  'Ich kann es Ihnen gern noch einmal erklären.':
-    { de: 'Bitte. Besonders den Teil mit der Anmeldung.', es: 'Por favor. Sobre todo la parte del registro.' },
-  'Gibt es das auch auf Spanisch?':
-    { de: 'Das Merkblatt ja. Ich drucke es Ihnen gleich aus.', es: 'La hoja informativa sí. Se la imprimo ahora.' },
-  'Sagen Sie es bitte mit einfachen Worten.':
-    { de: 'Gern: Ihr Sohn braucht Hilfe in Mathematik, sonst nichts.', es: 'Con gusto: su hijo necesita ayuda en matemáticas, nada más.' },
-  'Bitte unterbrechen Sie mich, wenn etwas unklar ist.':
-    { de: 'Danke, das mache ich. Sonst nicke ich nur und verstehe nichts.', es: 'Gracias, lo haré. Si no, solo asiento y no entiendo nada.' },
-  'Ich bin mir da nicht ganz sicher.':
-    { de: 'Dann fragen wir lieber nach, bevor wir etwas Falsches machen.', es: 'Pues mejor preguntamos antes de hacer algo mal.' },
-  'Ich denke ja, sicher bin ich mir aber nicht.':
-    { de: 'Schau bitte im Mitteilungsheft nach. Dort steht es sicher.', es: 'Mira en el cuaderno de notas. Ahí seguro que está.' },
-  'Das kann ich leider nicht sagen.':
-    { de: 'Wer könnte es wissen? Die Klassenlehrerin vielleicht?', es: '¿Quién lo podría saber? ¿Quizá la tutora?' },
-  'Vielleicht, vielleicht auch nicht.':
-    { de: 'Das hilft mir wenig. Wann wissen wir mehr?', es: 'Eso me ayuda poco. ¿Cuándo sabremos más?' },
-  'Ich müsste das erst nachlesen.':
-    { de: 'Kein Problem. Sagen Sie mir einfach morgen Bescheid.', es: 'No hay problema. Avíseme mañana sin más.' },
-  'Ehrlich gesagt habe ich keine Ahnung.':
-    { de: 'Danke für die Ehrlichkeit. Dann suchen wir es gemeinsam.', es: 'Gracias por la sinceridad. Pues lo buscamos juntos.' },
-  'Wann bekommen die Kinder das Zeugnis?':
-    { de: 'Am letzten Schultag vor den Ferien, immer am Vormittag.', es: 'El último día de clase antes de las vacaciones, siempre por la mañana.',
-      mas: [
-        { de: 'Muss ich es unterschreiben und zurückgeben?', es: '¿Tengo que firmarlo y devolverlo?' },
-        { de: 'Nur die Kopie. Das Original bleibt bei Ihnen.', es: 'Solo la copia. El original se queda con usted.' }
-      ] },
-  'Mein Sohn war gestern krank.':
-    { de: 'Danke für die Info. Eine kurze schriftliche Entschuldigung brauche ich trotzdem.', es: 'Gracias por avisar. Aun así necesito un justificante por escrito.' },
-  'Wie kommt mein Kind in der Klasse zurecht?':
-    { de: 'Gut. Er ist ruhig, aber er meldet sich immer öfter.', es: 'Bien. Es tranquilo, pero cada vez participa más.' },
-  'Bekommen die Kinder Aufgaben für die Ferien?':
-    { de: 'Nur Lesen. Zwanzig Minuten am Tag reichen völlig.', es: 'Solo leer. Veinte minutos al día bastan de sobra.' },
-  'Braucht mein Kind Nachhilfe?':
-    { de: 'In Mathematik wäre es sinnvoll. In Deutsch reicht üben zu Hause.', es: 'En matemáticas tendría sentido. En alemán basta con practicar en casa.' },
-  'Wann ist der nächste Elternsprechtag?':
-    { de: 'Am zwölften November. Sie können sich online anmelden.', es: 'El doce de noviembre. Se pueden apuntar por internet.' },
-  'Welche Schulbücher müssen wir kaufen?':
-    { de: 'Keine. Die Liste bekommen die Kinder, die Bücher stellt die Schule.', es: 'Ninguno. Los niños reciben la lista, los libros los pone el colegio.',
-      mas: [
-        { de: 'Und Hefte und Stifte?', es: '¿Y cuadernos y bolígrafos?' },
-        { de: 'Die schon. Die Liste kommt in der ersten Woche.', es: 'Eso sí. La lista llega la primera semana.' }
-      ] },
-  'Wie viel kostet die Nachmittagsbetreuung?':
-    { de: 'Achtzig Euro im Monat, mit Mittagessen hundertzwanzig.', es: 'Ochenta euros al mes, con comida ciento veinte.',
-      mas: [
-        { de: 'Gibt es eine Ermäßigung für zwei Kinder?', es: '¿Hay descuento por dos hijos?' },
-        { de: 'Ja, das zweite Kind zahlt die Hälfte.', es: 'Sí, el segundo paga la mitad.' }
-      ] },
-  'Darf mein Kind allein nach Hause gehen?':
-    { de: 'Ab der dritten Klasse ja, mit Ihrer schriftlichen Erlaubnis.', es: 'A partir de tercero sí, con su permiso por escrito.',
-      mas: [
-        { de: 'Wo bekomme ich dieses Formular?', es: '¿Dónde consigo ese formulario?' },
-        { de: 'Im Sekretariat, oder ich gebe es ihm morgen mit.', es: 'En secretaría, o se lo doy mañana a él.' }
-      ] },
-  'Ist die Schularbeit schon korrigiert?':
-    { de: 'Bis Freitag. Die Kinder bekommen sie dann zurück.', es: 'Para el viernes. Los niños lo recibirán entonces.' },
-  'Mein Kind hat Schwierigkeiten mit der Sprache.':
-    { de: 'Das sehe ich auch. Wir können ihn in die Sprachförderung nehmen.', es: 'Yo también lo veo. Lo podemos meter en apoyo lingüístico.',
-      mas: [
-        { de: 'Wie viele Stunden pro Woche wären das?', es: '¿Cuántas horas a la semana serían?' },
-        { de: 'Zwei, immer am Dienstag und Donnerstag nach dem Unterricht.', es: 'Dos, siempre martes y jueves después de clase.' }
-      ] },
-  'Er kann sich in der Klasse schlecht konzentrieren.':
-    { de: 'Ich setze ihn weiter nach vorne. Das hilft bei vielen Kindern.', es: 'Lo pongo más adelante. A muchos niños les ayuda.',
-      mas: [
-        { de: 'Zu Hause ist es genauso.', es: 'En casa pasa lo mismo.' },
-        { de: 'Dann probieren Sie kürzere Einheiten, zwanzig Minuten mit Pause.', es: 'Pruebe con ratos más cortos, veinte minutos con pausa.' }
-      ] },
-  'Wie kann ich zu Hause besser helfen?':
-    { de: 'Lassen Sie ihn laut vorlesen, jeden Tag zehn Minuten.', es: 'Déjele leer en voz alta, diez minutos al día.',
-      mas: [
-        { de: 'Auf Deutsch? Mein Deutsch ist nicht perfekt.', es: '¿En alemán? Mi alemán no es perfecto.' },
-        { de: 'Das macht nichts. Er liest, Sie hören zu. Das genügt.', es: 'No importa. Él lee y usted escucha. Con eso basta.' }
-      ] },
-  'Ist meine Tochter im Unterricht aktiv?':
-    { de: 'Sehr. Manchmal so aktiv, dass die anderen nicht drankommen.', es: 'Mucho. A veces tanto que los demás no llegan a intervenir.' },
-  'Seine Noten haben sich stark verbessert.':
-    { de: 'Stimmt. Er arbeitet seit dem Sommer viel fleißiger.', es: 'Es verdad. Desde el verano trabaja mucho más.' },
-  'Gibt es Probleme mit den Mitschülern?':
-    { de: 'Nichts Ernstes. Kleine Streitereien, wie in jeder Klasse.', es: 'Nada serio. Peleíllas, como en cualquier clase.' },
-  'Sollten wir die Schule wechseln?':
-    { de: 'Das würde ich jetzt nicht tun. Geben Sie ihm noch ein Jahr.', es: 'Yo ahora no lo haría. Denle un año más.' },
-  'Welchen Abschluss kann er später machen?':
-    { de: 'Mit diesen Noten steht ihm fast alles offen, auch die Matura.', es: 'Con estas notas tiene casi todo abierto, también el bachillerato.' },
-  'Er ist begabt, aber ziemlich faul.':
-    { de: 'Das höre ich oft von Eltern. Meistens ändert sich das mit vierzehn.', es: 'Eso lo oigo mucho de los padres. Normalmente cambia a los catorce.' },
-  'Vielen Dank für Ihre Geduld mit ihm.':
-    { de: 'Gern. Er ist ein netter Bub, das macht es leicht.', es: 'De nada. Es un chico majo, eso lo hace fácil.' },
-  'Jetzt komm mit, das wird sicher lustig!':
-    { de: 'Na gut, aber nur bis elf. Morgen muss ich früh raus.', es: 'Bueno, pero solo hasta las once. Mañana madrugo.' },
-  'Eine Folge noch, bitte!':
-    { de: 'Das sagst du jedes Mal. Und dann werden es vier.', es: 'Eso dices siempre. Y luego se convierten en cuatro.' },
-  'Sei doch nicht so, das macht Spaß.':
-    { de: 'Von mir aus. Aber du suchst den Film aus, nicht ich.', es: 'Por mí vale. Pero eliges tú la película, no yo.' },
-  'Probier es wenigstens einmal.':
-    { de: 'Also gut, eine Folge. Wenn sie langweilig ist, höre ich auf.', es: 'Está bien, un episodio. Si es aburrido, lo dejo.' },
-  'Alle anderen kommen auch mit.':
-    { de: 'Das ist kein gutes Argument, aber gut, ich komme.', es: 'Ese no es un buen argumento, pero bueno, voy.' },
-  'Du bereust es sicher nicht.':
-    { de: 'Das hast du beim letzten Film auch gesagt.', es: 'Eso dijiste también con la última película.' },
-  'Es dauert doch nur eine halbe Stunde.':
-    { de: 'Dann schau ich es mir an. Aber danach schlafe ich.', es: 'Entonces lo veo. Pero después me duermo.' },
-  'Wann hast du das letzte Mal etwas Neues probiert?':
-    { de: 'Treffer. Gut, ich bin dabei.', es: 'Tocado. Bueno, me apunto.' },
-  'Ich verspreche dir, morgen stehe ich früh auf.':
-    { de: 'Das will ich sehen. Stell dir lieber zwei Wecker.', es: 'Eso quiero verlo. Ponte mejor dos despertadores.',
-      mas: [
-        { de: 'Und wenn nicht, mache ich das Frühstück eine Woche lang.', es: 'Y si no, hago yo el desayuno una semana.' },
-        { de: 'Das nehme ich an. Abgemacht ist abgemacht.', es: 'Acepto. Lo dicho, dicho está.' }
-      ] },
-  'Ist das ein Versprechen?':
-    { de: 'Gut. Und diesmal gilt es wirklich, ja?', es: 'Bien. Y esta vez va en serio, ¿eh?',
-      mas: [
-        { de: 'Ja, diesmal wirklich.', es: 'Sí, esta vez de verdad.' },
-        { de: 'Gut. Ich erinnere dich am Freitag daran.', es: 'Bien. Te lo recuerdo el viernes.' }
-      ] },
-  'Darauf kannst du dich hundertprozentig verlassen.':
-    { de: 'Dann bin ich beruhigt. Ich sage es gleich den anderen.', es: 'Entonces me quedo tranquilo. Se lo digo ahora a los demás.' },
-  'Ich schwöre, ich habe es nicht gelöscht.':
-    { de: 'Dann war es wohl das Update. Schauen wir im Papierkorb.', es: 'Entonces habrá sido la actualización. Miramos en la papelera.' },
-  'Ich mache es heute Abend, ganz sicher.':
-    { de: 'Schreib es dir auf. Sonst vergisst du es wie letztes Mal.', es: 'Apúntatelo. Si no, se te olvida como la última vez.' },
-  'Ich halte immer, was ich verspreche.':
-    { de: 'Das stimmt tatsächlich. Deshalb frage ich dich zuerst.', es: 'La verdad es que es cierto. Por eso te pregunto a ti primero.' },
-  'Ich halte die Serie für überbewertet.':
-    { de: 'Findest du? Die zweite Staffel wird deutlich besser.', es: '¿Tú crees? La segunda temporada mejora bastante.',
-      mas: [
-        { de: 'Dann gebe ich ihr noch eine Chance.', es: 'Pues le doy otra oportunidad.' },
-        { de: 'Fang direkt mit Staffel zwei an. Die erste kannst du überspringen.', es: 'Empieza por la segunda temporada. La primera te la puedes saltar.' }
-      ] },
-  'Ich finde, dass zu viel Werbung läuft.':
-    { de: 'Deswegen zahle ich das Abo. Ohne Werbung ist es ein anderes Leben.', es: 'Por eso pago la suscripción. Sin publicidad es otra vida.' },
-  'Er meint, Dokus seien ihm lieber.':
-    { de: 'Das passt zu ihm. Er weiß über alles Bescheid.', es: 'Eso le pega. Está al tanto de todo.',
-      mas: [
-        { de: 'Schaut er auch etwas auf Deutsch?', es: '¿Ve algo en alemán?' },
-        { de: 'Nur auf Deutsch, mit Untertiteln. So lernt er nebenbei.', es: 'Solo en alemán, con subtítulos. Así aprende de paso.' }
-      ] },
-  'Sie meint, das Ende war unlogisch.':
-    { de: 'Da hat sie recht. Die letzte Folge erklärt gar nichts.', es: 'En eso tiene razón. El último episodio no explica nada.',
-      mas: [
-        { de: 'Hat sie gesagt, was sie gestört hat?', es: '¿Dijo qué le molestó?' },
-        { de: 'Dass die halbe Geschichte offen bleibt.', es: 'Que media historia queda abierta.' }
-      ] },
-  'Ich halte diese Nachricht für falsch.':
-    { de: 'Dann prüf die Quelle. Oft steht sie gar nicht dabei.', es: 'Pues comprueba la fuente. A menudo ni aparece.' },
-  'Für mich ist das nur ein Gerücht.':
-    { de: 'Sehe ich auch so. Keine einzige Zeitung berichtet darüber.', es: 'Yo también lo veo así. Ni un periódico lo cuenta.' },
-  'Der Hauptdarsteller spielt hervorragend.':
-    { de: 'Ja, aber die Geschichte selbst ist ziemlich dünn.', es: 'Sí, pero la historia en sí es bastante floja.' },
-  'Ich bin der Meinung, dass man weniger Handy nutzen sollte.':
-    { de: 'Theoretisch stimme ich zu. Praktisch schaffe ich es nicht.', es: 'En teoría estoy de acuerdo. En la práctica no lo consigo.' },
-  'Was hältst du von dem Interview?':
-    { de: 'Der Moderator hat gut gefragt, die Antworten waren aber leer.', es: 'El presentador preguntó bien, pero las respuestas estaban vacías.' },
-  'Wie viel Zeit verbringst du täglich am Handy?':
-    { de: 'Zu viel, ungefähr drei Stunden. Das Handy zeigt es mir jeden Sonntag.', es: 'Demasiado, unas tres horas. El móvil me lo enseña cada domingo.',
-      mas: [
-        { de: 'Und hast du schon einmal versucht, es zu reduzieren?', es: '¿Y has intentado alguna vez reducirlo?' },
-        { de: 'Ja, mit einer App. Nach drei Tagen habe ich die App gelöscht.', es: 'Sí, con una aplicación. A los tres días borré la aplicación.' }
-      ] },
-  'Siehst du überhaupt noch fern?':
-    { de: 'Nur die Nachrichten. Alles andere schaue ich im Netz.', es: 'Solo las noticias. Todo lo demás lo veo en internet.',
-      mas: [
-        { de: 'Welche Nachrichten schaust du?', es: '¿Qué informativo ves?' },
-        { de: 'Die ZIB um halb acht. Die sind kurz und deutlich gesprochen.', es: 'El ZIB de las siete y media. Es corto y hablan claro.' }
-      ] },
-  'Hörst du Podcasts beim Pendeln?':
-    { de: 'Jeden Morgen. So lerne ich sogar nebenbei Deutsch.', es: 'Todas las mañanas. Así hasta aprendo alemán de paso.',
-      mas: [
-        { de: 'Verstehst du denn alles?', es: '¿Lo entiendes todo?' },
-        { de: 'Nicht alles. Aber jede Woche ein bisschen mehr.', es: 'Todo no. Pero cada semana un poco más.' }
-      ] },
-  'Wo informierst du dich über Nachrichten?':
-    { de: 'Eine Zeitung und ein Radiosender. Sozialen Medien traue ich nicht.', es: 'Un periódico y una emisora. De las redes no me fío.' },
-  'Welche Serie schaust du im Moment?':
-    { de: 'Eine spanische Serie mit deutschen Untertiteln. Doppelt nützlich.', es: 'Una serie española con subtítulos en alemán. Doblemente útil.' },
-  'Schaust du mit oder ohne Untertitel?':
-    { de: 'Mit, immer. Ohne verstehe ich nur die Hälfte.', es: 'Con, siempre. Sin ellos solo entiendo la mitad.' },
-  'Hast du das Abo eigentlich gekündigt?':
-    { de: 'Noch nicht. Ich schiebe es seit drei Monaten vor mir her.', es: 'Todavía no. Llevo tres meses aplazándolo.' },
-  'Bist du in sozialen Medien aktiv?':
-    { de: 'Ich lese mit, poste aber fast nie etwas.', es: 'Leo, pero casi nunca publico nada.' },
-  'Wie findest du die neue Staffel?':
-    { de: 'Schwächer als die erste, aber ich schaue trotzdem weiter.', es: 'Más floja que la primera, pero sigo viéndola igual.' },
-  'Schaltest du am Abend wirklich ab?':
-    { de: 'Seit ich das Handy aus dem Schlafzimmer verbannt habe, ja.', es: 'Desde que desterré el móvil del dormitorio, sí.' },
-  'Was machst du nach der Arbeit meistens?':
-    { de: 'Erst eine Stunde nichts. Danach koche ich und lese.', es: 'Primero una hora sin hacer nada. Después cocino y leo.',
-      mas: [
-        { de: 'Und am Wochenende? Auch so ruhig?', es: '¿Y el fin de semana? ¿También tan tranquilo?' },
-        { de: 'Samstag ja, Sonntag sind wir immer bei meinen Schwiegereltern.', es: 'El sábado sí, el domingo siempre estamos en casa de mis suegros.' }
-      ] },
-  'Ich brauche nach der Arbeit erst einmal Ruhe.':
-    { de: 'Das geht mir genauso. Reden kann ich erst nach dem Essen.', es: 'A mí me pasa igual. No puedo hablar hasta después de cenar.',
-      mas: [
-        { de: 'Eine halbe Stunde reicht mir schon.', es: 'Con media hora me basta.' },
-        { de: 'Dann esse ich vor und wir reden danach.', es: 'Pues ceno antes y hablamos después.' }
-      ] },
-  'Gehst du unter der Woche aus?':
-    { de: 'Selten. Höchstens am Donnerstag auf ein Glas.', es: 'Pocas veces. Como mucho el jueves a tomar algo.',
-      mas: [
-        { de: 'Donnerstag ist bei mir auch der einzige Tag.', es: 'El jueves es también mi único día.' },
-        { de: 'Dann machen wir das nächste Woche fix aus.', es: 'Pues lo dejamos apalabrado para la semana que viene.' }
-      ] },
-  'Heute faulenze ich einfach.':
-    { de: 'Das hast du dir verdient. Die Woche war brutal.', es: 'Te lo has ganado. La semana ha sido brutal.' },
-  'Hast du Lust, heute noch wegzugehen?':
-    { de: 'Ehrlich? Nein. Aber überrede mich ruhig.', es: '¿Sinceramente? No. Pero convénceme.' },
-  'Am Freitag bleibe ich prinzipiell zu Hause.':
-    { de: 'Klug. Überall ist es voll und alles ist teurer.', es: 'Inteligente. Está todo lleno y todo más caro.' },
-  'Wie schaltest du nach einem harten Tag ab?':
-    { de: 'Laufen gehen. Nach zwanzig Minuten ist der Kopf leer.', es: 'Saliendo a correr. A los veinte minutos la cabeza está vacía.' },
-  'Nach der Spätschicht bin ich zu nichts zu gebrauchen.':
-    { de: 'Verständlich. Schlaf dich aus, wir reden morgen.', es: 'Es comprensible. Duerme bien, hablamos mañana.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Fangen wir mit der Küche an?':
     { de: 'Lieber das Schlafzimmer. Dort können wir wenigstens schon schlafen.', es: 'Mejor el dormitorio. Allí al menos ya podemos dormir.',
       mas: [
@@ -2322,80 +2044,33 @@ const RESPUESTAS = {
 
 
 
-  'Dann probieren wir es bis zum Semesterende so.':
-    { de: 'Einverstanden. Im Februar sprechen wir noch einmal darüber.', es: 'De acuerdo. En febrero lo volvemos a hablar.',
-      mas: [
-        { de: 'Soll ich Ihnen vorher schreiben, wenn es nicht klappt?', es: '¿Le escribo antes si no funciona?' },
-        { de: 'Bitte. Warten Sie nicht bis Februar.', es: 'Por favor. No espere hasta febrero.' }
-      ] },
-  'Ich denke, wir sind uns einig.':
-    { de: 'Ja. Vielen Dank, dass Sie sich die Zeit genommen haben.', es: 'Sí. Muchas gracias por dedicar el tiempo.' },
-  'Sagen Sie mir Bescheid, wenn sich etwas ändert.':
-    { de: 'Mache ich. Am besten gleich über das Mitteilungsheft.', es: 'Lo haré. Mejor directamente por el cuaderno de notas.' },
-  'Ob Mathe oder Deutsch, ist mir gleich.':
-    { de: 'Dem Kind aber nicht. Es hat in Deutsch viel mehr Freude.', es: 'Al niño no. En alemán disfruta mucho más.' },
-  'Können Sie mir den Lernstoff kurz zusammenfassen?':
-    { de: 'Gern: Kapitel drei und vier, plus die Wörterliste hinten.', es: 'Con gusto: capítulos tres y cuatro, más la lista de palabras del final.' },
-  'Ich verstehe das Schulsystem hier noch nicht ganz.':
-    { de: 'Das geht allen so. Ich zeichne es Ihnen kurz auf.', es: 'A todos les pasa. Se lo dibujo brevemente.' },
-  'Ich weiß nicht, ob Nachhilfe wirklich hilft.':
-    { de: 'Probieren Sie es ein Semester. Danach sehen Sie den Unterschied.', es: 'Pruébelo un semestre. Después verá la diferencia.' },
-  'Was kostet die Klassenfahrt insgesamt?':
-    { de: 'Hundertachtzig Euro. Bei Bedarf gibt es einen Zuschuss.', es: 'Ciento ochenta euros. Si hace falta, hay una ayuda.' },
-  'Wann ist die Einschreibung für nächstes Jahr?':
-    { de: 'Im Februar, zwei Wochen lang. Die Termine kommen per Post.', es: 'En febrero, durante dos semanas. Las citas llegan por correo.' },
-  'Gibt es an dieser Schule Schulgeld?':
-    { de: 'Nein, nur einen kleinen Beitrag für Material.', es: 'No, solo una pequeña aportación para material.' },
-  'Wie ist sein Verhalten in der Klasse?':
-    { de: 'Deutlich besser als im Herbst. Er meldet sich sogar freiwillig.', es: 'Bastante mejor que en otoño. Incluso participa voluntariamente.',
-      mas: [
-        { de: 'Das höre ich zum ersten Mal, das freut mich sehr.', es: 'Es la primera vez que lo oigo, me alegra mucho.' },
-        { de: 'Sagen Sie es ihm ruhig. Das hört er gern von Ihnen.', es: 'Dígaselo, que le gusta oírlo de usted.' }
-      ] },
-  'Hilft Loben bei ihm mehr als Schimpfen?':
-    { de: 'Eindeutig. Nach einem Lob arbeitet er eine Woche lang anders.', es: 'Sin duda. Después de un elogio trabaja distinto una semana.',
-      mas: [
-        { de: 'Dann machen wir es zu Hause auch so.', es: 'Pues en casa lo haremos igual.' },
-        { de: 'Sehr gut. Wenn wir beide gleich handeln, wirkt es doppelt.', es: 'Muy bien. Si actuamos igual los dos, funciona el doble.' }
-      ] },
-  'Was können wir für sein Selbstvertrauen tun?':
-    { de: 'Kleine Aufgaben, die er sicher schafft. Erfolge wirken schnell.', es: 'Tareas pequeñas que seguro consigue. Los éxitos funcionan rápido.',
-      mas: [
-        { de: 'Er hilft gern beim Kochen. Zählt das?', es: 'Le gusta ayudar a cocinar. ¿Eso cuenta?' },
-        { de: 'Absolut. Alles, wo er am Ende etwas Fertiges sieht.', es: 'Desde luego. Todo donde al final vea algo terminado.' }
-      ] },
-  'Lies wenigstens den Artikel zu Ende.':
-    { de: 'Also gut. Aber wenn er langweilig ist, höre ich auf.', es: 'Está bien. Pero si es aburrido, lo dejo.' },
-  'Komm schon, einmal offline schadet dir nicht.':
-    { de: 'Ein Wochenende? Das halte ich keine drei Stunden durch.', es: '¿Un fin de semana? No aguanto ni tres horas.' },
-  'Hör dir den Podcast an, nur eine Folge.':
-    { de: 'Wie lang ist eine Folge? Unter einer Stunde, hoffe ich.', es: '¿Cuánto dura un episodio? Menos de una hora, espero.' },
-  'Ich verspreche dir, ich prüfe künftig die Quelle.':
-    { de: 'Das reicht schon. Die meisten Falschmeldungen fallen dabei auf.', es: 'Con eso basta. Así se caen casi todas las noticias falsas.' },
-  'Ab morgen reduziere ich meine Bildschirmzeit.':
-    { de: 'Auf wie viel? Realistisch bleiben ist hier das Wichtigste.', es: '¿A cuánto? Aquí lo importante es ser realista.' },
-  'Darauf kannst du dich verlassen, ich teile nichts.':
-    { de: 'Danke. Bei privaten Fotos ist mir das wirklich wichtig.', es: 'Gracias. Con las fotos privadas eso me importa mucho.' },
-  'Ich schaue nur eine Folge, versprochen.':
-    { de: 'Das sagst du jedes Mal, und dann wird es Mitternacht.', es: 'Eso dices siempre, y luego se hace medianoche.',
-      mas: [
-        { de: 'Heute mache ich danach wirklich aus.', es: 'Hoy después lo apago de verdad.' },
-        { de: 'Dann setze ich mich dazu und passe auf dich auf.', es: 'Pues me siento contigo y te vigilo.' }
-      ] },
-  'Diese Schlagzeile finde ich übertrieben.':
-    { de: 'Absolut. Im Text selbst steht etwas ganz anderes.', es: 'Totalmente. En el texto pone algo muy distinto.' },
-  'Meiner Meinung nach ist die Quelle glaubwürdig.':
-    { de: 'Woran machst du das fest? An der Redaktion?', es: '¿En qué te basas? ¿En la redacción?' },
-  'Sie sagt, der Bericht sei völlig neutral.':
-    { de: 'Das sehe ich anders. Die Wortwahl ist deutlich einseitig.', es: 'Yo lo veo distinto. La elección de palabras es claramente parcial.' },
-  'Für mich ist das reine Unterhaltung.':
-    { de: 'Das ist ja nicht schlimm. Man muss es nur wissen.', es: 'Tampoco es malo. Solo hay que saberlo.' },
-  'Wie hoch ist deine Bildschirmzeit pro Tag?':
-    { de: 'Drei Stunden, und das ist schon weniger als früher.', es: 'Tres horas, y eso ya es menos que antes.' },
-  'Schaffst du es, abends wirklich abzuschalten?':
-    { de: 'Nur ohne Handy im Zimmer. Sonst greife ich alle zehn Minuten danach.', es: 'Solo sin el móvil en la habitación. Si no, lo cojo cada diez minutos.' },
-  'Was ist für dich die größte Ablenkung?':
-    { de: 'Kurze Videos. Fünf Minuten werden immer zu vierzig.', es: 'Los vídeos cortos. Cinco minutos se convierten siempre en cuarenta.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Werfen wir die Hälfte einfach weg?':
     { de: 'Radikal, aber richtig. Wir tragen sonst nur Ballast mit.', es: 'Radical, pero acertado. Si no, solo cargamos lastre.' },
   'Bringen wir den alten Schrank zum Mistplatz?':
@@ -2678,42 +2353,24 @@ const RESPUESTAS = {
 
 
 
-  'Wie läuft es bei meinem Sohn im Unterricht?':
-    { de: 'Gut, er ist aufmerksam, nur beim Schreiben braucht er mehr Übung.', es: 'Bien; está atento, solo le falta práctica al escribir.' },
-  'Wann sind die nächsten Schularbeiten?':
-    { de: 'In der letzten Novemberwoche, die Termine stehen im Mitteilungsheft.', es: 'La última semana de noviembre; las fechas están en la agenda escolar.' },
-  'Braucht sie zusätzliche Unterstützung?':
-    { de: 'Eine Lernhilfe wäre sinnvoll, wir haben hier ein kostenloses Angebot.', es: 'Un refuerzo tendría sentido; aquí hay una oferta gratuita.' },
-  'Wie viele Stunden hat er am Freitag?':
-    { de: 'Sechs, danach kann er direkt in den Hort gehen.', es: 'Seis; después puede ir directo al centro de tarde.' },
-  'Gibt es dieses Jahr einen Ausflug?':
-    { de: 'Im Mai, drei Tage, die Informationen kommen nächste Woche nach Hause.', es: 'En mayo, tres días; la información llega a casa la semana que viene.' },
-  'Können wir einen Termin vereinbaren?':
-    { de: 'Gern, am Dienstag habe ich zwischen zwei und vier Zeit.', es: 'Claro; el martes tengo tiempo entre las dos y las cuatro.' },
-  'Mein Sohn hat gestern gefehlt.':
-    { de: 'Danke für die Info, dann entschuldige ich ihn im System.', es: 'Gracias por avisar; lo justifico en el sistema.' },
-  'Er tut sich mit den Artikeln sehr schwer.':
-    { de: 'Das geht fast allen so, wir üben das gerade täglich.', es: 'Les pasa a casi todos; ahora lo practicamos a diario.' },
-  'Was können wir zu Hause üben?':
-    { de: 'Am besten laut lesen, jeden Tag zehn Minuten reichen völlig.', es: 'Lo mejor, leer en voz alta; diez minutos al día bastan.' },
-  'Ich kann es Ihnen auch zeigen.':
-    { de: 'Ja bitte, sehen hilft mir mehr als jede Erklärung.', es: 'Sí, por favor; ver me ayuda más que cualquier explicación.' },
-  'Dann hätten wir alles besprochen.':
-    { de: 'Ja, vielen Dank für Ihre Zeit und den guten Austausch.', es: 'Sí; muchas gracias por su tiempo y por el buen intercambio.' },
-  'Wie stehst du zu dem Thema?':
-    { de: 'Ich halte das für übertrieben, aber ich verstehe beide Seiten.', es: 'Me parece exagerado, aunque entiendo a las dos partes.' },
-  'Was sagen deine Kollegen dazu?':
-    { de: 'Die meisten meinen, es ändert sich ohnehin nichts daran.', es: 'La mayoría cree que de todos modos no va a cambiar nada.' },
-  'Sie behauptet, das sei längst entschieden.':
-    { de: 'Davon habe ich nichts gehört, das müsste in der Mail stehen.', es: 'No he oído nada de eso; debería estar en el correo.' },
-  'Meiner Meinung nach ist das der falsche Weg.':
-    { de: 'Da stimme ich dir zu, es geht viel zu schnell.', es: 'En eso te doy la razón: va demasiado rápido.' },
-  'Ich kümmere mich morgen darum, versprochen.':
-    { de: 'Danke, dann kann ich es endlich von meiner Liste streichen.', es: 'Gracias; así por fin lo tacho de mi lista.' },
-  'Verlass dich drauf, das vergesse ich nicht.':
-    { de: 'Gut, ich erinnere dich sicherheitshalber am Vormittag noch einmal.', es: 'Bien; por si acaso te lo recuerdo por la mañana.' },
-  'Ich stehe dir jederzeit zur Verfügung.':
-    { de: 'Das weiß ich wirklich zu schätzen, danke für das Angebot.', es: 'Te lo agradezco de verdad; gracias por el ofrecimiento.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Kannst du am Samstag mit anpacken?':
     { de: 'Klar, ich habe den ganzen Vormittag Zeit, ab acht bin ich da.', es: 'Claro; tengo toda la mañana libre, a partir de las ocho estoy allí.' },
   'Nimmst du bitte das andere Ende?':
@@ -2799,14 +2456,10 @@ const RESPUESTAS = {
 
 
 
-  'Sprechen Sie bitte etwas langsamer mit mir.':
-    { de: 'Natürlich, entschuldigen Sie.', es: 'Claro, perdone.' },
-  'Wir üben zu Hause jeden Tag ein bisschen.':
-    { de: 'Das ist genau richtig. Zehn Minuten reichen schon.', es: 'Eso está muy bien. Con diez minutos basta.' },
-  'Ich brauche manchmal etwas länger zum Verstehen.':
-    { de: 'Das ist ganz normal. Fragen Sie ruhig nach.', es: 'Es totalmente normal. Pregunte sin problema.' },
-  'Ist das so richtig, wie ich es sage?':
-    { de: 'Fast. Man sagt „auf der Schule“ nicht, sondern „in der Schule“.', es: 'Casi. No se dice «auf der Schule», sino «in der Schule».' },
+
+
+
+
   'Könnten Sie mir kurz weiterhelfen?':
     { de: 'Gern, worum geht es denn?', es: 'Con mucho gusto, ¿de qué se trata?' },
   'Kein Problem, ich helfe Ihnen gern.':
@@ -2815,12 +2468,7 @@ const RESPUESTAS = {
         { de: 'Darf ich Ihnen einen Kaffee ausgeben?', es: '¿Le puedo invitar a un café?' },
         { de: 'Das ist lieb, aber nicht nötig. Wirklich gern geschehen.', es: 'Muy amable, pero no hace falta. De verdad, un placer.' }
       ] },
-  'Ich halte mein Wort, das schwöre ich dir.':
-    { de: 'Dann bin ich beruhigt.', es: 'Entonces me quedo tranquilo.',
-      mas: [
-        { de: 'Ich schreibe es mir sogar auf.', es: 'Hasta me lo apunto.' },
-        { de: 'Dann glaube ich es dir wirklich.', es: 'Entonces sí te creo.' }
-      ] },
+
 
   // ---- a11-l1 · sich vorstellen -------------------------------------
   'Guten Tag, ich bin Álvaro Pascual.':
@@ -5250,6 +4898,232 @@ const RESPUESTAS = {
         { de: 'Das ist mir auch aufgefallen. Das ändern wir ab Montag.', es: 'También me he dado cuenta. Eso lo cambiamos desde el lunes.' },
         { de: 'Könnten wir meinen Vertrag besprechen?', es: '¿Podríamos hablar de mi contrato?' },
         { de: 'Gern, machen wir einen Termin für nächste Woche aus.', es: 'Con gusto, fijamos una cita para la semana que viene.' }
+      ] },
+
+
+  // ---- a21-l5 · organisatorische Fragen in der Schule klären --------
+  'Wann ist der nächste Elternsprechtag?':
+    { de: 'Am zwölften November, von vierzehn bis achtzehn Uhr.', es: 'El doce de noviembre, de catorce a dieciocho.',
+      mas: [
+        { de: 'Wie kommt mein Kind in der Klasse zurecht?', es: '¿Cómo se desenvuelve mi hijo en clase?' },
+        { de: 'Gut. Er ist ruhig, aber er beteiligt sich immer öfter.', es: 'Bien. Es tranquilo, pero participa cada vez más.' },
+        { de: 'Mein Sohn war gestern krank.', es: 'Mi hijo estuvo ayer enfermo.' },
+        { de: 'Kein Problem, schreiben Sie mir eine kurze Entschuldigung.', es: 'No hay problema, escríbame un justificante breve.' },
+        { de: 'Wann bekommen die Kinder das Zeugnis?', es: '¿Cuándo reciben los niños las notas?' },
+        { de: 'Am letzten Schultag vor den Ferien, wie jedes Jahr.', es: 'El último día antes de las vacaciones, como cada año.' },
+        { de: 'Bekommen die Kinder Aufgaben für die Ferien?', es: '¿Les mandan tareas para las vacaciones?' },
+        { de: 'Nur Lesen, und das ganz freiwillig. Ferien sind Ferien.', es: 'Solo leer, y totalmente voluntario. Vacaciones son vacaciones.' }
+      ] },
+
+  // ---- a21-l5 · den Schulalltag und Kosten besprechen ---------------
+  'Welche Schulbücher müssen wir kaufen?':
+    { de: 'Fast keine, die Bücher stellt die Schule. Nur die Hefte.', es: 'Casi ninguno, los libros los pone el colegio. Solo los cuadernos.',
+      mas: [
+        { de: 'Gibt es an dieser Schule Schulgeld?', es: '¿En este colegio hay que pagar tasas?' },
+        { de: 'Nein, die Schule ist frei. Nur Ausflüge kosten extra.', es: 'No, el colegio es gratuito. Solo las excursiones se pagan aparte.' },
+        { de: 'Was kostet die Klassenfahrt insgesamt?', es: '¿Cuánto cuesta en total el viaje de clase?' },
+        { de: 'Hundertachtzig Euro. Bei Bedarf gibt es eine Unterstützung.', es: 'Ciento ochenta euros. Si hace falta, hay una ayuda.' },
+        { de: 'Wie viel kostet die Nachmittagsbetreuung?', es: '¿Cuánto cuesta la atención de tarde?' },
+        { de: 'Das hängt vom Einkommen ab, zwischen null und neunzig Euro.', es: 'Depende de los ingresos, entre cero y noventa euros.' },
+        { de: 'Darf mein Kind allein nach Hause gehen?', es: '¿Puede mi hijo irse solo a casa?' },
+        { de: 'Mit Ihrer schriftlichen Erlaubnis ja, ab der dritten Klasse.', es: 'Con su permiso por escrito sí, a partir de tercero.' }
+      ] },
+
+  // ---- a21-l5 · mit der Lehrkraft über Lernschwierigkeiten sprechen ---
+  'Mein Kind hat Schwierigkeiten mit der Sprache.':
+    { de: 'Das sehe ich auch, vor allem beim Schreiben.', es: 'También lo veo yo, sobre todo al escribir.',
+      mas: [
+        { de: 'Er kann sich in der Klasse schlecht konzentrieren.', es: 'En clase le cuesta concentrarse.' },
+        { de: 'Ich setze ihn ab Montag weiter nach vorne, das hilft oft.', es: 'Desde el lunes lo siento más delante, eso suele ayudar.' },
+        { de: 'Braucht mein Kind Nachhilfe?', es: '¿Mi hijo necesita clases particulares?' },
+        { de: 'Noch nicht. Probieren wir erst die Förderstunde am Donnerstag.', es: 'Todavía no. Probemos primero el refuerzo del jueves.' },
+        { de: 'Gibt es Probleme mit den Mitschülern?', es: '¿Hay problemas con los compañeros?' },
+        { de: 'Überhaupt nicht, er ist in der Klasse sehr beliebt.', es: 'En absoluto, es muy querido en clase.' },
+        { de: 'Er ist begabt, aber ziemlich faul.', es: 'Es listo, pero bastante vago.' },
+        { de: 'Das sagen viele Eltern. Meistens fehlt nur das Interesse.', es: 'Eso lo dicen muchos padres. Casi siempre solo falta el interés.' }
+      ] },
+
+  // ---- a21-l5 · Unterstützung und Förderung zu Hause besprechen -----
+  'Was können wir zu Hause üben?':
+    { de: 'Lesen Sie jeden Tag zehn Minuten gemeinsam laut.', es: 'Lean juntos en voz alta diez minutos al día.',
+      mas: [
+        { de: 'Er tut sich mit den Artikeln sehr schwer.', es: 'Le cuestan mucho los artículos.' },
+        { de: 'Da hilft nur Wiederholung, und immer das ganze Wort mit Artikel.', es: 'Ahí solo ayuda repetir, y siempre la palabra entera con artículo.' },
+        { de: 'Wir üben zu Hause jeden Tag ein bisschen.', es: 'En casa practicamos un poco cada día.' },
+        { de: 'Das merkt man deutlich, seine Texte sind viel besser geworden.', es: 'Se nota claramente, sus textos han mejorado mucho.' },
+        { de: 'Was können wir für sein Selbstvertrauen tun?', es: '¿Qué podemos hacer por su autoconfianza?' },
+        { de: 'Loben Sie das Bemühen, nicht nur die Note.', es: 'Elogien el esfuerzo, no solo la nota.' },
+        { de: 'Hilft Loben bei ihm mehr als Schimpfen?', es: '¿Con él funciona mejor elogiar que regañar?' },
+        { de: 'Bei ihm ganz sicher. Schimpfen macht ihn nur still.', es: 'Con él seguro. Regañarle solo le hace callar.' }
+      ] },
+
+  // ---- a21-l5 · um sprachliche Hilfe bitten und Hilfen anbieten -----
+  'Könnten Sie bitte etwas langsamer sprechen?':
+    { de: 'Natürlich, entschuldigen Sie. Ich rede oft zu schnell.', es: 'Por supuesto, perdone. Suelo hablar muy rápido.',
+      mas: [
+        { de: 'Ich brauche manchmal etwas länger zum Verstehen.', es: 'A veces necesito un poco más de tiempo para entender.' },
+        { de: 'Das ist völlig in Ordnung, wir haben genug Zeit.', es: 'Está perfectamente bien, tenemos tiempo de sobra.' },
+        { de: 'Sagen Sie es bitte mit einfachen Worten.', es: 'Dígamelo con palabras sencillas, por favor.' },
+        { de: 'Gern: Ihr Sohn lernt gut, er braucht nur mehr Übung im Schreiben.', es: 'Con gusto: su hijo aprende bien, solo necesita practicar más la escritura.' },
+        { de: 'Ist das so richtig, wie ich es sage?', es: '¿Está bien dicho así?' },
+        { de: 'Ganz richtig, und man versteht Sie sehr gut.', es: 'Totalmente correcto, y se le entiende muy bien.' },
+        { de: 'Gibt es das auch auf Spanisch?', es: '¿Está también en español?' },
+        { de: 'Das Infoblatt ja, ich drucke es Ihnen gleich aus.', es: 'La hoja informativa sí, se la imprimo ahora.' }
+      ] },
+
+  // ---- a21-l5 · Unsicherheit und Zweifel ausdrücken -----------------
+  'Kommt Ihr Sohn nächstes Jahr ins Gymnasium?':
+    { de: 'Ich bin mir nicht sicher.', es: 'No estoy seguro.',
+      mas: [
+        { de: 'Was sagt er selbst dazu?', es: '¿Y él qué dice?' },
+        { de: 'Ich denke ja, sicher bin ich mir aber nicht.', es: 'Creo que sí, aunque no estoy seguro.' },
+        { de: 'Und die Lehrerin, was empfiehlt sie?', es: '¿Y la profesora, qué recomienda?' },
+        { de: 'Das kann ich leider nicht sagen, wir sprechen erst morgen.', es: 'Eso no se lo puedo decir, hablamos mañana.' },
+        { de: 'Würde Nachhilfe etwas bringen?', es: '¿Servirían de algo las clases particulares?' },
+        { de: 'Ich weiß nicht, ob Nachhilfe wirklich hilft.', es: 'No sé si las clases particulares ayudan de verdad.' },
+        { de: 'Und was ist mit der Schule im Nachbarbezirk?', es: '¿Y qué hay del colegio del distrito de al lado?' },
+        { de: 'Ich müsste das erst nachlesen, davon weiß ich nichts.', es: 'Tendría que consultarlo antes, de eso no sé nada.' }
+      ] },
+
+  // ---- a21-l5 · Gleichgültigkeit ausdrücken -------------------------
+  'Sollen wir am Dienstag oder am Donnerstag reden?':
+    { de: 'Mir ist beides recht.', es: 'Me vale cualquiera de las dos.',
+      mas: [
+        { de: 'Lieber vormittags oder nachmittags?', es: '¿Mejor por la mañana o por la tarde?' },
+        { de: 'Das ist mir ehrlich gesagt egal.', es: 'Sinceramente, me da igual.' },
+        { de: 'Und soll die Lehrerin dabei sein?', es: '¿Y debería estar la profesora?' },
+        { de: 'Von mir aus gern, aber es muss nicht sein.', es: 'Por mí bien, pero no hace falta.' },
+        { de: 'Reden wir zuerst über Mathe oder über Deutsch?', es: '¿Hablamos primero de mates o de alemán?' },
+        { de: 'Ob Mathe oder Deutsch, ist mir gleich.', es: 'Sea mates o alemán, me da igual.' },
+        { de: 'Gut, dann entscheide ich einfach.', es: 'Bien, entonces decido yo.' },
+        { de: 'Mach einfach, wie du willst. Hauptsache, wir reden.', es: 'Haz simplemente lo que quieras. Lo importante es que hablemos.' }
+      ] },
+
+  // ---- a21-l5 · ein Elterngespräch abschließen ----------------------
+  'Ich verstehe das Schulsystem hier noch nicht ganz.':
+    { de: 'Das geht vielen so. Fragen Sie mich jederzeit.', es: 'A muchos les pasa. Pregúnteme cuando quiera.',
+      mas: [
+        { de: 'Können Sie mir den Lernstoff kurz zusammenfassen?', es: '¿Me puede resumir brevemente la materia?' },
+        { de: 'Gern, und ich schreibe Ihnen die Punkte auf ein Blatt.', es: 'Con gusto, y le apunto los puntos en una hoja.' },
+        { de: 'Dann probieren wir es bis zum Semesterende so.', es: 'Entonces lo probamos así hasta final de semestre.' },
+        { de: 'Einverstanden. Danach schauen wir, ob es gewirkt hat.', es: 'De acuerdo. Después vemos si ha funcionado.' },
+        { de: 'Sagen Sie mir Bescheid, wenn sich etwas ändert.', es: 'Avíseme si algo cambia.' },
+        { de: 'Das mache ich sofort, auch wenn es Gutes ist.', es: 'Lo haré enseguida, también si es algo bueno.' },
+        { de: 'Ich denke, wir haben alles besprochen.', es: 'Creo que lo hemos hablado todo.' },
+        { de: 'Das finde ich auch. Schönen Tag noch und auf Wiedersehen.', es: 'Yo también lo creo. Que pase buen día y hasta la vista.' }
+      ] },
+
+
+  // ---- a21-l6 · über den Feierabend sprechen ------------------------
+  'Was machst du nach der Arbeit meistens?':
+    { de: 'Ich brauche nach der Arbeit erst einmal Ruhe.', es: 'Después del trabajo necesito primero tranquilidad.',
+      mas: [
+        { de: 'Wie schaltest du nach einem harten Tag ab?', es: '¿Cómo desconectas después de un día duro?' },
+        { de: 'Ein langer Spaziergang, ohne Handy. Das wirkt besser als alles andere.', es: 'Un paseo largo, sin móvil. Funciona mejor que nada.' },
+        { de: 'Schaffst du es, abends wirklich abzuschalten?', es: '¿Consigues desconectar de verdad por la noche?' },
+        { de: 'Seit ich das Handy aus dem Schlafzimmer verbannt habe, ja.', es: 'Desde que desterré el móvil del dormitorio, sí.' },
+        { de: 'Gehst du unter der Woche aus?', es: '¿Sales entre semana?' },
+        { de: 'Am Freitag bleibe ich prinzipiell zu Hause.', es: 'Los viernes por principio me quedo en casa.' },
+        { de: 'Nach der Spätschicht bin ich zu nichts zu gebrauchen.', es: 'Después del turno de tarde no sirvo para nada.' },
+        { de: 'Das kenne ich. Da hilft nur schlafen und morgen weitersehen.', es: 'Lo conozco. Ahí solo ayuda dormir y ya se verá mañana.' }
+      ] },
+
+  // ---- a21-l6 · jemanden überreden und animieren --------------------
+  'Jetzt komm mit, das wird sicher lustig!':
+    { de: 'Ich weiß nicht, ich bin ziemlich müde.', es: 'No sé, estoy bastante cansado.',
+      mas: [
+        { de: 'Es dauert doch nur eine halbe Stunde.', es: 'Si solo dura media hora.' },
+        { de: 'Eine halbe Stunde? Das sagst du jedes Mal.', es: '¿Media hora? Eso lo dices siempre.' },
+        { de: 'Alle anderen kommen auch mit.', es: 'Todos los demás también vienen.' },
+        { de: 'Das ist kein Argument, das weißt du.', es: 'Eso no es un argumento, lo sabes.' },
+        { de: 'Probier es wenigstens einmal.', es: 'Pruébalo al menos una vez.' },
+        { de: 'Na gut, aber nur eine Stunde, dann gehe ich heim.', es: 'Está bien, pero solo una hora, luego me voy a casa.' },
+        { de: 'Du bereust es sicher nicht.', es: 'Seguro que no te arrepientes.' },
+        { de: 'Das hoffe ich für dich, sonst schuldest du mir was.', es: 'Eso espero por ti, si no me debes una.' }
+      ] },
+
+  // ---- a21-l6 · etwas versprechen -----------------------------------
+  'Ich verspreche dir, morgen stehe ich früh auf.':
+    { de: 'Das hast du letzte Woche auch gesagt.', es: 'Eso también lo dijiste la semana pasada.',
+      mas: [
+        { de: 'Ich halte immer, was ich verspreche.', es: 'Siempre cumplo lo que prometo.' },
+        { de: 'Meistens schon, das muss ich zugeben.', es: 'Casi siempre sí, lo tengo que reconocer.' },
+        { de: 'Ich mache es heute Abend, ganz sicher.', es: 'Lo hago esta noche, seguro.' },
+        { de: 'Gut. Dann erinnere ich dich um acht daran.', es: 'Bien. Entonces te lo recuerdo a las ocho.' },
+        { de: 'Ab morgen reduziere ich meine Bildschirmzeit.', es: 'A partir de mañana reduzco mi tiempo de pantalla.' },
+        { de: 'Sehr gute Idee. Fang mit dem Abend an, das ist am leichtesten.', es: 'Muy buena idea. Empieza por la noche, es lo más fácil.' },
+        { de: 'Darauf kannst du dich hundertprozentig verlassen.', es: 'Puedes contar con ello al cien por cien.' },
+        { de: 'Dann glaube ich dir. Du hast mich noch nie enttäuscht.', es: 'Entonces te creo. Nunca me has decepcionado.' }
+      ] },
+
+  // ---- a21-l6 · auf ein Versprechen reagieren -----------------------
+  'Ich schaue nur eine Folge, versprochen.':
+    { de: 'Ist das ein Versprechen?', es: '¿Eso es una promesa?',
+      mas: [
+        { de: 'Versprochen? – Versprochen!', es: '¿Prometido? – ¡Prometido!' },
+        { de: 'Gut, dann glaube ich dir dieses eine Mal.', es: 'Bien, entonces te creo esta vez.' },
+        { de: 'Ich kümmere mich morgen darum, versprochen.', es: 'Me ocupo mañana, te lo prometo.' },
+        { de: 'Verlass dich drauf, das vergesse ich nicht.', es: 'Cuenta con ello, no se me olvida.' },
+        { de: 'Komm schon, einmal offline schadet dir nicht.', es: 'Venga, un rato sin conexión no te hace daño.' },
+        { de: 'Da hast du wahrscheinlich recht. Ich lege es weg.', es: 'Probablemente tengas razón. Lo dejo.' },
+        { de: 'Hör dir den Podcast an, nur eine Folge.', es: 'Escucha el pódcast, solo un episodio.' },
+        { de: 'Abgemacht, aber dann schaust du mit mir die Serie.', es: 'Trato hecho, pero luego ves la serie conmigo.' }
+      ] },
+
+  // ---- a21-l6 · eine eigene Meinung äußern --------------------------
+  'Meiner Meinung nach ist die Serie überbewertet.':
+    { de: 'Wirklich? Alle reden doch davon.', es: '¿De verdad? Si todo el mundo habla de ella.',
+      mas: [
+        { de: 'Ich finde, dass zu viel Werbung läuft.', es: 'Me parece que hay demasiada publicidad.' },
+        { de: 'Da stimme ich dir zu, das nervt wirklich.', es: 'En eso te doy la razón, es muy molesto.' },
+        { de: 'Der Hauptdarsteller spielt hervorragend.', es: 'El protagonista actúa de maravilla.' },
+        { de: 'Das ist das Einzige, was die Serie rettet.', es: 'Es lo único que salva la serie.' },
+        { de: 'Diese Schlagzeile finde ich übertrieben.', es: 'Ese titular me parece exagerado.' },
+        { de: 'Ich auch. Im Text steht dann etwas ganz anderes.', es: 'Yo también. En el texto luego pone otra cosa.' },
+        { de: 'Ich bin der Meinung, dass man weniger Handy nutzen sollte.', es: 'Opino que se debería usar menos el móvil.' },
+        { de: 'Sagt der, der gerade zweimal aufs Display geschaut hat.', es: 'Dice el que acaba de mirar la pantalla dos veces.' }
+      ] },
+
+  // ---- a21-l6 · die Meinung anderer wiedergeben ---------------------
+  'Was hältst du von dem Interview?':
+    { de: 'Sie sagt, der Bericht sei völlig neutral.', es: 'Ella dice que el informe es totalmente neutral.',
+      mas: [
+        { de: 'Und was sagen deine Kollegen dazu?', es: '¿Y qué dicen tus compañeros de eso?' },
+        { de: 'Er meint, Dokus seien ihm lieber als solche Interviews.', es: 'Él dice que prefiere los documentales a esas entrevistas.' },
+        { de: 'Sie meint, das Ende war unlogisch.', es: 'Ella opina que el final no tenía lógica.' },
+        { de: 'Das habe ich auch gedacht, aber sie erklärt es besser.', es: 'Yo también lo pensé, pero ella lo explica mejor.' },
+        { de: 'Sie behauptet, das sei längst entschieden.', es: 'Ella afirma que eso está decidido hace tiempo.' },
+        { de: 'Dann hätte man uns wenigstens informieren können.', es: 'Entonces al menos podrían habernos informado.' },
+        { de: 'Wie stehst du zu dem Thema?', es: '¿Qué postura tienes sobre el tema?' },
+        { de: 'Meiner Meinung nach ist das der falsche Weg.', es: 'En mi opinión ese es el camino equivocado.' }
+      ] },
+
+  // ---- a21-l6 · sich über Fernsehserien und Medien austauschen ------
+  'Welche Serie schaust du im Moment?':
+    { de: 'Eine spanische, mit Untertiteln. Gut fürs Hörverstehen.', es: 'Una española, con subtítulos. Buena para la comprensión oral.',
+      mas: [
+        { de: 'Wie findest du die Serie?', es: '¿Qué te parece la serie?' },
+        { de: 'Die erste Staffel war stark, danach wird sie schwächer.', es: 'La primera temporada era fuerte, luego flojea.' },
+        { de: 'Siehst du viel fern?', es: '¿Ves mucho la tele?' },
+        { de: 'Ich schaue kaum fern, aber ich höre viele Podcasts.', es: 'Casi no veo la tele, pero escucho muchos pódcast.' },
+        { de: 'Hörst du Podcasts?', es: '¿Escuchas pódcasts?' },
+        { de: 'Jeden Morgen in der Straßenbahn, meistens auf Deutsch.', es: 'Cada mañana en el tranvía, casi siempre en alemán.' },
+        { de: 'Am Abend lese ich lieber.', es: 'Por la tarde prefiero leer.' },
+        { de: 'Das sollte ich auch wieder anfangen. Bildschirme machen mich müde.', es: 'Yo también debería retomarlo. Las pantallas me cansan.' }
+      ] },
+
+  // ---- a21-l6 · über Informationsquellen und Handyzeit sprechen -----
+  'Wo informierst du dich über Nachrichten?':
+    { de: 'Morgens im Radio, abends kurz online. Mehr brauche ich nicht.', es: 'Por la mañana en la radio, por la noche un rato en internet. No necesito más.',
+      mas: [
+        { de: 'Wie hoch ist deine Bildschirmzeit pro Tag?', es: '¿Cuál es tu tiempo de pantalla al día?' },
+        { de: 'Fünf Stunden. Als ich das gesehen habe, bin ich erschrocken.', es: 'Cinco horas. Cuando lo vi, me asusté.' },
+        { de: 'Bist du in sozialen Medien aktiv?', es: '¿Eres activo en redes sociales?' },
+        { de: 'Ich lese mit, aber ich schreibe fast nie etwas.', es: 'Leo, pero casi nunca escribo nada.' },
+        { de: 'Hast du das Abo eigentlich gekündigt?', es: '¿Al final cancelaste la suscripción?' },
+        { de: 'Noch nicht, aber diese Woche mache ich es wirklich.', es: 'Todavía no, pero esta semana lo hago de verdad.' },
+        { de: 'Schaltest du am Abend wirklich ab?', es: '¿De verdad desconectas por la noche?' },
+        { de: 'Ab neun ist das Handy im Flur. Das hat mein Schlafen gerettet.', es: 'A partir de las nueve el móvil está en el pasillo. Eso me salvó el sueño.' }
       ] },
 
 };
