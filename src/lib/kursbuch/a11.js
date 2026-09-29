@@ -2670,31 +2670,17 @@ export const A11 = {
           es: 'Preguntar por el tiempo y el pronóstico',
           wendungen: [
             { de: 'Wie ist das Wetter? – Es regnet.', es: '¿Qué tiempo hace? – Está lloviendo.' },
-            { de: 'Wie ist das Wetter heute?', es: '¿Qué tiempo hace hoy?' },
-            { de: 'Wie wird das Wetter am Wochenende?', es: '¿Qué tiempo va a hacer el fin de semana?' },
-            { de: 'Wie ist die Prognose für die Woche?', es: '¿Cuál es el pronóstico para la semana?' },
             { de: 'Hast du den Wetterbericht gesehen?', es: '¿Has visto el parte del tiempo?' },
-            { de: 'Wie warm ist es eigentlich?', es: '¿Cuánto calor hace?' },
-            { de: 'Wie viel Grad hat es draußen?', es: '¿Cuántos grados hace fuera?' },
-            { de: 'Regnet es draußen noch?', es: '¿Sigue lloviendo fuera?' },
-            { de: 'Schneit es schon?', es: '¿Ya está nevando?' },
-            { de: 'Ist es bei euch auch so windig?', es: '¿Por vuestra zona también hace tanto viento?' }
+            { de: 'Wie warm ist es eigentlich?', es: '¿Cuánto calor hace?' }
           ]
         },
         {
           funktion: 'das Wetter und den Himmel beschreiben',
           es: 'Describir el tiempo y el cielo',
           wendungen: [
-            { de: 'Es sind 20 Grad.', es: 'Hay 20 grados.' },
             { de: 'Heute ist es schön / schlecht.', es: 'Hoy hace bueno / malo.' },
-            { de: 'Es regnet den ganzen Tag.', es: 'Llueve todo el día.' },
-            { de: 'Heute ist es richtig warm.', es: 'Hoy hace bastante calor.' },
-            { de: 'Morgen soll es schneien.', es: 'Dicen que mañana va a nevar.' },
-            { de: 'Was für ein scheußliches Wetter!', es: '¡Qué tiempo más horrible!' },
-            { de: 'Es ist heute richtig schwül.', es: 'Hoy hace mucho bochorno.' },
             { de: 'Der Himmel ist heute ganz grau.', es: 'Hoy el cielo está completamente gris.' },
-            { de: 'Es hat die ganze Nacht geregnet.', es: 'Ha llovido toda la noche.' },
-            { de: 'Der Nebel ist heute sehr dicht.', es: 'Hoy la niebla es muy espesa.' }
+            { de: 'Was für ein scheußliches Wetter!', es: '¡Qué tiempo más horrible!' }
           ]
         },
         {
@@ -2702,15 +2688,8 @@ export const A11 = {
           es: 'Hablar de frío, calor y tormentas',
           wendungen: [
             { de: 'Hier ist es im Winter sehr kalt.', es: 'Aquí en invierno hace mucho frío.' },
-            { de: 'Hat es bei euch auch geschneit?', es: '¿En vuestra zona también ha nevado?' },
-            { de: 'War das ein Blitz?', es: '¿Eso ha sido un rayo?' },
-            { de: 'Heute ist es endlich wieder warm.', es: 'Hoy por fin hace calor otra vez.' },
             { de: 'Im Sommer ist es hier sehr heiß.', es: 'En verano aquí hace mucho calor.' },
-            { de: 'Gestern gab es ein schweres Unwetter.', es: 'Ayer hubo un temporal fuerte.' },
-            { de: 'Das Wetter ändert sich hier sehr schnell.', es: 'Aquí el tiempo cambia muy rápido.' },
-            { de: 'Die Temperaturen sinken heute Nacht stark.', es: 'Esta noche las temperaturas bajan mucho.' },
-            { de: 'Es ist heute völlig windstill.', es: 'Hoy no corre nada de aire.' },
-            { de: 'Hat es bei euch auch Frost gegeben?', es: '¿En vuestra zona también ha helado?' }
+            { de: 'War das ein Blitz?', es: '¿Eso ha sido un rayo?' }
           ]
         },
         {
@@ -2718,31 +2697,17 @@ export const A11 = {
           es: 'Adaptar la ropa al tiempo',
           wendungen: [
             { de: 'Nimm einen Regenschirm mit!', es: '¡Llévate un paraguas!' },
-            { de: 'Zieh dich warm an, es ist kühl.', es: 'Abrígate, que hace fresco.' },
-            { de: 'Soll ich eine Jacke mitnehmen?', es: '¿Me llevo una chaqueta?' },
-            { de: 'Vergiss die Sonnencreme nicht!', es: '¡No te olvides de la crema solar!' },
             { de: 'Setz bitte eine Mütze auf.', es: 'Ponte un gorro, por favor.' },
-            { de: 'Nimmst du den Regenschirm mit?', es: '¿Te llevas el paraguas?' },
-            { de: 'Zieh dir feste Schuhe an.', es: 'Ponte zapatos resistentes.' },
-            { de: 'Wo sind meine Handschuhe?', es: '¿Dónde están mis guantes?' },
-            { de: 'Zieh den Kindern die Gummistiefel an.', es: 'Ponles a los niños las botas de agua.' },
-            { de: 'Vergiss die Sonnenbrille nicht.', es: 'No te olvides de las gafas de sol.' }
+            { de: 'Vergiss die Sonnencreme nicht!', es: '¡No te olvides de la crema solar!' }
           ]
         },
         {
           funktion: 'sich auf Hitze und Kälte einstellen',
           es: 'Prepararse para el frío o el calor',
           wendungen: [
-            { de: 'Sollen wir drinnen bleiben?', es: '¿Nos quedamos dentro?' },
-            { de: 'Bei dem Wetter gehe ich nicht raus.', es: 'Con este tiempo no salgo.' },
-            { de: 'Der Wetterbericht sagt Sonne.', es: 'El parte del tiempo dice que hará sol.' },
             { de: 'Mir ist kalt.', es: 'Tengo frío.' },
-            { de: 'Die Straßen sind heute sehr glatt.', es: 'Hoy las calles están muy resbaladizas.' },
-            { de: 'Wir sollten heute drinnen bleiben.', es: 'Hoy deberíamos quedarnos dentro.' },
-            { de: 'Mach bitte die Heizung an.', es: 'Enciende la calefacción, por favor.' },
-            { de: 'Im Schatten ist es viel angenehmer.', es: 'A la sombra se está mucho mejor.' },
-            { de: 'Sollen wir den Sonnenschirm aufstellen?', es: '¿Montamos la sombrilla?' },
-            { de: 'Mir ist eiskalt.', es: 'Tengo un frío helador.' }
+            { de: 'Sollen wir drinnen bleiben?', es: '¿Nos quedamos dentro?' },
+            { de: 'Der Wetterbericht sagt Sonne.', es: 'El parte del tiempo dice que hará sol.' }
           ]
         },
         {
@@ -2751,46 +2716,25 @@ export const A11 = {
           wendungen: [
             { de: 'Welche Jahreszeit magst du am liebsten?', es: '¿Qué estación te gusta más?' },
             { de: 'Der Frühling kommt dieses Jahr früh.', es: 'Este año la primavera llega pronto.' },
-            { de: 'Im Winter wird es hier sehr früh dunkel.', es: 'En invierno aquí oscurece muy pronto.' },
-            { de: 'Der Sommer war dieses Jahr kurz.', es: 'Este año el verano ha sido corto.' },
-            { de: 'Wann fangen die Ferien an?', es: '¿Cuándo empiezan las vacaciones?' },
-            { de: 'Der Herbst ist meine liebste Zeit zum Wandern.', es: 'El otoño es mi época favorita para hacer senderismo.' },
-            { de: 'Im Jänner ist es hier am kältesten.', es: 'En enero es cuando más frío hace aquí.' },
-            { de: 'Der Sonnenuntergang ist im Sommer erst um neun.', es: 'En verano el atardecer no es hasta las nueve.' },
-            { de: 'Im Mai regnet es hier fast jeden Tag.', es: 'En mayo aquí llueve casi todos los días.' },
-            { de: 'Die Jahreszeiten sind in Spanien anders.', es: 'Las estaciones en España son distintas.' }
+            { de: 'Wann fangen die Ferien an?', es: '¿Cuándo empiezan las vacaciones?' }
           ]
         },
         {
           funktion: 'Klima und Wetter im Jahresverlauf vergleichen',
           es: 'Comparar el clima a lo largo del año',
           wendungen: [
-            { de: 'Wann taut hier normalerweise der Schnee?', es: '¿Cuándo se derrite normalmente la nieve aquí?' },
-            { de: 'Der Sommer wird jedes Jahr heißer.', es: 'El verano es cada año más caluroso.' },
-            { de: 'Im Herbst gibt es hier viele Regenschauer.', es: 'En otoño aquí hay muchos chubascos.' },
-            { de: 'Welcher Monat ist im Durchschnitt am kältesten?', es: '¿Qué mes es de media el más frío?' },
-            { de: 'Der Frühling kommt hier später als in Spanien.', es: 'Aquí la primavera llega más tarde que en España.' },
-            { de: 'Welche Jahreszeit ist hier am schönsten?', es: '¿Qué estación es más bonita aquí?' },
             { de: 'Ist der Winter hier sehr hart?', es: '¿El invierno aquí es muy duro?' },
             { de: 'Wird es im Sommer sehr heiß?', es: '¿En verano hace mucho calor?' },
-            { de: 'Wann beginnt hier der Frühling?', es: '¿Cuándo empieza aquí la primavera?' },
-            { de: 'Fehlt dir das Meer im Sommer?', es: '¿Echas de menos el mar en verano?' }
+            { de: 'Welche Jahreszeit ist hier am schönsten?', es: '¿Qué estación es más bonita aquí?' }
           ]
         },
         {
           funktion: 'Pläne vom Wetter abhängig machen',
           es: 'Hacer planes según el tiempo',
           wendungen: [
+            { de: 'Was machen wir, wenn es regnet?', es: '¿Qué hacemos si llueve?' },
             { de: 'Gehen wir schwimmen, wenn es warm bleibt?', es: '¿Vamos a nadar si sigue haciendo calor?' },
-            { de: 'Bei Regen fällt der Ausflug aus.', es: 'Si llueve, se cancela la excursión.' },
-            { de: 'Wenn es schneit, fahre ich nicht mit dem Auto.', es: 'Si nieva, no cojo el coche.' },
-            { de: 'Sollen wir drinnen oder draußen sitzen?', es: '¿Nos sentamos dentro o fuera?' },
-            { de: 'Das Grillfest ist nur bei schönem Wetter.', es: 'La barbacoa es solo si hace buen tiempo.' },
-            { de: 'Ich fahre morgen mit dem Rad, wenn es trocken bleibt.', es: 'Mañana voy en bici si no llueve.' },
-            { de: 'Bei Gewitter gehen wir nicht auf den Berg.', es: 'Si hay tormenta no subimos a la montaña.' },
-            { de: 'Wir verschieben das Picknick auf Sonntag.', es: 'Pasamos el picnic al domingo.' },
-            { de: 'Bei der Hitze bleibe ich zu Hause.', es: 'Con este calor me quedo en casa.' },
-            { de: 'Was machen wir, wenn es regnet?', es: '¿Qué hacemos si llueve?' }
+            { de: 'Wenn es schneit, fahre ich nicht mit dem Auto.', es: 'Si nieva, no cojo el coche.' }
           ]
         }
       ]
@@ -3060,32 +3004,18 @@ export const A11 = {
           funktion: 'sagen, wie oft man etwas macht',
           es: 'Decir con qué frecuencia haces algo',
           wendungen: [
-            { de: 'immer – oft – manchmal – selten – nie', es: 'siempre – a menudo – a veces – rara vez – nunca' },
-            { de: 'Ich gehe zweimal pro Woche ins Fitnessstudio.', es: 'Voy al gimnasio dos veces por semana.' },
             { de: 'Wie oft machst du Sport?', es: '¿Con qué frecuencia haces deporte?' },
-            { de: 'Ich koche fast jeden Tag selbst.', es: 'Cocino yo casi todos los días.' },
-            { de: 'Ins Kino gehe ich nur selten.', es: 'Al cine voy pocas veces.' },
-            { de: 'Ich lese jeden Abend eine halbe Stunde.', es: 'Leo media hora todas las noches.' },
-            { de: 'Wir treffen uns einmal im Monat.', es: 'Nos vemos una vez al mes.' },
-            { de: 'Ich habe noch nie Ski gefahren.', es: 'Nunca he esquiado.' },
             { de: 'Manchmal gehe ich am Abend schwimmen.', es: 'A veces voy a nadar por la tarde.' },
-            { de: 'Ich trainiere immer vor der Arbeit.', es: 'Entreno siempre antes del trabajo.' }
+            { de: 'Ich koche fast jeden Tag selbst.', es: 'Cocino yo casi todos los días.' }
           ]
         },
         {
           funktion: 'über Gewohnheiten und Routinen sprechen',
           es: 'Hablar de hábitos y rutinas',
           wendungen: [
-            { de: 'Wie oft gehst du ins Theater?', es: '¿Con qué frecuencia vas al teatro?' },
-            { de: 'Singst du regelmäßig im Chor?', es: '¿Cantas en el coro con regularidad?' },
-            { de: 'Wir spielen jeden Sonntag ein Brettspiel.', es: 'Cada domingo jugamos a un juego de mesa.' },
-            { de: 'Ich mache fast täglich Gartenarbeit.', es: 'Trabajo en el jardín casi a diario.' },
-            { de: 'Wie oft kochst du selbst?', es: '¿Cada cuánto cocinas tú?' },
-            { de: 'Fährst du jeden Tag mit dem Rad?', es: '¿Vas en bici todos los días?' },
-            { de: 'Gehst du oft ins Kino?', es: '¿Vas mucho al cine?' },
-            { de: 'Wie häufig hast du Deutschkurs?', es: '¿Cada cuánto tienes clase de alemán?' },
             { de: 'Treibst du regelmäßig Sport?', es: '¿Haces deporte con regularidad?' },
-            { de: 'Gehst du ins Fitnessstudio?', es: '¿Vas al gimnasio?' }
+            { de: 'Wie häufig hast du Deutschkurs?', es: '¿Cada cuánto tienes clase de alemán?' },
+            { de: 'Gehst du oft ins Kino?', es: '¿Vas mucho al cine?' }
           ]
         },
         {
@@ -3093,31 +3023,17 @@ export const A11 = {
           es: 'Hablar de habilidades',
           wendungen: [
             { de: 'Du spielst super Fußball!', es: '¡Juegas al fútbol genial!' },
-            { de: 'Kannst du Gitarre spielen?', es: '¿Sabes tocar la guitarra?' },
-            { de: 'Das kann ich überhaupt nicht.', es: 'Eso no sé hacerlo para nada.' },
-            { de: 'Kannst du schwimmen?', es: '¿Sabes nadar?' },
-            { de: 'Ich bin ziemlich schlecht in Mathematik.', es: 'Se me dan bastante mal las matemáticas.' },
             { de: 'Spielst du ein Instrument?', es: '¿Tocas algún instrumento?' },
-            { de: 'Kannst du ein Instrument spielen?', es: '¿Sabes tocar algún instrumento?' },
-            { de: 'Bist du gut im Kochen?', es: '¿Se te da bien cocinar?' },
-            { de: 'Bist du Anfänger oder schon fortgeschritten?', es: '¿Eres principiante o ya avanzado?' },
-            { de: 'Hast du genug Ehrgeiz für den Wettkampf?', es: '¿Tienes suficiente ambición para la competición?' }
+            { de: 'Kannst du schwimmen?', es: '¿Sabes nadar?' }
           ]
         },
         {
           funktion: 'über Hobbys und Interessen sprechen',
           es: 'Hablar de aficiones e intereses',
           wendungen: [
-            { de: 'Mein Hobby ist Fotografieren.', es: 'Mi hobby es la fotografía.' },
             { de: 'Was machst du in deiner Freizeit?', es: '¿Qué haces en tu tiempo libre?' },
-            { de: 'Machst du gern Sport?', es: '¿Te gusta hacer deporte?' },
-            { de: 'Mein größtes Hobby ist Klettern.', es: 'Mi mayor afición es la escalada.' },
-            { de: 'Was machst du am liebsten in deiner Freizeit?', es: '¿Qué es lo que más te gusta hacer en tu tiempo libre?' },
-            { de: 'Sammelst du etwas?', es: '¿Coleccionas algo?' },
-            { de: 'Ich entspanne mich am besten beim Kochen.', es: 'Donde mejor me relajo es cocinando.' },
-            { de: 'Was für Filme siehst du gern?', es: '¿Qué tipo de películas te gusta ver?' },
-            { de: 'Ich lese lieber, als fernzusehen.', es: 'Prefiero leer antes que ver la tele.' },
-            { de: 'Was ist deine größte Leidenschaft?', es: '¿Cuál es tu mayor pasión?' }
+            { de: 'Mein Hobby ist Fotografieren.', es: 'Mi hobby es la fotografía.' },
+            { de: 'Machst du gern Sport?', es: '¿Te gusta hacer deporte?' }
           ]
         },
         {
@@ -3125,15 +3041,8 @@ export const A11 = {
           es: 'Hablar de planes y cursos futuros',
           wendungen: [
             { de: 'Ich will einen Deutschkurs machen.', es: 'Quiero hacer un curso de alemán.' },
-            { de: 'Ich will nächstes Jahr einen Kurs machen.', es: 'El año que viene quiero hacer un curso.' },
-            { de: 'Ich will nächstes Jahr einen Tanzkurs machen.', es: 'El año que viene quiero hacer un curso de baile.' },
-            { de: 'Ich habe vor, im Sommer Spanisch zu lernen.', es: 'Tengo pensado aprender español en verano.' },
-            { de: 'Ich möchte gern Gitarre lernen.', es: 'Me gustaría aprender a tocar la guitarra.' },
             { de: 'Hast du schon Pläne für den Sommer?', es: '¿Tienes ya planes para el verano?' },
-            { de: 'Würdest du gern einen Tanzkurs machen?', es: '¿Te gustaría hacer un curso de baile?' },
-            { de: 'Bist du in einem Verein?', es: '¿Estás en algún club?' },
-            { de: 'Was kostet die Mitgliedschaft im Verein?', es: '¿Cuánto cuesta la membresía del club?' },
-            { de: 'In welchem Verein spielst du?', es: '¿En qué club juegas?' }
+            { de: 'Bist du in einem Verein?', es: '¿Estás en algún club?' }
           ]
         },
         {
@@ -3141,15 +3050,8 @@ export const A11 = {
           es: 'Hablar de deportes y competiciones',
           wendungen: [
             { de: 'Wer hat gestern gewonnen?', es: '¿Quién ganó ayer?' },
-            { de: 'Wann ist das nächste Spiel?', es: '¿Cuándo es el próximo partido?' },
-            { de: 'Ich habe mich beim Training verletzt.', es: 'Me he lesionado en el entrenamiento.' },
-            { de: 'Unsere Mannschaft hat leider verloren.', es: 'Nuestro equipo ha perdido.' },
-            { de: 'Der neue Trainer ist wirklich streng.', es: 'El entrenador nuevo es muy estricto.' },
-            { de: 'Wo trainiert ihr im Winter?', es: '¿Dónde entrenáis en invierno?' },
-            { de: 'Die Ausrüstung war ganz schön teuer.', es: 'El equipamiento ha salido bastante caro.' },
             { de: 'Nimmst du beim Turnier teil?', es: '¿Participas en el torneo?' },
-            { de: 'Wie viele Zuschauer waren beim Spiel?', es: '¿Cuántos espectadores había en el partido?' },
-            { de: 'Wie ist das Spiel am Sonntag ausgegangen?', es: '¿Cómo acabó el partido del domingo?' }
+            { de: 'Wo trainiert ihr im Winter?', es: '¿Dónde entrenáis en invierno?' }
           ]
         },
         {
@@ -3157,15 +3059,8 @@ export const A11 = {
           es: 'Invitar a alguien y reaccionar',
           wendungen: [
             { de: 'Hast du Lust, am Samstag mitzukommen?', es: '¿Te apetece venir el sábado?' },
-            { de: 'Wir grillen am Sonntag, kommst du?', es: 'El domingo hacemos barbacoa, ¿vienes?' },
-            { de: 'Ich lade dich zum Essen ein.', es: 'Te invito a comer.' },
-            { de: 'Leider kann ich am Freitag nicht.', es: 'Por desgracia el viernes no puedo.' },
-            { de: 'Ich muss leider absagen, mir geht es nicht gut.', es: 'Tengo que cancelar, no me encuentro bien.' },
             { de: 'Kommst du mit ins Konzert?', es: '¿Te vienes al concierto?' },
-            { de: 'Vielleicht nächstes Mal, heute passt es nicht.', es: 'Quizá la próxima vez, hoy no me va bien.' },
-            { de: 'Bring ruhig jemanden mit!', es: '¡Trae a quien quieras!' },
-            { de: 'Ich habe zwei Eintrittskarten, kommst du mit?', es: 'Tengo dos entradas, ¿te vienes?' },
-            { de: 'Wir spielen heute Abend Karten, magst du?', es: 'Esta noche jugamos a las cartas, ¿te apetece?' }
+            { de: 'Leider kann ich am Freitag nicht.', es: 'Por desgracia el viernes no puedo.' }
           ]
         },
         {
@@ -3174,14 +3069,7 @@ export const A11 = {
           wendungen: [
             { de: 'Das stimmt nicht.', es: 'Eso no es cierto.' },
             { de: 'Nein, überhaupt nicht.', es: 'No, en absoluto.' },
-            { de: 'Das stimmt so nicht ganz.', es: 'Eso no es del todo así.' },
-            { de: 'Nein, das sehe ich völlig anders.', es: 'No, yo lo veo completamente distinto.' },
-            { de: 'Da muss ich dir widersprechen.', es: 'En eso no estoy de acuerdo contigo.' },
-            { de: 'Doch, ich kann sehr gut kochen!', es: '¡Que sí, sé cocinar muy bien!' },
-            { de: 'Überhaupt nicht, das war ganz anders.', es: 'En absoluto, eso fue muy distinto.' },
-            { de: 'Das glaube ich dir nicht.', es: 'Eso no me lo creo.' },
-            { de: 'Das kann eigentlich nicht stimmen.', es: 'Eso no puede ser.' },
-            { de: 'Also da bin ich anderer Meinung.', es: 'Pues yo opino distinto.' }
+            { de: 'Da muss ich dir widersprechen.', es: 'En eso no estoy de acuerdo contigo.' }
           ]
         }
       ]
