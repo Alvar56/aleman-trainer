@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "portable": "node scripts/empaquetar.mjs",
     "pruebas": "node scripts/pruebas.mjs",
+    "pruebas-componentes": "node scripts/pruebas-componentes.mjs",
     "traducciones": "node scripts/revision-traducciones.mjs",
     "contenido": "node scripts/revision-contenido.mjs",
     "estado": "node scripts/estado-lecciones.mjs"
