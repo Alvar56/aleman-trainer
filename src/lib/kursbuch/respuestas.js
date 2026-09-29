@@ -97,180 +97,38 @@ const RESPUESTAS = {
 
 
   // ---- Lektion 7: Der Umzug -----------------------------------------------
-  'Na gut, von mir aus.':
-    { de: 'Du klingst nicht sehr begeistert.', es: 'No suenas muy convencido.',
-      mas: [
-        { de: 'Ich bin einfach müde, mehr nicht.', es: 'Es que estoy cansada, nada más.' },
-        { de: 'Dann machen wir es kurz und du gehst früh heim.', es: 'Pues lo hacemos rápido y te vas pronto a casa.' }
-      ] },
-  'Hmm, ich weiß nicht so recht …':
-    { de: 'Überleg es dir in Ruhe.', es: 'Piénsalo con calma.',
-      mas: [
-        { de: 'Sag mir morgen Bescheid, ja?', es: 'Dime algo mañana, ¿vale?' },
-        { de: 'Mache ich. Bis dahin habe ich es mir überlegt.', es: 'Lo haré. Para entonces ya lo habré pensado.' }
-      ] },
-  'Lieber nicht, ehrlich gesagt.':
-    { de: 'Alles klar, dann lassen wir das.', es: 'Vale, pues lo dejamos.',
-      mas: [
-        { de: 'Nimmst du es mir übel?', es: '¿Te lo tomas a mal?' },
-        { de: 'Überhaupt nicht. Lieber ehrlich als halbherzig.', es: 'Para nada. Mejor sincero que a medias.' }
-      ] },
-  'Klar, mache ich!':
-    { de: 'Danke, du rettest mich. Ohne dich säße ich bis Mitternacht hier.', es: 'Gracias, me salvas. Sin ti estaría aquí hasta medianoche.',
-      mas: [
-        { de: 'Bis wann brauchst du es?', es: '¿Para cuándo lo necesitas?' },
-        { de: 'Heute Abend würde reichen.', es: 'Con esta tarde bastaría.' }
-      ] },
-  'Das übernehme ich.':
-    { de: 'Perfekt, dann kümmere ich mich um den Rest.', es: 'Perfecto, yo me ocupo del resto.',
-      mas: [
-        { de: 'Sag mir nur, wo die Schrauben sind.', es: 'Dime solo dónde están los tornillos.' },
-        { de: 'In der blauen Kiste, ganz unten.', es: 'En la caja azul, abajo del todo.' }
-      ] },
-  'Geht in Ordnung.':
-    { de: 'Super, danke dir! Du hast mir sehr geholfen.', es: '¡Genial, gracias! Me has ayudado mucho.',
-      mas: [
-        { de: 'Kein Thema, dafür sind Freunde da.', es: 'No hay de qué, para eso están los amigos.' },
-        { de: 'Nächstes Mal helfe ich dir, versprochen.', es: 'La próxima te ayudo yo, prometido.' }
-      ] },
-  'Vorsicht, das ist schwer!':
-    { de: 'Warte, ich helfe dir. Nimm du vorne, ich gehe rückwärts.', es: 'Espera, te ayudo. Coge tú por delante, yo voy hacia atrás.',
-      mas: [
-        { de: 'Bei der Tür müssen wir kippen.', es: 'En la puerta hay que inclinarlo.' },
-        { de: 'Warte, ich gehe zuerst und sage dir Bescheid.', es: 'Espera, voy primero y te aviso.' }
-      ] },
-  'Pass auf, nicht fallen lassen!':
-    { de: 'Keine Sorge, ich habe es fest.', es: 'Tranquilo, lo tengo bien agarrado.',
-      mas: [
-        { de: 'Meine Finger rutschen ein bisschen.', es: 'Se me resbalan un poco los dedos.' },
-        { de: 'Stell es kurz ab, wir greifen neu.', es: 'Déjalo un momento y lo cogemos otra vez.' }
-      ] },
-  'Langsam, langsam!':
-    { de: 'Ja, ja, ich gebe mir Mühe!', es: '¡Que sí, que voy con cuidado!',
-      mas: [
-        { de: 'Noch zwei Stufen, dann sind wir oben.', es: 'Dos escalones más y estamos arriba.' },
-        { de: 'Endlich. Das war das schwerste Stück.', es: 'Por fin. Eso era lo más pesado.' }
-      ] },
-  'Das Sofa kommt an die Wand und der Tisch in die Mitte.':
-    { de: 'Und wohin mit dem Regal?', es: '¿Y la estantería dónde?',
-      mas: [
-        { de: 'Zwischen Fenster und Tür, da stört es nicht.', es: 'Entre la ventana y la puerta, ahí no estorba.' },
-        { de: 'Gute Idee. Dann bleibt der Durchgang frei.', es: 'Buena idea. Así el paso queda libre.' }
-      ] },
-  'Stell das Regal bitte neben die Tür.':
-    { de: 'So? Oder ein bisschen weiter rechts?', es: '¿Así? ¿O un poco más a la derecha?',
-      mas: [
-        { de: 'Ein bisschen weiter, sonst geht die Tür nicht auf.', es: 'Un poco más allá, si no la puerta no abre.' },
-        { de: 'Jetzt passt es. So bleibt es stehen.', es: 'Ahora sí. Así se queda.' }
-      ] },
-  'Das ist mir sehr wichtig.':
-    { de: 'Dann machen wir das zuerst.', es: 'Pues lo hacemos primero.',
-      mas: [
-        { de: 'Vor allem, dass die Küche funktioniert.', es: 'Sobre todo que la cocina funcione.' },
-        { de: 'Verstehe. Dann bauen wir zuerst den Herd an.', es: 'Entiendo. Pues conectamos primero la cocina.' }
-      ] },
-  'Hauptsache, es ist bis Freitag fertig.':
-    { de: 'Das schaffen wir locker, wenn morgen noch jemand mithilft.', es: 'Eso lo sacamos de sobra si mañana alguien más echa una mano.',
-      mas: [
-        { de: 'Meine Schwester kommt am Samstag zu Besuch.', es: 'Mi hermana viene de visita el sábado.' },
-        { de: 'Dann ist bis Freitag alles an seinem Platz, versprochen.', es: 'Pues para el viernes está todo en su sitio, prometido.' }
-      ] },
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // ---- Lektion 8: Unterwegs -----------------------------------------------
-  'Wann fährt der nächste Zug nach Salzburg?':
-    { de: 'Um 14:20 Uhr, von Gleis drei.', es: 'A las 14:20, del andén tres.',
-      mas: [
-        { de: 'Gleis drei ist im Untergeschoss, oder?', es: 'La vía tres está abajo, ¿no?' },
-        { de: 'Ja, die Rolltreppe gleich links hinter Ihnen.', es: 'Sí, la escalera mecánica justo detrás a la izquierda.' }
-      ] },
-  'Muss ich umsteigen? – Ja, in Linz.':
-    { de: 'Und wie lange habe ich dort Zeit?', es: '¿Y cuánto tiempo tengo allí?',
-      mas: [
-        { de: 'Zwölf Minuten, gleicher Bahnsteig.', es: 'Doce minutos, mismo andén.' },
-        { de: 'Das reicht knapp. Bleiben Sie vorne im Zug.', es: 'Va justo. Quédese en la parte delantera del tren.' }
-      ] },
-  'Von welchem Gleis fährt der Zug ab?':
-    { de: 'Von Gleis sieben, ganz hinten.', es: 'Del andén siete, al fondo.' },
-  'Könnten Sie mir bitte helfen?':
-    { de: 'Aber gern, was brauchen Sie?', es: 'Claro, ¿qué necesita?',
-      mas: [
-        { de: 'Ich finde meinen Wagen nicht.', es: 'No encuentro mi vagón.' },
-        { de: 'Zeigen Sie mir das Ticket. Wagen sieben ist ganz vorne.', es: 'Enséñeme el billete. El vagón siete está delante del todo.' }
-      ] },
-  'Aber gern! · Kein Problem.':
-    { de: 'Vielen Dank, das ist wirklich sehr nett von Ihnen.', es: 'Muchas gracias, es usted muy amable.',
-      mas: [
-        { de: 'Ohne Sie hätte ich den Zug verpasst.', es: 'Sin usted habría perdido el tren.' },
-        { de: 'Das wäre schade gewesen. Gute Fahrt!', es: 'Habría sido una pena. ¡Buen viaje!' }
-      ] },
-  'Würden Sie so nett sein und …?':
-    { de: 'Selbstverständlich. Sagen Sie mir einfach, was Sie brauchen.', es: 'Por supuesto. Dígame sin más qué necesita.',
-      mas: [
-        { de: 'Könnten Sie kurz auf meinen Koffer schauen?', es: '¿Me vigila la maleta un momento?' },
-        { de: 'Natürlich. Lassen Sie sich Zeit.', es: 'Por supuesto. Tómese su tiempo.' }
-      ] },
-  'Entschuldigung, ist der Platz noch frei?':
-    { de: 'Ja, setzen Sie sich ruhig.', es: 'Sí, siéntese tranquilo.',
-      mas: [
-        { de: 'Danke. Stört es Sie, wenn ich telefoniere?', es: 'Gracias. ¿Le molesta si hablo por teléfono?' },
-        { de: 'Das ist hier ein Ruheabteil. Draußen im Gang geht es.', es: 'Esto es un vagón silencioso. En el pasillo sí puede.' }
-      ] },
-  'Ja, bitte sehr. / Nein, der ist leider besetzt.':
-    { de: 'Danke, dann suche ich weiter.', es: 'Gracias, sigo buscando.',
-      mas: [
-        { de: 'Ist weiter vorne noch etwas frei?', es: '¿Queda algo libre más adelante?' },
-        { de: 'Im nächsten Wagen war noch viel Platz.', es: 'En el siguiente vagón había bastante sitio.' }
-      ] },
-  'Gute Reise! · Gute Fahrt!':
-    { de: 'Danke gleichfalls! Fahr vorsichtig, die Straßen sind heute sehr glatt.', es: '¡Gracias, igualmente! Conduce con cuidado, hoy las carreteras resbalan mucho.',
-      mas: [
-        { de: 'Ich fahre mit dem Zug, da ist mir das egal.', es: 'Voy en tren, así que eso me da igual.' },
-        { de: 'Stimmt, viel klüger bei dem Wetter.', es: 'Es verdad, mucho más listo con este tiempo.' }
-      ] },
-  'Schönen Aufenthalt!':
-    { de: 'Vielen Dank, das ist lieb.', es: 'Muchas gracias, qué amable.',
-      mas: [
-        { de: 'Ich bleibe nur zwei Nächte.', es: 'Me quedo solo dos noches.' },
-        { de: 'Dann machen Sie gleich morgen den Stadtspaziergang.', es: 'Pues haga el paseo por la ciudad mañana mismo.' }
-      ] },
-  'Kommen Sie gut an!':
-    { de: 'Danke, bis bald! Ich schreibe Ihnen, wenn ich da bin.', es: '¡Gracias, hasta pronto! Le escribo cuando llegue.',
-      mas: [
-        { de: 'Ich melde mich, sobald ich im Hotel bin.', es: 'Le aviso en cuanto llegue al hotel.' },
-        { de: 'Machen Sie das. Und ruhen Sie sich erst einmal aus.', es: 'Hágalo. Y descanse primero.' }
-      ] },
-  'Gehen Sie geradeaus bis zur Brücke, dann links.':
-    { de: 'Geradeaus und dann links. Danke!', es: 'Recto y luego a la izquierda. ¡Gracias!',
-      mas: [
-        { de: 'Und wie weit ist es ungefähr?', es: '¿Y a qué distancia está más o menos?' },
-        { de: 'Fünf Minuten. Sie sehen den Turm schon von der Brücke.', es: 'Cinco minutos. Desde el puente ya ve la torre.' }
-      ] },
-  'Das ist gleich um die Ecke.':
-    { de: 'Oh, dann finde ich es sicher.', es: 'Ah, entonces seguro que lo encuentro.',
-      mas: [
-        { de: 'Rechts oder links um die Ecke?', es: '¿A la derecha o a la izquierda?' },
-        { de: 'Rechts, direkt neben der Apotheke.', es: 'A la derecha, justo al lado de la farmacia.' }
-      ] },
-  'Es sind ungefähr zehn Minuten zu Fuß.':
-    { de: 'Perfekt, dann gehe ich zu Fuß.', es: 'Perfecto, pues voy andando.',
-      mas: [
-        { de: 'Ist der Weg gut beschildert?', es: '¿El camino está bien señalizado?' },
-        { de: 'Ab dem Platz schon. Vorher einfach der Hauptstraße folgen.', es: 'Desde la plaza sí. Antes siga la calle principal.' }
-      ] },
-  'Ich habe ein Zimmer auf den Namen … reserviert.':
-    { de: 'Einen Moment bitte … ja, hier ist es.', es: 'Un momento… sí, aquí está.',
-      mas: [
-        { de: 'Ist das Zimmer ruhig? Ich schlafe schlecht bei Lärm.', es: '¿Es una habitación tranquila? Duermo mal con ruido.' },
-        { de: 'Es liegt zum Hof hinaus. Ruhiger geht es nicht.', es: 'Da al patio. Más tranquila imposible.' }
-      ] },
-  'Um wie viel Uhr gibt es Frühstück?':
-    { de: 'Von sieben bis zehn Uhr.', es: 'De siete a diez.',
-      mas: [
-        { de: 'Geht es auch früher? Mein Zug fährt um halb sieben.', es: '¿Se puede antes? Mi tren sale a las seis y media.' },
-        { de: 'Dann richten wir Ihnen etwas zum Mitnehmen her.', es: 'Pues le preparamos algo para llevar.' }
-      ] },
-  'Ich würde gern auschecken.':
-    { de: 'Gern. Hat alles gepasst, oder gab es etwas zu bemängeln?', es: 'Con gusto. ¿Ha estado todo bien o hubo algo que objetar?' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // ---- A1.1 Start: Wie geht's? -------------------------------------------
 
@@ -653,12 +511,6 @@ const RESPUESTAS = {
 
 
 
-  'Kannst du mir beim Umzug helfen?':
-    { de: 'Klar, wann ziehst du um?', es: 'Claro, ¿cuándo te mudas?',
-      mas: [
-        { de: 'Am Samstag, ab acht Uhr früh.', es: 'El sábado, a partir de las ocho.' },
-        { de: 'Dann bin ich da. Habt ihr schon einen Lift bestellt?', es: 'Pues allí estaré. ¿Habéis reservado montacargas?' }
-      ] },
 
 
 
@@ -1544,230 +1396,6 @@ const RESPUESTAS = {
 
 
 
-  'Fangen wir mit der Küche an?':
-    { de: 'Lieber das Schlafzimmer. Dort können wir wenigstens schon schlafen.', es: 'Mejor el dormitorio. Allí al menos ya podemos dormir.',
-      mas: [
-        { de: 'Stimmt, Hauptsache wir haben heute Nacht ein Bett.', es: 'Cierto, lo importante es tener cama esta noche.' },
-        { de: 'Genau. Die Küche machen wir morgen in Ruhe.', es: 'Exacto. La cocina la hacemos mañana con calma.' }
-      ] },
-  'Was hältst du davon, morgen weiterzumachen?':
-    { de: 'Gute Idee. Bei diesem Licht sieht man die Ecken nicht mehr.', es: 'Buena idea. Con esta luz ya no se ven las esquinas.',
-      mas: [
-        { de: 'Um wie viel Uhr sollen wir anfangen?', es: '¿A qué hora empezamos?' },
-        { de: 'Neun ist früh genug. Ich bringe Frühstück mit.', es: 'A las nueve ya está bien. Llevo el desayuno.' }
-      ] },
-  'Wir könnten die alten Möbel verschenken.':
-    { de: 'Besser als entsorgen. Ich stelle heute Abend die Anzeige online.', es: 'Mejor que tirarlos. Esta noche pongo el anuncio.',
-      mas: [
-        { de: 'Stell sie auf willhaben, da geht alles weg.', es: 'Ponlos en willhaben, ahí se va todo.' },
-        { de: 'Mache ich. Zur Not stelle ich sie zum Sperrmüll.', es: 'Lo hago. Si acaso los saco a los trastos.' }
-      ] },
-  'Lass uns die Kisten gleich beschriften.':
-    { de: 'Unbedingt. Beim letzten Umzug haben wir alles wieder aufgemacht.', es: 'Sin falta. En la última mudanza lo abrimos todo otra vez.' },
-  'Ich schlage vor, wir mieten einen Wagen.':
-    { de: 'Rechne mal nach. Zweimal fahren mit dem Auto ist billiger.', es: 'Echa cuentas. Hacer dos viajes en coche sale más barato.' },
-  'Sollen wir die Handwerker kommen lassen?':
-    { de: 'Für das Bad ja. Den Rest schaffen wir selbst.', es: 'Para el baño sí. El resto lo sacamos nosotros.' },
-  'Na gut, von mir aus machen wir es so.':
-    { de: 'Du klingst nicht überzeugt. Sag ruhig, wenn dir etwas nicht passt.', es: 'No suenas convencido. Dilo si algo no te cuadra.' },
-  'Hmm, ich weiß nicht so recht.':
-    { de: 'Was stört dich? Die Farbe oder der Preis?', es: '¿Qué te molesta? ¿El color o el precio?' },
-  'Ehrlich gesagt wäre mir das nicht recht.':
-    { de: 'In Ordnung. Dann suchen wir eine andere Lösung.', es: 'De acuerdo. Pues buscamos otra solución.' },
-  'Einverstanden, aber nur unter einer Bedingung.':
-    { de: 'Und die wäre? Ich höre.', es: '¿Y cuál es? Te escucho.' },
-  'Wenn es sein muss, mache ich mit.':
-    { de: 'Es muss nicht. Ich frage lieber jemand anderen.', es: 'No tiene que ser. Mejor le pregunto a otro.' },
-  'Da bin ich mir noch nicht sicher.':
-    { de: 'Lass dir Zeit. Wir entscheiden es am Wochenende.', es: 'Tómate tu tiempo. Lo decidimos el fin de semana.' },
-  'Klar, das mache ich gern.':
-    { de: 'Danke! Dann bist du für die Küche zuständig.', es: '¡Gracias! Entonces te encargas de la cocina.' },
-  'Das übernehme ich bis Freitag.':
-    { de: 'Perfekt. Sag Bescheid, wenn du Werkzeug brauchst.', es: 'Perfecto. Avisa si necesitas herramientas.' },
-  'Geht in Ordnung, verlass dich auf mich.':
-    { de: 'Mache ich. Du hast mich noch nie hängen lassen.', es: 'Lo hago. Nunca me has fallado.' },
-  'Kein Problem, ich bringe das Werkzeug mit.':
-    { de: 'Super. Dann brauchen wir nur noch eine Leiter.', es: 'Genial. Entonces solo falta una escalera.' },
-  'Das kriege ich hin, keine Sorge.':
-    { de: 'Ich weiß. Du hast das Regal letztes Mal in zehn Minuten aufgebaut.', es: 'Lo sé. La última vez montaste la estantería en diez minutos.' },
-  'Ich kümmere mich um den Müll.':
-    { de: 'Danke. Die sperrigen Sachen musst du zum Mistplatz bringen.', es: 'Gracias. Lo voluminoso hay que llevarlo al punto limpio.' },
-  'Vorsicht, die Kiste ist sehr schwer!':
-    { de: 'Merke ich. Nimm du unten, ich gehe rückwärts.', es: 'Ya lo noto. Coge tú por abajo, yo voy hacia atrás.' },
-  'Vorsicht, lass es nicht fallen!':
-    { de: 'Keine Angst. Ich habe ihn fest, geh ruhig weiter.', es: 'Tranquilo. Lo tengo bien, sigue andando.' },
-  'Langsam, hier ist eine Stufe.':
-    { de: 'Danke, die habe ich nicht gesehen. Noch eine?', es: 'Gracias, no lo había visto. ¿Hay otro?' },
-  'Achte bitte auf die frische Farbe.':
-    { de: 'Wie lange braucht sie noch zum Trocknen?', es: '¿Cuánto le queda para secarse?' },
-  'Stell das nicht auf den neuen Boden.':
-    { de: 'Wo dann? Im Flur steht schon alles voll.', es: '¿Y dónde entonces? El pasillo ya está lleno.' },
-  'Halt die Leiter fest, bitte.':
-    { de: 'Ich halte. Aber bitte nicht auf die oberste Stufe steigen.', es: 'La sujeto. Pero no te subas al último escalón.' },
-  'Das Sofa kommt an die Wand beim Fenster.':
-    { de: 'Gute Idee. Dann hat man beim Lesen Licht von links.', es: 'Buena idea. Así al leer entra la luz por la izquierda.' },
-  'Das Regal stellen wir am besten neben die Tür.':
-    { de: 'Dort passt es genau. Zwei Zentimeter Luft bleiben noch.', es: 'Ahí cabe justo. Quedan dos centímetros de margen.' },
-  'Wohin hängen wir den Spiegel?':
-    { de: 'Gegenüber dem Fenster. Dann wirkt der Raum größer.', es: 'Enfrente de la ventana. Así la habitación parece más grande.',
-      mas: [
-        { de: 'Und wie hoch? Ich sehe sonst nur meine Stirn.', es: '¿Y a qué altura? Si no, solo me veo la frente.' },
-        { de: 'Auf Augenhöhe der kleineren Person. Das ist die Regel.', es: 'A la altura de los ojos de la persona más baja. Es la regla.' }
-      ] },
-  'Der Tisch soll in die Mitte.':
-    { de: 'Dann ist der Weg zur Küche aber eng.', es: 'Pero entonces el paso a la cocina se queda estrecho.' },
-  'Die Lampe hängen wir über den Esstisch.':
-    { de: 'Nicht zu tief, sonst stößt man sich ständig den Kopf.', es: 'No muy baja, si no te das en la cabeza constantemente.' },
-  'Der Teppich passt farblich gar nicht.':
-    { de: 'Stimmt. Im Schlafzimmer würde er besser wirken.', es: 'Es verdad. En el dormitorio quedaría mejor.' },
-  'Wir brauchen mehr Steckdosen hier.':
-    { de: 'Sag es den Handwerkern, solange die Wand noch offen ist.', es: 'Díselo a los operarios, mientras la pared está abierta.' },
-  'Die Vorhänge machen den Raum gemütlich.':
-    { de: 'Und sie halten im Winter die Wärme drinnen.', es: 'Y en invierno mantienen el calor dentro.' },
-  'Das ist mir wirklich sehr wichtig.':
-    { de: 'Dann machen wir es zuerst. Der Rest kann warten.', es: 'Pues lo hacemos primero. Lo demás puede esperar.',
-      mas: [
-        { de: 'Ich weiß, ich wiederhole mich.', es: 'Ya sé que me repito.' },
-        { de: 'Kein Problem. Jetzt weiß ich, worauf es dir ankommt.', es: 'No pasa nada. Ahora sé qué te importa.' }
-      ] },
-  'Wichtig ist nur, dass es Freitag fertig ist.':
-    { de: 'Das schaffen wir, wenn morgen jemand mithilft.', es: 'Lo conseguimos si mañana alguien echa una mano.' },
-  'Für mich zählt vor allem die Ruhe.':
-    { de: 'Dann ist die Wohnung im Hof perfekt für dich.', es: 'Entonces el piso que da al patio es perfecto para ti.' },
-  'Wichtiger als die Farbe ist das Licht.':
-    { de: 'Da hast du recht. Dunkle Räume drücken auf die Stimmung.', es: 'En eso tienes razón. Las habitaciones oscuras hunden el ánimo.' },
-  'Das kann warten, es eilt nicht.':
-    { de: 'Gut. Dann konzentrieren wir uns auf die Küche.', es: 'Bien. Entonces nos centramos en la cocina.' },
-  'Entscheidend ist, dass die Kinder ein Zimmer haben.':
-    { de: 'Sehe ich genauso. Wir schlafen notfalls im Wohnzimmer.', es: 'Lo veo igual. Si hace falta dormimos en el salón.' },
-  'Kannst du mir am Samstag beim Umzug helfen?':
-    { de: 'Klar. Ab wann brauchst du mich, und wie viele sind wir?', es: 'Claro. ¿Desde qué hora me necesitas y cuántos somos?',
-      mas: [
-        { de: 'Ab acht, und wir sind zu viert.', es: 'Desde las ocho, y somos cuatro.' },
-        { de: 'Dann bin ich um acht da. Gibt es einen Lift oder nur Treppen?', es: 'Entonces estoy a las ocho. ¿Hay ascensor o solo escaleras?' }
-      ] },
-  'Wir schleppen schon seit sechs Uhr Kisten.':
-    { de: 'Dann macht ihr jetzt Pause. Ich bringe Kaffee und Semmeln.', es: 'Pues ahora hacéis una pausa. Yo llevo café y panecillos.',
-      mas: [
-        { de: 'Kaffee wäre jetzt die Rettung.', es: 'Un café ahora sería la salvación.' },
-        { de: 'Bin in zehn Minuten da. Setzt euch schon mal hin.', es: 'Llego en diez minutos. Id sentándoos.' }
-      ] },
-  'Wo soll diese Kiste hin?':
-    { de: 'Schau auf die Beschriftung. Da steht das Zimmer drauf.', es: 'Mira la etiqueta. Ahí pone la habitación.' },
-  'Das Sofa passt nicht in den Lift.':
-    { de: 'Dann über die Treppe. Zu dritt schaffen wir das.', es: 'Pues por la escalera. Entre tres lo sacamos.' },
-  'Hast du den Umzugswagen schon reserviert?':
-    { de: 'Für neun Uhr. Um achtzehn Uhr muss er zurück sein.', es: 'Para las nueve. A las seis tiene que estar de vuelta.' },
-  'Vergiss nicht, die Adresse umzumelden.':
-    { de: 'Danke für die Erinnerung. Ich habe drei Tage Zeit, oder?', es: 'Gracias por recordármelo. Tengo tres días, ¿no?' },
-  'Die Übergabe der alten Wohnung ist am Montag.':
-    { de: 'Dann muss sie am Sonntag komplett leer und sauber sein.', es: 'Entonces el domingo tiene que estar vacío y limpio del todo.' },
-  'Danke, dass ihr alle gekommen seid!':
-    { de: 'Gern. Du hast mir letztes Jahr auch geholfen.', es: 'De nada. Tú también me ayudaste el año pasado.' },
-  'Wann fährt der nächste Zug nach Graz?':
-    { de: 'In zwölf Minuten von Gleis sieben, ohne Umsteigen.', es: 'Dentro de doce minutos de la vía siete, sin transbordo.',
-      mas: [
-        { de: 'Reicht die Zeit noch für einen Kaffee?', es: '¿Da tiempo todavía para un café?' },
-        { de: 'Knapp. Der Kiosk am Bahnsteig geht schneller als das Café.', es: 'Justo. El quiosco del andén va más rápido que la cafetería.' }
-      ] },
-  'Muss ich unterwegs umsteigen?':
-    { de: 'Einmal in Linz, mit acht Minuten Umsteigezeit.', es: 'Una vez en Linz, con ocho minutos de enlace.' },
-  'Auf welchem Gleis steht der Zug?':
-    { de: 'Heute ausnahmsweise von Gleis zwei. Achten Sie auf die Durchsage.', es: 'Hoy excepcionalmente de la vía dos. Esté atento al aviso.' },
-  'Gibt es eine Ermäßigung für Studenten?':
-    { de: 'Ja, fünfundzwanzig Prozent. Bitte den Ausweis bereithalten.', es: 'Sí, un veinticinco por ciento. Tenga el carné a mano.' },
-  'Was kostet eine Rückfahrkarte?':
-    { de: 'Achtunddreißig Euro. Einfach wäre fünfundzwanzig.', es: 'Treinta y ocho euros. Solo ida serían veinticinco.' },
-  'Wie lange dauert die Fahrt ungefähr?':
-    { de: 'Zweieinhalb Stunden. Mit dem Regionalzug fast vier.', es: 'Dos horas y media. Con el regional casi cuatro.' },
-  'Fährt am Sonntag auch ein Nachtzug?':
-    { de: 'Ja, aber nur bis München. Weiter müssen Sie am Morgen.', es: 'Sí, pero solo hasta Múnich. Más allá tiene que ir por la mañana.' },
-  'Ist die Ankunftszeit realistisch?':
-    { de: 'Meistens schon. Nur am Freitag gibt es oft Verspätungen.', es: 'Casi siempre sí. Solo los viernes suele haber retrasos.',
-      mas: [
-        { de: 'Ich habe um sieben einen Termin.', es: 'Tengo una cita a las siete.' },
-        { de: 'Dann nehmen Sie lieber den früheren. Eine Stunde Puffer schadet nie.', es: 'Pues coja el anterior. Una hora de margen nunca sobra.' }
-      ] },
-  'Könnten Sie mir bitte mit dem Koffer helfen?':
-    { de: 'Aber gern. Soll er nach oben oder ins Gepäckabteil?', es: 'Con mucho gusto. ¿Arriba o al compartimento de equipajes?',
-      mas: [
-        { de: 'Nach oben bitte, ich steige erst in Graz aus.', es: 'Arriba, por favor, me bajo en Graz.' },
-        { de: 'Alles klar. Sagen Sie Bescheid, wenn Sie ihn runterbrauchen.', es: 'Muy bien. Avíseme cuando lo necesite abajo.' }
-      ] },
-  'Würden Sie so nett sein und kurz aufpassen?':
-    { de: 'Kein Problem. Gehen Sie ruhig, ich bleibe sitzen.', es: 'No hay problema. Vaya tranquilo, yo me quedo sentado.' },
-  'Dürfte ich kurz vorbei?':
-    { de: 'Selbstverständlich, ich rücke zur Seite.', es: 'Por supuesto, me aparto.' },
-  'Hätten Sie vielleicht einen Stift für mich?':
-    { de: 'Hier bitte. Sie können ihn auch behalten.', es: 'Aquí tiene. Se lo puede quedar.' },
-  'Wären Sie so freundlich, das Fenster zu schließen?':
-    { de: 'Natürlich. Ist es Ihnen zu zugig?', es: 'Claro. ¿Le entra demasiada corriente?' },
-  'Vielen Dank, das ist sehr freundlich.':
-    { de: 'Nicht der Rede wert. Gute Weiterreise!', es: 'No tiene importancia. ¡Buen viaje!',
-      mas: [
-        { de: 'Ihnen auch alles Gute!', es: '¡Que le vaya muy bien a usted también!' },
-        { de: 'Danke. Und keine Sorge, der Anschluss wartet meistens.', es: 'Gracias. Y tranquila, el enlace suele esperar.' }
-      ] },
-  'Verzeihung, ist hier noch ein Platz frei?':
-    { de: 'Ja, bitte sehr. Ich nehme meine Jacke weg.', es: 'Sí, por favor. Quito mi chaqueta.',
-      mas: [
-        { de: 'Danke, ich stelle den Koffer nach oben.', es: 'Gracias, pongo la maleta arriba.' },
-        { de: 'Soll ich Ihnen helfen? Der sieht schwer aus.', es: '¿Le ayudo? Parece pesada.' }
-      ] },
-  'Sitzt hier schon jemand?':
-    { de: 'Leider ja, mein Mann kommt gleich vom Speisewagen zurück.', es: 'Por desgracia sí, mi marido vuelve enseguida del vagón restaurante.' },
-  'Ist der Platz reserviert?':
-    { de: 'Erst ab Linz. Bis dahin können Sie ruhig sitzen.', es: 'Solo a partir de Linz. Hasta entonces puede sentarse.' },
-  'Darf ich mich hier hinsetzen?':
-    { de: 'Natürlich, es ist ja niemand da.', es: 'Claro, si no hay nadie.' },
-  'Könnten wir tauschen? Ich sitze gern am Fenster.':
-    { de: 'Gern, mir ist der Gang sowieso lieber.', es: 'Con gusto, yo prefiero el pasillo de todos modos.' },
-  'Gute Reise und kommen Sie gut an!':
-    { de: 'Danke schön! Ich melde mich, sobald ich da bin.', es: '¡Muchas gracias! Aviso en cuanto llegue.' },
-  'Schönen Aufenthalt in Wien!':
-    { de: 'Danke. Haben Sie einen Tipp, was ich sehen soll?', es: 'Gracias. ¿Tiene algún consejo de qué ver?' },
-  'Gute Fahrt und pass auf dich auf!':
-    { de: 'Mache ich. Bis nächste Woche!', es: 'Lo haré. ¡Hasta la semana que viene!' },
-  'Ich wünsche Ihnen einen angenehmen Flug.':
-    { de: 'Danke, hoffentlich ohne Turbulenzen. Das ist mein erster Langstreckenflug.', es: 'Gracias, ojalá sin turbulencias. Es mi primer vuelo de larga distancia.' },
-  'Erhol dich gut im Urlaub!':
-    { de: 'Das habe ich vor. Zwei Wochen ohne Handy.', es: 'Esa es la intención. Dos semanas sin móvil.' },
-  'Viel Spaß beim Stadtrundgang!':
-    { de: 'Danke! Angeblich soll der Führer sehr gut sein.', es: '¡Gracias! Dicen que el guía es muy bueno.' },
-  'Immer geradeaus bis zur Brücke und dann links.':
-    { de: 'Und danach? Sehe ich das Hotel dann schon?', es: '¿Y después? ¿Ya veo el hotel?' },
-  'Das liegt direkt um die Ecke.':
-    { de: 'Super, dann lasse ich den Koffer gleich hier stehen.', es: 'Genial, entonces dejo la maleta aquí mismo.' },
-  'Zu Fuß braucht man etwa zehn Minuten.':
-    { de: 'Mit dem Koffer eher fünfzehn, schätze ich.', es: 'Con la maleta más bien quince, calculo.' },
-  'Nehmen Sie die Fußgängerzone, das ist kürzer.':
-    { de: 'Danke. Komme ich dabei am Denkmal vorbei?', es: 'Gracias. ¿Paso así por el monumento?' },
-  'An der zweiten Ampel rechts abbiegen.':
-    { de: 'Zweite, nicht erste? Gut, dass Sie es sagen.', es: '¿La segunda, no la primera? Menos mal que lo dice.' },
-  'Der Bahnhof ist zu Fuß gut erreichbar.':
-    { de: 'Perfekt. Dann brauche ich kein Taxi zu nehmen.', es: 'Perfecto. Así no necesito coger un taxi.' },
-  'Ich schicke Ihnen eine Wegbeschreibung aufs Handy.':
-    { de: 'Sehr praktisch, danke. Mein Orientierungssinn ist schlecht.', es: 'Muy práctico, gracias. Tengo mal sentido de la orientación.' },
-  'Sie können den Weg gar nicht verfehlen.':
-    { de: 'Das sagen alle. Und dann stehe ich doch falsch.', es: 'Eso dicen todos. Y luego acabo en el sitio equivocado.' },
-  'Ich habe ein Doppelzimmer auf den Namen Pascual reserviert.':
-    { de: 'Willkommen. Zwei Nächte mit Frühstück, ist das richtig?', es: 'Bienvenido. Dos noches con desayuno, ¿correcto?',
-      mas: [
-        { de: 'Genau, zwei Nächte. Ist ein ruhiges Zimmer möglich?', es: 'Exacto, dos noches. ¿Sería posible una habitación tranquila?' },
-        { de: 'Ich gebe Ihnen eines zum Hof. Dort hören Sie die Straße gar nicht.', es: 'Le doy una que da al patio. Ahí no se oye nada la calle.' }
-      ] },
-  'Ab wann wird das Frühstück serviert?':
-    { de: 'Von sieben bis zehn, am Wochenende bis elf.', es: 'De siete a diez, el fin de semana hasta las once.' },
-  'Ich möchte jetzt auschecken.':
-    { de: 'Gern. Hatten Sie etwas aus der Minibar?', es: 'Con gusto. ¿Ha tomado algo del minibar?' },
-  'Im Bad fehlt ein Handtuch.':
-    { de: 'Entschuldigung, ich lasse sofort eins bringen.', es: 'Disculpe, mando que suban una enseguida.' },
-  'Kann ich das Gepäck bis nachmittags hierlassen?':
-    { de: 'Natürlich. Wir haben Schließfächer gleich hinter dem Empfang.', es: 'Claro. Tenemos taquillas justo detrás de recepción.' },
-  'Haben Sie einen Stadtplan für mich?':
-    { de: 'Hier bitte. Ich markiere Ihnen kurz den Weg zum Dom.', es: 'Aquí tiene. Le marco el camino a la catedral.' },
-  'Ab wann kann ich das Zimmer beziehen?':
-    { de: 'Ab vierzehn Uhr. Vorher wird noch geputzt.', es: 'A partir de las dos. Antes todavía se limpia.' },
 
 
 
@@ -2071,72 +1699,6 @@ const RESPUESTAS = {
 
 
 
-  'Werfen wir die Hälfte einfach weg?':
-    { de: 'Radikal, aber richtig. Wir tragen sonst nur Ballast mit.', es: 'Radical, pero acertado. Si no, solo cargamos lastre.' },
-  'Bringen wir den alten Schrank zum Mistplatz?':
-    { de: 'Besser zum Sperrmüll. Der wird nächste Woche abgeholt.', es: 'Mejor a los trastos. Los recogen la semana que viene.' },
-  'Ich schlage vor, wir räumen zuerst die Küche ein.':
-    { de: 'Genau. Ohne Küche wird der erste Abend sehr lang.', es: 'Exacto. Sin cocina la primera noche se hace muy larga.' },
-  'Na gut, dann eben provisorisch.':
-    { de: 'Nur bitte nicht drei Jahre lang wie beim letzten Mal.', es: 'Pero por favor no tres años como la última vez.' },
-  'Ich kümmere mich um den Nachsendeauftrag.':
-    { de: 'Perfekt. Vergiss die Bank und die Versicherung nicht.', es: 'Perfecto. No olvides el banco y el seguro.' },
-  'Vorsicht, diese Kiste ist zerbrechlich!':
-    { de: 'Danke für die Warnung. Ich stelle sie ganz oben hin.', es: 'Gracias por avisar. La pongo arriba del todo.' },
-  'Wo schaffen wir den meisten Stauraum?':
-    { de: 'An der langen Wand. Dort passt ein Regal bis zur Decke.', es: 'En la pared larga. Ahí cabe una estantería hasta el techo.',
-      mas: [
-        { de: 'Bis zur Decke? Da komme ich nie hin.', es: '¿Hasta el techo? Ahí no llego.' },
-        { de: 'Dafür gibt es Leitern. Und oben kommt nur der Winterkram hin.', es: 'Para eso hay escaleras. Y arriba solo va lo de invierno.' }
-      ] },
-  'Stellen wir das Bett provisorisch hierher?':
-    { de: 'Ja, und morgen probieren wir die andere Ecke aus.', es: 'Sí, y mañana probamos la otra esquina.',
-      mas: [
-        { de: 'Hauptsache, wir schlafen heute Nacht irgendwo.', es: 'Lo importante es dormir en algún sitio esta noche.' },
-        { de: 'Genau. Alles andere hat Zeit bis morgen.', es: 'Exacto. Lo demás puede esperar a mañana.' }
-      ] },
-  'Diese Lösung finde ich sehr praktisch.':
-    { de: 'Und günstig. Zwei Bretter und vier Schrauben, mehr nicht.', es: 'Y barata. Dos tablas y cuatro tornillos, nada más.',
-      mas: [
-        { de: 'Wo hast du das gelernt?', es: '¿Dónde aprendiste eso?' },
-        { de: 'Von meinem Vater. Der hat alles selbst gebaut.', es: 'De mi padre. Él se lo construía todo.' }
-      ] },
-  'In welche Kiste kommen die Gläser?':
-    { de: 'In die kleine, mit viel Luftpolsterfolie dazwischen.', es: 'En la pequeña, con mucho plástico de burbujas entre medias.' },
-  'Hier herrscht noch das totale Chaos.':
-    { de: 'Das ist normal am ersten Tag. Morgen sieht es anders aus.', es: 'Es normal el primer día. Mañana tendrá otra cara.' },
-  'Wer macht die Endreinigung der alten Wohnung?':
-    { de: 'Wir, am Sonntag. Eine Firma wäre uns zu teuer.', es: 'Nosotros, el domingo. Una empresa nos saldría cara.' },
-  'Was stand gerade in der Durchsage?':
-    { de: 'Gleiswechsel: Der Zug fährt heute von Gleis neun ab.', es: 'Cambio de vía: hoy el tren sale de la vía nueve.',
-      mas: [
-        { de: 'Gleis neun? Wo ist das?', es: '¿Vía nueve? ¿Dónde está eso?' },
-        { de: 'Ganz am Ende, hinter dem Supermarkt. Sie haben noch acht Minuten.', es: 'Al fondo del todo, detrás del súper. Le quedan ocho minutos.' }
-      ] },
-  'Lohnt sich eine Sitzplatzreservierung?':
-    { de: 'Am Freitag auf jeden Fall. Sonst stehen Sie zwei Stunden.', es: 'El viernes sin duda. Si no, va de pie dos horas.',
-      mas: [
-        { de: 'Was kostet sie denn?', es: '¿Y cuánto cuesta?' },
-        { de: 'Drei Euro. Für zwei Stunden Stehen ist das nichts.', es: 'Tres euros. Para dos horas de pie no es nada.' }
-      ] },
-  'Bekomme ich bei Verspätung eine Entschädigung?':
-    { de: 'Ab sechzig Minuten, ja. Das Formular gibt es online.', es: 'A partir de sesenta minutos, sí. El formulario está en la web.' },
-  'Könnten Sie im Ruhebereich bitte leiser sprechen?':
-    { de: 'Entschuldigung, das Schild habe ich gar nicht gesehen.', es: 'Perdón, no había visto el cartel.' },
-  'Dürfte ich Ihren Gepäckwagen kurz haben?':
-    { de: 'Selbstverständlich, ich bin sowieso fertig.', es: 'Por supuesto, de todos modos ya he terminado.' },
-  'Wären Sie so nett, mir beim Koffer zu helfen?':
-    { de: 'Gern. Soll er nach oben oder ins Gepäckabteil?', es: 'Con gusto. ¿Arriba o al compartimento de equipajes?' },
-  'Ist dieser Platz reserviert?':
-    { de: 'Ab Linz, ja. Bis dahin können Sie bleiben.', es: 'A partir de Linz, sí. Hasta entonces puede quedarse.' },
-  'Sind hier im Ruhebereich noch Plätze frei?':
-    { de: 'Zwei, ganz vorne im Wagen. Ich zeige es Ihnen.', es: 'Dos, al principio del vagón. Se lo enseño.' },
-  'Einen schönen Aufenthalt bei uns!':
-    { de: 'Danke. Können Sie mir etwas für heute Abend empfehlen?', es: 'Gracias. ¿Me puede recomendar algo para esta noche?' },
-  'Wie lang ist der Fußweg zum Hotel?':
-    { de: 'Acht Minuten, immer geradeaus und dann links.', es: 'Ocho minutos, todo recto y luego a la izquierda.' },
-  'Komme ich zu Fuß zur Innenstadt?':
-    { de: 'Locker. Über die Brücke sind es zehn Minuten.', es: 'Sin problema. Por el puente son diez minutos.' },
 
 
 
@@ -2371,42 +1933,6 @@ const RESPUESTAS = {
 
 
 
-  'Kannst du am Samstag mit anpacken?':
-    { de: 'Klar, ich habe den ganzen Vormittag Zeit, ab acht bin ich da.', es: 'Claro; tengo toda la mañana libre, a partir de las ocho estoy allí.' },
-  'Nimmst du bitte das andere Ende?':
-    { de: 'Warte kurz, ich stelle mich erst richtig hin, dann heben wir.', es: 'Espera; me coloco bien y entonces levantamos.' },
-  'Wohin stellen wir das Regal am besten?':
-    { de: 'An die kurze Wand, dann bleibt der Weg zum Fenster frei.', es: 'En la pared corta; así queda libre el paso a la ventana.' },
-  'Passt das Bett überhaupt an diese Wand?':
-    { de: 'Knapp, wir müssten aber die Tür noch ganz öffnen können.', es: 'Justo, pero tendríamos que poder abrir la puerta del todo.' },
-  'Soll der Schreibtisch ans Fenster?':
-    { de: 'Unbedingt, mit Tageslicht arbeitet es sich einfach viel angenehmer.', es: 'Sin duda; con luz natural se trabaja mucho mejor.' },
-  'Wie wollen wir die Küche einräumen?':
-    { de: 'Geschirr nach oben, Töpfe nach unten, das ist am praktischsten.', es: 'La vajilla arriba y las ollas abajo: es lo más práctico.' },
-  'Sollen wir zuerst die schweren Sachen tragen?':
-    { de: 'Gute Idee, solange wir noch Kraft haben, ist das klüger.', es: 'Buena idea; mientras tengamos fuerzas es más listo.' },
-  'Das Wichtigste ist, dass nichts kaputtgeht.':
-    { de: 'Sehe ich genauso, lieber langsamer und dafür ohne Schaden.', es: 'Opino igual: mejor más lento pero sin daños.' },
-  'Wann geht der letzte Zug zurück?':
-    { de: 'Um dreiundzwanzig Uhr zehn, danach fährt nur noch der Nachtbus.', es: 'A las veintitrés diez; después solo queda el autobús nocturno.' },
-  'Fährt heute etwas anders als sonst?':
-    { de: 'Ja, wegen Bauarbeiten endet die Linie eine Station früher.', es: 'Sí; por obras la línea termina una parada antes.' },
-  'Wie oft fährt die Bahn am Abend?':
-    { de: 'Ab acht nur noch stündlich, das steht unten auf dem Plan.', es: 'A partir de las ocho solo cada hora; lo pone abajo en el horario.' },
-  'Muss ich für diese Strecke umsteigen?':
-    { de: 'Nur einmal, in Sankt Pölten, und der Anschluss wartet normalerweise.', es: 'Solo una vez, en Sankt Pölten, y el enlace suele esperar.' },
-  'Ist der Weg ausgeschildert?':
-    { de: 'Ab dem Marktplatz schon, davor müssen Sie einmal jemanden fragen.', es: 'A partir de la plaza sí; antes tendrá que preguntar una vez.' },
-  'Soll ich Sie ein Stück begleiten?':
-    { de: 'Das wäre sehr nett, allein finde ich bestimmt wieder nicht hin.', es: 'Sería muy amable; solo seguro que me vuelvo a perder.' },
-  'Wären Sie so freundlich, mir zu helfen?':
-    { de: 'Aber natürlich, sagen Sie mir einfach, wo ich anpacken soll.', es: 'Pues claro; dígame dónde tengo que ayudar.' },
-  'Dürfte ich Sie kurz stören?':
-    { de: 'Sie stören überhaupt nicht, was kann ich für Sie tun?', es: 'No molesta en absoluto; ¿qué puedo hacer por usted?' },
-  'Könnten Sie das bitte kurz halten?':
-    { de: 'Gern, geben Sie es mir, ich habe beide Hände frei.', es: 'Con gusto; démelo, tengo las dos manos libres.' },
-  'Darf ich mich zu Ihnen setzen?':
-    { de: 'Natürlich, es ist ohnehin gemütlicher als allein am Tisch.', es: 'Claro; de todos modos se está mejor que solo en la mesa.' },
 
 
 
@@ -2460,14 +1986,136 @@ const RESPUESTAS = {
 
 
 
-  'Könnten Sie mir kurz weiterhelfen?':
-    { de: 'Gern, worum geht es denn?', es: 'Con mucho gusto, ¿de qué se trata?' },
-  'Kein Problem, ich helfe Ihnen gern.':
-    { de: 'Das ist wirklich nett von Ihnen.', es: 'Es muy amable de su parte.',
-      mas: [
-        { de: 'Darf ich Ihnen einen Kaffee ausgeben?', es: '¿Le puedo invitar a un café?' },
-        { de: 'Das ist lieb, aber nicht nötig. Wirklich gern geschehen.', es: 'Muy amable, pero no hace falta. De verdad, un placer.' }
-      ] },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   // ---- a11-l1 · sich vorstellen -------------------------------------
@@ -5124,6 +4772,232 @@ const RESPUESTAS = {
         { de: 'Noch nicht, aber diese Woche mache ich es wirklich.', es: 'Todavía no, pero esta semana lo hago de verdad.' },
         { de: 'Schaltest du am Abend wirklich ab?', es: '¿De verdad desconectas por la noche?' },
         { de: 'Ab neun ist das Handy im Flur. Das hat mein Schlafen gerettet.', es: 'A partir de las nueve el móvil está en el pasillo. Eso me salvó el sueño.' }
+      ] },
+
+
+  // ---- a21-l7 · beim Umzug anpacken und organisieren ----------------
+  'Kannst du mir am Samstag beim Umzug helfen?':
+    { de: 'Klar, ab wann braucht ihr mich?', es: 'Claro, ¿desde qué hora me necesitáis?',
+      mas: [
+        { de: 'Hast du den Umzugswagen schon reserviert?', es: '¿Ya has reservado la furgoneta?' },
+        { de: 'Ja, von acht bis achtzehn Uhr. Danach wird es teuer.', es: 'Sí, de ocho a dieciocho. Después sale caro.' },
+        { de: 'In welche Kiste kommen die Gläser?', es: '¿En qué caja van los vasos?' },
+        { de: 'In die kleinen, und bitte viel Papier dazwischen.', es: 'En las pequeñas, y con mucho papel entre medias.' },
+        { de: 'Die Übergabe der alten Wohnung ist am Montag.', es: 'La entrega del piso viejo es el lunes.' },
+        { de: 'Dann müssen wir Sonntag unbedingt noch putzen.', es: 'Entonces el domingo hay que limpiar sin falta.' },
+        { de: 'Danke, dass ihr alle gekommen seid!', es: '¡Gracias por venir todos!' },
+        { de: 'Dafür sind Freunde da. Und für die Pizza nachher.', es: 'Para eso están los amigos. Y para la pizza de después.' }
+      ] },
+
+  // ---- a21-l7 · Vorschläge beim Umzug machen ------------------------
+  'Fangen wir mit der Küche an?':
+    { de: 'Lieber nicht, die dauert am längsten. Erst das Schlafzimmer.', es: 'Mejor no, es la que más tarda. Primero el dormitorio.',
+      mas: [
+        { de: 'Lass uns die Kisten gleich beschriften.', es: 'Vamos a rotular las cajas ahora mismo.' },
+        { de: 'Unbedingt, sonst suchen wir nachher stundenlang.', es: 'Sin falta, si no luego buscamos durante horas.' },
+        { de: 'Sollen wir zuerst die schweren Sachen tragen?', es: '¿Llevamos primero las cosas pesadas?' },
+        { de: 'Ja, solange wir noch Kraft haben. Das ist klüger.', es: 'Sí, mientras tengamos fuerzas. Es más listo.' },
+        { de: 'Wir könnten die alten Möbel verschenken.', es: 'Podríamos regalar los muebles viejos.' },
+        { de: 'Gute Idee, ich stelle sie heute Abend online.', es: 'Buena idea, los pongo esta noche en internet.' },
+        { de: 'Was hältst du davon, morgen weiterzumachen?', es: '¿Qué te parece seguir mañana?' },
+        { de: 'Sehr gern, ich kann nicht mehr. Für heute reicht es.', es: 'Con mucho gusto, ya no puedo más. Por hoy basta.' }
+      ] },
+
+  // ---- a21-l7 · zögernd zustimmen oder ablehnen ---------------------
+  'Stellen wir das Sofa erst mal quer in den Raum?':
+    { de: 'Hmm, ich weiß nicht so recht.', es: 'Mmm, no lo tengo claro.',
+      mas: [
+        { de: 'Nur bis wir den Teppich haben.', es: 'Solo hasta que tengamos la alfombra.' },
+        { de: 'Na gut, dann eben provisorisch.', es: 'Bueno, pues provisionalmente.' },
+        { de: 'Und den alten Schrank stellen wir in den Keller?', es: '¿Y el armario viejo lo ponemos en el sótano?' },
+        { de: 'Ehrlich gesagt wäre mir das nicht recht.', es: 'Sinceramente, eso no me convencería.' },
+        { de: 'Dann verkaufen wir ihn einfach.', es: 'Entonces lo vendemos y ya está.' },
+        { de: 'Einverstanden, aber nur unter einer Bedingung.', es: 'De acuerdo, pero con una condición.' },
+        { de: 'Und die wäre?', es: '¿Y cuál es?' },
+        { de: 'Du machst die Fotos und die Anzeige, nicht ich.', es: 'Tú haces las fotos y el anuncio, no yo.' }
+      ] },
+
+  // ---- a21-l7 · Aufträge und Aufgaben annehmen ----------------------
+  'Kannst du dich um den Wagen kümmern?':
+    { de: 'Klar, das mache ich gern.', es: 'Claro, lo hago con gusto.',
+      mas: [
+        { de: 'Und die Werkzeuge? Wir brauchen einen Akkuschrauber.', es: '¿Y las herramientas? Necesitamos un atornillador.' },
+        { de: 'Kein Problem, ich bringe das Werkzeug mit.', es: 'No hay problema, yo llevo las herramientas.' },
+        { de: 'Wer meldet die Adresse um?', es: '¿Quién cambia la dirección?' },
+        { de: 'Ich kümmere mich um den Nachsendeauftrag.', es: 'Yo me ocupo del reenvío postal.' },
+        { de: 'Und der ganze Karton- und Papiermüll?', es: '¿Y todo el cartón y el papel?' },
+        { de: 'Ich kümmere mich um den Müll, das ist schnell gemacht.', es: 'Yo me ocupo de la basura, eso se hace rápido.' },
+        { de: 'Schaffst du das alles bis Freitag?', es: '¿Sacas todo eso para el viernes?' },
+        { de: 'Das kriege ich hin, keine Sorge.', es: 'Eso lo saco, no te preocupes.' }
+      ] },
+
+  // ---- a21-l7 · um Vorsicht bitten ----------------------------------
+  'Vorsicht, die Kiste ist sehr schwer!':
+    { de: 'Oje, was ist da drin? Steine?', es: 'Vaya, ¿qué lleva dentro? ¿Piedras?',
+      mas: [
+        { de: 'Langsam, hier ist eine Stufe.', es: 'Despacio, aquí hay un escalón.' },
+        { de: 'Danke, die hätte ich glatt übersehen.', es: 'Gracias, no la habría visto.' },
+        { de: 'Vorsicht, diese Kiste ist zerbrechlich!', es: '¡Cuidado, esta caja es frágil!' },
+        { de: 'Dann trage ich sie lieber allein und langsam.', es: 'Entonces mejor la llevo solo y despacio.' },
+        { de: 'Halt die Leiter fest, bitte.', es: 'Sujeta bien la escalera, por favor.' },
+        { de: 'Ich halte sie, klettere du ruhig ganz nach oben.', es: 'La sujeto, sube tranquilo hasta arriba.' },
+        { de: 'Achte bitte auf die frische Farbe.', es: 'Ten cuidado con la pintura fresca.' },
+        { de: 'Zu spät, ich habe schon den Ärmel voll.', es: 'Demasiado tarde, ya tengo la manga llena.' }
+      ] },
+
+  // ---- a21-l7 · einen Raum einrichten und Möbel platzieren ----------
+  'Das Sofa kommt an die Wand beim Fenster.':
+    { de: 'Da ist es aber im Winter ziemlich zugig.', es: 'Pero ahí en invierno hay bastante corriente.',
+      mas: [
+        { de: 'Der Tisch soll in die Mitte.', es: 'La mesa va en el centro.' },
+        { de: 'Einverstanden, dann haben alle gleich viel Platz.', es: 'De acuerdo, así todos tienen el mismo sitio.' },
+        { de: 'Stell das Regal bitte neben die Tür.', es: 'Pon la estantería al lado de la puerta.' },
+        { de: 'Neben der Tür steht es gut, da stört es niemanden.', es: 'Al lado de la puerta queda bien, ahí no molesta.' },
+        { de: 'Wohin hängen wir den Spiegel?', es: '¿Dónde colgamos el espejo?' },
+        { de: 'In den Flur, gegenüber der Tür. Da wirkt alles größer.', es: 'En el pasillo, frente a la puerta. Ahí todo parece más grande.' },
+        { de: 'Die Vorhänge machen den Raum gemütlich.', es: 'Las cortinas hacen la habitación acogedora.' },
+        { de: 'Und sie schlucken den Lärm von der Straße.', es: 'Y absorben el ruido de la calle.' }
+      ] },
+
+  // ---- a21-l7 · Wichtigkeit und Prioritäten ausdrücken --------------
+  'Entscheidend ist, dass die Kinder ein Zimmer haben.':
+    { de: 'Da bin ich ganz bei dir, alles andere kommt danach.', es: 'En eso estoy contigo, lo demás viene después.',
+      mas: [
+        { de: 'Das Wichtigste ist, dass nichts kaputtgeht.', es: 'Lo más importante es que no se rompa nada.' },
+        { de: 'Deshalb tragen wir das Geschirr auch selbst.', es: 'Por eso la vajilla la llevamos nosotros.' },
+        { de: 'Wichtiger als die Farbe ist das Licht.', es: 'Más importante que el color es la luz.' },
+        { de: 'Stimmt. In diesem Zimmer wird man automatisch gut gelaunt.', es: 'Es verdad. En esta habitación uno se pone de buen humor solo.' },
+        { de: 'Das kann warten, es eilt nicht.', es: 'Eso puede esperar, no corre prisa.' },
+        { de: 'Gut, dann lassen wir den Keller bis nächsten Monat.', es: 'Bien, entonces dejamos el sótano para el mes que viene.' },
+        { de: 'Hauptsache, es ist bis Freitag fertig.', es: 'Lo importante es que esté listo el viernes.' },
+        { de: 'Das schaffen wir, wenn morgen noch zwei Leute kommen.', es: 'Lo conseguimos si mañana vienen dos personas más.' }
+      ] },
+
+  // ---- a21-l7 · Umzugskartons und Details koordinieren --------------
+  'Nimmst du bitte das andere Ende?':
+    { de: 'Habe ich. Auf drei heben wir zusammen.', es: 'Ya lo tengo. A la de tres levantamos juntos.',
+      mas: [
+        { de: 'Passt das Bett überhaupt an diese Wand?', es: '¿Cabe la cama en esa pared?' },
+        { de: 'Knapp. Wir müssen den Nachttisch woanders hinstellen.', es: 'Justo. Tenemos que poner la mesilla en otro sitio.' },
+        { de: 'Soll der Schreibtisch ans Fenster?', es: '¿Ponemos el escritorio junto a la ventana?' },
+        { de: 'Unbedingt, mit Tageslicht arbeitet es sich viel besser.', es: 'Sin falta, con luz natural se trabaja mucho mejor.' },
+        { de: 'Wie wollen wir die Küche einräumen?', es: '¿Cómo colocamos la cocina?' },
+        { de: 'Alles, was man täglich braucht, nach unten und vorne.', es: 'Todo lo de uso diario, abajo y delante.' },
+        { de: 'Wer macht die Endreinigung der alten Wohnung?', es: '¿Quién hace la limpieza final del piso viejo?' },
+        { de: 'Diese Lösung finde ich sehr praktisch: wir teilen sie uns.', es: 'Esta solución me parece muy práctica: nos la repartimos.' }
+      ] },
+
+
+  // ---- a21-l8 · sich nach dem Fahrplan erkundigen -------------------
+  'Wann fährt der nächste Zug nach Salzburg?':
+    { de: 'In zwanzig Minuten, um vierzehn Uhr zehn.', es: 'En veinte minutos, a las catorce diez.',
+      mas: [
+        { de: 'Muss ich umsteigen? – Ja, in Linz.', es: '¿Tengo que hacer transbordo? – Sí, en Linz.' },
+        { de: 'In Linz haben Sie acht Minuten, das reicht gut.', es: 'En Linz tiene ocho minutos, es suficiente.' },
+        { de: 'Von welchem Gleis fährt der Zug ab?', es: '¿Por qué vía sale el tren?' },
+        { de: 'Gleis sieben, unten durch die Unterführung.', es: 'Vía siete, abajo por el paso subterráneo.' },
+        { de: 'Wie lange dauert die Fahrt ungefähr?', es: '¿Cuánto dura el viaje más o menos?' },
+        { de: 'Knapp drei Stunden, mit dem Umstieg etwas mehr.', es: 'Casi tres horas, con el transbordo algo más.' },
+        { de: 'Was kostet eine Rückfahrkarte?', es: '¿Cuánto cuesta un billete de ida y vuelta?' },
+        { de: 'Achtundfünfzig Euro, mit Vorteilscard nur die Hälfte.', es: 'Cincuenta y ocho euros; con tarjeta de descuento, la mitad.' }
+      ] },
+
+  // ---- a21-l8 · Zugauskunft und Anschlüsse klären -------------------
+  'Was stand gerade in der Durchsage?':
+    { de: 'Zwanzig Minuten Verspätung, wegen eines Signals.', es: 'Veinte minutos de retraso, por una señal.',
+      mas: [
+        { de: 'Muss ich für diese Strecke umsteigen?', es: '¿Tengo que hacer transbordo en este trayecto?' },
+        { de: 'Normalerweise nicht, heute aber schon, in Attnang.', es: 'Normalmente no, pero hoy sí, en Attnang.' },
+        { de: 'Ist die Ankunftszeit realistisch?', es: '¿La hora de llegada es realista?' },
+        { de: 'Ehrlich gesagt nein. Rechnen Sie mit einer halben Stunde mehr.', es: 'Sinceramente no. Cuente con media hora más.' },
+        { de: 'Bekomme ich bei Verspätung eine Entschädigung?', es: '¿Con retraso recibo una indemnización?' },
+        { de: 'Ab einer Stunde ja, das Formular gibt es online.', es: 'A partir de una hora sí, el formulario está en internet.' },
+        { de: 'Wann geht der letzte Zug zurück?', es: '¿Cuándo sale el último tren de vuelta?' },
+        { de: 'Um dreiundzwanzig Uhr zwölf. Verpassen Sie ihn besser nicht.', es: 'A las veintitrés doce. Mejor no lo pierda.' }
+      ] },
+
+  // ---- a21-l8 · höflich um Hilfe bitten -----------------------------
+  'Könnten Sie mir bitte mit dem Koffer helfen?':
+    { de: 'Natürlich, ich hebe ihn Ihnen ins Gepäckfach.', es: 'Por supuesto, se la subo al portaequipajes.',
+      mas: [
+        { de: 'Dürfte ich kurz vorbei?', es: '¿Me permite pasar un momento?' },
+        { de: 'Bitte sehr, ich stelle die Tasche kurz zur Seite.', es: 'Adelante, aparto la bolsa un momento.' },
+        { de: 'Würden Sie so nett sein und kurz aufpassen?', es: '¿Sería tan amable de vigilar un momento?' },
+        { de: 'Gern, gehen Sie ruhig, ich passe auf Ihre Sachen auf.', es: 'Con gusto, vaya tranquilo, vigilo sus cosas.' },
+        { de: 'Wären Sie so freundlich, das Fenster zu schließen?', es: '¿Sería tan amable de cerrar la ventana?' },
+        { de: 'Sofort, es zieht hier wirklich unangenehm.', es: 'Enseguida, aquí hay una corriente desagradable.' },
+        { de: 'Könnten Sie im Ruhebereich bitte leiser sprechen?', es: '¿Podría hablar más bajo en la zona de silencio?' },
+        { de: 'Entschuldigung, das hatte ich gar nicht bemerkt.', es: 'Perdone, no me había dado cuenta.' }
+      ] },
+
+  // ---- a21-l8 · auf höfliche Bitten reagieren -----------------------
+  'Wären Sie so freundlich, mir zu helfen?':
+    { de: 'Aber gern! · Kein Problem.', es: '¡Con mucho gusto! · Sin problema.',
+      mas: [
+        { de: 'Könnten Sie das bitte kurz halten?', es: '¿Me lo podría sujetar un momento?' },
+        { de: 'Kein Problem, ich helfe Ihnen gern.', es: 'No hay problema, le ayudo con mucho gusto.' },
+        { de: 'Dürfte ich Sie kurz stören?', es: '¿Le importaría que le interrumpa un momento?' },
+        { de: 'Sie stören überhaupt nicht, fragen Sie ruhig.', es: 'No molesta en absoluto, pregunte tranquilo.' },
+        { de: 'Soll ich Sie ein Stück begleiten?', es: '¿Le acompaño un trecho?' },
+        { de: 'Vielen Dank, das ist sehr freundlich.', es: 'Muchas gracias, es usted muy amable.' },
+        { de: 'Ich schicke Ihnen eine Wegbeschreibung aufs Handy.', es: 'Le mando las indicaciones al móvil.' },
+        { de: 'Sie können den Weg gar nicht verfehlen, immer am Fluss entlang.', es: 'No se puede perder, siempre junto al río.' }
+      ] },
+
+  // ---- a21-l8 · nach freien Plätzen fragen --------------------------
+  'Entschuldigung, ist der Platz noch frei?':
+    { de: 'Ja, bitte sehr. / Nein, der ist leider besetzt.', es: 'Sí, adelante. / No, lo siento, está ocupado.',
+      mas: [
+        { de: 'Ist dieser Platz reserviert?', es: '¿Está reservado este asiento?' },
+        { de: 'Ab Linz schon, bis dahin können Sie gern sitzen.', es: 'A partir de Linz sí; hasta entonces puede sentarse.' },
+        { de: 'Sitzt hier schon jemand?', es: '¿Hay alguien sentado aquí?' },
+        { de: 'Nein, die Jacke gehört mir, ich nehme sie weg.', es: 'No, la chaqueta es mía, la quito.' },
+        { de: 'Könnten wir tauschen? Ich sitze gern am Fenster.', es: '¿Podríamos cambiar? Me gusta ir en la ventanilla.' },
+        { de: 'Sehr gern, mir ist der Gang sowieso lieber.', es: 'Con mucho gusto, yo prefiero el pasillo.' },
+        { de: 'Sind hier im Ruhebereich noch Plätze frei?', es: '¿Quedan sitios libres aquí en la zona de silencio?' },
+        { de: 'Zwei ganz hinten, dort ist es am ruhigsten.', es: 'Dos al fondo, ahí es donde más tranquilo está.' }
+      ] },
+
+  // ---- a21-l8 · gute Wünsche aussprechen ----------------------------
+  'Gute Reise! · Gute Fahrt!':
+    { de: 'Danke! In drei Stunden bin ich da.', es: '¡Gracias! En tres horas estoy allí.',
+      mas: [
+        { de: 'Kommen Sie gut an!', es: '¡Que llegue bien!' },
+        { de: 'Das hoffe ich, bei dem Wetter ist alles möglich.', es: 'Eso espero, con este tiempo todo es posible.' },
+        { de: 'Schönen Aufenthalt in Wien!', es: '¡Que tenga una buena estancia en Viena!' },
+        { de: 'Vielen Dank, ich freue mich schon sehr darauf.', es: 'Muchas gracias, tengo muchas ganas.' },
+        { de: 'Erhol dich gut im Urlaub!', es: '¡Descansa bien en las vacaciones!' },
+        { de: 'Das habe ich fest vor. Zwei Wochen ohne Wecker.', es: 'Esa es mi intención. Dos semanas sin despertador.' },
+        { de: 'Ich wünsche Ihnen einen angenehmen Flug.', es: 'Le deseo un vuelo agradable.' },
+        { de: 'Danke, und Ihnen einen ruhigen Tag hier am Schalter.', es: 'Gracias, y a usted un día tranquilo en el mostrador.' }
+      ] },
+
+  // ---- a21-l8 · den Weg in der Stadt beschreiben --------------------
+  'Komme ich zu Fuß zur Innenstadt?':
+    { de: 'Ohne Problem, es sind ungefähr zehn Minuten zu Fuß.', es: 'Sin problema, son unos diez minutos a pie.',
+      mas: [
+        { de: 'Gehen Sie geradeaus bis zur Brücke, dann links.', es: 'Vaya recto hasta el puente y luego a la izquierda.' },
+        { de: 'Und dann bin ich schon am Hauptplatz?', es: '¿Y entonces ya estoy en la plaza mayor?' },
+        { de: 'An der zweiten Ampel rechts abbiegen.', es: 'En el segundo semáforo gire a la derecha.' },
+        { de: 'Die zweite, nicht die erste. Ich merke es mir.', es: 'El segundo, no el primero. Lo apunto.' },
+        { de: 'Nehmen Sie die Fußgängerzone, das ist kürzer.', es: 'Coja la zona peatonal, es más corto.' },
+        { de: 'Gut, dann sehe ich unterwegs auch gleich die Altstadt.', es: 'Bien, así de paso veo el casco antiguo.' },
+        { de: 'Wie lang ist der Fußweg zum Hotel?', es: '¿Cuánto es el camino a pie al hotel?' },
+        { de: 'Das ist gleich um die Ecke, keine fünf Minuten.', es: 'Está a la vuelta de la esquina, ni cinco minutos.' }
+      ] },
+
+  // ---- a21-l8 · an der Hotelrezeption ein- und auschecken -----------
+  'Ich habe ein Doppelzimmer auf den Namen Pascual reserviert.':
+    { de: 'Willkommen! Darf ich kurz Ihren Ausweis sehen?', es: '¡Bienvenido! ¿Me permite su documento un momento?',
+      mas: [
+        { de: 'Ab wann kann ich das Zimmer beziehen?', es: '¿A partir de cuándo puedo entrar en la habitación?' },
+        { de: 'Ab vierzehn Uhr. Das Gepäck können Sie gern hierlassen.', es: 'A partir de las catorce. El equipaje puede dejarlo aquí.' },
+        { de: 'Ab wann wird das Frühstück serviert?', es: '¿Desde qué hora sirven el desayuno?' },
+        { de: 'Von halb sieben bis zehn, am Wochenende bis elf.', es: 'De seis y media a diez; el fin de semana hasta las once.' },
+        { de: 'Im Bad fehlt ein Handtuch.', es: 'En el baño falta una toalla.' },
+        { de: 'Das tut mir leid, ich schicke sofort jemanden hinauf.', es: 'Lo siento, mando a alguien ahora mismo.' },
+        { de: 'Ich würde gern auschecken.', es: 'Quisiera hacer el check-out.' },
+        { de: 'Gern. Kann ich das Gepäck bis nachmittags für Sie aufbewahren?', es: 'Con gusto. ¿Le guardo el equipaje hasta la tarde?' }
       ] },
 
 };
