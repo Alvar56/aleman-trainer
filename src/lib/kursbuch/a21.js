@@ -347,128 +347,56 @@ export const A21 = {
           funktion: 'Wünsche und Sehnsüchte ausdrücken',
           es: 'Expresar deseos y anhelos',
           wendungen: [
-            { de: 'Ich würde gern öfter nach Hause fahren.', es: 'Me gustaría ir a casa más a menudo.' },
-            { de: 'Mein größter Wunsch ist ein sicherer Job.', es: 'Mi mayor deseo es un trabajo estable.' },
-            { de: 'Ich hätte gern mehr Ruhe im Alltag.', es: 'Me gustaría tener más calma en el día a día.' },
-            { de: 'Am liebsten hätte ich etwas mehr Freiheit bei der Arbeit.', es: 'Lo que más me gustaría es algo más de libertad en el trabajo.' },
-            { de: 'Ich wünsche mir, dass die Kinder es leichter haben.', es: 'Deseo que los niños lo tengan más fácil.' },
-            { de: 'Ich wünschte, ich hätte früher angefangen.', es: 'Ojalá hubiera empezado antes.' },
-            { de: 'Am liebsten würde ich ein Jahr Pause machen.', es: 'Lo que más me apetecería es tomarme un año.' },
-            { de: 'Ich hoffe auf eine feste Stelle im Herbst.', es: 'Espero un puesto fijo en otoño.' },
-            { de: 'Ich will das Risiko diesmal eingehen.', es: 'Esta vez quiero asumir el riesgo.' },
-            { de: 'Diese Chance lasse ich nicht vorbeigehen.', es: 'Esta oportunidad no la dejo pasar.' }
+            { de: 'Mein größter Wunsch ist ein sicherer Job.', es: 'Mi mayor deseo es un trabajo estable.' }
           ]
         },
         {
           funktion: 'über die Vergangenheit und den Anfang berichten',
           es: 'Contar sobre el pasado y el comienzo',
           wendungen: [
-            { de: 'Damals bin ich nach Österreich gekommen.', es: 'Entonces vine a Austria.' },
-            { de: 'Am Anfang war alles fremd für mich.', es: 'Al principio todo me resultaba extraño.' },
-            { de: 'Mit der Zeit habe ich mich daran gewöhnt.', es: 'Con el tiempo me acostumbré.' },
-            { de: 'Damals habe ich kein Wort Deutsch gesprochen.', es: 'Entonces no hablaba ni una palabra de alemán.' },
-            { de: 'Die ersten zwei Jahre waren die schwersten.', es: 'Los dos primeros años fueron los más difíciles.' },
-            { de: 'Ich habe zuerst bei einem Freund gewohnt.', es: 'Al principio viví en casa de un amigo.' },
-            { de: 'Nach und nach habe ich mich daran gewöhnt.', es: 'Poco a poco me fui acostumbrando.' },
-            { de: 'Ich habe damals jeden Abend gelernt.', es: 'Entonces estudiaba todas las tardes.' },
-            { de: 'Meine erste Wohnung war winzig und kalt.', es: 'Mi primer piso era diminuto y frío.' },
-            { de: 'Ich habe die Entscheidung nie bereut.', es: 'Nunca me arrepentí de la decisión.' }
+            { de: 'Damals bin ich nach Österreich gekommen.', es: 'Entonces vine a Austria.' }
           ]
         },
         {
           funktion: 'über Wendepunkte und Krisen sprechen',
           es: 'Hablar de puntos de inflexión y crisis',
           wendungen: [
-            { de: 'Vor fünf Jahren war hier alles anders.', es: 'Hace cinco años aquí todo era distinto.' },
-            { de: 'Das Praktikum war für mich der Wendepunkt.', es: 'Las prácticas fueron para mí el punto de inflexión.' },
-            { de: 'Nach der Krise ging es langsam aufwärts.', es: 'Después de la crisis todo fue mejorando poco a poco.' },
-            { de: 'Damals habe ich sehr an mir gezweifelt.', es: 'Entonces dudaba mucho de mí mismo.' },
-            { de: 'Wie lange hat der ganze Prozess gedauert?', es: '¿Cuánto duró todo el proceso?' },
-            { de: 'Was hast du vorher gemacht?', es: '¿Qué hacías antes?' },
-            { de: 'Hat sich der Aufwand gelohnt?', es: '¿Mereció la pena el esfuerzo?' },
-            { de: 'Wann hast du dich entschieden?', es: '¿Cuándo lo decidiste?' },
-            { de: 'Was hat dir damals am meisten geholfen?', es: '¿Qué fue lo que más te ayudó entonces?' },
-            { de: 'Wie hast du die Trennung damals verkraftet?', es: '¿Cómo llevaste entonces la separación?' }
+            { de: 'Was hast du vorher gemacht?', es: '¿Qué hacías antes?' }
           ]
         },
         {
           funktion: 'nachfragen und Interesse zeigen',
           es: 'Preguntar y mostrar interés',
           wendungen: [
-            { de: 'Und wie ging es dann weiter?', es: '¿Y cómo siguió la cosa?' },
-            { de: 'Das kann ich gut verstehen.', es: 'Lo entiendo perfectamente.' },
-            { de: 'Wie hast du dich dabei gefühlt?', es: '¿Cómo te sentiste?' },
-            { de: 'Und wie ist es dir dabei gegangen?', es: '¿Y cómo lo llevaste?' },
-            { de: 'Erzähl weiter, das interessiert mich wirklich.', es: 'Sigue contando, me interesa de verdad.' },
-            { de: 'Das kann ich gut nachvollziehen.', es: 'Lo puedo entender perfectamente.' },
-            { de: 'Und wie ist es danach weitergegangen?', es: '¿Y cómo siguió la cosa después?' },
-            { de: 'Hast du Vorurteile erlebt?', es: '¿Has vivido prejuicios?' },
-            { de: 'Und was hast du dann gemacht?', es: '¿Y qué hiciste después?' },
-            { de: 'Erzähl doch mal, wie es weiterging.', es: 'Cuenta, ¿y cómo siguió la cosa?' }
+            { de: 'Und wie ging es dann weiter?', es: '¿Y cómo siguió la cosa?' }
           ]
         },
         {
           funktion: 'Mitgefühl und Verständnis ausdrücken',
           es: 'Expresar empatía y comprensión',
           wendungen: [
-            { de: 'Das tut mir leid für dich.', es: 'Lo siento mucho por ti.' },
-            { de: 'Das muss sehr schwer gewesen sein.', es: 'Debió de ser muy duro.' },
-            { de: 'Und wie war das für dich gefühlsmäßig?', es: '¿Y cómo te sentías con todo aquello?' },
-            { de: 'Das muss schwer für dich gewesen sein.', es: 'Eso tuvo que ser duro para ti.' },
-            { de: 'Das muss viel Mut gekostet haben.', es: 'Eso debió de costar mucho valor.' },
-            { de: 'Das muss hart gewesen sein.', es: 'Eso tuvo que ser duro.' },
-            { de: 'Ich hatte lange Angst, Fehler zu machen.', es: 'Durante mucho tiempo tuve miedo de cometer errores.' },
-            { de: 'Das Heimweh kommt meistens im Winter.', es: 'La morriña llega casi siempre en invierno.' },
-            { de: 'Mir fehlt manchmal meine Familie.', es: 'A veces echo de menos a mi familia.' },
-            { de: 'Ohne Zuversicht hätte ich aufgegeben.', es: 'Sin confianza en el futuro habría abandonado.' }
+            { de: 'Mir fehlt manchmal meine Familie.', es: 'A veces echo de menos a mi familia.' }
           ]
         },
         {
           funktion: 'eigene Fehler korrigieren',
           es: 'Corregir los propios errores',
           wendungen: [
-            { de: 'Entschuldigung, ich meine …', es: 'Perdón, quiero decir …' },
-            { de: 'Nein, warte – das stimmt nicht ganz.', es: 'No, espera, eso no es del todo así.' },
-            { de: 'Also, noch einmal von vorne.', es: 'Vale, otra vez desde el principio.' },
-            { de: 'Entschuldigung, ich meine natürlich Dienstag.', es: 'Perdón, quiero decir el martes, claro.' },
-            { de: 'Entschuldige, ich habe mich versprochen.', es: 'Perdona, me he equivocado al hablar.' },
-            { de: 'Ich fange lieber noch einmal von vorne an.', es: 'Mejor empiezo otra vez desde el principio.' },
-            { de: 'Ich habe mich versprochen, sorry.', es: 'Me he trabado al hablar, perdón.' },
-            { de: 'Das habe ich falsch ausgedrückt.', es: 'Eso lo he expresado mal.' },
-            { de: 'Moment, ich korrigiere mich kurz.', es: 'Un momento, me corrijo.' },
-            { de: 'Halt, das habe ich falsch gesagt.', es: 'Espera, eso lo he dicho mal.' }
+            { de: 'Der Termin ist am Montag. Entschuldigung, ich meine …', es: 'La cita es el lunes. Perdón, quiero decir …' }
           ]
         },
         {
           funktion: 'über das Ankommen und Einleben sprechen',
           es: 'Hablar de la llegada y la integración',
           wendungen: [
-            { de: 'Am Anfang war alles fremd.', es: 'Al principio todo me resultaba ajeno.' },
-            { de: 'Ich habe mich schnell eingelebt.', es: 'Me adapté rápido.' },
-            { de: 'Ich fühle mich hier inzwischen zu Hause.', es: 'Ya me siento aquí como en casa.' },
-            { de: 'Ich war stolz, als ich das erste Mal telefoniert habe.', es: 'Estaba orgulloso la primera vez que hablé por teléfono.' },
-            { de: 'Inzwischen habe ich das Gefühl dazuzugehören.', es: 'Ahora tengo la sensación de pertenecer.' },
-            { de: 'Der Zusammenhalt im Kurs hat mir geholfen.', es: 'La unión en clase me ayudó.' },
-            { de: 'Heute fühle ich mich hier stark.', es: 'Hoy me siento fuerte aquí.' },
-            { de: 'Wie hast du dich in der ersten Woche gefühlt?', es: '¿Cómo te sentiste la primera semana?' },
-            { de: 'Hattest du Heimweh?', es: '¿Tenías morriña?' },
-            { de: 'Wann hast du dich hier zu Hause gefühlt?', es: '¿Cuándo empezaste a sentirte en casa?' }
+            { de: 'Wie hast du dich in der ersten Woche gefühlt?', es: '¿Cómo te sentiste la primera semana?' }
           ]
         },
         {
           funktion: 'über Zukunftspläne sprechen',
           es: 'Hablar de planes de futuro',
           wendungen: [
-            { de: 'Was sind deine Pläne für die nächsten Jahre?', es: '¿Qué planes tienes para los próximos años?' },
-            { de: 'Ich will hierbleiben, zumindest vorerst.', es: 'Quiero quedarme aquí, al menos de momento.' },
-            { de: 'Vielleicht mache ich noch eine Ausbildung.', es: 'Quizá haga todavía una formación.' },
-            { de: 'Ich möchte irgendwann ein eigenes Geschäft haben.', es: 'Algún día quiero tener mi propio negocio.' },
-            { de: 'Nächstes Jahr ziehen wir in eine größere Wohnung.', es: 'El año que viene nos mudamos a un piso más grande.' },
-            { de: 'Ich habe vor, den Führerschein zu machen.', es: 'Tengo pensado sacarme el carné de conducir.' },
-            { de: 'Langfristig möchte ich zurück nach Spanien.', es: 'A largo plazo quiero volver a España.' },
-            { de: 'Erst mal will ich mich einfach hier einleben.', es: 'De momento solo quiero adaptarme aquí.' },
-            { de: 'Wo siehst du dich in fünf Jahren?', es: '¿Dónde te ves dentro de cinco años?' },
-            { de: 'Was ist dein nächstes großes Ziel?', es: '¿Cuál es tu siguiente gran objetivo?' }
+            { de: 'Was sind deine Pläne für die nächsten Jahre?', es: '¿Qué planes tienes para los próximos años?' }
           ]
         }
       ]
@@ -765,127 +693,55 @@ export const A21 = {
           funktion: 'eine Einladung aussprechen',
           es: 'Hacer una invitación',
           wendungen: [
-            { de: 'Hast du Lust, vorbeizukommen?', es: '¿Te apetece pasarte?' },
-            { de: 'Hast du Lust, morgen vorbeizukommen?', es: '¿Te apetece pasarte mañana?' },
-            { de: 'Wollen wir am Sonntag zusammen kochen?', es: '¿Cocinamos juntos el domingo?' },
-            { de: 'Ich lade euch alle zum Kaffee ein.', es: 'Os invito a todos a un café.' },
-            { de: 'Wir grillen am Samstag, seid ihr dabei?', es: 'El sábado hacemos barbacoa, ¿os apuntáis?' },
-            { de: 'Möchtest du uns am Wochenende besuchen?', es: '¿Quieres visitarnos el fin de semana?' },
-            { de: 'Du bist jederzeit willkommen bei uns.', es: 'Eres bienvenido en nuestra casa cuando quieras.' },
-            { de: 'Magst du am Sonntag zum Frühstück kommen?', es: '¿Te apetece venir el domingo a desayunar?' },
-            { de: 'Komm doch einfach ins Lokal, wir sind schon dort.', es: 'Vente al local, ya estamos allí.' },
-            { de: 'Wir grillen im Garten, kommt ihr dazu?', es: 'Hacemos barbacoa en el jardín, ¿os venís?' }
+            { de: 'Hast du Lust, morgen vorbeizukommen?', es: '¿Te apetece pasarte mañana?' }
           ]
         },
         {
           funktion: 'auf private Einladungen reagieren',
           es: 'Responder a invitaciones privadas',
           wendungen: [
-            { de: 'Ich möchte dich zum Essen einladen.', es: 'Quiero invitarte a comer.' },
-            { de: 'Kann ich etwas zum Essen beisteuern?', es: '¿Puedo aportar algo de comer?' },
-            { de: 'Da bin ich auf jeden Fall dabei!', es: '¡Ahí estoy seguro!' },
-            { de: 'Kommt doch am Wochenende zu uns.', es: 'Veníos el fin de semana a casa.' },
-            { de: 'Bring ruhig jemanden mit, es ist genug da.', es: 'Trae a quien quieras, hay de sobra.' },
-            { de: 'Was soll ich zum Essen beisteuern?', es: '¿Qué aporto para la comida?' },
-            { de: 'Wir feiern nichts Großes, nur ein paar Freunde.', es: 'No celebramos nada grande, solo unos amigos.' },
-            { de: 'Leider schaffe ich es diesmal nicht.', es: 'Esta vez no llego.' },
-            { de: 'Komm einfach vorbei, wenn du Zeit hast.', es: 'Pásate cuando tengas tiempo.' },
-            { de: 'Wir würden uns sehr freuen, wenn ihr kommt.', es: 'Nos alegraría mucho que vinierais.' }
+            { de: 'Ich möchte dich zum Essen einladen.', es: 'Quiero invitarte a comer.' }
           ]
         },
         {
           funktion: 'Besuche und Gastfreundschaft organisieren',
           es: 'Organizar visitas y hospitalidad',
           wendungen: [
-            { de: 'Wir servieren um acht, kommt ihr vorher?', es: 'Servimos a las ocho, ¿venís antes?' },
-            { de: 'Ich habe etwas Spanisches gekocht.', es: 'He cocinado algo español.' },
-            { de: 'Bei uns gibt es nur eine Kleinigkeit.', es: 'En mi casa solo hay algo ligero.' },
-            { de: 'Kommt ihr am Sonntag zum Essen?', es: '¿Venís el domingo a comer?' },
-            { de: 'Bring ruhig deine Mitbewohnerin mit.', es: 'Tráete a tu compañera de piso.' },
-            { de: 'Zieht ihr drinnen die Schuhe aus?', es: '¿Os quitáis los zapatos dentro?' },
-            { de: 'Wir haben leider nur wenig Platz.', es: 'Lo siento, tenemos poco sitio.' },
-            { de: 'Hättet ihr Lust auf einen Grillabend?', es: '¿Os apetece una barbacoa?' },
-            { de: 'Kommt doch nächstes Wochenende zu uns.', es: 'Veníos el finde que viene a casa.' },
-            { de: 'Ich möchte dich am Freitag zum Essen einladen.', es: 'Me gustaría invitarte a cenar el viernes.' }
+            { de: 'Kommt ihr am Sonntag zum Essen?', es: '¿Venís el domingo a comer?' }
           ]
         },
         {
           funktion: 'im Restaurant bestellen und bezahlen',
           es: 'Pedir y pagar en el restaurante',
           wendungen: [
-            { de: 'Wir hätten gern die Speisekarte.', es: 'Quisiéramos la carta.' },
-            { de: 'Ich nehme das Schnitzel mit Erdäpfelsalat.', es: 'Yo tomo el escalope con ensalada de patata.' },
-            { de: 'Zahlen, bitte! – Getrennt oder zusammen?', es: '¡La cuenta! – ¿Por separado o junto?' },
-            { de: 'Haben Sie noch einen Tisch für zwei frei?', es: '¿Les queda una mesa libre para dos?' },
-            { de: 'Was können Sie heute empfehlen?', es: '¿Qué nos recomienda hoy?' },
-            { de: 'Für mich bitte das Schnitzel mit Salat.', es: 'Para mí el escalope con ensalada, por favor.' },
-            { de: 'Könnten wir bitte noch Wasser bekommen?', es: '¿Nos podría traer más agua, por favor?' },
-            { de: 'Das war ausgezeichnet, danke schön.', es: 'Estaba excelente, muchas gracias.' },
-            { de: 'Zahlen bitte, getrennt.', es: 'La cuenta, por favor, por separado.' },
-            { de: 'Stimmt so, der Rest ist für Sie.', es: 'Está bien así, el resto es para usted.' }
+            { de: 'Haben Sie noch einen Tisch für zwei frei?', es: '¿Les queda una mesa libre para dos?' }
           ]
         },
         {
           funktion: 'Wünsche und Vorlieben im Lokal äußern',
           es: 'Expresar preferencias y peticiones en el local',
           wendungen: [
-            { de: 'Ist in dem Gericht Fleisch drin?', es: '¿Ese plato lleva carne?' },
-            { de: 'Entschuldigung, das habe ich nicht bestellt.', es: 'Perdone, esto no lo he pedido.' },
-            { de: 'Können wir draußen im Gastgarten sitzen?', es: '¿Podemos sentarnos fuera en la terraza?' },
-            { de: 'Ist in dem Gericht eine Nuss drin?', es: '¿Ese plato lleva frutos secos?' },
-            { de: 'Können Sie mir etwas Würziges empfehlen?', es: '¿Me puede recomendar algo sabroso?' },
-            { de: 'Haben Sie einen Tisch für vier Personen?', es: '¿Tienen mesa para cuatro?' },
-            { de: 'Können wir draußen sitzen?', es: '¿Podemos sentarnos fuera?' },
-            { de: 'Können Sie das ohne Zwiebeln machen?', es: '¿Lo pueden hacer sin cebolla?' },
-            { de: 'Könnten wir bitte zahlen?', es: '¿Nos cobra, por favor?' },
-            { de: 'Das Essen hat wirklich gut geschmeckt.', es: 'La comida estaba buenísima.' }
+            { de: 'Können wir draußen im Gastgarten sitzen?', es: '¿Podemos sentarnos fuera en la terraza?' }
           ]
         },
         {
           funktion: 'jemanden beruhigen und ermutigen',
           es: 'Tranquilizar y animar a alguien',
           wendungen: [
-            { de: 'Keine Sorge, das schaffst du!', es: 'No te preocupes, ¡lo consigues!' },
-            { de: 'An deiner Stelle würde ich …', es: 'Yo en tu lugar …' },
-            { de: 'Das ist doch halb so schlimm.', es: 'No es para tanto.' },
-            { de: 'Keine Sorge, das wird schon klappen.', es: 'No te preocupes, va a salir bien.' },
-            { de: 'An deiner Stelle würde ich einfach anrufen.', es: 'Yo en tu lugar simplemente llamaría.' },
-            { de: 'So schlimm ist das gar nicht.', es: 'No es tan grave.' },
-            { de: 'Mach dir keinen Stress, wir haben genug Zeit.', es: 'No te agobies, tenemos tiempo de sobra.' },
-            { de: 'Das kann jedem passieren, ehrlich.', es: 'Le puede pasar a cualquiera, de verdad.' },
-            { de: 'Probier es einfach, du kannst nichts verlieren.', es: 'Pruébalo, no tienes nada que perder.' },
-            { de: 'Nimm dir einfach etwas mehr Zeit dafür.', es: 'Tómate simplemente algo más de tiempo para eso.' }
+            { de: 'Ich habe morgen die Prüfung und schlafe schon nicht mehr.', es: 'Mañana tengo el examen y ya no duermo.' }
           ]
         },
         {
           funktion: 'Essgewohnheiten und Regionen vergleichen',
           es: 'Comparar hábitos de comida y regiones',
           wendungen: [
-            { de: 'Bei uns isst man das ganz anders.', es: 'En mi país eso se come de otra forma.' },
-            { de: 'In Spanien gibt es das auch, aber mit Fisch.', es: 'En España también existe, pero con pescado.' },
-            { de: 'Das kenne ich von zu Hause nicht.', es: 'Eso no lo conozco de mi tierra.' },
-            { de: 'Bei uns isst man viel später am Abend.', es: 'En mi tierra se cena mucho más tarde.' },
-            { de: 'So etwas gibt es bei uns auch, nur mit Fisch.', es: 'Algo así existe también en mi tierra, pero con pescado.' },
-            { de: 'Das kenne ich von zu Hause gar nicht.', es: 'Eso no lo conozco de casa.' },
-            { de: 'Bei uns ist das Brot ganz anders.', es: 'En mi tierra el pan es muy distinto.' },
-            { de: 'In meiner Heimat trinkt man kaum Bier.', es: 'En mi tierra casi no se bebe cerveza.' },
-            { de: 'Bei uns kocht man mit viel mehr Olivenöl.', es: 'En mi tierra se cocina con mucho más aceite de oliva.' },
-            { de: 'Die Portionen sind hier viel größer.', es: 'Aquí las raciones son mucho más grandes.' }
+            { de: 'Bei uns isst man das ganz anders.', es: 'En mi país eso se come de otra forma.' }
           ]
         },
         {
           funktion: 'Überraschung und Staunen ausdrücken',
           es: 'Expresar sorpresa y asombro',
           wendungen: [
-            { de: 'Wirklich? Das wusste ich nicht!', es: '¿En serio? ¡No lo sabía!' },
-            { de: 'Das hätte ich nie gedacht!', es: '¡Nunca lo habría pensado!' },
-            { de: 'Echt jetzt?', es: '¿Va en serio?' },
-            { de: 'Wirklich? Das wusste ich überhaupt nicht.', es: '¿En serio? No lo sabía en absoluto.' },
-            { de: 'Das glaube ich jetzt nicht!', es: '¡No me lo puedo creer!' },
-            { de: 'Echt jetzt? Das kann nicht sein.', es: '¿En serio? No puede ser.' },
-            { de: 'Damit hätte ich nie gerechnet.', es: 'Con eso no habría contado nunca.' },
-            { de: 'Was? Das gibt es doch nicht!', es: '¿Qué? ¡No puede ser!' },
-            { de: 'Das überrascht mich ehrlich gesagt.', es: 'Sinceramente, eso me sorprende.' },
             { de: 'Das ist alles hausgemacht? Wirklich?', es: '¿Todo esto es casero? ¿En serio?' }
           ]
         }
