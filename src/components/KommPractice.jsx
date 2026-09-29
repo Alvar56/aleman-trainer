@@ -6,7 +6,7 @@ import { saveRun, rankOfRun } from '../lib/leaderboard.js';
 import { cobrarEjercicio, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
 import { getLektion } from '../lib/kursbuch/index.js';
 import MultipleChoice from './MultipleChoice.jsx';
-import { respuestaDe, seguimientoDe } from '../lib/kursbuch/respuestas.js';
+import { respuestaEnCadena, seguimientoDe } from '../lib/kursbuch/respuestas.js';
 import { TIPOS, palabraTapable } from '../lib/kursbuch/kommTipos.js';
 import { marcarEjercicio } from '../lib/enEjercicio.js';
 import WordOrder from './WordOrder.jsx';
@@ -89,7 +89,8 @@ export const POR_TANDA = 10;
 function montadores(w, ajenas, otrasRespuestas, glosas, vuelta = 0) {
   const palabras = String(w.de).trim().split(/\s+/);
   const distractores = mezclar(ajenas.filter((x) => x !== w.de)).slice(0, 3);
-  const resp = respuestaDe(w.de);
+  // En cadena: tambien los turnos de dentro tienen quien les conteste.
+  const resp = respuestaEnCadena(w.de);
   const despistes = resp
     ? mezclar(otrasRespuestas.filter((x) => x !== resp.de)).slice(0, 3)
     : [];

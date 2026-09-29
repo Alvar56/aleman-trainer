@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { tc } from '../lib/contenido/index.js';
 import Escuchar from './Escuchar.jsx';
-import { respuestaDe, conversacionDe, seguimientoDe } from '../lib/kursbuch/respuestas.js';
+import { respuestaEnCadena, conversacionDe, seguimientoDe } from '../lib/kursbuch/respuestas.js';
 import { t, pick, codigoIdioma } from '../lib/i18n.js';
 import BookNav from './BookNav.jsx';
 import Dialog from './Dialog.jsx';
@@ -129,7 +129,7 @@ function KommMezclada({ band, onSalir }) {
       funktion={funktion}
       todasLasFrases={todas.map((w) => w.de)}
       todasLasGlosas={todas.map((w) => w.es)}
-      todasLasRespuestas={todas.map((w) => respuestaDe(w.de)?.de).filter(Boolean)}
+      todasLasRespuestas={todas.map((w) => respuestaEnCadena(w.de)?.de).filter(Boolean)}
       onSalir={onSalir}
     />
   );
@@ -282,7 +282,11 @@ function KommDetail({
   );
   const todasLasRespuestas = useMemo(() =>
     funktionen.flatMap((x) =>
-      (x.wendungen || []).map((w) => respuestaDe(w.de)?.de).filter(Boolean)
+      // Los turnos de dentro tambien cuentan: son los despistes de Contestar, y
+      // con solo las respuestas de las aperturas no llegaban a dos.
+      (x.wendungen || []).flatMap((w) => [w.de, ...seguimientoDe(w.de).map((y) => y.de)])
+        .map((de) => respuestaEnCadena(de)?.de)
+        .filter(Boolean)
     ),
     [funktionen]
   );

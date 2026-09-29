@@ -771,15 +771,8 @@ export const A11 = {
           es: 'Presentarse',
           wendungen: [
             { de: 'Guten Tag, ich bin Álvaro Pascual.', es: 'Buenos días, soy Álvaro Pascual.' },
-            { de: 'Darf ich mich vorstellen? Ich bin Álvaro.', es: '¿Me presento? Soy Álvaro.' },
-            { de: 'Freut mich, Sie kennenzulernen.', es: 'Encantado de conocerle.' },
             { de: 'Kennen wir uns schon?', es: '¿Nos conocemos ya?' },
-            { de: 'Das ist mein Kollege, Herr Öztürk.', es: 'Este es mi compañero, el señor Öztürk.' },
-            { de: 'Darf ich dich vorstellen? Das ist Anna.', es: '¿Te presento? Esta es Anna.' },
-            { de: 'Sind wir per du?', es: '¿Nos tuteamos?' },
-            { de: 'Sagen Sie ruhig du zu mir.', es: 'Puede tutearme tranquilamente.' },
-            { de: 'Ich bin neu hier. Ich heiße Álvaro.', es: 'Soy nuevo aquí. Me llamo Álvaro.' },
-            { de: 'Wir haben uns noch nicht kennengelernt, oder?', es: 'Todavía no nos conocemos, ¿verdad?' }
+            { de: 'Ich bin neu hier. Ich heiße Álvaro.', es: 'Soy nuevo aquí. Me llamo Álvaro.' }
           ]
         },
         {

@@ -239,8 +239,7 @@ const RESPUESTAS = {
         { de: 'Wenn Sie etwas brauchen, fragen Sie einfach.', es: 'Si necesita algo, no dude en preguntar.' },
         { de: 'Danke, darauf komme ich bestimmt zurück.', es: 'Gracias, seguro que se lo tomo en palabra.' }
       ] },
-  'Freut mich, Sie kennenzulernen.':
-    { de: 'Ganz meinerseits. Ich habe schon viel von Ihnen gehört.', es: 'Igualmente. Ya he oído hablar mucho de usted.' },
+
   'Ich bin für die Buchhaltung zuständig.':
     { de: 'Ah, dann arbeiten wir sicher öfter zusammen.', es: 'Ah, entonces coincidiremos a menudo.' },
   'Entschuldigung, das habe ich nicht verstanden.':
@@ -1393,14 +1392,11 @@ const RESPUESTAS = {
     { de: 'Seit zwei Jahren. Die ersten Monate waren hart, jetzt geht es gut.', es: 'Desde hace dos años. Los primeros meses fueron duros, ahora va bien.' },
   'Was ist deine Muttersprache?':
     { de: 'Spanisch, und ein bisschen Katalanisch.', es: 'El español, y un poco de catalán.' },
-  'Darf ich mich vorstellen? Ich bin Álvaro.':
-    { de: 'Freut mich, ich bin Lena.', es: 'Encantada, soy Lena.' },
+
   'Wie schreibt man Ihren Namen?':
     { de: 'Mit V wie Viktor, nicht mit W. Soll ich es Ihnen aufschreiben?', es: 'Con V de Víctor, no con W. ¿Se lo escribo?' },
-  'Sind wir per du?':
-    { de: 'Gern, ich bin der Tom.', es: 'Claro, yo soy Tom.' },
-  'Kennen wir uns schon?':
-    { de: 'Ich glaube, wir kennen uns vom Deutschkurs. Du saßt immer hinten links.', es: 'Creo que nos conocemos del curso de alemán. Te sentabas siempre atrás a la izquierda.' },
+
+
   'Wohin fährst du im Urlaub?':
     { de: 'Nach Kroatien, ans Meer. Wir fahren diesmal mit dem Auto hin.', es: 'A Croacia, al mar. Esta vez vamos en coche.' },
   'Warst du schon mal in Italien?':
@@ -1499,22 +1495,15 @@ const RESPUESTAS = {
         { de: 'Am Samstag, ab acht Uhr früh.', es: 'El sábado, a partir de las ocho.' },
         { de: 'Dann bin ich da. Habt ihr schon einen Lift bestellt?', es: 'Pues allí estaré. ¿Habéis reservado montacargas?' }
       ] },
-  'Guten Tag, ich bin Álvaro Pascual.':
-    { de: 'Guten Tag, Herr Pascual. Freut mich sehr. Ich bin Frau Berger und arbeite hier im Büro.', es: 'Buenos días, señor Pascual. Encantada. Soy la señora Berger y trabajo aquí en la oficina.',
-      mas: [
-        { de: 'Freut mich auch. Ich fange heute in der Buchhaltung an.', es: 'Encantado también. Empiezo hoy en contabilidad.' },
-        { de: 'Dann sind wir fast Nachbarn, mein Büro ist nebenan.', es: 'Entonces somos casi vecinos, mi despacho está al lado.' }
-      ] },
+
   'Wie ist dein Name?':
     { de: 'Mein Name ist Lena Novak. Den Nachnamen schreibt man mit V, nicht mit W.', es: 'Me llamo Lena Novak. El apellido se escribe con V, no con W.' },
   'Und wie heißt du mit Nachnamen?':
     { de: 'Mit Nachnamen heiße ich Horvat. Das ist ein sehr häufiger Name in Kroatien.', es: 'De apellido me llamo Horvat. Es un apellido muy común en Croacia.' },
   'Darf ich fragen, wie Sie heißen?':
     { de: 'Natürlich. Ich heiße Peter Wagner und komme aus Salzburg.', es: 'Por supuesto. Me llamo Peter Wagner y soy de Salzburgo.' },
-  'Das ist mein Kollege, Herr Öztürk.':
-    { de: 'Guten Tag, Herr Öztürk. Freut mich. Arbeiten Sie auch schon lange hier?', es: 'Buenos días, señor Öztürk. Encantado. ¿Usted también lleva mucho tiempo trabajando aquí?' },
-  'Sagen Sie ruhig du zu mir.':
-    { de: 'Gern, danke. Dann bin ich Álvaro, und wir lassen das Sie einfach weg.', es: 'Con mucho gusto, gracias. Entonces soy Álvaro y dejamos el usted.' },
+
+
   'Wie war noch mal dein Name?':
     { de: 'Luna. Kein Problem, das fragen mich viele ein zweites Mal.', es: 'Luna. No pasa nada, mucha gente me lo pregunta por segunda vez.' },
   'Entschuldigung, wie spricht man Ihren Namen aus?':
@@ -4667,8 +4656,7 @@ const RESPUESTAS = {
     { de: 'Nichts Schlimmes, ich habe nur ziemlich viel Stress in der Arbeit.', es: 'Nada grave, solo que tengo bastante estrés en el trabajo.' },
   'Wie war noch mal dein Nachname?':
     { de: 'García, wie der Fußballspieler, aber wir sind leider überhaupt nicht verwandt.', es: 'García, como el futbolista, pero no somos parientes ni de lejos.' },
-  'Darf ich dich vorstellen? Das ist Anna.':
-    { de: 'Freut mich sehr, ich habe schon viel von dir gehört.', es: 'Encantado, ya había oído hablar mucho de ti.' },
+
   'Wie spricht man deinen Namen richtig aus?':
     { de: 'Álvaro, mit der Betonung auf der ersten Silbe, das machen alle falsch.', es: 'Álvaro, con el acento en la primera sílaba; todo el mundo lo dice mal.' },
   'Ist das vielleicht deine Tasche?':
@@ -5145,14 +5133,8 @@ const RESPUESTAS = {
     { de: 'Gern, geben Sie es mir, ich habe beide Hände frei.', es: 'Con gusto; démelo, tengo las dos manos libres.' },
   'Darf ich mich zu Ihnen setzen?':
     { de: 'Natürlich, es ist ohnehin gemütlicher als allein am Tisch.', es: 'Claro; de todos modos se está mejor que solo en la mesa.' },
-  'Ich bin neu hier. Ich heiße Álvaro.':
-    { de: 'Willkommen! Ich zeige dir gleich alles.', es: '¡Bienvenido! Ahora te lo enseño todo.' },
-  'Wir haben uns noch nicht kennengelernt, oder?':
-    { de: 'Nein, ich glaube nicht. Ich bin Sofia.', es: 'No, creo que no. Soy Sofía.',
-      mas: [
-        { de: 'Freut mich, Sofia. Ich bin Álvaro.', es: 'Encantado, Sofía. Yo soy Álvaro.' },
-        { de: 'Freut mich auch. Arbeitest du auch hier?', es: 'Igualmente. ¿Tú también trabajas aquí?' }
-      ] },
+
+
   'Guten Tag, Herr Müller!':
     { de: 'Guten Tag, Frau Schmidt!', es: '¡Buenas tardes, señora Schmidt!' },
   'Hallo zusammen!':
@@ -5297,6 +5279,35 @@ const RESPUESTAS = {
         { de: 'Ich schreibe es mir sogar auf.', es: 'Hasta me lo apunto.' },
         { de: 'Dann glaube ich es dir wirklich.', es: 'Entonces sí te creo.' }
       ] },
+
+  // ---- a11-l1 · sich vorstellen -------------------------------------
+  'Guten Tag, ich bin Álvaro Pascual.':
+    { de: 'Guten Tag, Herr Pascual. Freut mich sehr. Ich bin Frau Berger und arbeite hier im Büro.', es: 'Buenos días, señor Pascual. Encantada. Soy la señora Berger y trabajo aquí en la oficina.',
+      mas: [
+        { de: 'Freut mich, Sie kennenzulernen.', es: 'Encantado de conocerle.' },
+        { de: 'Ganz meinerseits. Ich habe schon viel von Ihnen gehört.', es: 'Igualmente. Ya he oído hablar mucho de usted.' },
+        { de: 'Das ist mein Kollege, Herr Öztürk.', es: 'Este es mi compañero, el señor Öztürk.' },
+        { de: 'Guten Tag, Herr Öztürk. Freut mich. Arbeiten Sie auch schon lange hier?', es: 'Buenos días, señor Öztürk. Encantado. ¿Usted también lleva mucho tiempo trabajando aquí?' },
+        { de: 'Sagen Sie ruhig du zu mir.', es: 'Puede tutearme tranquilamente.' },
+        { de: 'Gern, dann sind wir per du. Ich bin die Martina.', es: 'Con mucho gusto, entonces nos tuteamos. Yo soy Martina.' }
+      ] },
+  'Kennen wir uns schon?':
+    { de: 'Ich glaube, wir kennen uns vom Deutschkurs. Du saßt immer hinten links.', es: 'Creo que nos conocemos del curso de alemán. Te sentabas siempre atrás a la izquierda.',
+      mas: [
+        { de: 'Sind wir per du?', es: '¿Nos tuteamos?' },
+        { de: 'Klar, hier sagen alle du. Ich bin der Tom.', es: 'Claro, aquí todos se tutean. Yo soy Tom.' },
+        { de: 'Darf ich dich vorstellen? Das ist Anna.', es: '¿Te presento? Esta es Anna.' },
+        { de: 'Freut mich sehr, ich habe schon viel von dir gehört.', es: 'Encantada, ya había oído hablar mucho de ti.' }
+      ] },
+  'Ich bin neu hier. Ich heiße Álvaro.':
+    { de: 'Willkommen! Ich zeige dir gleich alles.', es: '¡Bienvenido! Ahora te lo enseño todo.',
+      mas: [
+        { de: 'Wir haben uns noch nicht kennengelernt, oder?', es: 'Todavía no nos conocemos, ¿verdad?' },
+        { de: 'Nein, ich glaube nicht. Ich bin Sofia.', es: 'No, creo que no. Soy Sofía.' },
+        { de: 'Darf ich mich vorstellen? Ich bin Álvaro.', es: '¿Me presento? Soy Álvaro.' },
+        { de: 'Freut mich, Álvaro. Arbeitest du auch hier?', es: 'Encantada, Álvaro. ¿Tú también trabajas aquí?' }
+      ] },
+
 };
 
 // La glosa, en el idioma de la interfaz. Todo lo que sale de este fichero
@@ -5337,4 +5348,28 @@ export function conversacionDe(de) {
 // Cuantas llevamos escritas, para las herramientas.
 export function cuantasRespuestas() {
   return Object.keys(RESPUESTAS).length;
+}
+
+// Dentro de una conversacion larga, cada turno que dices tu lo contesta el
+// siguiente. Sin esto, Contestar y Entender solo salian de la frase que ABRE la
+// conversacion: en una de cinco intercambios se practicaba una respuesta y las
+// otras cuatro no se veian nunca, aunque estuvieran escritas dos lineas mas
+// abajo. Se monta una vez al cargar el modulo, que es barato y se usa en cada
+// tanda.
+const EN_CADENA = new Map();
+for (const [apertura, r] of Object.entries(RESPUESTAS)) {
+  EN_CADENA.set(apertura, { de: r.de, es: r.es });
+  const mas = r.mas || [];
+  // Los pares los dices tu y los impares te los contestan, igual que en
+  // conversacionDe. El ultimo turno impar no abre nada: se queda fuera.
+  for (let i = 0; i + 1 < mas.length; i += 2) {
+    if (!EN_CADENA.has(mas[i].de)) EN_CADENA.set(mas[i].de, { de: mas[i + 1].de, es: mas[i + 1].es });
+  }
+}
+
+// Lo que te contestan a CUALQUIER turno que digas tu, sea la frase que abre la
+// conversacion o una de dentro. respuestaDe se queda como estaba porque los
+// scripts cuentan conversaciones con ella, y una conversacion es una apertura.
+export function respuestaEnCadena(de) {
+  return conGlosa(EN_CADENA.get(de)) || null;
 }

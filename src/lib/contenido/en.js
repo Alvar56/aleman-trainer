@@ -22648,4 +22648,8 @@ export const EN = {
   'Los formularios no los entiende nadie al principio.': 'Nobody understands the forms at the beginning.',
   '¿Te puedo preguntar otra vez mañana?': 'May I ask you again tomorrow?',
   'Cuando quieras. Siempre estoy aquí delante.': 'Any time. I always sit here at the front.',
+  'Con mucho gusto, entonces nos tuteamos. Yo soy Martina.': 'Gladly, then we\'ll use \'du\'. I\'m Martina.',
+  'Claro, aquí todos se tutean. Yo soy Tom.': 'Of course, everyone here uses \'du\'. I\'m Tom.',
+  'Encantada, ya había oído hablar mucho de ti.': 'Very pleased to meet you, I\'ve heard a lot about you.',
+  'Encantada, Álvaro. ¿Tú también trabajas aquí?': 'Nice to meet you, Álvaro. Do you work here too?',
 };
