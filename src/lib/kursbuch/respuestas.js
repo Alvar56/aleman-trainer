@@ -566,7 +566,11 @@ const RESPUESTAS = {
         { de: 'Fast, mir fehlt nur die letzte Übung.', es: 'Casi, me falta solo el último ejercicio.' }
       ] },
   'Wie geht es Ihnen? – Danke, sehr gut.':
-    { de: 'Das freut mich. Und wie läuft es in der Arbeit?', es: 'Me alegro. ¿Y cómo va el trabajo?' },
+    { de: 'Das freut mich. Und wie läuft es in der Arbeit?', es: 'Me alegro. ¿Y cómo va el trabajo?',
+      mas: [
+        { de: 'Viel zu tun, aber es macht Spaß.', es: 'Mucho trabajo, pero me gusta.' },
+        { de: 'Das ist die beste Kombination.', es: 'Esa es la mejor combinación.' }
+      ] },
   'Nicht so gut.':
     { de: 'Oh, was ist denn los? Setz dich kurz, ich hole dir ein Wasser.', es: 'Vaya, ¿qué pasa? Siéntate un momento, te traigo un agua.',
       mas: [
@@ -582,7 +586,11 @@ const RESPUESTAS = {
         { de: 'Ich heiße Jonas. Ich sitze hinter dir.', es: 'Me llamo Jonas. Me siento detrás de ti.' }
       ] },
   'Wie heißen Sie? – Mein Name ist Gruber.':
-    { de: 'Angenehm, Frau Gruber. Ich bin Nuria, die neue Kollegin.', es: 'Mucho gusto, señora Gruber. Soy Nuria, la compañera nueva.' },
+    { de: 'Angenehm, Frau Gruber. Ich bin Nuria, die neue Kollegin.', es: 'Mucho gusto, señora Gruber. Soy Nuria, la compañera nueva.',
+      mas: [
+        { de: 'Freut mich, Nuria. Woher kommen Sie?', es: 'Encantada, Nuria. ¿De dónde es usted?' },
+        { de: 'Aus Spanien, aus Valencia.', es: 'De España, de Valencia.' }
+      ] },
   'Wie ist dein Vorname?':
     { de: 'Mein Vorname ist Leon, mit e-o, nicht mit i. Das schreiben viele falsch.', es: 'Me llamo Leon, con e-o, no con i. Mucha gente lo escribe mal.',
       mas: [
@@ -590,7 +598,11 @@ const RESPUESTAS = {
         { de: 'Meier, mit E-I.', es: 'Meier, con E-I.' }
       ] },
   'Wie bitte? Können Sie das wiederholen?':
-    { de: 'Ja, natürlich. Ich sage es noch einmal, diesmal langsamer und lauter.', es: 'Sí, claro. Lo digo otra vez, esta vez más despacio y más alto.' },
+    { de: 'Ja, natürlich. Ich sage es noch einmal, diesmal langsamer und lauter.', es: 'Sí, claro. Lo digo otra vez, esta vez más despacio y más alto.',
+      mas: [
+        { de: 'Jetzt habe ich es verstanden, danke.', es: 'Ahora sí lo he entendido, gracias.' },
+        { de: 'Sehr gut. Fragen Sie immer, wenn etwas zu schnell geht.', es: 'Muy bien. Pregunte siempre que algo vaya muy rápido.' }
+      ] },
   'Was heißt „Tafel“ auf Spanisch?':
     { de: '„Tafel“ heißt „pizarra“. Schreib es dir am besten auf.', es: '«Tafel» significa «pizarra». Mejor apúntatelo.' },
   'Wie sagt man das auf Deutsch?':
@@ -608,9 +620,17 @@ const RESPUESTAS = {
         { de: 'Sehr gut, dann machen wir weiter.', es: 'Muy bien, entonces seguimos.' }
       ] },
   'Danke schön! – Bitte schön!':
-    { de: 'Gern geschehen. Frag ruhig wieder, wenn du etwas brauchst.', es: 'Un placer. Pregunta otra vez si necesitas algo.' },
+    { de: 'Gern geschehen. Frag ruhig wieder, wenn du etwas brauchst.', es: 'Un placer. Pregunta otra vez si necesitas algo.',
+      mas: [
+        { de: 'Ohne dich hätte ich das Formular nicht verstanden.', es: 'Sin ti no habría entendido el formulario.' },
+        { de: 'Die Formulare versteht am Anfang niemand.', es: 'Los formularios no los entiende nadie al principio.' }
+      ] },
   'Vielen Dank für die Hilfe.':
-    { de: 'Nichts zu danken. Das mache ich doch gern.', es: 'No hay de qué. Lo hago con gusto.' },
+    { de: 'Nichts zu danken. Das mache ich doch gern.', es: 'No hay de qué. Lo hago con gusto.',
+      mas: [
+        { de: 'Darf ich dich morgen wieder fragen?', es: '¿Te puedo preguntar otra vez mañana?' },
+        { de: 'Jederzeit. Ich sitze immer hier vorne.', es: 'Cuando quieras. Siempre estoy aquí delante.' }
+      ] },
   'Entschuldigung, ich bin zu spät.':
     { de: 'Kein Problem, setz dich einfach. Wir sind gerade erst bei Übung eins.', es: 'No pasa nada, siéntate. Acabamos de empezar el ejercicio uno.',
       mas: [
@@ -626,7 +646,11 @@ const RESPUESTAS = {
         { de: 'Ja, heute Abend.', es: 'Sí, esta noche.' }
       ] },
   'Wie ist Ihre E-Mail-Adresse?':
-    { de: 'Nuria Punkt Lopez at mail Punkt at, alles klein und ohne Akzent.', es: 'Nuria punto Lopez arroba mail punto at, todo en minúscula y sin acento.' },
+    { de: 'Nuria Punkt Lopez at mail Punkt at, alles klein und ohne Akzent.', es: 'Nuria punto Lopez arroba mail punto at, todo en minúscula y sin acento.',
+      mas: [
+        { de: 'Soll ich sie Ihnen aufschreiben?', es: '¿Se la escribo?' },
+        { de: 'Ja bitte, beim Buchstabieren verliere ich immer den Faden.', es: 'Sí, por favor, deletreando siempre me pierdo.' }
+      ] },
   'Wo wohnst du? – In Wien, Hauptstraße 12.':
     { de: 'Das ist ja ganz in der Nähe!', es: '¡Pero si eso está al lado!',
       mas: [
@@ -637,7 +661,11 @@ const RESPUESTAS = {
   // Las de la Start que ya estaban. Sin respuesta, la practica de esa
   // leccion solo podia montar dos de los cuatro tipos de ejercicio.
   'Guten Morgen! / Guten Tag! / Guten Abend!':
-    { de: 'Guten Tag! Schön, Sie zu sehen.', es: '¡Buenos días! Me alegro de verle.' },
+    { de: 'Guten Tag! Schön, Sie zu sehen.', es: '¡Buenos días! Me alegro de verle.',
+      mas: [
+        { de: 'Sind Sie auch neu im Kurs?', es: '¿Usted también es nuevo en el curso?' },
+        { de: 'Ja, heute ist mein erster Tag.', es: 'Sí, hoy es mi primer día.' }
+      ] },
   'Hallo! · Servus! · Grüß Gott! (AT)':
     { de: 'Servus! Alles klar bei dir? Lange nicht gesehen.', es: '¡Hola! ¿Todo bien? Hace mucho que no te veo.',
       mas: [
@@ -645,11 +673,23 @@ const RESPUESTAS = {
         { de: 'Auch gut, danke.', es: 'Bien también, gracias.' }
       ] },
   'Auf Wiedersehen! · Tschüss! · Bis bald!':
-    { de: 'Tschüss, bis morgen! Vergiss die Hausaufgabe nicht.', es: '¡Chao, hasta mañana! No te olvides de los deberes.' },
+    { de: 'Tschüss, bis morgen! Vergiss die Hausaufgabe nicht.', es: '¡Chao, hasta mañana! No te olvides de los deberes.',
+      mas: [
+        { de: 'Welche Seite war es noch mal?', es: '¿Qué página era?' },
+        { de: 'Seite zwölf, die Übungen unten.', es: 'La página doce, los ejercicios de abajo.' }
+      ] },
   'Ich heiße Maria.':
-    { de: 'Freut mich, Maria. Ich bin Jonas.', es: 'Encantado, Maria. Yo soy Jonas.' },
+    { de: 'Freut mich, Maria. Ich bin Jonas.', es: 'Encantado, Maria. Yo soy Jonas.',
+      mas: [
+        { de: 'Bist du auch im Kurs A2?', es: '¿Tú también estás en el curso A2?' },
+        { de: 'Ja, jeden Dienstag und Donnerstag.', es: 'Sí, todos los martes y jueves.' }
+      ] },
   'Mein Name ist Maria López.':
-    { de: 'Guten Tag, Frau López. Nehmen Sie bitte Platz, wir fangen gleich an.', es: 'Buenos días, señora López. Siéntese, por favor, empezamos enseguida.' },
+    { de: 'Guten Tag, Frau López. Nehmen Sie bitte Platz, wir fangen gleich an.', es: 'Buenos días, señora López. Siéntese, por favor, empezamos enseguida.',
+      mas: [
+        { de: 'Entschuldigung, ich bin ein bisschen zu spät.', es: 'Perdone, llego un poco tarde.' },
+        { de: 'Kein Problem, wir haben noch nicht angefangen.', es: 'No pasa nada, todavía no hemos empezado.' }
+      ] },
   'Ich bin Ahmet. Und du?':
     { de: 'Ich bin Lena. Ich sitze immer da vorne.', es: 'Yo soy Lena. Me siento siempre ahí delante.',
       mas: [
@@ -663,9 +703,17 @@ const RESPUESTAS = {
         { de: 'Da war ich schon! Sehr schön.', es: '¡Yo he estado! Muy bonito.' }
       ] },
   'Woher kommen Sie? – Aus Wien.':
-    { de: 'Ah, ein Wiener! Ich komme aus Graz.', es: '¡Ah, vienés! Yo soy de Graz.' },
+    { de: 'Ah, ein Wiener! Ich komme aus Graz.', es: '¡Ah, vienés! Yo soy de Graz.',
+      mas: [
+        { de: 'Und wie lange leben Sie schon hier?', es: '¿Y cuánto tiempo lleva aquí?' },
+        { de: 'Seit zwanzig Jahren. Graz vermisse ich trotzdem.', es: 'Veinte años. Aun así echo de menos Graz.' }
+      ] },
   'Wie schreibt man das?':
-    { de: 'Das schreibt man mit zwei L.', es: 'Eso se escribe con dos eles.' },
+    { de: 'Das schreibt man mit zwei L.', es: 'Eso se escribe con dos eles.',
+      mas: [
+        { de: 'Mit zwei L und einem H am Ende?', es: '¿Con dos eles y una hache al final?' },
+        { de: 'Genau so. Sie haben es gleich beim ersten Mal.', es: 'Exactamente. Lo tiene a la primera.' }
+      ] },
   'Können Sie das bitte buchstabieren?':
     { de: 'Natürlich: M-A-R-I-A, wie der Name Maria.', es: 'Claro: M-A-R-I-A, como el nombre María.',
       mas: [
@@ -673,7 +721,11 @@ const RESPUESTAS = {
         { de: 'L-Ó-P-E-Z.', es: 'L-Ó-P-E-Z.' }
       ] },
   'M wie Martha, A wie Anton.':
-    { de: 'Danke, jetzt habe ich es.', es: 'Gracias, ahora sí lo tengo.' },
+    { de: 'Danke, jetzt habe ich es.', es: 'Gracias, ahora sí lo tengo.',
+      mas: [
+        { de: 'Gibt es diese Namen für alle Buchstaben?', es: '¿Hay esos nombres para todas las letras?' },
+        { de: 'Für alle. Am Telefon spart das viel Zeit.', es: 'Para todas. Por teléfono ahorra mucho tiempo.' }
+      ] },
 
   // ======================================================================
   // A1.1 y A1.2. Antes solo estaban las de A2.1 y las de la Start: media
@@ -1086,7 +1138,11 @@ const RESPUESTAS = {
         { de: 'Mit zwei M: Radiergummi.', es: 'Con dos emes: Radiergummi.' }
       ] },
   'Darf ich heute früher gehen?':
-    { de: 'Ja, aber sag es mir vorher.', es: 'Sí, pero dímelo antes.' },
+    { de: 'Ja, aber sag es mir vorher.', es: 'Sí, pero dímelo antes.',
+      mas: [
+        { de: 'Ich habe um fünf einen Arzttermin.', es: 'Tengo cita con el médico a las cinco.' },
+        { de: 'Alles klar. Dann nimm dir die Übungen mit nach Hause.', es: 'Muy bien. Pues llévate los ejercicios a casa.' }
+      ] },
   'Darf ich das Licht anmachen?':
     { de: 'Ja, bitte. Hier ist es dunkel.', es: 'Sí, por favor. Aquí está oscuro.' },
   'Können wir das Licht ausmachen?':
@@ -1662,9 +1718,17 @@ const RESPUESTAS = {
         { de: 'Deshalb! Erzähl, wie war es dort?', es: '¡Por eso! Cuenta, ¿qué tal por allí?' }
       ] },
   'Bis nächste Woche im Kurs!':
-    { de: 'Bis dann! Vergiss die Hausaufgabe auf Seite dreißig nicht.', es: '¡Hasta entonces! No olvides los deberes de la página treinta.' },
+    { de: 'Bis dann! Vergiss die Hausaufgabe auf Seite dreißig nicht.', es: '¡Hasta entonces! No olvides los deberes de la página treinta.',
+      mas: [
+        { de: 'Danke, sonst hätte ich sie vergessen.', es: 'Gracias, si no se me olvida.' },
+        { de: 'Dafür sind Kolleginnen da. Schönes Wochenende!', es: 'Para eso están las compañeras. ¡Buen finde!' }
+      ] },
   'Schönen Abend noch!':
-    { de: 'Danke, Ihnen auch. Kommen Sie gut nach Hause.', es: 'Gracias, igualmente. Que llegue bien a casa.' },
+    { de: 'Danke, Ihnen auch. Kommen Sie gut nach Hause.', es: 'Gracias, igualmente. Que llegue bien a casa.',
+      mas: [
+        { de: 'Ich nehme die Straßenbahn, das geht schnell.', es: 'Cojo el tranvía, es rápido.' },
+        { de: 'Gut. Bis morgen um neun!', es: 'Bien. ¡Hasta mañana a las nueve!' }
+      ] },
   'Weißt du, wo mein Ladekabel ist?':
     { de: 'Ich glaube, es liegt noch im Besprechungsraum auf dem Tisch.', es: 'Creo que sigue en la sala de reuniones, encima de la mesa.' },
   'Wo finde ich hier einen Drucker?':
@@ -3852,7 +3916,11 @@ const RESPUESTAS = {
   'Wir kennen uns noch nicht, oder?':
     { de: 'Ich glaube nicht. Ich bin Ahmet, ich sitze meistens vorne.', es: 'Creo que no. Soy Ahmet, suelo sentarme delante.' },
   'Aus welcher Stadt kommst du genau?':
-    { de: 'Aus Aleppo. Meine Familie lebt jetzt aber in der Türkei.', es: 'De Alepo. Pero mi familia vive ahora en Turquía.' },
+    { de: 'Aus Aleppo. Meine Familie lebt jetzt aber in der Türkei.', es: 'De Alepo. Pero mi familia vive ahora en Turquía.',
+      mas: [
+        { de: 'Warst du seitdem noch einmal dort?', es: '¿Has vuelto desde entonces?' },
+        { de: 'Nein, noch nicht. Vielleicht nächstes Jahr.', es: 'No, todavía no. Quizá el año que viene.' }
+      ] },
   'Bist du hier geboren?':
     { de: 'Nein, ich bin mit sechs Jahren hergekommen.', es: 'No, vine aquí con seis años.' },
   'Sprichst du die Sprache deiner Eltern?':
