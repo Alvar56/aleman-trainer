@@ -364,7 +364,17 @@ export const MODALES = {
       { s: 'Er ___ sich eine Woche schonen.', a: 'sollte', d: ['soll', 'will'], t: 'Debería cuidarse una semana.', e: 'Recomendación médica.' },
       { s: 'Ihr ___ mehr Wasser trinken.', a: 'solltet', d: ['sollt', 'müsst'], t: 'Deberíais beber más agua.', e: 'Con ihr: solltet.' },
       { s: 'Man ___ nicht mit leerem Magen laufen.', a: 'sollte', d: ['soll', 'muss'], t: 'No se debería correr en ayunas.', e: 'Con man: sollte.' },
-      { s: 'Du ___ das nicht auf die leichte Schulter nehmen.', a: 'solltest', d: ['sollst', 'kannst'], t: 'No deberías tomártelo a la ligera.', e: 'Consejo con negación.' }
+      { s: 'Du ___ das nicht auf die leichte Schulter nehmen.', a: 'solltest', d: ['sollst', 'kannst'], t: 'No deberías tomártelo a la ligera.', e: 'Consejo con negación.' },
+      { s: 'Bei Fieber ___ man viel trinken.', a: 'sollte', d: ['soll', 'will'], t: 'Con fiebre se debería beber mucho.', e: 'Consejo general con man.' },
+      { s: 'Ihr ___ euch mehr bewegen.', a: 'solltet', d: ['sollt', 'müsst'], t: 'Deberíais moveros más.', e: 'Con ihr: solltet.' },
+      { s: 'Sie ___ das Rauchen aufgeben.', a: 'sollten', d: ['sollen', 'wollen'], t: 'Debería dejar de fumar.', e: 'Con Sie: sollten.' },
+      { s: 'Wir ___ den Termin nicht verschieben.', a: 'sollten', d: ['sollen', 'dürfen'], t: 'No deberíamos aplazar la cita.', e: 'Consejo en plural.' },
+      { s: 'Du ___ dich heute ausruhen.', a: 'solltest', d: ['sollst', 'willst'], t: 'Deberías descansar hoy.', e: 'Con du: solltest.' },
+      { s: 'Was ___ man bei Rückenschmerzen machen?', a: 'sollte', d: ['soll', 'mag'], t: '¿Qué debería hacerse con dolor de espalda?', e: 'Pedir consejo con man.' },
+      { s: 'Ich ___ endlich zum Arzt gehen.', a: 'sollte', d: ['soll', 'darf'], t: 'Debería ir por fin al médico.', e: 'Consejo a uno mismo.' },
+      { s: 'Man ___ die Tabletten nicht mit Kaffee nehmen.', a: 'sollte', d: ['soll', 'will'], t: 'No se deberían tomar las pastillas con café.', e: 'Recomendación con man.' },
+      { s: 'Er ___ weniger am Bildschirm sitzen.', a: 'sollte', d: ['soll', 'kann'], t: 'Debería estar menos delante de la pantalla.', e: 'Consejo, no orden.' },
+      { s: '„sollte“ ist die Konjunktiv-Form von ___.', a: 'sollen', d: ['sein', 'wollen'], t: '«sollte» es la forma de subjuntivo de «sollen».', e: 'Konjunktiv II de sollen.' }
     ]
   },
   'moegen-moechten-wollen': {

@@ -396,7 +396,17 @@ export const PRONUNCIACION = {
       { s: 'In „Kopfschmerzen“ steckt der Laut ___.', a: 'pf', d: ['f', 'p'], t: 'En «Kopfschmerzen» está el sonido «pf».', e: 'Kopf acaba en pf.' },
       { s: '„Pflege“ beginnt wie ___.', a: 'Pflaster', d: ['Flasche', 'Lehrer'], t: '«Pflege» empieza como «Pflaster».', e: 'Las dos con pf.' },
       { s: 'Bei kn sagt man ___ zuerst.', a: 'das k', d: ['das n', 'gar nichts'], t: 'En «kn» se dice primero la k.', e: 'Y enseguida la n.' },
-      { s: 'Wörter mit ps am Anfang sind meistens ___.', a: 'Fremdwörter', d: ['Verben', 'Adjektive'], t: 'Las palabras que empiezan por «ps» suelen ser extranjerismos.', e: 'Psychologe, Psychiater.' }
+      { s: 'Wörter mit ps am Anfang sind meistens ___.', a: 'Fremdwörter', d: ['Verben', 'Adjektive'], t: 'Las palabras que empiezan por «ps» suelen ser extranjerismos.', e: 'Psychologe, Psychiater.' },
+      { s: 'In „Pfanne“ hört man ___.', a: 'p und f', d: ['nur f', 'nur p'], t: 'En «Pfanne» se oyen la p y la f.', e: 'pf son los dos sonidos seguidos, muy pegados.' },
+      { s: 'Das k in „Knopf“ ___.', a: 'spricht man', d: ['spricht man nicht', 'klingt wie g'], t: 'La k de «Knopf» sí se pronuncia.', e: 'En alemán kn se dice entero, no como en inglés.' },
+      { s: '„Psychologie“ kommt aus dem ___.', a: 'Griechischen', d: ['Lateinischen', 'Englischen'], t: '«Psychologie» viene del griego.', e: 'Por eso conserva la escritura ps.' },
+      { s: 'In „Knie“ ist der erste Laut ___.', a: 'k', d: ['n', 'ni'], t: 'En «Knie» el primer sonido es la k.', e: 'Se pronuncia k-nie, con la k bien clara.' },
+      { s: 'Wie viele Laute hat „pf“?', a: 'zwei', d: ['einen', 'drei'], t: '¿Cuántos sonidos tiene «pf»?', e: 'Dos, muy pegados: p y luego f.' },
+      { s: 'In „Kopf“ steht das pf ___.', a: 'am Ende', d: ['am Anfang', 'in der Mitte'], t: 'En «Kopf» el pf va al final.', e: 'También al final se pronuncia entero.' },
+      { s: '„Pflanze“ und „Pflaster“ beginnen beide mit ___.', a: 'pf', d: ['f', 'p'], t: '«Pflanze» y «Pflaster» empiezan las dos con «pf».', e: 'Mismo grupo de sonidos al principio.' },
+      { s: 'Das p in „Psychologe“ ___.', a: 'spricht man mit', d: ['lässt man weg', 'klingt wie b'], t: 'La p de «Psychologe» se pronuncia.', e: 'En alemán sí, a diferencia del inglés.' },
+      { s: 'Welches Wort hat KEIN pf?', a: 'Kaffee', d: ['Apfel', 'Kopf'], t: '¿Cuál no tiene «pf»?', e: 'Kaffee lleva ff, no pf.' },
+      { s: '„Knochen“ und „Knoblauch“ beginnen mit ___.', a: 'kn', d: ['n', 'k allein'], t: '«Knochen» y «Knoblauch» empiezan con «kn».', e: 'Los dos sonidos se oyen, uno detrás de otro.' }
     ]
   },
   'aussprache-fremdwoerter-betonung': {

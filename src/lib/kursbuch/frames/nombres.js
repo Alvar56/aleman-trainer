@@ -773,7 +773,17 @@ export const NOMBRES = {
       { s: 'Bei Kälte bekomme ich ___.', a: 'Ohrenschmerzen', d: ['Ohrschmerz', 'Ohrenschmerze'], t: 'Con el frío me duelen los oídos.', e: 'Ohren + Schmerzen.' },
       { s: 'Er hat seit Tagen ___.', a: 'Zahnschmerzen', d: ['Zahnschmerz', 'Zahnschmerze'], t: 'Lleva días con dolor de muelas.', e: 'Zahn + Schmerzen.' },
       { s: 'Die Schmerzen ___ seit heute Morgen weg.', a: 'sind', d: ['haben', 'tun'], t: 'Los dolores han desaparecido desde esta mañana.', e: 'weg sein: con sein.' },
-      { s: 'Nach der Tablette hatte sie weniger ___.', a: 'Schmerzen', d: ['Schmerz', 'Schmerze'], t: 'Después de la pastilla tenía menos dolores.', e: 'Plural, siempre.' }
+      { s: 'Nach der Tablette hatte sie weniger ___.', a: 'Schmerzen', d: ['Schmerz', 'Schmerze'], t: 'Después de la pastilla tenía menos dolores.', e: 'Plural, siempre.' },
+      { s: 'Nach dem langen Sitzen habe ich ___.', a: 'Rückenschmerzen', d: ['Rückenschmerz', 'Rücken Schmerzen'], t: 'Después de estar tanto sentado tengo dolor de espalda.', e: 'Se escribe todo junto y en plural.' },
+      { s: 'Das Kind hat ___ und will nicht essen.', a: 'Zahnschmerzen', d: ['Zahnschmerz', 'Zähneschmerzen'], t: 'El niño tiene dolor de muelas y no quiere comer.', e: 'Zahn en singular + Schmerzen.' },
+      { s: 'Bei Grippe hat man oft ___.', a: 'Gliederschmerzen', d: ['Gliedschmerzen', 'Glieder Schmerzen'], t: 'Con la gripe se suelen tener dolores articulares.', e: 'Glieder en plural + Schmerzen, todo junto.' },
+      { s: 'Ich habe ___ im linken Ohr.', a: 'Schmerzen', d: ['Schmerz', 'Weh'], t: 'Tengo dolor en el oído izquierdo.', e: 'Schmerzen se usa casi siempre en plural.' },
+      { s: '___ du noch Kopfschmerzen?', a: 'Hast', d: ['Habst', 'Hat'], t: '¿Sigues con dolor de cabeza?', e: 'du hast, con la forma irregular.' },
+      { s: 'Seit der Tablette sind die Schmerzen ___.', a: 'weniger geworden', d: ['weniger werden', 'wenig geworden'], t: 'Desde la pastilla los dolores han disminuido.', e: 'Perfecto de werden: sind geworden.' },
+      { s: 'Der Arzt fragt, wo ich ___ habe.', a: 'Schmerzen', d: ['schmerzen', 'Schmerz'], t: 'El médico pregunta dónde tengo dolores.', e: 'Es un sustantivo: mayúscula y plural.' },
+      { s: 'Sie hat ___ und kann kaum schlucken.', a: 'Halsschmerzen', d: ['Halschmerzen', 'Hals Schmerzen'], t: 'Tiene dolor de garganta y casi no puede tragar.', e: 'Hals + Schmerzen: quedan dos eses seguidas.' },
+      { s: 'Nach dem fetten Essen bekam er ___.', a: 'Bauchschmerzen', d: ['Bauchschmerz', 'Bauch Schmerzen'], t: 'Después de la comida grasienta le dio dolor de barriga.', e: 'Bauch + Schmerzen, todo junto.' },
+      { s: 'Gegen die Schmerzen ___ mir nichts.', a: 'hilft', d: ['helfen', 'hilfst'], t: 'Contra los dolores no me ayuda nada.', e: 'El sujeto es nichts, que es singular.' }
     ]
   },
   'koerperteile-plural': {
@@ -787,7 +797,17 @@ export const NOMBRES = {
       { s: 'Bei Lärm tun mir die ___ weh.', a: 'Ohren', d: ['Ohre', 'Öhren'], t: 'Con ruido me duelen los oídos.', e: 'das Ohr → die Ohren.' },
       { s: 'Nach dem Skifahren schmerzen die ___.', a: 'Knie', d: ['Knies', 'Knien'], t: 'Después de esquiar duelen las rodillas.', e: 'das Knie no cambia en plural.' },
       { s: 'Die ___ sind bei Kälte immer kalt.', a: 'Finger', d: ['Fingers', 'Fingern'], t: 'Con frío los dedos siempre están helados.', e: 'der Finger → die Finger, igual.' },
-      { s: 'Er hat breite ___.', a: 'Schultern', d: ['Schulter', 'Schultere'], t: 'Tiene los hombros anchos.', e: 'die Schulter → die Schultern.' }
+      { s: 'Er hat breite ___.', a: 'Schultern', d: ['Schulter', 'Schultere'], t: 'Tiene los hombros anchos.', e: 'die Schulter → die Schultern.' },
+      { s: 'Mach bitte die ___ zu, ich mache ein Foto.', a: 'Augen', d: ['Auge', 'Augens'], t: 'Cierra los ojos, que hago una foto.', e: 'das Auge pasa a die Augen.' },
+      { s: 'Er hat sich beide ___ gebrochen.', a: 'Arme', d: ['Arm', 'Armen'], t: 'Se ha roto los dos brazos.', e: 'der Arm pasa a die Arme.' },
+      { s: 'Beim Klavierspielen braucht man alle ___.', a: 'Finger', d: ['Fingers', 'Fingeren'], t: 'Para tocar el piano hacen falta todos los dedos.', e: 'der Finger no cambia en plural: die Finger.' },
+      { s: 'Nach dem Wandern tun mir die ___ weh.', a: 'Knie', d: ['Knies', 'Knieen'], t: 'Después de caminar me duelen las rodillas.', e: 'das Knie tampoco cambia: die Knie.' },
+      { s: 'Die ___ werden im Alter schlechter.', a: 'Augen', d: ['Auge', 'Augenen'], t: 'La vista empeora con la edad.', e: 'Plural die Augen.' },
+      { s: 'Sie hat lange ___ und läuft sehr schnell.', a: 'Beine', d: ['Bein', 'Beinen'], t: 'Tiene las piernas largas y corre muy rápido.', e: 'das Bein pasa a die Beine.' },
+      { s: 'Beim Zahnarzt schaut man sich die ___ an.', a: 'Zähne', d: ['Zahn', 'Zahnen'], t: 'En el dentista se miran los dientes.', e: 'der Zahn pasa a die Zähne, con Umlaut.' },
+      { s: 'Er hat breite ___ vom Schwimmen.', a: 'Schultern', d: ['Schulter', 'Schulteren'], t: 'Tiene los hombros anchos de nadar.', e: 'die Schulter pasa a die Schultern.' },
+      { s: 'Meine ___ sind vom Tippen müde.', a: 'Hände', d: ['Hand', 'Handen'], t: 'Tengo las manos cansadas de teclear.', e: 'die Hand pasa a die Hände, con Umlaut.' },
+      { s: 'Die ___ hören mit dem Alter schlechter.', a: 'Ohren', d: ['Ohr', 'Ohres'], t: 'Los oídos oyen peor con la edad.', e: 'das Ohr pasa a die Ohren.' }
     ]
   }
 };

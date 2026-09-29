@@ -488,7 +488,17 @@ export const VERBOS = {
       { s: '___ tut nach dem Laufen das Knie weh.', a: 'Ihm', d: ['Er', 'Ihn'], t: 'Le duele la rodilla después de correr.', e: 'Dativo de er: ihm.' },
       { s: 'Tut ___ etwas weh?', a: 'euch', d: ['ihr', 'eure'], t: '¿Os duele algo?', e: 'Dativo de ihr: euch.' },
       { s: 'Uns ___ vom Umzug alles weh.', a: 'tut', d: ['tun', 'tuen'], t: 'Nos duele todo de la mudanza.', e: 'alles es singular: tut.' },
-      { s: 'Dem Kind ___ der Bauch weh.', a: 'tut', d: ['tun', 'tue'], t: 'Al niño le duele la tripa.', e: 'der Bauch, singular: tut.' }
+      { s: 'Dem Kind ___ der Bauch weh.', a: 'tut', d: ['tun', 'tue'], t: 'Al niño le duele la tripa.', e: 'der Bauch, singular: tut.' },
+      { s: '___ tut nach der Arbeit der Nacken weh.', a: 'Ihr', d: ['Sie', 'Ihre'], t: 'A ella le duele el cuello después del trabajo.', e: 'ihr es el dativo de sie (ella).' },
+      { s: 'Meiner Mutter ___ das Knie weh.', a: 'tut', d: ['tun', 'tuen'], t: 'A mi madre le duele la rodilla.', e: 'Un solo sujeto (das Knie): tut.' },
+      { s: 'Meinem Bruder ___ die Ohren weh.', a: 'tun', d: ['tut', 'tuen'], t: 'A mi hermano le duelen los oídos.', e: 'Sujeto en plural (die Ohren): tun.' },
+      { s: '___ tut der Zahn weh, nicht mir.', a: 'Ihm', d: ['Er', 'Sein'], t: 'A él le duele la muela, no a mí.', e: 'Dativo ihm, aunque vaya el primero.' },
+      { s: 'Tut ___ der Kopf noch weh?', a: 'euch', d: ['ihr', 'eure'], t: '¿Os sigue doliendo la cabeza?', e: 'El dativo de ihr es euch.' },
+      { s: 'Nach dem Sport ___ mir alles weh.', a: 'tut', d: ['tun', 'tue'], t: 'Después del deporte me duele todo.', e: 'alles es singular: tut.' },
+      { s: '___ tut beim Gehen die Hüfte weh.', a: 'Meinem Vater', d: ['Mein Vater', 'Meines Vaters'], t: 'A mi padre le duele la cadera al andar.', e: 'Quien sufre el dolor va en dativo.' },
+      { s: 'Wem ___ hier etwas weh?', a: 'tut', d: ['tun', 'tust'], t: '¿A quién le duele algo aquí?', e: 'etwas es singular: tut.' },
+      { s: 'Dir ___ doch gar nichts weh!', a: 'tut', d: ['tun', 'tuts'], t: '¡Si a ti no te duele nada!', e: 'nichts es singular.' },
+      { s: '___ tun die Schultern weh.', a: 'Der Kollegin', d: ['Die Kollegin', 'Die Kollegin tut'], t: 'A la compañera le duelen los hombros.', e: 'die Kollegin pasa a der Kollegin en dativo.' }
     ]
   },
   'reflexive-verben-dativ': {
@@ -502,7 +512,17 @@ export const VERBOS = {
       { s: 'Ich wasche ___ jeden Morgen.', a: 'mich', d: ['mir', 'meiner'], t: 'Me lavo cada mañana.', e: 'Sin complemento directo: acusativo mich.' },
       { s: 'Putz ___ bitte die Nase.', a: 'dir', d: ['dich', 'deine'], t: 'Suénate la nariz, por favor.', e: 'die Nase es el directo: dir.' },
       { s: 'Er hat ___ beim Sport wehgetan.', a: 'sich', d: ['ihn', 'ihm'], t: 'Se ha hecho daño haciendo deporte.', e: 'sich wehtun.' },
-      { s: 'Habt ihr ___ die Hände desinfiziert?', a: 'euch', d: ['ihr', 'eure'], t: '¿Os habéis desinfectado las manos?', e: 'euch vale para los dos casos.' }
+      { s: 'Habt ihr ___ die Hände desinfiziert?', a: 'euch', d: ['ihr', 'eure'], t: '¿Os habéis desinfectado las manos?', e: 'euch vale para los dos casos.' },
+      { s: 'Ich habe ___ den Finger geschnitten.', a: 'mir', d: ['mich', 'meinen'], t: 'Me he cortado el dedo.', e: 'Con una parte del cuerpo como objeto, el reflexivo va en dativo.' },
+      { s: 'Sie kämmt ___ die Haare.', a: 'sich', d: ['ihr', 'ihre'], t: 'Se peina el pelo.', e: 'En tercera persona sich vale para dativo y acusativo.' },
+      { s: 'Zieh ___ eine Jacke an!', a: 'dir', d: ['dich', 'deine'], t: '¡Ponte una chaqueta!', e: 'anziehen con prenda: el reflexivo va en dativo.' },
+      { s: 'Wir haben ___ beim Skifahren wehgetan.', a: 'uns', d: ['sich', 'unsere'], t: 'Nos hicimos daño esquiando.', e: 'wehtun siempre lleva dativo.' },
+      { s: 'Merk ___ diese Nummer gut.', a: 'dir', d: ['dich', 'deine'], t: 'Apúntate bien este número.', e: 'sich etwas merken va en dativo.' },
+      { s: 'Er setzt ___ auf den Stuhl.', a: 'sich', d: ['ihm', 'seinen'], t: 'Se sienta en la silla.', e: 'Sin parte del cuerpo es acusativo, y en tercera persona también es sich.' },
+      { s: 'Ich muss ___ die Haare waschen.', a: 'mir', d: ['mich', 'meine'], t: 'Tengo que lavarme el pelo.', e: 'die Haare es el objeto, así que el reflexivo va en dativo.' },
+      { s: 'Habt ihr ___ schon die Zähne geputzt?', a: 'euch', d: ['ihr', 'eure'], t: '¿Ya os habéis lavado los dientes?', e: 'El dativo de ihr es euch.' },
+      { s: 'Sie hat ___ den Knöchel verstaucht.', a: 'sich', d: ['ihr', 'ihren'], t: 'Se ha torcido el tobillo.', e: 'Parte del cuerpo como objeto: reflexivo en dativo.' },
+      { s: 'Ich ziehe ___ schnell um.', a: 'mich', d: ['mir', 'meine'], t: 'Me cambio de ropa rápido.', e: 'sich umziehen no lleva otro objeto: acusativo.' }
     ]
   },
   'passen-stehen-gefallen': {
