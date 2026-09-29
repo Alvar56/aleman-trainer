@@ -263,15 +263,8 @@ export const A12 = {
           es: 'Contar la rutina del día',
           wendungen: [
             { de: 'Wie war dein Tag? – Ganz gut, danke.', es: '¿Qué tal tu día? – Bastante bien, gracias.' },
-            { de: 'Zuerst habe ich … und dann bin ich …', es: 'Primero he … y luego he …' },
             { de: 'Was hast du am Wochenende gemacht?', es: '¿Qué hiciste el fin de semana?' },
-            { de: 'Gestern war ich beim Arzt.', es: 'Ayer estuve en el médico.' },
-            { de: 'Was hast du gestern Abend gemacht?', es: '¿Qué hiciste ayer por la tarde?' },
-            { de: 'Ich bin heute viel zu spät aufgestanden.', es: 'Hoy me he levantado demasiado tarde.' },
-            { de: 'Ich habe den ganzen Tag gearbeitet.', es: 'He trabajado todo el día.' },
-            { de: 'Der Tag war anstrengend, aber schön.', es: 'El día fue agotador, pero bonito.' },
-            { de: 'Wie war es denn gestern auf der Feier?', es: '¿Qué tal ayer en la fiesta?' },
-            { de: 'Was ist danach passiert?', es: '¿Qué pasó después?' }
+            { de: 'Was hast du gestern Abend gemacht?', es: '¿Qué hiciste ayer por la tarde?' }
           ]
         },
         {
@@ -280,14 +273,7 @@ export const A12 = {
           wendungen: [
             { de: 'Ich habe den Zug verpasst.', es: 'He perdido el tren.' },
             { de: 'Vorhin hat deine Mutter angerufen.', es: 'Hace un rato llamó tu madre.' },
-            { de: 'Wir waren letztes Wochenende in Salzburg.', es: 'El fin de semana pasado estuvimos en Salzburgo.' },
-            { de: 'Vorhin hat dein Chef angerufen.', es: 'Antes ha llamado tu jefe.' },
-            { de: 'Im Sommer bin ich zum ersten Mal geflogen.', es: 'En verano volé por primera vez.' },
-            { de: 'Wir haben uns im Kurs kennengelernt.', es: 'Nos conocimos en clase.' },
-            { de: 'Gestern war ich zum ersten Mal beim Zahnarzt hier.', es: 'Ayer fui por primera vez al dentista aquí.' },
-            { de: 'Ich habe letztes Jahr meinen Führerschein gemacht.', es: 'El año pasado me saqué el carné de conducir.' },
-            { de: 'Plötzlich ist der Strom ausgefallen.', es: 'De repente se fue la luz.' },
-            { de: 'Wir hatten gestern eine Panne auf der Autobahn.', es: 'Ayer tuvimos una avería en la autopista.' }
+            { de: 'Wir waren letztes Wochenende in Salzburg.', es: 'El fin de semana pasado estuvimos en Salzburgo.' }
           ]
         },
         {
@@ -295,15 +281,8 @@ export const A12 = {
           es: 'Mostrar interés y sorpresa',
           wendungen: [
             { de: 'Echt? · Wirklich? · Ach so!', es: '¿En serio? · ¿De verdad? · ¡Ah, vale!' },
-            { de: 'Das ist ja interessant!', es: '¡Qué interesante!' },
-            { de: 'Ach wirklich?', es: '¿De verdad?' },
             { de: 'Im Ernst?', es: '¿Pero en serio?' },
-            { de: 'Das tut mir leid.', es: 'Cuánto lo siento.' },
-            { de: 'Das ist ja unglaublich!', es: '¡Eso es increíble!' },
-            { de: 'Was für ein Zufall!', es: '¡Qué casualidad!' },
-            { de: 'Erzähl weiter, das klingt spannend!', es: '¡Sigue contando, suena interesante!' },
-            { de: 'Das freut mich wirklich für dich!', es: '¡Me alegro mucho por ti!' },
-            { de: 'Wie ist das denn passiert?', es: '¿Y cómo pasó eso?' }
+            { de: 'Was für ein Zufall!', es: '¡Qué casualidad!' }
           ]
         },
         {
@@ -311,14 +290,7 @@ export const A12 = {
           es: 'Reaccionar con sorpresa e indagar',
           wendungen: [
             { de: 'Im Ernst? Das wusste ich gar nicht.', es: '¿En serio? No lo sabía.' },
-            { de: 'Oje, das tut mir leid.', es: 'Vaya, lo siento.' },
-            { de: 'Ach so, jetzt verstehe ich.', es: 'Ah, ahora lo entiendo.' },
-            { de: 'Das hätte ich nicht gedacht.', es: 'No me lo habría imaginado.' },
             { de: 'So ein Zufall, das glaube ich kaum!', es: '¡Qué casualidad, casi no me lo creo!' },
-            { de: 'Das hätte ich nie von ihm gedacht.', es: 'Nunca lo habría pensado de él.' },
-            { de: 'Erzähl mir mehr, das klingt spannend.', es: 'Cuéntame más, suena interesante.' },
-            { de: 'Da bin ich jetzt wirklich überrascht.', es: 'Ahora sí que estoy sorprendido.' },
-            { de: 'Erzähl mir mehr davon!', es: '¡Cuéntame más!' },
             { de: 'Im Ernst? Das ist ja unglaublich.', es: '¿En serio? Es increíble.' }
           ]
         },
@@ -326,15 +298,8 @@ export const A12 = {
           funktion: 'Smalltalk führen',
           es: 'Hacer conversación informal (Smalltalk)',
           wendungen: [
-            { de: 'Hast du am Wochenende schon was vor?', es: '¿Tienes ya algún plan para el finde?' },
             { de: 'Schönes Wetter heute, oder?', es: 'Buen tiempo hoy, ¿no?' },
-            { de: 'Viel los heute, oder?', es: 'Hay mucho movimiento hoy, ¿no?' },
-            { de: 'Warten Sie auch auf den Bus?', es: '¿Usted también espera el autobús?' },
-            { de: 'Arbeiten Sie auch in diesem Haus?', es: '¿Usted también trabaja en este edificio?' },
-            { de: 'Der Kaffee hier ist gar nicht schlecht.', es: 'El café de aquí no está nada mal.' },
             { de: 'Ist hier noch frei?', es: '¿Está libre aquí?' },
-            { de: 'Wohnen Sie schon lange in diesem Viertel?', es: '¿Lleva mucho viviendo en este barrio?' },
-            { de: 'Die Tage werden schon wieder kürzer.', es: 'Los días ya se están acortando otra vez.' },
             { de: 'Kennen wir uns nicht von irgendwoher?', es: '¿No nos conocemos de algo?' }
           ]
         },
@@ -342,16 +307,9 @@ export const A12 = {
           funktion: 'Wartezeiten und Situationen kommentieren',
           es: 'Comentar situaciones y tiempos de espera',
           wendungen: [
-            { de: 'Kommen Sie oft hierher?', es: '¿Viene usted aquí a menudo?' },
-            { de: 'Endlich wird es wieder heller draußen.', es: 'Por fin hay más luz fuera.' },
             { de: 'Warten Sie schon lange?', es: '¿Lleva mucho esperando?' },
-            { de: 'Der Verkehr war heute besonders schlimm.', es: 'Hoy el tráfico estaba especialmente mal.' },
-            { de: 'Kennen Sie sich hier gut aus?', es: '¿Conoce bien la zona?' },
-            { de: 'Haben Sie es weit nach Hause?', es: '¿Le queda lejos su casa?' },
             { de: 'Schönes Wetter heute, nicht wahr?', es: 'Buen tiempo hoy, ¿verdad?' },
-            { de: 'Damals war ich noch keine zwanzig.', es: 'Entonces todavía no tenía veinte años.' },
-            { de: 'Ich habe mich gestern richtig erschrocken.', es: 'Ayer me llevé un buen susto.' },
-            { de: 'Wir haben den ganzen Abend gelacht.', es: 'Nos reímos toda la noche.' }
+            { de: 'Ich habe mich gestern richtig erschrocken.', es: 'Ayer me llevé un buen susto.' }
           ]
         },
         {
@@ -359,15 +317,8 @@ export const A12 = {
           es: 'Hablar de etapas de la vida y migración',
           wendungen: [
             { de: '2015 bin ich nach Österreich gekommen.', es: 'En 2015 vine a Austria.' },
-            { de: 'Am Anfang war alles neu für mich.', es: 'Al principio todo era nuevo para mí.' },
-            { de: 'Die ersten Monate waren wirklich hart.', es: 'Los primeros meses fueron muy duros.' },
             { de: 'Am Anfang habe ich fast nichts verstanden.', es: 'Al principio no entendía casi nada.' },
-            { de: 'Meine Familie ist ein Jahr später nachgekommen.', es: 'Mi familia vino un año después.' },
-            { de: 'Ich habe zuerst in einer Fabrik gearbeitet.', es: 'Al principio trabajé en una fábrica.' },
-            { de: 'Mit der Zeit wurde alles leichter.', es: 'Con el tiempo todo se fue haciendo más fácil.' },
-            { de: 'Den Papierkram fand ich am schwierigsten.', es: 'El papeleo es lo que me pareció más difícil.' },
-            { de: 'Ich habe hier viele nette Leute kennengelernt.', es: 'Aquí he conocido a mucha gente simpática.' },
-            { de: 'Manchmal denke ich ans Zurückgehen.', es: 'A veces pienso en volver.' }
+            { de: 'Meine Familie ist ein Jahr später nachgekommen.', es: 'Mi familia vino un año después.' }
           ]
         },
         {
@@ -376,14 +327,7 @@ export const A12 = {
           wendungen: [
             { de: 'Ich möchte lieber nicht darüber sprechen.', es: 'Prefiero no hablar de eso.' },
             { de: 'Entschuldigung, ich habe es eilig.', es: 'Perdona, tengo prisa.' },
-            { de: 'Darüber möchte ich jetzt nicht reden.', es: 'De eso no quiero hablar ahora.' },
-            { de: 'Das ist mir zu privat, entschuldige.', es: 'Eso es demasiado privado, perdona.' },
-            { de: 'Können wir später weiterreden?', es: '¿Podemos seguir hablando más tarde?' },
-            { de: 'Ich habe es gerade wirklich eilig.', es: 'Ahora mismo tengo mucha prisa.' },
-            { de: 'Lass uns bitte das Thema wechseln.', es: 'Cambiemos de tema, por favor.' },
-            { de: 'Ich bin heute nicht besonders gesprächig.', es: 'Hoy no estoy muy hablador.' },
-            { de: 'Ich möchte mich darüber nicht aufregen.', es: 'No me quiero alterar con eso.' },
-            { de: 'Ich brauche gerade einen Moment für mich.', es: 'Ahora mismo necesito un momento para mí.' }
+            { de: 'Ich bin heute nicht besonders gesprächig.', es: 'Hoy no estoy muy hablador.' }
           ]
         }
       ]
@@ -636,31 +580,17 @@ export const A12 = {
           es: 'Preguntar por el camino',
           wendungen: [
             { de: 'Entschuldigung, wie komme ich zum Rathaus?', es: 'Perdone, ¿cómo llego al ayuntamiento?' },
-            { de: 'Wie komme ich zum Schwimmbad?', es: '¿Cómo llego a la piscina?' },
             { de: 'Entschuldigung, wo ist die Post?', es: 'Perdone, ¿dónde está correos?' },
-            { de: 'Ist das weit von hier?', es: '¿Está lejos de aquí?' },
-            { de: 'Kann ich zu Fuß gehen?', es: '¿Puedo ir andando?' },
-            { de: 'Entschuldigung, wie komme ich zum Museum?', es: 'Perdone, ¿cómo llego al museo?' },
-            { de: 'Wo ist der nächste Supermarkt?', es: '¿Dónde está el supermercado más cercano?' },
-            { de: 'Ich suche die Bibliothek.', es: 'Busco la biblioteca.' },
-            { de: 'Bin ich hier richtig zum Bahnhof?', es: '¿Voy bien por aquí a la estación?' },
-            { de: 'Wie weit ist es bis ins Zentrum?', es: '¿Qué distancia hay hasta el centro?' }
+            { de: 'Bin ich hier richtig zum Bahnhof?', es: '¿Voy bien por aquí a la estación?' }
           ]
         },
         {
           funktion: 'den Fußweg beschreiben',
           es: 'Describir el camino a pie',
           wendungen: [
-            { de: 'Gehen Sie geradeaus und dann die zweite Straße rechts.', es: 'Vaya todo recto y luego la segunda a la derecha.' },
             { de: 'Ist es weit von hier? – Nein, fünf Minuten zu Fuß.', es: '¿Está lejos? – No, cinco minutos a pie.' },
             { de: 'Ist das zu Fuß zu schaffen?', es: '¿Se puede llegar andando?' },
-            { de: 'Gibt es hier eine Abkürzung?', es: '¿Hay por aquí un atajo?' },
-            { de: 'Muss ich über die Brücke?', es: '¿Tengo que cruzar el puente?' },
-            { de: 'Kann ich hier über die Straße?', es: '¿Puedo cruzar aquí la calle?' },
-            { de: 'Ist die Post hier in der Nähe?', es: '¿Está cerca la oficina de correos?' },
-            { de: 'Können Sie mir das auf der Karte zeigen?', es: '¿Me lo puede enseñar en el mapa?' },
-            { de: 'Wie lange brauche ich ungefähr?', es: '¿Cuánto tardo más o menos?' },
-            { de: 'Können Sie mir die Richtung kurz zeigen?', es: '¿Me puede indicar la dirección un momento?' }
+            { de: 'Ist die Post hier in der Nähe?', es: '¿Está cerca la oficina de correos?' }
           ]
         },
         {
@@ -668,15 +598,8 @@ export const A12 = {
           es: 'Preguntar por paradas y líneas de transporte público',
           wendungen: [
             { de: 'Welche Linie muss ich nehmen?', es: '¿Qué línea tengo que coger?' },
-            { de: 'Wo muss ich umsteigen?', es: '¿Dónde tengo que hacer transbordo?' },
-            { de: 'Wie viele Stationen sind das?', es: '¿Cuántas paradas son?' },
-            { de: 'Wann fährt der letzte Bus?', es: '¿Cuándo pasa el último autobús?' },
-            { de: 'Fährt der Zug pünktlich?', es: '¿El tren sale puntual?' },
             { de: 'Welche Linie fährt zum Flughafen?', es: '¿Qué línea va al aeropuerto?' },
-            { de: 'Muss ich irgendwo umsteigen?', es: '¿Tengo que hacer transbordo en algún sitio?' },
-            { de: 'Fährt dieser Bus zum Krankenhaus?', es: '¿Este autobús va al hospital?' },
-            { de: 'Wann fährt die letzte U-Bahn?', es: '¿Cuándo pasa el último metro?' },
-            { de: 'Fährt die Straßenbahn bis zum Prater?', es: '¿El tranvía llega hasta el Prater?' }
+            { de: 'Wann fährt der letzte Bus?', es: '¿Cuándo pasa el último autobús?' }
           ]
         },
         {
@@ -684,31 +607,17 @@ export const A12 = {
           es: 'Explicar la ruta en transporte público',
           wendungen: [
             { de: 'Nehmen Sie die U3 und steigen Sie bei Stephansplatz um.', es: 'Coja la U3 y haga transbordo en Stephansplatz.' },
-            { de: 'Sie müssen drei Stationen fahren.', es: 'Tiene que ir tres paradas.' },
             { de: 'Wo kann ich eine Fahrkarte kaufen?', es: '¿Dónde compro un billete?' },
-            { de: 'Muss ich das Ticket entwerten?', es: '¿Tengo que picar el billete?' },
-            { de: 'Der Zug hat zwanzig Minuten Verspätung.', es: 'El tren lleva veinte minutos de retraso.' },
-            { de: 'Von welchem Gleis fährt der Zug?', es: '¿De qué vía sale el tren?' },
-            { de: 'Ist das die richtige Richtung?', es: '¿Es esta la dirección correcta?' },
-            { de: 'Fährt am Sonntag auch die Straßenbahn?', es: '¿El domingo también hay tranvía?' },
-            { de: 'Fahren Sie lieber öffentlich oder mit dem Auto?', es: '¿Prefiere ir en transporte público o en coche?' },
-            { de: 'Wie lange dauert es bis zum Flughafen?', es: '¿Cuánto se tarda al aeropuerto?' }
+            { de: 'Der Zug hat zwanzig Minuten Verspätung.', es: 'El tren lleva veinte minutos de retraso.' }
           ]
         },
         {
           funktion: 'Tickets und Fahrkarten kaufen',
           es: 'Comprar billetes y abonos',
           wendungen: [
-            { de: 'Gilt das Ticket auch für die Straßenbahn?', es: '¿El billete vale también para el tranvía?' },
-            { de: 'Lohnt sich eine Monatskarte für mich?', es: '¿Me compensa un abono mensual?' },
-            { de: 'Brauche ich ein extra Ticket?', es: '¿Necesito un billete aparte?' },
-            { de: 'Ist das Ticket auch im Vorort gültig?', es: '¿El billete vale también en las afueras?' },
-            { de: 'Gilt mein Ticket auch im Nachtbus?', es: '¿Mi billete vale también en el autobús nocturno?' },
-            { de: 'Muss ich den Sitzplatz reservieren?', es: '¿Tengo que reservar asiento?' },
             { de: 'Die Fahrkarten, bitte.', es: 'Los billetes, por favor.' },
-            { de: 'Der Automat nimmt meine Karte nicht.', es: 'La máquina no acepta mi tarjeta.' },
-            { de: 'Mein Ticket funktioniert nicht.', es: 'Mi billete no funciona.' },
-            { de: 'Der Automat hat mein Geld geschluckt.', es: 'La máquina se ha tragado mi dinero.' }
+            { de: 'Lohnt sich eine Monatskarte für mich?', es: '¿Me compensa un abono mensual?' },
+            { de: 'Der Automat nimmt meine Karte nicht.', es: 'La máquina no acepta mi tarjeta.' }
           ]
         },
         {
@@ -716,15 +625,8 @@ export const A12 = {
           es: 'Preguntar en el tren y en el andén',
           wendungen: [
             { de: 'Ist dieser Platz noch frei?', es: '¿Está libre este sitio?' },
-            { de: 'Entschuldigung, das ist mein reservierter Platz.', es: 'Perdone, ese es mi asiento reservado.' },
-            { de: 'Hält dieser Zug in Wels?', es: '¿Este tren para en Wels?' },
-            { de: 'Wo ist der Speisewagen?', es: '¿Dónde está el vagón restaurante?' },
-            { de: 'Gibt es hier WLAN?', es: '¿Hay wifi aquí?' },
-            { de: 'Können Sie mir mit dem Koffer helfen?', es: '¿Me puede ayudar con la maleta?' },
-            { de: 'Wann kommen wir in Graz an?', es: '¿Cuándo llegamos a Graz?' },
-            { de: 'Ich habe meinen Anschluss verpasst.', es: 'He perdido mi enlace.' },
-            { de: 'Wo finde ich die Gepäckaufbewahrung?', es: '¿Dónde está la consigna?' },
-            { de: 'Von welchem Bahnsteig fährt der Zug?', es: '¿De qué andén sale el tren?' }
+            { de: 'Von welchem Bahnsteig fährt der Zug?', es: '¿De qué andén sale el tren?' },
+            { de: 'Gibt es hier WLAN?', es: '¿Hay wifi aquí?' }
           ]
         },
         {
@@ -732,15 +634,8 @@ export const A12 = {
           es: 'Expresar problemas de orientación',
           wendungen: [
             { de: 'Ich habe mich verlaufen.', es: 'Me he perdido.' },
-            { de: 'Ich glaube, ich habe mich verlaufen.', es: 'Creo que me he perdido.' },
             { de: 'Ich habe mich total verfahren.', es: 'Me he perdido completamente.' },
-            { de: 'Weißt du, wo wir gerade sind?', es: '¿Sabes dónde estamos ahora mismo?' },
-            { de: 'Wegen der Umleitung sind wir falsch gefahren.', es: 'Por el desvío nos hemos equivocado de camino.' },
-            { de: 'Ich glaube, ich bin falsch eingestiegen.', es: 'Creo que me he subido al que no era.' },
-            { de: 'Ich habe mich total verlaufen.', es: 'Me he perdido del todo.' },
-            { de: 'Hier ist eine Baustelle, die Straße ist gesperrt.', es: 'Aquí hay obras, la calle está cortada.' },
-            { de: 'Ist das hier eine Einbahnstraße?', es: '¿Esta es una calle de sentido único?' },
-            { de: 'Wo kann ich mein Rad abstellen?', es: '¿Dónde puedo dejar la bici?' }
+            { de: 'Hier ist eine Baustelle, die Straße ist gesperrt.', es: 'Aquí hay obras, la calle está cortada.' }
           ]
         },
         {
@@ -748,15 +643,8 @@ export const A12 = {
           es: 'Resolver percances en el camino',
           wendungen: [
             { de: 'Wir stehen seit einer Stunde im Stau.', es: 'Llevamos una hora en el atasco.' },
-            { de: 'Mein Handyakku ist leer.', es: 'Se me ha acabado la batería del móvil.' },
             { de: 'Ich habe meine Fahrkarte verloren.', es: 'He perdido mi billete.' },
-            { de: 'Der Bus ist einfach vorbeigefahren.', es: 'El autobús ha pasado de largo.' },
-            { de: 'Ich komme bestimmt zu spät zum Termin.', es: 'Seguro que llego tarde a la cita.' },
-            { de: 'Sollen wir ein Taxi nehmen?', es: '¿Cogemos un taxi?' },
-            { de: 'Wir haben kein Benzin mehr.', es: 'Nos hemos quedado sin gasolina.' },
-            { de: 'Ich habe meinen Führerschein zu Hause vergessen.', es: 'Me he olvidado el carné en casa.' },
-            { de: 'Hier ist die Geschwindigkeit stark begrenzt.', es: 'Aquí la velocidad está muy limitada.' },
-            { de: 'Der Parkplatz ist komplett voll.', es: 'El aparcamiento está completamente lleno.' }
+            { de: 'Wir haben kein Benzin mehr.', es: 'Nos hemos quedado sin gasolina.' }
           ]
         }
       ]
