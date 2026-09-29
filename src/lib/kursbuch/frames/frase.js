@@ -949,7 +949,17 @@ export const FRASE = {
       { s: 'Danach ___ wir zusammen gegessen.', a: 'haben', d: ['wir haben', 'hatten'], t: 'Después comimos juntos.', e: 'Verbo en 2ª posición.' },
       { s: '___ war ich müde, aber zufrieden.', a: 'Am Ende', d: ['Zuerst', 'Danach'], t: 'Al final estaba cansado pero contento.', e: 'am Ende también cierra.' },
       { s: 'Später ___ ich meine Schwester angerufen.', a: 'habe', d: ['ich habe', 'hatte ich'], t: 'Más tarde llamé a mi hermana.', e: 'später en posición 1.' },
-      { s: 'Zuerst der Kurs, ___ das Training.', a: 'danach', d: ['zuerst', 'vorher'], t: 'Primero el curso, después el entrenamiento.', e: 'danach para lo que viene detrás.' }
+      { s: 'Zuerst der Kurs, ___ das Training.', a: 'danach', d: ['zuerst', 'vorher'], t: 'Primero el curso, después el entrenamiento.', e: 'danach para lo que viene detrás.' },
+      { s: '___ dem Frühstück lese ich die Zeitung.', a: 'Nach', d: ['Danach', 'Später'], t: 'Después del desayuno leo el periódico.', e: 'nach lleva complemento; danach va solo.' },
+      { s: 'Ich dusche, und ___ frühstücke ich.', a: 'dann', d: ['zuerst', 'vorher'], t: 'Me ducho y luego desayuno.', e: 'dann para lo que viene a continuación.' },
+      { s: '___ gehe ich nie ohne Kaffee aus dem Haus.', a: 'Morgens', d: ['Der Morgen', 'Am Morgens'], t: 'Por la mañana nunca salgo de casa sin café.', e: 'morgens, con -s, es el adverbio.' },
+      { s: 'Wir treffen uns ___ um acht.', a: 'abends', d: ['der Abend', 'am abends'], t: 'Nos vemos por la noche a las ocho.', e: 'abends significa todas las noches.' },
+      { s: '___ habe ich noch gelernt, dann bin ich ins Bett.', a: 'Vorher', d: ['Danach', 'Schließlich'], t: 'Antes estudié y luego me fui a la cama.', e: 'vorher mira hacia atrás.' },
+      { s: 'Am Ende ___ alle zufrieden.', a: 'waren', d: ['sie waren', 'wir alle waren'], t: 'Al final todos estaban contentos.', e: 'El verbo va en segunda posición.' },
+      { s: 'Zuerst, dann, danach, ___.', a: 'zum Schluss', d: ['vorher', 'morgens'], t: 'Primero, luego, después, por último.', e: 'zum Schluss cierra la serie.' },
+      { s: 'Später ___ es angefangen zu regnen.', a: 'hat', d: ['ist', 'hatte es'], t: 'Más tarde empezó a llover.', e: 'anfangen forma el perfecto con haben.' },
+      { s: '___ war ich noch nie in Wien.', a: 'Früher', d: ['Danach', 'Später'], t: 'Antes nunca había estado en Viena.', e: 'früher significa en otro tiempo.' },
+      { s: 'Heute ___ ich den ganzen Tag gearbeitet.', a: 'habe', d: ['ich habe', 'hatte ich'], t: 'Hoy he trabajado todo el día.', e: 'El tiempo en posición 1, el verbo en la 2ª.' }
     ]
   },
   'imperativ-wegbeschreibung': {

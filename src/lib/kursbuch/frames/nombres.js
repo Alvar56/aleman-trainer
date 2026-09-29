@@ -18,7 +18,15 @@ export const NOMBRES = {
       { s: 'Mein Vater ist ___.', a: 'Techniker', d: ['Technikerin', 'Technikerinnen'], t: 'Mi padre es técnico.', e: 'En masculino no se añade -in.' },
       { s: 'Sie möchte ___ werden.', a: 'Krankenschwester', d: ['Krankenpfleger', 'Krankenschwestern'], t: 'Quiere ser enfermera.', e: 'Esta profesión tiene palabra propia en femenino.' },
       { s: 'Die ___ heißt Frau Maier.', a: 'Chefin', d: ['Chef', 'Chefinnen'], t: 'La jefa se llama señora Maier.', e: 'Chef → Chefin.' },
-      { s: 'Er arbeitet als ___ bei der Post.', a: 'Briefträger', d: ['Briefträgerin', 'Briefträgerinnen'], t: 'Trabaja de cartero en correos.', e: 'Masculino sin -in.' }
+      { s: 'Er arbeitet als ___ bei der Post.', a: 'Briefträger', d: ['Briefträgerin', 'Briefträgerinnen'], t: 'Trabaja de cartero en correos.', e: 'Masculino sin -in.' },
+      { s: 'Meine ___ heißt Frau Sommer und wohnt neben mir.', a: 'Nachbarin', d: ['Nachbar', 'Nachbarinnen'], t: 'Mi vecina se llama señora Sommer y vive al lado.', e: 'Nachbar pasa a Nachbarin.' },
+      { s: 'Sie ist ___ und schneidet mir die Haare.', a: 'Friseurin', d: ['Friseur', 'Friseurinnen'], t: 'Es peluquera y me corta el pelo.', e: 'Friseur pasa a Friseurin.' },
+      { s: 'Im Büro sitzen drei ___.', a: 'Kolleginnen', d: ['Kollegin', 'Kollege'], t: 'En la oficina hay tres compañeras.', e: 'El plural de -in es -innen.' },
+      { s: 'Frau Yilmaz ist ___ in einer Bäckerei.', a: 'Bäckerin', d: ['Bäcker', 'Bäckerinnen'], t: 'La señora Yilmaz es panadera en una panadería.', e: 'Bäcker pasa a Bäckerin.' },
+      { s: 'Meine Tochter ist ___ in der dritten Klasse.', a: 'Schülerin', d: ['Schüler', 'Schülerinnen'], t: 'Mi hija es alumna de tercero.', e: 'Schüler pasa a Schülerin.' },
+      { s: 'Sie kommt aus Frankreich, sie ist ___.', a: 'Französin', d: ['Franzose', 'Französinnen'], t: 'Es de Francia, es francesa.', e: 'También las nacionalidades: Franzose pasa a Französin.' },
+      { s: 'Er ist ___ bei einer Autofirma.', a: 'Ingenieur', d: ['Ingenieurin', 'Ingenieurinnen'], t: 'Es ingeniero en una empresa de coches.', e: 'En masculino no se añade -in.' },
+      { s: 'Zwei ___ arbeiten in der Praxis.', a: 'Ärztinnen', d: ['Ärztin', 'Ärzte'], t: 'Dos médicas trabajan en la consulta.', e: 'Ärztin pasa a Ärztinnen en plural.' }
     ],
     orders: [
       { sol: ['Frau', 'Berger', 'ist', 'Lehrerin', 'von', 'Beruf'], t: 'La señora Berger es profesora de profesión.', e: 'La profesión va sin artículo.' },

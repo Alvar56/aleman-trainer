@@ -87,7 +87,17 @@ export const PRONUNCIACION = {
       { s: '„Salz“ endet mit ___.', a: 'ts', d: ['s', 'sch'], t: '«Salz» acaba en «ts».', e: 'La "z" suena «ts» también al final.' },
       { s: 'In „müssen“ ist der Vokal ___.', a: 'kurz', d: ['lang', 'egal'], t: 'En «müssen» la vocal es corta.', e: 'La doble "ss" acorta la vocal de delante.' },
       { s: '„sitzen“ hat wie viele „ts“-Laute?', a: 'einen', d: ['zwei', 'keinen'], t: '¿Cuántos sonidos «ts» tiene «sitzen»?', e: 'Uno: el de la "tz". La "s" del principio es sonora.' },
-      { s: 'Welches Wort hat KEIN „ts“?', a: 'sehen', d: ['zahlen', 'Katze'], t: '¿Cuál no tiene «ts»?', e: 'sehen empieza con "s" sonora, no con "z".' }
+      { s: 'Welches Wort hat KEIN „ts“?', a: 'sehen', d: ['zahlen', 'Katze'], t: '¿Cuál no tiene «ts»?', e: 'sehen empieza con "s" sonora, no con "z".' },
+      { s: 'In „Reise“ klingt das „s“ ___.', a: 'stimmhaft', d: ['stimmlos', 'wie ts'], t: 'En «Reise» la "s" suena sonora.', e: 'Entre vocales la s es sonora.' },
+      { s: '„Zug“ beginnt mit ___.', a: 'ts', d: ['s', 'sch'], t: '«Zug» empieza con «ts».', e: 'La z inicial suena ts.' },
+      { s: 'In „ist“ klingt das „s“ ___.', a: 'stimmlos', d: ['stimmhaft', 'wie ts'], t: 'En «ist» la "s" suena sorda.', e: 'Delante de consonante la s se ensordece.' },
+      { s: 'In „Fluss“ ist der Vokal ___.', a: 'kurz', d: ['lang', 'egal'], t: 'En «Fluss» la vocal es corta.', e: 'La doble ss va detrás de vocal corta.' },
+      { s: 'In „Fuß“ ist der Vokal ___.', a: 'lang', d: ['kurz', 'egal'], t: 'En «Fuß» la vocal es larga.', e: 'La ß va detrás de vocal larga.' },
+      { s: '„Platz“ endet mit ___.', a: 'ts', d: ['s', 'z wie im Spanischen'], t: '«Platz» acaba en «ts».', e: 'El grupo tz también suena ts.' },
+      { s: 'Am Wortanfang vor einem Vokal ist „s“ ___.', a: 'stimmhaft', d: ['stimmlos', 'wie ts'], t: 'A principio de palabra y ante vocal, la "s" es sonora.', e: 'sagen, sehen, Sonne.' },
+      { s: 'Wie viele „ts“-Laute hat „zwanzig“?', a: 'zwei', d: ['einen', 'keinen'], t: '¿Cuántos sonidos «ts» tiene «zwanzig»?', e: 'Dos: la z del principio y la de -zig.' },
+      { s: '„heißen“ schreibt man mit ___.', a: 'ß', d: ['ss', 's'], t: '«heißen» se escribe con "ß".', e: 'La vocal de delante (ei) es larga.' },
+      { s: '„Straße“ und „Strasse“ klingen ___.', a: 'gleich', d: ['verschieden', 'gar nicht ähnlich'], t: '«Straße» y «Strasse» suenan igual.', e: 'En Suiza se escribe ss; la pronunciación no cambia.' }
     ]
   },
 
@@ -382,7 +392,17 @@ export const PRONUNCIACION = {
       { s: 'Wörter auf -tion sind fast immer ___.', a: 'Fremdwörter', d: ['deutsche Wörter', 'Verben'], t: 'Las palabras en -tion son casi siempre extranjerismos.', e: 'Por eso llevan el acento al final.' },
       { s: '„Wohnung“ und „Meinung“ enden beide auf ___.', a: '-ung', d: ['-tion', '-ion'], t: '«Wohnung» y «Meinung» acaban las dos en «-ung».', e: 'Terminación alemana, átona.' },
       { s: 'Alle Wörter auf -ung sind ___.', a: 'feminin', d: ['maskulin', 'neutral'], t: 'Todas las palabras en «-ung» son femeninas.', e: 'die Wohnung, die Anmeldung, die Meinung.' },
-      { s: 'Wörter auf -tion haben den Artikel ___.', a: 'die', d: ['der', 'das'], t: 'Las palabras en «-tion» llevan «die».', e: 'die Information, die Situation.' }
+      { s: 'Wörter auf -tion haben den Artikel ___.', a: 'die', d: ['der', 'das'], t: 'Las palabras en «-tion» llevan «die».', e: 'die Information, die Situation.' },
+      { s: '„Station“ betont man auf ___.', a: 'tion', d: ['Sta', 'ti'], t: '«Station» se acentúa en «tion».', e: 'En -tion el acento va siempre al final.' },
+      { s: 'Die Endung -ung bildet aus einem Verb ein ___.', a: 'Nomen', d: ['Verb', 'Adjektiv'], t: 'La terminación «-ung» convierte un verbo en un sustantivo.', e: 'wohnen pasa a die Wohnung.' },
+      { s: 'Wie spricht man das „t“ in „Portion“?', a: 'wie ts', d: ['wie t', 'wie sch'], t: '¿Cómo se pronuncia la "t" de «Portion»?', e: 'La t de -tion suena ts.' },
+      { s: 'Der Plural von „die Wohnung“ ist ___.', a: 'die Wohnungen', d: ['die Wohnunge', 'die Wohnungs'], t: 'El plural de «die Wohnung» es «die Wohnungen».', e: 'Las palabras en -ung hacen el plural en -en.' },
+      { s: '„Rechnung“ kommt von ___.', a: 'rechnen', d: ['Rechner', 'recht'], t: '«Rechnung» viene de «rechnen».', e: 'Verbo más -ung.' },
+      { s: 'In „Zeitung“ liegt der Akzent auf ___.', a: 'Zei', d: ['tung', 'ung'], t: 'En «Zeitung» el acento va en «Zei».', e: 'La raíz lleva el acento; -ung es átona.' },
+      { s: '„Lektion“ hat den Artikel ___.', a: 'die', d: ['der', 'das'], t: '«Lektion» lleva «die».', e: 'Todas las palabras en -tion son femeninas.' },
+      { s: 'Das „ti“ in „Nation“ klingt ___.', a: 'tsi', d: ['ti', 'schi'], t: 'El «ti» de «Nation» suena «tsi».', e: 'Igual que en Information.' },
+      { s: '„Übung“ betont man auf ___.', a: 'Ü', d: ['bung', 'ung'], t: '«Übung» se acentúa en la «Ü».', e: 'La terminación -ung nunca lleva acento.' },
+      { s: 'Wie viele Silben hat „Information“?', a: 'vier', d: ['drei', 'fünf'], t: '¿Cuántas sílabas tiene «Information»?', e: 'In-for-ma-tion, y el acento en la última.' }
     ]
   },
   'aussprache-pf-kn-ps': {

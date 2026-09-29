@@ -350,7 +350,17 @@ export const MODALES = {
       { s: '___ es möglich, den Termin zu verschieben?', a: 'Wäre', d: ['War', 'Wird'], t: '¿Sería posible cambiar la cita?', e: 'wäre para preguntar con delicadeza.' },
       { s: '___ Sie mir die Unterlagen schicken?', a: 'Könnten', d: ['Konnten', 'Können würden'], t: '¿Me podría enviar la documentación?', e: 'könnten Sie + infinitivo.' },
       { s: 'Wir ___ gern früher kommen, wenn es passt.', a: 'würden', d: ['werden', 'wurden'], t: 'Vendríamos antes si viene bien.', e: 'würden en plural.' },
-      { s: '___ ich Sie um Ihre Unterschrift bitten?', a: 'Dürfte', d: ['Durfte', 'Darf würde'], t: '¿Le podría pedir su firma?', e: 'Máxima cortesía: dürfte ich.' }
+      { s: '___ ich Sie um Ihre Unterschrift bitten?', a: 'Dürfte', d: ['Durfte', 'Darf würde'], t: '¿Le podría pedir su firma?', e: 'Máxima cortesía: dürfte ich.' },
+      { s: '___ Sie mir bitte bei der Anmeldung helfen?', a: 'Könnten', d: ['Konnten', 'Können würden'], t: '¿Me podría ayudar con la inscripción, por favor?', e: 'La petición normal y educada: könnten Sie.' },
+      { s: 'Ich ___ gern mit Frau Berg sprechen.', a: 'würde', d: ['werde', 'wurde'], t: 'Querría hablar con la señora Berg.', e: 'würde gern más infinitivo.' },
+      { s: '___ Sie bitte einen Moment warten?', a: 'Würden', d: ['Wurden', 'Werden'], t: '¿Esperaría un momento, por favor?', e: 'würden Sie bitte, muy educado.' },
+      { s: 'Ich ___ eine Bitte an Sie.', a: 'hätte', d: ['habe', 'hatte'], t: 'Tendría un favor que pedirle.', e: 'ich hätte eine Bitte es fórmula fija.' },
+      { s: '___ Sie mir bitte den Koffer hochheben?', a: 'Könnten', d: ['Konnten', 'Können hochheben würden'], t: '¿Me podría subir la maleta, por favor?', e: 'könnten más infinitivo al final.' },
+      { s: '___ es Ihnen am Montag passen?', a: 'Würde', d: ['Wird', 'Wurde'], t: '¿Le vendría bien el lunes?', e: 'würde para preguntar sin presionar.' },
+      { s: 'Ich ___ Sie um etwas bitten.', a: 'möchte', d: ['will', 'mag'], t: 'Querría pedirle algo.', e: 'möchte suena mucho mejor que will.' },
+      { s: '___ ich hier kurz telefonieren?', a: 'Dürfte', d: ['Durfte', 'Darf dürfte'], t: '¿Podría llamar aquí un momento?', e: 'dürfte para pedir permiso con suavidad.' },
+      { s: '___ Sie vielleicht etwas langsamer sprechen?', a: 'Könnten', d: ['Konnten', 'Können sprechen'], t: '¿Podría hablar un poco más despacio?', e: 'vielleicht suaviza todavía más la petición.' },
+      { s: 'Das ___ mir sehr helfen.', a: 'würde', d: ['wird', 'wurde'], t: 'Eso me ayudaría mucho.', e: 'würde para algo que todavía es hipotético.' }
     ]
   },
   'sollte-ratschlag': {

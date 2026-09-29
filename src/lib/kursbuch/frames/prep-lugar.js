@@ -516,7 +516,17 @@ export const PREP_LUGAR = {
       { s: 'Wir gehen ___ Supermarkt.', a: 'zum', d: ['nach', 'ins'], t: 'Vamos al supermercado.', e: 'Tienda concreta: zum.' },
       { s: 'Fahren wir ___ die Türkei?', a: 'in', d: ['nach', 'zu'], t: '¿Vamos a Turquía?', e: 'País con artículo: in + acusativo.' },
       { s: 'Sie geht jeden Tag ___ Schule.', a: 'zur', d: ['nach', 'in'], t: 'Va al colegio todos los días.', e: 'zur Schule, expresión habitual.' },
-      { s: 'Komm ___ mir, ich koche etwas.', a: 'zu', d: ['nach', 'in'], t: 'Vente a mi casa, cocino algo.', e: 'A casa de alguien: zu + dativo.' }
+      { s: 'Komm ___ mir, ich koche etwas.', a: 'zu', d: ['nach', 'in'], t: 'Vente a mi casa, cocino algo.', e: 'A casa de alguien: zu + dativo.' },
+      { s: 'Ich gehe ___ Bäcker und kaufe Brötchen.', a: 'zum', d: ['nach', 'ins'], t: 'Voy al panadero y compro panecillos.', e: 'Tienda o persona concreta: zum.' },
+      { s: 'Am Wochenende fahren wir ___ die Berge.', a: 'in', d: ['nach', 'zu'], t: 'El fin de semana vamos a la montaña.', e: 'in + acusativo para meterse en un sitio.' },
+      { s: 'Sie fliegt morgen ___ Schweiz.', a: 'in die', d: ['nach', 'zu der'], t: 'Mañana vuela a Suiza.', e: 'die Schweiz lleva artículo, así que in die Schweiz.' },
+      { s: 'Wir gehen heute Abend ___ Restaurant.', a: 'ins', d: ['zum', 'nach'], t: 'Esta noche vamos al restaurante.', e: 'Entrar dentro del local: ins.' },
+      { s: 'Ich bringe dich ___ Bahnhof.', a: 'zum', d: ['nach', 'ins'], t: 'Te llevo a la estación.', e: 'Destino como punto al que se llega: zum.' },
+      { s: 'Nächstes Jahr wollen wir ___ Italien.', a: 'nach', d: ['in', 'zu'], t: 'El año que viene queremos ir a Italia.', e: 'País sin artículo: nach.' },
+      { s: 'Gehst du mit ___ Schwimmbad?', a: 'ins', d: ['zum', 'nach'], t: '¿Vienes a la piscina?', e: 'ins Schwimmbad, dentro del edificio.' },
+      { s: 'Ich muss kurz ___ Toilette.', a: 'auf die', d: ['nach', 'in der'], t: 'Tengo que ir un momento al baño.', e: 'auf die Toilette es una expresión fija.' },
+      { s: 'Sie geht ___ ihrer Freundin.', a: 'zu', d: ['nach', 'in'], t: 'Va a casa de su amiga.', e: 'A casa de alguien: zu + dativo.' },
+      { s: 'Am Sonntag fahren wir ___ Norden.', a: 'in den', d: ['nach', 'zum'], t: 'El domingo vamos al norte.', e: 'der Norden lleva artículo: in den Norden.' }
     ]
   },
   'praeposition-mit-verkehrsmittel': {
