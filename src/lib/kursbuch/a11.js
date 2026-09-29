@@ -1396,30 +1396,16 @@ export const A11 = {
           wendungen: [
             { de: 'Wo ist der Kuli? – Hier. / Da drüben.', es: '¿Dónde está el boli? – Aquí. / Ahí enfrente.' },
             { de: 'Wo ist meine Brille?', es: '¿Dónde están mis gafas?' },
-            { de: 'Hast du meinen Schlüssel gesehen?', es: '¿Has visto mi llave?' },
-            { de: 'Ist das dein Rucksack?', es: '¿Es tuya esta mochila?' },
-            { de: 'Weißt du, wo mein Ladekabel ist?', es: '¿Sabes dónde está mi cable de carga?' },
-            { de: 'Wo liegen die Ordner vom letzten Jahr?', es: '¿Dónde están las carpetas del año pasado?' },
-            { de: 'Gibt es hier irgendwo einen Kugelschreiber?', es: '¿Hay por aquí un bolígrafo?' },
-            { de: 'Wo ist der Schlüssel für die Tür?', es: '¿Dónde está la llave de la puerta?' },
-            { de: 'Ist das dein Handy auf dem Tisch?', es: '¿Es tuyo el móvil que está en la mesa?' },
-            { de: 'Weißt du, wo die Schere geblieben ist?', es: '¿Sabes dónde ha ido a parar la tijera?' }
+            { de: 'Ist das dein Rucksack?', es: '¿Es tuya esta mochila?' }
           ]
         },
         {
           funktion: 'Räume und Geräte im Gebäude suchen',
           es: 'Buscar salas y aparatos en el edificio',
           wendungen: [
-            { de: 'Wo finde ich das Büro?', es: '¿Dónde está la oficina?' },
-            { de: 'Wo finde ich hier einen Drucker?', es: '¿Dónde encuentro aquí una impresora?' },
-            { de: 'Ist mein Rucksack noch im Büro?', es: '¿Sigue mi mochila en la oficina?' },
-            { de: 'Wo finde ich hier den Eingang zum Lager?', es: '¿Dónde está aquí la entrada al almacén?' },
-            { de: 'Ist mein Telefon im Besprechungsraum?', es: '¿Está mi teléfono en la sala de reuniones?' },
-            { de: 'Wo ist denn hier der Kopierer?', es: '¿Dónde está aquí la fotocopiadora?' },
             { de: 'Entschuldigung, wo finde ich Zimmer zwölf?', es: 'Perdone, ¿dónde está la sala doce?' },
-            { de: 'Ist die Kantine im Erdgeschoss?', es: '¿El comedor está en la planta baja?' },
-            { de: 'Wissen Sie, wo Frau Berger sitzt?', es: '¿Sabe dónde se sienta la señora Berger?' },
-            { de: 'Wo ist die Chefin heute?', es: '¿Dónde está hoy la jefa?' }
+            { de: 'Wo finde ich hier einen Drucker?', es: '¿Dónde encuentro aquí una impresora?' },
+            { de: 'Wissen Sie, wo Frau Berger sitzt?', es: '¿Sabe dónde se sienta la señora Berger?' }
           ]
         },
         {
@@ -1428,14 +1414,7 @@ export const A11 = {
           wendungen: [
             { de: 'Was sind Sie von Beruf? – Ich bin Ärztin.', es: '¿A qué se dedica? – Soy médica.' },
             { de: 'Was machst du beruflich?', es: '¿En qué trabajas?' },
-            { de: 'Wo arbeiten Sie?', es: '¿Dónde trabaja?' },
-            { de: 'Arbeitest du Vollzeit?', es: '¿Trabajas a jornada completa?' },
-            { de: 'Was machst du genau?', es: '¿Y qué haces exactamente?' },
-            { de: 'Gefällt dir deine Arbeit?', es: '¿Te gusta tu trabajo?' },
-            { de: 'Seit wann arbeitest du dort?', es: '¿Desde cuándo trabajas allí?' },
-            { de: 'Welchen Beruf hast du gelernt?', es: '¿Qué profesión estudiaste?' },
-            { de: 'Bei welcher Firma arbeiten Sie?', es: '¿En qué empresa trabaja?' },
-            { de: 'Wie hast du diese Stelle gefunden?', es: '¿Cómo encontraste este puesto?' }
+            { de: 'Seit wann arbeitest du dort?', es: '¿Desde cuándo trabajas allí?' }
           ]
         },
         {
@@ -1443,14 +1422,7 @@ export const A11 = {
           es: 'Hablar de la situación laboral',
           wendungen: [
             { de: 'Ich suche gerade Arbeit.', es: 'Ahora mismo estoy buscando trabajo.' },
-            { de: 'Ich mache eine Ausbildung.', es: 'Estoy haciendo una formación.' },
-            { de: 'Machst du gerade ein Praktikum?', es: '¿Estás haciendo prácticas ahora?' },
-            { de: 'Verdienst du gut bei der Arbeit?', es: '¿Ganas bien en el trabajo?' },
-            { de: 'Ist die Arbeit anstrengend?', es: '¿El trabajo es cansado?' },
-            { de: 'Möchtest du den Beruf wechseln?', es: '¿Te gustaría cambiar de profesión?' },
             { de: 'Ich arbeite als Krankenpflegerin im Spital.', es: 'Trabajo como enfermera en el hospital.' },
-            { de: 'Mein Mann ist selbstständig.', es: 'Mi marido es autónomo.' },
-            { de: 'Ich bin zurzeit arbeitslos.', es: 'Ahora mismo estoy en paro.' },
             { de: 'Bist du angestellt oder selbstständig?', es: '¿Eres asalariado o autónomo?' }
           ]
         },
@@ -1459,15 +1431,8 @@ export const A11 = {
           es: 'Hablar de las condiciones laborales',
           wendungen: [
             { de: 'Wie viele Stunden arbeitest du pro Woche?', es: '¿Cuántas horas trabajas a la semana?' },
-            { de: 'Wie viele Mitarbeiter hat der Betrieb?', es: '¿Cuántos empleados tiene la empresa?' },
             { de: 'Arbeitest du lieber drinnen oder draußen?', es: '¿Prefieres trabajar dentro o fuera?' },
-            { de: 'Musst du eine Uniform tragen?', es: '¿Tienes que llevar uniforme?' },
-            { de: 'Arbeitest du in Vollzeit oder Teilzeit?', es: '¿Trabajas a jornada completa o parcial?' },
-            { de: 'Arbeitest du lieber im Team oder allein?', es: '¿Prefieres trabajar en equipo o solo?' },
-            { de: 'Wie bist du zu diesem Beruf gekommen?', es: '¿Cómo llegaste a esta profesión?' },
-            { de: 'Was gefällt dir an deinem Job am besten?', es: '¿Qué es lo que más te gusta de tu trabajo?' },
-            { de: 'Suchst du gerade eine neue Stelle?', es: '¿Estás buscando un trabajo nuevo?' },
-            { de: 'Wie lange brauchst du in die Arbeit?', es: '¿Cuánto tardas en llegar al trabajo?' }
+            { de: 'Wie bist du zu diesem Beruf gekommen?', es: '¿Cómo llegaste a esta profesión?' }
           ]
         },
         {
@@ -1476,30 +1441,16 @@ export const A11 = {
           wendungen: [
             { de: 'Wann fängst du morgens an?', es: '¿A qué hora empiezas por la mañana?' },
             { de: 'Arbeitest du auch am Wochenende?', es: '¿También trabajas el fin de semana?' },
-            { de: 'Wie lange dauert deine Mittagspause?', es: '¿Cuánto dura tu pausa para comer?' },
-            { de: 'Hast du morgen frei?', es: '¿Mañana libras?' },
-            { de: 'Machst du oft Überstunden?', es: '¿Haces horas extra a menudo?' },
-            { de: 'Wann hast du Urlaub?', es: '¿Cuándo tienes vacaciones?' },
-            { de: 'Kannst du am Freitag früher gehen?', es: '¿Puedes salir antes el viernes?' },
-            { de: 'Ich arbeite von Montag bis Donnerstag.', es: 'Trabajo de lunes a jueves.' },
-            { de: 'Arbeitest du auch in der Nachtschicht?', es: '¿Trabajas también en el turno de noche?' },
-            { de: 'Kannst du dir die Arbeitszeit frei einteilen?', es: '¿Puedes organizarte tú el horario?' }
+            { de: 'Hast du morgen frei?', es: '¿Mañana libras?' }
           ]
         },
         {
           funktion: 'am Arbeitsplatz zusammenarbeiten',
           es: 'Colaborar en el trabajo',
           wendungen: [
-            { de: 'Der Computer ist schon wieder langsam.', es: 'El ordenador va otra vez lento.' },
             { de: 'Kannst du mir kurz helfen?', es: '¿Me puedes ayudar un momento?' },
-            { de: 'Ich habe einen Termin um drei Uhr.', es: 'Tengo una cita a las tres.' },
-            { de: 'Der Drucker funktioniert nicht.', es: 'La impresora no funciona.' },
-            { de: 'Diese Woche habe ich die späte Schicht.', es: 'Esta semana tengo el turno de tarde.' },
-            { de: 'Machen wir zusammen Mittagspause?', es: '¿Hacemos juntos la pausa de la comida?' },
-            { de: 'Kannst du mir die Datei schicken?', es: '¿Me puedes mandar el archivo?' },
             { de: 'Heute ist wirklich viel Stress.', es: 'Hoy hay muchísimo estrés.' },
-            { de: 'Kannst du für mich ans Telefon gehen?', es: '¿Puedes coger el teléfono por mí?' },
-            { de: 'Haben Sie kurz Zeit für eine Frage?', es: '¿Tiene un momento para una pregunta?' }
+            { de: 'Machen wir zusammen Mittagspause?', es: '¿Hacemos juntos la pausa de la comida?' }
           ]
         },
         {
@@ -1507,15 +1458,8 @@ export const A11 = {
           es: 'Dar la razón y llevar la contraria',
           wendungen: [
             { de: 'Ja, stimmt. · Genau.', es: 'Sí, es cierto. · Exacto.' },
-            { de: 'Nein, das stimmt nicht. · Doch!', es: 'No, eso no es así. · ¡Que sí!' },
             { de: 'Das ist doch nicht richtig, oder?', es: 'Eso no está bien, ¿no?' },
-            { de: 'Da bin ich anderer Meinung.', es: 'En eso opino distinto.' },
-            { de: 'Stimmt, so habe ich das noch nicht gesehen.', es: 'Es verdad, así no lo había visto.' },
-            { de: 'Nein, das glaube ich nicht.', es: 'No, eso no me lo creo.' },
-            { de: 'Du hast völlig recht, entschuldige.', es: 'Tienes toda la razón, perdona.' },
-            { de: 'Genau so ist es, du hast es erfasst.', es: 'Exactamente así es, lo has captado.' },
-            { de: 'Da muss ich dir leider widersprechen.', es: 'En eso te tengo que llevar la contraria.' },
-            { de: 'Das stimmt allerdings.', es: 'En eso sí que tienes razón.' }
+            { de: 'Da bin ich anderer Meinung.', es: 'En eso opino distinto.' }
           ]
         }
       ]
@@ -1762,15 +1706,8 @@ export const A11 = {
           es: 'Preguntar por la familia',
           wendungen: [
             { de: 'Hast du Geschwister? – Ja, zwei Brüder.', es: '¿Tienes hermanos? – Sí, dos hermanos.' },
-            { de: 'Wie viele Geschwister hast du?', es: '¿Cuántos hermanos tienes?' },
             { de: 'Bist du verheiratet?', es: '¿Estás casado?' },
-            { de: 'Wie viele Kinder habt ihr?', es: '¿Cuántos hijos tenéis?' },
-            { de: 'Wo wohnt deine Familie?', es: '¿Dónde vive tu familia?' },
-            { de: 'Wie alt ist dein Bruder?', es: '¿Cuántos años tiene tu hermano?' },
-            { de: 'Wie viele Personen seid ihr zu Hause?', es: '¿Cuántos sois en casa?' },
-            { de: 'Leben deine Großeltern noch?', es: '¿Tus abuelos siguen vivos?' },
-            { de: 'Hast du viele Verwandte in Österreich?', es: '¿Tienes muchos parientes en Austria?' },
-            { de: 'Wie oft siehst du deine Familie?', es: '¿Con qué frecuencia ves a tu familia?' }
+            { de: 'Leben deine Großeltern noch?', es: '¿Tus abuelos siguen vivos?' }
           ]
         },
         {
@@ -1778,31 +1715,17 @@ export const A11 = {
           es: 'Contar cosas sobre la familia',
           wendungen: [
             { de: 'Meine Eltern wohnen in Polen.', es: 'Mis padres viven en Polonia.' },
-            { de: 'Wohnst du noch bei deinen Eltern?', es: '¿Sigues viviendo con tus padres?' },
-            { de: 'Meine Schwester ist schwanger.', es: 'Mi hermana está embarazada.' },
-            { de: 'Meine Eltern sind seit letztem Jahr geschieden.', es: 'Mis padres están divorciados desde el año pasado.' },
             { de: 'Wir sind eine große Familie.', es: 'Somos una familia grande.' },
-            { de: 'Ich bin Einzelkind.', es: 'Soy hijo único.' },
-            { de: 'Mein Sohn sieht seinem Vater sehr ähnlich.', es: 'Mi hijo se parece mucho a su padre.' },
-            { de: 'Am Samstag ist eine große Familienfeier.', es: 'El sábado hay una gran fiesta familiar.' },
-            { de: 'Wo bist du aufgewachsen?', es: '¿Dónde te criaste?' },
-            { de: 'Wie oft telefonierst du mit deinen Eltern?', es: '¿Cada cuánto hablas por teléfono con tus padres?' }
+            { de: 'Ich bin Einzelkind.', es: 'Soy hijo único.' }
           ]
         },
         {
           funktion: 'Familienangehörige vorstellen',
           es: 'Presentar a familiares',
           wendungen: [
-            { de: 'Das ist meine Schwester Ana.', es: 'Esta es mi hermana Ana.' },
             { de: 'Darf ich vorstellen? Mein Mann.', es: '¿Me permite? Mi marido.' },
-            { de: 'Kennst du meinen Onkel schon?', es: '¿Conoces ya a mi tío?' },
-            { de: 'Das sind meine Großeltern.', es: 'Estos son mis abuelos.' },
-            { de: 'Darf ich dir meine Frau vorstellen?', es: '¿Te presento a mi mujer?' },
-            { de: 'Das sind meine Schwiegereltern aus Ungarn.', es: 'Estos son mis suegros, de Hungría.' },
-            { de: 'Kennst du schon meinen Cousin Marco?', es: '¿Conoces ya a mi primo Marco?' },
-            { de: 'Das ist mein Stiefvater Thomas.', es: 'Este es mi padrastro, Thomas.' },
-            { de: 'Ich möchte Ihnen meinen Sohn vorstellen.', es: 'Me gustaría presentarle a mi hijo.' },
-            { de: 'Darf ich Ihnen meine Frau vorstellen?', es: '¿Le presento a mi mujer?' }
+            { de: 'Das ist meine Schwester Ana.', es: 'Esta es mi hermana Ana.' },
+            { de: 'Kennst du meinen Onkel schon?', es: '¿Conoces ya a mi tío?' }
           ]
         },
         {
@@ -1810,15 +1733,8 @@ export const A11 = {
           es: 'Hacer suposiciones',
           wendungen: [
             { de: 'Ist das deine Schwester?', es: '¿Es esa tu hermana?' },
-            { de: 'Das ist sicher dein Opa.', es: 'Ese seguro que es tu abuelo.' },
-            { de: 'Das ist bestimmt deine Mutter auf dem Foto.', es: 'Esa seguro que es tu madre en la foto.' },
             { de: 'Ihr seid sicher Geschwister, oder?', es: 'Seguro que sois hermanos, ¿no?' },
-            { de: 'Der Kleine ist wohl dein Enkel.', es: 'El pequeño será tu nieto.' },
-            { de: 'Du hast wahrscheinlich viele Cousins.', es: 'Seguramente tienes muchos primos.' },
-            { de: 'Das ist vielleicht dein Bruder am Telefon.', es: 'Puede que sea tu hermano al teléfono.' },
-            { de: 'Das ist sicher deine Urgroßmutter auf dem Bild.', es: 'Esa seguro que es tu bisabuela en la foto.' },
-            { de: 'Ihr habt wahrscheinlich denselben Charakter.', es: 'Seguramente tenéis el mismo carácter.' },
-            { de: 'Die beiden sind sicher verwandt.', es: 'Esos dos seguro que son parientes.' }
+            { de: 'Der Kleine ist wohl dein Enkel.', es: 'El pequeño será tu nieto.' }
           ]
         },
         {
@@ -1826,15 +1742,8 @@ export const A11 = {
           es: 'Preguntar por objetos y pertenencias',
           wendungen: [
             { de: 'Was ist das? – Das ist ein Foto.', es: '¿Qué es esto? – Es una foto.' },
-            { de: 'Wer ist das?', es: '¿Quién es ese/a?' },
-            { de: 'Wem gehört dieses Foto?', es: '¿De quién es esta foto?' },
             { de: 'Was ist das für ein Ring?', es: '¿Qué anillo es ese?' },
-            { de: 'Ist das ein Geschenk für die Hochzeit?', es: '¿Es un regalo para la boda?' },
-            { de: 'Wer ist die Frau auf dem Bild?', es: '¿Quién es la mujer del cuadro?' },
-            { de: 'Was bedeutet dieses Symbol hier?', es: '¿Qué significa este símbolo de aquí?' },
-            { de: 'Was ist das für ein altes Buch?', es: '¿Qué libro antiguo es ese?' },
-            { de: 'Gehört dir dieser Ring?', es: '¿Es tuyo este anillo?' },
-            { de: 'Wem gehört eigentlich dieser Schal?', es: '¿De quién es esta bufanda?' }
+            { de: 'Was ist das für ein altes Buch?', es: '¿Qué libro antiguo es ese?' }
           ]
         },
         {
@@ -1843,14 +1752,7 @@ export const A11 = {
           wendungen: [
             { de: 'Möchtest du ein paar Fotos sehen?', es: '¿Quieres ver algunas fotos?' },
             { de: 'Wann ist dieses Foto entstanden?', es: '¿Cuándo se hizo esta foto?' },
-            { de: 'Wer steht ganz links auf dem Bild?', es: '¿Quién está a la izquierda del todo en la foto?' },
-            { de: 'Du warst als Kind sehr blond!', es: '¡De niño eras muy rubio!' },
-            { de: 'Darf ich das Foto fotografieren?', es: '¿Puedo hacer una foto de la foto?' },
-            { de: 'Auf diesem Bild ist die ganze Familie.', es: 'En esta foto está toda la familia.' },
-            { de: 'Wer hat dieses Foto gemacht?', es: '¿Quién hizo esta foto?' },
-            { de: 'Sind das drei Generationen auf einem Bild?', es: '¿Son tres generaciones en una foto?' },
-            { de: 'Wie alt warst du auf diesem Foto?', es: '¿Cuántos años tenías en esta foto?' },
-            { de: 'Wer ist das neben dir auf dem Foto?', es: '¿Quién es ese que está a tu lado en la foto?' }
+            { de: 'Wer hat dieses Foto gemacht?', es: '¿Quién hizo esta foto?' }
           ]
         },
         {
@@ -1859,30 +1761,16 @@ export const A11 = {
           wendungen: [
             { de: 'Wer macht bei euch den Haushalt?', es: '¿Quién se ocupa de la casa en vuestro caso?' },
             { de: 'Streitet ihr oft?', es: '¿Discutís a menudo?' },
-            { de: 'Ich kümmere mich um meine Oma.', es: 'Me ocupo de mi abuela.' },
-            { de: 'Meine Kinder helfen kaum im Haushalt.', es: 'Mis hijos casi no ayudan en casa.' },
-            { de: 'Wir essen abends immer zusammen.', es: 'Por la noche siempre cenamos juntos.' },
-            { de: 'Mein Bruder wohnt wieder bei meinen Eltern.', es: 'Mi hermano vive otra vez con mis padres.' },
-            { de: 'Die Kinder vertragen sich heute wieder.', es: 'Hoy los niños se llevan bien otra vez.' },
-            { de: 'Die Beziehung zu meinem Vater ist heute gut.', es: 'La relación con mi padre hoy es buena.' },
-            { de: 'Wie löst ihr einen Streit?', es: '¿Cómo resolvéis una discusión?' },
-            { de: 'Unterstützt dich deine Familie bei der Ausbildung?', es: '¿Tu familia te apoya con la formación?' }
+            { de: 'Mein Bruder wohnt wieder bei meinen Eltern.', es: 'Mi hermano vive otra vez con mis padres.' }
           ]
         },
         {
           funktion: 'Aufgaben im Haushalt aufteilen',
           es: 'Repartir tareas del hogar',
           wendungen: [
-            { de: 'Gibt es bei euch feste Regeln zu Hause?', es: '¿En vuestra casa hay normas fijas?' },
-            { de: 'Wie viel Vertrauen habt ihr untereinander?', es: '¿Cuánta confianza hay entre vosotros?' },
             { de: 'Wer putzt bei euch die Küche?', es: '¿Quién limpia la cocina en vuestra casa?' },
-            { de: 'Kocht bei euch jeder für sich?', es: '¿En vuestra casa cocina cada uno para sí?' },
-            { de: 'Wie ist das Zusammenwohnen mit deinem Bruder?', es: '¿Qué tal convivir con tu hermano?' },
-            { de: 'Haltet ihr in der Familie zusammen?', es: '¿Os mantenéis unidos en la familia?' },
-            { de: 'Wie oft gibt es ein Familientreffen?', es: '¿Cada cuánto hay una reunión familiar?' },
-            { de: 'Hast du einen Spitznamen?', es: '¿Tienes apodo?' },
-            { de: 'Bist du das älteste Kind zu Hause?', es: '¿Eres el mayor de casa?' },
-            { de: 'Habt ihr eine große Familie?', es: '¿Tenéis una familia grande?' }
+            { de: 'Habt ihr eine große Familie?', es: '¿Tenéis una familia grande?' },
+            { de: 'Bist du das älteste Kind zu Hause?', es: '¿Eres el mayor de casa?' }
           ]
         }
       ]
