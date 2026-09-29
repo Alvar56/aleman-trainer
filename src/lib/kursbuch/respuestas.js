@@ -769,62 +769,25 @@ const RESPUESTAS = {
 
 
   // ---- Lektion 5: Wann hast du Zeit? -------------------------------------
-  'Wann hast du Zeit? – Am Samstag.':
-    { de: 'Perfekt, dann machen wir das.', es: 'Perfecto, pues quedamos así.' },
-  'Um wie viel Uhr treffen wir uns?':
-    { de: 'Sagen wir um vier vor dem Kino?', es: '¿Decimos a las cuatro delante del cine?' },
-  'Kannst du mir bitte helfen?':
-    { de: 'Klar, sag mir, was du brauchst.', es: 'Claro, dime qué necesitas.',
-      mas: [
-        { de: 'Ich verstehe dieses Formular nicht.', es: 'No entiendo este formulario.' },
-        { de: 'Zeig her, das machen wir zusammen.', es: 'Trae, eso lo hacemos juntos.' }
-      ] },
-  'Einen Moment, bitte.':
-    { de: 'Ja, ich warte. Lassen Sie sich Zeit.', es: 'Sí, espero. Tómese su tiempo.' },
-  'Wann hat die Bank offen? – Von 9 bis 15 Uhr.':
-    { de: 'Dann gehe ich morgen früh hin.', es: 'Entonces voy mañana por la mañana.' },
-  'Am Sonntag ist geschlossen.':
-    { de: 'Schade, dann eben am Montag.', es: 'Qué pena, pues el lunes.' },
-  'Hast du am Freitag Zeit?':
-    { de: 'Freitag passt mir sehr gut, aber bitte erst nach fünf Uhr.', es: 'El viernes me viene muy bien, pero a partir de las cinco.' },
-  'Passt dir 18 Uhr? – Ja, das passt.':
-    { de: 'Super, bis dann! Ich reserviere zwei Plätze.', es: '¡Genial, hasta entonces! Reservo dos sitios.' },
-  'Wollen wir ins Kino gehen?':
-    { de: 'Ja, gern! Was läuft denn?', es: '¡Sí, con gusto! ¿Qué ponen?',
-      mas: [
-        { de: 'Ein Film aus Spanien, um acht.', es: 'Una película española, a las ocho.' },
-        { de: 'Perfekt, treffen wir uns um halb acht.', es: 'Perfecto, quedamos a las siete y media.' }
-      ] },
-  'Gute Idee! · Ja, gern.':
-    { de: 'Dann treffen wir uns dort.', es: 'Pues quedamos allí.' },
+
+
+
+
+
+
+
+
+
+
 
   // ---- Lektion 6: Haben Sie keine Kipferl? -------------------------------
-  'Ich hätte gern eine Suppe.':
-    { de: 'Sehr gern. Möchten Sie Brot dazu, und etwas zu trinken?', es: 'Con mucho gusto. ¿Quiere pan y algo de beber?',
-      mas: [
-        { de: 'Ja, bitte. Und ein Glas Wasser.', es: 'Sí, por favor. Y un vaso de agua.' },
-        { de: 'Kommt sofort.', es: 'Enseguida.' }
-      ] },
-  'Einmal Schnitzel, bitte.':
-    { de: 'Kommt sofort. Und zu trinken?', es: 'Enseguida. ¿Y para beber?' },
-  'Was kostet das?':
-    { de: 'Zwölf Euro fünfzig. Soll ich es einpacken?', es: 'Doce euros con cincuenta. ¿Se lo envuelvo?',
-      mas: [
-        { de: 'Kann ich mit Karte zahlen?', es: '¿Puedo pagar con tarjeta?' },
-        { de: 'Ja, natürlich. Bitte hier.', es: 'Sí, claro. Aquí, por favor.' }
-      ] },
-  'Wie viel macht das? – Das macht 8,50 Euro.':
-    { de: 'Hier bitte, zehn Euro. Stimmt so, der Rest ist für Sie.', es: 'Aquí tiene, diez euros. Está bien así, el resto es para usted.' },
-  'Ich mag keinen Fisch.':
-    { de: 'Dann nimm doch das Hühnchen.', es: 'Pues coge el pollo.' },
-  'Ich esse gern Gemüse.':
-    { de: 'Ich auch. Der Salat hier ist sehr gut.', es: 'Yo también. La ensalada de aquí está muy buena.' },
-  'Heute gibt es Suppe und Salat.':
-    { de: 'Dann nehme ich beides, bitte.', es: 'Pues tomo las dos cosas, por favor.',
-      mas: [
-        { de: 'Sehr gern. Und zu trinken?', es: 'Muy bien. ¿Y para beber?' },
-        { de: 'Ein Glas Wasser, bitte.', es: 'Un vaso de agua, por favor.' }
-      ] },
+
+
+
+
+
+
+
   // ---- Lektion 7: Heute regnet es. ---------------------------------------
   'Wie ist das Wetter? – Es regnet.':
     { de: 'Schon wieder! Nimm den Schirm mit.', es: '¡Otra vez! Llévate el paraguas.' },
@@ -1188,22 +1151,14 @@ const RESPUESTAS = {
 
 
 
-  'Wann treffen wir uns?':
-    { de: 'Sagen wir um sieben? Dann haben wir vor dem Film noch Zeit.', es: '¿Decimos a las siete? Así nos queda tiempo antes de la película.' },
-  'Wo treffen wir uns?':
-    { de: 'Vor dem Kino, beim großen Plakat. Dort findet man sich leicht.', es: 'Delante del cine, junto al cartel grande. Ahí es fácil encontrarse.' },
-  'Geht es auch etwas später?':
-    { de: 'Klar, um halb acht dann.', es: 'Claro, pues a las siete y media.' },
-  'Ich muss leider absagen.':
-    { de: 'Schade! Dann machen wir es nächste Woche, such dir einfach einen Tag aus.', es: '¡Qué pena! Pues lo hacemos la semana que viene, elige un día.' },
-  'Wann haben Sie geöffnet?':
-    { de: 'Von neun bis achtzehn Uhr.', es: 'De nueve a seis.' },
-  'Haben Sie sonntags offen?':
-    { de: 'Nein, sonntags ist geschlossen. Samstag haben wir aber bis achtzehn Uhr offen.', es: 'No, los domingos cerramos. Pero el sábado abrimos hasta las seis.' },
-  'Wie lange dauert der Kurs?':
-    { de: 'Zwei Stunden, mit einer kurzen Pause in der Mitte. Kaffee gibt es gratis.', es: 'Dos horas, con una pausa corta en medio. El café es gratis.' },
-  'Um wie viel Uhr fängt es an?':
-    { de: 'Pünktlich um acht. Komm lieber zehn Minuten früher, sonst ist alles voll.', es: 'A las ocho en punto. Ven mejor diez minutos antes, si no está todo lleno.' },
+
+
+
+
+
+
+
+
   'Welche Unterlagen brauche ich?':
     { de: 'Ausweis und eine Kopie davon.', es: 'El documento de identidad y una copia.' },
   'Bis wann muss ich das abgeben?':
@@ -1222,22 +1177,14 @@ const RESPUESTAS = {
     { de: 'Freitag passt mir gut, am besten am Vormittag um zehn.', es: 'El viernes me viene bien, mejor por la mañana a las diez.' },
   'Kannst du das übernehmen?':
     { de: 'Ja, kein Problem. Bis wann brauchst du es, Mittwoch oder Freitag?', es: 'Sí, sin problema. ¿Para cuándo lo necesitas, el miércoles o el viernes?' },
-  'Ich hätte gern ein Schnitzel.':
-    { de: 'Sehr gern. Mit Erdäpfelsalat oder Pommes, und was möchten Sie trinken?', es: 'Con mucho gusto. ¿Con ensalada de patata o patatas fritas, y qué quiere beber?' },
-  'Was können Sie empfehlen?':
-    { de: 'Heute ist die Suppe sehr gut.', es: 'Hoy la sopa está muy buena.' },
-  'Für mich bitte nur ein Wasser.':
-    { de: 'Mit oder ohne Kohlensäure? Und darf es ein großes Glas sein?', es: '¿Con o sin gas? ¿Y se lo pongo en vaso grande?' },
-  'Die Rechnung, bitte.':
-    { de: 'Zusammen oder getrennt? Und zahlen Sie bar oder mit Karte?', es: '¿Junto o por separado? ¿Y paga en efectivo o con tarjeta?' },
-  'Isst du gern Fisch?':
-    { de: 'Ja, sehr gern, besonders gegrillt.', es: 'Sí, mucho, sobre todo a la plancha.' },
-  'Ich esse kein Fleisch.':
-    { de: 'Kein Problem, wir machen Gemüse.', es: 'No hay problema, hacemos verdura.' },
-  'Magst du scharfes Essen?':
-    { de: 'Nicht so sehr, ehrlich gesagt.', es: 'No mucho, la verdad.' },
-  'Schmeckt es dir?':
-    { de: 'Ja, wirklich gut! Was ist da drin, ich schmecke etwas Scharfes.', es: '¡Sí, está muy bueno! ¿Qué lleva? Noto algo picante.' },
+
+
+
+
+
+
+
+
   'Was hast du am Wochenende gemacht?':
     { de: 'Nicht viel, ich war zu Hause.', es: 'No mucho, estuve en casa.' },
   'Gestern war ich beim Arzt.':
@@ -1592,178 +1539,80 @@ const RESPUESTAS = {
 
 
 
-  'Wie spät ist es eigentlich?':
-    { de: 'Schon Viertel nach sieben. Wir sollten langsam losgehen.', es: 'Ya son las siete y cuarto. Deberíamos ir saliendo.' },
-  'Wann stehst du normalerweise auf?':
-    { de: 'Unter der Woche um halb sieben, am Wochenende viel später.', es: 'Entre semana a las seis y media, el fin de semana mucho más tarde.' },
-  'Der Wecker klingelt bei mir um fünf.':
-    { de: 'So früh? Dann gehst du abends sicher zeitig ins Bett.', es: '¿Tan temprano? Entonces seguro que te acuestas pronto.' },
-  'Ich habe heute gar keine Zeit.':
-    { de: 'Kein Problem, dann verschieben wir es auf morgen Nachmittag.', es: 'No pasa nada, lo dejamos para mañana por la tarde.' },
-  'Wie lange brauchst du bis zur Arbeit?':
-    { de: 'Mit der U-Bahn zwanzig Minuten, mit dem Rad eine halbe Stunde.', es: 'En metro veinte minutos, en bici media hora.' },
-  'Um wie viel Uhr fängt der Film an?':
-    { de: 'Um zwanzig Uhr dreißig. Sei bitte zehn Minuten vorher da.', es: 'A las ocho y media. Estate allí diez minutos antes, por favor.' },
-  'Bist du immer so pünktlich?':
-    { de: 'Fast immer. Zu spät zu kommen macht mich selbst nervös.', es: 'Casi siempre. Llegar tarde me pone nervioso a mí mismo.' },
-  'Mein Tag ist heute völlig voll.':
-    { de: 'Das klingt anstrengend. Hast du wenigstens abends eine Pause?', es: 'Suena agotador. ¿Al menos tienes un descanso por la noche?' },
-  'Ich schaffe das nicht bis Freitag.':
-    { de: 'Dann sag Bescheid. Wir können den Termin auf Montag legen.', es: 'Pues avisa. Podemos pasar la cita al lunes.' },
-  'Nachher gehe ich noch schnell einkaufen.':
-    { de: 'Kannst du mir Brot und Milch mitbringen? Ich gebe dir das Geld.', es: '¿Me puedes traer pan y leche? Te doy el dinero.' },
-  'Könnten Sie mir bitte kurz die Tür aufhalten?':
-    { de: 'Natürlich, gehen Sie ruhig vor. Sie haben ja beide Hände voll.', es: 'Claro, pase usted. Va con las dos manos ocupadas.' },
-  'Darf ich dich um einen Gefallen bitten?':
-    { de: 'Klar, frag einfach. Wenn ich kann, helfe ich dir gern.', es: 'Claro, dime. Si puedo, te ayudo con mucho gusto.' },
-  'Kannst du mich morgen früh anrufen?':
-    { de: 'Mache ich. Um wie viel Uhr soll ich anrufen?', es: 'Lo hago. ¿A qué hora te llamo?' },
-  'Würden Sie das bitte noch einmal prüfen?':
-    { de: 'Gern. Ich schaue es mir bis heute Nachmittag genau an.', es: 'Con gusto. Se lo miro con detalle antes de esta tarde.' },
-  'Hilfst du mir kurz beim Tragen?':
-    { de: 'Natürlich, ich nehme die schwere Tasche. Wohin müssen die Sachen?', es: 'Claro, yo cojo la bolsa pesada. ¿Adónde van las cosas?' },
-  'Könnten Sie mir bitte den Weg zeigen?':
-    { de: 'Sehr gern. Gehen Sie hier geradeaus und dann die zweite Straße rechts.', es: 'Con mucho gusto. Siga recto y luego la segunda calle a la derecha.' },
-  'Kannst du bitte etwas leiser sein?':
-    { de: 'Entschuldigung, ich habe nicht gemerkt, dass du arbeitest.', es: 'Perdona, no me había dado cuenta de que estabas trabajando.' },
-  'Darf ich Sie kurz stören?':
-    { de: 'Ja, bitte. Ich habe jetzt fünf Minuten Zeit für Sie.', es: 'Sí, dígame. Ahora tengo cinco minutos para usted.' },
-  'Bis wann hat die Apotheke heute offen?':
-    { de: 'Bis achtzehn Uhr. Danach gibt es nur den Nachtdienst am Gürtel.', es: 'Hasta las seis. Después solo está la de guardia en el Gürtel.' },
-  'Ist das Amt am Samstag geöffnet?':
-    { de: 'Nein, nur Montag bis Freitag. Am Donnerstag sogar bis achtzehn Uhr.', es: 'No, solo de lunes a viernes. Los jueves incluso hasta las seis.' },
-  'Wann macht der Supermarkt zu?':
-    { de: 'Um zwanzig Uhr, aber am Samstag schon um achtzehn Uhr.', es: 'A las ocho, pero el sábado ya a las seis.' },
-  'Haben Sie über Mittag geschlossen?':
-    { de: 'Ja, von zwölf bis dreizehn Uhr. Danach sind wir wieder da.', es: 'Sí, de doce a una. Después volvemos a estar.' },
-  'Ab wann kann ich morgen kommen?':
-    { de: 'Ab acht Uhr früh. Vorher ist niemand im Büro.', es: 'A partir de las ocho de la mañana. Antes no hay nadie en la oficina.' },
-  'Wie lange dauert die Sprechstunde?':
-    { de: 'Zwei Stunden, aber kommen Sie lieber früh. Sonst warten Sie lange.', es: 'Dos horas, pero venga mejor temprano. Si no, espera mucho.' },
-  'Hast du am Wochenende schon etwas vor?':
-    { de: 'Am Samstag arbeite ich, aber der Sonntag ist noch frei.', es: 'El sábado trabajo, pero el domingo lo tengo libre.',
-      mas: [
-        { de: 'Dann gehen wir am Sonntag wandern?', es: '¿Entonces vamos el domingo de senderismo?' },
-        { de: 'Gern, aber bitte nicht zu früh. Vor neun stehe ich nicht auf.', es: 'Con gusto, pero no muy temprano. Antes de las nueve no me levanto.' }
-      ] },
-  'Wollen wir uns am Donnerstag treffen?':
-    { de: 'Gern, aber bitte erst nach sechs. Vorher bin ich im Kurs.', es: 'Con gusto, pero después de las seis. Antes estoy en clase.' },
-  'Passt es dir um halb acht?':
-    { de: 'Etwas später wäre besser, sagen wir um acht Uhr.', es: 'Un poco más tarde sería mejor, digamos a las ocho.' },
-  'Ich muss unseren Termin leider verschieben.':
-    { de: 'Kein Problem. Passt dir nächste Woche Dienstag zur gleichen Zeit?', es: 'No pasa nada. ¿Te viene bien el martes que viene a la misma hora?',
-      mas: [
-        { de: 'Dienstag passt sehr gut, danke für dein Verständnis.', es: 'El martes me viene muy bien, gracias por entenderlo.' },
-        { de: 'Gern. Ich schicke dir morgen noch eine Erinnerung.', es: 'De nada. Mañana te mando un recordatorio.' }
-      ] },
-  'Kommst du allein oder mit Ana?':
-    { de: 'Mit Ana, wenn das für dich passt. Sie freut sich schon.', es: 'Con Ana, si te parece bien. Ya tiene ganas.' },
-  'Sollen wir uns direkt dort treffen?':
-    { de: 'Ja, das ist einfacher. Ich schicke dir den Standort per Handy.', es: 'Sí, es más fácil. Te mando la ubicación por el móvil.' },
-  'Können wir das auf nächste Woche legen?':
-    { de: 'Klar. Montag oder Mittwoch, such dir einen Tag aus.', es: 'Claro. Lunes o miércoles, elige un día.' },
-  'Ich komme vielleicht zehn Minuten später.':
-    { de: 'Macht nichts, ich warte im Café und bestelle schon einen Kaffee.', es: 'No pasa nada, espero en el café y pido ya un café.' },
-  'Bleibt es bei Freitag um sieben?':
-    { de: 'Ja, alles bleibt wie besprochen. Bis Freitag dann!', es: 'Sí, todo sigue como quedamos. ¡Hasta el viernes!' },
-  'Wollen wir zusammen spazieren gehen?':
-    { de: 'Sehr gern, das Wetter ist perfekt dafür. Gehen wir in den Prater?', es: 'Con mucho gusto, el tiempo es perfecto. ¿Vamos al Prater?' },
-  'Wie wäre es mit einem Kaffee?':
-    { de: 'Gute Idee. Ich kenne ein ruhiges Café gleich um die Ecke.', es: 'Buena idea. Conozco un café tranquilo a la vuelta de la esquina.',
-      mas: [
-        { de: 'Haben die auch Kuchen?', es: '¿Tienen también tarta?' },
-        { de: 'Den besten Apfelstrudel im Bezirk. Komm, ich zeige es dir.', es: 'El mejor strudel de manzana del distrito. Ven, te lo enseño.' }
-      ] },
-  'Hast du Lust auf ein Konzert?':
-    { de: 'Kommt darauf an, welche Musik. Klassik höre ich lieber zu Hause.', es: 'Depende de qué música. La clásica prefiero escucharla en casa.' },
-  'Machen wir eine kurze Pause?':
-    { de: 'Unbedingt. Ich hole uns zwei Kaffee, du suchst einen freien Tisch.', es: 'Sin duda. Yo traigo dos cafés y tú buscas una mesa libre.' },
-  'Wir möchten gern bestellen.':
-    { de: 'Sehr gern. Was darf ich Ihnen bringen? Die Tagessuppe ist heute Kürbis.', es: 'Con mucho gusto. ¿Qué les traigo? La sopa del día es de calabaza.',
-      mas: [
-        { de: 'Dann zweimal die Suppe und einmal das Schnitzel, bitte.', es: 'Entonces dos sopas y un escalope, por favor.' },
-        { de: 'Kommt sofort. Möchten Sie schon etwas zu trinken?', es: 'Enseguida. ¿Quieren ya algo de beber?' }
-      ] },
-  'Können wir bitte die Speisekarte haben?':
-    { de: 'Natürlich, hier bitte. Die Tageskarte steht auch auf der Tafel.', es: 'Claro, aquí tiene. El menú del día está también en la pizarra.' },
-  'Was ist die Spezialität des Hauses?':
-    { de: 'Unser Tafelspitz. Den bestellen fast alle Gäste beim ersten Mal.', es: 'Nuestro Tafelspitz. Casi todos los clientes lo piden la primera vez.' },
-  'Ich nehme das Menü mit Suppe.':
-    { de: 'Gute Wahl. Und als Hauptspeise Fisch oder Fleisch?', es: 'Buena elección. ¿Y de plato principal pescado o carne?' },
-  'Für mich bitte nur einen kleinen Salat.':
-    { de: 'Gern. Mit Essig und Öl oder lieber mit Joghurtdressing?', es: 'Con gusto. ¿Con vinagre y aceite o mejor con salsa de yogur?' },
-  'Haben Sie auch vegetarische Gerichte?':
-    { de: 'Ja, drei Stück. Die Gemüselasagne empfehle ich Ihnen besonders.', es: 'Sí, tres. Le recomiendo especialmente la lasaña de verduras.' },
-  'Könnten wir bitte noch Brot bekommen?':
-    { de: 'Selbstverständlich, ich bringe es gleich. Möchten Sie auch Butter dazu?', es: 'Por supuesto, se lo traigo enseguida. ¿Quiere también mantequilla?' },
-  'Als Nachtisch nehmen wir einen Apfelstrudel.':
-    { de: 'Mit Schlagobers oder Vanillesoße? Beides passt sehr gut dazu.', es: '¿Con nata o con salsa de vainilla? Las dos cosas le van muy bien.' },
-  'Die Rechnung, bitte. Wir zahlen getrennt.':
-    { de: 'Kein Problem. Wer hatte die Suppe und wer das Schnitzel?', es: 'No hay problema. ¿Quién tomó la sopa y quién el escalope?' },
-  'Wie viel kostet das Kilo Äpfel?':
-    { de: 'Zwei Euro zwanzig. Heute sind sie im Angebot.', es: 'Dos euros veinte. Hoy están de oferta.' },
-  'Ist das der Preis für ein Stück?':
-    { de: 'Nein, für die ganze Packung. Ein Stück wäre viel teurer.', es: 'No, por el paquete entero. Una unidad sería mucho más cara.' },
-  'Haben Sie etwas Günstigeres?':
-    { de: 'Ja, hier unten im Regal. Die Qualität ist fast gleich.', es: 'Sí, aquí abajo en la estantería. La calidad es casi la misma.' },
-  'Warum ist das so teuer geworden?':
-    { de: 'Alles ist teurer geworden, vor allem Butter und Käse.', es: 'Todo se ha puesto más caro, sobre todo la mantequilla y el queso.' },
-  'Gibt es heute eine Sonderaktion?':
-    { de: 'Ja, beim Fleisch. Zwei Packungen zum Preis von einer.', es: 'Sí, en la carne. Dos paquetes al precio de uno.' },
-  'Was macht das zusammen?':
-    { de: 'Vierzehn Euro achtzig. Zahlen Sie bar oder mit Karte?', es: 'Catorce euros ochenta. ¿Paga en efectivo o con tarjeta?' },
-  'Was isst du am liebsten?':
-    { de: 'Alles mit Gemüse, aber am liebsten die Paella meiner Mutter.', es: 'Todo lo que lleve verdura, pero sobre todo la paella de mi madre.',
-      mas: [
-        { de: 'Kannst du die auch selbst kochen?', es: '¿La sabes cocinar tú también?' },
-        { de: 'Ich versuche es, aber es schmeckt nie ganz gleich.', es: 'Lo intento, pero nunca sabe exactamente igual.' }
-      ] },
-  'Magst du österreichisches Essen?':
-    { de: 'Sehr. Nur die Portionen sind mir manchmal ein bisschen zu groß.', es: 'Mucho. Solo que las raciones me parecen a veces algo grandes.' },
-  'Isst du gern scharf?':
-    { de: 'Ja, je schärfer desto besser. Meine Frau verträgt das gar nicht.', es: 'Sí, cuanto más picante mejor. Mi mujer no lo tolera nada.' },
-  'Trinkst du Kaffee oder lieber Tee?':
-    { de: 'Morgens Kaffee, am Nachmittag Tee. Abends nur noch Wasser.', es: 'Por la mañana café, por la tarde té. Por la noche solo agua.' },
-  'Vertragen Sie Milchprodukte?':
-    { de: 'Leider nicht. Käse und Milch machen mir Bauchschmerzen.', es: 'Por desgracia no. El queso y la leche me dan dolor de barriga.' },
-  'Hast du eine Allergie?':
-    { de: 'Ja, gegen Nüsse. Ich frage deshalb immer genau nach.', es: 'Sí, a los frutos secos. Por eso pregunto siempre con detalle.' },
-  'Schmeckt dir die Suppe?':
-    { de: 'Ausgezeichnet, wirklich. Was ist da alles drin?', es: 'Excelente, de verdad. ¿Qué lleva dentro?' },
-  'Ich esse kein Schweinefleisch.':
-    { de: 'Kein Problem, ich koche heute Hühnchen. Das mögen alle.', es: 'No hay problema, hoy cocino pollo. Le gusta a todo el mundo.' },
-  'Ich bin satt, ich kann nicht mehr.':
-    { de: 'Dann packe ich dir den Rest ein. Morgen schmeckt es auch noch.', es: 'Entonces te envuelvo el resto. Mañana también estará bueno.' },
-  'Heute gibt es Nudeln mit Tomatensoße.':
-    { de: 'Perfekt, das mögen die Kinder. Gibt es auch Salat dazu?', es: 'Perfecto, eso les gusta a los niños. ¿Hay también ensalada?' },
-  'Zum Frühstück gibt es frische Semmeln.':
-    { de: 'Wunderbar. Ich hole schnell die Butter und den Honig.', es: 'Estupendo. Voy a por la mantequilla y la miel.' },
-  'Als Nachspeise gibt es Eis.':
-    { de: 'Nicht schlecht! Welche Sorten hast du denn eingekauft?', es: '¡Nada mal! ¿Y qué sabores has comprado?' },
-  'Im Angebot gibt es diese Woche Fisch.':
-    { de: 'Dann nehmen wir zwei Packungen. Fisch essen wir sowieso zu selten.', es: 'Entonces cogemos dos paquetes. De todos modos comemos poco pescado.' },
-  'Es gibt heute nur noch kalte Küche.':
-    { de: 'Macht nichts, ein Brot mit Käse reicht mir völlig.', es: 'No importa, con un pan con queso me basta.' },
-  'Wo finde ich hier den Reis?':
-    { de: 'Im Regal hinten links, gleich neben den Nudeln.', es: 'En la estantería del fondo a la izquierda, al lado de la pasta.',
-      mas: [
-        { de: 'Danke. Und die Sojasoße?', es: 'Gracias. ¿Y la salsa de soja?' },
-        { de: 'Die steht eine Reihe weiter, bei den asiatischen Produkten.', es: 'Está una fila más allá, con los productos asiáticos.' }
-      ] },
-  'Haben Sie noch frische Erdäpfel?':
-    { de: 'Ja, gleich beim Eingang. Heute Morgen sind sie gekommen.', es: 'Sí, justo a la entrada. Han llegado esta mañana.' },
-  'Brauchen Sie ein Sackerl?':
-    { de: 'Nein danke, ich habe meine eigene Tasche dabei.', es: 'No, gracias, llevo mi propia bolsa.' },
-  'Kann ich mit Karte zahlen?':
-    { de: 'Natürlich, ab einem Euro. Bitte die Karte hier auflegen.', es: 'Claro, a partir de un euro. Ponga la tarjeta aquí, por favor.' },
-  'Bis wann ist die Milch haltbar?':
-    { de: 'Bis zum siebzehnten. Das steht oben auf der Packung.', es: 'Hasta el diecisiete. Está arriba en el envase.' },
-  'Ich habe meine Einkaufsliste vergessen.':
-    { de: 'Kein Problem, wir gehen einfach durch alle Gänge.', es: 'No pasa nada, recorremos todos los pasillos y ya está.' },
-  'Der Einkaufswagen ist schon ganz voll.':
-    { de: 'Dann fehlt nur noch das Obst. Danach gehen wir zur Kasse.', es: 'Entonces solo falta la fruta. Después vamos a la caja.' },
-  'Haben Sie Kleingeld für den Wagen?':
-    { de: 'Ja, hier ist ein Euro. Den bekomme ich nachher zurück.', es: 'Sí, aquí tiene un euro. Después lo recupero.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Wie wird das Wetter am Wochenende?':
     { de: 'Am Samstag sonnig, am Sonntag soll es leider regnen.', es: 'El sábado soleado, el domingo por desgracia dicen que llueve.',
       mas: [
@@ -3661,68 +3510,37 @@ const RESPUESTAS = {
 
 
 
-  'Wie teilst du dir den Tag ein?':
-    { de: 'Vormittags die schwere Arbeit, nachmittags die Mails. Das klappt gut.', es: 'Por la mañana el trabajo duro, por la tarde los correos. Funciona bien.' },
-  'Wann hast du übermorgen Zeit?':
-    { de: 'Ab vierzehn Uhr. Vorher habe ich zwei Termine hintereinander.', es: 'A partir de las dos. Antes tengo dos citas seguidas.' },
-  'Das ist dringend, kannst du es heute machen?':
-    { de: 'Bis achtzehn Uhr schaffe ich es, aber nicht früher.', es: 'Para las seis lo saco, pero no antes.' },
-  'Nimm dir ruhig Zeit dafür.':
-    { de: 'Danke. Unter Druck mache ich sowieso nur Fehler.', es: 'Gracias. Bajo presión solo cometo errores.' },
-  'Könntest du einen Augenblick warten?':
-    { de: 'Natürlich. Ich setze mich so lange hier hin.', es: 'Claro. Mientras me siento aquí.' },
-  'Darf ich dich um deinen Rat bitten?':
-    { de: 'Immer. Worum geht es, um die Arbeit oder privat?', es: 'Cuando quieras. ¿De qué se trata, del trabajo o personal?' },
-  'Würdest du das bitte für mich erledigen?':
-    { de: 'Gern, aber erst am Nachmittag. Vormittags schaffe ich es nicht.', es: 'Con gusto, pero por la tarde. Por la mañana no llego.' },
-  'Kannst du mir nächste Woche noch einmal helfen?':
-    { de: 'Klar. Sag mir nur rechtzeitig, an welchem Tag.', es: 'Claro. Dime con tiempo qué día.' },
-  'Haben Sie an Feiertagen geöffnet?':
-    { de: 'Nein, da ist geschlossen. Nur die Apotheke am Bahnhof hat Dienst.', es: 'No, cerramos. Solo la farmacia de la estación está de guardia.' },
-  'Wie sind die Öffnungszeiten am Werktag?':
-    { de: 'Acht bis achtzehn Uhr, durchgehend. Am Samstag nur bis dreizehn.', es: 'De ocho a seis, sin cerrar al mediodía. El sábado solo hasta la una.' },
-  'Kann ich auch später noch kommen?':
-    { de: 'Bis halb sechs, ja. Danach ist die Kassa schon zu.', es: 'Hasta las cinco y media, sí. Después la caja ya está cerrada.' },
-  'Öffnet die Bibliothek stündlich oder durchgehend?':
-    { de: 'Durchgehend, von neun bis neunzehn Uhr. Mittags ist es am leersten.', es: 'De corrido, de nueve a siete. Al mediodía es cuando más vacía está.' },
-  'Sollen wir das gleich erledigen?':
-    { de: 'Ja, bitte. Sonst schieben wir es wieder eine Woche.', es: 'Sí, por favor. Si no, lo volvemos a aplazar una semana.' },
-  'Lass uns eine kurze Mittagspause machen.':
-    { de: 'Unbedingt. Danach sehen wir den Fehler bestimmt sofort.', es: 'Sin falta. Después seguro que vemos el error enseguida.' },
-  'Was ist heute im Angebot?':
-    { de: 'Die Gemüsesuppe und der Braten mit Knödel.', es: 'La sopa de verduras y el asado con Knödel.' },
-  'Können wir gleich bestellen oder sollen wir warten?':
-    { de: 'Bestellen Sie ruhig, ich nehme es gleich auf.', es: 'Pidan tranquilamente, lo apunto ahora.' },
-  'Bitte einmal das Gleiche wie mein Kollege.':
-    { de: 'Also zweimal Schnitzel. Und zu trinken das Gleiche auch?', es: 'Entonces dos escalopes. ¿Y de beber también lo mismo?' },
-  'Ich hätte gern eine kleine Portion.':
-    { de: 'Kein Problem, das kostet auch zwei Euro weniger.', es: 'No hay problema, cuesta también dos euros menos.' },
-  'Was kosten zweihundert Gramm Käse?':
-    { de: 'Drei Euro vierzig. Soll ich ihn in Scheiben schneiden?', es: 'Tres euros cuarenta. ¿Se lo corto en lonchas?' },
-  'Ist die Dose billiger als die frische Ware?':
-    { de: 'Deutlich. Dafür schmeckt frisch natürlich besser.', es: 'Bastante. A cambio, lo fresco sabe mejor, claro.' },
-  'Warum ist das Brot hier teurer?':
-    { de: 'Weil es aus der Bäckerei kommt, nicht aus der Fabrik.', es: 'Porque viene de la panadería, no de la fábrica.' },
-  'Gibt es einen Rabatt auf abgelaufene Ware?':
-    { de: 'Ab dem Vortag fünfzig Prozent, immer am Abend.', es: 'Desde el día anterior un cincuenta por ciento, siempre por la tarde.' },
-  'Wie findest du das österreichische Frühstück?':
-    { de: 'Ungewohnt, aber lecker. In Spanien essen wir morgens fast nichts.', es: 'Poco habitual, pero rico. En España por la mañana casi no comemos.' },
-  'Heute gibt es Fisch aus der Pfanne.':
-    { de: 'Wunderbar. Gibt es auch Erdäpfel dazu?', es: 'Estupendo. ¿Hay también patatas?' },
-  'Im Ofen ist noch ein Kuchen.':
-    { de: 'Wie lange braucht er noch? Es riecht schon fertig.', es: '¿Cuánto le queda? Ya huele a hecho.' },
-  'Zum Nachtisch gibt es frisches Obst.':
-    { de: 'Perfekt nach so einem großen Essen.', es: 'Perfecto después de una comida tan copiosa.' },
-  'Auf dem Wochenmarkt gibt es alles frisch.':
-    { de: 'Stimmt, und billiger als im Supermarkt.', es: 'Es verdad, y más barato que en el supermercado.' },
-  'Wo finde ich die Dosen mit Tomaten?':
-    { de: 'Gang vier, unten im Regal. Neben den Nudeln.', es: 'Pasillo cuatro, abajo en la estantería. Al lado de la pasta.' },
-  'Ist diese Ware noch haltbar?':
-    { de: 'Bis morgen. Deshalb kostet sie nur die Hälfte.', es: 'Hasta mañana. Por eso cuesta la mitad.' },
-  'Haben Sie auch tiefgekühltes Gemüse?':
-    { de: 'Ganz hinten bei den Truhen, gleich neben dem Eis.', es: 'Al fondo del todo, junto a los congeladores, al lado del helado.' },
-  'Bekomme ich hier auch frisches Brot?':
-    { de: 'Bis zehn Uhr ja. Danach nur noch abgepacktes.', es: 'Hasta las diez sí. Después solo envasado.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Wie ist die Prognose für die Woche?':
     { de: 'Bis Mittwoch schön, danach soll es kühler werden.', es: 'Hasta el miércoles bueno, después dicen que refresca.' },
   'Die Temperaturen sinken heute Nacht stark.':
@@ -4334,46 +4152,26 @@ const RESPUESTAS = {
 
 
 
-  'Haben wir bis dahin noch genug Zeit?':
-    { de: 'Reichlich, wir können sogar noch gemütlich einen Kaffee trinken.', es: 'De sobra; hasta nos da para un café con calma.' },
-  'Schaffst du das bis morgen Mittag?':
-    { de: 'Knapp, aber wenn ich heute Abend noch zwei Stunden dranbleibe, ja.', es: 'Justo, pero si esta noche le meto dos horas más, sí.' },
-  'Bist du morgen früh oder später da?':
-    { de: 'Eher später, vorher muss ich noch schnell zur Post.', es: 'Más bien tarde; antes tengo que pasar por correos.' },
-  'Bis wann hat der Supermarkt offen?':
-    { de: 'Unter der Woche bis acht, am Samstag nur bis sechs.', es: 'Entre semana hasta las ocho; el sábado solo hasta las seis.' },
-  'Hat die Apotheke sonntags auch offen?':
-    { de: 'Nur die Bereitschaftsapotheke, die steht immer am Aushang an der Tür.', es: 'Solo la de guardia; siempre está puesta en el cartel de la puerta.' },
-  'Wann macht das Amt am Montag auf?':
-    { de: 'Um acht, aber erfahrungsgemäß steht ab halb acht schon eine Schlange.', es: 'A las ocho, pero por experiencia ya hay cola desde las siete y media.' },
-  'Ist das Schwimmbad im Sommer länger offen?':
-    { de: 'Ja, bis zweiundzwanzig Uhr, das ist bei der Hitze wirklich angenehm.', es: 'Sí, hasta las diez de la noche; con el calor se agradece.' },
-  'Darf ich mir kurz deinen Kuli ausleihen?':
-    { de: 'Natürlich, hier, aber bitte denk daran, ihn zurückzugeben.', es: 'Claro, toma; pero acuérdate de devolvérmelo.' },
-  'Würdest du mich um sieben anrufen?':
-    { de: 'Mache ich, ich stelle mir gleich einen Wecker im Handy.', es: 'Lo haré; me pongo ahora mismo una alarma en el móvil.' },
-  'Sollen wir lieber morgen weitermachen?':
-    { de: 'Ja, lass uns aufhören, wir sind beide schon ziemlich unkonzentriert.', es: 'Sí, dejémoslo; los dos estamos ya bastante desconcentrados.' },
-  'Könnte ich bitte die Karte haben?':
-    { de: 'Sofort, ich bringe Ihnen auch gleich die Getränkekarte mit.', es: 'Enseguida; le traigo también la carta de bebidas.' },
-  'Für mich bitte das Gleiche.':
-    { de: 'Also zweimal das Gulasch, kommt sofort, dauert ungefähr zehn Minuten.', es: 'Entonces dos goulash; enseguida, unos diez minutos.' },
-  'Magst du eher süß oder salzig?':
-    { de: 'Eindeutig salzig, Kuchen rühre ich fast nie an.', es: 'Salado sin duda; la tarta casi ni la toco.' },
-  'Gibt es etwas, das du nicht magst?':
-    { de: 'Leber kann ich überhaupt nicht, sonst esse ich wirklich alles.', es: 'El hígado no lo soporto; por lo demás como de todo.' },
-  'Wie schmeckt dir die österreichische Küche?':
-    { de: 'Ausgezeichnet, nur ist sie mir abends manchmal ein bisschen schwer.', es: 'Excelente; solo que por la noche a veces me resulta pesada.' },
-  'Bist du Vegetarier?':
-    { de: 'Nicht ganz, ich esse einfach nur sehr selten Fleisch.', es: 'No del todo; simplemente como carne muy pocas veces.' },
-  'Möchten Sie ein Sackerl dazu?':
-    { de: 'Nein danke, ich habe eine Stofftasche im Rucksack dabei.', es: 'No, gracias; llevo una bolsa de tela en la mochila.' },
-  'Was kostet das Kilo?':
-    { de: 'Drei Euro neunzig, heute sind sie besonders gut und reif.', es: 'Tres noventa; hoy están especialmente buenos y maduros.' },
-  'Ist der Preis pro Person?':
-    { de: 'Ja, pro Person und Nacht, das Frühstück ist schon dabei.', es: 'Sí, por persona y noche; el desayuno va incluido.' },
-  'Geht das auch etwas günstiger?':
-    { de: 'Leider nicht, die Preise sind bei uns überall gleich.', es: 'Por desgracia no; los precios son iguales en todas nuestras tiendas.' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'Regnet es draußen noch?':
     { de: 'Es tröpfelt nur noch, der Schirm bleibt aber besser dabei.', es: 'Ya solo chispea, pero mejor llévate el paraguas.' },
   'Wie warm ist es eigentlich?':
@@ -4793,10 +4591,8 @@ const RESPUESTAS = {
 
 
 
-  'Wie lange dauert der Termin ungefähr?':
-    { de: 'Ungefähr eine halbe Stunde.', es: 'Media hora más o menos.' },
-  'Ist das Brot von heute?':
-    { de: 'Ja, frisch aus dem Ofen.', es: 'Sí, recién salido del horno.' },
+
+
   'Hast du am Wochenende schon was vor?':
     { de: 'Noch nicht viel, vielleicht ins Kino.', es: 'Todavía no mucho, quizá al cine.' },
   'Gilt das Ticket auch für die Straßenbahn?':
@@ -5776,6 +5572,456 @@ const RESPUESTAS = {
         { de: 'Meine Oma sagt „Kleiner“ zu mir, mit 32 Jahren.', es: 'Mi abuela me llama «pequeño», con 32 años.' },
         { de: 'Wie viel Vertrauen habt ihr untereinander?', es: '¿Cuánta confianza hay entre vosotros?' },
         { de: 'Viel. Ich kann jeden von ihnen nachts um drei anrufen.', es: 'Mucha. Puedo llamar a cualquiera a las tres de la mañana.' }
+      ] },
+
+
+  // ---- a11-l5 · nach der Uhrzeit und dem Zeitplan fragen ------------
+  'Wie spät ist es eigentlich?':
+    { de: 'Gleich halb neun. Wir müssen los.', es: 'Casi las ocho y media. Tenemos que irnos.',
+      mas: [
+        { de: 'Um wie viel Uhr fängt der Film an?', es: '¿A qué hora empieza la película?' },
+        { de: 'Um neun, aber die Werbung läuft zwanzig Minuten.', es: 'A las nueve, pero los anuncios duran veinte minutos.' },
+        { de: 'Um wie viel Uhr treffen wir uns?', es: '¿A qué hora quedamos?' },
+        { de: 'Sagen wir Viertel vor neun vor dem Kino.', es: 'Digamos a las nueve menos cuarto delante del cine.' },
+        { de: 'Bist du immer so pünktlich?', es: '¿Siempre eres tan puntual?' },
+        { de: 'Immer. Zu spät kommen macht mich nervös.', es: 'Siempre. Llegar tarde me pone nervioso.' }
+      ] },
+  'Wann stehst du normalerweise auf?':
+    { de: 'Halb sechs, auch am Wochenende. Der Körper macht das allein.', es: 'A las cinco y media, también el fin de semana. El cuerpo lo hace solo.',
+      mas: [
+        { de: 'Der Wecker klingelt bei mir um fünf.', es: 'Mi despertador suena a las cinco.' },
+        { de: 'Um fünf? Dann bist du mittags schon müde.', es: '¿A las cinco? Entonces al mediodía ya estás cansado.' },
+        { de: 'Wie lange brauchst du bis zur Arbeit?', es: '¿Cuánto tiempo tardas hasta el trabajo?' },
+        { de: 'Eine gute halbe Stunde, wenn die Straßenbahn kommt.', es: 'Media hora larga, si viene el tranvía.' }
+      ] },
+  'Wann hast du Zeit? – Am Samstag.':
+    { de: 'Samstag passt mir auch. Vormittags oder nachmittags?', es: 'El sábado también me viene bien. ¿Por la mañana o por la tarde?',
+      mas: [
+        { de: 'Ich habe heute gar keine Zeit.', es: 'Hoy no tengo nada de tiempo.' },
+        { de: 'Kein Problem, dann machen wir es am Samstag.', es: 'No pasa nada, entonces lo hacemos el sábado.' },
+        { de: 'Mein Tag ist heute völlig voll.', es: 'Hoy tengo el día completamente lleno.' },
+        { de: 'Dann ruf mich einfach an, wenn du Luft hast.', es: 'Entonces llámame cuando tengas un hueco.' }
+      ] },
+
+  // ---- a11-l5 · über Zeitnot und Termine sprechen -------------------
+  'Ich schaffe das nicht bis Freitag.':
+    { de: 'Wie viel fehlt denn noch?', es: '¿Cuánto te falta?',
+      mas: [
+        { de: 'Schaffst du das bis morgen Mittag?', es: '¿Te da tiempo para mañana al mediodía?' },
+        { de: 'Wenn mich niemand stört, ja.', es: 'Si nadie me molesta, sí.' },
+        { de: 'Das ist dringend, kannst du es heute machen?', es: 'Es urgente, ¿lo puedes hacer hoy?' },
+        { de: 'Heute nur die Hälfte. Den Rest gleich morgen früh.', es: 'Hoy solo la mitad. El resto mañana a primera hora.' },
+        { de: 'Haben wir bis dahin noch genug Zeit?', es: '¿Nos queda tiempo suficiente hasta entonces?' },
+        { de: 'Knapp, aber es geht. Wir müssen nur heute anfangen.', es: 'Justo, pero se puede. Solo hay que empezar hoy.' }
+      ] },
+  'Wie teilst du dir den Tag ein?':
+    { de: 'Das Schwierige am Morgen, die Mails am Nachmittag.', es: 'Lo difícil por la mañana, los correos por la tarde.',
+      mas: [
+        { de: 'Nimm dir ruhig Zeit dafür.', es: 'Tómate tu tiempo para eso.' },
+        { de: 'Danke, das hilft. Dann mache ich es sauber statt schnell.', es: 'Gracias, eso ayuda. Así lo hago bien en vez de rápido.' },
+        { de: 'Nachher gehe ich noch schnell einkaufen.', es: 'Después voy a hacer la compra rápido.' },
+        { de: 'Bringst du mir Milch mit? Ich gebe dir das Geld gleich.', es: '¿Me traes leche? Te doy el dinero ahora.' }
+      ] },
+  'Wann hast du übermorgen Zeit?':
+    { de: 'Ab vier bin ich frei, vorher habe ich Termine.', es: 'A partir de las cuatro estoy libre, antes tengo citas.',
+      mas: [
+        { de: 'Wie lange dauert der Termin ungefähr?', es: '¿Cuánto dura la cita más o menos?' },
+        { de: 'Eine halbe Stunde, höchstens vierzig Minuten.', es: 'Media hora, cuarenta minutos como máximo.' },
+        { de: 'Bist du morgen früh oder später da?', es: '¿Vienes mañana pronto o más tarde?' },
+        { de: 'Früh, ich möchte vor allen anderen anfangen.', es: 'Pronto, quiero empezar antes que los demás.' }
+      ] },
+
+  // ---- a11-l5 · höflich um Hilfe bitten -----------------------------
+  'Kannst du mir bitte helfen?':
+    { de: 'Natürlich, sag einfach, was ich tun soll.', es: 'Claro, dime qué tengo que hacer.',
+      mas: [
+        { de: 'Hilfst du mir kurz beim Tragen?', es: '¿Me ayudas un momento a llevar esto?' },
+        { de: 'Klar, nimm du die leichte Kiste.', es: 'Claro, coge tú la caja ligera.' },
+        { de: 'Einen Moment, bitte.', es: 'Un momento, por favor.' },
+        { de: 'Lass dir Zeit, ich warte hier.', es: 'Tómate tu tiempo, yo espero aquí.' },
+        { de: 'Darf ich dich um einen Gefallen bitten?', es: '¿Te puedo pedir un favor?' },
+        { de: 'Immer. Was brauchst du?', es: 'Siempre. ¿Qué necesitas?' }
+      ] },
+  'Könnten Sie mir bitte kurz die Tür aufhalten?':
+    { de: 'Natürlich, gehen Sie ruhig vor.', es: 'Por supuesto, pase usted.',
+      mas: [
+        { de: 'Könnten Sie mir bitte den Weg zeigen?', es: '¿Me podría indicar el camino, por favor?' },
+        { de: 'Gern, ich gehe sowieso in dieselbe Richtung.', es: 'Con gusto, voy en la misma dirección.' },
+        { de: 'Würden Sie das bitte noch einmal prüfen?', es: '¿Podría comprobarlo otra vez, por favor?' },
+        { de: 'Ich schaue gleich nach. Einen Moment noch.', es: 'Lo miro ahora mismo. Un momento.' }
+      ] },
+  'Darf ich Sie kurz stören?':
+    { de: 'Sie stören nicht. Was gibt es?', es: 'No molesta. ¿Qué pasa?',
+      mas: [
+        { de: 'Kannst du bitte etwas leiser sein?', es: '¿Puedes hacer un poco menos de ruido, por favor?' },
+        { de: 'Entschuldige, ich telefoniere draußen weiter.', es: 'Perdona, sigo la llamada fuera.' },
+        { de: 'Kannst du mich morgen früh anrufen?', es: '¿Me puedes llamar mañana por la mañana?' },
+        { de: 'Mache ich, aber nicht vor acht.', es: 'Lo hago, pero no antes de las ocho.' }
+      ] },
+
+  // ---- a11-l5 · um Gefallen und Unterstützung bitten ----------------
+  'Darf ich dich um deinen Rat bitten?':
+    { de: 'Natürlich. Setz dich, erzähl mal.', es: 'Por supuesto. Siéntate, cuéntame.',
+      mas: [
+        { de: 'Würdest du das bitte für mich erledigen?', es: '¿Me lo harías tú, por favor?' },
+        { de: 'Mache ich, aber erst nach der Mittagspause.', es: 'Lo hago, pero después de comer.' },
+        { de: 'Kannst du mir nächste Woche noch einmal helfen?', es: '¿Me puedes ayudar otra vez la semana que viene?' },
+        { de: 'Gern, sag mir nur vorher, welcher Tag.', es: 'Con gusto, solo dime antes qué día.' },
+        { de: 'Darf ich mir kurz deinen Kuli ausleihen?', es: '¿Me dejas un momento el boli?' },
+        { de: 'Nimm ihn, aber gib ihn mir wieder zurück.', es: 'Cógelo, pero devuélvemelo.' }
+      ] },
+  'Könntest du einen Augenblick warten?':
+    { de: 'Ja, ich habe Zeit. Kein Stress.', es: 'Sí, tengo tiempo. Sin estrés.',
+      mas: [
+        { de: 'Sollen wir das gleich erledigen?', es: '¿Lo resolvemos ahora mismo?' },
+        { de: 'Lieber gleich, sonst vergessen wir es beide.', es: 'Mejor ahora, si no se nos olvida a los dos.' },
+        { de: 'Würdest du mich um sieben anrufen?', es: '¿Me llamas a las siete?' },
+        { de: 'Um sieben, notiert. Ich stelle mir einen Wecker.', es: 'A las siete, apuntado. Me pongo una alarma.' }
+      ] },
+  'Machen wir eine kurze Pause?':
+    { de: 'Bitte, ich sitze seit drei Stunden hier.', es: 'Por favor, llevo tres horas aquí sentado.',
+      mas: [
+        { de: 'Lass uns eine kurze Mittagspause machen.', es: 'Vamos a hacer una pausa corta para comer.' },
+        { de: 'Gute Idee. Zwanzig Minuten, dann weiter?', es: 'Buena idea. ¿Veinte minutos y seguimos?' },
+        { de: 'Sollen wir lieber morgen weitermachen?', es: '¿Seguimos mejor mañana?' },
+        { de: 'Ja, heute wird das nichts mehr Gutes.', es: 'Sí, hoy ya no va a salir nada bueno.' }
+      ] },
+
+  // ---- a11-l5 · über Öffnungszeiten sprechen ------------------------
+  'Wann hat die Bank offen? – Von 9 bis 15 Uhr.':
+    { de: 'Dann muss ich in der Mittagspause hin.', es: 'Entonces tengo que ir en la pausa de comer.',
+      mas: [
+        { de: 'Haben Sie über Mittag geschlossen?', es: '¿Cierran al mediodía?' },
+        { de: 'Von zwölf bis eins, ja. Danach sind wir wieder da.', es: 'De doce a una, sí. Después volvemos a estar.' },
+        { de: 'Wann macht der Supermarkt zu?', es: '¿A qué hora cierra el supermercado?' },
+        { de: 'Um acht, am Samstag schon um sechs.', es: 'A las ocho; el sábado ya a las seis.' },
+        { de: 'Am Sonntag ist geschlossen.', es: 'Los domingos está cerrado.' },
+        { de: 'Deshalb kaufe ich am Samstag für zwei Tage ein.', es: 'Por eso el sábado compro para dos días.' }
+      ] },
+  'Wann haben Sie geöffnet?':
+    { de: 'Montag bis Freitag von acht bis achtzehn Uhr.', es: 'De lunes a viernes de ocho a dieciocho.',
+      mas: [
+        { de: 'Haben Sie sonntags offen?', es: '¿Abren los domingos?' },
+        { de: 'Nein, sonntags nie. Am Samstag bis Mittag.', es: 'No, los domingos nunca. El sábado hasta el mediodía.' },
+        { de: 'Ist das Amt am Samstag geöffnet?', es: '¿La oficina abre los sábados?' },
+        { de: 'Nur am ersten Samstag im Monat, von neun bis zwölf.', es: 'Solo el primer sábado del mes, de nueve a doce.' }
+      ] },
+  'Bis wann hat die Apotheke heute offen?':
+    { de: 'Bis halb sieben. Danach gibt es die Nachtapotheke.', es: 'Hasta las seis y media. Después hay farmacia de guardia.',
+      mas: [
+        { de: 'Um wie viel Uhr fängt es an?', es: '¿A qué hora empieza?' },
+        { de: 'Pünktlich um achtzehn Uhr, bitte fünf Minuten vorher da sein.', es: 'Puntual a las dieciocho; por favor, estar cinco minutos antes.' },
+        { de: 'Wie lange dauert der Kurs?', es: '¿Cuánto dura el curso?' },
+        { de: 'Zehn Wochen, zweimal pro Woche je zwei Stunden.', es: 'Diez semanas, dos veces por semana, dos horas cada vez.' }
+      ] },
+
+  // ---- a11-l5 · Auskunft über Dienstleistungen erfragen -------------
+  'Wie sind die Öffnungszeiten am Werktag?':
+    { de: 'Von sieben bis neunzehn Uhr, durchgehend.', es: 'De siete a diecinueve, sin interrupción.',
+      mas: [
+        { de: 'Ab wann kann ich morgen kommen?', es: '¿A partir de qué hora puedo venir mañana?' },
+        { de: 'Ab halb acht ist jemand da.', es: 'A partir de las siete y media hay alguien.' },
+        { de: 'Kann ich auch später noch kommen?', es: '¿Puedo venir también más tarde?' },
+        { de: 'Bis achtzehn Uhr problemlos, danach ist zu.', es: 'Hasta las dieciocho sin problema; después está cerrado.' },
+        { de: 'Wann macht das Amt am Montag auf?', es: '¿Cuándo abre la oficina el lunes?' },
+        { de: 'Um acht, aber kommen Sie früh, montags ist immer viel los.', es: 'A las ocho, pero venga pronto; los lunes hay mucha gente.' }
+      ] },
+  'Wie lange dauert die Sprechstunde?':
+    { de: 'Bis zwölf. Mit Termin geht es deutlich schneller.', es: 'Hasta las doce. Con cita va bastante más rápido.',
+      mas: [
+        { de: 'Haben Sie an Feiertagen geöffnet?', es: '¿Abren en días festivos?' },
+        { de: 'Nein, nur der Notdienst. Die Nummer hängt an der Tür.', es: 'No, solo urgencias. El número está en la puerta.' },
+        { de: 'Hat die Apotheke sonntags auch offen?', es: '¿La farmacia abre también los domingos?' },
+        { de: 'Eine im Bezirk immer, das wechselt jede Woche.', es: 'Siempre una en el distrito; cambia cada semana.' }
+      ] },
+  'Öffnet die Bibliothek stündlich oder durchgehend?':
+    { de: 'Durchgehend, von zehn bis neunzehn Uhr.', es: 'De corrido, de diez a diecinueve.',
+      mas: [
+        { de: 'Bis wann hat der Supermarkt offen?', es: '¿Hasta qué hora abre el súper?' },
+        { de: 'Bis zwanzig Uhr. Der am Bahnhof sogar bis dreiundzwanzig.', es: 'Hasta las veinte. El de la estación incluso hasta las veintitrés.' },
+        { de: 'Ist das Schwimmbad im Sommer länger offen?', es: '¿La piscina abre más tiempo en verano?' },
+        { de: 'Ja, bis einundzwanzig Uhr. Im Winter nur bis achtzehn.', es: 'Sí, hasta las veintiuna. En invierno solo hasta las dieciocho.' }
+      ] },
+
+  // ---- a11-l5 · sich verabreden -------------------------------------
+  'Hast du am Freitag Zeit?':
+    { de: 'Freitag ja, ab sechs bin ich frei.', es: 'El viernes sí, a partir de las seis estoy libre.',
+      mas: [
+        { de: 'Passt dir 18 Uhr? – Ja, das passt.', es: '¿Te va bien a las 18? – Sí, me va bien.' },
+        { de: 'Gut, dann steht es. Ich freue mich.', es: 'Bien, entonces queda fijado. Me alegro.' },
+        { de: 'Wo treffen wir uns?', es: '¿Dónde quedamos?' },
+        { de: 'Am besten beim Brunnen, den findet jeder.', es: 'Mejor en la fuente, esa la encuentra cualquiera.' },
+        { de: 'Kommst du allein oder mit Ana?', es: '¿Vienes solo o con Ana?' },
+        { de: 'Mit Ana, sie will dich sowieso kennenlernen.', es: 'Con Ana, quiere conocerte de todas formas.' }
+      ] },
+  'Hast du am Wochenende schon etwas vor?':
+    { de: 'Samstag nichts. Sonntag bin ich bei meinen Eltern.', es: 'El sábado nada. El domingo estoy en casa de mis padres.',
+      mas: [
+        { de: 'Wollen wir uns am Donnerstag treffen?', es: '¿Quedamos el jueves?' },
+        { de: 'Donnerstag ist besser als Samstag, ja.', es: 'El jueves es mejor que el sábado, sí.' },
+        { de: 'Wann treffen wir uns?', es: '¿Cuándo quedamos?' },
+        { de: 'Sagen wir sieben, dann haben wir den ganzen Abend.', es: 'Digamos a las siete, así tenemos toda la tarde.' }
+      ] },
+  'Passt es dir um halb acht?':
+    { de: 'Ein bisschen früh, ich arbeite bis sieben.', es: 'Un poco pronto, trabajo hasta las siete.',
+      mas: [
+        { de: 'Geht es auch etwas später?', es: '¿Puede ser un poco más tarde?' },
+        { de: 'Acht wäre perfekt. Dann komme ich in Ruhe.', es: 'A las ocho sería perfecto. Así vengo con calma.' },
+        { de: 'Sollen wir uns direkt dort treffen?', es: '¿Quedamos directamente allí?' },
+        { de: 'Ja, das ist einfacher. Ich schreibe dir, wenn ich da bin.', es: 'Sí, es más fácil. Te escribo cuando llegue.' }
+      ] },
+
+  // ---- a11-l5 · Verabredungen anpassen und vorschlagen --------------
+  'Ich muss leider absagen.':
+    { de: 'Schade. Ist etwas passiert?', es: 'Qué pena. ¿Ha pasado algo?',
+      mas: [
+        { de: 'Ich muss unseren Termin leider verschieben.', es: 'Lamentablemente tengo que cambiar nuestra cita.' },
+        { de: 'Kein Problem. Wann würde es dir passen?', es: 'No pasa nada. ¿Cuándo te vendría bien?' },
+        { de: 'Können wir das auf nächste Woche legen?', es: '¿Podemos pasarlo a la semana que viene?' },
+        { de: 'Ja, Dienstag oder Mittwoch hätte ich Zeit.', es: 'Sí, el martes o el miércoles tendría tiempo.' },
+        { de: 'Bleibt es bei Freitag um sieben?', es: '¿Seguimos con el viernes a las siete?' },
+        { de: 'Es bleibt dabei. Ich habe es mir schon eingetragen.', es: 'Seguimos. Ya lo tengo apuntado.' }
+      ] },
+  'Wollen wir ins Kino gehen?':
+    { de: 'Gern, aber bitte keinen Film über drei Stunden.', es: 'Con gusto, pero por favor nada de más de tres horas.',
+      mas: [
+        { de: 'Gute Idee! · Ja, gern.', es: '¡Buena idea! · Sí, con gusto.' },
+        { de: 'Dann suche ich die Karten schon mal aus.', es: 'Entonces voy buscando las entradas.' },
+        { de: 'Ich komme vielleicht zehn Minuten später.', es: 'Puede que llegue diez minutos tarde.' },
+        { de: 'Kein Stress, ich halte dir einen Platz frei.', es: 'Sin estrés, te guardo un sitio.' }
+      ] },
+  'Wie wäre es mit einem Kaffee?':
+    { de: 'Sehr gern, ich brauche jetzt genau das.', es: 'Con mucho gusto, es justo lo que necesito.',
+      mas: [
+        { de: 'Wollen wir zusammen spazieren gehen?', es: '¿Vamos juntos a pasear?' },
+        { de: 'Ja, das Wetter ist zu schön für drinnen.', es: 'Sí, hace demasiado buen tiempo para estar dentro.' },
+        { de: 'Hast du Lust auf ein Konzert?', es: '¿Te apetece un concierto?' },
+        { de: 'Immer. Was für Musik denn?', es: 'Siempre. ¿Qué tipo de música?' }
+      ] },
+
+
+  // ---- a11-l6 · im Restaurant bestellen -----------------------------
+  'Wir möchten gern bestellen.':
+    { de: 'Sehr gern. Was darf ich Ihnen bringen?', es: 'Con mucho gusto. ¿Qué les traigo?',
+      mas: [
+        { de: 'Ich hätte gern eine Suppe.', es: 'Quisiera una sopa.' },
+        { de: 'Die Rindsuppe oder die Gemüsesuppe?', es: '¿La sopa de carne o la de verduras?' },
+        { de: 'Ich hätte gern ein Schnitzel.', es: 'Quería un escalope.' },
+        { de: 'Mit Kartoffelsalat oder mit Pommes?', es: '¿Con ensalada de patata o con patatas fritas?' },
+        { de: 'Für mich bitte nur ein Wasser.', es: 'Para mí solo un agua.' },
+        { de: 'Mit Kohlensäure oder ohne?', es: '¿Con gas o sin gas?' }
+      ] },
+  'Können wir bitte die Speisekarte haben?':
+    { de: 'Natürlich, hier bitte. Die Tageskarte steht auf der Tafel.', es: 'Por supuesto, aquí tiene. El menú del día está en la pizarra.',
+      mas: [
+        { de: 'Was können Sie empfehlen?', es: '¿Qué me recomienda?' },
+        { de: 'Heute das Gulasch, das ist frisch von heute Morgen.', es: 'Hoy el gulasch, está hecho esta mañana.' },
+        { de: 'Ich nehme das Menü mit Suppe.', es: 'Tomo el menú con sopa.' },
+        { de: 'Gute Wahl. Und zu trinken?', es: 'Buena elección. ¿Y para beber?' }
+      ] },
+  'Einmal Schnitzel, bitte.':
+    { de: 'Kommt sofort. Möchten Sie eine Vorspeise dazu?', es: 'Enseguida. ¿Quiere un entrante?',
+      mas: [
+        { de: 'Für mich bitte nur einen kleinen Salat.', es: 'Para mí solo una ensalada pequeña, por favor.' },
+        { de: 'Gemischt oder grün?', es: '¿Mixta o verde?' },
+        { de: 'Könnten wir bitte noch Brot bekommen?', es: '¿Nos podría traer más pan, por favor?' },
+        { de: 'Sofort. Beim Brot rechnen wir pro Korb ab.', es: 'Enseguida. El pan lo cobramos por cesta.' }
+      ] },
+
+  // ---- a11-l6 · nach Angeboten und Empfehlungen fragen --------------
+  'Könnte ich bitte die Karte haben?':
+    { de: 'Hier bitte. Nehmen Sie sich Zeit.', es: 'Aquí tiene. Tómese su tiempo.',
+      mas: [
+        { de: 'Was ist die Spezialität des Hauses?', es: '¿Cuál es la especialidad de la casa?' },
+        { de: 'Der Tafelspitz. Den machen wir seit vierzig Jahren gleich.', es: 'El tafelspitz. Lo hacemos igual desde hace cuarenta años.' },
+        { de: 'Was ist heute im Angebot?', es: '¿Qué hay hoy de oferta?' },
+        { de: 'Das Mittagsmenü mit Suppe und Hauptgang, elf Euro.', es: 'El menú del mediodía con sopa y plato principal, once euros.' },
+        { de: 'Haben Sie auch vegetarische Gerichte?', es: '¿Tienen también platos vegetarianos?' },
+        { de: 'Drei, sie sind auf der Karte mit einem Blatt markiert.', es: 'Tres, están marcados en la carta con una hoja.' }
+      ] },
+  'Können wir gleich bestellen oder sollen wir warten?':
+    { de: 'Sie können gleich. Ich nehme die Bestellung auf.', es: 'Pueden ya. Tomo el pedido.',
+      mas: [
+        { de: 'Bitte einmal das Gleiche wie mein Kollege.', es: 'Lo mismo que mi compañero, por favor.' },
+        { de: 'Also auch das Gulasch. Und für Sie zu trinken?', es: 'Entonces también el gulasch. ¿Y para usted de beber?' },
+        { de: 'Für mich bitte das Gleiche.', es: 'Para mí lo mismo, por favor.' },
+        { de: 'Gern, dann zweimal dasselbe. Das geht schnell.', es: 'Con gusto, dos veces lo mismo. Eso va rápido.' }
+      ] },
+  'Ist das Brot von heute?':
+    { de: 'Von heute Morgen, aus der Bäckerei um die Ecke.', es: 'De esta mañana, de la panadería de la esquina.',
+      mas: [
+        { de: 'Ich hätte gern eine kleine Portion.', es: 'Quisiera una ración pequeña.' },
+        { de: 'Mache ich. Eine halbe Portion kostet auch weniger.', es: 'Lo hago. Media ración cuesta también menos.' },
+        { de: 'Als Nachtisch nehmen wir einen Apfelstrudel.', es: 'De postre tomamos un strudel de manzana.' },
+        { de: 'Mit Vanillesoße oder mit Schlagobers?', es: '¿Con salsa de vainilla o con nata?' }
+      ] },
+
+  // ---- a11-l6 · nach dem Preis fragen -------------------------------
+  'Was kostet das?':
+    { de: 'Drei Euro achtzig das Stück.', es: 'Tres euros ochenta la unidad.',
+      mas: [
+        { de: 'Ist das der Preis für ein Stück?', es: '¿Es ese el precio por unidad?' },
+        { de: 'Ja, pro Stück. Ab fünf wird es billiger.', es: 'Sí, por unidad. A partir de cinco sale más barato.' },
+        { de: 'Was kostet das Kilo?', es: '¿Cuánto cuesta el kilo?' },
+        { de: 'Sieben Euro fünfzig. Heute ist es besonders gut.', es: 'Siete euros cincuenta. Hoy está especialmente bueno.' },
+        { de: 'Haben Sie etwas Günstigeres?', es: '¿Tiene algo más barato?' },
+        { de: 'Die von gestern, die kosten nur die Hälfte.', es: 'Las de ayer, esas cuestan solo la mitad.' }
+      ] },
+  'Wie viel kostet das Kilo Äpfel?':
+    { de: 'Zwei Euro zwanzig, aus der Steiermark.', es: 'Dos euros veinte, de Estiria.',
+      mas: [
+        { de: 'Was kosten zweihundert Gramm Käse?', es: '¿Cuánto cuestan doscientos gramos de queso?' },
+        { de: 'Etwa vier Euro. Soll ich ein bisschen mehr nehmen?', es: 'Unos cuatro euros. ¿Le pongo un poco más?' },
+        { de: 'Gibt es heute eine Sonderaktion?', es: '¿Hay hoy alguna oferta especial?' },
+        { de: 'Drei Becher Joghurt zum Preis von zwei.', es: 'Tres yogures al precio de dos.' }
+      ] },
+  'Warum ist das so teuer geworden?':
+    { de: 'Der Sommer war schlecht, die Ernte ist klein.', es: 'El verano fue malo, la cosecha es pequeña.',
+      mas: [
+        { de: 'Warum ist das Brot hier teurer?', es: '¿Por qué el pan es más caro aquí?' },
+        { de: 'Weil wir selbst backen. Der Supermarkt kauft es fertig.', es: 'Porque lo horneamos nosotros. El súper lo compra hecho.' },
+        { de: 'Ist die Dose billiger als die frische Ware?', es: '¿La lata es más barata que el producto fresco?' },
+        { de: 'Deutlich, aber frisch schmeckt es einfach besser.', es: 'Bastante, pero fresco sabe mucho mejor.' }
+      ] },
+
+  // ---- a11-l6 · bezahlen und abrechnen ------------------------------
+  'Die Rechnung, bitte.':
+    { de: 'Sofort. Zusammen oder getrennt?', es: 'Enseguida. ¿Junto o separado?',
+      mas: [
+        { de: 'Die Rechnung, bitte. Wir zahlen getrennt.', es: 'La cuenta, por favor. Pagamos por separado.' },
+        { de: 'Kein Problem. Was hatten Sie beide?', es: 'No pasa nada. ¿Qué tomaron cada uno?' },
+        { de: 'Wie viel macht das? – Das macht 8,50 Euro.', es: '¿Cuánto es? – Son 8,50 euros.' },
+        { de: 'Danke. Neun Euro, stimmt so?', es: 'Gracias. Nueve euros, ¿está bien así?' },
+        { de: 'Kann ich mit Karte zahlen?', es: '¿Puedo pagar con tarjeta?' },
+        { de: 'Ab zehn Euro gern. Darunter nur bar.', es: 'A partir de diez euros sí. Por debajo solo en efectivo.' }
+      ] },
+  'Was macht das zusammen?':
+    { de: 'Vierundzwanzig Euro sechzig.', es: 'Veinticuatro euros sesenta.',
+      mas: [
+        { de: 'Ist der Preis pro Person?', es: '¿El precio es por persona?' },
+        { de: 'Nein, für beide zusammen. Die Getränke sind schon dabei.', es: 'No, para los dos juntos. Las bebidas están incluidas.' },
+        { de: 'Geht das auch etwas günstiger?', es: '¿No sale un poco más barato?' },
+        { de: 'Mit der Kundenkarte gibt es fünf Prozent weniger.', es: 'Con la tarjeta de cliente hay un cinco por ciento menos.' }
+      ] },
+  'Brauchen Sie ein Sackerl?':
+    { de: 'Nein danke, ich habe eine Tasche mit.', es: 'No, gracias, traigo bolso.',
+      mas: [
+        { de: 'Möchten Sie ein Sackerl dazu?', es: '¿Quiere una bolsa?' },
+        { de: 'Ja bitte, ein kleines reicht.', es: 'Sí, por favor, una pequeña basta.' },
+        { de: 'Gibt es einen Rabatt auf abgelaufene Ware?', es: '¿Hay descuento en los productos a punto de caducar?' },
+        { de: 'Ab dem letzten Tag dreißig Prozent, das Regal ist hinten.', es: 'Desde el último día, un treinta por ciento; la estantería está al fondo.' }
+      ] },
+
+  // ---- a11-l6 · über Vorlieben beim Essen sprechen ------------------
+  'Isst du gern Fisch?':
+    { de: 'Sehr gern, am liebsten gegrillt.', es: 'Mucho, sobre todo a la plancha.',
+      mas: [
+        { de: 'Ich mag keinen Fisch.', es: 'No me gusta el pescado.' },
+        { de: 'Überhaupt keinen? Auch keinen Lachs?', es: '¿Ninguno? ¿Tampoco salmón?' },
+        { de: 'Ich esse gern Gemüse.', es: 'Me gusta comer verdura.' },
+        { de: 'Dann koche ich morgen etwas mit viel Gemüse.', es: 'Entonces mañana cocino algo con mucha verdura.' },
+        { de: 'Was isst du am liebsten?', es: '¿Qué es lo que más te gusta comer?' },
+        { de: 'Alles, was meine Mutter macht. Das schmeckt anders.', es: 'Todo lo que hace mi madre. Eso sabe distinto.' }
+      ] },
+  'Magst du scharfes Essen?':
+    { de: 'Ja, je schärfer, desto besser.', es: 'Sí, cuanto más picante, mejor.',
+      mas: [
+        { de: 'Isst du gern scharf?', es: '¿Te gusta comer picante?' },
+        { de: 'Bis zu einem Punkt. Danach schmecke ich gar nichts mehr.', es: 'Hasta un punto. Después ya no saboreo nada.' },
+        { de: 'Trinkst du Kaffee oder lieber Tee?', es: '¿Bebes café o mejor té?' },
+        { de: 'Morgens Kaffee, ab vier Uhr nur noch Tee.', es: 'Por la mañana café; a partir de las cuatro, solo té.' }
+      ] },
+  'Ich esse kein Fleisch.':
+    { de: 'Seit wann schon? Und fällt es dir schwer?', es: '¿Desde cuándo? ¿Y te cuesta?',
+      mas: [
+        { de: 'Ich esse kein Schweinefleisch.', es: 'No como carne de cerdo.' },
+        { de: 'Gut zu wissen. Dann nehme ich Hühnchen für alle.', es: 'Bueno saberlo. Entonces cojo pollo para todos.' },
+        { de: 'Magst du österreichisches Essen?', es: '¿Te gusta la comida austriaca?' },
+        { de: 'Sehr, nur ist es mir manchmal etwas zu schwer.', es: 'Mucho, solo que a veces se me hace un poco pesada.' }
+      ] },
+
+  // ---- a11-l6 · über Geschmack und Verträglichkeit sprechen ---------
+  'Schmeckt es dir?':
+    { de: 'Sehr gut. Was ist da alles drin?', es: 'Muy bueno. ¿Qué lleva?',
+      mas: [
+        { de: 'Schmeckt dir die Suppe?', es: '¿Te gusta la sopa?' },
+        { de: 'Ja, aber sie ist ein bisschen salzig für mich.', es: 'Sí, pero está un poco salada para mí.' },
+        { de: 'Wie schmeckt dir die österreichische Küche?', es: '¿Qué te parece la cocina austriaca?' },
+        { de: 'Gut, nur die Portionen sind riesig.', es: 'Bien, solo que las raciones son enormes.' },
+        { de: 'Wie findest du das österreichische Frühstück?', es: '¿Qué te parece el desayuno austriaco?' },
+        { de: 'Perfekt. Semmel, Butter, Marmelade und ein großer Kaffee.', es: 'Perfecto. Panecillo, mantequilla, mermelada y un café grande.' }
+      ] },
+  'Hast du eine Allergie?':
+    { de: 'Gegen Nüsse, und die sind leider überall drin.', es: 'A los frutos secos, y por desgracia están en todo.',
+      mas: [
+        { de: 'Vertragen Sie Milchprodukte?', es: '¿Tolera usted los lácteos?' },
+        { de: 'Käse ja, Milch schlecht. Kleine Mengen gehen.', es: 'El queso sí, la leche mal. Cantidades pequeñas van bien.' },
+        { de: 'Bist du Vegetarier?', es: '¿Eres vegetariano?' },
+        { de: 'Seit fünf Jahren, und ich vermisse nichts.', es: 'Desde hace cinco años, y no echo nada de menos.' }
+      ] },
+  'Magst du eher süß oder salzig?':
+    { de: 'Salzig, immer. Kuchen lasse ich meistens stehen.', es: 'Salado, siempre. El pastel casi siempre lo dejo.',
+      mas: [
+        { de: 'Gibt es etwas, das du nicht magst?', es: '¿Hay algo que no te guste?' },
+        { de: 'Oliven. Ich habe es oft versucht, es geht nicht.', es: 'Las aceitunas. Lo he intentado muchas veces, no puedo.' },
+        { de: 'Ich bin satt, ich kann nicht mehr.', es: 'Estoy lleno, no puedo más.' },
+        { de: 'Dann packe ich dir den Rest ein, für morgen.', es: 'Entonces te envuelvo el resto, para mañana.' }
+      ] },
+
+  // ---- a11-l6 · sagen, was es zu essen gibt -------------------------
+  'Heute gibt es Suppe und Salat.':
+    { de: 'Nur das? Ich habe einen Riesenhunger.', es: '¿Solo eso? Tengo un hambre enorme.',
+      mas: [
+        { de: 'Im Ofen ist noch ein Kuchen.', es: 'En el horno hay todavía un pastel.' },
+        { de: 'Dann warte ich gern. Wie lange noch?', es: 'Entonces espero con gusto. ¿Cuánto falta?' },
+        { de: 'Zum Nachtisch gibt es frisches Obst.', es: 'De postre hay fruta fresca.' },
+        { de: 'Perfekt, nach der Suppe ist mir das genug.', es: 'Perfecto, después de la sopa me basta.' },
+        { de: 'Als Nachspeise gibt es Eis.', es: 'De postre hay helado.' },
+        { de: 'Dann nehme ich doch beides, Obst und Eis.', es: 'Entonces cojo las dos cosas, fruta y helado.' }
+      ] },
+  'Heute gibt es Nudeln mit Tomatensoße.':
+    { de: 'Meine Lieblingsspeise. Ist Käse da?', es: 'Mi plato favorito. ¿Hay queso?',
+      mas: [
+        { de: 'Heute gibt es Fisch aus der Pfanne.', es: 'Hoy hay pescado a la sartén.' },
+        { de: 'Riecht schon gut. Was für ein Fisch ist das?', es: 'Ya huele bien. ¿Qué pescado es?' },
+        { de: 'Zum Frühstück gibt es frische Semmeln.', es: 'Para desayunar hay panecillos frescos.' },
+        { de: 'Dann hole ich schnell Butter und Marmelade.', es: 'Entonces voy rápido por mantequilla y mermelada.' }
+      ] },
+  'Im Angebot gibt es diese Woche Fisch.':
+    { de: 'Gut, dann nehmen wir gleich für zwei Tage.', es: 'Bien, entonces cogemos para dos días.',
+      mas: [
+        { de: 'Auf dem Wochenmarkt gibt es alles frisch.', es: 'En el mercado semanal hay de todo fresco.' },
+        { de: 'Und billiger als im Supermarkt, oder?', es: '¿Y más barato que en el súper, no?' },
+        { de: 'Es gibt heute nur noch kalte Küche.', es: 'Hoy ya solo queda comida fría.' },
+        { de: 'Kein Problem, ein Brot mit Käse reicht mir.', es: 'No pasa nada, un pan con queso me basta.' }
+      ] },
+
+  // ---- a11-l6 · im Supermarkt einkaufen -----------------------------
+  'Wo finde ich hier den Reis?':
+    { de: 'Gang vier, beim Mehl und den Nudeln.', es: 'Pasillo cuatro, con la harina y la pasta.',
+      mas: [
+        { de: 'Wo finde ich die Dosen mit Tomaten?', es: '¿Dónde encuentro las latas de tomate?' },
+        { de: 'Im selben Gang, unten im Regal.', es: 'En el mismo pasillo, abajo en la estantería.' },
+        { de: 'Haben Sie auch tiefgekühltes Gemüse?', es: '¿Tienen también verdura congelada?' },
+        { de: 'Ganz hinten links, bei den Truhen.', es: 'Al fondo a la izquierda, en los congeladores.' },
+        { de: 'Bekomme ich hier auch frisches Brot?', es: '¿Aquí también hay pan fresco?' },
+        { de: 'Ja, gleich beim Eingang. Um vier kommt die zweite Lieferung.', es: 'Sí, junto a la entrada. A las cuatro llega el segundo reparto.' }
+      ] },
+  'Haben Sie noch frische Erdäpfel?':
+    { de: 'Nur noch die kleinen, die großen sind aus.', es: 'Solo las pequeñas, las grandes se han acabado.',
+      mas: [
+        { de: 'Bis wann ist die Milch haltbar?', es: '¿Hasta cuándo dura la leche?' },
+        { de: 'Bis zum siebzehnten, steht oben auf dem Deckel.', es: 'Hasta el diecisiete, está arriba en la tapa.' },
+        { de: 'Ist diese Ware noch haltbar?', es: '¿Este producto todavía está en fecha?' },
+        { de: 'Noch zwei Tage. Deshalb ist es auch reduziert.', es: 'Dos días más. Por eso está rebajado.' }
+      ] },
+  'Haben Sie Kleingeld für den Wagen?':
+    { de: 'Einen Euro, nimm ihn. Du gibst ihn mir nachher zurück.', es: 'Un euro, cógelo. Me lo devuelves luego.',
+      mas: [
+        { de: 'Ich habe meine Einkaufsliste vergessen.', es: 'Me he olvidado la lista de la compra.' },
+        { de: 'Dann telefonier mit zu Hause, sonst fehlt wieder die Hälfte.', es: 'Entonces llama a casa, si no falta otra vez la mitad.' },
+        { de: 'Der Einkaufswagen ist schon ganz voll.', es: 'El carrito ya está lleno del todo.' },
+        { de: 'Und wir sind erst bei Gang drei. Das wird teuer.', es: 'Y solo estamos en el pasillo tres. Esto va a salir caro.' }
       ] },
 
 };

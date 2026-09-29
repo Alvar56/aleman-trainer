@@ -2028,16 +2028,9 @@ export const A11 = {
           funktion: 'nach der Uhrzeit und dem Zeitplan fragen',
           es: 'Preguntar la hora y los horarios',
           wendungen: [
-            { de: 'Wann hast du Zeit? – Am Samstag.', es: '¿Cuándo tienes tiempo? – El sábado.' },
-            { de: 'Um wie viel Uhr treffen wir uns?', es: '¿A qué hora quedamos?' },
             { de: 'Wie spät ist es eigentlich?', es: '¿Qué hora es en realidad?' },
             { de: 'Wann stehst du normalerweise auf?', es: '¿A qué hora te levantas normalmente?' },
-            { de: 'Der Wecker klingelt bei mir um fünf.', es: 'Mi despertador suena a las cinco.' },
-            { de: 'Ich habe heute gar keine Zeit.', es: 'Hoy no tengo nada de tiempo.' },
-            { de: 'Wie lange brauchst du bis zur Arbeit?', es: '¿Cuánto tiempo tardas hasta el trabajo?' },
-            { de: 'Um wie viel Uhr fängt der Film an?', es: '¿A qué hora empieza la película?' },
-            { de: 'Bist du immer so pünktlich?', es: '¿Siempre eres tan puntual?' },
-            { de: 'Mein Tag ist heute völlig voll.', es: 'Hoy tengo el día completamente lleno.' }
+            { de: 'Wann hast du Zeit? – Am Samstag.', es: '¿Cuándo tienes tiempo? – El sábado.' }
           ]
         },
         {
@@ -2045,15 +2038,8 @@ export const A11 = {
           es: 'Hablar de falta de tiempo y fechas',
           wendungen: [
             { de: 'Ich schaffe das nicht bis Freitag.', es: 'No lo consigo terminar para el viernes.' },
-            { de: 'Nachher gehe ich noch schnell einkaufen.', es: 'Después voy a hacer la compra rápido.' },
             { de: 'Wie teilst du dir den Tag ein?', es: '¿Cómo te organizas el día?' },
-            { de: 'Wann hast du übermorgen Zeit?', es: '¿Cuándo tienes tiempo pasado mañana?' },
-            { de: 'Das ist dringend, kannst du es heute machen?', es: 'Es urgente, ¿lo puedes hacer hoy?' },
-            { de: 'Nimm dir ruhig Zeit dafür.', es: 'Tómate tu tiempo para eso.' },
-            { de: 'Haben wir bis dahin noch genug Zeit?', es: '¿Nos queda tiempo suficiente hasta entonces?' },
-            { de: 'Schaffst du das bis morgen Mittag?', es: '¿Te da tiempo para mañana al mediodía?' },
-            { de: 'Wie lange dauert der Termin ungefähr?', es: '¿Cuánto dura la cita más o menos?' },
-            { de: 'Bist du morgen früh oder später da?', es: '¿Vienes mañana pronto o más tarde?' }
+            { de: 'Wann hast du übermorgen Zeit?', es: '¿Cuándo tienes tiempo pasado mañana?' }
           ]
         },
         {
@@ -2061,14 +2047,7 @@ export const A11 = {
           es: 'Pedir ayuda con educación',
           wendungen: [
             { de: 'Kannst du mir bitte helfen?', es: '¿Me puedes ayudar, por favor?' },
-            { de: 'Einen Moment, bitte.', es: 'Un momento, por favor.' },
             { de: 'Könnten Sie mir bitte kurz die Tür aufhalten?', es: '¿Me puede sujetar un momento la puerta, por favor?' },
-            { de: 'Darf ich dich um einen Gefallen bitten?', es: '¿Te puedo pedir un favor?' },
-            { de: 'Kannst du mich morgen früh anrufen?', es: '¿Me puedes llamar mañana por la mañana?' },
-            { de: 'Würden Sie das bitte noch einmal prüfen?', es: '¿Podría comprobarlo otra vez, por favor?' },
-            { de: 'Hilfst du mir kurz beim Tragen?', es: '¿Me ayudas un momento a llevar esto?' },
-            { de: 'Könnten Sie mir bitte den Weg zeigen?', es: '¿Me podría indicar el camino, por favor?' },
-            { de: 'Kannst du bitte etwas leiser sein?', es: '¿Puedes hacer un poco menos de ruido, por favor?' },
             { de: 'Darf ich Sie kurz stören?', es: '¿Le puedo molestar un momento?' }
           ]
         },
@@ -2076,15 +2055,8 @@ export const A11 = {
           funktion: 'um Gefallen und Unterstützung bitten',
           es: 'Pedir favores y asistencia',
           wendungen: [
-            { de: 'Könntest du einen Augenblick warten?', es: '¿Podrías esperar un instante?' },
             { de: 'Darf ich dich um deinen Rat bitten?', es: '¿Te puedo pedir consejo?' },
-            { de: 'Würdest du das bitte für mich erledigen?', es: '¿Me lo harías tú, por favor?' },
-            { de: 'Kannst du mir nächste Woche noch einmal helfen?', es: '¿Me puedes ayudar otra vez la semana que viene?' },
-            { de: 'Darf ich mir kurz deinen Kuli ausleihen?', es: '¿Me dejas un momento el boli?' },
-            { de: 'Würdest du mich um sieben anrufen?', es: '¿Me llamas a las siete?' },
-            { de: 'Sollen wir das gleich erledigen?', es: '¿Lo resolvemos ahora mismo?' },
-            { de: 'Sollen wir lieber morgen weitermachen?', es: '¿Seguimos mejor mañana?' },
-            { de: 'Lass uns eine kurze Mittagspause machen.', es: 'Vamos a hacer una pausa corta para comer.' },
+            { de: 'Könntest du einen Augenblick warten?', es: '¿Podrías esperar un instante?' },
             { de: 'Machen wir eine kurze Pause?', es: '¿Hacemos una pausa corta?' }
           ]
         },
@@ -2093,31 +2065,17 @@ export const A11 = {
           es: 'Hablar de horarios de apertura',
           wendungen: [
             { de: 'Wann hat die Bank offen? – Von 9 bis 15 Uhr.', es: '¿Cuándo abre el banco? – De 9 a 15.' },
-            { de: 'Am Sonntag ist geschlossen.', es: 'Los domingos está cerrado.' },
             { de: 'Wann haben Sie geöffnet?', es: '¿Cuál es su horario?' },
-            { de: 'Haben Sie sonntags offen?', es: '¿Abren los domingos?' },
-            { de: 'Wie lange dauert der Kurs?', es: '¿Cuánto dura el curso?' },
-            { de: 'Um wie viel Uhr fängt es an?', es: '¿A qué hora empieza?' },
-            { de: 'Bis wann hat die Apotheke heute offen?', es: '¿Hasta qué hora abre hoy la farmacia?' },
-            { de: 'Ist das Amt am Samstag geöffnet?', es: '¿La oficina abre los sábados?' },
-            { de: 'Wann macht der Supermarkt zu?', es: '¿A qué hora cierra el supermercado?' },
-            { de: 'Haben Sie über Mittag geschlossen?', es: '¿Cierran al mediodía?' }
+            { de: 'Bis wann hat die Apotheke heute offen?', es: '¿Hasta qué hora abre hoy la farmacia?' }
           ]
         },
         {
           funktion: 'Auskunft über Dienstleistungen erfragen',
           es: 'Pedir información sobre servicios',
           wendungen: [
-            { de: 'Ab wann kann ich morgen kommen?', es: '¿A partir de qué hora puedo venir mañana?' },
-            { de: 'Wie lange dauert die Sprechstunde?', es: '¿Cuánto dura la consulta?' },
-            { de: 'Haben Sie an Feiertagen geöffnet?', es: '¿Abren en días festivos?' },
             { de: 'Wie sind die Öffnungszeiten am Werktag?', es: '¿Cuál es el horario en día laborable?' },
-            { de: 'Kann ich auch später noch kommen?', es: '¿Puedo venir también más tarde?' },
-            { de: 'Öffnet die Bibliothek stündlich oder durchgehend?', es: '¿La biblioteca abre a cada hora o de corrido?' },
-            { de: 'Bis wann hat der Supermarkt offen?', es: '¿Hasta qué hora abre el súper?' },
-            { de: 'Hat die Apotheke sonntags auch offen?', es: '¿La farmacia abre también los domingos?' },
-            { de: 'Wann macht das Amt am Montag auf?', es: '¿Cuándo abre la oficina el lunes?' },
-            { de: 'Ist das Schwimmbad im Sommer länger offen?', es: '¿La piscina abre más tiempo en verano?' }
+            { de: 'Wie lange dauert die Sprechstunde?', es: '¿Cuánto dura la consulta?' },
+            { de: 'Öffnet die Bibliothek stündlich oder durchgehend?', es: '¿La biblioteca abre a cada hora o de corrido?' }
           ]
         },
         {
@@ -2125,15 +2083,8 @@ export const A11 = {
           es: 'Quedar con alguien',
           wendungen: [
             { de: 'Hast du am Freitag Zeit?', es: '¿Tienes tiempo el viernes?' },
-            { de: 'Passt dir 18 Uhr? – Ja, das passt.', es: '¿Te va bien a las 18? – Sí, me va bien.' },
-            { de: 'Wann treffen wir uns?', es: '¿Cuándo quedamos?' },
-            { de: 'Wo treffen wir uns?', es: '¿Dónde quedamos?' },
-            { de: 'Geht es auch etwas später?', es: '¿Puede ser un poco más tarde?' },
             { de: 'Hast du am Wochenende schon etwas vor?', es: '¿Ya tienes planes para el fin de semana?' },
-            { de: 'Wollen wir uns am Donnerstag treffen?', es: '¿Quedamos el jueves?' },
-            { de: 'Passt es dir um halb acht?', es: '¿Te viene bien a las siete y media?' },
-            { de: 'Kommst du allein oder mit Ana?', es: '¿Vienes solo o con Ana?' },
-            { de: 'Sollen wir uns direkt dort treffen?', es: '¿Quedamos directamente allí?' }
+            { de: 'Passt es dir um halb acht?', es: '¿Te viene bien a las siete y media?' }
           ]
         },
         {
@@ -2141,15 +2092,8 @@ export const A11 = {
           es: 'Ajustar citas y hacer planes',
           wendungen: [
             { de: 'Ich muss leider absagen.', es: 'Por desgracia tengo que cancelar.' },
-            { de: 'Ich muss unseren Termin leider verschieben.', es: 'Lamentablemente tengo que cambiar nuestra cita.' },
-            { de: 'Können wir das auf nächste Woche legen?', es: '¿Podemos pasarlo a la semana que viene?' },
-            { de: 'Ich komme vielleicht zehn Minuten später.', es: 'Puede que llegue diez minutos tarde.' },
-            { de: 'Bleibt es bei Freitag um sieben?', es: '¿Seguimos con el viernes a las siete?' },
             { de: 'Wollen wir ins Kino gehen?', es: '¿Vamos al cine?' },
-            { de: 'Gute Idee! · Ja, gern.', es: '¡Buena idea! · Sí, con gusto.' },
-            { de: 'Wollen wir zusammen spazieren gehen?', es: '¿Vamos juntos a pasear?' },
-            { de: 'Wie wäre es mit einem Kaffee?', es: '¿Qué tal un café?' },
-            { de: 'Hast du Lust auf ein Konzert?', es: '¿Te apetece un concierto?' }
+            { de: 'Wie wäre es mit einem Kaffee?', es: '¿Qué tal un café?' }
           ]
         }
       ]
@@ -2411,32 +2355,18 @@ export const A11 = {
           funktion: 'im Restaurant bestellen',
           es: 'Pedir en el restaurante',
           wendungen: [
-            { de: 'Ich hätte gern eine Suppe.', es: 'Quisiera una sopa.' },
-            { de: 'Einmal Schnitzel, bitte.', es: 'Un escalope, por favor.' },
-            { de: 'Ich hätte gern ein Schnitzel.', es: 'Quería un escalope.' },
-            { de: 'Was können Sie empfehlen?', es: '¿Qué me recomienda?' },
-            { de: 'Für mich bitte nur ein Wasser.', es: 'Para mí solo un agua.' },
             { de: 'Wir möchten gern bestellen.', es: 'Nos gustaría pedir.' },
             { de: 'Können wir bitte die Speisekarte haben?', es: '¿Nos puede traer la carta, por favor?' },
-            { de: 'Ich nehme das Menü mit Suppe.', es: 'Tomo el menú con sopa.' },
-            { de: 'Für mich bitte nur einen kleinen Salat.', es: 'Para mí solo una ensalada pequeña, por favor.' },
-            { de: 'Könnten wir bitte noch Brot bekommen?', es: '¿Nos podría traer más pan, por favor?' }
+            { de: 'Einmal Schnitzel, bitte.', es: 'Un escalope, por favor.' }
           ]
         },
         {
           funktion: 'nach Angeboten und Empfehlungen fragen',
           es: 'Preguntar por ofertas y recomendaciones',
           wendungen: [
-            { de: 'Was ist die Spezialität des Hauses?', es: '¿Cuál es la especialidad de la casa?' },
-            { de: 'Haben Sie auch vegetarische Gerichte?', es: '¿Tienen también platos vegetarianos?' },
-            { de: 'Als Nachtisch nehmen wir einen Apfelstrudel.', es: 'De postre tomamos un strudel de manzana.' },
-            { de: 'Ist das Brot von heute?', es: '¿El pan es de hoy?' },
-            { de: 'Was ist heute im Angebot?', es: '¿Qué hay hoy de oferta?' },
-            { de: 'Können wir gleich bestellen oder sollen wir warten?', es: '¿Podemos pedir ya o esperamos?' },
-            { de: 'Bitte einmal das Gleiche wie mein Kollege.', es: 'Lo mismo que mi compañero, por favor.' },
-            { de: 'Ich hätte gern eine kleine Portion.', es: 'Quisiera una ración pequeña.' },
             { de: 'Könnte ich bitte die Karte haben?', es: '¿Me trae la carta, por favor?' },
-            { de: 'Für mich bitte das Gleiche.', es: 'Para mí lo mismo, por favor.' }
+            { de: 'Können wir gleich bestellen oder sollen wir warten?', es: '¿Podemos pedir ya o esperamos?' },
+            { de: 'Ist das Brot von heute?', es: '¿El pan es de hoy?' }
           ]
         },
         {
@@ -2445,14 +2375,7 @@ export const A11 = {
           wendungen: [
             { de: 'Was kostet das?', es: '¿Cuánto cuesta?' },
             { de: 'Wie viel kostet das Kilo Äpfel?', es: '¿Cuánto cuesta el kilo de manzanas?' },
-            { de: 'Ist das der Preis für ein Stück?', es: '¿Es ese el precio por unidad?' },
-            { de: 'Haben Sie etwas Günstigeres?', es: '¿Tiene algo más barato?' },
-            { de: 'Warum ist das so teuer geworden?', es: '¿Por qué se ha puesto tan caro?' },
-            { de: 'Gibt es heute eine Sonderaktion?', es: '¿Hay hoy alguna oferta especial?' },
-            { de: 'Was kosten zweihundert Gramm Käse?', es: '¿Cuánto cuestan doscientos gramos de queso?' },
-            { de: 'Ist die Dose billiger als die frische Ware?', es: '¿La lata es más barata que el producto fresco?' },
-            { de: 'Warum ist das Brot hier teurer?', es: '¿Por qué el pan es más caro aquí?' },
-            { de: 'Was kostet das Kilo?', es: '¿Cuánto cuesta el kilo?' }
+            { de: 'Warum ist das so teuer geworden?', es: '¿Por qué se ha puesto tan caro?' }
           ]
         },
         {
@@ -2460,31 +2383,17 @@ export const A11 = {
           es: 'Pagar y pedir la cuenta',
           wendungen: [
             { de: 'Die Rechnung, bitte.', es: 'La cuenta, por favor.' },
-            { de: 'Die Rechnung, bitte. Wir zahlen getrennt.', es: 'La cuenta, por favor. Pagamos por separado.' },
-            { de: 'Wie viel macht das? – Das macht 8,50 Euro.', es: '¿Cuánto es? – Son 8,50 euros.' },
             { de: 'Was macht das zusammen?', es: '¿Cuánto es todo junto?' },
-            { de: 'Kann ich mit Karte zahlen?', es: '¿Puedo pagar con tarjeta?' },
-            { de: 'Gibt es einen Rabatt auf abgelaufene Ware?', es: '¿Hay descuento en los productos a punto de caducar?' },
-            { de: 'Ist der Preis pro Person?', es: '¿El precio es por persona?' },
-            { de: 'Geht das auch etwas günstiger?', es: '¿No sale un poco más barato?' },
-            { de: 'Brauchen Sie ein Sackerl?', es: '¿Necesita una bolsa?' },
-            { de: 'Möchten Sie ein Sackerl dazu?', es: '¿Quiere una bolsa?' }
+            { de: 'Brauchen Sie ein Sackerl?', es: '¿Necesita una bolsa?' }
           ]
         },
         {
           funktion: 'über Vorlieben beim Essen sprechen',
           es: 'Hablar de preferencias de comida',
           wendungen: [
-            { de: 'Ich mag keinen Fisch.', es: 'No me gusta el pescado.' },
-            { de: 'Ich esse gern Gemüse.', es: 'Me gusta comer verdura.' },
             { de: 'Isst du gern Fisch?', es: '¿Te gusta el pescado?' },
-            { de: 'Ich esse kein Fleisch.', es: 'No como carne.' },
             { de: 'Magst du scharfes Essen?', es: '¿Te gusta la comida picante?' },
-            { de: 'Was isst du am liebsten?', es: '¿Qué es lo que más te gusta comer?' },
-            { de: 'Magst du österreichisches Essen?', es: '¿Te gusta la comida austriaca?' },
-            { de: 'Isst du gern scharf?', es: '¿Te gusta comer picante?' },
-            { de: 'Trinkst du Kaffee oder lieber Tee?', es: '¿Bebes café o mejor té?' },
-            { de: 'Ich esse kein Schweinefleisch.', es: 'No como carne de cerdo.' }
+            { de: 'Ich esse kein Fleisch.', es: 'No como carne.' }
           ]
         },
         {
@@ -2492,15 +2401,8 @@ export const A11 = {
           es: 'Hablar del sabor y tolerancias',
           wendungen: [
             { de: 'Schmeckt es dir?', es: '¿Te gusta?' },
-            { de: 'Schmeckt dir die Suppe?', es: '¿Te gusta la sopa?' },
-            { de: 'Wie schmeckt dir die österreichische Küche?', es: '¿Qué te parece la cocina austriaca?' },
-            { de: 'Vertragen Sie Milchprodukte?', es: '¿Tolera usted los lácteos?' },
             { de: 'Hast du eine Allergie?', es: '¿Tienes alguna alergia?' },
-            { de: 'Ich bin satt, ich kann nicht mehr.', es: 'Estoy lleno, no puedo más.' },
-            { de: 'Wie findest du das österreichische Frühstück?', es: '¿Qué te parece el desayuno austriaco?' },
-            { de: 'Magst du eher süß oder salzig?', es: '¿Prefieres dulce o salado?' },
-            { de: 'Gibt es etwas, das du nicht magst?', es: '¿Hay algo que no te guste?' },
-            { de: 'Bist du Vegetarier?', es: '¿Eres vegetariano?' }
+            { de: 'Magst du eher süß oder salzig?', es: '¿Prefieres dulce o salado?' }
           ]
         },
         {
@@ -2509,14 +2411,7 @@ export const A11 = {
           wendungen: [
             { de: 'Heute gibt es Suppe und Salat.', es: 'Hoy hay sopa y ensalada.' },
             { de: 'Heute gibt es Nudeln mit Tomatensoße.', es: 'Hoy hay pasta con salsa de tomate.' },
-            { de: 'Zum Frühstück gibt es frische Semmeln.', es: 'Para desayunar hay panecillos frescos.' },
-            { de: 'Als Nachspeise gibt es Eis.', es: 'De postre hay helado.' },
-            { de: 'Im Angebot gibt es diese Woche Fisch.', es: 'Esta semana hay pescado de oferta.' },
-            { de: 'Es gibt heute nur noch kalte Küche.', es: 'Hoy ya solo queda comida fría.' },
-            { de: 'Heute gibt es Fisch aus der Pfanne.', es: 'Hoy hay pescado a la sartén.' },
-            { de: 'Im Ofen ist noch ein Kuchen.', es: 'En el horno hay todavía un pastel.' },
-            { de: 'Zum Nachtisch gibt es frisches Obst.', es: 'De postre hay fruta fresca.' },
-            { de: 'Auf dem Wochenmarkt gibt es alles frisch.', es: 'En el mercado semanal hay de todo fresco.' }
+            { de: 'Im Angebot gibt es diese Woche Fisch.', es: 'Esta semana hay pescado de oferta.' }
           ]
         },
         {
@@ -2525,14 +2420,7 @@ export const A11 = {
           wendungen: [
             { de: 'Wo finde ich hier den Reis?', es: '¿Dónde encuentro aquí el arroz?' },
             { de: 'Haben Sie noch frische Erdäpfel?', es: '¿Le quedan patatas frescas?' },
-            { de: 'Bis wann ist die Milch haltbar?', es: '¿Hasta cuándo dura la leche?' },
-            { de: 'Ich habe meine Einkaufsliste vergessen.', es: 'Me he olvidado la lista de la compra.' },
-            { de: 'Der Einkaufswagen ist schon ganz voll.', es: 'El carrito ya está lleno del todo.' },
-            { de: 'Haben Sie Kleingeld für den Wagen?', es: '¿Tiene suelto para el carrito?' },
-            { de: 'Wo finde ich die Dosen mit Tomaten?', es: '¿Dónde encuentro las latas de tomate?' },
-            { de: 'Ist diese Ware noch haltbar?', es: '¿Este producto todavía está en fecha?' },
-            { de: 'Haben Sie auch tiefgekühltes Gemüse?', es: '¿Tienen también verdura congelada?' },
-            { de: 'Bekomme ich hier auch frisches Brot?', es: '¿Aquí también hay pan fresco?' }
+            { de: 'Haben Sie Kleingeld für den Wagen?', es: '¿Tiene suelto para el carrito?' }
           ]
         }
       ]
