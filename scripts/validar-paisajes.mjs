@@ -31,11 +31,23 @@ for (const m of css.matchAll(re)) {
     continue;
   }
 
+  // Comprobar que no hay sobre-codificación (%2525) en el data URI
+  if (m[3].includes('%2525')) {
+    problemas.push(`${nombre}: el data URI tiene porcentaje sobre-codificado (%2525)`);
+  }
+
   // Etiquetas emparejadas. Se cuentan las de apertura que NO se cierran solas.
   for (const tag of ['g', 'svg', 'defs', 'style', 'linearGradient', 'radialGradient']) {
     const abre = (svg.match(new RegExp(`<${tag}[\\s>]`, 'g')) || []).length;
     const cierra = (svg.match(new RegExp(`</${tag}>`, 'g')) || []).length;
     if (abre !== cierra) problemas.push(`${nombre}: <${tag}> abre ${abre} y cierra ${cierra}`);
+  }
+
+  // Comprobar que los stop offsets de los gradientes sean válidos (ej. "0%", "100%", no "0%%" o "0%25")
+  for (const stop of svg.matchAll(/<stop\s+[^>]*offset="([^"]+)"/g)) {
+    if (/%{2,}/.test(stop[1]) || /%25/.test(stop[1])) {
+      problemas.push(`${nombre}: stop offset inválido "${stop[1]}"`);
+    }
   }
 
   // Referencias a gradientes que no existen.
