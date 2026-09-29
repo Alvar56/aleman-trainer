@@ -540,7 +540,17 @@ export const PREP_LUGAR = {
       { s: 'Ich steige ___ den Bus ein.', a: 'in', d: ['mit', 'auf'], t: 'Me subo al autobús.', e: 'einsteigen in + acusativo.' },
       { s: 'Nach mit steht immer ___.', a: 'der Dativ', d: ['der Akkusativ', 'der Genitiv'], t: 'Después de «mit» va siempre dativo.', e: 'mit dem, mit der, mit den.' },
       { s: 'Sie fährt mit ___ U-Bahn zur Arbeit.', a: 'der', d: ['die', 'dem'], t: 'Va al trabajo en metro.', e: 'die U-Bahn → mit der.' },
-      { s: 'Ich fahre mit ___ Kollegen ins Büro.', a: 'den', d: ['die', 'der'], t: 'Voy a la oficina con los compañeros.', e: 'Dativo plural: mit den + -n.' }
+      { s: 'Ich fahre mit ___ Kollegen ins Büro.', a: 'den', d: ['die', 'der'], t: 'Voy a la oficina con los compañeros.', e: 'Dativo plural: mit den + -n.' },
+      { s: 'Er fährt mit ___ Motorrad zur Arbeit.', a: 'dem', d: ['das', 'der'], t: 'Va al trabajo en moto.', e: 'mit siempre lleva dativo: dem Motorrad.' },
+      { s: 'Wir fahren mit ___ Bahn nach Graz.', a: 'der', d: ['die', 'dem'], t: 'Vamos a Graz en tren.', e: 'die Bahn pasa a der Bahn en dativo.' },
+      { s: 'Sie kommt mit ___ Taxi.', a: 'dem', d: ['das', 'der'], t: 'Viene en taxi.', e: 'das Taxi pasa a dem Taxi.' },
+      { s: 'Ohne Verkehrsmittel sagt man ___.', a: 'zu Fuß', d: ['mit Fuß', 'per Fuß'], t: 'Sin medio de transporte se dice «zu Fuß».', e: 'Es la única expresión con zu.' },
+      { s: 'Ich fahre mit ___ Freunden in den Urlaub.', a: 'meinen', d: ['meine', 'meiner'], t: 'Me voy de vacaciones con mis amigos.', e: 'Dativo plural: meinen Freunden.' },
+      { s: 'Er steigt ___ der Haltestelle aus.', a: 'an', d: ['in', 'auf'], t: 'Se baja en la parada.', e: 'aussteigen an más dativo.' },
+      { s: 'Wir fahren mit ___ Schiff nach Bratislava.', a: 'dem', d: ['das', 'der'], t: 'Vamos a Bratislava en barco.', e: 'das Schiff pasa a dem Schiff.' },
+      { s: 'Ich steige in ___ Zug ein.', a: 'den', d: ['dem', 'der'], t: 'Me subo al tren.', e: 'einsteigen in más acusativo: movimiento.' },
+      { s: 'Mit ___ Rad ist man in der Stadt schneller.', a: 'dem', d: ['das', 'der'], t: 'En bici se va más rápido por la ciudad.', e: 'das Rad pasa a dem Rad.' },
+      { s: 'Sie fliegt mit ___ Maschine um sechs.', a: 'der', d: ['die', 'dem'], t: 'Vuela en el avión de las seis.', e: 'die Maschine pasa a der Maschine.' }
     ]
   }
 };

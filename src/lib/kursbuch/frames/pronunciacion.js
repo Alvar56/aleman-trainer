@@ -536,7 +536,17 @@ export const PRONUNCIACION = {
       { s: 'Der Unterschied zwischen ei und ie ___.', a: 'ändert das Wort', d: ['ändert nichts', 'ist nur Schrift'], t: 'La diferencia entre ei e ie cambia la palabra.', e: 'Beine y Biene no son lo mismo.' },
       { s: '„Häuser“ klingt wie ___.', a: 'Hoiser', d: ['Häuser mit ä', 'Hauser'], t: '«Häuser» suena «hóiser».', e: 'äu = oi.' },
       { s: 'In „Zeitung“ ist ei ___.', a: 'ai', d: ['ei', 'e-i'], t: 'En «Zeitung» el «ei» suena «ai».', e: '«tsáitung».' },
-      { s: '„Freund“ spricht man mit ___.', a: 'oi', d: ['eu', 'ai'], t: '«Freund» se pronuncia con «oi».', e: 'eu = oi, siempre.' }
+      { s: '„Freund“ spricht man mit ___.', a: 'oi', d: ['eu', 'ai'], t: '«Freund» se pronuncia con «oi».', e: 'eu = oi, siempre.' },
+      { s: '„mein“ spricht man mit dem Laut ___.', a: 'ai', d: ['ei wie geschrieben', 'i'], t: '«mein» se pronuncia con el sonido «ai».', e: 'ei siempre suena ai.' },
+      { s: '„viel“ spricht man mit ___.', a: 'langem i', d: ['ai', 'ie getrennt'], t: '«viel» se pronuncia con «i» larga.', e: 'ie es una i larga, no un diptongo.' },
+      { s: '„Baum“ hat den Laut ___.', a: 'au', d: ['a plus u getrennt', 'o'], t: '«Baum» tiene el sonido «au».', e: 'Los dos sonidos se funden en uno.' },
+      { s: '„neun“ spricht man wie ___.', a: 'noin', d: ['neun getrennt', 'nain'], t: '«neun» se pronuncia como «noin».', e: 'eu suena oi.' },
+      { s: '„Bäume“ und „Räume“ haben den Laut ___.', a: 'oi', d: ['ai', 'au'], t: '«Bäume» y «Räume» tienen el sonido «oi».', e: 'äu suena igual que eu.' },
+      { s: '„Wein“ und „Wien“ klingen ___.', a: 'verschieden', d: ['gleich', 'fast gleich'], t: '«Wein» y «Wien» suenan distinto.', e: 'Wein lleva ai, Wien una i larga.' },
+      { s: 'Ein Diphthong ist ___.', a: 'ein Doppellaut', d: ['ein langer Vokal', 'ein Konsonant'], t: 'Un diptongo es un sonido doble.', e: 'Dos vocales en una sola sílaba.' },
+      { s: 'In „heißen“ ist ei ___.', a: 'ein Diphthong', d: ['ein langes e', 'zwei Silben'], t: 'En «heißen» el «ei» es un diptongo.', e: 'Suena ai, en una sola sílaba.' },
+      { s: '„Leute“ spricht man mit ___.', a: 'oi', d: ['ai', 'eu getrennt'], t: '«Leute» se pronuncia con «oi».', e: 'eu suena siempre oi.' },
+      { s: 'Deutsche Diphthonge sind ___.', a: 'ei, au und eu', d: ['ie, ee und aa', 'ch, sch und st'], t: 'Los diptongos alemanes son «ei», «au» y «eu».', e: 'Con sus variantes ai y äu.' }
     ]
   }
 };

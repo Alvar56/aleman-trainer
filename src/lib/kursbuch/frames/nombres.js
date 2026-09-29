@@ -788,7 +788,7 @@ export const NOMBRES = {
       { s: 'Ich habe ___ im linken Ohr.', a: 'Schmerzen', d: ['Schmerz', 'Weh'], t: 'Tengo dolor en el oído izquierdo.', e: 'Schmerzen se usa casi siempre en plural.' },
       { s: '___ du noch Kopfschmerzen?', a: 'Hast', d: ['Habst', 'Hat'], t: '¿Sigues con dolor de cabeza?', e: 'du hast, con la forma irregular.' },
       { s: 'Seit der Tablette sind die Schmerzen ___.', a: 'weniger geworden', d: ['weniger werden', 'wenig geworden'], t: 'Desde la pastilla los dolores han disminuido.', e: 'Perfecto de werden: sind geworden.' },
-      { s: 'Der Arzt fragt, wo ich ___ habe.', a: 'Schmerzen', d: ['schmerzen', 'Schmerz'], t: 'El médico pregunta dónde tengo dolores.', e: 'Es un sustantivo: mayúscula y plural.' },
+      { s: 'Der Arzt fragt, wo ich ___ habe.', a: 'Schmerzen', d: ['Schmerz', 'Weh'], t: 'El médico pregunta dónde tengo dolores.', e: 'Schmerzen va en plural; Weh no se usa con haben.' },
       { s: 'Sie hat ___ und kann kaum schlucken.', a: 'Halsschmerzen', d: ['Halschmerzen', 'Hals Schmerzen'], t: 'Tiene dolor de garganta y casi no puede tragar.', e: 'Hals + Schmerzen: quedan dos eses seguidas.' },
       { s: 'Nach dem fetten Essen bekam er ___.', a: 'Bauchschmerzen', d: ['Bauchschmerz', 'Bauch Schmerzen'], t: 'Después de la comida grasienta le dio dolor de barriga.', e: 'Bauch + Schmerzen, todo junto.' },
       { s: 'Gegen die Schmerzen ___ mir nichts.', a: 'hilft', d: ['helfen', 'hilfst'], t: 'Contra los dolores no me ayuda nada.', e: 'El sujeto es nichts, que es singular.' }

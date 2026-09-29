@@ -282,7 +282,17 @@ export const WECHSEL = {
       { s: 'stellen, legen und hängen fragen nach ___.', a: 'wohin', d: ['wo', 'wann'], t: 'stellen, legen y hängen preguntan «wohin».', e: 'Son los verbos de movimiento.' },
       { s: 'stehen, liegen und hängen fragen nach ___.', a: 'wo', d: ['wohin', 'woher'], t: 'stehen, liegen y hängen preguntan «wo».', e: 'Son los verbos de posición.' },
       { s: 'Setz dich bitte ___ das Sofa.', a: 'auf', d: ['auf dem', 'am'], t: 'Siéntate en el sofá.', e: 'sich setzen → movimiento → acusativo.' },
-      { s: 'Er sitzt ___ dem Sofa.', a: 'auf', d: ['auf das', 'aufs'], t: 'Está sentado en el sofá.', e: 'sitzen → sitio → dativo.' }
+      { s: 'Er sitzt ___ dem Sofa.', a: 'auf', d: ['auf das', 'aufs'], t: 'Está sentado en el sofá.', e: 'sitzen → sitio → dativo.' },
+      { s: 'Ich hänge das Bild über ___ Sofa.', a: 'das', d: ['dem', 'der'], t: 'Cuelgo el cuadro encima del sofá.', e: 'Movimiento (wohin): acusativo.' },
+      { s: 'Das Bild hängt über ___ Sofa.', a: 'dem', d: ['das', 'der'], t: 'El cuadro está encima del sofá.', e: 'Posición (wo): dativo.' },
+      { s: 'Stell die Schuhe bitte vor ___ Tür.', a: 'die', d: ['der', 'dem'], t: 'Pon los zapatos delante de la puerta.', e: 'stellen indica movimiento: acusativo.' },
+      { s: 'Die Pflanze steht auf ___ Fensterbrett.', a: 'dem', d: ['das', 'der'], t: 'La planta está en el alféizar.', e: 'Posición (wo): dativo.' },
+      { s: 'Er legt den Schlüssel neben ___ Teller.', a: 'den', d: ['dem', 'der'], t: 'Pone la llave al lado del plato.', e: 'legen indica movimiento: acusativo.' },
+      { s: 'Der Schlüssel liegt neben ___ Teller.', a: 'dem', d: ['den', 'der'], t: 'La llave está al lado del plato.', e: 'liegen indica posición: dativo.' },
+      { s: 'Wohin fragt nach ___.', a: 'der Richtung', d: ['dem Ort', 'der Zeit'], t: '«Wohin» pregunta por la dirección.', e: 'Y se responde con acusativo.' },
+      { s: 'Wo fragt nach ___.', a: 'dem Ort', d: ['der Richtung', 'der Zeit'], t: '«Wo» pregunta por el lugar.', e: 'Y se responde con dativo.' },
+      { s: 'Ich gehe in ___ Küche.', a: 'die', d: ['der', 'dem'], t: 'Voy a la cocina.', e: 'Movimiento hacia dentro: acusativo.' },
+      { s: 'Ich bin in ___ Küche.', a: 'der', d: ['die', 'dem'], t: 'Estoy en la cocina.', e: 'Estar dentro: dativo.' }
     ]
   }
 };

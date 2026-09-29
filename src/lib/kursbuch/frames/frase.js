@@ -1285,7 +1285,17 @@ export const FRASE = {
       { s: 'Ich denke, dass wir das anders machen ___.', a: 'sollten', d: ['sollten wir', 'sollen'], t: 'Creo que deberíamos hacerlo de otra manera.', e: 'El modal va el último.' },
       { s: 'Er erzählt, dass er die Doku gesehen ___.', a: 'hat', d: ['hat er', 'haben'], t: 'Cuenta que ha visto el documental.', e: 'Perfekt en subordinada: el auxiliar al final.' },
       { s: 'Im Alltag kann man das dass ___.', a: 'weglassen', d: ['nie weglassen', 'verdoppeln'], t: 'En el día a día se puede quitar el «dass».', e: 'Y entonces el orden vuelve a ser normal.' },
-      { s: 'Sie sagt, dass sie keine Zeit ___.', a: 'hat', d: ['hat sie', 'haben'], t: 'Dice que no tiene tiempo.', e: 'Verbo al final.' }
+      { s: 'Sie sagt, dass sie keine Zeit ___.', a: 'hat', d: ['hat sie', 'haben'], t: 'Dice que no tiene tiempo.', e: 'Verbo al final.' },
+      { s: 'Sie sagt, dass der Film zu lang ___.', a: 'sei', d: ['ist es', 'wäre es'], t: 'Dice que la película es demasiado larga.', e: 'sei es la forma de la cita indirecta.' },
+      { s: 'Er meint, dass wir zu viel fernsehen ___.', a: 'würden', d: ['werden wir', 'wurden'], t: 'Dice que vemos demasiada televisión.', e: 'würden para la cita indirecta en plural.' },
+      { s: 'Nach „dass“ steht das Verb ___.', a: 'am Ende', d: ['an zweiter Stelle', 'am Anfang'], t: 'Después de «dass» el verbo va al final.', e: 'dass abre una subordinada.' },
+      { s: 'Ich habe gehört, dass er umgezogen ___.', a: 'ist', d: ['ist er', 'sein'], t: 'He oído que se ha mudado.', e: 'El auxiliar va al final del todo.' },
+      { s: 'Sie schreibt, dass sie später ___.', a: 'kommt', d: ['kommt sie', 'kommen'], t: 'Escribe que vendrá más tarde.', e: 'Verbo conjugado al final.' },
+      { s: '„dass“ schreibt man mit ___.', a: 'Doppel-s', d: ['ß', 'einem s'], t: '«dass» se escribe con doble s.', e: 'No confundir con das, el artículo.' },
+      { s: 'Er erzählt, dass die Serie gut ___ sein.', a: 'soll', d: ['sollen', 'sollte er'], t: 'Cuenta que dicen que la serie es buena.', e: 'sollen indica algo que ha oído decir.' },
+      { s: 'Wir hoffen, dass ihr Zeit ___.', a: 'habt', d: ['habt ihr', 'haben'], t: 'Esperamos que tengáis tiempo.', e: 'Verbo al final, con la forma de ihr.' },
+      { s: 'Ohne „dass“ steht das Verb ___.', a: 'an zweiter Stelle', d: ['am Ende', 'am Anfang'], t: 'Sin «dass» el verbo va en segunda posición.', e: 'Er sagt, die Serie ist gut.' },
+      { s: 'Sie glaubt, dass niemand das ___ hat.', a: 'gesehen', d: ['hat gesehen', 'sehen'], t: 'Cree que nadie lo ha visto.', e: 'Participio y luego hat, los dos al final.' }
     ]
   },
   'meinung-ausdruecken': {
@@ -1299,7 +1309,17 @@ export const FRASE = {
       { s: 'Ich bin der ___, dass wir mehr reden sollten.', a: 'Meinung', d: ['Meinen', 'Gedanke'], t: 'Soy de la opinión de que deberíamos hablar más.', e: 'Ich bin der Meinung, dass …' },
       { s: 'Da ___ ich dir nicht zu.', a: 'stimme', d: ['stimme ich', 'stimmen'], t: 'En eso no te doy la razón.', e: 'zustimmen: el zu al final.' },
       { s: '___ Ansicht nach ist das übertrieben.', a: 'Meiner', d: ['Meine', 'Mein'], t: 'A mi parecer eso es exagerado.', e: 'meiner Ansicht nach, igual que Meinung.' },
-      { s: 'Ich sehe das ___.', a: 'anders', d: ['andere', 'anderes'], t: 'Yo lo veo distinto.', e: 'anders es adverbio: no cambia.' }
+      { s: 'Ich sehe das ___.', a: 'anders', d: ['andere', 'anderes'], t: 'Yo lo veo distinto.', e: 'anders es adverbio: no cambia.' },
+      { s: 'Ich ___ das für übertrieben.', a: 'halte', d: ['finde', 'glaube'], t: 'Eso me parece exagerado.', e: 'etwas für etwas halten, con für.' },
+      { s: 'Ich bin ___ Meinung wie du.', a: 'derselben', d: ['dieselbe', 'der gleiche'], t: 'Soy de la misma opinión que tú.', e: 'derselben Meinung sein, en dativo.' },
+      { s: '___ gesagt gefällt mir das nicht.', a: 'Ehrlich', d: ['Ehrliche', 'Ehrlichkeit'], t: 'Sinceramente, eso no me gusta.', e: 'ehrlich gesagt introduce una opinión franca.' },
+      { s: 'Ich ___ da ganz anderer Meinung.', a: 'bin', d: ['habe', 'finde'], t: 'En eso soy de otra opinión.', e: 'Meinung sein, siempre con sein.' },
+      { s: '___ mich ist das die beste Lösung.', a: 'Für', d: ['Zu', 'An'], t: 'Para mí esa es la mejor solución.', e: 'für mich introduce el punto de vista.' },
+      { s: 'Ich ___ das völlig anders.', a: 'sehe', d: ['finde', 'halte'], t: 'Yo lo veo completamente distinto.', e: 'etwas anders sehen.' },
+      { s: 'Da ___ ich dir völlig recht.', a: 'gebe', d: ['habe', 'finde'], t: 'En eso te doy toda la razón.', e: 'jemandem recht geben.' },
+      { s: 'Ich ___ der Ansicht, dass es reicht.', a: 'bin', d: ['habe', 'finde'], t: 'Opino que ya basta.', e: 'der Ansicht sein, con sein.' },
+      { s: '___ ich das sehe, ist es zu teuer.', a: 'Wie', d: ['Was', 'Dass'], t: 'Tal como lo veo, es demasiado caro.', e: 'Wie ich das sehe introduce la opinión.' },
+      { s: 'Beim Widersprechen sagt man oft ___.', a: 'da bin ich anderer Meinung', d: ['das stimmt genau', 'ganz genau'], t: 'Al discrepar se suele decir «da bin ich anderer Meinung».', e: 'Suena más suave que un no seco.' }
     ]
   },
   'relativsatz-nominativ': {
@@ -1313,7 +1333,17 @@ export const FRASE = {
       { s: 'Der Moderator, ___ die Sendung macht, ist bekannt.', a: 'der', d: ['die', 'das'], t: 'El presentador que hace el programa es conocido.', e: 'der Moderator → der.' },
       { s: 'Das Interview, ___ gestern lief, war spannend.', a: 'das', d: ['der', 'die'], t: 'La entrevista que emitieron ayer fue interesante.', e: 'das Interview → das.' },
       { s: 'Das Relativpronomen sieht aus wie ___.', a: 'der Artikel', d: ['das Verb', 'das Nomen'], t: 'El pronombre relativo se parece al artículo.', e: 'der, die, das, die.' },
-      { s: 'Die Folge, ___ mir am besten gefällt, ist die erste.', a: 'die', d: ['der', 'das'], t: 'El capítulo que más me gusta es el primero.', e: 'die Folge → die.' }
+      { s: 'Die Folge, ___ mir am besten gefällt, ist die erste.', a: 'die', d: ['der', 'das'], t: 'El capítulo que más me gusta es el primero.', e: 'die Folge → die.' },
+      { s: 'Der Mann, ___ dort steht, ist mein Chef.', a: 'der', d: ['den', 'dem'], t: 'El hombre que está ahí es mi jefe.', e: 'Masculino en nominativo: der.' },
+      { s: 'Die Frau, ___ neben mir sitzt, ist Ärztin.', a: 'die', d: ['der', 'den'], t: 'La mujer que está sentada a mi lado es médica.', e: 'Femenino en nominativo: die.' },
+      { s: 'Das Kind, ___ dort spielt, ist mein Neffe.', a: 'das', d: ['der', 'dem'], t: 'El niño que juega ahí es mi sobrino.', e: 'Neutro en nominativo: das.' },
+      { s: 'Die Filme, ___ mir gefallen, sind meist alt.', a: 'die', d: ['der', 'den'], t: 'Las películas que me gustan suelen ser antiguas.', e: 'Plural en nominativo: die.' },
+      { s: 'Vor dem Relativsatz steht ___.', a: 'ein Komma', d: ['ein Punkt', 'nichts'], t: 'Antes de la oración de relativo va una coma.', e: 'En alemán es obligatoria.' },
+      { s: 'Das Relativpronomen richtet sich nach ___.', a: 'dem Nomen davor', d: ['dem Verb', 'dem Satzanfang'], t: 'El relativo concuerda con el nombre anterior.', e: 'El género y el número vienen de ahí.' },
+      { s: 'Der Zug, ___ um acht fährt, ist schneller.', a: 'der', d: ['den', 'dem'], t: 'El tren que sale a las ocho es más rápido.', e: 'der Zug, así que der en nominativo.' },
+      { s: 'Die Sendung, ___ gestern lief, war gut.', a: 'die', d: ['der', 'das'], t: 'El programa que pusieron ayer era bueno.', e: 'die Sendung, así que die.' },
+      { s: 'Das Handy, ___ hier liegt, gehört mir.', a: 'das', d: ['der', 'dem'], t: 'El móvil que está aquí es mío.', e: 'das Handy, así que das.' },
+      { s: 'Der Relativsatz erklärt ___.', a: 'ein Nomen', d: ['ein Verb', 'den ganzen Satz'], t: 'La oración de relativo explica un sustantivo.', e: 'Va justo detrás del nombre al que se refiere.' }
     ]
   },
   'nicht-nur-sondern-auch': {
@@ -1327,7 +1357,17 @@ export const FRASE = {
       { s: 'sondern kommt immer nach ___.', a: 'einer Verneinung', d: ['einem Verb', 'einem Nomen'], t: '«sondern» va siempre después de una negación.', e: 'Si no hay negación, va aber.' },
       { s: 'Das ist nicht mein Handy, ___ deins.', a: 'sondern', d: ['aber', 'oder'], t: 'Ese no es mi móvil, sino el tuyo.', e: 'Corrige: sondern.' },
       { s: 'Er hört nicht nur Podcasts, ___ macht auch selbst welche.', a: 'sondern', d: ['aber', 'und'], t: 'No solo escucha pódcast, también hace los suyos.', e: 'nicht nur … sondern.' },
-      { s: 'Die Doku war informativ ___ unterhaltsam.', a: 'und', d: ['sondern', 'als'], t: 'El documental fue informativo y entretenido.', e: 'Sin negación ni contraste: und.' }
+      { s: 'Die Doku war informativ ___ unterhaltsam.', a: 'und', d: ['sondern', 'als'], t: 'El documental fue informativo y entretenido.', e: 'Sin negación ni contraste: und.' },
+      { s: 'Das ist nicht rot, ___ orange.', a: 'sondern', d: ['aber', 'oder'], t: 'Eso no es rojo, sino naranja.', e: 'sondern corrige algo negado antes.' },
+      { s: 'Er ist müde, ___ er arbeitet weiter.', a: 'aber', d: ['sondern', 'denn'], t: 'Está cansado, pero sigue trabajando.', e: 'aber une sin corregir una negación.' },
+      { s: '„sondern“ steht nur nach ___.', a: 'einer Verneinung', d: ['einer Frage', 'einem Komma'], t: '«sondern» solo va después de una negación.', e: 'nicht … sondern, kein … sondern.' },
+      { s: 'Sie wohnt nicht in Wien, ___ in Graz.', a: 'sondern', d: ['aber', 'und'], t: 'No vive en Viena, sino en Graz.', e: 'Corrige lo negado.' },
+      { s: 'Er spricht nicht nur Deutsch, ___ auch Türkisch.', a: 'sondern', d: ['aber', 'oder'], t: 'No solo habla alemán, sino también turco.', e: 'nicht nur … sondern auch.' },
+      { s: 'Das Essen war teuer, ___ sehr gut.', a: 'aber', d: ['sondern', 'und'], t: 'La comida era cara, pero muy buena.', e: 'No hay negación, así que aber.' },
+      { s: 'Ich nehme kein Fleisch, ___ Fisch.', a: 'sondern', d: ['aber', 'oder'], t: 'No tomo carne, sino pescado.', e: 'Detrás de kein va sondern.' },
+      { s: 'Nicht nur ich, ___ auch die anderen finden das.', a: 'sondern', d: ['aber', 'und'], t: 'No solo yo, también los demás lo creen.', e: 'La pareja fija nicht nur … sondern auch.' },
+      { s: 'Vor „sondern“ steht ___.', a: 'ein Komma', d: ['ein Punkt', 'nichts'], t: 'Antes de «sondern» va una coma.', e: 'Siempre, sin excepción.' },
+      { s: 'Er kommt nicht heute, ___ morgen.', a: 'sondern', d: ['aber', 'oder'], t: 'No viene hoy, sino mañana.', e: 'Corrige el dato negado.' }
     ]
   },
   'zu-infinitiv-medien': {
@@ -1341,7 +1381,17 @@ export const FRASE = {
       { s: 'Es ist schwer, das Handy ___.', a: 'wegzulegen', d: ['weglegen zu', 'zu weglegen'], t: 'Cuesta soltar el móvil.', e: 'weglegen, separable.' },
       { s: 'Sie hat beschlossen, das Abo ___.', a: 'zu kündigen', d: ['kündigen', 'zu kündige'], t: 'Ha decidido cancelar la suscripción.', e: 'beschließen + zu.' },
       { s: 'Bei trennbaren Verben steht zu ___.', a: 'zwischen Vorsilbe und Verb', d: ['vor dem Verb', 'am Ende'], t: 'En los separables el «zu» va entre el prefijo y el verbo.', e: 'anzurufen, fernzusehen, aufzustehen.' },
-      { s: 'Ich habe keine Zeit, die Serie ___ Ende zu schauen.', a: 'zu', d: ['um zu', 'bis'], t: 'No tengo tiempo de ver la serie hasta el final.', e: 'zu Ende schauen, con el zu de la construcción al final.' }
+      { s: 'Ich habe keine Zeit, die Serie ___ Ende zu schauen.', a: 'zu', d: ['um zu', 'bis'], t: 'No tengo tiempo de ver la serie hasta el final.', e: 'zu Ende schauen, con el zu de la construcción al final.' },
+      { s: 'Ich habe vor, weniger fernzusehen. Bei „fernsehen“ steht zu ___.', a: 'in der Mitte', d: ['am Anfang', 'am Ende'], t: 'En «fernsehen» el zu va en medio.', e: 'fernzusehen, porque es separable.' },
+      { s: 'Es lohnt sich, diese Doku ___ schauen.', a: 'zu', d: ['zum', 'um'], t: 'Merece la pena ver ese documental.', e: 'Es lohnt sich, etwas zu tun.' },
+      { s: 'Ich habe Lust, heute nichts ___ tun.', a: 'zu', d: ['zum', 'um'], t: 'Me apetece no hacer nada hoy.', e: 'Lust haben, etwas zu tun.' },
+      { s: 'Sie hat aufgehört, das Abo ___ bezahlen.', a: 'zu', d: ['zum', 'um'], t: 'Ha dejado de pagar la suscripción.', e: 'aufhören pide zu más infinitivo.' },
+      { s: 'Nach einem Modalverb steht ___.', a: 'kein zu', d: ['immer zu', 'manchmal zu'], t: 'Después de un modal no va zu.', e: 'Ich will schauen, no ich will zu schauen.' },
+      { s: 'Ich finde es schwer, früh ___ schlafen.', a: 'einzu', d: ['zu ein', 'ein zu'], t: 'Me cuesta dormirme pronto.', e: 'einschlafen es separable: einzuschlafen.' },
+      { s: 'Es ist gesund, weniger Zeit am Handy ___ verbringen.', a: 'zu', d: ['zum', 'um'], t: 'Es sano pasar menos tiempo con el móvil.', e: 'Es ist gesund, etwas zu tun.' },
+      { s: 'Er hat versucht, die Folge ___ Ende zu sehen.', a: 'zu', d: ['bis', 'am'], t: 'Intentó ver el episodio hasta el final.', e: 'zu Ende sehen, expresión fija.' },
+      { s: 'Ich habe beschlossen, abends ___ lesen.', a: 'zu', d: ['zum', 'um'], t: 'He decidido leer por las noches.', e: 'beschließen pide zu más infinitivo.' },
+      { s: 'Wo steht der zu-Infinitiv?', a: 'am Satzende', d: ['am Anfang', 'nach dem Subjekt'], t: '¿Dónde va el infinitivo con zu?', e: 'Al final de su parte de la frase.' }
     ]
   },
   'imperativ-beim-helfen': {
@@ -1355,7 +1405,17 @@ export const FRASE = {
       { s: '___ Sie mir bitte!', a: 'Helfen', d: ['Hilf', 'Helft'], t: '¡Ayúdeme, por favor!', e: 'Cortés: Helfen Sie mir bitte.' },
       { s: '___ ruhig, ich mache das.', a: 'Bleib', d: ['Bleibst', 'Bleiben'], t: 'Quédate tranquilo, ya lo hago yo.', e: 'bleiben → Bleib!' },
       { s: 'Mit bitte klingt der Imperativ ___.', a: 'freundlicher', d: ['härter', 'gleich'], t: 'Con «bitte» el imperativo suena más amable.', e: 'Casi siempre se añade bitte.' },
-      { s: '___ dir keine Sorgen!', a: 'Mach', d: ['Machst', 'Machen'], t: '¡No te preocupes!', e: 'Mach dir keine Sorgen, frase hecha.' }
+      { s: '___ dir keine Sorgen!', a: 'Mach', d: ['Machst', 'Machen'], t: '¡No te preocupes!', e: 'Mach dir keine Sorgen, frase hecha.' },
+      { s: '___ bitte vorsichtig mit der Kiste!', a: 'Sei', d: ['Bist', 'Seid'], t: '¡Ten cuidado con la caja!', e: 'El imperativo de sein con du es sei.' },
+      { s: '___ mir das Werkzeug, bitte!', a: 'Gib', d: ['Gibst', 'Gebe'], t: '¡Dame la herramienta, por favor!', e: 'geben pasa a gib en imperativo con du.' },
+      { s: '___ bitte langsam, die Treppe ist eng!', a: 'Geht', d: ['Geh ihr', 'Gehen'], t: '¡Id despacio, la escalera es estrecha!', e: 'Imperativo con ihr: la forma normal sin ihr.' },
+      { s: '___ Sie bitte kurz die Tür auf!', a: 'Machen', d: ['Macht', 'Mach'], t: '¡Abra un momento la puerta, por favor!', e: 'Con Sie: infinitivo más Sie.' },
+      { s: '___ mir mal kurz die Hand!', a: 'Reich', d: ['Reichst', 'Reiche du'], t: '¡Dame la mano un momento!', e: 'Imperativo con du, sin pronombre.' },
+      { s: 'Im Imperativ mit du fehlt ___.', a: 'das Pronomen', d: ['das Verb', 'das Komma'], t: 'En el imperativo con du falta el pronombre.', e: 'Komm!, no du kommst!' },
+      { s: '___ nicht so schwer, ich helfe dir!', a: 'Trag', d: ['Trägst', 'Trage nicht du'], t: '¡No cargues tanto, te ayudo!', e: 'tragen pasa a trag en imperativo.' },
+      { s: '___ uns bitte kurz Bescheid!', a: 'Sag', d: ['Sagst', 'Sagen'], t: '¡Avísanos un momento!', e: 'sagen pasa a sag con du.' },
+      { s: '___ Sie sich bitte keine Sorgen!', a: 'Machen', d: ['Macht', 'Mach'], t: '¡No se preocupe, por favor!', e: 'Forma de cortesía con Sie.' },
+      { s: '___ das Fenster bitte zu, es zieht!', a: 'Mach', d: ['Machst', 'Machen du'], t: '¡Cierra la ventana, hay corriente!', e: 'Imperativo con du más el prefijo al final.' }
     ]
   },
   'lassen-etwas-machen-lassen': {
@@ -1369,7 +1429,17 @@ export const FRASE = {
       { s: 'Sie ___ sich ein Kleid machen.', a: 'lässt', d: ['lasst', 'lassen'], t: 'Se manda hacer un vestido.', e: 'sie (singular) lässt.' },
       { s: '___ ihr das Essen liefern?', a: 'Lasst', d: ['Lässt', 'Lassen'], t: '¿Os traen la comida a casa?', e: 'ihr lasst.' },
       { s: 'Ich ___ das Fenster reparieren.', a: 'muss', d: ['müsse', 'musst'], t: 'Tengo que mandar arreglar la ventana.', e: 'Con modal: muss … reparieren lassen.' },
-      { s: 'lassen kann auch ___ heißen.', a: 'liegen lassen', d: ['machen', 'gehen'], t: '«lassen» también puede significar dejar algo.', e: 'Ich habe den Schlüssel liegen lassen.' }
+      { s: 'lassen kann auch ___ heißen.', a: 'liegen lassen', d: ['machen', 'gehen'], t: '«lassen» también puede significar dejar algo.', e: 'Ich habe den Schlüssel liegen lassen.' },
+      { s: 'Ich ___ mir jeden Monat die Haare färben.', a: 'lasse', d: ['lasst', 'gelassen'], t: 'Me tiño el pelo cada mes.', e: 'ich lasse, primera persona.' },
+      { s: 'Er ___ sich vom Arzt untersuchen.', a: 'lässt', d: ['lasst', 'lassen'], t: 'Se hace examinar por el médico.', e: 'er lässt, con Umlaut.' },
+      { s: 'Wir ___ das Essen nach Hause liefern.', a: 'lassen', d: ['lässt', 'lasst'], t: 'Nos traen la comida a casa.', e: 'wir lassen, plural.' },
+      { s: '___ ihr die Wohnung streichen?', a: 'Lasst', d: ['Lässt', 'Lassen'], t: '¿Vais a hacer pintar el piso?', e: 'Con ihr: lasst.' },
+      { s: 'Nach „lassen“ steht der Infinitiv ___.', a: 'ohne zu', d: ['mit zu', 'als Partizip'], t: 'Después de «lassen» el infinitivo va sin zu.', e: 'Ich lasse es reparieren.' },
+      { s: 'Ich ___ das Auto nicht selbst reparieren.', a: 'lasse', d: ['lässt', 'lassen'], t: 'El coche no lo reparo yo mismo.', e: 'lassen indica que lo hace otro.' },
+      { s: '„Lass mich in Ruhe“ bedeutet ___.', a: 'stör mich nicht', d: ['hilf mir', 'komm mit'], t: '«Lass mich in Ruhe» significa que no te molesten.', e: 'Aquí lassen significa dejar.' },
+      { s: 'Sie ___ sich ein neues Bad einbauen.', a: 'lässt', d: ['lasst', 'lassen'], t: 'Se está haciendo poner un baño nuevo.', e: 'sie lässt, tercera del singular.' },
+      { s: 'Ich habe den Schlüssel zu Hause ___.', a: 'gelassen', d: ['gelasst', 'lassen'], t: 'Me he dejado la llave en casa.', e: 'El participio de lassen es gelassen.' },
+      { s: '___ du mich bitte kurz vorbei?', a: 'Lässt', d: ['Lasst', 'Lassen'], t: '¿Me dejas pasar un momento?', e: 'Con du: lässt.' }
     ]
   },
   'indirekte-frage-hoeflich-reisen': {
@@ -1383,7 +1453,17 @@ export const FRASE = {
       { s: 'Die indirekte Frage ist ___ als die direkte.', a: 'höflicher', d: ['kürzer', 'gleich'], t: 'La pregunta indirecta es más cortés que la directa.', e: 'Por eso se usa mucho viajando.' },
       { s: 'Wissen Sie, wann das Hotel ___?', a: 'aufmacht', d: ['macht auf', 'aufmachen'], t: '¿Sabe cuándo abre el hotel?', e: 'Separable sin partir.' },
       { s: 'Können Sie mir sagen, wo ich ein Ticket ___ kann?', a: 'kaufen', d: ['kaufe', 'gekauft'], t: '¿Me puede decir dónde puedo comprar un billete?', e: 'El modal cierra: kaufen kann.' },
-      { s: 'Ich weiß nicht, ___ der Flug pünktlich ist.', a: 'ob', d: ['dass', 'wenn'], t: 'No sé si el vuelo va puntual.', e: 'ob para sí/no.' }
+      { s: 'Ich weiß nicht, ___ der Flug pünktlich ist.', a: 'ob', d: ['dass', 'wenn'], t: 'No sé si el vuelo va puntual.', e: 'ob para sí/no.' },
+      { s: 'Wissen Sie, wie lange die Fahrt ___?', a: 'dauert', d: ['dauert sie', 'dauern'], t: '¿Sabe cuánto dura el viaje?', e: 'Verbo al final de la pregunta indirecta.' },
+      { s: 'Können Sie mir sagen, wo ich umsteigen ___?', a: 'muss', d: ['muss ich', 'müssen'], t: '¿Me puede decir dónde tengo que cambiar?', e: 'El modal va el último.' },
+      { s: 'Ohne Fragewort benutzt man ___.', a: 'ob', d: ['dass', 'wenn'], t: 'Sin palabra interrogativa se usa «ob».', e: 'Ich weiß nicht, ob er kommt.' },
+      { s: 'Weißt du, ___ der Zug abfährt?', a: 'wann', d: ['ob', 'dass'], t: '¿Sabes cuándo sale el tren?', e: 'Con la palabra interrogativa wann.' },
+      { s: 'Ich möchte wissen, ___ noch Plätze frei sind.', a: 'ob', d: ['wann', 'dass'], t: 'Quisiera saber si quedan plazas libres.', e: 'Pregunta de sí o no: ob.' },
+      { s: 'Können Sie mir sagen, wo der Ausgang ___?', a: 'ist', d: ['ist er', 'sein'], t: '¿Me puede decir dónde está la salida?', e: 'Verbo al final.' },
+      { s: 'Die indirekte Frage braucht ___.', a: 'ein Komma', d: ['ein Fragezeichen am Anfang', 'nichts'], t: 'La pregunta indirecta necesita una coma.', e: 'Antes de la subordinada.' },
+      { s: 'Wissen Sie, ___ das Museum heute offen hat?', a: 'ob', d: ['wann', 'dass'], t: '¿Sabe si el museo abre hoy?', e: 'Sí o no, así que ob.' },
+      { s: 'Darf ich fragen, wie viel das ___?', a: 'kostet', d: ['kostet es', 'kosten'], t: '¿Puedo preguntar cuánto cuesta?', e: 'Verbo al final de la indirecta.' },
+      { s: 'Die indirekte Frage klingt ___ als die direkte.', a: 'höflicher', d: ['kürzer', 'unklarer'], t: 'La pregunta indirecta suena más educada.', e: 'Por eso se usa con desconocidos.' }
     ]
   },
   'wenn-dann-reise': {
@@ -1397,7 +1477,17 @@ export const FRASE = {
       { s: 'Wenn ihr Zeit ___, kommt doch mit!', a: 'habt', d: ['habt ihr', 'haben'], t: 'Si tenéis tiempo, ¡venid!', e: 'Con ihr: habt, al final.' },
       { s: 'Wenn wir in Wien ___, besuchen wir Oma.', a: 'sind', d: ['sind wir', 'sein'], t: 'Cuando estemos en Viena, visitamos a la abuela.', e: 'Verbo al final.' },
       { s: 'Nach dem wenn-Satz kommt zuerst ___.', a: 'das Verb', d: ['das Subjekt', 'das Nomen'], t: 'Después de la frase con wenn viene primero el verbo.', e: 'Porque la subordinada ocupa la posición 1.' },
-      { s: 'Wenn du müde bist, ___ eine Pause!', a: 'mach', d: ['machst', 'machen'], t: 'Si estás cansado, ¡haz una pausa!', e: 'En la principal también puede ir un imperativo.' }
+      { s: 'Wenn du müde bist, ___ eine Pause!', a: 'mach', d: ['machst', 'machen'], t: 'Si estás cansado, ¡haz una pausa!', e: 'En la principal también puede ir un imperativo.' },
+      { s: 'Wenn wir ankommen, ___ ich dir sofort.', a: 'schreibe', d: ['ich schreibe', 'schreiben'], t: 'Cuando lleguemos, te escribo enseguida.', e: 'Verbo justo detrás de la coma.' },
+      { s: 'Wenn du kein Ticket ___, musst du zahlen.', a: 'hast', d: ['hast du', 'haben'], t: 'Si no tienes billete, tienes que pagar.', e: 'Verbo al final de la subordinada.' },
+      { s: 'Wenn der Flug gestrichen wird, ___ wir den Zug.', a: 'nehmen', d: ['wir nehmen', 'genommen'], t: 'Si cancelan el vuelo, cogemos el tren.', e: 'Verbo en primera posición de la principal.' },
+      { s: 'Wenn ihr wollt, ___ wir am Meer Halt.', a: 'machen', d: ['wir machen', 'gemacht'], t: 'Si queréis, paramos en el mar.', e: 'Halt machen, con el verbo delante.' },
+      { s: 'Das Wort „dann“ kann man ___.', a: 'weglassen', d: ['nie weglassen', 'verdoppeln'], t: 'La palabra «dann» se puede omitir.', e: 'Wenn es regnet, (dann) bleiben wir.' },
+      { s: 'Wenn das Wetter gut ___, fahren wir ans Meer.', a: 'ist', d: ['ist es', 'sein'], t: 'Si hace buen tiempo, vamos al mar.', e: 'Verbo al final de la subordinada.' },
+      { s: 'Wenn ich Urlaub ___, reise ich immer weit.', a: 'habe', d: ['habe ich', 'haben'], t: 'Cuando tengo vacaciones, siempre viajo lejos.', e: 'Verbo al final, detrás de Urlaub.' },
+      { s: 'Steht „wenn“ am Anfang, kommt danach ___.', a: 'das Verb der Hauptsatz', d: ['das Subjekt', 'ein Punkt'], t: 'Si «wenn» va al principio, después viene el verbo de la principal.', e: 'Wenn es regnet, bleiben wir.' },
+      { s: 'Wenn wir uns verspäten, ___ bitte an.', a: 'ruf', d: ['rufst', 'rufen'], t: 'Si nos retrasamos, llama por favor.', e: 'Imperativo con du: ruf … an.' },
+      { s: 'Wenn du Hunger ___, essen wir unterwegs.', a: 'hast', d: ['hast du', 'haben'], t: 'Si tienes hambre, comemos por el camino.', e: 'Verbo al final de la subordinada.' }
     ]
   },
   'konjunktiv-ii-beschwerde': {
@@ -1411,7 +1501,17 @@ export const FRASE = {
       { s: 'Der Konjunktiv II klingt ___.', a: 'höflicher', d: ['härter', 'gleich'], t: 'El Konjunktiv II suena más cortés.', e: 'Por eso se usa para quejarse.' },
       { s: 'Ich ___ das anders gemacht.', a: 'hätte', d: ['hatte', 'habe'], t: 'Yo lo habría hecho de otra manera.', e: 'hätte + participio.' },
       { s: '___ Sie so nett und rufen Sie an?', a: 'Wären', d: ['Waren', 'Sind'], t: '¿Sería tan amable de llamar?', e: 'Wären Sie so nett …?' },
-      { s: 'Ich ___ sagen, das war nicht in Ordnung.', a: 'muss', d: ['müsste', 'musste'], t: 'Tengo que decir que eso no estuvo bien.', e: 'Aquí sí es directo: muss.' }
+      { s: 'Ich ___ sagen, das war nicht in Ordnung.', a: 'muss', d: ['müsste', 'musste'], t: 'Tengo que decir que eso no estuvo bien.', e: 'Aquí sí es directo: muss.' },
+      { s: 'Das Zimmer ___ eigentlich ruhig sein.', a: 'sollte', d: ['soll', 'wird'], t: 'La habitación debería ser tranquila.', e: 'sollte para reclamar con educación.' },
+      { s: 'Ich ___ gern mit dem Manager sprechen.', a: 'würde', d: ['werde', 'wurde'], t: 'Querría hablar con el gerente.', e: 'würde gern más infinitivo.' },
+      { s: '___ Sie das bitte in Ordnung bringen?', a: 'Könnten', d: ['Konnten', 'Können brächten'], t: '¿Lo podría arreglar, por favor?', e: 'könnten Sie, la fórmula de reclamación.' },
+      { s: 'Es ___ schön, wenn das heute noch ginge.', a: 'wäre', d: ['war', 'ist'], t: 'Estaría bien si pudiera ser hoy.', e: 'wäre en la parte principal.' },
+      { s: 'Ich ___ eine Erklärung erwartet.', a: 'hätte', d: ['habe', 'hatte'], t: 'Habría esperado una explicación.', e: 'hätte más participio para el pasado.' },
+      { s: '___ es möglich, den Preis zu reduzieren?', a: 'Wäre', d: ['War', 'Wird'], t: '¿Sería posible rebajar el precio?', e: 'wäre para pedir con delicadeza.' },
+      { s: 'An Ihrer Stelle ___ ich mich beschweren.', a: 'würde', d: ['werde', 'wurde'], t: 'Yo en su lugar me quejaría.', e: 'An deiner Stelle würde ich, para aconsejar.' },
+      { s: '___ Sie mir bitte den Betrag zurückerstatten?', a: 'Könnten', d: ['Konnten', 'Können erstatteten'], t: '¿Me podría devolver el importe?', e: 'könnten Sie, petición formal.' },
+      { s: 'Ich ___ das gern schriftlich haben.', a: 'hätte', d: ['habe', 'hatte'], t: 'Lo querría por escrito.', e: 'ich hätte gern, también al reclamar.' },
+      { s: 'Beim Reklamieren klingt der Konjunktiv ___.', a: 'sachlicher', d: ['aggressiver', 'unklarer'], t: 'Al reclamar, el subjuntivo suena más objetivo.', e: 'Se consigue más que gritando.' }
     ]
   }
 };
