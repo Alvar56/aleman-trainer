@@ -114,14 +114,14 @@ const DICT = {
   'entries': ['entradas', 'entries'],
   'entry': ['entrada', 'entry'],
   'rules': ['reglas', 'rules'],
-  'frames.pickOne': ['elige la opción correcta', 'choose the correct option'],
-  'frames.orderIt': ['ordena la frase', 'put the sentence in order'],
+  'frames.pickOne': ['Elige la opción correcta', 'Choose the correct option'],
+  'frames.orderIt': ['Ordena la frase', 'Put the sentence in order'],
   // Los mismos enunciados, pero sueltos: las plantillas de src/topics no
   // llevan el "Erganzen Sie:" delante.
   'frames.pickOneFull': ['Elige la opción correcta', 'Choose the correct option'],
   'frames.orderFull': ['Ordena las palabras para formar la frase', 'Put the words in order to make the sentence'],
   'frames.clozeFull': ['Completa el texto con las palabras del banco', 'Complete the text with the words from the bank'],
-  'frames.clozeIt': ['completa el texto', 'complete the text'],
+  'frames.clozeIt': ['Completa el texto', 'Complete the text'],
   // Enunciados de reserva para los ejercicios que genera la IA, por si no
   // devuelve el suyo.
   'ai.doExercise': ['Completa el ejercicio', 'Complete the exercise'],
@@ -931,7 +931,7 @@ const DICT = {
     'Simulacro del examen A2 (Goethe / ÖSD) con los cuatro Teile. Cada tarea se genera nueva, con las mismas trampas que el examen real: negaciones, distractores y sinónimos.',
     'A2 exam mock (Goethe / ÖSD) with all four Teile. Every task is generated fresh, with the same traps as the real exam: negations, distractors and synonyms.'
   ],
-  'pf.notDone': ['sin hacer', 'not attempted'],
+  'pf.notDone': ['Sin hacer', 'Not attempted'],
   'pf.attempts': ['{n} intentos · último {p}%', '{n} attempts · last {p}%'],
   'pf.oneAttempt': ['1 intento · {p}%', '1 attempt · {p}%'],
   'pf.realAudio': ['Exámenes oficiales con audio', 'Official exams with audio'],
@@ -1382,7 +1382,7 @@ const DICT = {
   'hg.results': ['Ver resultados', 'See results'],
 
   // home
-  'home.sesionesSub': ['desde que empezaste', 'since you started'],
+  'home.sesionesSub': ['Desde que empezaste', 'Since you started'],
   'home.atRiskWhy': ['Practica hoy para no perder la racha', 'Practise today to keep your streak'],
   'home.practiceNoteSinIA': [
     'Estos dan 1 moneda por acierto. Las lecciones completas, retos o exámenes otorgan más monedas y XP extra.',
@@ -1481,8 +1481,8 @@ const DICT = {
     'Mazo creado con {n} palabras. Lo tienes en Wortschatz.',
     'Deck created with {n} words. You will find it in Wortschatz.'
   ],
-  'voc.genSub': ['un mazo nuevo sobre el tema que le pidas', 'a new deck on any topic you ask for'],
-  'voc.myDecksSubSinIA': ['importados de un archivo', 'imported from a file'],
+  'voc.genSub': ['Un mazo nuevo sobre el tema que le pidas', 'A new deck on any topic you ask for'],
+  'voc.myDecksSubSinIA': ['Importados de un archivo', 'Imported from a file'],
   'voc.colNinguno': ['Sin color', 'No colour'],
   'voc.colRojo': ['Rojo', 'Red'],
   'voc.colAzul': ['Azul', 'Blue'],
