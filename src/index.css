@@ -885,7 +885,7 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 }
 .bubble-tail-right .tail-stroke {
   stroke: var(--border-strong);
-  stroke-width: 1.5;
+  stroke-width: 1.15;
   stroke-linecap: butt;
   stroke-linejoin: round;
   fill: none;
@@ -4926,7 +4926,7 @@ input.vs-respuesta { max-width: 460px; }
 }
 .bubble-tail-left .tail-stroke {
   stroke: var(--border-strong);
-  stroke-width: 1.5;
+  stroke-width: 1.15;
   stroke-linecap: butt;
   stroke-linejoin: round;
   fill: none;
@@ -4956,7 +4956,7 @@ input.vs-respuesta { max-width: 460px; }
 }
 .sentence-tuyo .bubble-tail-right .tail-stroke {
   stroke: #cddcec;
-  stroke-width: 1.5;
+  stroke-width: 1.15;
   stroke-linecap: butt;
   stroke-linejoin: round;
 }
