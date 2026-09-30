@@ -208,7 +208,7 @@ export default function FoxChat({ abrirCon = null, onClose }) {
 
       <div className="fox-chat-head">
         <button 
-          className={'fox-avatar fox-aura-wrap fox-aura-' + (fuchs.fondo || 'nadaFondo') + (busy ? ' pensando' : '')} 
+          className={'fox-avatar' + (busy ? ' pensando' : '')} 
           onClick={() => setAjustes(true)}
           style={{ cursor: 'pointer', border: 'none', background: 'transparent', padding: 0 }}
           title={t('fox.customiseName', { nombre: fuchs.nombre })}

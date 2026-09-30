@@ -166,7 +166,7 @@ export default function FoxOverlay({ fox, mudo = false, racha = 0 }) {
         style={{ transform: fox.salta ? 'translateY(-15px)' : 'none' }}
       >
         {fox.msg && <div className={'fox-burbuja-dice' + (mudo ? ' estorba' : '')}>{fox.msg}</div>}
-        <div className={'fox-overlay-cara fox-aura-wrap fox-aura-' + fondo} style={{ pointerEvents: 'auto' }}>
+        <div className="fox-overlay-cara" style={{ pointerEvents: 'auto' }}>
           <FoxFace
             fuchs={f}
             gesto={fox.gesto}
