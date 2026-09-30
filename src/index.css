@@ -5364,20 +5364,69 @@ input.vs-respuesta { max-width: 460px; }
 .fox-x-flor { transform-origin: 50% 100%; animation: fox-brisa 2.8s ease-in-out infinite; }
 .fox-x-navidad { transform-origin: 30% 100%; animation: fox-brisa 4.6s ease-in-out infinite; }
 
-/* Lo de rey y objetos legendarios brillan de forma limpia con luminosidad pixel art (sin filtros difusos). */
-@keyframes fox-brillo {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.45); }
+/* Objetos legendarios y joyas: brillo sutil, refinado y no invasivo */
+@keyframes fox-brillo-oro {
+  0%, 100% { filter: drop-shadow(0 0 0.8px rgba(234, 179, 8, 0.35)) brightness(1); }
+  50% { filter: drop-shadow(0 0 1.6px rgba(250, 204, 21, 0.6)) brightness(1.15); }
 }
 .fox-x-corona,
 .fox-x-bastonrey,
 .fox-x-medalla,
 .fox-x-trofeo,
-.fox-x-collarReina,
-.fox-x-diadema,
-.fox-x-cristal,
 .fox-x-monoculo {
-  animation: fox-brillo 2.4s ease-in-out infinite;
+  animation: fox-brillo-oro 3s ease-in-out infinite;
+}
+
+@keyframes fox-brillo-cristal {
+  0%, 100% { filter: drop-shadow(0 0 0.8px rgba(186, 230, 253, 0.35)) brightness(1); }
+  50% { filter: drop-shadow(0 0 1.6px rgba(224, 242, 254, 0.7)) brightness(1.15); }
+}
+.fox-x-diadema,
+.fox-x-cristal {
+  animation: fox-brillo-cristal 2.8s ease-in-out infinite;
+}
+
+@keyframes fox-brillo-gema {
+  0%, 100% { filter: drop-shadow(0 0 0.8px rgba(255, 45, 135, 0.3)) brightness(1); }
+  50% { filter: drop-shadow(0 0 1.6px rgba(255, 105, 180, 0.6)) brightness(1.15); }
+}
+.fox-x-collarReina {
+  animation: fox-brillo-gema 2.8s ease-in-out infinite;
+}
+
+/* El orbe se mece entero: la cruz va soldada a la bola y lleva aura sutil */
+@keyframes fox-orbe {
+  0%, 100% { transform: translateY(0) rotate(-3deg); filter: drop-shadow(0 0 0.8px rgba(255, 45, 135, 0.3)) brightness(1); }
+  50% { transform: translateY(-1px) rotate(3deg); filter: drop-shadow(0 0 1.6px rgba(255, 105, 180, 0.6)) brightness(1.15); }
+}
+.fox-x-orbe { transform-origin: 50% 100%; animation: fox-orbe 4s ease-in-out infinite; }
+
+/* --- GLOW METÁLICO ELEGANTE PARA PIELES BRONCE, PLATA Y ORO --- */
+@keyframes fox-glow-dorado {
+  0%, 100% { filter: drop-shadow(0 0 0.9px rgba(234, 179, 8, 0.3)) brightness(1); }
+  50% { filter: drop-shadow(0 0 2px rgba(250, 204, 21, 0.55)) brightness(1.08); }
+}
+.fox-color-dorado .fox-cuerpo,
+.fox-color-dorado .fox-cola {
+  animation: fox-glow-dorado 3.5s ease-in-out infinite;
+}
+
+@keyframes fox-glow-plata {
+  0%, 100% { filter: drop-shadow(0 0 0.9px rgba(203, 213, 225, 0.35)) brightness(1); }
+  50% { filter: drop-shadow(0 0 2px rgba(241, 245, 249, 0.6)) brightness(1.1); }
+}
+.fox-color-plata .fox-cuerpo,
+.fox-color-plata .fox-cola {
+  animation: fox-glow-plata 3.5s ease-in-out infinite;
+}
+
+@keyframes fox-glow-bronce {
+  0%, 100% { filter: drop-shadow(0 0 0.9px rgba(180, 83, 9, 0.3)) brightness(1); }
+  50% { filter: drop-shadow(0 0 2px rgba(251, 146, 60, 0.5)) brightness(1.08); }
+}
+.fox-color-bronce .fox-cuerpo,
+.fox-color-bronce .fox-cola {
+  animation: fox-glow-bronce 3.5s ease-in-out infinite;
 }
 
 /* Las pelotas botan.
@@ -5386,26 +5435,6 @@ input.vs-respuesta { max-width: 460px; }
 @keyframes fox-bote {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-3px); }
-}
-.fox-x-balon .fox-px-mueve { animation: fox-bote 1.8s ease-in-out infinite; }
-
-/* El orbe se mece entero: la cruz va soldada a la bola y separarlas quedaba
-   como si se le cayera. */
-@keyframes fox-orbe {
-  0%, 100% { transform: translateY(0) rotate(-3deg); filter: brightness(1); }
-  50% { transform: translateY(-1px) rotate(3deg); filter: brightness(1.35); }
-}
-.fox-x-orbe { transform-origin: 50% 100%; animation: fox-orbe 4s ease-in-out infinite; }
-
-/* Las pelotas botan.
-   El salto es de un píxel entero del dibujo, no de una fracción: esto es
-   pixel art y medio píxel sale borroso. Y va en cada cuadradito por separado
-   (.fox-px-mueve), no en el complemento entero, porque el pie del trofeo se
-   tiene que quedar donde está. */
-@keyframes fox-bote {
-  0%, 100% { transform: translateY(0); }
-  45% { transform: translateY(-1px); }
-  60% { transform: translateY(-1px); }
 }
 .fox-x-balon .fox-px-mueve { animation: fox-bote 1.8s ease-in-out infinite; }
 

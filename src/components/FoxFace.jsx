@@ -1799,7 +1799,7 @@ export default function FoxFace({
 
   return (
     <svg
-      className={`fox-face fox-${gestoFinal} ${className}`}
+      className={`fox-face fox-${gestoFinal} fox-color-${colorId} ${className}`}
       width={size}
       height={(size / W) * alto}
       viewBox={`0 0 ${W} ${alto}`}
