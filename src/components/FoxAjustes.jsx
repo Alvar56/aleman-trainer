@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Desplegable from './Desplegable.jsx';
 import FoxFace from './FoxFace.jsx';
 import {
@@ -143,7 +143,16 @@ export default function FoxAjustes({ onClose, onChange }) {
   const l = useMemo(() => logros(), []);
   const timerRef = useRef(null);
   const onChangeRef = useRef(onChange);
-  onChangeRef.current = onChange;
+  useEffect(() => {
+    if (typeof document !== 'undefined' && document.body) {
+      document.body.classList.add('fox-modal-abierto');
+    }
+    return () => {
+      if (typeof document !== 'undefined' && document.body) {
+        document.body.classList.remove('fox-modal-abierto');
+      }
+    };
+  }, []);
 
   function cerrar() {
     if (timerRef.current) clearTimeout(timerRef.current);

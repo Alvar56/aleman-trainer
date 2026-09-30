@@ -550,7 +550,9 @@ button.pill.star-pill.starred {
      de los 840 y ahi no se navega: se sale por la X del propio ejercicio.
      La clase la pone App.jsx segun la pantalla, y el contador de monedas se
      recoloca solo porque lee el alto real de la cabecera (--cabecera). */
-  body.en-ejercicio .sidebar { display: none; }
+  body.en-ejercicio .sidebar,
+  body.fox-modal-abierto .sidebar,
+  body:has(.fox-modal) .sidebar { display: none !important; }
 }
 
 /* ---------- Page header ---------- */
@@ -2859,10 +2861,10 @@ input.ask-input,
 [data-theme='dark'] .fox-hero-stats small { color: #94a3b8; }
 
 /* En pantallas móviles y tablets: modal a pantalla completa sin asomar el menú */
-@media (max-width: 768px) {
+@media (max-width: 840px) {
   .fox-modal {
     padding: 0 !important;
-    z-index: 9999 !important;
+    z-index: 99999 !important;
     align-items: stretch;
   }
   .fox-modal-caja {
@@ -3175,7 +3177,15 @@ input.ask-input,
   pointer-events: none;
 }
 
-body:has(.fox-modal) .hud-esquina {
+body.fox-modal-abierto,
+body:has(.fox-modal) {
+  overflow: hidden !important;
+}
+
+body.fox-modal-abierto .hud-esquina,
+body:has(.fox-modal) .hud-esquina,
+body.fox-modal-abierto .sidebar,
+body:has(.fox-modal) .sidebar {
   display: none !important;
 }
 
