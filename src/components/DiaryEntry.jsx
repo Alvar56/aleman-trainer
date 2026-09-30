@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cobrarUnaVezAlDia, MONEDAS_TAGEBUCH } from '../lib/monedas.js';
-import { t, getLang, esOtroIdioma } from '../lib/i18n.js';
+// `pick` se usaba mas abajo sin estar importado: al abrir una entrada del
+// Tagebuch reventaba con "pick is not defined" y saltaba la pantalla de error.
+import { t, pick, getLang, esOtroIdioma } from '../lib/i18n.js';
 import { SIN_IA } from '../lib/modo.js';
 import IdeasDiario from './IdeasDiario.jsx';
 import {

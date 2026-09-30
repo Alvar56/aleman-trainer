@@ -270,6 +270,33 @@ grupo('Traducir');
 }
 
 // ---------------------------------------------------------------------------
+grupo('Diario (Tagebuch)');
+{
+  // Esta pantalla reventaba al abrir una entrada: usaba pick() sin haberlo
+  // importado, y saltaba "pick is not defined". Es el tipo de fallo que no ve
+  // ni el build ni un grep, porque solo pasa al ejecutar esa linea. Se cuela
+  // aqui para que no vuelva.
+  const diary = await import('../src/lib/diary.js');
+  // createEntry nace siempre en blanco: se pasa el texto por updateEntry, que
+  // es lo que hace la pantalla de verdad.
+  const entrada = diary.createEntry({ title: 'Mein Tag' });
+  diary.updateEntry(entrada.id, { text: 'Heute habe ich Deutsch gelernt.' });
+  const html = await pinta('DiaryEntry', 'DiaryEntry', {
+    entryId: entrada.id, onBack() {}, onDeleted() {}
+  });
+  comprobar('sale lo que escribiste', html.includes('Heute habe ich Deutsch gelernt.'), html.slice(0, 200));
+  comprobar('sale el titulo guardado', html.includes('Mein Tag'));
+  // Esta es la que caza el fallo: el hueco del titulo lo pinta pick().
+  comprobar('sale el campo del titulo', html.includes('Título (opcional)'), html.slice(0, 200));
+
+  // Una entrada que no existe tiene que dar el aviso, no reventar.
+  const perdida = await pinta('DiaryEntry sin entrada', 'DiaryEntry', {
+    entryId: 'no-existe', onBack() {}, onDeleted() {}
+  });
+  comprobar('una entrada que no existe avisa', perdida.includes('No se encontró'), perdida);
+}
+
+// ---------------------------------------------------------------------------
 console.log('\n' + '-'.repeat(60));
 console.log(`${hechas} comprobaciones · ${fallos} mal`);
 if (fallos) process.exitCode = 1;
