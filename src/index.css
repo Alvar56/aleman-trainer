@@ -2398,6 +2398,8 @@ input.ask-input,
   display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap;
   padding: 18px 20px; border-radius: 14px; margin-bottom: 18px;
   border: 1.5px solid var(--accent); background: var(--accent-soft);
+  position: relative;
+  overflow: hidden;
 }
 /* align-self: la tarjeta alinea arriba porque el texto empieza arriba, pero
    el zorro es mas bajo que la columna de texto y se quedaba colgando del
@@ -2405,9 +2407,15 @@ input.ask-input,
 .fox-card-cara {
   background: none; border: none; padding: 0; cursor: pointer;
   flex-shrink: 0; align-self: center;
+  position: relative;
+  z-index: 1;
 }
 .fox-card-cara:hover { background: none; }
-.fox-card-texto { flex: 1 1 280px; min-width: 0; }
+.fox-card-texto {
+  flex: 1 1 280px; min-width: 0;
+  position: relative;
+  z-index: 2;
+}
 .fox-burbuja {
   position: relative; background: var(--surface); border: 1.5px solid var(--border-strong);
   border-radius: 12px; padding: 11px 14px; margin-bottom: 10px;
@@ -6022,26 +6030,29 @@ input.vs-respuesta { max-width: 460px; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
 }
 
 .fox-aura-wrap .fox-face {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .fox-aura-wrap::before {
   content: "";
   position: absolute;
-  inset: 0;
-  border-radius: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220%;
+  height: 220%;
+  border-radius: 50%;
   pointer-events: none;
   z-index: 0;
   transition: opacity 0.4s ease, background 0.4s ease, transform 0.3s ease;
 }
 
 .fox-card-cara.fox-aura-wrap:hover::before {
-  transform: scale(1.03);
+  transform: translate(-50%, -50%) scale(1.06);
 }
 
 /* 1. Sin fondo (nadaFondo): NADA */
@@ -6053,18 +6064,20 @@ input.vs-respuesta { max-width: 460px; }
 /* 2. Pradera (wiese): verde pradera natural y fresco */
 .fox-aura-wiese::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(134, 239, 172, 0.45) 0%,
-    rgba(74, 222, 128, 0.22) 50%,
-    rgba(34, 197, 94, 0.05) 75%,
+    circle,
+    rgba(134, 239, 172, 0.55) 0%,
+    rgba(74, 222, 128, 0.30) 28%,
+    rgba(34, 197, 94, 0.12) 52%,
+    rgba(22, 163, 74, 0.03) 72%,
     transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-wiese::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(34, 197, 94, 0.40) 0%,
-    rgba(21, 128, 61, 0.20) 52%,
+    circle,
+    rgba(34, 197, 94, 0.48) 0%,
+    rgba(21, 128, 61, 0.28) 32%,
+    rgba(21, 128, 61, 0.10) 56%,
     transparent 100%
   );
 }
@@ -6072,18 +6085,20 @@ input.vs-respuesta { max-width: 460px; }
 /* 3. Playa (strand): arena dorada cálida y destello azul mar */
 .fox-aura-strand::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(254, 240, 138, 0.52) 0%,
-    rgba(251, 191, 36, 0.22) 44%,
-    rgba(56, 189, 248, 0.12) 72%,
+    circle,
+    rgba(254, 240, 138, 0.60) 0%,
+    rgba(251, 191, 36, 0.28) 28%,
+    rgba(56, 189, 248, 0.14) 54%,
+    rgba(14, 165, 233, 0.03) 74%,
     transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-strand::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(245, 158, 11, 0.38) 0%,
-    rgba(14, 165, 233, 0.18) 52%,
+    circle,
+    rgba(245, 158, 11, 0.46) 0%,
+    rgba(14, 165, 233, 0.24) 34%,
+    rgba(14, 165, 233, 0.08) 58%,
     transparent 100%
   );
 }
@@ -6091,18 +6106,20 @@ input.vs-respuesta { max-width: 460px; }
 /* 4. Desierto (wueste): cálido tono terracota y arena dorada */
 .fox-aura-wueste::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(254, 215, 170, 0.50) 0%,
-    rgba(251, 146, 60, 0.24) 45%,
-    rgba(234, 88, 12, 0.08) 75%,
+    circle,
+    rgba(254, 215, 170, 0.60) 0%,
+    rgba(251, 146, 60, 0.30) 28%,
+    rgba(234, 88, 12, 0.12) 54%,
+    rgba(194, 65, 12, 0.03) 74%,
     transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-wueste::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(234, 88, 12, 0.38) 0%,
-    rgba(194, 65, 12, 0.18) 52%,
+    circle,
+    rgba(234, 88, 12, 0.46) 0%,
+    rgba(194, 65, 12, 0.24) 34%,
+    rgba(194, 65, 12, 0.08) 58%,
     transparent 100%
   );
 }
@@ -6110,18 +6127,20 @@ input.vs-respuesta { max-width: 460px; }
 /* 5. Glaciar de hielo (eis): cian cristalino y azul escarcha */
 .fox-aura-eis::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(186, 230, 253, 0.55) 0%,
-    rgba(56, 189, 248, 0.25) 45%,
-    rgba(14, 165, 233, 0.08) 75%,
+    circle,
+    rgba(186, 230, 253, 0.68) 0%,
+    rgba(56, 189, 248, 0.32) 28%,
+    rgba(14, 165, 233, 0.12) 54%,
+    rgba(2, 132, 199, 0.03) 74%,
     transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-eis::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(14, 165, 233, 0.40) 0%,
-    rgba(2, 132, 199, 0.18) 52%,
+    circle,
+    rgba(14, 165, 233, 0.50) 0%,
+    rgba(2, 132, 199, 0.26) 34%,
+    rgba(2, 132, 199, 0.08) 58%,
     transparent 100%
   );
 }
@@ -6129,18 +6148,20 @@ input.vs-respuesta { max-width: 460px; }
 /* 6. Aula de clase (klasse): madera noble cálida y matiz ámbar */
 .fox-aura-klasse::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(254, 243, 199, 0.52) 0%,
-    rgba(245, 158, 11, 0.22) 45%,
-    rgba(180, 83, 9, 0.06) 72%,
+    circle,
+    rgba(254, 243, 199, 0.62) 0%,
+    rgba(245, 158, 11, 0.28) 28%,
+    rgba(180, 83, 9, 0.10) 54%,
+    rgba(146, 64, 14, 0.02) 74%,
     transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-klasse::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(217, 119, 6, 0.38) 0%,
-    rgba(146, 64, 14, 0.16) 52%,
+    circle,
+    rgba(217, 119, 6, 0.46) 0%,
+    rgba(146, 64, 14, 0.22) 34%,
+    rgba(146, 64, 14, 0.07) 58%,
     transparent 100%
   );
 }
@@ -6148,18 +6169,20 @@ input.vs-respuesta { max-width: 460px; }
 /* 7. Espacio exterior (weltraum): índigo cósmico y violeta nebulosa */
 .fox-aura-weltraum::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(192, 132, 252, 0.46) 0%,
-    rgba(139, 92, 246, 0.24) 45%,
-    rgba(99, 102, 241, 0.10) 75%,
+    circle,
+    rgba(192, 132, 252, 0.58) 0%,
+    rgba(139, 92, 246, 0.30) 28%,
+    rgba(99, 102, 241, 0.14) 54%,
+    rgba(79, 70, 229, 0.03) 74%,
     transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-weltraum::before {
   background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(168, 85, 247, 0.40) 0%,
-    rgba(124, 58, 237, 0.20) 52%,
+    circle,
+    rgba(168, 85, 247, 0.48) 0%,
+    rgba(124, 58, 237, 0.26) 34%,
+    rgba(99, 102, 241, 0.09) 58%,
     transparent 100%
   );
 }
