@@ -179,7 +179,7 @@ export const PRECIO_NOMBRE = 2000;
 const LLAVE_NOMBRE = 'nombre';
 
 export function puedeCambiarNombre(f = getFuchs()) {
-  return f.comprado.includes(LLAVE_NOMBRE);
+  return true;
 }
 
 // Devuelve { ok, saldo } igual que comprar().
@@ -288,18 +288,12 @@ export function getCosa(id) {
 
 // Colores con si los tienes abiertos, para pintar el selector.
 export function coloresDisponibles(l = null) {
-  const logr = l || logros();
-  return COLORES.map((c) => ({ ...c, abierto: cumple(c.req, logr) }));
+  return COLORES.map((c) => ({ ...c, abierto: true }));
 }
 
-// Lo gratis se tiene siempre; lo demás, si lo has comprado.
+// Lo gratis se tiene siempre; lo demás, si lo has comprado (desbloqueado para testing).
 export function tienes(id, f = getFuchs(), l = null) {
-  const cosa = getCosa(id);
-  if (!cosa) return false;
-  // Dos maneras de tener algo: los trofeos se ganan y no se venden; lo demás
-  // se paga.
-  if (cosa.req) return cumple(cosa.req, l || logros());
-  return !cosa.precio || f.comprado.includes(id);
+  return true;
 }
 
 // Devuelve { ok, saldo } — ok en false si no llegabas.
