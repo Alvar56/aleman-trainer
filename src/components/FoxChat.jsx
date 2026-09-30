@@ -203,12 +203,9 @@ export default function FoxChat({ abrirCon = null, onClose }) {
 
   return (
     <div className="fox-chat">
-      {/* Difuminado suave inferior con la tonalidad del fondo elegido */}
-      <div className={'fox-difuminado-suelo fox-difuminado-' + (fuchs.fondo || 'nadaFondo')} aria-hidden="true" />
-
       <div className="fox-chat-head">
         <button 
-          className={'fox-avatar' + (busy ? ' pensando' : '')} 
+          className={'fox-avatar fox-aura-wrap fox-aura-' + (fuchs.fondo || 'nadaFondo') + (busy ? ' pensando' : '')} 
           onClick={() => setAjustes(true)}
           style={{ cursor: 'pointer', border: 'none', background: 'transparent', padding: 0 }}
           title={t('fox.customiseName', { nombre: fuchs.nombre })}

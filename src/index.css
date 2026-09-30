@@ -463,8 +463,8 @@ button.pill.star-pill.starred {
 /* El relleno de abajo es mayor que el de arriba a proposito: lo ultimo de
    varias secciones es la tarjeta del juego con sus pastillas de filtro, y
    con 24 px quedaban cortadas contra el borde de la ventana. */
-.main { flex: 1 1 auto; min-width: 0; padding: 24px 34px 56px; }
-.main > * { max-width: var(--maxw); margin-inline: auto; }
+.main { position: relative; z-index: 1; flex: 1 1 auto; min-width: 0; padding: 24px 34px 56px; }
+.main > * { max-width: var(--maxw); margin-inline: auto; position: relative; z-index: 1; }
 /* Haciendo ejercicios solo miras una frase y tres opciones: en 1340px se
    quedaban pegadas a la izquierda con medio metro de gris al lado.
 
@@ -473,12 +473,14 @@ button.pill.star-pill.starred {
    ademas habia juegos sin clase ninguna: segun por donde entraras, el mismo
    ejercicio salia centrado o pegado al borde izquierdo. */
 .session,
-.kp { max-width: 780px; margin-inline: auto; }
+.vocab-session,
+.kp { max-width: 780px; margin-inline: auto; position: relative; z-index: 1; }
 /* Y dentro, lo que traiga ancho propio se estira a la columna en vez de
    quedarse a un lado: las opciones venian topadas a 540px y con 965px de
    ancho dejaban la mitad derecha vacia. */
 .session .options,
-.kp .options { max-width: none; }
+.vocab-session .options,
+.kp .options { max-width: none; position: relative; z-index: 1; }
 
 .dash-cols { display: grid; grid-template-columns: 360px 1fr; gap: 12px; align-items: stretch; }
 /* El calendario iguala el alto de Practice, y lo que crece son las casillas y
@@ -6005,18 +6007,18 @@ input.vs-respuesta { max-width: 460px; }
     linear-gradient(to top, rgba(79, 70, 229, 0.13) 0%, rgba(124, 58, 237, 0.05) 30%, transparent 70%);
 }
 
-/* --- AURA RECTANGULAR Y SUAVE EN LA TARJETA DE INICIO (SIN CÍRCULO EN LA CARA) --- */
-.fox-card-cara.fox-aura-wrap {
+/* --- AURA RECTANGULAR Y SUAVE DEL FONDO EN LA CARA/TARJETA DE FELIX (INICIO Y CHAT) --- */
+.fox-aura-wrap {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.fox-card-cara.fox-aura-wrap .fox-face {
+.fox-aura-wrap .fox-face {
   position: relative;
   z-index: 2;
 }
-.fox-card-cara.fox-aura-wrap::before {
+.fox-aura-wrap::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -6031,26 +6033,26 @@ input.vs-respuesta { max-width: 460px; }
   opacity: 0.45;
   transition: opacity 0.4s ease, background 0.4s ease;
 }
-.fox-card-cara.fox-aura-nadaFondo::before {
+.fox-aura-nadaFondo::before {
   display: none !important;
   background: none !important;
 }
-.fox-card-cara.fox-aura-wiese::before {
-  background: rgba(134, 239, 172, 0.35);
+.fox-aura-wiese::before {
+  background: rgba(134, 239, 172, 0.40);
 }
-.fox-card-cara.fox-aura-strand::before {
-  background: rgba(254, 240, 138, 0.35);
+.fox-aura-strand::before {
+  background: rgba(254, 240, 138, 0.40);
 }
-.fox-card-cara.fox-aura-wueste::before {
-  background: rgba(254, 215, 170, 0.35);
+.fox-aura-wueste::before {
+  background: rgba(254, 215, 170, 0.40);
 }
-.fox-card-cara.fox-aura-eis::before {
-  background: rgba(186, 230, 253, 0.4);
+.fox-aura-eis::before {
+  background: rgba(186, 230, 253, 0.45);
 }
-.fox-card-cara.fox-aura-klasse::before {
-  background: rgba(254, 243, 199, 0.35);
+.fox-aura-klasse::before {
+  background: rgba(254, 243, 199, 0.40);
 }
-.fox-card-cara.fox-aura-weltraum::before {
-  background: rgba(192, 132, 252, 0.35);
+.fox-aura-weltraum::before {
+  background: rgba(192, 132, 252, 0.40);
 }
 
