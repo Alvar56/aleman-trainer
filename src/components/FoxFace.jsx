@@ -96,11 +96,15 @@ function colaOso(g) {
   bloque(g, 25, 27, 5, 6, 'd');
 }
 
-// Conejo: la bolita blanca.
+// Conejo: pompón de algodón blanco redondo, esponjoso y adorable.
 function colaConejo(g) {
-  bloque(g, 23, 27, 4, 8, 'l');
-  fila(g, 22, 5, 7, 'l');
-  bloque(g, 25, 27, 4, 5, 'm');
+  fila(g, 21, 5, 8, 'l');
+  bloque(g, 22, 26, 3, 9, 'l');
+  fila(g, 27, 4, 8, 'l');
+  // Sombras y textura redondeada del pompón
+  bloque(g, 25, 27, 3, 5, 'm');
+  fila(g, 27, 6, 7, 'm');
+  px(g, 8, 26, 'm');
 }
 
 // Pato: cuatro plumas que apuntan hacia arriba.
@@ -111,9 +115,14 @@ function colaPato(g) {
   bloque(g, 24, 26, 4, 6, 'm');
 }
 
-// Erizo: un rabito corto, que lo suyo son las puas.
+// Erizo: pompón de púas redondeado y tupido en la espalda.
 function colaErizo(g) {
-  bloque(g, 24, 26, 5, 7, 'd');
+  bloque(g, 21, 26, 2, 7, 'd');
+  fila(g, 27, 3, 6, 'd');
+  px(g, 3, 22, 'h');
+  px(g, 5, 21, 'h');
+  px(g, 2, 24, 'p');
+  px(g, 4, 25, 'p');
 }
 
 // Mapache: gorda como la del zorro y a rayas, que es su sena de identidad.
@@ -276,12 +285,37 @@ function orejasOso(g) {
   espejo(g, 3, 6, 8, 'm');
 }
 
-// Conejo: dos orejas largas y estrechas, tiesas.
+// Conejo: orejas largas y suaves, con interior esponjoso y mejillas regordetas.
 function orejasConejo(g) {
-  for (let y = 0; y <= 6; y++) espejo(g, y, 8, 10, 'f');
-  espejo(g, 7, 8, 11, 'f');
-  for (let y = 1; y <= 5; y++) espejo(g, y, 9, 9, 'l');
-  espejo(g, 6, 9, 9, 'm');
+  // Puntas redondeadas y suaves
+  espejo(g, 0, 9, 10, 'f');
+  espejo(g, 1, 8, 11, 'f');
+  espejo(g, 2, 7, 11, 'f');
+  espejo(g, 3, 7, 11, 'f');
+  espejo(g, 4, 7, 11, 'f');
+  espejo(g, 5, 8, 11, 'f');
+  espejo(g, 6, 8, 11, 'f');
+  espejo(g, 7, 8, 12, 'f');
+
+  // Interior suave claro / rosado
+  espejo(g, 1, 9, 10, 'l');
+  espejo(g, 2, 8, 10, 'l');
+  espejo(g, 3, 8, 10, 'l');
+  espejo(g, 4, 8, 10, 'l');
+  espejo(g, 5, 9, 10, 'l');
+  espejo(g, 6, 9, 10, 'm');
+  // Sombra de volumen
+  espejoPx(g, 7, 4, 'd');
+  espejoPx(g, 11, 6, 'd');
+}
+function marcasConejo(g) {
+  // Colorete tierno en las mejillas
+  espejo(g, 13, 6, 7, 'r');
+  espejo(g, 14, 6, 7, 'r');
+  // Bigotitos finos de conejito
+  espejoPx(g, 4, 13, 'd');
+  espejoPx(g, 5, 14, 'd');
+  espejoPx(g, 4, 15, 'd');
 }
 
 // Búho: penachos en las puntas y el disco pálido de la cara.
@@ -331,18 +365,59 @@ function orejasPato(g) {
   px(g, 16, 0, 'f');
 }
 
-// Erizo: las puas asoman por encima del craneo, en pico, y las orejitas
-// redondas se quedan casi escondidas debajo.
+// Erizo: corona de púas esponjosa y redondeada con orejitas adorables.
 function puasErizo(g) {
-  espejo(g, 3, 7, 9, 'p');
-  espejo(g, 2, 9, 12, 'p');
-  espejo(g, 1, 11, 13, 'p');
-  fila(g, 0, 12, 15, 'p');
-  espejo(g, 4, 5, 12, 'd');
+  fila(g, 0, 11, 16, 'd');
+  px(g, 12, 0, 'h');
+  px(g, 15, 0, 'h');
+
+  espejo(g, 1, 9, 13, 'd');
+  espejoPx(g, 10, 1, 'h');
+  espejoPx(g, 13, 1, 'p');
+
+  espejo(g, 2, 7, 13, 'd');
+  espejoPx(g, 8, 2, 'h');
+  espejoPx(g, 11, 2, 'p');
+
+  espejo(g, 3, 5, 13, 'd');
+  espejoPx(g, 6, 3, 'h');
+  espejoPx(g, 9, 3, 'p');
+
+  espejo(g, 4, 4, 12, 'd');
+  espejoPx(g, 5, 4, 'h');
+  espejoPx(g, 8, 4, 'p');
+
+  espejo(g, 5, 3, 12, 'd');
+  espejoPx(g, 4, 5, 'h');
+  espejoPx(g, 7, 5, 'p');
+
+  espejo(g, 6, 3, 11, 'd');
+  espejoPx(g, 4, 6, 'h');
+
+  espejo(g, 7, 3, 11, 'd');
+
+  // Púas en los laterales de la cabeza
+  espejo(g, 8, 2, 5, 'd');
+  espejoPx(g, 2, 8, 'h');
+  espejo(g, 9, 2, 4, 'd');
+  espejo(g, 10, 2, 4, 'd');
+  espejoPx(g, 2, 10, 'p');
+  espejo(g, 11, 3, 4, 'd');
+}
+function orejasDelanteErizo(g) {
+  // Orejitas redondas tiernas que asoman entre las púas
+  espejo(g, 5, 5, 7, 'f');
+  espejo(g, 6, 5, 8, 'f');
+  espejo(g, 7, 6, 8, 'f');
+  espejo(g, 6, 6, 7, 'l');
+  espejoPx(g, 7, 7, 'm');
 }
 function marcasErizo(g) {
-  espejo(g, 5, 4, 6, 'f');
-  espejo(g, 6, 4, 5, 'd');
+  // Rubor tierno en las mejillas redonditas
+  espejo(g, 13, 6, 7, 'r');
+  espejo(g, 14, 6, 7, 'r');
+  // Detalle de luz en la frente
+  fila(g, 8, 12, 15, 'h');
 }
 
 // Mapache: orejas redondas y pequenas, a los lados.
@@ -370,11 +445,11 @@ const BICHOS = {
   gato: { detras: orejasGato, delante: marcasGato },
   perro: { delante: orejasPerro, marcas: marcasPerro },
   oso: { detras: orejasOso },
-  conejo: { detras: orejasConejo },
+  conejo: { detras: orejasConejo, delante: marcasConejo },
   buho: { detras: orejasBuho, delante: marcasBuho },
   rana: { detras: orejasRana, delante: marcasRana },
   pato: { detras: orejasPato },
-  erizo: { detras: puasErizo, marcas: marcasErizo },
+  erizo: { detras: puasErizo, delante: orejasDelanteErizo, marcas: marcasErizo },
   mapache: { detras: orejasMapache, marcas: marcasMapache }
 };
 
@@ -404,6 +479,15 @@ function rasgos(g, especie) {
   } else if (especie === 'rana') {
     fila(g, 16, 9, 18, 'o');
     espejoPx(g, 8, 15, 'o');
+  } else if (especie === 'conejo') {
+    // Naricita pequeña y suave rosada
+    fila(g, 13, 13, 14, 'r');
+    // Pequeños dientecitos blancos de conejito bajo la boca
+    fila(g, 17, 13, 14, 'w');
+  } else if (especie === 'erizo') {
+    // Naricita redonda y brillante de erizo
+    fila(g, 13, 13, 14, 'o');
+    px(g, 13, 13, 'w');
   }
 }
 
