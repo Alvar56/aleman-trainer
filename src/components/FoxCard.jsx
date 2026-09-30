@@ -28,7 +28,11 @@ export default function FoxCard({ onAbrir }) {
 
   return (
     <div className={'fox-card' + (SIN_IA ? ' fox-card-corta' : '')}>
-      <button className="fox-card-cara" onClick={() => setAjustes(true)} title={t('fox.customiseName', { nombre: fuchs.nombre })}>
+      <button
+        className={'fox-card-cara fox-aura-wrap fox-aura-' + (fuchs.fondo || 'nadaFondo')}
+        onClick={() => setAjustes(true)}
+        title={t('fox.customiseName', { nombre: fuchs.nombre })}
+      >
         {/* En la portada, los dos ojos abiertos: el entornado ahi solo despistaba.
             Sin IA la tarjeta pierde la caja de contestar y el enlace del chat,
             asi que sobra sitio a lo alto: el zorro se hace mas grande y llena
