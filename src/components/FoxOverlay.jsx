@@ -154,30 +154,24 @@ export function useFox() {
 // premian algo en vez de estar puestas siempre.
 export default function FoxOverlay({ fox, mudo = false, racha = 0 }) {
   const f = getFuchs();
-  const fondo = f.fondo || 'nadaFondo';
 
   return (
-    <>
-      {/* Suelo del paisaje activo visible abajo durante los ejercicios */}
-      <div className={'fox-suelo-barra fox-suelo-' + fondo} />
-
-      <div
-        className="fox-overlay"
-        style={{ transform: fox.salta ? 'translateY(-15px)' : 'none' }}
-      >
-        {fox.msg && <div className={'fox-burbuja-dice' + (mudo ? ' estorba' : '')}>{fox.msg}</div>}
-        <div style={{ pointerEvents: 'auto' }}>
-          <FoxFace
-            fuchs={f}
-            gesto={fox.gesto}
-            size={110}
-            conCuerpo
-            chispeando={racha >= EMPIEZA}
-            racha={racha}
-            className="flota"
-          />
-        </div>
+    <div
+      className="fox-overlay"
+      style={{ transform: fox.salta ? 'translateY(-15px)' : 'none' }}
+    >
+      {fox.msg && <div className={'fox-burbuja-dice' + (mudo ? ' estorba' : '')}>{fox.msg}</div>}
+      <div style={{ pointerEvents: 'auto' }}>
+        <FoxFace
+          fuchs={f}
+          gesto={fox.gesto}
+          size={110}
+          conCuerpo
+          chispeando={racha >= EMPIEZA}
+          racha={racha}
+          className="flota"
+        />
       </div>
-    </>
+    </div>
   );
 }

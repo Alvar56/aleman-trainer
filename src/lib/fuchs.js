@@ -219,14 +219,6 @@ const FONDOS = [
     en: 'Ice and snow',
     precio: 0
   },
-  {
-    id: 'wald',
-    de: 'Wald',
-    ranura: 'fondo',
-    es: 'Bosque',
-    en: 'Forest',
-    precio: 0
-  },
   // Aquí estaban 'schloss', 'cafe', 'wald', 'berge' y 'stadt'. Se retiraron.
   // Quien los tuviera puestos vuelve al fondo por defecto (ver getFuchs).
   { id: 'klasse', de: 'Klassenzimmer', ranura: 'fondo', es: 'Clase', en: 'Classroom', precio: 0 },
