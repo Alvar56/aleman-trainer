@@ -871,8 +871,8 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 }
 .bubble-tail-right {
   position: absolute;
-  right: -8px;
-  bottom: 0px;
+  right: -10px;
+  bottom: -1.5px;
   width: 12px;
   height: 16px;
   pointer-events: none;
@@ -885,8 +885,8 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 }
 .bubble-tail-right .tail-stroke {
   stroke: var(--border-strong);
-  stroke-width: 1;
-  stroke-linecap: butt;
+  stroke-width: 1.5;
+  stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
   transition: stroke 0.14s ease;
@@ -2414,7 +2414,13 @@ input.ask-input,
 }
 .fox-burbuja::before {
   content: ""; position: absolute; left: -8px; top: 16px; width: 0; height: 0;
-  border: 7px solid transparent; border-right-color: var(--border-strong); border-left: 0;
+  border-top: 7px solid transparent; border-bottom: 7px solid transparent;
+  border-right: 8px solid var(--border-strong); border-left: 0; pointer-events: none;
+}
+.fox-burbuja::after {
+  content: ""; position: absolute; left: -6px; top: 17px; width: 0; height: 0;
+  border-top: 6px solid transparent; border-bottom: 6px solid transparent;
+  border-right: 7px solid var(--surface); border-left: 0; pointer-events: none;
 }
 .fb-de { display: block; font-size: 1rem; font-weight: 600; }
 .fb-es { display: block; font-size: 0.83rem; color: var(--muted); margin-top: 3px; }
@@ -4226,6 +4232,7 @@ input.vs-respuesta { max-width: 460px; }
     align-self: stretch; display: flex; flex-direction: column; justify-content: center;
   }
   .fox-card-corta .fox-burbuja::before { top: 50%; margin-top: -7px; }
+  .fox-card-corta .fox-burbuja::after { top: 50%; margin-top: -6px; }
 }
 
 /* La respuesta que acompaña a una frase de Kommunikation. Va indentada y algo
@@ -4369,6 +4376,7 @@ input.vs-respuesta { max-width: 460px; }
   font: inherit; color: inherit; cursor: pointer;
 }
 .fox-burbuja-clic:hover { border-color: var(--accent); }
+.fox-burbuja-clic:hover::before { border-right-color: var(--accent); }
 
 /* ---------- Kasus Trainer ---------- */
 /* La frase con el hueco. Grande, porque es lo que hay que leer para decidir. */
@@ -4905,8 +4913,8 @@ input.vs-respuesta { max-width: 460px; }
 }
 .bubble-tail-left {
   position: absolute;
-  left: -8px;
-  bottom: 0px;
+  left: -10px;
+  bottom: -1.5px;
   width: 12px;
   height: 16px;
   pointer-events: none;
@@ -4918,8 +4926,8 @@ input.vs-respuesta { max-width: 460px; }
 }
 .bubble-tail-left .tail-stroke {
   stroke: var(--border-strong);
-  stroke-width: 1;
-  stroke-linecap: butt;
+  stroke-width: 1.5;
+  stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
 }
@@ -4948,8 +4956,8 @@ input.vs-respuesta { max-width: 460px; }
 }
 .sentence-tuyo .bubble-tail-right .tail-stroke {
   stroke: #cddcec;
-  stroke-width: 1;
-  stroke-linecap: butt;
+  stroke-width: 1.5;
+  stroke-linecap: round;
   stroke-linejoin: round;
 }
 [data-theme='dark'] .sentence-tuyo .bubble-tail-right .tail-stroke {
