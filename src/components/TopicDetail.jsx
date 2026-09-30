@@ -149,8 +149,8 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
     return juego === 'match' ? (
       <MatchGame pares={pares} apuntar={apuntar} contexto={ctx} onExit={salir} onFinish={acabar} />
     ) : (
-      // Un minuto: aqui la pregunta es una frase con hueco, no una palabra.
-      <BlitzGame cartas={pares} apuntar={apuntar} contexto={ctx} segundos={60} bono={4} onExit={salir} onFinish={acabar} />
+      // 40 segundos: aqui la pregunta es una frase con hueco, con +2s por acierto y -2s por fallo.
+      <BlitzGame cartas={pares} apuntar={apuntar} contexto={ctx} segundos={40} bono={2} onExit={salir} onFinish={acabar} />
     );
   }
 
@@ -425,7 +425,7 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
                   <span className="gt-ico">⚡</span>
                   <span className="gt-txt">
                     <span>Blitz</span>
-                    <small>{pick('Diez aciertos en treinta segundos', 'ten right in thirty seconds')}</small>
+                    <small>{pick('Diez aciertos en 40 segundos', 'ten right in 40 seconds')}</small>
                   </span>
                 </button>
                 <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'order')}>

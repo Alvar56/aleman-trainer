@@ -52,7 +52,7 @@ const TIPOS_EJERCICIO = [
     subEs: 'Seis frases con lo que significan', subEn: 'six phrases with their meaning' },
   { id: 'blitz', emoji: '⚡', juego: 'blitz',
     es: 'Blitz', en: 'Blitz',
-    subEs: 'Diez aciertos en treinta segundos', subEn: 'ten right in thirty seconds' },
+    subEs: 'Diez aciertos en 40 segundos', subEn: 'ten right in 40 seconds' },
   { id: 'ordenar', emoji: '🔀', tipos: ['ordenar'],
     es: 'Ordenar la frase', en: 'Put it in order',
     subEs: 'Coloca las palabras', subEn: 'put the words in order' },
@@ -414,8 +414,8 @@ function KommDetail({
     return juego === 'match' ? (
       <MatchGame pares={pares} apuntar={apuntar} contexto={ctx} onExit={salir} onFinish={acabar} />
     ) : (
-      // Un minuto: aqui la pregunta es una frase, no una palabra suelta.
-      <BlitzGame cartas={pares} apuntar={apuntar} contexto={ctx} segundos={60} bono={4} onExit={salir} onFinish={acabar} />
+      // 40 segundos: aqui la pregunta es una frase, con +2s por acierto y -2s por fallo.
+      <BlitzGame cartas={pares} apuntar={apuntar} contexto={ctx} segundos={40} bono={2} onExit={salir} onFinish={acabar} />
     );
   }
 

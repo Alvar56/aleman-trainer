@@ -14,10 +14,8 @@ import { useTeclas, teclasDeOpciones } from '../lib/teclas.js';
 // entera antes de poder elegir, asi que pasan un minuto.
 const SEGUNDOS = 30;
 const OBJETIVO = 10;
-// Segundos que regala un acierto. En Vocabulario la pregunta es una palabra y
-// se responde de un vistazo; en Gramatica y Kommunikation hay que leerse una
-// frase entera antes de elegir, asi que alli el premio es mayor.
-const BONO = 3;
+// Segundos que regala un acierto (+2s).
+const BONO = 2;
 
 function revuelve(a) {
   const x = [...a];
@@ -141,10 +139,13 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
         return nueva;
       });
     } else {
-      // Los fallos restan 1 al total score de aciertos
+      // Los fallos restan 1 al total score de aciertos y 2 segundos al reloj
       setAciertos((n) => Math.max(0, n - 1));
       setRacha(0);
       setSeg((s) => Math.max(0, s - 2));
+      setAvisoBono(-2);
+      clearTimeout(timerBono.current);
+      timerBono.current = setTimeout(() => setAvisoBono(0), 900);
     }
 
     timerEspera.current = setTimeout(avanzar, ok ? 280 : 750);
@@ -226,7 +227,11 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
         <div className="bar"><span style={{ width: Math.min(100, (seg / segundos) * 100) + '%' }} /></div>
         <span className={'timer blitz-timer' + (seg <= 5 ? ' urgente' : '')}>
           {seg}s
-          {avisoBono > 0 && <span key={seg} className="blitz-bono">+{avisoBono}s</span>}
+          {avisoBono !== 0 && (
+            <span key={seg + '-' + avisoBono} className={'blitz-bono' + (avisoBono < 0 ? ' penal' : '')}>
+              {avisoBono > 0 ? `+${avisoBono}s` : `${avisoBono}s`}
+            </span>
+          )}
         </span>
       </div>
 
