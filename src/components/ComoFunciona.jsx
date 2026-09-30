@@ -183,6 +183,14 @@ export default function ComoFunciona() {
                 <td>⚖️ {pick('¿Correcto o no?', 'Correct or not?')} <b>1</b></td>
                 <td>{pick('Detectar si la frase alemana mostrada es correcta o contiene algún fallo gramatical.', 'Judge whether the given German sentence is correct or has a grammatical mistake.')}</td>
               </tr>
+              <tr>
+                <td>🧩 {pick('Emparejar', 'Match')} <b>1</b></td>
+                <td>{pick('Unir seis frases de la lección con su solución gramatical contrarreloj.', 'Match six lesson sentences with their grammatical solution against the clock.')}</td>
+              </tr>
+              <tr>
+                <td>⚡ Blitz <b>1</b></td>
+                <td>{pick('Cuarenta segundos para resolver y acertar todas las frases gramaticales posibles.', 'Forty seconds to solve as many grammar sentences as you can.')}</td>
+              </tr>
             </tbody>
           </table>
 
@@ -232,16 +240,24 @@ export default function ComoFunciona() {
                 <td>{pick('Elegir entre varias opciones cómo formularías una idea o afirmación en alemán según la situación.', 'Pick how to formulate a given idea or statement in German from multiple choices.')}</td>
               </tr>
               <tr>
-                <td>💭 {pick('¿Qué significa?', 'What does it mean?')} <b>1</b></td>
-                <td>{pick('Comprender y traducir el sentido de una frase del diálogo del alemán a tu idioma.', 'Understand and translate the meaning of a dialogue sentence from German.')}</td>
-              </tr>
-              <tr>
                 <td>💬 {pick('Contestar', 'Reply')} <b>1</b></td>
                 <td>{pick('Elegir la respuesta adecuada y natural a lo que te acaban de decir en la conversación.', 'Pick the natural and appropriate response to what was just said in the conversation.')}</td>
               </tr>
               <tr>
+                <td>🔀 {pick('Ordenar la frase', 'Sentence order')} <b>2</b></td>
+                <td>{pick('Colocar los bloques de palabras para formar el turno de conversación en el orden adecuado.', 'Arrange word tiles into proper dialogue and conversational syntax.')}</td>
+              </tr>
+              <tr>
                 <td>📝 {pick('La palabra que falta', 'The missing word')} <b>1–4</b></td>
                 <td>{pick('Teclear de memoria la palabra clave que completa el turno del diálogo, con pistas de letras.', 'Type the missing dialogue keyword from memory, with letter hints.')}</td>
+              </tr>
+              <tr>
+                <td>🧩 {pick('Emparejar', 'Match')} <b>1</b></td>
+                <td>{pick('Unir seis frases o preguntas de conversación con su significado o respuesta contrarreloj.', 'Match six dialogue phrases or questions with their meaning or response against the clock.')}</td>
+              </tr>
+              <tr>
+                <td>⚡ Blitz <b>1</b></td>
+                <td>{pick('Cuarenta segundos para acertar todas las frases y expresiones de diálogo posibles.', 'Forty seconds to answer as many conversation phrases and expressions as you can.')}</td>
               </tr>
             </tbody>
           </table>
