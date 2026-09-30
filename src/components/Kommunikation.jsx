@@ -41,25 +41,25 @@ const TIPOS_EJERCICIO = [
   // ir y volver sin que haya que escribir una frase mas.
   { id: 'decir', emoji: '✅', tipos: ['decir', 'significado'],
     es: 'Elegir la frase', en: 'Pick the phrase',
-    subEs: 'Del castellano al alemán y al revés', subEn: 'from your language into German and back' },
+    subEs: 'Del castellano al alemán y al revés', subEn: 'From your language into German and back' },
   { id: 'responder', emoji: '🗣️', tipos: ['contestar', 'entender'],
     es: 'Contestar', en: 'Reply',
-    subEs: 'Qué dices y qué te dicen', subEn: 'what you say and what they say' },
+    subEs: 'Qué dices y qué te dicen', subEn: 'What you say and what they say' },
   // Estos dos no son tipos de pregunta: son juegos enteros, los mismos que
   // Vocabulario, con las frases de la leccion en vez de con palabras. Por eso
   // llevan `juego` en vez de `tipos`.
   { id: 'match', emoji: '🧩', juego: 'match',
     es: 'Emparejar', en: 'Match',
-    subEs: 'Seis frases con lo que significan', subEn: 'six phrases with their meaning' },
+    subEs: 'Seis frases con lo que significan', subEn: 'Six phrases with their meaning' },
   { id: 'blitz', emoji: '⚡', juego: 'blitz',
     es: 'Blitz', en: 'Blitz',
-    subEs: 'Diez aciertos en 40 segundos', subEn: 'ten right in 40 seconds' },
+    subEs: 'Diez aciertos en 40 segundos', subEn: 'Ten right in 40 seconds' },
   { id: 'ordenar', emoji: '🔀', tipos: ['ordenar'],
     es: 'Ordenar la frase', en: 'Put it in order',
-    subEs: 'Coloca las palabras', subEn: 'put the words in order' },
+    subEs: 'Coloca las palabras', subEn: 'Put the words in order' },
   { id: 'hueco', emoji: '📝', tipos: ['hueco'],
     es: 'La palabra que falta', en: 'The missing word',
-    subEs: 'Completa el hueco, a mano', subEn: 'fill in the blank, by hand' }
+    subEs: 'Completa el hueco, a mano', subEn: 'Fill in the blank, by hand' }
 ];
 
 export default function Kommunikation({ lektionId, tab, onTab, onOpen, onBack, onTraducir, onReto, dialog, busy, setDialog, setBusy }) {

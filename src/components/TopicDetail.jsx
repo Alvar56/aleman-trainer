@@ -419,14 +419,14 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
                   <span className="gt-ico">🧩</span>
                   <span className="gt-txt">
                     <span>{pick('Emparejar', 'Match')}</span>
-                    <small>{pick('Seis huecos con su solución', 'six gaps with their answer')}</small>
+                    <small>{pick('Seis huecos con su solución', 'Six gaps with their answer')}</small>
                   </span>
                 </button>
                 <button className="gametype" onClick={() => setJuego('blitz')}>
                   <span className="gt-ico">⚡</span>
                   <span className="gt-txt">
                     <span>Blitz</span>
-                    <small>{pick('Diez aciertos en 40 segundos', 'ten right in 40 seconds')}</small>
+                    <small>{pick('Diez aciertos en 40 segundos', 'Ten right in 40 seconds')}</small>
                   </span>
                 </button>
                 <button className="gametype" onClick={() => onStart(topic.id, 'mixed', 'order')}>
