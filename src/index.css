@@ -2664,11 +2664,17 @@ input.ask-input,
 }
 .fox-hero-cerrar:hover {
   background: #ffffff;
-  color: #0f172a;
+  border-color: var(--bad);
+  color: var(--bad);
   transform: scale(1.08);
 }
 .fox-hero-cerrar:active {
   transform: scale(0.92);
+}
+[data-theme='dark'] .fox-hero-cerrar:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: var(--bad);
+  color: var(--bad);
 }
 
 /* Personaje centrado en la escena con sombra ambiental de contacto */

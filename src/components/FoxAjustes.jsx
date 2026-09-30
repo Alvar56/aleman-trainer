@@ -212,7 +212,7 @@ export default function FoxAjustes({ onClose, onChange }) {
           </div>
 
           <div className="fox-hero-personaje">
-            <FoxFace fuchs={f} gesto="feliz" size={152} conCuerpo chispeando racha={12} />
+            <FoxFace fuchs={f} gesto="feliz" size={152} conCuerpo chispeando racha={12} separarObjetos />
           </div>
 
           <div className="fox-hero-stats-wrap">

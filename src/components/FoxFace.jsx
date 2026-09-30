@@ -1715,6 +1715,7 @@ export default function FoxFace({
   size = 96,
   parpadea = true,
   conCuerpo = false,
+  separarObjetos = false,
   // Las chispas SOLO salen cuando estas en racha de aciertos. Sueltas, en la
   // portada, eran un zorro rodeado de purpurina todo el rato: si estan
   // siempre no premian nada. La tienda las ensena igual, que si no compras a
@@ -2005,11 +2006,12 @@ export default function FoxFace({
           const der = cx + (x1 - cx) * escala + escala;
           const izq = cx + (x0 - cx) * escala;
           // Los objetos sostenidos en la mano derecha (libro, taza, brezel, bastón, trofeo, etc.)
-          // se separan hacia la derecha para no solaparse con el cuerpo ni tapar el brazo del zorro.
-          // Además, no se ajustan hacia la izquierda con der > W porque SVG tiene overflow: visible.
+          // se separan ampliamente hacia la derecha en el menú de personalización (tienda)
+          // para apreciarlos con claridad sin solaparse con el cuerpo ni tapar el brazo del zorro.
+          // En la portada (Startseite), se mantienen en su posición estándar original.
           const esObjetoSuelto = esObjeto && id !== 'paraguas';
-          const separacionX = esObjetoSuelto ? 2.6 : 0;
-          const ajuste = esObjetoSuelto ? 0 : (der > W ? W - der : izq < 0 ? -izq : 0);
+          const separacionX = (esObjetoSuelto && separarObjetos) ? 3.6 : 0;
+          const ajuste = (esObjetoSuelto && separarObjetos) ? 0 : (der > W ? W - der : izq < 0 ? -izq : 0);
           // Y lo mismo por arriba: nada puede quedar por encima del lienzo.
           const arriba = cy + (Math.min(...vis.map((q) => q[1])) - cy) * escala;
           const ajusteY = arriba < 0 ? -arriba : 0;
