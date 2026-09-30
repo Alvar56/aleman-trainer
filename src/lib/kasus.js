@@ -1,6 +1,37 @@
+import { useEffect, useState } from 'react';
 import { storage } from './storage.js';
 import { tc } from './contenido/index.js';
-import { KASUS_DATABASE } from './kasus_data.js';
+
+// Las frases (350 KB) no van en el bundle principal: se piden la primera vez
+// que hacen falta, al abrir Gramática o el Kasus Trainer. Hasta entonces
+// todasLasFrases() devuelve [] y quien las pinte espera a cargarKasus().
+let KASUS_DATABASE = null;
+let cargando = null;
+
+export function kasusCargado() {
+  return KASUS_DATABASE !== null;
+}
+
+export function cargarKasus() {
+  if (!cargando) {
+    cargando = import('./kasus_data.js')
+      .then((m) => { KASUS_DATABASE = m.KASUS_DATABASE; })
+      .catch((e) => { cargando = null; throw e; });
+  }
+  return cargando;
+}
+
+// Para los componentes: true cuando las frases ya están en memoria.
+export function useKasusCargado() {
+  const [listo, setListo] = useState(kasusCargado);
+  useEffect(() => {
+    if (listo) return;
+    let vivo = true;
+    cargarKasus().then(() => { if (vivo) setListo(true); });
+    return () => { vivo = false; };
+  }, [listo]);
+  return listo;
+}
 import { ARTIKEL_TABELLEN } from './kasus_tabellen.js';
 
 export { ARTIKEL_TABELLEN };
@@ -81,7 +112,7 @@ function aObjeto([vor, nach, genus, kasus, es, por, artType = 'bestimmt'], i) {
 }
 
 export function todasLasFrases() {
-  return KASUS_DATABASE.map(aObjeto);
+  return (KASUS_DATABASE || []).map(aObjeto);
 }
 
 // Una tanda. Prioriza lo que has fallado y lo que no has visto nunca: repetir

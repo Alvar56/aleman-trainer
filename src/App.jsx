@@ -1,50 +1,55 @@
-import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
+import React, { Suspense, lazy, useEffect, useRef, useState, useLayoutEffect } from 'react';
 import { AppErrorBoundary } from './components/AppErrorBoundary.jsx';
 import Sidebar from './components/Sidebar.jsx';
 import Monedero from './components/Monedero.jsx';
-import MazoConIA from './components/MazoConIA.jsx';
 import Dashboard from './components/Dashboard.jsx';
-import Grammar from './components/Grammar.jsx';
-import TopicDetail from './components/TopicDetail.jsx';
-import Session from './components/Session.jsx';
-import Summary from './components/Summary.jsx';
-import Leaderboard from './components/Leaderboard.jsx';
-import Settings from './components/Settings.jsx';
-import Vocab from './components/Vocab.jsx';
-import DeckDetail from './components/DeckDetail.jsx';
-import VocabSession from './components/VocabSession.jsx';
-import MatchGame from './components/MatchGame.jsx';
-import WortsalatGame from './components/WortsalatGame.jsx';
-import BlitzGame from './components/BlitzGame.jsx';
-import HangmanGame from './components/HangmanGame.jsx';
-import VocabReto from './components/VocabReto.jsx';
-import KommReto from './components/KommReto.jsx';
-import AskPractice from './components/AskPractice.jsx';
-import GenderGame from './components/GenderGame.jsx';
-import FoxChat from './components/FoxChat.jsx';
-import TranslateGame from './components/TranslateGame.jsx';
-import VocabSummary from './components/VocabSummary.jsx';
-import Notebook from './components/Notebook.jsx';
-import NotebookEntry from './components/NotebookEntry.jsx';
-import NotebookSession from './components/NotebookSession.jsx';
-import Kommunikation from './components/Kommunikation.jsx';
-import News from './components/News.jsx';
-import Lieder from './components/Lieder.jsx';
-import Diary from './components/Diary.jsx';
-import DiaryEntry from './components/DiaryEntry.jsx';
-import Pruefung from './components/Pruefung.jsx';
-import ExamLesenHoeren from './components/ExamLesenHoeren.jsx';
-import ExamSchreiben from './components/ExamSchreiben.jsx';
-import ExamSprechen from './components/ExamSprechen.jsx';
 import { getTopic } from './topics/index.js';
 import { getDeck, soloFallos, soloQueFaltan, mazosParaMezclar } from './lib/vocab.js';
 import { getNote, migrarFotos } from './lib/notebook.js';
-import KasusGame from './components/KasusGame.jsx';
 import { SIN_IA, PORTABLE } from './lib/modo.js';
 import { getLektion } from './lib/kursbuch/index.js';
 import { onLangChange } from './lib/i18n.js';
 import { storage, fusionarDelServidor, alFusionar, HAY_SERVIDOR } from './lib/storage.js';
 import { hayEjercicio } from './lib/enEjercicio.js';
+
+// Cada pantalla va en su propio trozo y se descarga al entrar en ella. Antes
+// iba todo en un único JS de casi 5 MB que había que bajar y analizar entero
+// antes de ver nada. Se quedan fuera lo que se pinta nada más abrir: la barra
+// lateral, el monedero y el inicio.
+const MazoConIA = lazy(() => import('./components/MazoConIA.jsx'));
+const Grammar = lazy(() => import('./components/Grammar.jsx'));
+const TopicDetail = lazy(() => import('./components/TopicDetail.jsx'));
+const Session = lazy(() => import('./components/Session.jsx'));
+const Summary = lazy(() => import('./components/Summary.jsx'));
+const Leaderboard = lazy(() => import('./components/Leaderboard.jsx'));
+const Settings = lazy(() => import('./components/Settings.jsx'));
+const Vocab = lazy(() => import('./components/Vocab.jsx'));
+const DeckDetail = lazy(() => import('./components/DeckDetail.jsx'));
+const VocabSession = lazy(() => import('./components/VocabSession.jsx'));
+const MatchGame = lazy(() => import('./components/MatchGame.jsx'));
+const WortsalatGame = lazy(() => import('./components/WortsalatGame.jsx'));
+const BlitzGame = lazy(() => import('./components/BlitzGame.jsx'));
+const HangmanGame = lazy(() => import('./components/HangmanGame.jsx'));
+const VocabReto = lazy(() => import('./components/VocabReto.jsx'));
+const KommReto = lazy(() => import('./components/KommReto.jsx'));
+const AskPractice = lazy(() => import('./components/AskPractice.jsx'));
+const GenderGame = lazy(() => import('./components/GenderGame.jsx'));
+const FoxChat = lazy(() => import('./components/FoxChat.jsx'));
+const TranslateGame = lazy(() => import('./components/TranslateGame.jsx'));
+const VocabSummary = lazy(() => import('./components/VocabSummary.jsx'));
+const Notebook = lazy(() => import('./components/Notebook.jsx'));
+const NotebookEntry = lazy(() => import('./components/NotebookEntry.jsx'));
+const NotebookSession = lazy(() => import('./components/NotebookSession.jsx'));
+const Kommunikation = lazy(() => import('./components/Kommunikation.jsx'));
+const News = lazy(() => import('./components/News.jsx'));
+const Lieder = lazy(() => import('./components/Lieder.jsx'));
+const Diary = lazy(() => import('./components/Diary.jsx'));
+const DiaryEntry = lazy(() => import('./components/DiaryEntry.jsx'));
+const Pruefung = lazy(() => import('./components/Pruefung.jsx'));
+const ExamLesenHoeren = lazy(() => import('./components/ExamLesenHoeren.jsx'));
+const ExamSchreiben = lazy(() => import('./components/ExamSchreiben.jsx'));
+const ExamSprechen = lazy(() => import('./components/ExamSprechen.jsx'));
+const KasusGame = lazy(() => import('./components/KasusGame.jsx'));
 
 // Vistas que no merece la pena recordar: una partida o un resumen a medias.
 const EFIMERAS = ['session', 'summary', 'vsession', 'vsummary', 'nsession', 'nsummary', 'exam', 'vreto', 'gender', 'kasus', 'traducir', 'fox', 'askpractice', 'kommreto'];
@@ -319,6 +324,7 @@ export default function App() {
       <Monedero />
       <Sidebar current={current} onNavigate={irASeccion} />
       <main className="main">
+        <Suspense fallback={<div className="card center muted">…</div>}>
         {view.name === 'home' && (
           <Dashboard
             onStart={(topicId, mode, game) => start(topicId, mode, game, null, 'home')}
@@ -685,6 +691,7 @@ export default function App() {
 
         {view.name === 'leaderboard' && <Leaderboard onBack={() => go('home')} />}
         {view.name === 'settings' && <Settings onBack={() => go('home')} />}
+        </Suspense>
       </main>
       </div>
     </AppErrorBoundary>
