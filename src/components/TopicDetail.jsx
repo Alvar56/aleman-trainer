@@ -16,6 +16,7 @@ import Desplegable from './Desplegable.jsx';
 import TextoAleman from './TextoAleman.jsx';
 import Escuchar from './Escuchar.jsx';
 import FotosVocab from './FotosVocab.jsx';
+import Tabs from './Tabs.jsx';
 
 function Examples({ list }) {
   if (!list || !list.length) return null;
@@ -258,7 +259,7 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
           que descifrar; y encima solo se veía si estabas en esa pestaña. */}
       <BarrasTema topicId={topic.id} pct={m.pct} />
 
-      <div className="tabs">
+      <Tabs>
         <button className={'tab' + (tab === 'teoria' ? ' active' : '')} onClick={() => setTab('teoria')}>
           {t('gr.theory')}
         </button>
@@ -270,7 +271,7 @@ export default function TopicDetail({ topic, tab = 'teoria', onTab, onStart, onB
             📸 {pick('Fotos', 'Photos')}
           </button>
         )}
-      </div>
+      </Tabs>
 
       {tab === 'teoria' && (
         <div className="stack">

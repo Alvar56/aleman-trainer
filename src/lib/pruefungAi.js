@@ -121,15 +121,23 @@ ${FORMATO()}`;
     throw new Error(t('err.taskFailed'));
   }
   const aufgaben = raw.aufgaben
-    .map((a) => ({
-      frage: String(a.frage || '').trim(),
-      optionen: (Array.isArray(a.optionen) ? a.optionen : []).map(String),
-      loesung: Number.isInteger(a.loesung) ? a.loesung : 0,
-      warum: String(a.warum || '').trim(),
-      stelle: String(a.stelle || '').trim(),
-      falle: String(a.falle || '').trim()
-    }))
-    .filter((a) => a.frage && a.optionen.length >= 2 && a.loesung < a.optionen.length);
+    .map((a) => {
+      const opts = (Array.isArray(a.optionen) ? a.optionen : []).map(String);
+      let loes = typeof a.loesung === 'number' ? a.loesung : Number(a.loesung);
+      if (isNaN(loes) || loes < 0 || loes >= opts.length) {
+        const found = opts.findIndex((o) => String(o).trim().toLowerCase() === String(a.loesung).trim().toLowerCase());
+        loes = found >= 0 ? found : 0;
+      }
+      return {
+        frage: String(a.frage || '').trim(),
+        optionen: opts,
+        loesung: opts.length > 0 ? Math.max(0, Math.min(opts.length - 1, Math.floor(loes))) : 0,
+        warum: String(a.warum || '').trim(),
+        stelle: String(a.stelle || '').trim(),
+        falle: String(a.falle || '').trim()
+      };
+    })
+    .filter((a) => a.frage && a.optionen.length >= 2);
   if (!aufgaben.length) throw new Error(t('err.taskIncomplete'));
 
   return {

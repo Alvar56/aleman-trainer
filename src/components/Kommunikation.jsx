@@ -23,6 +23,7 @@ import { GENDER_NIVELES } from '../lib/vocab.js';
 import EtiquetaChip from './EtiquetaChip.jsx';
 import BotonCopiar from './BotonCopiar.jsx';
 import { getStarredItems, useStars } from '../lib/stars.js';
+import Tabs from './Tabs.jsx';
 import FotosVocab from './FotosVocab.jsx';
 import MatchGame from './MatchGame.jsx';
 import VocabSummary from './VocabSummary.jsx';
@@ -493,7 +494,7 @@ function KommDetail({
 
       <BarrasTema topicId={'komm:' + lektion.id} pct={km?.pct || 0} />
 
-      <div className="tabs">
+      <Tabs>
         <button className={'tab' + (tab === 'teoria' ? ' active' : '')} onClick={() => setTab('teoria')}>
           {t('gr.theory')}
         </button>
@@ -505,7 +506,7 @@ function KommDetail({
             📸 {pick('Fotos', 'Photos')}
           </button>
         )}
-      </div>
+      </Tabs>
 
       {tab === 'teoria' && (
       <div className="stack">

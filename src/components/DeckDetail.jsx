@@ -13,6 +13,7 @@ import Escuchar from './Escuchar.jsx';
 import PuntoColor from './PuntoColor.jsx';
 import ModalConjugacion from './ModalConjugacion.jsx';
 import FotosVocab from './FotosVocab.jsx';
+import Tabs from './Tabs.jsx';
 
 // Mismas dos pestañas que en Grammatik: primero te lees las palabras, luego
 // juegas. Antes salía todo de corrido y los juegos tapaban la lista, que es
@@ -73,7 +74,7 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
 
       <BarrasTema topicId={'vocab:' + deck.id} pct={st.pct} />
 
-      <div className="tabs">
+      <Tabs>
         <button className={'tab' + (tab === 'teoria' ? ' active' : '')} onClick={() => setTab('teoria')}>
           {t('gr.theory')}
         </button>
@@ -88,7 +89,7 @@ export default function DeckDetail({ deck, tab = 'teoria', onTab, onStart, onRet
             📸 {pick('Fotos', 'Photos')}
           </button>
         )}
-      </div>
+      </Tabs>
 
       {tab === 'teoria' && (
         <div className="stack">

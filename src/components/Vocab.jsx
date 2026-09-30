@@ -19,6 +19,7 @@ import PuntoColor from './PuntoColor.jsx';
 import ModalConjugacion from './ModalConjugacion.jsx';
 import EtiquetaChip from './EtiquetaChip.jsx';
 import FotosVocab from './FotosVocab.jsx';
+import Tabs from './Tabs.jsx';
 function CustomDropdown({ options, value, onChange }) {
   const [open, setOpen] = useState(false);
   const selected = options.find((o) => o.value === value) || options[0];
@@ -257,7 +258,7 @@ function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onReto, onBac
 
       <BarrasTema topicId={todo ? 'vocab:' + todo.id : ''} pct={st.pct} />
 
-      <div className="tabs">
+      <Tabs>
         <button className={'tab' + (tab === 'teoria' ? ' active' : '')} onClick={() => setTab('teoria')}>
           {t('gr.theory')}
         </button>
@@ -272,7 +273,7 @@ function LektionVocab({ lektionId, tab = 'teoria', onTab, onStart, onReto, onBac
             📸 {pick('Fotos', 'Photos')}
           </button>
         )}
-      </div>
+      </Tabs>
 
       {tab === 'teoria' && (
         <div className="stack">

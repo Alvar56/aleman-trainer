@@ -3,6 +3,7 @@ import { t, pick, localeFecha } from '../lib/i18n.js';
 import { ranking } from '../lib/leaderboard.js';
 import { topicsTraducidos } from '../topics/index.js';
 import Estadisticas from './Estadisticas.jsx';
+import Tabs from './Tabs.jsx';
 
 // Dos pestañas, como en Grammatik y Wortschatz: la tabla de récords de siempre
 // y las gráficas. Todo lo que dibujan las gráficas ya se venía guardando en
@@ -21,7 +22,7 @@ export default function Leaderboard({ onBack, highlightId }) {
         </button>
       </div>
 
-      <div className="tabs">
+      <Tabs>
         <button
           className={'tab' + (tab === 'ranking' ? ' active' : '')}
           onClick={() => setTab('ranking')}
@@ -34,7 +35,7 @@ export default function Leaderboard({ onBack, highlightId }) {
         >
           📊 {pick('Estadísticas', 'Statistics')}
         </button>
-      </div>
+      </Tabs>
 
       {tab === 'ranking' ? (
         <>
