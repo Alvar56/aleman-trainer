@@ -266,7 +266,7 @@ export default function ComoFunciona() {
           <table className="cf-tabla cf-tabla-juegos">
             <tbody>
               <tr>
-                <td>📋 {pick('Prüfung A2 (Simulacro)', 'Prüfung A2 (Mock Exam)')} <b>hasta 30</b></td>
+                <td>📋 {pick('Prüfung A2 (Simulacro)', 'Prüfung A2 (Mock Exam)')} <b>{pick('hasta 30', 'up to 30')}</b></td>
                 <td>{pick('Simulacro oficial de 4 destrezas (Lesen, Hören, Schreiben, Sprechen) en formato estándar ÖSD / Goethe / telc.', 'Official 4-skill mock exam (Reading, Listening, Writing, Speaking) standard ÖSD / Goethe / telc format.')}</td>
               </tr>
               <tr>
