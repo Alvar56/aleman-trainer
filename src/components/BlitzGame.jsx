@@ -45,9 +45,12 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
     emoji: deck?.emoji,
     pct: () => (deck ? deckStats(deck).pct : null)
   };
+  // Sube a cada reinicio. Entra en las dependencias del barajado para que al
+  // volver a empezar no salgan las mismas preguntas en el mismo orden.
+  const [ronda, setRonda] = useState(0);
   // `pool` es de donde salen los DESPISTES y sigue siendo la lista entera:
   const base = cartas || deck?.cards || [];
-  const pool = useMemo(() => (base.length >= 4 ? revuelve(base) : []), [base]);
+  const pool = useMemo(() => (base.length >= 4 ? revuelve(base) : []), [base, ronda]);
   // Y esto es lo que se PREGUNTA: el mazo barajado, o solo lo que fallaste.
   const preguntas = useMemo(
     () => ((cartasFijas && cartasFijas.length) ? cartasFijas : pool),
@@ -97,7 +100,25 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
     setI((n) => n + 1);
   }
 
-  useTeclas({ Escape: onExit }, true);
+  function reiniciar() {
+    clearTimeout(timerEspera.current);
+    clearTimeout(timerBono.current);
+    setMarcado(null);
+    setAvisoBono(0);
+    setI(0);
+    setSeg(segundos);
+    setAciertos(0);
+    setRacha(0);
+    setMejorRacha(0);
+    results.current = [];
+    mejorSeguidas.current = 0;
+    ultimaSeguidas.current = null;
+    monedas.current = 0;
+    started.current = Date.now();
+    setRonda((n) => n + 1);
+  }
+
+  useTeclas({ Escape: onExit, r: reiniciar, R: reiniciar }, true);
 
   // Atajos de teclado: 1, 2, 3 para responder; Enter o Espacio para saltar la espera
   useTeclas({
@@ -226,6 +247,7 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
     <div className="vocab-session">
       <div className="progress-top">
         <button className="btn-ghost" onClick={onExit} title="Salir (Esc)">✕</button>
+        <button className="btn-ghost blitz-reset" onClick={reiniciar} title={pick('Empezar de nuevo (R)', 'Start over (R)')}>↻</button>
         {/* Tope al 100%: ahora acertar suma segundos y el reloj puede pasar
             del tiempo de salida, con lo que la barra se saldria del carril. */}
         <div className="bar"><span style={{ width: Math.min(100, (seg / segundos) * 100) + '%' }} /></div>

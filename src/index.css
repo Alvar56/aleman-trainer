@@ -3151,7 +3151,7 @@ input.ask-input,
    pildora: asi las dos suben juntas al hacer scroll. */
 .hud-esquina {
   position: fixed; top: 14px; right: 18px; z-index: 60;
-  display: flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 8px;
   transition: top 0.3s ease;
   /* La pildora no se pulsa; el boton si, y se lo devuelve el mismo. */
   pointer-events: none;
@@ -3163,11 +3163,23 @@ body:has(.fox-modal) .hud-esquina {
 
 /* Monedero: el saldo siempre a la vista, y las monedas del ejercicio volando
    hasta él. */
+/* Reiniciar el Blitz, junto a la cruz. Mismo peso que ella: las dos son
+   formas de abandonar la partida en curso. */
+.blitz-reset {
+  margin-left: -4px;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.blitz-reset:hover {
+  color: var(--accent);
+}
+
 .monedero {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 3px 9px; border-radius: 999px;
-  background: #fef9c3; border: 1.2px solid #eab308; color: #854d0e;
-  font-size: 0.84rem; font-weight: 700; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 999px;
+  background: #fef9c3; border: 1.5px solid #eab308; color: #854d0e;
+  font-size: 0.95rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 @media (max-width: 880px) {
   /* Justo debajo de la cabecera, sea cual sea su alto. --cabecera lo mide
@@ -3184,8 +3196,8 @@ body:has(.fox-modal) .hud-esquina {
      pantalla, encima del ejercicio. */
   body.en-ejercicio .hud-esquina { top: 14px; }
 }
-.mnd-total { font-size: 0.88rem; font-variant-numeric: tabular-nums; }
-.mnd-icono { display: inline-block; font-size: 0.85rem; line-height: 1; }
+.mnd-total { font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+.mnd-icono { display: inline-block; }
 .mnd-icono.salta { animation: mnd-salto 0.34s ease; }
 @keyframes mnd-salto {
   0% { transform: scale(1); }
@@ -3228,10 +3240,8 @@ body:has(.fox-modal) .hud-esquina {
   .mnd-icono.salta, .mnd-sube, .mnd-vuelo { animation-duration: 0.01ms; }
 }
 @media (max-width: 720px) {
-  .hud-esquina { right: 8px; }
-  .monedero { padding: 2px 7px; font-size: 0.78rem; gap: 3px; }
-  .mnd-total { font-size: 0.82rem; }
-  .mnd-icono { font-size: 0.78rem; }
+  .hud-esquina { right: 10px; }
+  .monedero { padding: 4px 10px; font-size: 0.85rem; }
   .hud-esquina.scrolled { top: 10px; }
 }
 

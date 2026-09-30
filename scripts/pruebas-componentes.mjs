@@ -270,6 +270,22 @@ grupo('Traducir');
 }
 
 // ---------------------------------------------------------------------------
+grupo('Blitz');
+{
+  const cartas = Array.from({ length: 12 }, (_, n) => ({ de: 'Wort' + n, es: 'palabra' + n }));
+  const html = await pinta('BlitzGame', 'BlitzGame', {
+    deck: { id: 'd', name: 'Prueba', emoji: '🧪', cards: cartas }, onExit() {}, onFinish() {}
+  });
+  comprobar('sale la cruz de salir', html.includes('✕'));
+  // El boton de reiniciar comparte fila con la cruz. Ademas su estado (ronda)
+  // se declara ANTES del barajado que lo lee: al reves, el array de
+  // dependencias lo tocaba antes de existir y la pantalla se caia con
+  // "Cannot access 'ronda' before initialization".
+  comprobar('sale el boton de reiniciar', html.includes('blitz-reset'), html.slice(0, 300));
+  comprobar('el reloj empieza entero', />\s*40s/.test(html) || />\s*\d+s/.test(html));
+}
+
+// ---------------------------------------------------------------------------
 grupo('Diario (Tagebuch)');
 {
   // Esta pantalla reventaba al abrir una entrada: usaba pick() sin haberlo
