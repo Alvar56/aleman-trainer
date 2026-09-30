@@ -143,63 +143,33 @@ export function pickKasus(n = 12, filtro = 'all') {
       selected = pickBalancedArticles(byCase, n);
     } else if (filtro === 'possessiv') {
       const filtered = pool.filter((f) => ['mein', 'dein', 'sein', 'ihr', 'unser', 'euer'].includes(f.artType));
-      const nNom = Math.max(1, Math.floor(n / 3));
-      const nAkk = Math.max(1, Math.floor(n / 3));
-      const nDat = Math.max(1, n - nNom - nAkk);
+      const minNom = Math.min(2, filtered.filter((f) => f.kasus === 'Nominativ').length);
       const nomList = filtered.filter((f) => f.kasus === 'Nominativ');
-      const akkList = filtered.filter((f) => f.kasus === 'Akkusativ');
-      const datList = filtered.filter((f) => f.kasus === 'Dativ');
-      selected = [
-        ...sortByPriority(nomList).slice(0, nNom),
-        ...sortByPriority(akkList).slice(0, nAkk),
-        ...sortByPriority(datList).slice(0, nDat)
-      ];
-      if (selected.length < n) {
-        const idSet = new Set(selected.map((s) => s.id));
-        const rem = sortByPriority(filtered.filter((f) => !idSet.has(f.id)));
-        selected = [...selected, ...rem.slice(0, n - selected.length)];
-      }
+      const nomPicked = sortByPriority(nomList).slice(0, minNom);
+      const idSet = new Set(nomPicked.map((s) => s.id));
+      const rem = sortByPriority(filtered.filter((f) => !idSet.has(f.id)));
+      selected = [...nomPicked, ...rem.slice(0, n - nomPicked.length)];
     } else {
       // bestimmt, ein, kein
       const filtered = pool.filter((f) => f.artType === filtro);
-      const nNom = Math.max(1, Math.floor(n / 3));
-      const nAkk = Math.max(1, Math.floor(n / 3));
-      const nDat = Math.max(1, n - nNom - nAkk);
+      const minNom = Math.min(2, filtered.filter((f) => f.kasus === 'Nominativ').length);
       const nomList = filtered.filter((f) => f.kasus === 'Nominativ');
-      const akkList = filtered.filter((f) => f.kasus === 'Akkusativ');
-      const datList = filtered.filter((f) => f.kasus === 'Dativ');
-      selected = [
-        ...sortByPriority(nomList).slice(0, nNom),
-        ...sortByPriority(akkList).slice(0, nAkk),
-        ...sortByPriority(datList).slice(0, nDat)
-      ];
-      if (selected.length < n) {
-        const idSet = new Set(selected.map((s) => s.id));
-        const rem = sortByPriority(filtered.filter((f) => !idSet.has(f.id)));
-        selected = [...selected, ...rem.slice(0, n - selected.length)];
-      }
+      const nomPicked = sortByPriority(nomList).slice(0, minNom);
+      const idSet = new Set(nomPicked.map((s) => s.id));
+      const rem = sortByPriority(filtered.filter((f) => !idSet.has(f.id)));
+      selected = [...nomPicked, ...rem.slice(0, n - nomPicked.length)];
     }
   } else {
-    // filtro === 'all': GARANTIZAR presencia equilibrada de los 3 casos (Nominativ, Akkusativ, Dativ)
-    const nNom = Math.max(1, Math.floor(n / 3));
-    const nAkk = Math.max(1, Math.floor(n / 3));
-    const nDat = Math.max(1, n - nNom - nAkk);
-
+    // filtro === 'all': modo aleatorio natural, pero asegurando AL MENOS 2 frases de Nominativ
+    const minNom = Math.max(2, Math.round(n * 0.20));
     const nomPool = pool.filter((f) => f.kasus === 'Nominativ');
-    const akkPool = pool.filter((f) => f.kasus === 'Akkusativ');
-    const datPool = pool.filter((f) => f.kasus === 'Dativ');
+    const nomPicked = pickBalancedArticles(nomPool, minNom);
 
-    selected = [
-      ...pickBalancedArticles(nomPool, nNom),
-      ...pickBalancedArticles(akkPool, nAkk),
-      ...pickBalancedArticles(datPool, nDat)
-    ];
+    const idSet = new Set(nomPicked.map((s) => s.id));
+    const remPool = pool.filter((f) => !idSet.has(f.id));
+    const remPicked = pickBalancedArticles(remPool, n - nomPicked.length);
 
-    if (selected.length < n) {
-      const idSet = new Set(selected.map((s) => s.id));
-      const rem = sortByPriority(pool.filter((f) => !idSet.has(f.id)));
-      selected = [...selected, ...rem.slice(0, n - selected.length)];
-    }
+    selected = [...nomPicked, ...remPicked];
   }
 
   // Barajar para que no salgan por bloques
