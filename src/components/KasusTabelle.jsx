@@ -161,7 +161,7 @@ export default function KasusTabelle({ onClose }) {
                 </div>
               </td>
               <td className="kt-cell kt-neut kt-same">
-                <div className="kt-same-badge">Wie Nominativ</div>
+                <div className="kt-same-badge">= wie Nominativ</div>
                 <div className="kt-item">
                   <span className="kt-type">Bestimmt</span>
                   <strong className="kt-art">das</strong>
@@ -181,7 +181,7 @@ export default function KasusTabelle({ onClose }) {
                 </div>
               </td>
               <td className="kt-cell kt-fem kt-same">
-                <div className="kt-same-badge">Wie Nominativ</div>
+                <div className="kt-same-badge">= wie Nominativ</div>
                 <div className="kt-item">
                   <span className="kt-type">Bestimmt</span>
                   <strong className="kt-art">die</strong>
@@ -201,7 +201,7 @@ export default function KasusTabelle({ onClose }) {
                 </div>
               </td>
               <td className="kt-cell kt-pl kt-same">
-                <div className="kt-same-badge">Wie Nominativ</div>
+                <div className="kt-same-badge">= wie Nominativ</div>
                 <div className="kt-item">
                   <span className="kt-type">Bestimmt</span>
                   <strong className="kt-art">di<span className="kt-hi">e</span></strong>
@@ -319,6 +319,8 @@ export default function KasusTabelle({ onClose }) {
             </div>
           </div>
           <div className="kt-rule-summary">
+            <span className="kt-ley"><b className="kt-ley-am">-r</b>terminación del caso</span>
+            <span className="kt-ley"><b className="kt-ley-az">-en</b>cambia en Akkusativ</span>
             <span className="kt-rule-pill">m: -r / -n / -m</span>
             <span className="kt-rule-pill">n: -s / -s / -m</span>
             <span className="kt-rule-pill">f: -e / -e / -r</span>

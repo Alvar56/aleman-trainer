@@ -4321,7 +4321,7 @@ input.vs-respuesta { max-width: 460px; }
   padding: 12px 16px;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 8px;
 }
 
 .kt-table {
@@ -4436,11 +4436,12 @@ input.vs-respuesta { max-width: 460px; }
 
 .kt-item {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 7px;
-  margin-bottom: 3px;
+  margin-bottom: 0;
   flex-wrap: nowrap;
   min-width: 0;
+  min-height: 23px;
 }
 
 .kt-item:last-child {
@@ -4484,13 +4485,11 @@ input.vs-respuesta { max-width: 460px; }
 }
 
 .kt-hi {
-  background: #fef08a;
+  background: #fde68a;
   color: #713f12;
   font-weight: 800;
-  padding: 0 2px;
-  border-radius: 2px;
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
+  padding: 0 3px;
+  border-radius: 3px;
 }
 
 .kt-hi-akk {
@@ -4503,23 +4502,46 @@ input.vs-respuesta { max-width: 460px; }
   color: #854d0e;
 }
 
-.kt-pill-alert {
-  font-size: 0.68rem;
+.kt-pill-alert,
+.kt-same-badge {
+  display: inline-block;
+  font-size: 0.67rem;
   font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-bottom: 5px;
+  height: 18px;
+  line-height: 14px;
+}
+
+.kt-pill-alert {
   background: #dbeafe;
   color: #1e40af;
-  border-radius: 4px;
-  padding: 1px 5px;
-  margin-bottom: 4px;
-  display: inline-block;
 }
 
 .kt-same-badge {
-  font-size: 0.7rem;
+  background: color-mix(in srgb, var(--muted) 14%, transparent);
   color: var(--muted);
-  font-style: italic;
-  margin-bottom: 3px;
 }
+
+.kt-ley {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.kt-ley b {
+  font-weight: 800;
+  padding: 0 4px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.kt-ley-am { background: #fde68a; color: #713f12; }
+.kt-ley-az { background: #bae6fd; color: #0369a1; }
 
 .kt-nomen-note {
   margin-top: 4px;
