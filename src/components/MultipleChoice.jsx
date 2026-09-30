@@ -15,6 +15,24 @@ function mezclarArray(arr) {
   return x;
 }
 
+function TailLeft() {
+  return (
+    <svg className="bubble-tail-left" width="11" height="14" viewBox="0 0 11 14" fill="none" aria-hidden="true">
+      <path d="M9 0.75 L0 14 L11 14 L11 0.75 Z" className="tail-fill" />
+      <path d="M9 0.75 L0.75 13.25 L11 13.25" className="tail-stroke" />
+    </svg>
+  );
+}
+
+function TailRight() {
+  return (
+    <svg className="bubble-tail-right" width="11" height="14" viewBox="0 0 11 14" fill="none" aria-hidden="true">
+      <path d="M0 0.75 L2 0.75 L11 14 L0 14 Z" className="tail-fill" />
+      <path d="M0 13.25 L10.25 13.25 L2 0.75" className="tail-stroke" />
+    </svg>
+  );
+}
+
 // Muestra la frase con el hueco y las opciones. Al elegir, bloquea y avisa.
 export default function MultipleChoice({ item, onAnswer }) {
   const [picked, setPicked] = useState(null);
@@ -58,6 +76,8 @@ export default function MultipleChoice({ item, onAnswer }) {
           esto, el enunciado y la frase salian uno debajo del otro con la
           misma pinta y no se sabia cual era cual. */}
       <div className={'sentence' + (item.marco ? ' sentence-' + item.marco : '')}>
+        {item.marco === 'dicho' && <TailLeft />}
+        {item.marco === 'tuyo' && <TailRight />}
         {parts.map((p, i) => (
           <React.Fragment key={i}>
             {p}
@@ -84,6 +104,7 @@ export default function MultipleChoice({ item, onAnswer }) {
           }
           return (
             <button key={i} className={cls} disabled={done} onClick={() => choose(opt)}>
+              {item.marcoOpciones === 'tuyo' && <TailRight />}
               {i < 9 && <span className="op-tecla">{i + 1}</span>}
               {opt}
             </button>

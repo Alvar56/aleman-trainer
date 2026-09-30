@@ -863,42 +863,52 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 .option.wrong { border-color: var(--bad); background: var(--bad-bg); color: var(--text); }
 .option.dim { opacity: 0.45; }
 .options-tuyo {
-  padding-right: 8px;
+  padding-right: 10px;
 }
 .options-tuyo .option {
   position: relative;
-  border-radius: 14px 14px 2px 14px;
+  border-radius: 14px 14px 0 14px;
 }
-.options-tuyo .option::after {
-  content: "";
+.bubble-tail-right {
   position: absolute;
-  bottom: 2px;
-  right: -6px;
-  width: 10px;
-  height: 10px;
-  background: var(--surface);
-  border-right: 1.5px solid var(--border-strong);
-  border-bottom: 1.5px solid var(--border-strong);
-  transform: rotate(-45deg);
-  border-bottom-right-radius: 2px;
+  right: -9px;
+  bottom: -1.5px;
+  width: 11px;
+  height: 14px;
   pointer-events: none;
+  overflow: visible;
   z-index: 2;
-  transition: background 0.14s ease, border-color 0.14s ease;
 }
-.options-tuyo .option:hover:not(:disabled)::after {
-  background: var(--accent-soft);
-  border-right-color: var(--accent);
-  border-bottom-color: var(--accent);
+.bubble-tail-right .tail-fill {
+  fill: var(--surface);
+  transition: fill 0.14s ease;
 }
-.options-tuyo .option.correct::after {
-  background: var(--good-bg);
-  border-right-color: var(--good);
-  border-bottom-color: var(--good);
+.bubble-tail-right .tail-stroke {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 3;
+  fill: none;
+  transition: stroke 0.14s ease;
 }
-.options-tuyo .option.wrong::after {
-  background: var(--bad-bg);
-  border-right-color: var(--bad);
-  border-bottom-color: var(--bad);
+.options-tuyo .option:hover:not(:disabled) .bubble-tail-right .tail-fill {
+  fill: var(--accent-soft);
+}
+.options-tuyo .option:hover:not(:disabled) .bubble-tail-right .tail-stroke {
+  stroke: var(--accent);
+}
+.options-tuyo .option.correct .bubble-tail-right .tail-fill {
+  fill: var(--good-bg);
+}
+.options-tuyo .option.correct .bubble-tail-right .tail-stroke {
+  stroke: var(--good);
+}
+.options-tuyo .option.wrong .bubble-tail-right .tail-fill {
+  fill: var(--bad-bg);
+}
+.options-tuyo .option.wrong .bubble-tail-right .tail-stroke {
+  stroke: var(--bad);
 }
 /* El numero de la tecla, delante de la opcion. Un atajo que no se anuncia no
    lo usa nadie, asi que se ve; pero apagado, que la respuesta es el texto.
@@ -4891,9 +4901,9 @@ input.vs-respuesta { max-width: 460px; }
 /* Bocadillos de diálogo (enunciado de comunicación) */
 .sentence-dicho {
   position: relative;
-  border-radius: 14px 14px 14px 2px;
+  border-radius: 14px 14px 14px 0;
   padding: 13px 18px;
-  margin: 4px 0 24px 0;
+  margin: 4px 0 24px 10px;
   max-width: 36rem;
   width: fit-content;
   line-height: 1.45;
@@ -4904,25 +4914,31 @@ input.vs-respuesta { max-width: 460px; }
   background: var(--surface);
   border: 1.5px solid var(--border-strong);
 }
-.sentence-dicho::after {
-  content: "";
+.bubble-tail-left {
   position: absolute;
-  bottom: 2px;
-  left: -6px;
-  width: 10px;
-  height: 10px;
-  background: var(--surface);
-  border-left: 1.5px solid var(--border-strong);
-  border-bottom: 1.5px solid var(--border-strong);
-  transform: rotate(45deg);
-  border-bottom-left-radius: 2px;
+  left: -9px;
+  bottom: -1.5px;
+  width: 11px;
+  height: 14px;
   pointer-events: none;
+  overflow: visible;
   z-index: 2;
+}
+.bubble-tail-left .tail-fill {
+  fill: var(--surface);
+}
+.bubble-tail-left .tail-stroke {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 3;
+  fill: none;
 }
 
 .sentence-tuyo {
   position: relative;
-  border-radius: 14px 14px 2px 14px;
+  border-radius: 14px 14px 0 14px;
   padding: 13px 18px;
   margin: 4px 0 24px 0;
   max-width: 36rem;
@@ -4939,23 +4955,14 @@ input.vs-respuesta { max-width: 460px; }
 [data-theme='dark'] .sentence-tuyo {
   border-color: rgba(91, 139, 212, 0.35);
 }
-.sentence-tuyo::after {
-  content: "";
-  position: absolute;
-  bottom: 2px;
-  right: -6px;
-  width: 10px;
-  height: 10px;
-  background: var(--accent-soft);
-  border-right: 1.5px solid #cddcec;
-  border-bottom: 1.5px solid #cddcec;
-  transform: rotate(-45deg);
-  border-bottom-right-radius: 2px;
-  pointer-events: none;
-  z-index: 2;
+.sentence-tuyo .bubble-tail-right .tail-fill {
+  fill: var(--accent-soft);
 }
-[data-theme='dark'] .sentence-tuyo::after {
-  border-color: rgba(91, 139, 212, 0.35);
+.sentence-tuyo .bubble-tail-right .tail-stroke {
+  stroke: #cddcec;
+}
+[data-theme='dark'] .sentence-tuyo .bubble-tail-right .tail-stroke {
+  stroke: rgba(91, 139, 212, 0.35);
 }
 
 @media (max-width: 720px) {
