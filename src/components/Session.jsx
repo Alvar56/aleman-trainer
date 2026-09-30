@@ -17,6 +17,7 @@ import { recordStreak, currentStreak, updateStreak } from '../lib/rachas.js';
 import { cobrarEjercicio, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
 import { playAudio } from '../lib/audio.js';
 import { ensureJob, clearJob } from '../lib/aiJobs.js';
+import { useAiJob } from '../lib/useAiJob.js';
 import { useTeclas } from '../lib/teclas.js';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import Cargando from './Cargando.jsx';
