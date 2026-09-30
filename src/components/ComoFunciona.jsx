@@ -453,14 +453,20 @@ export default function ComoFunciona() {
           <ul className="cf-lista">
             <li>
               {pick(
-                'Paga lo que el ejercicio te exige: 1 si eliges entre opciones que ya tienes delante, 2 si te dan las piezas y las colocas (ordenar, anagrama, ahorcado) y 3 si lo escribes de cero (escribir la palabra, traducir la frase).',
-                'It pays what the exercise demands of you: 1 if you pick from options already in front of you, 2 if you are given the pieces and place them (sentence order, anagram, hangman) and 3 if you write it from scratch (write the word, translate the sentence).'
+                'Paga lo que el ejercicio te exige: 1 si eliges entre opciones que ya tienes delante, 2 si te dan las piezas y las colocas (ordenar frases, Wortsalat) y hasta 4 si lo escribes de memoria (escribir la palabra, traducir la frase).',
+                'It pays what the exercise demands of you: 1 if you pick from options already in front of you, 2 if you are given the pieces and place them (sentence order, Wortsalat) and up to 4 if you write it from memory (type the word, translate the sentence).'
               )}
             </li>
             <li>
               {pick(
-                'Cada pista gastada resta una moneda. Con todas gastadas ya no paga, pero el acierto cuenta igual para el progreso, la XP y la racha.',
-                'Each hint you spend costs one coin. With all of them spent it stops paying, but the hit still counts for progress, XP and the streak.'
+                'Cada pista gastada reduce una moneda de la recompensa del ejercicio, pero acertar siempre te garantiza al menos 1 moneda (nunca te quedas sin recompensa por pedir ayuda).',
+                'Each hint spent reduces the exercise reward by one coin, but getting it right always guarantees at least 1 coin (you never get zero coins for asking for help).'
+              )}
+            </li>
+            <li>
+              {pick(
+                '⚡ Blitz paga 1 moneda por cada acierto, y además te llevas 5 monedas de bonus extra si alcanzas el objetivo (10 aciertos dentro del tiempo).',
+                '⚡ Blitz pays 1 coin per hit, plus a 5 extra coin bonus if you reach the goal (10 correct hits within the time limit).'
               )}
             </li>
             <li>
@@ -473,7 +479,7 @@ export default function ComoFunciona() {
               <li>
                 {pick(
                   'Las cosas largas pagan más: una entrada del diario 25, unos apuntes 15, una parte del examen hasta 30 — y esa en proporción a lo que aciertes, que terminarla a boleo no da nada.',
-                  'Longer things pay more: a diary entry 25, a set of notes 15, an exam part up to 30 — and that one in proportion to what you get right, because finishing it at random pays nothing.'
+                  'Longer tasks pay more: a diary entry 25, a set of notes 15, an exam part up to 30 — and that one in proportion to what you get right, because finishing it at random pays nothing.'
                 )}
               </li>
             )}

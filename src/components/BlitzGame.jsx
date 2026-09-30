@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import { recordCard, deckStats } from '../lib/vocab.js';
 import { recordActivity } from '../lib/streak.js';
-import { cobrarEjercicio, RECONOCER } from '../lib/monedas.js';
+import { cobrarEjercicio, RECONOCER, ganar } from '../lib/monedas.js';
 import { bumpSessions } from '../lib/progress.js';
 import { saveRun } from '../lib/leaderboard.js';
 import { pick } from '../lib/i18n.js';
@@ -165,6 +165,10 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
     const total = results.current.length;
     const correct = aciertos;
     const esGanado = aciertos >= OBJETIVO;
+    if (esGanado) {
+      ganar(5);
+      monedas.current += 5;
+    }
     const xp = Math.max(2, correct * 5 + (esGanado ? 20 : 0) + mejorRacha * 2);
     bumpSessions();
     const streak = recordActivity(xp);
