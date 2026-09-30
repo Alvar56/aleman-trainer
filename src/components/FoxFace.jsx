@@ -334,25 +334,28 @@ function marcasBuho(g) {
   espejo(g, 8, 7, 12, 'm');
 }
 
-// Rana: sin orejas, pero con dos bultos encima de los ojos y los carrillos
-// anchos. Los ojos siguen donde siempre, y al quedar justo debajo del bulto
-// se leen como ojos saltones.
+// Rana: cúpulas redondeadas y suaves encima de los ojos, rubor tierno
+// y sonrisa expresiva y adorable (estilo kawaii).
 function orejasRana(g) {
-  espejo(g, 4, 8, 11, 'f');
-  espejo(g, 5, 7, 12, 'f');
-  espejo(g, 6, 6, 12, 'f');
-  espejo(g, 7, 4, 13, 'f');
+  // Bultos de los ojos redondeados y suaves en la parte superior
+  espejo(g, 2, 8, 11, 'f');
+  espejo(g, 3, 7, 12, 'f');
+  espejo(g, 4, 6, 12, 'f');
+  espejo(g, 5, 6, 13, 'f');
+  espejo(g, 6, 5, 13, 'f');
+  espejo(g, 7, 5, 13, 'f');
+
+  // Brillos suaves en la coronilla de los ojos
+  espejo(g, 3, 8, 10, 'h');
+  espejo(g, 4, 7, 10, 'h');
+  espejo(g, 5, 7, 9, 'h');
 }
 function marcasRana(g) {
-  // la cúpula clara del ojo
-  espejo(g, 5, 8, 11, 'h');
-  espejo(g, 6, 7, 11, 'h');
-  espejo(g, 7, 6, 11, 'h');
-  espejo(g, 8, 6, 11, 'h');
-  espejo(g, 9, 7, 11, 'l');
-  // los carrillos, un poco más oscuros
-  espejo(g, 8, 4, 5, 'd');
-  espejo(g, 9, 4, 6, 'd');
+  // Rubor suave y adorable en las mejillas
+  espejo(g, 13, 6, 7, 'r');
+  espejo(g, 14, 6, 7, 'r');
+  // Brillo sutil en la frente
+  fila(g, 8, 12, 15, 'h');
 }
 
 // Pato: el mechón de arriba, con su antenita.
@@ -447,7 +450,7 @@ const BICHOS = {
   oso: { detras: orejasOso },
   conejo: { detras: orejasConejo, delante: marcasConejo },
   buho: { detras: orejasBuho, delante: marcasBuho },
-  rana: { detras: orejasRana, delante: marcasRana },
+  rana: { detras: orejasRana, marcas: marcasRana },
   pato: { detras: orejasPato },
   erizo: { detras: puasErizo, delante: orejasDelanteErizo, marcas: marcasErizo },
   mapache: { detras: orejasMapache, marcas: marcasMapache }
@@ -477,8 +480,8 @@ function rasgos(g, especie) {
     fila(g, 14, 13, 14, 'j');
     fila(g, 15, 13, 14, 'j');
   } else if (especie === 'rana') {
-    fila(g, 16, 9, 18, 'o');
-    espejoPx(g, 8, 15, 'o');
+    // Naricita sutil de dos motitas tiernas de ranita
+    fila(g, 12, 13, 14, 'd');
   } else if (especie === 'conejo') {
     // Naricita pequeña y suave rosada
     fila(g, 13, 13, 14, 'r');
@@ -1746,13 +1749,9 @@ export default function FoxFace({
   const alto = conCuerpo ? H : ALTO_CABEZA;
   const colorId = c?.id || '';
   let pId = fuchs?.particulas;
-  if (colorId === 'bronce') pId = 'p1';
-  if (colorId === 'plata') pId = 'p4';
-  if (colorId === 'dorado') pId = 'p7';
   if (colorId.startsWith('galaxy')) pId = null;
-  const autoP = ['bronce', 'plata', 'dorado'].includes(colorId);
-  const base = (chispeando || autoP) ? PARTICULAS[pId] || null : null;
-  const empuje = autoP ? 1 : Math.max(0, Math.min(1, (racha - 2) / (10 - 2)));
+  const base = chispeando ? PARTICULAS[pId] || null : null;
+  const empuje = Math.max(0, Math.min(1, (racha - 2) / (10 - 2)));
   const chispas =
     base &&
     base.map((capa) => ({
@@ -2074,6 +2073,71 @@ export default function FoxFace({
               <animate attributeName="cy" values={`${st.y};${st.y + st.dy};${st.y - st.dy};${st.y}`} dur={`${parseFloat(st.d) * 2.8}s`} repeatCount="indefinite" />
             </circle>
           ))}
+        </g>
+      )}
+      {['bronce', 'plata', 'dorado'].includes(colorId) && (
+        <g className="fox-metallic-sparkles" aria-hidden="true" style={{ pointerEvents: 'none' }}>
+          {[
+            // Cabeza y orejas (siempre visibles)
+            { x: 8.5, y: 3.5, d: '2.1s', delay: '0s' },
+            { x: 19.5, y: 3.5, d: '2.5s', delay: '0.8s' },
+            { x: 13.5, y: 8.0, d: '1.9s', delay: '1.3s' },
+            { x: 7.0, y: 10.5, d: '2.3s', delay: '0.4s' },
+            { x: 21.0, y: 10.5, d: '2.0s', delay: '1.7s' },
+            { x: 10.0, y: 13.0, d: '2.6s', delay: '0.9s' },
+            { x: 17.5, y: 13.0, d: '2.2s', delay: '1.5s' },
+            { x: 6.5, y: 15.5, d: '2.8s', delay: '0.2s' },
+            { x: 21.5, y: 15.5, d: '2.4s', delay: '1.1s' },
+            // Cuerpo y patas (visibles con conCuerpo)
+            { x: 11.5, y: 19.5, d: '2.2s', delay: '0.6s' },
+            { x: 16.5, y: 19.5, d: '2.7s', delay: '1.4s' },
+            { x: 13.5, y: 22.5, d: '2.0s', delay: '0.3s' },
+            { x: 8.5, y: 24.5, d: '2.4s', delay: '1.8s' },
+            { x: 19.5, y: 24.5, d: '2.1s', delay: '0.7s' },
+            { x: 9.5, y: 27.5, d: '2.5s', delay: '1.2s' },
+            { x: 18.5, y: 27.5, d: '2.3s', delay: '0.5s' }
+          ]
+            .filter((st) => st.y < alto)
+            .map((st, i) => {
+              const haloColor =
+                colorId === 'dorado' ? '#fef08a' : colorId === 'plata' ? '#e2e8f0' : '#fed7aa';
+              return (
+                <g key={i} transform={`translate(${st.x}, ${st.y})`}>
+                  {/* Destello en cruz de metal */}
+                  <path
+                    d="M 0,-1.1 L 0.35,-0.35 L 1.1,0 L 0.35,0.35 L 0,1.1 L -0.35,0.35 L -1.1,0 L -0.35,-0.35 Z"
+                    fill={haloColor}
+                    opacity="0.9"
+                  >
+                    <animate
+                      attributeName="opacity"
+                      values="0; 0; 0.95; 1; 0.15; 0; 0"
+                      dur={st.d}
+                      begin={st.delay}
+                      repeatCount="indefinite"
+                    />
+                    <animateTransform
+                      attributeName="transform"
+                      type="scale"
+                      values="0.3; 0.3; 1.25; 1.4; 0.4; 0.3; 0.3"
+                      dur={st.d}
+                      begin={st.delay}
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                  {/* Núcleo blanco brillante en el centro del destello */}
+                  <rect x="-0.4" y="-0.4" width="0.8" height="0.8" fill="#ffffff">
+                    <animate
+                      attributeName="opacity"
+                      values="0; 0; 1; 1; 0.2; 0; 0"
+                      dur={st.d}
+                      begin={st.delay}
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                </g>
+              );
+            })}
         </g>
       )}
       {chispas && !colorId.startsWith('galaxy') && (
