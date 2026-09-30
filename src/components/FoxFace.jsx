@@ -608,22 +608,22 @@ const EXTRAS = {
     ]
   },
   corona: {
-    a: '#f2c230', b: '#b8860b', c: '#e8558f',
+    a: '#f2c230', b: '#b8860b', c: '#ff2d87', d: '#ffffff',
     px: [
-      // Cruz / gema superior central
-      [13, 0, 'c'], [14, 0, 'c'], [13, 1, 'a'], [14, 1, 'a'],
+      // Cruz / gema superior central con destello blanco
+      [13, 0, 'd'], [14, 0, 'd'], [13, 1, 'a'], [14, 1, 'a'],
       // Picos dorados con gemas
-      ...rect(4, 1, 6, 4, 'a'), [5, 1, 'c'],
-      ...rect(8, 2, 10, 4, 'a'), [9, 2, '#22c55e'],
-      ...rect(12, 2, 15, 4, 'a'), [13, 2, 'c'], [14, 2, 'c'],
-      ...rect(17, 2, 19, 4, 'a'), [18, 2, '#3b82f6'],
-      ...rect(21, 1, 23, 4, 'a'), [22, 1, 'c'],
+      ...rect(4, 1, 6, 4, 'a'), [5, 1, 'c'], [5, 2, 'd'],
+      ...rect(8, 2, 10, 4, 'a'), [9, 2, '#22c55e'], [9, 3, 'd'],
+      ...rect(12, 2, 15, 4, 'a'), [13, 2, 'c'], [14, 2, 'c'], [13, 3, 'd'],
+      ...rect(17, 2, 19, 4, 'a'), [18, 2, '#3b82f6'], [18, 3, 'd'],
+      ...rect(21, 1, 23, 4, 'a'), [22, 1, 'c'], [22, 2, 'd'],
       // Terciopelo interior
       ...rect(6, 3, 21, 5, '#8a1f2f'),
       // Arco y base de la corona
       ...rect(4, 5, 23, 6, 'a'),
       ...rect(4, 7, 23, 8, 'b'),
-      [6, 7, 'c'], [10, 7, '#22c55e'], [13, 7, 'c'], [14, 7, 'c'], [17, 7, '#3b82f6'], [21, 7, 'c']
+      [6, 7, 'c'], [10, 7, '#22c55e'], [13, 7, 'd'], [14, 7, 'd'], [17, 7, '#3b82f6'], [21, 7, 'c']
     ]
   },
   flor: {
@@ -775,10 +775,10 @@ const EXTRAS = {
     ]
   },
   bastonrey: {
-    a: '#f2c230', b: '#8e1f38', c: '#a87c12',
+    a: '#f2c230', b: '#ff2d87', c: '#a87c12', d: '#ffffff',
     px: [
-      ...rect(22, 20, 23, 21, 'a'), [21, 21, 'a'], [24, 21, 'a'], [22, 19, 'a'], [23, 19, 'a'],
-      [22, 20, 'b'], [23, 20, 'b'],
+      ...rect(22, 20, 23, 21, 'a'), [21, 21, 'a'], [24, 21, 'a'], [22, 19, 'd'], [23, 19, 'd'],
+      [22, 20, 'b'], [23, 20, 'b'], [22, 21, 'd'],
       ...rect(22, 22, 23, 28, 'c')
     ]
   },
@@ -917,27 +917,32 @@ const EXTRAS = {
   // --- el equipo de reina (con coronas) ---
   // La diadema: brillante tiara de platino con piedras preciosas
   diadema: {
-    a: '#e8e8f0', b: '#a9a9bb', c: '#e8558f',
+    a: '#e8e8f0', b: '#a9a9bb', c: '#ff2d87', d: '#ffffff',
     px: [
       // Base de platino arqueada y ancha
       ...rect(5, 6, 22, 7, 'a'), ...rect(5, 8, 22, 8, 'b'),
       // Picos de diamantes y rubíes
-      ...rect(7, 4, 8, 5, 'a'), [7, 3, 'c'], [8, 3, 'c'],
-      ...rect(10, 3, 11, 5, 'a'), [10, 2, 'c'], [11, 2, 'c'],
-      ...rect(13, 1, 14, 5, 'a'), [13, 0, 'c'], [14, 0, 'c'], [13, 1, 'c'], [14, 1, 'c'],
-      ...rect(16, 3, 17, 5, 'a'), [16, 2, 'c'], [17, 2, 'c'],
-      ...rect(19, 4, 20, 5, 'a'), [19, 3, 'c'], [20, 3, 'c'],
+      ...rect(7, 4, 8, 5, 'a'), [7, 3, 'c'], [8, 3, 'd'],
+      ...rect(10, 3, 11, 5, 'a'), [10, 2, 'c'], [11, 2, 'd'],
+      ...rect(13, 1, 14, 5, 'a'), [13, 0, 'd'], [14, 0, 'd'], [13, 1, 'c'], [14, 1, 'c'],
+      ...rect(16, 3, 17, 5, 'a'), [16, 2, 'd'], [17, 2, 'c'],
+      ...rect(19, 4, 20, 5, 'a'), [19, 3, 'd'], [20, 3, 'c'],
       // Destellos en la base
-      [9, 7, 'c'], [13, 7, 'c'], [14, 7, 'c'], [18, 7, 'c']
+      [9, 7, 'd'], [13, 7, 'c'], [14, 7, 'c'], [18, 7, 'd']
     ]
   },
-  // El collar: dos vueltas de perlas y la piedra gorda en medio.
+  // El collar: dos vueltas de perlas y la gran gema brillante en medio.
   collarReina: {
-    a: '#e8e8f0', b: '#a9a9bb', c: '#e8558f',
+    a: '#e8e8f0', b: '#a9a9bb', c: '#ff2d87', d: '#ffffff',
     px: [
       ...rect(9, 18, 18, 18, 'b'), ...rect(8, 19, 19, 19, 'a'),
       [8, 19, 'b'], [10, 19, 'b'], [12, 19, 'b'], [15, 19, 'b'], [17, 19, 'b'], [19, 19, 'b'],
-      ...rect(12, 20, 15, 22, 'c'), ...rect(13, 21, 14, 21, 'a')
+      // Montura de platino engarzada
+      ...rect(11, 20, 16, 23, 'a'),
+      // Gema brillante facetada de rubí / diamante rosa
+      ...rect(12, 20, 15, 22, 'c'),
+      // Brillo y facetas de cristal
+      [12, 20, 'd'], [13, 20, 'd'], [14, 21, '#ff85b3'], [13, 22, '#c2185b']
     ]
   },
   // El vestido: falda larga, cuerpo claro y el ribete de plata.
@@ -962,12 +967,12 @@ const EXTRAS = {
   },
   // El orbe: la bola con la cruz, en la manita.
   orbe: {
-    a: '#e8e8f0', b: '#a9a9bb', c: '#e8558f',
+    a: '#e8e8f0', b: '#a9a9bb', c: '#ff2d87', d: '#ffffff',
     px: [
       ...rect(21, 23, 25, 27, 'a'),
-      ...rect(21, 26, 25, 27, 'b'), [22, 24, 'c'], [24, 25, 'c'],
+      ...rect(21, 26, 25, 27, 'b'), [22, 24, 'c'], [24, 25, 'c'], [23, 24, 'd'],
       ...rect(22, 25, 24, 25, 'b'),
-      ...rect(23, 20, 23, 22, 'a'), ...rect(22, 21, 24, 21, 'a'), [23, 19, 'c']
+      ...rect(23, 20, 23, 22, 'a'), ...rect(22, 21, 24, 21, 'a'), [23, 19, 'd']
     ]
   },
   // --- cabeza (añadidos) ---
