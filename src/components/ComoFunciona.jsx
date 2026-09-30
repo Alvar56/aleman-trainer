@@ -536,30 +536,26 @@ export default function ComoFunciona() {
         <Bloque titulo={pick('💡 Las pistas', '💡 The hints')}>
           <p>
             {pick(
-              'El juego de der / die / das y el Kasus Trainer dan pista, y ninguna dice el artículo:',
-              'The der / die / das game and the Kasus Trainer both offer a hint, and neither gives you the article:'
+              'En el juego de der / die / das y en Kasus Trainer las pistas te ayudan a deducir el artículo sin darte la respuesta directamente:',
+              'In the der / die / das game and Kasus Trainer, hints help you deduce the article without giving away the direct answer:'
             )}
           </p>
           <ul className="cf-lista">
             <li>
+              <strong>{pick('Reglas de terminación', 'Ending rules')}:</strong>{' '}
               {pick(
-                'Si la palabra tiene una terminación que manda (-ung, -chen, -keit…), la pista es esa regla, que sirve para las otras doscientas palabras que acaban igual.',
-                'If the word has an ending that decides (-ung, -chen, -keit…), the hint is that rule — which works for the other two hundred words ending the same way.'
+                'Si el sustantivo tiene un sufijo fiable (-ung, -heit, -keit, -tion → siempre "die"; -chen, -lein, -ment → siempre "das"; -ismus → siempre "der"), la pista te muestra esa regla general para que la aprendas y te sirva con cientos de palabras más.',
+                'If the noun has a reliable suffix (-ung, -heit, -keit, -tion → always "die"; -chen, -lein, -ment → always "das"; -ismus → always "der"), the hint shows you that general rule so it helps with hundreds of other words.'
               )}
             </li>
             <li>
+              <strong>{pick('Descarte 50/50', '50/50 Elimination')}:</strong>{' '}
               {pick(
-                'Si no hay regla —cuatro de cada cinco veces—, te descarta uno de los artículos y te deja la duda en dos.',
-                'If there is no rule — four times out of five — it rules one article out and leaves you choosing between two.'
+                'Si la palabra no tiene una terminación fija con regla, la pista descarta automáticamente una de las opciones incorrectas para que solo tengas que elegir entre las dos restantes.',
+                'If the word does not follow a fixed ending rule, the hint automatically eliminates one incorrect option so you only have to choose between the remaining two.'
               )}
             </li>
           </ul>
-          <p className="muted">
-            {pick(
-              'Solo están las terminaciones que se cumplen de verdad, comprobadas una a una contra todo el vocabulario oficial de los niveles A1 y A2 de la app. Una pista que falla es peor que no tenerla.',
-              'Only endings that really hold are included, checked one by one against all official A1 and A2 vocabulary in the app. A hint that fails is worse than no hint.'
-            )}
-          </p>
         </Bloque>
 
         <Bloque titulo={pick('🔊 Audio y síntesis de voz', '🔊 Audio and speech synthesis')}>
