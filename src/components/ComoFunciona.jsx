@@ -471,8 +471,8 @@ export default function ComoFunciona() {
             </li>
             <li>
               {pick(
-                'Fallar no quita nada. Y las tarjetas pagan 1 aunque parezcan duras: allí la nota te la pones tú.',
-                'Missing costs nothing. And flashcards pay 1 even though they feel hard: there you are the one grading yourself.'
+                'Fallar un ejercicio nunca quita monedas. Las tarjetas (flashcards) son para repaso y estudio visual libre, por lo que no otorgan monedas (la nota te la pones tú).',
+                'Missing an exercise never costs coins. Flashcards are for free visual study and review, so they do not award coins (you grade yourself).'
               )}
             </li>
             {!SIN_IA && (
