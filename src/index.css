@@ -869,49 +869,45 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
   position: relative;
   border-radius: 16px 16px 0 16px;
 }
-.options-tuyo .option::before,
-.options-tuyo .option::after {
-  content: "";
+.bubble-tail-right {
   position: absolute;
-  pointer-events: none;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  transition: border-color 0.14s ease, border-bottom-color 0.14s ease;
-}
-/* Rabito exterior a la derecha (borde 1.5px) */
-.options-tuyo .option::before {
   right: -8px;
   bottom: -1.5px;
-  border-width: 0 8px 12px 0;
-  border-color: transparent transparent var(--border-strong) transparent;
-  z-index: 1;
-}
-/* Relleno interior que tapa completamente la costura vertical de la caja */
-.options-tuyo .option::after {
-  right: -6.5px;
-  bottom: 0px;
-  border-width: 0 8px 10.5px 0;
-  border-color: transparent transparent var(--surface) transparent;
+  width: 8px;
+  height: 12px;
+  pointer-events: none;
+  overflow: visible;
   z-index: 2;
 }
-.options-tuyo .option:hover:not(:disabled)::before {
-  border-bottom-color: var(--accent);
+.bubble-tail-right .tail-fill {
+  fill: var(--surface);
+  transition: fill 0.14s ease;
 }
-.options-tuyo .option:hover:not(:disabled)::after {
-  border-bottom-color: var(--accent-soft);
+.bubble-tail-right .tail-stroke {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: stroke 0.14s ease;
 }
-.options-tuyo .option.correct::before {
-  border-bottom-color: var(--good);
+.options-tuyo .option:hover:not(:disabled) .bubble-tail-right .tail-fill {
+  fill: var(--accent-soft);
 }
-.options-tuyo .option.correct::after {
-  border-bottom-color: var(--good-bg);
+.options-tuyo .option:hover:not(:disabled) .bubble-tail-right .tail-stroke {
+  stroke: var(--accent);
 }
-.options-tuyo .option.wrong::before {
-  border-bottom-color: var(--bad);
+.options-tuyo .option.correct .bubble-tail-right .tail-fill {
+  fill: var(--good-bg);
 }
-.options-tuyo .option.wrong::after {
-  border-bottom-color: var(--bad-bg);
+.options-tuyo .option.correct .bubble-tail-right .tail-stroke {
+  stroke: var(--good);
+}
+.options-tuyo .option.wrong .bubble-tail-right .tail-fill {
+  fill: var(--bad-bg);
+}
+.options-tuyo .option.wrong .bubble-tail-right .tail-stroke {
+  stroke: var(--bad);
 }
 /* El numero de la tecla, delante de la opcion. Un atajo que no se anuncia no
    lo usa nadie, asi que se ve; pero apagado, que la respuesta es el texto.
@@ -4938,51 +4934,35 @@ input.vs-respuesta { max-width: 460px; }
   border-color: rgba(91, 139, 212, 0.35);
 }
 
-.sentence-dicho::before,
-.sentence-dicho::after,
-.sentence-tuyo::before,
-.sentence-tuyo::after {
-  content: "";
+.bubble-tail-left {
   position: absolute;
-  pointer-events: none;
-  width: 0;
-  height: 0;
-  border-style: solid;
-}
-
-/* Rabito a la izquierda para lo que te dicen */
-.sentence-dicho::before {
   left: -8px;
   bottom: -1.5px;
-  border-width: 0 0 12px 8px;
-  border-color: transparent transparent var(--border-strong) transparent;
-  z-index: 1;
-}
-.sentence-dicho::after {
-  left: -6.5px;
-  bottom: 0px;
-  border-width: 0 0 10.5px 8px;
-  border-color: transparent transparent var(--surface) transparent;
+  width: 8px;
+  height: 12px;
+  pointer-events: none;
+  overflow: visible;
   z-index: 2;
+}
+.bubble-tail-left .tail-fill {
+  fill: var(--surface);
+}
+.bubble-tail-left .tail-stroke {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
 
-/* Rabito a la derecha para lo que dices tú */
-.sentence-tuyo::before {
-  right: -8px;
-  bottom: -1.5px;
-  border-width: 0 8px 12px 0;
-  border-color: transparent transparent #cddcec transparent;
-  z-index: 1;
+.sentence-tuyo .bubble-tail-right .tail-fill {
+  fill: var(--accent-soft);
 }
-.sentence-tuyo::after {
-  right: -6.5px;
-  bottom: 0px;
-  border-width: 0 8px 10.5px 0;
-  border-color: transparent transparent var(--accent-soft) transparent;
-  z-index: 2;
+.sentence-tuyo .bubble-tail-right .tail-stroke {
+  stroke: #cddcec;
 }
-[data-theme='dark'] .sentence-tuyo::before {
-  border-bottom-color: rgba(91, 139, 212, 0.35);
+[data-theme='dark'] .sentence-tuyo .bubble-tail-right .tail-stroke {
+  stroke: rgba(91, 139, 212, 0.35);
 }
 
 @media (max-width: 720px) {
