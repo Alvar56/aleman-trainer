@@ -14,7 +14,7 @@ import { t } from '../lib/i18n.js';
 export default function RachaPill({ n = 0 }) {
   if (n < 2) return null;
   return (
-    <span className={'pill racha' + (n >= 5 ? ' fuego' : '')}>
+    <span key={n} className={'pill racha' + (n >= 5 ? ' fuego' : '') + ' racha-pop'}>
       {n >= 5 ? '🔥' : '⚡'} {t('ses.streakN', { n })}
     </span>
   );

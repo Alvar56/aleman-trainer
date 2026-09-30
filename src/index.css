@@ -702,7 +702,7 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 /* ---------- Racha / calendario del mes ---------- */
 .flame { font-size: 1.6rem; line-height: 1; }
 .flame.cold { filter: grayscale(1) opacity(0.5); }
-.cal-label { font-size: 0.8rem; font-weight: 600; color: var(--muted); margin: 6px 0 8px; }
+.cal-label { font-size: 0.8rem; font-weight: 600; color: var(--muted); margin: 6px 0 8px; display: inline-block; }
 /* Pie del calendario. El tamano estaba en un style en linea. */
 .cal-pie { font-size: 0.78rem; margin-top: 10px; }
 /* El aviso, un punto mas pequeno y en ambar: se ve que es un aviso sin ocupar
@@ -720,10 +720,56 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
   border-radius: 7px; background: var(--surface-2);
   border: 1px solid var(--border); display: grid; place-items: center;
   font-size: 0.72rem; color: var(--muted); padding: 4px 0;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.mc-cell:not(.empty):hover {
+  transform: scale(1.08);
+  border-color: var(--border-strong, var(--border));
 }
 .mc-cell.active { background: var(--good); border-color: transparent; color: var(--good-ink); font-weight: 700; }
 .mc-cell.today { outline: 2px solid var(--accent); outline-offset: 1px; }
 .mc-cell.empty { background: transparent; border-color: transparent; }
+
+/* Animación de deslizamiento fluido entre meses del calendario */
+@keyframes calSlideNext {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes calSlidePrev {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes calFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.cal-slide-next {
+  animation: calSlideNext 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.cal-slide-prev {
+  animation: calSlidePrev 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.cal-fade {
+  animation: calFade 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 .statcard .mini-bar { max-width: 130px; }
 
 /* ---------- Exercise ---------- */
@@ -2216,7 +2262,15 @@ input.ask-input,
 }
 
 /* Racha de aciertos seguidos durante la sesión */
+@keyframes racha-pop-kf {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
 .pill.racha { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+.pill.racha.racha-pop {
+  animation: racha-pop-kf 0.32s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
 .pill.racha.fuego { background: #fef3c7; border-color: #f59e0b; color: #b45309; }
 /* el desglose de monedas del resumen, en amarillo como el monedero */
 .pill.monedas { background: #fef9c3; border-color: #eab308; color: #854d0e; font-weight: 600; }

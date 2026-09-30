@@ -20,6 +20,7 @@ function recentRunsStats(limit) {
 
 export default function Dashboard({ onStart, onNavigate, onFox, onFlashcards }) {
   const [monthOffset, setMonthOffset] = useState(0);
+  const [slideDir, setSlideDir] = useState('none');
 
   const s = liveStreak();
   const lvl = getLevel();
@@ -108,17 +109,53 @@ export default function Dashboard({ onStart, onNavigate, onFox, onFlashcards }) 
           {/* Sin titulo ni pastilla de dias seguidos: la tarjeta de datos de
               justo arriba ya lleva ese nombre y ese numero. Aqui manda el mes,
               que es lo unico que esta tarjeta anade. */}
-          <div className="row spread" style={{ marginBottom: 8 }}>
-            <div className="cal-label" style={{ marginBottom: 0 }}>{cal.label}</div>
+          <div className="row spread" style={{ marginBottom: 8, overflow: 'hidden' }}>
+            <div
+              key={'label-' + cal.label}
+              className={'cal-label ' + (slideDir === 'next' ? 'cal-slide-next' : slideDir === 'prev' ? 'cal-slide-prev' : slideDir === 'fade' ? 'cal-fade' : '')}
+              style={{ marginBottom: 0 }}
+            >
+              {cal.label}
+            </div>
             <div className="row" style={{ gap: 8 }}>
-              <button className="btn btn-sm" style={{ padding: '2px 8px' }} onClick={() => setMonthOffset(m => m - 1)}>&lt;</button>
+              <button
+                className="btn btn-sm"
+                style={{ padding: '2px 8px' }}
+                onClick={() => {
+                  setSlideDir('prev');
+                  setMonthOffset(m => m - 1);
+                }}
+              >
+                &lt;
+              </button>
               {monthOffset !== 0 && (
-                <button className="btn btn-sm" style={{ padding: '2px 10px' }} onClick={() => setMonthOffset(0)}>{t('home.todayBtn')}</button>
+                <button
+                  className="btn btn-sm"
+                  style={{ padding: '2px 10px' }}
+                  onClick={() => {
+                    setSlideDir('fade');
+                    setMonthOffset(0);
+                  }}
+                >
+                  {t('home.todayBtn')}
+                </button>
               )}
-              <button className="btn btn-sm" style={{ padding: '2px 8px' }} onClick={() => setMonthOffset(m => m + 1)}>&gt;</button>
+              <button
+                className="btn btn-sm"
+                style={{ padding: '2px 8px' }}
+                onClick={() => {
+                  setSlideDir('next');
+                  setMonthOffset(m => m + 1);
+                }}
+              >
+                &gt;
+              </button>
             </div>
           </div>
-          <div className="month-cal">
+          <div
+            key={'grid-' + monthOffset}
+            className={'month-cal ' + (slideDir === 'next' ? 'cal-slide-next' : slideDir === 'prev' ? 'cal-slide-prev' : slideDir === 'fade' ? 'cal-fade' : '')}
+          >
             {WD.map((d, i) => (
               <div className="mc-head" key={i}>
                 {d}
