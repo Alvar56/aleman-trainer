@@ -7,6 +7,13 @@ import { tc } from '../lib/contenido/index.js';
 const ART = [
   { s: 'Kennst du ___ Mann dort drüben?', a: 'den', d: ['der', 'dem'], c: 'kasus:akkusativ', t: '¿Conoces a ese hombre de ahí?', e: '"kennen" lleva objeto directo → acusativo. En masculino: der → den.' },
   { s: '___ Kind spielt schon seit einer Stunde im Garten.', a: 'Das', d: ['Dem', 'Den'], c: 'kasus:nominativ', t: 'El niño lleva ya una hora jugando en el jardín.', e: 'Es el sujeto (¿quién juega?) → nominativo: "das Kind".' },
+  { s: '___ Hund von meinem Nachbarn bellt oft.', a: 'Der', d: ['Den', 'Dem'], c: 'kasus:nominativ', t: 'El perro de mi vecino ladra a menudo.', e: 'Sujeto de la frase (¿quién ladra?) → nominativo masculino: "Der Hund".' },
+  { s: 'Ist das ___ neue Kollege aus Berlin?', a: 'der', d: ['den', 'dem'], c: 'kasus:nominativ', t: '¿Es ese el compañero nuevo de Berlín?', e: 'Detrás del verbo "sein" el predicado va en nominativo: "der neue Kollege".' },
+  { s: '___ junge Frau dort drüben ist meine Chefin.', a: 'Die', d: ['Der', 'Den'], c: 'kasus:nominativ', t: 'La mujer joven de allí es mi jefa.', e: 'Sujeto de la frase → nominativo femenino: "Die junge Frau".' },
+  { s: '___ kleine Mädchen liest gerne Bücher.', a: 'Das', d: ['Dem', 'Den'], c: 'kasus:nominativ', t: 'La niña pequeña lee libros con gusto.', e: 'Sujeto de la frase → nominativo neutro: "Das kleine Mädchen".' },
+  { s: 'Heute kommt ___ alter Freund zu Besuch.', a: 'ein', d: ['einen', 'einem'], c: 'kasus:nominativ', t: 'Hoy viene un viejo amigo de visita.', e: 'Sujeto que viene tras el verbo → nominativo masculino indefinido: "ein alter Freund".' },
+  { s: 'Das ist doch ___ Problem!', a: 'kein', d: ['keinen', 'keinem'], c: 'kasus:nominativ', t: '¡Eso no es ningún problema!', e: 'Detrás de "sein" va en nominativo neutro: "kein Problem".' },
+  { s: 'Wo wohnt ___ Bruder jetzt?', a: 'dein', d: ['deinen', 'deinem'], c: 'kasus:nominativ', t: '¿Dónde vive tu hermano ahora?', e: 'Sujeto de la pregunta (¿quién vive?) → nominativo masculino: "dein Bruder".' },
   { s: 'Ich schreibe ___ Chef gleich eine kurze E-Mail.', a: 'dem', d: ['den', 'der'], c: 'kasus:dativ', t: 'Ahora le escribo un correo corto al jefe.', e: 'Destinatario (¿a quién?) → dativo. En masculino: der → dem.' },
   { s: 'Am Sonntag besuchen wir ___ Großmutter im Krankenhaus.', a: 'die', d: ['der', 'dem'], c: 'kasus:akkusativ', t: 'El domingo visitamos a la abuela en el hospital.', e: '"besuchen" → objeto directo → acusativo. El femenino no cambia: "die Großmutter".' },
   { s: 'Das teure Fahrrad gehört ___ Nachbarin aus dem dritten Stock.', a: 'der', d: ['die', 'dem'], c: 'kasus:dativ', t: 'La bici cara es de la vecina del tercero.', e: '"gehören" rige dativo. En femenino: die → der.' },
@@ -33,6 +40,11 @@ const ART = [
 
 // 2) Pronombres personales según el caso
 const PRON = [
+  { s: 'Morgen habe ___ leider keine Zeit. (yo)', a: 'ich', d: ['mich', 'mir'], c: 'kasus:nominativ', t: 'Mañana por desgracia no tengo tiempo.', e: 'Sujeto de la frase (¿quién no tiene tiempo?) → nominativo: "ich".' },
+  { s: 'Gestern war ___ den ganzen Tag zu Hause. (él)', a: 'er', d: ['ihn', 'ihm'], c: 'kasus:nominativ', t: 'Ayer él estuvo todo el día en casa.', e: 'Sujeto de la frase → nominativo: "er".' },
+  { s: 'Warum bist ___ heute so spät gekommen? (tú)', a: 'du', d: ['dich', 'dir'], c: 'kasus:nominativ', t: '¿Por qué has llegado hoy tan tarde?', e: 'Sujeto de la pregunta → nominativo: "du".' },
+  { s: 'Könnt ___ mir bitte kurz helfen? (vosotros)', a: 'ihr', d: ['euch', 'euer'], c: 'kasus:nominativ', t: '¿Podéis ayudarme un momento, por favor?', e: 'Sujeto del verbo modal "können" → nominativo: "ihr".' },
+  { s: 'In Berlin wohnen ___ schon seit fünf Jahren. (ellos)', a: 'sie', d: ['ihnen', 'ihr'], c: 'kasus:nominativ', t: 'Ellos viven en Berlín desde hace cinco años.', e: 'Sujeto de la frase → nominativo: "sie".' },
   { s: 'Wenn du willst, kann ich ___ mit dem Umzug helfen. (a ti)', a: 'dir', d: ['dich', 'du'], c: 'kasus:pronomen', t: 'Si quieres, puedo ayudarte con la mudanza.', e: '"helfen" rige dativo → "dir" (no "dich").' },
   { s: 'Ich habe ___ gestern zufällig in der Stadt gesehen. (a él)', a: 'ihn', d: ['ihm', 'er'], c: 'kasus:pronomen', t: 'Ayer lo vi por casualidad en el centro.', e: '"sehen" → acusativo → "ihn".' },
   { s: 'Der neue Job gefällt ___ von Tag zu Tag besser. (a mí)', a: 'mir', d: ['mich', 'ich'], c: 'kasus:pronomen', t: 'El trabajo nuevo me gusta más cada día.', e: '"gefallen" rige dativo → "mir".' },
@@ -53,6 +65,10 @@ const PRON = [
 
 // 3) Elegir el sintagma bien declinado
 const FORM = [
+  { s: 'Vor dem Haus steht ___.', opts: ['ein großer Baum', 'einen großen Baum', 'einem großen Baum'], a: 'ein großer Baum', c: 'kasus:nominativ', t: 'Delante de la casa hay un árbol grande.', e: 'El árbol es el sujeto del verbo "stehen" → nominativo: "ein großer Baum".' },
+  { s: 'Das ist wirklich ___.', opts: ['ein toller Erfolg', 'einen tollen Erfolg', 'einem tollen Erfolg'], a: 'ein toller Erfolg', c: 'kasus:nominativ', t: 'Eso es de verdad un gran éxito.', e: 'Con el verbo "sein", el atributo va en nominativo: "ein toller Erfolg".' },
+  { s: 'Seit heute arbeitet ___ in unserer Abteilung.', opts: ['ein neuer Mitarbeiter', 'einen neuen Mitarbeiter', 'einem neuen Mitarbeiter'], a: 'ein neuer Mitarbeiter', c: 'kasus:nominativ', t: 'Desde hoy trabaja un nuevo empleado en nuestro departamento.', e: 'Sujeto de la acción → nominativo masculino: "ein neuer Mitarbeiter".' },
+  { s: 'Gestern ist ___ spät in der Nacht angekommen.', opts: ['unser Zug', 'unseren Zug', 'unserem Zug'], a: 'unser Zug', c: 'kasus:nominativ', t: 'Ayer nuestro tren llegó tarde por la noche.', e: 'Sujeto del verbo "ankommen" → nominativo: "unser Zug".' },
   { s: 'Nach der Schule hilft er oft ___.', opts: ['seiner kleinen Schwester', 'seine kleine Schwester', 'seinen kleinen Schwester'], a: 'seiner kleinen Schwester', c: 'kasus:dativ-verben', t: 'Después del cole ayuda a menudo a su hermana pequeña.', e: '"helfen" rige DATIVO. Femenino: "seine" → "seiner".' },
   { s: 'Sie sucht seit Wochen ___.', opts: ['einen ruhigen Job', 'einem ruhigen Job', 'ein ruhigen Job'], a: 'einen ruhigen Job', c: 'kasus:akkusativ', t: 'Lleva semanas buscando un trabajo tranquilo.', e: '"suchen" → acusativo. Masculino: "ein" → "einen".' },
   { s: 'Der Rucksack dort in der Ecke gehört ___.', opts: ['dem neuen Praktikanten', 'den neuen Praktikanten', 'der neue Praktikant'], a: 'dem neuen Praktikanten', c: 'kasus:dativ-verben', t: 'La mochila del rincón es del becario nuevo.', e: '"gehören" rige dativo. Masculino: "der" → "dem" ("Praktikant" añade -en).' },
@@ -69,6 +85,9 @@ const FORM = [
 
 // 4) Palabra interrogativa según el caso
 const WFRAGE = [
+  { s: '___ kommt heute Abend zur Geburtstagsfeier? — Mein bester Freund.', a: 'Wer', d: ['Wen', 'Wem'], c: 'kasus:nominativ', t: '¿Quién viene esta noche a la fiesta de cumpleaños? — Mi mejor amigo.', e: 'Preguntamos por el sujeto que hace la acción → nominativo: "Wer?".' },
+  { s: '___ liegt da auf dem Schreibtisch? — Ein wichtiger Brief.', a: 'Was', d: ['Wen', 'Wem'], c: 'kasus:nominativ', t: '¿Qué hay ahí sobre el escritorio? — Una carta importante.', e: 'Preguntamos por el sujeto inanimado → nominativo: "Was?".' },
+  { s: '___ ruft da so laut vor der Tür? — Der Postbote.', a: 'Wer', d: ['Wen', 'Wem'], c: 'kasus:nominativ', t: '¿Quién llama tan fuerte delante de la puerta? — El cartero.', e: 'Preguntamos por el sujeto de la frase → nominativo: "Wer?".' },
   { s: '___ hast du gestern auf der Party getroffen? — Meinen alten Chef.', a: 'Wen', d: ['Wer', 'Wem'], c: 'kasus:akkusativ', t: '¿A quién te encontraste ayer en la fiesta? — A mi antiguo jefe.', e: 'Se pregunta por el objeto directo → "wen" (acusativo).' },
   { s: '___ gehört dieser schwarze Koffer? — Der Frau da vorne.', a: 'Wem', d: ['Wer', 'Wen'], c: 'kasus:dativ', t: '¿De quién es esta maleta negra? — De la señora de delante.', e: '"gehören" rige dativo → se pregunta con "wem".' },
   { s: '___ hat eigentlich diesen leckeren Kuchen gebacken? — Meine Oma.', a: 'Wer', d: ['Wen', 'Wem'], c: 'kasus:nominativ', t: '¿Quién ha hecho esta tarta tan rica? — Mi abuela.', e: 'Se pregunta por el sujeto → "wer" (nominativo).' },

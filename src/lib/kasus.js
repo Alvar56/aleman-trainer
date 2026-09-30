@@ -107,57 +107,92 @@ export function pickKasus(n = 12, filtro = 'all') {
       .sort((a, b) => a.k - b.k)
       .map((x) => x.f);
 
+  // Helper para repartir subconjunto entre tipos de artículos con cuotas equilibradas
+  function pickBalancedArticles(subPool, count) {
+    if (!subPool.length || count <= 0) return [];
+    const poss = subPool.filter((f) => ['mein', 'dein', 'sein', 'ihr', 'unser', 'euer'].includes(f.artType));
+    const einList = subPool.filter((f) => f.artType === 'ein');
+    const keinList = subPool.filter((f) => f.artType === 'kein');
+    const bestList = subPool.filter((f) => f.artType === 'bestimmt');
+
+    const nPoss = Math.max(1, Math.round(count * 0.40));
+    const nEin = Math.max(1, Math.round(count * 0.20));
+    const nKein = Math.max(1, Math.round(count * 0.20));
+    const nBest = Math.max(1, count - nPoss - nEin - nKein);
+
+    let res = [
+      ...sortByPriority(poss).slice(0, nPoss),
+      ...sortByPriority(einList).slice(0, nEin),
+      ...sortByPriority(keinList).slice(0, nKein),
+      ...sortByPriority(bestList).slice(0, nBest)
+    ];
+
+    if (res.length < count) {
+      const idSet = new Set(res.map((s) => s.id));
+      const rem = sortByPriority(subPool.filter((f) => !idSet.has(f.id)));
+      res = [...res, ...rem.slice(0, count - res.length)];
+    }
+    return res.slice(0, count);
+  }
+
   let selected = [];
 
   if (filtro && filtro !== 'all') {
     if (['Nominativ', 'Akkusativ', 'Dativ'].includes(filtro)) {
       const byCase = pool.filter((f) => f.kasus === filtro);
-      const poss = byCase.filter((f) => ['mein', 'dein', 'sein', 'ihr', 'unser', 'euer'].includes(f.artType));
-      const einList = byCase.filter((f) => f.artType === 'ein');
-      const keinList = byCase.filter((f) => f.artType === 'kein');
-      const bestList = byCase.filter((f) => f.artType === 'bestimmt');
-
-      const nPoss = Math.max(1, Math.round(n * 0.45));
-      const nEin = Math.max(1, Math.round(n * 0.22));
-      const nKein = Math.max(1, Math.round(n * 0.20));
-      const nBest = Math.max(1, n - nPoss - nEin - nKein);
-
-      selected = [
-        ...sortByPriority(poss).slice(0, nPoss),
-        ...sortByPriority(einList).slice(0, nEin),
-        ...sortByPriority(keinList).slice(0, nKein),
-        ...sortByPriority(bestList).slice(0, nBest)
-      ];
-
-      if (selected.length < n) {
-        const idSet = new Set(selected.map((s) => s.id));
-        const rem = sortByPriority(byCase.filter((f) => !idSet.has(f.id)));
-        selected = [...selected, ...rem.slice(0, n - selected.length)];
-      }
+      selected = pickBalancedArticles(byCase, n);
     } else if (filtro === 'possessiv') {
       const filtered = pool.filter((f) => ['mein', 'dein', 'sein', 'ihr', 'unser', 'euer'].includes(f.artType));
-      selected = sortByPriority(filtered).slice(0, n);
+      const nNom = Math.max(1, Math.floor(n / 3));
+      const nAkk = Math.max(1, Math.floor(n / 3));
+      const nDat = Math.max(1, n - nNom - nAkk);
+      const nomList = filtered.filter((f) => f.kasus === 'Nominativ');
+      const akkList = filtered.filter((f) => f.kasus === 'Akkusativ');
+      const datList = filtered.filter((f) => f.kasus === 'Dativ');
+      selected = [
+        ...sortByPriority(nomList).slice(0, nNom),
+        ...sortByPriority(akkList).slice(0, nAkk),
+        ...sortByPriority(datList).slice(0, nDat)
+      ];
+      if (selected.length < n) {
+        const idSet = new Set(selected.map((s) => s.id));
+        const rem = sortByPriority(filtered.filter((f) => !idSet.has(f.id)));
+        selected = [...selected, ...rem.slice(0, n - selected.length)];
+      }
     } else {
+      // bestimmt, ein, kein
       const filtered = pool.filter((f) => f.artType === filtro);
-      selected = sortByPriority(filtered).slice(0, n);
+      const nNom = Math.max(1, Math.floor(n / 3));
+      const nAkk = Math.max(1, Math.floor(n / 3));
+      const nDat = Math.max(1, n - nNom - nAkk);
+      const nomList = filtered.filter((f) => f.kasus === 'Nominativ');
+      const akkList = filtered.filter((f) => f.kasus === 'Akkusativ');
+      const datList = filtered.filter((f) => f.kasus === 'Dativ');
+      selected = [
+        ...sortByPriority(nomList).slice(0, nNom),
+        ...sortByPriority(akkList).slice(0, nAkk),
+        ...sortByPriority(datList).slice(0, nDat)
+      ];
+      if (selected.length < n) {
+        const idSet = new Set(selected.map((s) => s.id));
+        const rem = sortByPriority(filtered.filter((f) => !idSet.has(f.id)));
+        selected = [...selected, ...rem.slice(0, n - selected.length)];
+      }
     }
   } else {
-    // filtro === 'all'
-    const poss = pool.filter((f) => ['mein', 'dein', 'sein', 'ihr', 'unser', 'euer'].includes(f.artType));
-    const einList = pool.filter((f) => f.artType === 'ein');
-    const keinList = pool.filter((f) => f.artType === 'kein');
-    const bestList = pool.filter((f) => f.artType === 'bestimmt');
+    // filtro === 'all': GARANTIZAR presencia equilibrada de los 3 casos (Nominativ, Akkusativ, Dativ)
+    const nNom = Math.max(1, Math.floor(n / 3));
+    const nAkk = Math.max(1, Math.floor(n / 3));
+    const nDat = Math.max(1, n - nNom - nAkk);
 
-    const nPoss = Math.max(2, Math.round(n * 0.45));
-    const nEin = Math.max(1, Math.round(n * 0.22));
-    const nKein = Math.max(1, Math.round(n * 0.20));
-    const nBest = Math.max(1, n - nPoss - nEin - nKein);
+    const nomPool = pool.filter((f) => f.kasus === 'Nominativ');
+    const akkPool = pool.filter((f) => f.kasus === 'Akkusativ');
+    const datPool = pool.filter((f) => f.kasus === 'Dativ');
 
     selected = [
-      ...sortByPriority(poss).slice(0, nPoss),
-      ...sortByPriority(einList).slice(0, nEin),
-      ...sortByPriority(keinList).slice(0, nKein),
-      ...sortByPriority(bestList).slice(0, nBest)
+      ...pickBalancedArticles(nomPool, nNom),
+      ...pickBalancedArticles(akkPool, nAkk),
+      ...pickBalancedArticles(datPool, nDat)
     ];
 
     if (selected.length < n) {
