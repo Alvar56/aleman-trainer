@@ -474,7 +474,19 @@ button.pill.star-pill.starred {
    ejercicio salia centrado o pegado al borde izquierdo. */
 .session,
 .vocab-session,
-.kp { max-width: 780px; margin-inline: auto; position: relative; z-index: 1; }
+.kp,
+.game-container,
+.gender-game,
+.kasus-game,
+.hangman-game,
+.match-game,
+.wortsalat-game,
+.translate-game,
+.notebook-session,
+.exam-lesen-hoeren,
+.exam-schreiben,
+.exam-sprechen,
+.blitz-wrap { max-width: 780px; margin-inline: auto; position: relative; z-index: 1; }
 /* Y dentro, lo que traiga ancho propio se estira a la columna en vez de
    quedarse a un lado: las opciones venian topadas a 540px y con 965px de
    ancho dejaban la mitad derecha vacia. */
@@ -848,9 +860,9 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 }
 .cloze-pie { margin-top: 30px; text-align: left; }
 
-.options { display: grid; gap: 11px; max-width: 620px; width: 100%; }
+.options { display: grid; gap: 11px; max-width: 620px; width: 100%; position: relative; z-index: 1; }
 .option {
-  position: relative; text-align: left; padding: 14px 18px; border: 1.5px solid var(--border-strong);
+  position: relative; z-index: 1; text-align: left; padding: 14px 18px; border: 1.5px solid var(--border-strong);
   background: var(--surface); font-size: 1.05rem; border-radius: 14px;
   color: var(--text); cursor: pointer; transition: all 0.14s ease;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03); line-height: 1.45;
@@ -1205,7 +1217,7 @@ body.sin-atajos .op-tecla { display: none !important; }
 .wo-hint { font-size: 0.82rem; margin-top: 9px; min-height: 1.2em; }
 
 /* Feedback */
-.feedback { margin-top: 20px; border-radius: 12px; padding: 16px; border: 1px solid var(--border); max-width: 600px; animation: slideUp 0.24s ease; }
+.feedback { margin-top: 20px; border-radius: 12px; padding: 16px; border: 1px solid var(--border); max-width: 600px; animation: slideUp 0.24s ease; position: relative; z-index: 1; }
 .feedback.ok { background: var(--good-bg); border-color: var(--good-border); }
 .feedback.no { background: var(--bad-bg); border-color: var(--bad-border); }
 .feedback .verdict { font-weight: 700; margin-bottom: 8px; }
@@ -5924,10 +5936,9 @@ input.vs-respuesta { max-width: 620px; width: 100%; }
 /* --- DIFUMINADO SUAVE INFERIOR CON EL COLOR DEL FONDO ELEGIDO EN LOS EJERCICIOS --- */
 .fox-difuminado-suelo {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 340px;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: 0;
   transition: opacity 0.4s ease, background 0.4s ease;
@@ -5939,12 +5950,6 @@ input.vs-respuesta { max-width: 620px; width: 100%; }
   }
 }
 
-@media (max-width: 560px) {
-  .fox-difuminado-suelo {
-    height: 260px;
-  }
-}
-
 /* 1. Sin fondo (nadaFondo): nada */
 .fox-difuminado-nadaFondo {
   display: none !important;
@@ -5953,74 +5958,173 @@ input.vs-respuesta { max-width: 620px; width: 100%; }
 
 /* 2. Pradera (wiese): verde fresco y armónico como una sola entidad continua */
 .fox-difuminado-wiese {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(134, 239, 172, 0.28) 0%, rgba(111, 207, 151, 0.16) 45%, rgba(74, 222, 128, 0.04) 75%, transparent 100%),
-    linear-gradient(to top, rgba(92, 125, 82, 0.09) 0%, rgba(111, 148, 98, 0.04) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(134, 239, 172, 0.25) 0%,
+    rgba(111, 207, 151, 0.13) 35%,
+    rgba(74, 222, 128, 0.04) 65%,
+    rgba(74, 222, 128, 0.01) 85%,
+    transparent 100%
+  );
 }
 [data-theme='dark'] .fox-difuminado-wiese {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(74, 222, 128, 0.25) 0%, rgba(34, 197, 94, 0.14) 45%, rgba(21, 128, 61, 0.03) 75%, transparent 100%),
-    linear-gradient(to top, rgba(79, 112, 70, 0.12) 0%, rgba(92, 125, 82, 0.05) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(74, 222, 128, 0.22) 0%,
+    rgba(34, 197, 94, 0.11) 35%,
+    rgba(21, 128, 61, 0.03) 65%,
+    rgba(21, 128, 61, 0.01) 85%,
+    transparent 100%
+  );
 }
 
 /* 3. Playa (strand): arena dorada cálida y destello mar como una sola entidad */
 .fox-difuminado-strand {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(254, 240, 138, 0.32) 0%, rgba(251, 191, 36, 0.16) 40%, rgba(139, 203, 240, 0.06) 75%, transparent 100%),
-    linear-gradient(to top, rgba(212, 190, 137, 0.10) 0%, rgba(139, 203, 240, 0.04) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(254, 240, 138, 0.27) 0%,
+    rgba(251, 191, 36, 0.13) 35%,
+    rgba(139, 203, 240, 0.04) 65%,
+    rgba(139, 203, 240, 0.01) 85%,
+    transparent 100%
+  );
 }
 [data-theme='dark'] .fox-difuminado-strand {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(245, 158, 11, 0.26) 0%, rgba(217, 119, 6, 0.14) 40%, rgba(14, 165, 233, 0.05) 75%, transparent 100%),
-    linear-gradient(to top, rgba(189, 164, 112, 0.12) 0%, rgba(76, 138, 163, 0.05) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(245, 158, 11, 0.22) 0%,
+    rgba(217, 119, 6, 0.11) 35%,
+    rgba(14, 165, 233, 0.03) 65%,
+    rgba(14, 165, 233, 0.01) 85%,
+    transparent 100%
+  );
 }
 
 /* 4. Desierto (wueste): cálido tono terracota y arena dorada */
 .fox-difuminado-wueste {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(254, 215, 170, 0.32) 0%, rgba(251, 146, 60, 0.16) 40%, rgba(234, 88, 12, 0.05) 75%, transparent 100%),
-    linear-gradient(to top, rgba(208, 160, 98, 0.10) 0%, rgba(222, 156, 92, 0.04) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(254, 215, 170, 0.27) 0%,
+    rgba(251, 146, 60, 0.13) 35%,
+    rgba(234, 88, 12, 0.04) 65%,
+    rgba(234, 88, 12, 0.01) 85%,
+    transparent 100%
+  );
 }
 [data-theme='dark'] .fox-difuminado-wueste {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(234, 88, 12, 0.25) 0%, rgba(194, 65, 12, 0.14) 40%, rgba(194, 65, 12, 0.04) 75%, transparent 100%),
-    linear-gradient(to top, rgba(178, 125, 66, 0.12) 0%, rgba(190, 115, 66, 0.05) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(234, 88, 12, 0.22) 0%,
+    rgba(194, 65, 12, 0.11) 35%,
+    rgba(194, 65, 12, 0.03) 65%,
+    rgba(194, 65, 12, 0.01) 85%,
+    transparent 100%
+  );
 }
 
 /* 5. Glaciar de hielo (eis): cian cristalino y azul escarcha */
 .fox-difuminado-eis {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(186, 230, 253, 0.35) 0%, rgba(125, 211, 252, 0.18) 40%, rgba(56, 189, 248, 0.05) 75%, transparent 100%),
-    linear-gradient(to top, rgba(125, 211, 252, 0.11) 0%, rgba(56, 189, 248, 0.04) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(186, 230, 253, 0.29) 0%,
+    rgba(125, 211, 252, 0.14) 35%,
+    rgba(56, 189, 248, 0.04) 65%,
+    rgba(56, 189, 248, 0.01) 85%,
+    transparent 100%
+  );
 }
 [data-theme='dark'] .fox-difuminado-eis {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(14, 165, 233, 0.28) 0%, rgba(2, 132, 199, 0.15) 40%, rgba(2, 132, 199, 0.04) 75%, transparent 100%),
-    linear-gradient(to top, rgba(2, 132, 199, 0.13) 0%, rgba(14, 165, 233, 0.05) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(14, 165, 233, 0.23) 0%,
+    rgba(2, 132, 199, 0.11) 35%,
+    rgba(2, 132, 199, 0.03) 65%,
+    rgba(2, 132, 199, 0.01) 85%,
+    transparent 100%
+  );
 }
 
 /* 6. Aula de clase (klasse): madera noble cálida y matiz ámbar */
 .fox-difuminado-klasse {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(254, 243, 199, 0.32) 0%, rgba(251, 191, 36, 0.16) 40%, rgba(245, 158, 11, 0.05) 75%, transparent 100%),
-    linear-gradient(to top, rgba(217, 119, 6, 0.09) 0%, rgba(180, 83, 9, 0.04) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(254, 243, 199, 0.27) 0%,
+    rgba(251, 191, 36, 0.13) 35%,
+    rgba(245, 158, 11, 0.04) 65%,
+    rgba(245, 158, 11, 0.01) 85%,
+    transparent 100%
+  );
 }
 [data-theme='dark'] .fox-difuminado-klasse {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(217, 119, 6, 0.25) 0%, rgba(180, 83, 9, 0.14) 40%, rgba(146, 64, 14, 0.04) 75%, transparent 100%),
-    linear-gradient(to top, rgba(180, 83, 9, 0.11) 0%, rgba(146, 64, 14, 0.05) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(217, 119, 6, 0.22) 0%,
+    rgba(180, 83, 9, 0.11) 35%,
+    rgba(146, 64, 14, 0.03) 65%,
+    rgba(146, 64, 14, 0.01) 85%,
+    transparent 100%
+  );
 }
 
 /* 7. Espacio exterior (weltraum): índigo cósmico y violeta nebulosa */
 .fox-difuminado-weltraum {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(192, 132, 252, 0.30) 0%, rgba(167, 139, 250, 0.16) 40%, rgba(139, 92, 246, 0.05) 75%, transparent 100%),
-    linear-gradient(to top, rgba(99, 102, 241, 0.09) 0%, rgba(139, 92, 246, 0.04) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(192, 132, 252, 0.24) 0%,
+    rgba(167, 139, 250, 0.12) 35%,
+    rgba(139, 92, 246, 0.04) 65%,
+    rgba(139, 92, 246, 0.01) 85%,
+    transparent 100%
+  );
 }
 [data-theme='dark'] .fox-difuminado-weltraum {
-  background:
-    radial-gradient(ellipse 460px 320px at calc(100% - 75px) calc(100% - 60px), rgba(168, 85, 247, 0.26) 0%, rgba(139, 92, 246, 0.14) 40%, rgba(124, 58, 237, 0.04) 75%, transparent 100%),
-    linear-gradient(to top, rgba(79, 70, 229, 0.13) 0%, rgba(124, 58, 237, 0.05) 30%, transparent 70%);
+  background: radial-gradient(
+    ellipse 440px 320px at calc(100% - 75px) calc(100% - 60px),
+    rgba(168, 85, 247, 0.20) 0%,
+    rgba(139, 92, 246, 0.10) 35%,
+    rgba(124, 58, 237, 0.03) 65%,
+    rgba(124, 58, 237, 0.01) 85%,
+    transparent 100%
+  );
+}
+
+@media (max-width: 560px) {
+  .fox-difuminado-wiese {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(134, 239, 172, 0.24) 0%, rgba(111, 207, 151, 0.12) 35%, transparent 100%);
+  }
+  [data-theme='dark'] .fox-difuminado-wiese {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(74, 222, 128, 0.20) 0%, rgba(34, 197, 94, 0.10) 35%, transparent 100%);
+  }
+  .fox-difuminado-strand {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(254, 240, 138, 0.26) 0%, rgba(251, 191, 36, 0.12) 35%, transparent 100%);
+  }
+  [data-theme='dark'] .fox-difuminado-strand {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(245, 158, 11, 0.20) 0%, rgba(217, 119, 6, 0.10) 35%, transparent 100%);
+  }
+  .fox-difuminado-wueste {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(254, 215, 170, 0.26) 0%, rgba(251, 146, 60, 0.12) 35%, transparent 100%);
+  }
+  [data-theme='dark'] .fox-difuminado-wueste {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(234, 88, 12, 0.20) 0%, rgba(194, 65, 12, 0.10) 35%, transparent 100%);
+  }
+  .fox-difuminado-eis {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(186, 230, 253, 0.28) 0%, rgba(125, 211, 252, 0.13) 35%, transparent 100%);
+  }
+  [data-theme='dark'] .fox-difuminado-eis {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(14, 165, 233, 0.22) 0%, rgba(2, 132, 199, 0.10) 35%, transparent 100%);
+  }
+  .fox-difuminado-klasse {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(254, 243, 199, 0.26) 0%, rgba(251, 191, 36, 0.12) 35%, transparent 100%);
+  }
+  [data-theme='dark'] .fox-difuminado-klasse {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(217, 119, 6, 0.20) 0%, rgba(180, 83, 9, 0.10) 35%, transparent 100%);
+  }
+  .fox-difuminado-weltraum {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(192, 132, 252, 0.22) 0%, rgba(167, 139, 250, 0.10) 35%, transparent 100%);
+  }
+  [data-theme='dark'] .fox-difuminado-weltraum {
+    background: radial-gradient(ellipse 260px 190px at calc(100% - 40px) calc(100% - 40px), rgba(168, 85, 247, 0.18) 0%, rgba(139, 92, 246, 0.08) 35%, transparent 100%);
+  }
 }
 
 /* --- AURA RECTANGULAR Y SUAVE DEL FONDO EN LA CARA/TARJETA DE FELIX (INICIO Y CHAT) --- */
