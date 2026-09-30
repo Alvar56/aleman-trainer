@@ -72,7 +72,7 @@ export default function KasusTabelle({ onClose }) {
                 <div className="kt-item">
                   <span className="kt-type">Possessiv</span>
                   <span className="kt-art">mein</span>
-                  <span className="kt-subposs">, dein, sein, ihr, unser, euer</span>
+                  <span className="kt-subposs">, dein, sein, ihr…</span>
                 </div>
               </td>
               <td className="kt-cell kt-neut">
@@ -91,7 +91,7 @@ export default function KasusTabelle({ onClose }) {
                 <div className="kt-item">
                   <span className="kt-type">Possessiv</span>
                   <span className="kt-art">mein</span>
-                  <span className="kt-subposs">, dein, sein, ihr, unser, euer</span>
+                  <span className="kt-subposs">, dein, sein, ihr…</span>
                 </div>
               </td>
               <td className="kt-cell kt-fem">
@@ -110,7 +110,7 @@ export default function KasusTabelle({ onClose }) {
                 <div className="kt-item">
                   <span className="kt-type">Possessiv</span>
                   <span className="kt-art">mein<span className="kt-hi">e</span></span>
-                  <span className="kt-subposs">, deine, seine, ihre...</span>
+                  <span className="kt-subposs">, deine, seine…</span>
                 </div>
               </td>
               <td className="kt-cell kt-pl">
@@ -129,7 +129,7 @@ export default function KasusTabelle({ onClose }) {
                 <div className="kt-item">
                   <span className="kt-type">Possessiv</span>
                   <span className="kt-art">mein<span className="kt-hi">e</span></span>
-                  <span className="kt-subposs">, deine, seine, ihre...</span>
+                  <span className="kt-subposs">, deine, seine…</span>
                 </div>
               </td>
             </tr>
@@ -157,26 +157,68 @@ export default function KasusTabelle({ onClose }) {
                 <div className="kt-item">
                   <span className="kt-type">Possessiv</span>
                   <span className="kt-art">mein<span className="kt-hi kt-hi-akk">en</span></span>
-                  <span className="kt-subposs">, deinen, seinen, ihren...</span>
+                  <span className="kt-subposs">, deinen, seinen…</span>
                 </div>
               </td>
               <td className="kt-cell kt-neut kt-same">
                 <div className="kt-same-badge">Wie Nominativ</div>
-                <div className="kt-item"><strong className="kt-art">das</strong></div>
-                <div className="kt-item"><span className="kt-art">ein</span> / <span className="kt-art">kein</span></div>
-                <div className="kt-item"><span className="kt-art">mein</span>, dein...</div>
+                <div className="kt-item">
+                  <span className="kt-type">Bestimmt</span>
+                  <strong className="kt-art">das</strong>
+                </div>
+                <div className="kt-item">
+                  <span className="kt-type">Unbest.</span>
+                  <span className="kt-art">ein</span>
+                </div>
+                <div className="kt-item">
+                  <span className="kt-type">Negativ</span>
+                  <span className="kt-art">kein</span>
+                </div>
+                <div className="kt-item">
+                  <span className="kt-type">Possessiv</span>
+                  <span className="kt-art">mein</span>
+                  <span className="kt-subposs">, dein, sein, ihr…</span>
+                </div>
               </td>
               <td className="kt-cell kt-fem kt-same">
                 <div className="kt-same-badge">Wie Nominativ</div>
-                <div className="kt-item"><strong className="kt-art">die</strong></div>
-                <div className="kt-item"><span className="kt-art">eine</span> / <span className="kt-art">keine</span></div>
-                <div className="kt-item"><span className="kt-art">meine</span>, deine...</div>
+                <div className="kt-item">
+                  <span className="kt-type">Bestimmt</span>
+                  <strong className="kt-art">die</strong>
+                </div>
+                <div className="kt-item">
+                  <span className="kt-type">Unbest.</span>
+                  <span className="kt-art">ein<span className="kt-hi">e</span></span>
+                </div>
+                <div className="kt-item">
+                  <span className="kt-type">Negativ</span>
+                  <span className="kt-art">kein<span className="kt-hi">e</span></span>
+                </div>
+                <div className="kt-item">
+                  <span className="kt-type">Possessiv</span>
+                  <span className="kt-art">mein<span className="kt-hi">e</span></span>
+                  <span className="kt-subposs">, deine, seine…</span>
+                </div>
               </td>
               <td className="kt-cell kt-pl kt-same">
                 <div className="kt-same-badge">Wie Nominativ</div>
-                <div className="kt-item"><strong className="kt-art">die</strong></div>
-                <div className="kt-item kt-none"><em>(kein Plural)</em></div>
-                <div className="kt-item"><span className="kt-art">keine</span> / <span className="kt-art">meine</span>...</div>
+                <div className="kt-item">
+                  <span className="kt-type">Bestimmt</span>
+                  <strong className="kt-art">di<span className="kt-hi">e</span></strong>
+                </div>
+                <div className="kt-item kt-none">
+                  <span className="kt-type">Unbest.</span>
+                  <em>(kein Plural)</em>
+                </div>
+                <div className="kt-item">
+                  <span className="kt-type">Negativ</span>
+                  <span className="kt-art">kein<span className="kt-hi">e</span></span>
+                </div>
+                <div className="kt-item">
+                  <span className="kt-type">Possessiv</span>
+                  <span className="kt-art">mein<span className="kt-hi">e</span></span>
+                  <span className="kt-subposs">, deine, seine…</span>
+                </div>
               </td>
             </tr>
 
@@ -202,7 +244,7 @@ export default function KasusTabelle({ onClose }) {
                 <div className="kt-item">
                   <span className="kt-type">Possessiv</span>
                   <span className="kt-art">mein<span className="kt-hi kt-hi-dat">em</span></span>
-                  <span className="kt-subposs">, deinem, seinem...</span>
+                  <span className="kt-subposs">, deinem, seinem…</span>
                 </div>
               </td>
               <td className="kt-cell kt-neut">
@@ -221,7 +263,7 @@ export default function KasusTabelle({ onClose }) {
                 <div className="kt-item">
                   <span className="kt-type">Possessiv</span>
                   <span className="kt-art">mein<span className="kt-hi kt-hi-dat">em</span></span>
-                  <span className="kt-subposs">, deinem, seinem...</span>
+                  <span className="kt-subposs">, deinem, seinem…</span>
                 </div>
               </td>
               <td className="kt-cell kt-fem">
@@ -240,7 +282,7 @@ export default function KasusTabelle({ onClose }) {
                 <div className="kt-item">
                   <span className="kt-type">Possessiv</span>
                   <span className="kt-art">mein<span className="kt-hi kt-hi-dat">er</span></span>
-                  <span className="kt-subposs">, deiner, seiner...</span>
+                  <span className="kt-subposs">, deiner, seiner…</span>
                 </div>
               </td>
               <td className="kt-cell kt-pl">
@@ -259,7 +301,7 @@ export default function KasusTabelle({ onClose }) {
                 <div className="kt-item">
                   <span className="kt-type">Possessiv</span>
                   <span className="kt-art">mein<span className="kt-hi kt-hi-dat">en</span></span>
-                  <span className="kt-subposs">, deinen...</span>
+                  <span className="kt-subposs">, deinen…</span>
                 </div>
                 <div className="kt-nomen-note">
                   + <strong>-n</strong> am Nomen
