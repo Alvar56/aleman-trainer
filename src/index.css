@@ -2353,8 +2353,6 @@ input.ask-input,
   50% { transform: translateX(-50%) translateY(-13px) rotate(3deg); }
 }
 .fox-escena-weltraum .fox-hero-personaje {
-  will-change: transform;
-  transform: translateZ(0);
   animation: fox-ingravido-hero 6.5s ease-in-out infinite;
 }
 .fox-escena-weltraum .fox-hero-personaje::after { display: none; }
@@ -2503,7 +2501,7 @@ input.ask-input,
 /* personalizar */
 .fox-modal {
   position: fixed; inset: 0; z-index: 80; background: rgba(15, 23, 42, 0.65);
-  -webkit-display: flex; align-items: center; justify-content: center; padding: 20px;
+  display: flex; align-items: center; justify-content: center; padding: 20px;
 }
 
 /* La tarjeta modal: SIN márgenes blancos alrededor del paisaje, bordes redondeados y cuerpo scrolleable */
@@ -2587,7 +2585,7 @@ input.ask-input,
   min-width: 108px;
   max-width: 200px;
   background: rgba(255, 255, 255, 0.9);
-  -webkit-border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 11px;
   padding: 9px 16px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -2613,7 +2611,7 @@ input.ask-input,
   padding: 5px 12px;
   border-radius: 11px;
   background: rgba(254, 249, 195, 0.9);
-  -webkit-border: 1px solid rgba(234, 179, 8, 0.55);
+  border: 1px solid rgba(234, 179, 8, 0.55);
   color: #854d0e;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.15s ease;
@@ -2638,7 +2636,7 @@ input.ask-input,
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.12);
   background: rgba(255, 255, 255, 0.88);
-  -webkit-font-size: 1.05rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #334155;
   display: flex;
@@ -2718,7 +2716,7 @@ input.ask-input,
   text-align: center;
   min-width: 0;
   background: rgba(255, 255, 255, 0.88);
-  -webkit-border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 9px;
   padding: 4px 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
