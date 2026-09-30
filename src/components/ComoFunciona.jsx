@@ -246,12 +246,73 @@ export default function ComoFunciona() {
             </tbody>
           </table>
 
+          <h3 style={{ margin: '18px 0 6px', fontSize: '0.95rem', color: 'var(--accent)' }}>🎓 {pick('Exámenes oficiales A2 y destrezas avanzadas', 'Official A2 exams and advanced skills')}</h3>
+          <table className="cf-tabla cf-tabla-juegos">
+            <tbody>
+              <tr>
+                <td>📋 {pick('Prüfung A2 (Simulacro)', 'Prüfung A2 (Mock Exam)')} <b>hasta 30</b></td>
+                <td>{pick('Simulacro oficial de 4 destrezas (Lesen, Hören, Schreiben, Sprechen) en formato estándar ÖSD / Goethe / telc.', 'Official 4-skill mock exam (Reading, Listening, Writing, Speaking) standard ÖSD / Goethe / telc format.')}</td>
+              </tr>
+              <tr>
+                <td>🗣️ {pick('Sprechen con Felix', 'Speaking with Felix')} <b>2–10</b></td>
+                <td>{pick('Práctica oral en 3 partes: presentación personal, conversación sobre un tema cotidiano y planificación conjunta.', 'Oral practice in 3 parts: self-introduction, discussion on a daily topic, and joint planning.')}</td>
+              </tr>
+              <tr>
+                <td>📔 {pick('Tagebuch (Diario)', 'Tagebuch (Diary)')} <b>25</b></td>
+                <td>{pick('Redacción libre diaria en alemán con corrección gramatical detallada frase a frase y recomendación de lección.', 'Daily free writing in German with detailed sentence-by-sentence grammar correction and lesson recommendations.')}</td>
+              </tr>
+              <tr>
+                <td>📓 {pick('Cuaderno de notas', 'Notebook')} <b>15</b></td>
+                <td>{pick('Tus propios apuntes organizados por lección con fotografías adjuntas y ejemplos de uso.', 'Your personal notes organized by lesson with attached photos and usage examples.')}</td>
+              </tr>
+            </tbody>
+          </table>
+
           <p className="muted" style={{ marginTop: 12 }}>
             {pick(
               'En los ejercicios con pistas (Ahorcado, der / die / das, Kasus Trainer, Escribir, Traducir y La palabra que falta), las monedas se van reduciendo con cada pista gastada, pero siempre te llevas al menos 1 moneda al acertar.',
               'In exercises with hints (Hangman, der / die / das, Kasus Trainer, Typing, Translating, and Missing Word), coins decrease with each hint used, but you will always earn at least 1 coin when you get it right.'
             )}
           </p>
+        </Bloque>
+
+        <Bloque titulo={pick('👑 Las coronas y los desbloqueos', '👑 Crowns and unlocks')}>
+          <p>
+            {pick(
+              'A medida que avanzas en el aprendizaje desbloqueas elementos exclusivos para personalizar a Felix:',
+              'As you progress in your learning, you unlock exclusive items to customise Felix:'
+            )}
+          </p>
+          <ul className="cf-lista">
+            <li>
+              <strong>👑 {pick('Coronas (Kronen)', 'Crowns (Kronen)')}:</strong>{' '}
+              {pick(
+                'Ganas 1 corona por cada lección completada al 100% en sus tres áreas (Gramática, Vocabulario y Comunicación). Las coronas desbloquean la colección de la realeza en la tienda de Felix (corona real, tiara, cetro, orbe, capa real, túnica de rey, vestido de reina, monóculo, zapatillas de cristal...).',
+                'You earn 1 crown for each lesson completed to 100% across all three areas (Grammar, Vocabulary, and Communication). Crowns unlock the royal collection in Felix’s shop (royal crown, tiara, sceptre, orb, royal cape, king’s robe, queen’s gown, monocle, glass slippers...).'
+              )}
+            </li>
+            <li>
+              <strong>✨ {pick('Auras y efectos de partículas', 'Particle auras & effects')}:</strong>{' '}
+              {pick(
+                'Se desbloquean alcanzando hitos de racha de días seguidos (lluvia de estrellas, chispas doradas, burbujas flotantes...).',
+                'Unlocked by achieving day streak milestones (stardust, golden sparks, floating bubbles...).'
+              )}
+            </li>
+            <li>
+              <strong>🏞️ {pick('Fondos y escenarios', 'Backgrounds & scenes')}:</strong>{' '}
+              {pick(
+                'Los fondos para la habitación de Felix (Pradera, Playa, Desierto, Glaciar de hielo, Aula de clase, Espacio exterior) se compran con las monedas acumuladas.',
+                'Backgrounds for Felix’s room (Meadow, Beach, Desert, Ice glacier, Classroom, Outer space) are purchased with your accumulated coins.'
+              )}
+            </li>
+            <li>
+              <strong>🏷️ {pick('Nombre de Felix', 'Felix’s name')}:</strong>{' '}
+              {pick(
+                'Si quieres cambiarle el nombre a tu mascota zorro, puedes hacerlo desde su panel por 100 monedas.',
+                'If you want to change your pet fox’s name, you can do so in his panel for 100 coins.'
+              )}
+            </li>
+          </ul>
         </Bloque>
 
         <Bloque titulo={pick('📊 De dónde sale cada porcentaje', '📊 Where each percentage comes from')}>
@@ -331,8 +392,8 @@ export default function ComoFunciona() {
           </ul>
           <p className="muted">
             {pick(
-              'El porcentaje que ves en la tarjeta refleja tus elementos dominados frente al total de 2000.',
-              'The percentage shown on each card reflects your mastered items out of the total 2000.'
+              'El porcentaje que ves en la tarjeta refleja tus elementos dominados frente al total de más de 2.000 palabras y frases del temario.',
+              'The percentage shown on each card reflects your mastered items out of the 2,000+ words and phrases in the curriculum.'
             )}
           </p>
         </Bloque>
@@ -415,8 +476,8 @@ export default function ComoFunciona() {
           </ul>
           <p className="muted">
             {pick(
-              'Las monedas se gastan en la ropa y los bichos de Felix. No sirven para nada más, a propósito.',
-              'Coins are spent on Felix’s clothes and animals. They are good for nothing else, on purpose.'
+              'Las monedas se gastan en la ropa, complementos, animales de compañía y fondos / escenarios de Felix. No sirven para nada más, a propósito.',
+              'Coins are spent on Felix’s clothes, accessories, companion animals, and backgrounds / scenes. They are good for nothing else, on purpose.'
             )}
           </p>
         </Bloque>
@@ -473,10 +534,33 @@ export default function ComoFunciona() {
           </ul>
           <p className="muted">
             {pick(
-              'Solo están las terminaciones que se cumplen de verdad, comprobadas una a una contra las 505 palabras de la app. Una pista que falla es peor que no tenerla.',
-              'Only endings that really hold are included, checked one by one against the app’s 505 words. A hint that fails is worse than no hint.'
+              'Solo están las terminaciones que se cumplen de verdad, comprobadas una a una contra todo el vocabulario oficial de los niveles A1 y A2 de la app. Una pista que falla es peor que no tenerla.',
+              'Only endings that really hold are included, checked one by one against all official A1 and A2 vocabulary in the app. A hint that fails is worse than no hint.'
             )}
           </p>
+        </Bloque>
+
+        <Bloque titulo={pick('🔊 Audio y síntesis de voz', '🔊 Audio and speech synthesis')}>
+          <p>
+            {pick(
+              'Los audios de examen (Hören), lecturas y pronunciaciones de palabras y frases utilizan el sintetizador de voz (TTS) en alemán nativo del navegador.',
+              'Exam audio (Hören), readings, and vocabulary/phrase pronunciations use native German speech synthesis (TTS) provided by your browser.'
+            )}
+          </p>
+          <ul className="cf-lista">
+            <li>
+              {pick(
+                'En ordenador, Windows, macOS y Linux ofrecen voces neuronales fluidas y nítidas de forma automática.',
+                'On desktop, Windows, macOS, and Linux provide natural, crisp speech voices automatically.'
+              )}
+            </li>
+            <li>
+              {pick(
+                'En teléfonos móviles, la app aprovecha la voz en alemán instalada en el sistema operativo. Si no se oye, asegúrate de tener el paquete de voz en alemán descargado en los ajustes de idioma de tu dispositivo.',
+                'On mobile phones, the app utilizes the German voice installed on your OS. If no sound plays, ensure you have the German speech pack downloaded in your device’s language settings.'
+              )}
+            </li>
+          </ul>
         </Bloque>
 
         <Bloque titulo={pick('💾 Dónde se guarda tu progreso', '💾 Where your progress is kept')}>
@@ -501,8 +585,8 @@ export default function ComoFunciona() {
             </li>
             <li>
               {pick(
-                'Aquí abajo tienes Exportar e Importar: eso sí es una copia de verdad, y sirve para llevártelo a otro ordenador.',
-                'Export and Import are right below: that is a real backup, and it is how you move it to another computer.'
+                'Aquí abajo tienes Exportar e Importar: eso sí es una copia de verdad (incluyendo tus apuntes y fotografías), y sirve para llevártelo a otro ordenador o guardarlo como respaldo seguro.',
+                'Export and Import are right below: that is a real backup (including your notebook notes and photos), and it is how you move it to another computer or keep a safe backup.'
               )}
             </li>
           </ul>
