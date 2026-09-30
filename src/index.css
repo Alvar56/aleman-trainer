@@ -862,54 +862,8 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 .option.correct { border-color: var(--good); background: var(--good-bg); color: var(--text); }
 .option.wrong { border-color: var(--bad); background: var(--bad-bg); color: var(--text); }
 .option.dim { opacity: 0.45; }
-.options-tuyo {
-  padding-right: 12px;
-}
 .options-tuyo .option {
-  position: relative;
   border-radius: 18px 18px 4px 18px;
-}
-.options-tuyo .option::before,
-.options-tuyo .option::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  pointer-events: none;
-  transition: border-color 0.14s ease, border-bottom-color 0.14s ease;
-}
-/* Rabito exterior (borde) a la derecha */
-.options-tuyo .option::before {
-  right: -9px;
-  border-width: 0 11px 13px 0;
-  border-color: transparent transparent var(--border-strong) transparent;
-}
-/* Rabito interior (relleno) a la derecha */
-.options-tuyo .option::after {
-  right: -6px;
-  bottom: 0;
-  border-width: 0 9px 11px 0;
-  border-color: transparent transparent var(--surface) transparent;
-}
-.options-tuyo .option:hover:not(:disabled)::before {
-  border-bottom-color: var(--accent);
-}
-.options-tuyo .option:hover:not(:disabled)::after {
-  border-bottom-color: var(--accent-soft);
-}
-.options-tuyo .option.correct::before {
-  border-bottom-color: var(--good);
-}
-.options-tuyo .option.correct::after {
-  border-bottom-color: var(--good-bg);
-}
-.options-tuyo .option.wrong::before {
-  border-bottom-color: var(--bad);
-}
-.options-tuyo .option.wrong::after {
-  border-bottom-color: var(--bad-bg);
 }
 /* El numero de la tecla, delante de la opcion. Un atajo que no se anuncia no
    lo usa nadie, asi que se ve; pero apagado, que la respuesta es el texto.
@@ -4934,48 +4888,6 @@ input.vs-respuesta { max-width: 460px; }
 }
 [data-theme='dark'] .sentence-tuyo {
   border-color: rgba(91, 139, 212, 0.35);
-}
-
-/* El rabito */
-.sentence-dicho::before,
-.sentence-dicho::after,
-.sentence-tuyo::before,
-.sentence-tuyo::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-}
-
-/* Rabito a la izquierda para lo que te dicen */
-.sentence-dicho::before {
-  left: -9px;
-  border-width: 0 0 13px 11px;
-  border-color: transparent transparent var(--border-strong) transparent;
-}
-.sentence-dicho::after {
-  left: -6px;
-  bottom: 0;
-  border-width: 0 0 11px 9px;
-  border-color: transparent transparent var(--surface) transparent;
-}
-
-/* Rabito a la derecha para lo que dices tú */
-.sentence-tuyo::before {
-  right: -9px;
-  border-width: 0 11px 13px 0;
-  border-color: transparent transparent #cddcec transparent;
-}
-.sentence-tuyo::after {
-  right: -6px;
-  bottom: 0;
-  border-width: 0 9px 11px 0;
-  border-color: transparent transparent var(--accent-soft) transparent;
-}
-[data-theme='dark'] .sentence-tuyo::before {
-  border-bottom-color: rgba(91, 139, 212, 0.35);
 }
 
 @media (max-width: 720px) {
