@@ -862,8 +862,56 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 .option.correct { border-color: var(--good); background: var(--good-bg); color: var(--text); }
 .option.wrong { border-color: var(--bad); background: var(--bad-bg); color: var(--text); }
 .option.dim { opacity: 0.45; }
+.options-tuyo {
+  padding-right: 8px;
+}
 .options-tuyo .option {
-  border-radius: 18px 18px 4px 18px;
+  position: relative;
+  border-radius: 16px 16px 2px 16px;
+}
+.options-tuyo .option::before,
+.options-tuyo .option::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transition: border-color 0.14s ease, border-bottom-color 0.14s ease;
+}
+/* Rabito exterior con grosor de 1.5px */
+.options-tuyo .option::before {
+  right: -7px;
+  bottom: -1.5px;
+  border-width: 0 7px 9px 0;
+  border-color: transparent transparent var(--border-strong) transparent;
+  z-index: 1;
+}
+/* Relleno interior que cubre perfectamente la junta del borde */
+.options-tuyo .option::after {
+  right: -5.5px;
+  bottom: 0;
+  border-width: 0 7px 7.5px 0;
+  border-color: transparent transparent var(--surface) transparent;
+  z-index: 2;
+}
+.options-tuyo .option:hover:not(:disabled)::before {
+  border-bottom-color: var(--accent);
+}
+.options-tuyo .option:hover:not(:disabled)::after {
+  border-bottom-color: var(--accent-soft);
+}
+.options-tuyo .option.correct::before {
+  border-bottom-color: var(--good);
+}
+.options-tuyo .option.correct::after {
+  border-bottom-color: var(--good-bg);
+}
+.options-tuyo .option.wrong::before {
+  border-bottom-color: var(--bad);
+}
+.options-tuyo .option.wrong::after {
+  border-bottom-color: var(--bad-bg);
 }
 /* El numero de la tecla, delante de la opcion. Un atajo que no se anuncia no
    lo usa nadie, asi que se ve; pero apagado, que la respuesta es el texto.
@@ -4856,8 +4904,8 @@ input.vs-respuesta { max-width: 460px; }
 /* Bocadillos de diálogo (enunciado de comunicación) */
 .sentence-dicho {
   position: relative;
-  border-radius: 18px 18px 18px 4px;
-  padding: 14px 20px;
+  border-radius: 16px 16px 16px 2px;
+  padding: 13px 18px;
   margin: 4px 0 24px 0;
   max-width: 36rem;
   width: fit-content;
@@ -4872,8 +4920,8 @@ input.vs-respuesta { max-width: 460px; }
 
 .sentence-tuyo {
   position: relative;
-  border-radius: 18px 18px 4px 18px;
-  padding: 14px 20px;
+  border-radius: 16px 16px 2px 16px;
+  padding: 13px 18px;
   margin: 4px 0 24px 0;
   max-width: 36rem;
   width: fit-content;
@@ -4888,6 +4936,53 @@ input.vs-respuesta { max-width: 460px; }
 }
 [data-theme='dark'] .sentence-tuyo {
   border-color: rgba(91, 139, 212, 0.35);
+}
+
+.sentence-dicho::before,
+.sentence-dicho::after,
+.sentence-tuyo::before,
+.sentence-tuyo::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Rabito a la izquierda para lo que te dicen */
+.sentence-dicho::before {
+  left: -7px;
+  bottom: -1.5px;
+  border-width: 0 0 9px 7px;
+  border-color: transparent transparent var(--border-strong) transparent;
+  z-index: 1;
+}
+.sentence-dicho::after {
+  left: -5.5px;
+  bottom: 0;
+  border-width: 0 0 7.5px 7px;
+  border-color: transparent transparent var(--surface) transparent;
+  z-index: 2;
+}
+
+/* Rabito a la derecha para lo que dices tú */
+.sentence-tuyo::before {
+  right: -7px;
+  bottom: -1.5px;
+  border-width: 0 7px 9px 0;
+  border-color: transparent transparent #cddcec transparent;
+  z-index: 1;
+}
+.sentence-tuyo::after {
+  right: -5.5px;
+  bottom: 0;
+  border-width: 0 7px 7.5px 0;
+  border-color: transparent transparent var(--accent-soft) transparent;
+  z-index: 2;
+}
+[data-theme='dark'] .sentence-tuyo::before {
+  border-bottom-color: rgba(91, 139, 212, 0.35);
 }
 
 @media (max-width: 720px) {
