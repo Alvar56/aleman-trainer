@@ -1314,6 +1314,80 @@ const EXTRAS = {
       [22, 18, 'c'],
       [23, 22, 'b'], ...rect(23, 23, 23, 28, 'b')
     ]
+  },
+  cascoAstronauta: {
+    a: '#f1f5f9', b: '#cbd5e1', c: '#475569', d: 'rgba(56, 189, 248, 0.75)',
+    px: [
+      // cúpula superior del casco de astronauta
+      ...rect(9, 0, 18, 1, 'a'), ...rect(7, 2, 20, 3, 'a'), ...rect(6, 4, 21, 5, 'a'),
+      ...rect(18, 0, 18, 1, 'b'), ...rect(19, 2, 20, 3, 'b'), ...rect(20, 4, 21, 5, 'b'),
+      // laterales de la burbuja y sellos de orejas
+      ...rect(4, 6, 6, 14, 'a'), ...rect(21, 6, 23, 14, 'a'),
+      ...rect(22, 6, 23, 14, 'b'),
+      // antena con luz de baliza
+      [4, 2, '#ef4444'], ...rect(4, 3, 4, 5, 'c'),
+      // luces de estado y módulos de comunicación en los laterales
+      [3, 8, '#ef4444'], [3, 9, '#38bdf8'], [24, 8, '#22c55e'], [24, 9, '#eab308'],
+      // arco del visor con reflejo de cristal espacial
+      ...rect(7, 6, 20, 6, 'c'),
+      [7, 7, 'd'], [8, 7, '#ffffff'], [9, 7, '#ffffff'], [10, 7, 'd'], [7, 8, 'd'],
+      // anillo de sellado del cuello / escafandra
+      ...rect(6, 16, 21, 16, 'b'), ...rect(5, 17, 22, 17, 'c'), ...rect(8, 18, 19, 18, 'c')
+    ]
+  },
+  trajeAstronauta: {
+    a: '#f1f5f9', b: '#cbd5e1', c: '#1e293b', d: '#94a3b8',
+    px: [
+      // cuello y hombros acolchados
+      ...rect(9, 18, 18, 18, 'c'), ...rect(8, 19, 19, 19, 'a'),
+      ...rect(7, 20, 20, 27, 'a'), ...rect(19, 20, 20, 27, 'b'),
+      // articulaciones flexibles en los brazos
+      ...rect(7, 21, 8, 21, 'd'), ...rect(7, 23, 8, 23, 'd'), ...rect(7, 25, 8, 25, 'd'),
+      ...rect(19, 21, 20, 21, 'd'), ...rect(19, 23, 20, 23, 'd'), ...rect(19, 25, 20, 25, 'd'),
+      // insignias de misión en los hombros
+      [8, 20, '#ef4444'], [19, 20, '#2563eb'],
+      // consola pectoral de soporte vital (PLSS control unit)
+      ...rect(11, 21, 16, 25, 'c'), ...rect(12, 22, 15, 24, '#334155'),
+      [12, 22, '#ef4444'], [13, 22, '#22c55e'], [15, 22, '#38bdf8'],
+      ...rect(12, 23, 15, 23, '#f8fafc'), [14, 24, '#fbbf24'],
+      // cinturón utilitario y hebilla reforzada
+      ...rect(7, 26, 20, 26, '#475569'), ...rect(12, 26, 15, 26, 'd'),
+      ...rect(7, 27, 20, 27, 'b')
+    ]
+  },
+  botasAstronauta: {
+    a: '#f1f5f9', b: '#334155', c: '#38bdf8', d: '#cbd5e1',
+    px: [
+      // bota izquierda
+      ...rect(7, 26, 11, 26, 'c'),
+      ...rect(6, 27, 12, 28, 'a'), [12, 27, 'd'], [12, 28, 'd'],
+      [7, 28, '#64748b'], [10, 28, '#64748b'],
+      ...rect(6, 29, 12, 29, 'b'),
+      // bota derecha
+      ...rect(16, 26, 20, 26, 'c'),
+      ...rect(15, 27, 21, 28, 'a'), [21, 27, 'd'], [21, 28, 'd'],
+      [16, 28, '#64748b'], [19, 28, '#64748b'],
+      ...rect(15, 29, 21, 29, 'b')
+    ]
+  },
+  cohete: {
+    a: '#f8fafc', b: '#e11d48', c: '#0284c7', d: '#f97316',
+    anima: (x, y) => y >= 24,
+    px: [
+      // ojiva / punta del cohete
+      [23, 16, 'b'], ...rect(22, 17, 24, 17, 'b'),
+      // fuselaje blanco aerodinámico
+      ...rect(21, 18, 25, 22, 'a'), ...rect(24, 18, 25, 22, '#cbd5e1'),
+      // ventanilla circular de cabina con brillo
+      ...rect(22, 19, 24, 20, 'c'), [23, 19, '#ffffff'],
+      // alerones / alas laterales rojas
+      [20, 21, 'b'], [20, 22, 'b'], [26, 21, 'b'], [26, 22, 'b'],
+      [21, 23, '#be123c'], [25, 23, '#be123c'],
+      // tobera de propulsión
+      ...rect(22, 23, 24, 23, '#475569'),
+      // llamarada de propulsión animada
+      ...rect(22, 24, 24, 25, 'd'), [23, 24, '#fde047'], [23, 26, '#fbbf24'], [23, 27, '#ef4444']
+    ]
   }
 };
 
