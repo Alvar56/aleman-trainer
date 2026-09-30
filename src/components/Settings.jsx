@@ -317,8 +317,8 @@ export default function Settings({ onBack }) {
                   <div>
                     <strong style={{ color: 'var(--text)' }}>Google Gemini:</strong>{' '}
                     {pick(
-                      'Ideal para generar infinidad de ejercicios adaptativos de gramática y vocabulario, explicar correcciones, evaluar tus frases y charlar con Felix. Sin embargo, su API no realiza búsquedas web en directo, por lo que NO puede buscar canciones ni noticias (estas dos funciones requieren Claude local y no están disponibles con Gemini ni en el archivo HTML portable).',
-                      'Great for generating unlimited adaptive grammar and vocab exercises, explaining corrections, evaluating your sentences, and chatting with Felix. However, its API cannot perform live web searches, so it CANNOT search for songs or news (these two features require local Claude and are unavailable with Gemini or in the portable HTML).'
+                      'Compatible al 100% con todas las funciones (ejercicios adaptativos, simulacros de examen A2, explicaciones, chat con Felix, y búsqueda web con Google Search Grounding para noticias y canciones de YouTube). Funciona directamente en el navegador y en el archivo HTML portable con tu clave gratuita de Google AI Studio.',
+                      '100% compatible with all features (adaptive exercises, A2 exam simulations, explanations, Felix chat, and web search with Google Search Grounding for real news and YouTube songs). Works directly in the browser and portable HTML with your free Google AI Studio key.'
                     )}
                   </div>
                 </div>

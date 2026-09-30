@@ -5,7 +5,7 @@
 
 import { storage } from './storage.js';
 import { aiAvailable, getSettings } from './settings.js';
-import { extractJson, limiteIA, apuntarLimiteIA } from './ai.js';
+import { extractJson, limiteIA, apuntarLimiteIA, runLLM } from './ai.js';
 import { getLang, langName, t } from './i18n.js';
 
 const KEY = 'lieder:saved';
@@ -84,12 +84,6 @@ export function songId(artist, titel) {
 // `query` = lo que escriba el usuario: un artista, una canción, o "artista - canción".
 export async function suggestSong({ niveau = 'A2', genre = 'any', query = '' } = {}) {
   if (!aiAvailable()) throw new Error(t('err.aiSong'));
-  const s = getSettings();
-  if (s.aiProvider !== 'claude-local') {
-    throw new Error(
-      'Las canciones necesitan búsqueda web para comprobar el vídeo, y eso solo funciona con "IA · Claude (local, sin key)".'
-    );
-  }
 
   const idioma = langName(getLang());
   const yaVistas = seen();
@@ -176,40 +170,14 @@ nada de alfabeto fonético.
 
 Sin texto fuera del JSON.`;
 
-  // Si ya sabemos que no hay cuota, ni se manda: esperar siete minutos para que
-  // te digan lo mismo que ya sabíamos no le sirve a nadie.
-  const lim = limiteIA();
-  if (lim) {
-    throw new Error(
-      `Sin cuota de Claude hasta ${new Date(lim.hasta).toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit'
-      })}. No se ha enviado nada para no hacerte esperar en balde.`
-    );
-  }
+  // Utiliza el proveedor configurado (Claude local o Gemini con Google Search Grounding)
+  const text = await runLLM(prompt, {
+    json: false,
+    tools: ['WebSearch', 'WebFetch'],
+    search: true,
+    timeoutMs: 240000
+  });
 
-  // Siete minutos de margen eran demasiados: una búsqueda que se va por las
-  // ramas encadena consultas hasta quedarse sin cuota y no devuelve nada.
-  const res = await fetch('/api/ai', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ prompt, tools: ['WebSearch', 'WebFetch'], timeoutMs: 240000 })
-  }).catch(() => null);
-  if (!res) throw new Error(t('err.noBridge'));
-  if (!res.ok) {
-    let msg = `Puente local: error ${res.status}`;
-    let cuerpo = null;
-    try {
-      cuerpo = await res.json();
-      if (cuerpo?.error) msg = cuerpo.error;
-    } catch { /* deja el mensaje */ }
-    // Solo la cuota agotada apaga la IA. El puente devuelve 429 también cuando
-    // hay cola ("ocupado"), y eso se reintenta sin más: apagarlo todo por eso
-    // dejaría la app coja por algo que se arregla esperando medio minuto.
-    if (cuerpo?.limite) apuntarLimiteIA(cuerpo?.reset);
-    throw new Error(msg);
-  }
-  const { text } = await res.json();
   const raw = extractJson(text);
   // Si no pudo con lo que se le pidió, dilo tal cual en vez de colar otra canción.
   if (raw?.problema && !raw?.titel) throw new Error(String(raw.problema));

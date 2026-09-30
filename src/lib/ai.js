@@ -113,12 +113,13 @@ En "write" el alumno teclea la respuesta: que el hueco tenga UNA sola solucion r
 Sin texto fuera del JSON. Alemania estandar, ortografia con esszet cuando toque.`;
 }
 
-async function callGemini({ key, model, prompt, json = true, image = null, retries = 2 }) {
+async function callGemini({ key, model, prompt, json = true, image = null, search = false, retries = 2 }) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(
     model
   )}:generateContent?key=${encodeURIComponent(key)}`;
   const generationConfig = { temperature: json ? 1.0 : 0.6 };
-  if (json) generationConfig.responseMimeType = 'application/json';
+  // Con Google Search activado, no forzamos application/json porque Gemini devuelve metadatos de búsqueda
+  if (json && !search) generationConfig.responseMimeType = 'application/json';
   
   const parts = [{ text: prompt }];
   if (image) {
@@ -128,16 +129,22 @@ async function callGemini({ key, model, prompt, json = true, image = null, retri
     parts.push({ inlineData: { mimeType, data } });
   }
 
+  const reqBody = {
+    systemInstruction: { parts: [{ text: SYSTEM() }] },
+    contents: [{ role: 'user', parts }],
+    generationConfig
+  };
+
+  if (search) {
+    reqBody.tools = [{ googleSearch: {} }];
+  }
+
   let attempt = 0;
   while (true) {
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: SYSTEM() }] },
-        contents: [{ role: 'user', parts }],
-        generationConfig
-      })
+      body: JSON.stringify(reqBody)
     });
     
     if (!res.ok) {
@@ -299,42 +306,22 @@ async function callClaudeLocal({ prompt, tools, timeoutMs, image }) {
 
 
 // Enruta un prompt al proveedor configurado.
-export async function runLLM(prompt, { json = true, timeoutMs, image = null, tools = null } = {}) {
+export async function runLLM(prompt, { json = true, timeoutMs, image = null, tools = null, search = false } = {}) {
   const s = getSettings();
-  const modelName = (s.aiModel || '').trim() || 'gemini-1.5-flash';
-  // Si algo falla, el error SUBE. Antes se tragaba cualquier fallo (puente
-  // caido, JSON roto, timeout) y se devolvian los dos ejercicios enlatados de
-  // mock.js marcados como source:'ia', con un aviso que siempre culpaba al
-  // "limite de IA agotado" aunque la causa fuera otra. Resultado: no habia
-  // manera de distinguir un ejercicio de la IA de uno falso, siempre salian los
-  // mismos dos, y el motor nunca caia a las plantillas.
-  //
-  // Quien llama ya sabe que hacer: buildSessionSmart cae a las plantillas del
-  // libro, y las pantallas con job (noticias, examen, canciones, cuaderno)
-  // ensenan el error de verdad y dejan reintentar.
+  const modelName = (s.aiModel || '').trim() || 'gemini-2.5-flash';
+  const hasSearch = search || (Array.isArray(tools) && tools.some((t) => typeof t === 'string' && /search/i.test(t)));
+
   if (s.aiProvider === 'gemini') {
-    return await callGemini({ key: s.aiKey, model: modelName, prompt, json, image });
+    return await callGemini({ key: s.aiKey, model: modelName, prompt, json, image, search: hasSearch });
   }
   if (s.aiProvider === 'claude-local') {
     try {
       return await callClaudeLocal({ prompt, tools, timeoutMs, image });
     } catch (e) {
-      // El puente local solo existe con `npm run dev` levantado. Fuera de ahí
-      // —el HTML suelto, una copia subida a un servidor— no hay /api/ai y
-      // fallaba todo con un "no se pudo contactar", aunque hubiera una clave
-      // guardada y perfectamente buena.
-      //
-      // Pasa más de lo que parece: claude-local es el proveedor por defecto y
-      // con él Ajustes esconde los campos de modelo y clave, así que quien
-      // configuró Gemini y volvió a este proveedor deja de ver su propia
-      // configuración y no tiene forma de saber por qué no tira nada.
-      //
-      // Si hay clave, se reintenta con el proveedor que diga el modelo. Y si
-      // no la hay, al menos el error explica qué hacer.
       if (!e || !e.puenteCaido) throw e;
       if (!s.aiKey) throw e;
       if (/^gemini/i.test(modelName)) {
-        return await callGemini({ key: s.aiKey, model: modelName, prompt, json, image });
+        return await callGemini({ key: s.aiKey, model: modelName, prompt, json, image, search: hasSearch });
       }
       return await callOpenAICompat({ key: s.aiKey, model: modelName, prompt, baseUrl: s.aiBaseUrl, json, image });
     }
@@ -1515,11 +1502,6 @@ existe), devuelve "wetter": null en vez de inventarte una.`,
 export async function fetchNews({ seccion = 'news', count = 4, niveau = 'A2', ort = 'Wien', evitar = [] } = {}) {
   const s = getSettings();
   if (!aiAvailable()) throw new Error(t('err.aiNews'));
-  if (s.aiProvider !== 'claude-local') {
-    throw new Error(
-      'Las noticias necesitan búsqueda web, que solo está disponible con "IA · Claude (local, sin key)". Cámbialo en el menú lateral.'
-    );
-  }
   if (!NEWS_SECCIONES.includes(seccion)) throw new Error(t('err.unknownSection', { que: seccion }));
 
   const idioma = langName(getLang());
@@ -1566,13 +1548,11 @@ ${schema}
 ${extra}
 Sin texto fuera del JSON.`;
 
-  // Antes 600000: diez minutos de margen para una pantalla de noticias. Con ese
-  // techo, una búsqueda que se iba por las ramas encadenaba consultas hasta
-  // agotar la cuota y acababa sin devolver nada. Cuatro minutos es de sobra con
-  // el presupuesto de búsquedas de arriba, y si no llega, mejor cortar pronto.
-  const text = await callClaudeLocal({
-    prompt,
+  // Utiliza el proveedor configurado (Claude local o Gemini con Google Search Grounding)
+  const text = await runLLM(prompt, {
+    json: false,
     tools: ['WebSearch', 'WebFetch'],
+    search: true,
     timeoutMs: 240000
   });
   const raw = extractJson(text);
