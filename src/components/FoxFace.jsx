@@ -1793,7 +1793,7 @@ export default function FoxFace({
       // de rejilla se quedaba en un manchurron de cinco pixeles y no se
       // distinguia un libro de una taza. Crece desde su base, que es donde lo
       // agarra, asi que sigue apoyado en la patita.
-      return ex ? { id, ex, escala: i === 5 ? ex.escala ?? ESCALA_OBJETO : 1 } : null;
+      return ex ? { id, ex, escala: i === 5 ? ex.escala ?? ESCALA_OBJETO : 1, esObjeto: i === 5 } : null;
     })
     .filter(Boolean);
 
@@ -1992,7 +1992,7 @@ export default function FoxFace({
             )
           )
         )}
-        {extras.map(({ id, ex, escala }, i) => {
+        {extras.map(({ id, ex, escala, esObjeto }, i) => {
           const vis = ex.px.filter(([, y]) => y < alto);
           // El ancla es la base del propio dibujo. Y cada pixel se coloca ya
           // escalado en vez de meterlo todo en un <g transform>: asi los
@@ -2002,13 +2002,14 @@ export default function FoxFace({
           const x1 = escala === 1 ? 0 : Math.max(...vis.map((q) => q[0]));
           const cx = escala === 1 ? 0 : (x0 + x1 + 1) / 2;
           const cy = escala === 1 ? 0 : Math.max(...vis.map((q) => q[1])) + 1;
-          // Al crecer, el paraguas se salia dos decimas por la derecha y se le
-          // cortaba el borde. En vez de encogerlo, se empuja hacia dentro lo
-          // justo para que quepa: vale para este y para cualquiera que se
-          // añada luego.
           const der = cx + (x1 - cx) * escala + escala;
           const izq = cx + (x0 - cx) * escala;
-          const ajuste = der > W ? W - der : izq < 0 ? -izq : 0;
+          // Los objetos sostenidos en la mano derecha (libro, taza, brezel, bastón, trofeo, etc.)
+          // se separan hacia la derecha para no solaparse con el cuerpo ni tapar el brazo del zorro.
+          // Además, no se ajustan hacia la izquierda con der > W porque SVG tiene overflow: visible.
+          const esObjetoSuelto = esObjeto && id !== 'paraguas';
+          const separacionX = esObjetoSuelto ? 2.6 : 0;
+          const ajuste = esObjetoSuelto ? 0 : (der > W ? W - der : izq < 0 ? -izq : 0);
           // Y lo mismo por arriba: nada puede quedar por encima del lienzo.
           const arriba = cy + (Math.min(...vis.map((q) => q[1])) - cy) * escala;
           const ajusteY = arriba < 0 ? -arriba : 0;
@@ -2020,7 +2021,7 @@ export default function FoxFace({
                 <rect
                   key={j}
                   className={ex.anima && ex.anima(x, y) ? 'fox-px-mueve' : undefined}
-                  x={escala === 1 ? x : cx + (x - cx) * escala + ajuste}
+                  x={(escala === 1 ? x : cx + (x - cx) * escala) + ajuste + separacionX}
                   y={escala === 1 ? y : cy + (y - cy) * escala + ajusteY}
                   width={escala}
                   height={escala}
