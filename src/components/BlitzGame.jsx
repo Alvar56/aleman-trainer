@@ -96,6 +96,9 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
 
   function avanzar() {
     clearTimeout(timerEspera.current);
+    if (typeof document !== 'undefined' && document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur();
+    }
     setMarcado(null);
     setI((n) => n + 1);
   }
@@ -103,6 +106,9 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
   function reiniciar() {
     clearTimeout(timerEspera.current);
     clearTimeout(timerBono.current);
+    if (typeof document !== 'undefined' && document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur();
+    }
     setMarcado(null);
     setAvisoBono(0);
     setI(0);
@@ -132,6 +138,9 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
 
   function responder(op) {
     if (marcado || acabado) return;
+    if (typeof document !== 'undefined' && document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur();
+    }
     const ok = op.es === card.es;
     setMarcado({ elegido: op.es, correcto: ok });
     const rSeg = apuntarRespuesta(ok);
@@ -281,7 +290,12 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
               else cls += ' dim';
             }
             return (
-              <button key={k} className={cls} onClick={() => responder(op)} disabled={!!marcado}>
+              <button
+                key={`${card.de}-${op.es}-${k}`}
+                className={cls}
+                onClick={() => responder(op)}
+                disabled={!!marcado}
+              >
                 <span className="op-tecla">{k + 1}</span>
                 {op.es}
               </button>
