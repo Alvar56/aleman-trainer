@@ -28,7 +28,7 @@ export default function NotebookSession({ note, lektion, onExit, onFinish }) {
   const results = useRef([]);
   const monedas = useRef(0); // lo ganado en esta tanda, para el resumen
   const started = useRef(Date.now());
-
+  useTeclas({ Escape: onExit });
   useTeclas({ Enter: () => next(), ' ': () => next(), ArrowLeft: () => atras() }, phase === 'feedback');
 
   if (!items.length) {

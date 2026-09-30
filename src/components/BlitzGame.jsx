@@ -99,16 +99,16 @@ export default function BlitzGame({ deck, cartas, apuntar, contexto, cartasFijas
     setI((n) => n + 1);
   }
 
-  // Atajos de teclado: 1, 2, 3 para responder; Escape para salir; Enter o Espacio para saltar la espera
+  useTeclas({ Escape: onExit }, true);
+
+  // Atajos de teclado: 1, 2, 3 para responder; Enter o Espacio para saltar la espera
   useTeclas({
-    ...teclasDeOpciones(opciones, (op) => responder(op)),
-    Escape: onExit
+    ...teclasDeOpciones(opciones, (op) => responder(op))
   }, !marcado && !acabado);
 
   useTeclas({
     Enter: avanzar,
-    ' ': avanzar,
-    Escape: onExit
+    ' ': avanzar
   }, !!marcado && !acabado);
 
   function responder(op) {

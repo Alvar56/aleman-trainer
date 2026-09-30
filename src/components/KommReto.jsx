@@ -4,6 +4,7 @@ import { generateNotebookItems } from '../lib/ai.js';
 import { getLektion, lektionKommunikation, lektionLabel } from '../lib/kursbuch/index.js';
 import { respuestaDe } from '../lib/kursbuch/respuestas.js';
 import { t } from '../lib/i18n.js';
+import { useTeclas } from '../lib/teclas.js';
 
 // Reto con IA sobre las frases de una Lektion de Kommunikation, igual que el
 // que ya tenían Vocabulario y Gramática y que aquí faltaba.
@@ -16,6 +17,7 @@ import { t } from '../lib/i18n.js';
 // contestan se queda a medias; y con el par delante la IA puede preguntar por
 // cualquiera de los dos lados.
 export default function KommReto({ lektionId, onExit, onFinish }) {
+  useTeclas({ Escape: onExit });
   const [items, setItems] = useState(null);
   const [err, setErr] = useState('');
   const pedido = useRef(false);

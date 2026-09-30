@@ -394,6 +394,8 @@ export default function KommPractice({
     };
   }, [p, lektionId, funktion, i]);
 
+  // Escape para salir de la práctica.
+  useTeclas({ Escape: onSalir });
   // Enter para pasar a la siguiente, como en gramática.
   useTeclas({ Enter: () => siguiente(), ' ': () => siguiente(), ArrowLeft: () => atras() }, juzgada !== null && !fin);
 

@@ -7,8 +7,10 @@ import { useAiJob } from '../lib/useAiJob.js';
 import { generateSprechenAufgabe } from '../lib/pruefungAi.js';
 import { getTyp } from '../lib/pruefung.js';
 import Desplegable from './Desplegable.jsx';
+import { useTeclas } from '../lib/teclas.js';
 
 export default function ExamSprechen({ typ, onBack }) {
+  useTeclas({ Escape: onBack });
   const fox = useFox();
   // La tarea, en el gestor de trabajos: tarda y no debe perderse al salir.
   const JOB = `examen:sprechen:${typ}`;

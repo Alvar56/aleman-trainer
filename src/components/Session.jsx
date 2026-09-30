@@ -17,7 +17,7 @@ import { recordStreak, currentStreak, updateStreak } from '../lib/rachas.js';
 import { cobrarEjercicio, RECONOCER, RECONSTRUIR, PRODUCIR } from '../lib/monedas.js';
 import { playAudio } from '../lib/audio.js';
 import { ensureJob, clearJob } from '../lib/aiJobs.js';
-import { useAiJob } from '../lib/useAiJob.js';
+import { useTeclas } from '../lib/teclas.js';
 import FoxOverlay, { useFox } from './FoxOverlay.jsx';
 import Cargando from './Cargando.jsx';
 import Reloj from './Reloj.jsx';
@@ -31,6 +31,7 @@ function xpFor(correct) {
 // `itemsFijos` es una tanda ya montada: la usa "repetir los fallos", que no
 // genera nada nuevo sino que vuelve a poner las preguntas que fallaste.
 export default function Session({ topic, mode, game = 'mixed', itemsFijos = null, onExit, onDone }) {
+  useTeclas({ Escape: onExit });
   const [items, setItems] = useState(null);
   const [aiInfo, setAiInfo] = useState(null);
   const [idx, setIdx] = useState(0);

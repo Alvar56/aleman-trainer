@@ -11,6 +11,7 @@ import { ganar, MONEDAS_EXAMEN } from '../lib/monedas.js';
 import { countWords } from '../lib/diary.js';
 import Umlaut from './Umlaut.jsx';
 import Desplegable from './Desplegable.jsx';
+import { useTeclas } from '../lib/teclas.js';
 
 // El tipo llega de la IA en el idioma de la interfaz, así que se reconoce en
 // ambos para que el color del chip no se pierda al cambiar de idioma.
@@ -23,6 +24,7 @@ const TIPO_CLASS = {
 };
 
 export default function ExamSchreiben({ typ, onBack }) {
+  useTeclas({ Escape: onBack });
   const fox = useFox();
   // Igual que en Lesen/Hören: la tarea vive en el gestor de trabajos para que
   // irse a otra sección no la tire.

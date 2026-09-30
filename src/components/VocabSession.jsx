@@ -51,6 +51,7 @@ function shuffle(a) {
 // `cartasFijas`: las tarjetas de "repetir los fallos". Con ellas la tanda no
 // se sortea, son esas y ya está.
 export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = null, onExit, onFinish }) {
+  useTeclas({ Escape: onExit });
   const fox = useFox();
   const size = Math.min(getSettings().sessionSize || 10, deck.cards.length);
   // Las tarjetas de UN tema van enteras: el mazo, de una tirada. No son un

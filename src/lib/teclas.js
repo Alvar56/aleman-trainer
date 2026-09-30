@@ -34,7 +34,7 @@ export function useTeclas(mapa, activo = true) {
     if (!activo) return undefined;
     function alPulsar(e) {
       if ((e.ctrlKey || e.metaKey || e.altKey) && e.key !== 'Control' && e.key !== 'Alt') return;
-      if (escribiendo(e.target)) return;
+      if (escribiendo(e.target) && e.key !== 'Escape') return;
       const fn = ref.current[e.key];
       if (!fn) return;
       e.preventDefault();

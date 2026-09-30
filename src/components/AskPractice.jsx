@@ -3,6 +3,7 @@ import NotebookSession from './NotebookSession.jsx';
 import { generateAskItems } from '../lib/ai.js';
 import { t } from '../lib/i18n.js';
 import Cargando from './Cargando.jsx';
+import { useTeclas } from '../lib/teclas.js';
 
 // Ejercicios sobre la explicación que acabas de pedir. Leer una explicación y
 // creerse que se ha entendido es facilísimo; hacer cuatro ejercicios sobre ella
@@ -11,6 +12,7 @@ import Cargando from './Cargando.jsx';
 // No hay motor propio: se generan los ítems y se juegan con la sesión del
 // Notizbuch, que ya sabe pintar mc, order y write y llevar la cuenta.
 export default function AskPractice({ pregunta, res, onExit, onFinish }) {
+  useTeclas({ Escape: onExit });
   const [items, setItems] = useState(null);
   const [err, setErr] = useState('');
   const pedido = useRef(false);

@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import NotebookSession from './NotebookSession.jsx';
 import { generateNotebookItems } from '../lib/ai.js';
+import { useTeclas } from '../lib/teclas.js';
 
 // Reto con IA sobre las palabras de un mazo. No hay motor propio: se le pasan
 // las palabras al mismo generador que usa el Notizbuch y se juegan con su
 // sesión, que ya sabe pintar mc y order y llevar la cuenta.
 export default function VocabReto({ deck, onExit, onFinish }) {
+  useTeclas({ Escape: onExit });
   const [items, setItems] = useState(null);
   const [err, setErr] = useState('');
   const pedido = useRef(false);
