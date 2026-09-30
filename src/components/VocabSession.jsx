@@ -477,7 +477,7 @@ export default function VocabSession({ deck, mode, dir: propDir, cartasFijas = n
                 autoComplete="off"
               />
               {!deToEs && <Umlaut campo={inputRef} onTexto={setInput} />}
-              <button className="btn-primary" style={{ display: 'block', width: '100%', maxWidth: 320, margin: '12px auto 0' }}>{t('ses.check')}</button>
+              <button className="btn-primary" style={{ display: 'block', width: 'auto', minWidth: 160, maxWidth: 320, margin: '12px 0 0' }}>{t('ses.check')}</button>
             </form>
           ) : (
             <>

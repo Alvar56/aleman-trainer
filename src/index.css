@@ -832,7 +832,7 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
    lo destine por su cuenta y en el movil lo deja casi invisible. */
 .cloze-frase .cloze-hueco:disabled { opacity: 1; -webkit-text-fill-color: currentColor; }
 
-.cloze-banco { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; margin-top: 26px; }
+.cloze-banco { display: flex; flex-wrap: wrap; gap: 9px; justify-content: flex-start; margin-top: 26px; }
 .cloze-pieza {
   padding: 9px 17px; border-radius: 999px; font-size: 1.02rem; font-weight: 600;
   border: 1.5px solid var(--border-strong); background: var(--surface); color: var(--text);
@@ -846,7 +846,7 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
   opacity: 0.4; box-shadow: none; border-style: dashed; cursor: default;
   background: var(--surface); color: var(--muted);
 }
-.cloze-pie { margin-top: 30px; text-align: center; }
+.cloze-pie { margin-top: 30px; text-align: left; }
 
 .options { display: grid; gap: 11px; max-width: 620px; width: 100%; }
 .option {
@@ -3448,13 +3448,13 @@ body:has(.fox-modal) .hud-esquina {
    lineas en vez de salirse de la caja. */
 .tb-tema-caja .ask-chip { font-size: 0.85rem; text-align: left; border-radius: 10px; white-space: normal; }
 
-.write-fila { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 16px; width: 100%; }
-.write-fila > .btn-primary { align-self: center; min-width: 160px; width: 100%; max-width: 320px; }
+.write-fila { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 16px; width: 100%; }
+.write-fila > .btn-primary { align-self: flex-start; min-width: 160px; width: auto; max-width: 320px; }
 input.write-input,
 .write-input {
   flex: 0 0 auto;
   width: 100%;
-  max-width: 480px;
+  max-width: 620px;
   min-height: 0;
   height: 46px;
   font-size: 1.05rem;
@@ -4218,7 +4218,7 @@ textarea.write-input {
 
 /* La caja de respuesta de las sesiones de vocabulario. Con el selector
    `input.` porque si no pierde contra input[type="text"]. */
-input.vs-respuesta { max-width: 460px; }
+input.vs-respuesta { max-width: 620px; width: 100%; }
 
 /* El punto de color de una palabra y su paleta. Estaba escrito dos veces,
    igual, en Vocab y en DeckDetail. El color en si sigue inline: es el dato. */
