@@ -1,25 +1,25 @@
-import React, { useRef, useState, useLayoutEffect, useEffect } from 'react';
+import React, { useRef, useLayoutEffect, useEffect } from 'react';
 
 /**
  * Contenedor de pestañas con indicador animado deslizante.
  * Mide automáticamente la pestaña activa (.tab.active) y desliza
- * la línea inferior de manera suave y fluida.
+ * la línea inferior de manera suave y fluida directamente en el DOM
+ * sin provocar re-renders de React.
  */
 export default function Tabs({ children, className = '' }) {
   const containerRef = useRef(null);
-  const [sliderStyle, setSliderStyle] = useState({ left: 0, width: 0, opacity: 0 });
+  const sliderRef = useRef(null);
 
   const updateSlider = () => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !sliderRef.current) return;
     const activeBtn = containerRef.current.querySelector('.tab.active');
+    const slider = sliderRef.current;
     if (activeBtn) {
-      setSliderStyle({
-        left: activeBtn.offsetLeft,
-        width: activeBtn.offsetWidth,
-        opacity: 1
-      });
+      slider.style.left = `${activeBtn.offsetLeft}px`;
+      slider.style.width = `${activeBtn.offsetWidth}px`;
+      slider.style.opacity = '1';
     } else {
-      setSliderStyle((s) => ({ ...s, opacity: 0 }));
+      slider.style.opacity = '0';
     }
   };
 
@@ -42,15 +42,7 @@ export default function Tabs({ children, className = '' }) {
   return (
     <div ref={containerRef} className={'tabs' + (className ? ' ' + className : '')}>
       {children}
-      <span
-        className="tab-slider"
-        style={{
-          left: sliderStyle.left,
-          width: sliderStyle.width,
-          opacity: sliderStyle.opacity
-        }}
-        aria-hidden="true"
-      />
+      <span ref={sliderRef} className="tab-slider" aria-hidden="true" />
     </div>
   );
 }
