@@ -4338,7 +4338,7 @@ input.vs-respuesta { max-width: 460px; }
 
 .kt-table th,
 .kt-table td {
-  padding: 8px 10px;
+  padding: 10px 9px;
   border-bottom: 1px solid var(--border);
   border-right: 1px solid var(--border);
   vertical-align: top;
@@ -4369,17 +4369,24 @@ input.vs-respuesta { max-width: 460px; }
 .kt-gen-label {
   display: block;
   font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  margin-bottom: 2px;
 }
 
+/* La pastilla de terminaciones es una ayuda, no el titulo: baja el amarillo
+   para que no compita con el nombre del genero que tiene encima. */
 .kt-marker {
   display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  border-radius: 4px;
-  padding: 1px 6px;
-  margin-top: 3px;
-  background: #fef08a;
-  color: #854d0e;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  padding: 2px 9px;
+  margin-top: 4px;
+  background: color-mix(in srgb, #fde68a 55%, var(--surface));
+  color: #7c4a0d;
+  border: 1px solid color-mix(in srgb, #f0c14b 45%, transparent);
 }
 
 .kt-td-kasus {
@@ -4388,9 +4395,10 @@ input.vs-respuesta { max-width: 460px; }
 }
 
 .kt-kasus-name {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text);
   font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .kt-kasus-sub {
@@ -4403,6 +4411,26 @@ input.vs-respuesta { max-width: 460px; }
   background: var(--surface);
 }
 
+.kt-table tbody tr:nth-child(even) .kt-cell {
+  background: color-mix(in srgb, var(--surface-2) 40%, var(--surface));
+}
+
+/* "Wie Nominativ" no es un articulo: es una nota que dice que esa casilla
+   repite. Se marca como tal para que no se lea como contenido. */
+.kt-cell em,
+.kt-same-note {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--muted) 12%, transparent);
+  border-radius: 999px;
+  padding: 1px 8px;
+  margin-bottom: 6px;
+}
+
 .kt-cell.kt-same {
   background: rgba(255, 255, 255, 0.02);
 }
@@ -4410,33 +4438,45 @@ input.vs-respuesta { max-width: 460px; }
 .kt-item {
   display: flex;
   align-items: baseline;
-  gap: 6px;
-  margin-bottom: 4px;
+  gap: 7px;
+  margin-bottom: 6px;
   flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .kt-item:last-child {
   margin-bottom: 0;
 }
 
+/* La etiqueta va a la DERECHA de su columna: asi los articulos arrancan todos
+   en la misma vertical y la tabla se lee de un vistazo por columnas. Antes
+   iban pegadas a la izquierda y cada articulo empezaba en un sitio. */
 .kt-type {
-  font-size: 0.74rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   color: var(--muted);
-  min-width: 58px;
+  min-width: 52px;
+  text-align: right;
   flex-shrink: 0;
+  opacity: 0.85;
 }
 
 .kt-art {
-  font-size: 0.94rem;
+  font-size: 1rem;
   color: var(--text);
-  font-weight: 600;
+  font-weight: 650;
   flex-shrink: 0;
 }
 
 .kt-subposs {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--muted);
   white-space: nowrap;
+  opacity: 0.8;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .kt-none {
