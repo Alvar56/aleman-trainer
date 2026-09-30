@@ -208,21 +208,21 @@ export const ANIMALES = [
 // avisar de lo nuevo ya funciona igual para todo lo que este aqui.
 const FONDOS = [
   { id: 'nadaFondo', de: 'Nichts', ranura: 'fondo', es: 'Sin fondo', en: 'No background', precio: 0 },
-  { id: 'wiese', de: 'Wiese', ranura: 'fondo', es: 'Pradera', en: 'Meadow', precio: 0 },
-  { id: 'strand', de: 'Strand', ranura: 'fondo', es: 'Playa', en: 'Beach', precio: 0 },
-  { id: 'wueste', de: 'Wüste', ranura: 'fondo', es: 'Desierto', en: 'Desert', precio: 0 },
+  { id: 'wiese', de: 'Wiese', ranura: 'fondo', es: 'Pradera', en: 'Meadow', precio: 150 },
+  { id: 'strand', de: 'Strand', ranura: 'fondo', es: 'Playa', en: 'Beach', precio: 200 },
+  { id: 'wueste', de: 'Wüste', ranura: 'fondo', es: 'Desierto', en: 'Desert', precio: 300 },
   {
     id: 'eis',
     de: 'Eis und Schnee',
     ranura: 'fondo',
     es: 'Hielo y nieve',
     en: 'Ice and snow',
-    precio: 0
+    precio: 350
   },
   // Aquí estaban 'schloss', 'cafe', 'wald', 'berge' y 'stadt'. Se retiraron.
   // Quien los tuviera puestos vuelve al fondo por defecto (ver getFuchs).
-  { id: 'klasse', de: 'Klassenzimmer', ranura: 'fondo', es: 'Clase', en: 'Classroom', precio: 0 },
-  { id: 'weltraum', de: 'Weltraum', ranura: 'fondo', es: 'Espacio', en: 'Outer space', precio: 0 }
+  { id: 'klasse', de: 'Klassenzimmer', ranura: 'fondo', es: 'Clase', en: 'Classroom', precio: 450 },
+  { id: 'weltraum', de: 'Weltraum', ranura: 'fondo', es: 'Espacio', en: 'Outer space', precio: 550 }
 ];
 
 COMPLEMENTOS.push(...FONDOS);
