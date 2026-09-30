@@ -18,8 +18,8 @@ function mezclarArray(arr) {
 function TailLeft() {
   return (
     <svg className="bubble-tail-left" width="12" height="16" viewBox="0 0 12 16" fill="none" aria-hidden="true">
-      <path d="M8 0 L0 16 L12 16 L12 0 Z" className="tail-fill" />
-      <path d="M8.2 0 L0.8 15.35 L12 15.35" className="tail-stroke" />
+      <path d="M 7.5 0 L 0 15.5 L 12 15.5 L 12 0 Z" className="tail-fill" />
+      <path d="M 7.75 0 L 0.6 14.75 L 12 14.75" className="tail-stroke" />
     </svg>
   );
 }
@@ -27,8 +27,8 @@ function TailLeft() {
 function TailRight() {
   return (
     <svg className="bubble-tail-right" width="12" height="16" viewBox="0 0 12 16" fill="none" aria-hidden="true">
-      <path d="M4 0 L12 16 L0 16 L0 0 Z" className="tail-fill" />
-      <path d="M3.8 0 L11.2 15.35 L0 15.35" className="tail-stroke" />
+      <path d="M 4.5 0 L 12 15.5 L 0 15.5 L 0 0 Z" className="tail-fill" />
+      <path d="M 4.25 0 L 11.4 14.75 L 0 14.75" className="tail-stroke" />
     </svg>
   );
 }

@@ -871,8 +871,8 @@ button.topic-open:hover { background: var(--surface); border-color: var(--accent
 }
 .bubble-tail-right {
   position: absolute;
-  right: -9.5px;
-  bottom: -1.5px;
+  right: -8.5px;
+  bottom: -1px;
   width: 12px;
   height: 16px;
   pointer-events: none;
@@ -4913,8 +4913,8 @@ input.vs-respuesta { max-width: 460px; }
 }
 .bubble-tail-left {
   position: absolute;
-  left: -9.5px;
-  bottom: -1.5px;
+  left: -8.5px;
+  bottom: -1px;
   width: 12px;
   height: 16px;
   pointer-events: none;
