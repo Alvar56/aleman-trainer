@@ -5356,129 +5356,38 @@ input.vs-respuesta { max-width: 460px; }
 .fox-x-flor { transform-origin: 50% 100%; animation: fox-brisa 2.8s ease-in-out infinite; }
 .fox-x-navidad { transform-origin: 30% 100%; animation: fox-brisa 4.6s ease-in-out infinite; }
 
-/* --- EFECTOS ESPECIALES Y DESTELLOS DE OBJETOS IMPORTANTES Y GEMAS --- */
-/* La gema del collar de reina: brillo pulsante de rubí con destello de diamante */
-@keyframes fox-gema-brillo {
-  0%, 100% {
-    filter: drop-shadow(0 0 0px rgba(255, 45, 135, 0)) brightness(1);
-  }
-  35% {
-    filter: drop-shadow(0 0 2.5px rgba(255, 45, 135, 0.95)) drop-shadow(0 0 5px rgba(255, 105, 180, 0.8)) brightness(1.35);
-  }
-  60% {
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 7px rgba(255, 45, 135, 0.9)) brightness(1.55);
-  }
+/* Lo de rey y objetos legendarios brillan de forma limpia con luminosidad pixel art (sin filtros difusos). */
+@keyframes fox-brillo {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.45); }
 }
-.fox-x-collarReina {
-  animation: fox-gema-brillo 2.2s ease-in-out infinite;
-}
-
-/* La tiara de platino y diamantes de reina */
-@keyframes fox-diadema-brillo {
-  0%, 100% {
-    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0)) brightness(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 6px rgba(255, 45, 135, 0.8)) brightness(1.45);
-  }
-}
-.fox-x-diadema {
-  animation: fox-diadema-brillo 2.4s ease-in-out infinite;
-}
-
-/* La corona del rey: halo dorado y gemas brillantes */
-@keyframes fox-corona-aurora {
-  0%, 100% {
-    filter: drop-shadow(0 0 1px rgba(242, 194, 48, 0.4)) brightness(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 3.5px rgba(255, 215, 0, 0.95)) drop-shadow(0 0 7px rgba(245, 158, 11, 0.7)) brightness(1.4);
-  }
-}
-.fox-x-corona {
-  animation: fox-corona-aurora 2.6s ease-in-out infinite;
-}
-
-/* El cetro real: aura de oro y rubí */
-@keyframes fox-cetro-brillo {
-  0%, 100% {
-    filter: drop-shadow(0 0 1px rgba(242, 194, 48, 0.4)) brightness(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 3.5px rgba(255, 215, 0, 0.95)) drop-shadow(0 0 6px rgba(239, 68, 68, 0.65)) brightness(1.4);
-  }
-}
-.fox-x-bastonrey {
-  animation: fox-cetro-brillo 2.5s ease-in-out infinite;
-}
-
-/* El orbe real: levitación suave y aura mística de platino/rubí */
-@keyframes fox-orbe-magico {
-  0%, 100% {
-    transform: translateY(0) rotate(-3deg);
-    filter: drop-shadow(0 0 1.5px rgba(255, 45, 135, 0.5)) brightness(1);
-  }
-  50% {
-    transform: translateY(-1.2px) rotate(3deg);
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 8px rgba(255, 45, 135, 0.85)) brightness(1.5);
-  }
-}
-.fox-x-orbe {
-  transform-origin: 50% 100%;
-  animation: fox-orbe-magico 3.4s ease-in-out infinite;
-}
-
-/* El trofeo de la victoria y la medalla: destello dorado triunfal */
-@keyframes fox-trofeo-brillo {
-  0%, 100% {
-    filter: drop-shadow(0 0 1px rgba(242, 194, 48, 0.4)) brightness(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 8px rgba(250, 204, 21, 0.85)) brightness(1.5);
-  }
-}
-.fox-x-trofeo, .fox-x-medalla {
-  animation: fox-trofeo-brillo 2.8s ease-in-out infinite;
-}
-
-/* Zapatos de cristal: reflejo prismático */
-@keyframes fox-cristal-destello {
-  0%, 100% {
-    filter: drop-shadow(0 0 0px rgba(186, 230, 253, 0)) brightness(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 5px rgba(56, 189, 248, 0.75)) brightness(1.45);
-  }
-}
-.fox-x-cristal {
-  animation: fox-cristal-destello 2.2s ease-in-out infinite;
-}
-
-/* Monóculo de oro: destello óptico periódico */
-@keyframes fox-monoculo-destello {
-  0%, 75%, 100% {
-    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0)) brightness(1);
-  }
-  85% {
-    filter: drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 5px rgba(234, 179, 8, 0.85)) brightness(1.6);
-  }
-}
+.fox-x-corona,
+.fox-x-bastonrey,
+.fox-x-medalla,
+.fox-x-trofeo,
+.fox-x-collarReina,
+.fox-x-diadema,
+.fox-x-cristal,
 .fox-x-monoculo {
-  animation: fox-monoculo-destello 3.6s ease-in-out infinite;
+  animation: fox-brillo 2.4s ease-in-out infinite;
 }
 
-/* Casco y traje espacial de astronauta: balizas y módulos titilantes */
-@keyframes fox-astro-balizas {
-  0%, 100% {
-    filter: drop-shadow(0 0 1px rgba(56, 189, 248, 0.5));
-  }
-  50% {
-    filter: drop-shadow(0 0 3px rgba(56, 189, 248, 0.9)) drop-shadow(0 0 6px rgba(14, 165, 233, 0.6)) brightness(1.2);
-  }
+/* Las pelotas botan.
+   Solo la pelota, no el pie que la sostiene. `anima` en la definición del
+   complemento le pone `.fox-px-mueve` a esos píxeles. */
+@keyframes fox-bote {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
-.fox-x-cascoAstronauta {
-  animation: fox-astro-balizas 3s ease-in-out infinite;
+.fox-x-balon .fox-px-mueve { animation: fox-bote 1.8s ease-in-out infinite; }
+
+/* El orbe se mece entero: la cruz va soldada a la bola y separarlas quedaba
+   como si se le cayera. */
+@keyframes fox-orbe {
+  0%, 100% { transform: translateY(0) rotate(-3deg); filter: brightness(1); }
+  50% { transform: translateY(-1px) rotate(3deg); filter: brightness(1.35); }
 }
+.fox-x-orbe { transform-origin: 50% 100%; animation: fox-orbe 4s ease-in-out infinite; }
 
 /* Las pelotas botan.
    El salto es de un píxel entero del dibujo, no de una fracción: esto es
