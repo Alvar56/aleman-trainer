@@ -585,76 +585,108 @@ const EXTRAS = {
   gorra: {
     a: '#2d5f8a', b: '#1c3f5c', c: '#f0f4f8',
     px: [
-      ...rect(7, 4, 20, 4, 'b'), ...rect(6, 5, 21, 6, 'a'), ...rect(5, 7, 22, 8, 'a'),
-      ...rect(4, 9, 23, 9, 'b'), ...rect(21, 10, 25, 10, 'b'), ...rect(22, 11, 25, 11, 'b'),
-      ...rect(13, 5, 14, 6, 'c')
+      [13, 1, 'c'], [14, 1, 'c'],
+      ...rect(7, 2, 20, 2, 'b'),
+      ...rect(5, 3, 22, 4, 'a'), ...rect(4, 5, 23, 7, 'a'),
+      ...rect(18, 4, 23, 7, 'b'),
+      ...rect(13, 4, 14, 5, 'c'),
+      ...rect(3, 8, 24, 8, 'b'),
+      // Visera dinámica curvada
+      ...rect(18, 9, 26, 9, 'b'), ...rect(20, 10, 27, 10, 'b'), ...rect(22, 11, 27, 11, 'b')
     ]
   },
   chistera: {
     a: '#2b2b33', b: '#8a1f2f', c: '#4a4a55',
     px: [
-      ...rect(8, 0, 19, 3, 'a'), ...rect(8, 4, 19, 5, 'b'), ...rect(8, 6, 19, 6, 'a'),
-      ...rect(4, 7, 23, 8, 'a'), ...rect(8, 1, 10, 3, 'c')
+      ...rect(6, 0, 21, 0, 'a'), [7, 0, 'c'], [8, 0, 'c'],
+      ...rect(6, 1, 21, 5, 'a'), ...rect(8, 1, 9, 5, 'c'), ...rect(19, 1, 21, 5, '#1e1e24'),
+      // Cinta de seda roja
+      ...rect(5, 6, 22, 7, 'b'),
+      // Ala ancha victoriana
+      [2, 7, 'a'], [25, 7, '#1e1e24'],
+      ...rect(2, 8, 25, 8, 'a'), ...rect(3, 9, 24, 9, '#1e1e24')
     ]
   },
   corona: {
     a: '#f2c230', b: '#b8860b', c: '#e8558f',
     px: [
-      ...rect(6, 2, 6, 5, 'a'), ...rect(13, 1, 14, 5, 'a'), ...rect(21, 2, 21, 5, 'a'),
-      ...rect(9, 5, 11, 5, 'a'), ...rect(16, 5, 18, 5, 'a'),
-      ...rect(6, 6, 21, 7, 'a'), ...rect(6, 8, 21, 8, 'b'),
-      [8, 7, 'c'], [13, 7, 'c'], [19, 7, 'c']
+      // Cruz / gema superior central
+      [13, 0, 'c'], [14, 0, 'c'], [13, 1, 'a'], [14, 1, 'a'],
+      // Picos dorados con gemas
+      ...rect(4, 1, 6, 4, 'a'), [5, 1, 'c'],
+      ...rect(8, 2, 10, 4, 'a'), [9, 2, '#22c55e'],
+      ...rect(12, 2, 15, 4, 'a'), [13, 2, 'c'], [14, 2, 'c'],
+      ...rect(17, 2, 19, 4, 'a'), [18, 2, '#3b82f6'],
+      ...rect(21, 1, 23, 4, 'a'), [22, 1, 'c'],
+      // Terciopelo interior
+      ...rect(6, 3, 21, 5, '#8a1f2f'),
+      // Arco y base de la corona
+      ...rect(4, 5, 23, 6, 'a'),
+      ...rect(4, 7, 23, 8, 'b'),
+      [6, 7, 'c'], [10, 7, '#22c55e'], [13, 7, 'c'], [14, 7, 'c'], [17, 7, '#3b82f6'], [21, 7, 'c']
     ]
   },
   flor: {
     a: '#e8558f', b: '#f7d94c', c: '#4d8a52',
     px: [
-      [20, 3, 'a'], [22, 3, 'a'], [21, 4, 'b'], [20, 5, 'a'], [22, 5, 'a'],
-      [21, 3, 'a'], [21, 5, 'a'], [23, 4, 'c']
+      ...rect(19, 1, 24, 5, 'a'),
+      [21, 2, 'b'], [22, 2, 'b'], [21, 3, 'b'], [22, 3, 'b'],
+      [18, 5, 'c'], [24, 5, 'c'], [25, 6, 'c'], [25, 7, 'c']
     ]
   },
   orejeras: {
     a: '#c0559b', b: '#8d3b72', c: '#f7d3ea',
     px: [
-      ...rect(2, 10, 4, 14, 'a'), ...rect(23, 10, 25, 14, 'a'),
-      ...rect(3, 11, 3, 13, 'c'), ...rect(24, 11, 24, 13, 'c'),
-      ...rect(6, 5, 21, 5, 'b'), ...rect(4, 6, 5, 9, 'b'), ...rect(22, 6, 23, 9, 'b')
+      // Diadema superior
+      ...rect(6, 4, 21, 4, 'b'), ...rect(4, 5, 6, 8, 'b'), ...rect(21, 5, 23, 8, 'b'),
+      // Almohadillas esponjosas gigantes
+      ...rect(1, 9, 5, 15, 'a'), ...rect(22, 9, 26, 15, 'a'),
+      ...rect(2, 10, 4, 14, 'c'), ...rect(23, 10, 25, 14, 'c')
     ]
   },
   auriculares: {
     a: '#33384a', b: '#5b6478', c: '#7bd88f',
     px: [
-      ...rect(2, 10, 4, 15, 'a'), ...rect(23, 10, 25, 15, 'a'),
-      ...rect(3, 11, 3, 14, 'c'), ...rect(24, 11, 24, 14, 'c'),
-      ...rect(7, 4, 20, 4, 'b'), ...rect(4, 5, 6, 9, 'b'), ...rect(21, 5, 23, 9, 'b')
+      // Diadema acolchada
+      ...rect(6, 3, 21, 3, 'b'), ...rect(7, 2, 20, 2, 'a'),
+      ...rect(4, 4, 5, 8, 'b'), ...rect(22, 4, 23, 8, 'b'),
+      // Auriculares circumaurales pro
+      ...rect(1, 9, 5, 16, 'a'), ...rect(22, 9, 26, 16, 'a'),
+      ...rect(2, 10, 4, 15, 'b'), ...rect(23, 10, 25, 15, 'b'),
+      [3, 12, 'c'], [3, 13, 'c'], [24, 12, 'c'], [24, 13, 'c']
     ]
   },
-  // Sombrero tirolés: fieltro verde, cinta, y el Gamsbart (el penacho de pelo
-  // de gamuza) al lado, que es lo que lo hace inconfundible.
+  // Sombrero tirolés: fieltro verde amplio, cinta oscura y el Gamsbart (penacho alpino)
   tirolerhut: {
     a: '#3d6b4a', b: '#243f2c', c: '#8a6b3a',
     px: [
-      // Apoyado en la frente, no calado hasta las cejas: así las puntas de
-      // las orejas asoman por encima y se sigue viendo que es un zorro.
-      ...rect(10, 3, 17, 3, 'a'), ...rect(9, 4, 18, 6, 'a'),
-      ...rect(12, 3, 15, 3, 'b'),
-      ...rect(9, 7, 18, 7, 'b'), ...rect(13, 7, 14, 7, 'c'),
-      ...rect(6, 8, 21, 8, 'a'), ...rect(5, 9, 22, 9, 'b'),
-      [19, 6, 'c'], [20, 5, 'c'], [20, 4, 'c'], [21, 3, 'c'], [21, 4, 'c'], [22, 2, 'c']
+      // Copa del sombrero con hendidura alpina
+      ...rect(8, 1, 19, 1, 'a'), [13, 1, 'b'], [14, 1, 'b'],
+      ...rect(7, 2, 20, 2, 'a'), [13, 2, 'b'], [14, 2, 'b'],
+      ...rect(6, 3, 21, 6, 'a'), ...rect(18, 3, 21, 6, 'b'),
+      // Cinta oscura y broche
+      ...rect(5, 7, 22, 7, 'b'), ...rect(13, 7, 14, 7, '#fef08a'),
+      // Ala ancha curvada que viste toda la cabeza
+      ...rect(3, 8, 24, 8, 'a'),
+      ...rect(2, 9, 25, 9, 'b'),
+      // Gamsbart (penacho de pelo de gamuza con pluma dorada en el lateral)
+      [20, 6, 'c'], [21, 5, 'c'], [21, 4, 'c'], [22, 3, 'c'], [22, 2, 'c'], [23, 1, 'c'], [23, 0, '#fef08a'], [24, 1, 'c']
     ]
   },
   sombreroElegante: {
     a: '#2d2d38', b: '#1b1b22', c: '#9e2a2b',
     px: [
-      ...rect(9, 2, 11, 2, 'a'), ...rect(16, 2, 18, 2, 'a'),
-      ...rect(8, 3, 19, 3, 'a'), ...rect(12, 3, 15, 3, 'b'),
-      ...rect(7, 4, 20, 6, 'a'), ...rect(18, 4, 20, 6, 'b'),
-      ...rect(7, 7, 20, 7, 'c'),
-      [6, 5, 'c'], [5, 4, 'c'], [5, 3, '#d4af37'],
-      [2, 7, 'a'], [3, 7, 'a'],
-      ...rect(3, 8, 24, 8, 'a'),
-      ...rect(4, 9, 23, 9, 'b'),
-      [24, 7, 'b'], [25, 7, 'b']
+      // Copa con pliegue central
+      ...rect(8, 1, 19, 1, 'a'), [13, 1, 'b'], [14, 1, 'b'],
+      ...rect(7, 2, 20, 2, 'a'), [12, 2, 15, 2, 'b'],
+      ...rect(6, 3, 21, 6, 'a'), ...rect(18, 3, 21, 6, 'b'),
+      // Cinta de seda roja y pluma
+      ...rect(5, 7, 22, 7, 'c'),
+      [5, 5, 'c'], [4, 4, '#d4af37'], [4, 3, '#fef08a'],
+      // Ala ancha con curva elegante
+      [1, 7, 'a'], [26, 7, 'b'],
+      ...rect(2, 8, 25, 8, 'a'),
+      ...rect(2, 9, 25, 9, 'b')
     ]
   },
   // --- ojos ---
@@ -782,8 +814,8 @@ const EXTRAS = {
   cinta: {
     a: '#2f7de0', b: '#1c56a0', c: '#ffffff',
     px: [
-      ...rect(5, 8, 22, 8, 'a'), ...rect(5, 9, 22, 9, 'b'),
-      ...rect(11, 8, 12, 8, 'c'), ...rect(15, 8, 16, 8, 'c')
+      ...rect(4, 7, 23, 7, 'a'), ...rect(4, 8, 23, 8, 'a'), ...rect(4, 9, 23, 9, 'b'),
+      ...rect(10, 7, 13, 8, 'c'), ...rect(15, 7, 17, 8, 'c')
     ]
   },
   zapatillas: {
@@ -883,14 +915,20 @@ const EXTRAS = {
     ]
   },
   // --- el equipo de reina (con coronas) ---
-  // La diadema: mas fina que la corona del rey, con tres piedras.
+  // La diadema: brillante tiara de platino con piedras preciosas
   diadema: {
     a: '#e8e8f0', b: '#a9a9bb', c: '#e8558f',
     px: [
-      ...rect(7, 6, 20, 7, 'a'), ...rect(7, 8, 20, 8, 'b'),
-      ...rect(9, 4, 9, 5, 'a'), ...rect(13, 3, 14, 5, 'a'), ...rect(18, 4, 18, 5, 'a'),
-      [9, 3, 'c'], [18, 3, 'c'], [13, 2, 'c'], [14, 2, 'c'],
-      [11, 7, 'c'], [16, 7, 'c']
+      // Base de platino arqueada y ancha
+      ...rect(5, 6, 22, 7, 'a'), ...rect(5, 8, 22, 8, 'b'),
+      // Picos de diamantes y rubíes
+      ...rect(7, 4, 8, 5, 'a'), [7, 3, 'c'], [8, 3, 'c'],
+      ...rect(10, 3, 11, 5, 'a'), [10, 2, 'c'], [11, 2, 'c'],
+      ...rect(13, 1, 14, 5, 'a'), [13, 0, 'c'], [14, 0, 'c'], [13, 1, 'c'], [14, 1, 'c'],
+      ...rect(16, 3, 17, 5, 'a'), [16, 2, 'c'], [17, 2, 'c'],
+      ...rect(19, 4, 20, 5, 'a'), [19, 3, 'c'], [20, 3, 'c'],
+      // Destellos en la base
+      [9, 7, 'c'], [13, 7, 'c'], [14, 7, 'c'], [18, 7, 'c']
     ]
   },
   // El collar: dos vueltas de perlas y la piedra gorda en medio.
@@ -936,27 +974,41 @@ const EXTRAS = {
   paja: {
     a: '#e3c37a', b: '#c49a4a', c: '#8a5a3b',
     px: [
-      ...rect(8, 3, 19, 3, 'a'), ...rect(7, 4, 20, 6, 'a'),
-      ...rect(7, 7, 20, 7, 'c'),
-      ...rect(3, 8, 24, 8, 'a'), ...rect(3, 9, 24, 9, 'b')
+      // Copa del sombrero de paja amplia
+      ...rect(7, 2, 20, 2, 'a'),
+      ...rect(6, 3, 21, 6, 'a'), ...rect(18, 3, 21, 6, 'b'),
+      // Cinta marrón rústica
+      ...rect(5, 7, 22, 7, 'c'),
+      // Ala ancha veraniega
+      [0, 7, 'a'], [27, 7, 'b'],
+      ...rect(1, 8, 26, 8, 'a'),
+      ...rect(1, 9, 26, 9, 'b')
     ]
   },
   cocinero: {
     a: '#ffffff', b: '#dfe4ea', c: '#c8cdd4',
     px: [
-      ...rect(7, 0, 20, 1, 'a'), ...rect(6, 2, 21, 4, 'a'),
-      [8, 0, 'b'], [13, 0, 'b'], [18, 0, 'b'], [7, 3, 'b'], [20, 3, 'b'],
-      ...rect(7, 5, 20, 7, 'a'), ...rect(7, 7, 20, 7, 'b'),
-      ...rect(6, 8, 21, 8, 'c')
+      // Domo abullonado y alto de chef
+      ...rect(5, 0, 22, 1, 'a'),
+      [8, 0, 'b'], [13, 0, 'b'], [18, 0, 'b'],
+      ...rect(4, 2, 23, 5, 'a'),
+      ...rect(4, 2, 5, 5, 'b'), ...rect(22, 2, 23, 5, 'b'),
+      // Pliegues inferiores y banda de ajuste
+      ...rect(5, 6, 22, 7, 'a'),
+      ...rect(4, 8, 23, 9, 'c')
     ]
   },
   navidad: {
     a: '#c0392b', b: '#8e2a1e', c: '#ffffff',
     px: [
-      ...rect(20, 0, 22, 2, 'c'),
-      ...rect(16, 2, 20, 3, 'a'), ...rect(12, 3, 18, 5, 'a'),
-      ...rect(7, 5, 15, 7, 'a'), ...rect(7, 7, 18, 7, 'b'),
-      ...rect(5, 8, 22, 9, 'c')
+      // Pompón blanco de pelo cayendo a la derecha
+      ...rect(22, 1, 25, 4, 'c'),
+      // Cuerpo de terciopelo rojo
+      ...rect(17, 2, 22, 4, 'a'), ...rect(12, 3, 20, 5, 'a'),
+      ...rect(5, 4, 18, 7, 'a'), ...rect(15, 5, 20, 7, 'b'),
+      // Banda ancha de felpa blanca
+      ...rect(3, 8, 24, 9, 'c'),
+      [4, 9, '#e2e8f0'], [10, 9, '#e2e8f0'], [17, 9, '#e2e8f0'], [23, 9, '#e2e8f0']
     ]
   },
 
@@ -1122,31 +1174,45 @@ const EXTRAS = {
   gorroLana: {
     a: '#c0392b', b: '#8e2a1e', c: '#f5e6d3',
     px: [
-      ...rect(11, 0, 16, 2, 'c'),
-      ...rect(6, 3, 21, 3, 'a'), ...rect(5, 4, 22, 7, 'a'),
-      ...rect(19, 4, 22, 7, 'b'),
-      ...rect(4, 8, 23, 9, 'c'),
-      [6, 9, 'b'], [10, 9, 'b'], [14, 9, 'b'], [18, 9, 'b'], [21, 9, 'b']
+      // Pompón de lana grande y esponjoso
+      ...rect(10, 0, 17, 2, 'c'),
+      // Cuerpo tejido del gorro
+      ...rect(5, 2, 22, 3, 'a'),
+      ...rect(4, 4, 23, 6, 'a'), ...rect(19, 4, 23, 6, 'b'),
+      // Dobladillo acanalado ancho
+      ...rect(3, 7, 24, 9, 'c'),
+      [5, 9, 'b'], [9, 9, 'b'], [13, 9, 'b'], [14, 9, 'b'], [18, 9, 'b'], [22, 9, 'b']
     ]
   },
   boina: {
     a: '#2c3e50', b: '#1a252f', c: '#c0392b',
     px: [
-      ...rect(13, 2, 14, 3, 'b'),
-      ...rect(6, 4, 21, 4, 'a'), ...rect(5, 5, 22, 8, 'a'),
-      ...rect(19, 5, 22, 8, 'b'), ...rect(6, 9, 21, 9, 'b'),
-      [8, 5, 'c'], [9, 5, 'c']
+      // Rabillo superior de la boina
+      [13, 0, 'b'], [14, 0, 'b'], [13, 1, 'b'], [14, 1, 'b'],
+      // Vuelo abombado ladeado
+      ...rect(7, 2, 23, 3, 'a'),
+      ...rect(4, 4, 25, 7, 'a'), ...rect(20, 4, 25, 7, 'b'),
+      // Escapulario / escarapela francesa
+      [7, 4, 'c'], [8, 4, 'c'], [7, 5, 'c'], [8, 5, 'c'],
+      // Borde ajustado a la frente
+      ...rect(4, 8, 23, 9, 'b')
     ]
   },
   casco: {
     a: '#ecf0f1', b: '#aeb6bf', c: '#e74c3c',
     px: [
-      ...rect(6, 2, 21, 2, 'a'), ...rect(5, 3, 22, 7, 'a'),
-      ...rect(13, 2, 14, 7, 'c'),
-      [8, 4, 'b'], [9, 4, 'b'], [18, 4, 'b'], [19, 4, 'b'],
-      [8, 6, 'b'], [9, 6, 'b'], [18, 6, 'b'], [19, 6, 'b'],
-      ...rect(4, 8, 23, 8, 'b'),
-      ...rect(4, 9, 4, 12, 'b'), ...rect(23, 9, 23, 12, 'b')
+      // Carcasa aerodinámica
+      ...rect(7, 1, 20, 1, 'a'),
+      ...rect(4, 2, 23, 7, 'a'),
+      // Franja de velocidad roja central
+      ...rect(13, 1, 14, 7, 'c'),
+      // Canales de ventilación
+      [7, 3, 'b'], [8, 3, 'b'], [19, 3, 'b'], [20, 3, 'b'],
+      [7, 5, 'b'], [8, 5, 'b'], [19, 5, 'b'], [20, 5, 'b'],
+      // Visera integrada delantera
+      ...rect(3, 8, 24, 8, 'b'),
+      // Correas de sujeción
+      ...rect(3, 9, 3, 13, 'b'), ...rect(24, 9, 24, 13, 'b')
     ]
   },
 
