@@ -1381,58 +1381,90 @@ const EXTRAS = {
     ]
   },
   cascoAstronauta: {
-    a: '#f1f5f9', b: '#cbd5e1', c: '#475569', d: 'rgba(56, 189, 248, 0.75)',
+    a: '#ffffff', b: '#cbd5e1', c: '#1e293b', d: '#94a3b8',
     px: [
-      // cúpula superior del casco de astronauta
-      ...rect(9, 0, 18, 1, 'a'), ...rect(7, 2, 20, 3, 'a'), ...rect(6, 4, 21, 5, 'a'),
-      ...rect(18, 0, 18, 1, 'b'), ...rect(19, 2, 20, 3, 'b'), ...rect(20, 4, 21, 5, 'b'),
-      // laterales de la burbuja y sellos de orejas
-      ...rect(4, 6, 6, 14, 'a'), ...rect(21, 6, 23, 14, 'a'),
-      ...rect(22, 6, 23, 14, 'b'),
-      // antena con luz de baliza
-      [4, 2, '#ef4444'], ...rect(4, 3, 4, 5, 'c'),
-      // luces de estado y módulos de comunicación en los laterales
-      [3, 8, '#ef4444'], [3, 9, '#38bdf8'], [24, 8, '#22c55e'], [24, 9, '#eab308'],
-      // arco del visor con reflejo de cristal espacial
-      ...rect(7, 6, 20, 6, 'c'),
-      [7, 7, 'd'], [8, 7, '#ffffff'], [9, 7, '#ffffff'], [10, 7, 'd'], [7, 8, 'd'],
-      // anillo de sellado del cuello / escafandra
-      ...rect(6, 16, 21, 16, 'b'), ...rect(5, 17, 22, 17, 'c'), ...rect(8, 18, 19, 18, 'c')
+      // Baliza / antena lateral de comunicaciones
+      [3, 1, '#ef4444'], [3, 2, '#ef4444'], ...rect(3, 3, 3, 5, '#475569'),
+
+      // Contorno oscuro exterior del domo (para recortar con máxima nitidez contra cualquier fondo)
+      ...rect(8, 0, 19, 0, 'c'),
+      [6, 1, 'c'], [7, 1, 'c'], [20, 1, 'c'], [21, 1, 'c'],
+      [4, 2, 'c'], [5, 2, 'c'], [22, 2, 'c'], [23, 2, 'c'],
+      [3, 3, 'c'], [24, 3, 'c'], [3, 4, 'c'], [24, 4, 'c'], [3, 5, 'c'], [24, 5, 'c'],
+      ...rect(3, 6, 3, 16, 'c'), ...rect(24, 6, 24, 16, 'c'),
+
+      // Casquete superior blanco acolchado con sombra de volumen
+      ...rect(8, 1, 19, 1, 'a'), ...rect(17, 1, 19, 1, 'b'),
+      ...rect(6, 2, 21, 2, 'a'), ...rect(18, 2, 21, 2, 'b'),
+      ...rect(4, 3, 23, 3, 'a'), ...rect(19, 3, 23, 3, 'b'),
+      ...rect(4, 4, 23, 4, 'a'), ...rect(19, 4, 23, 4, 'b'),
+      ...rect(4, 5, 23, 5, 'a'), ...rect(19, 5, 23, 5, 'b'),
+
+      // Laterales del casco y módulos auditivos
+      ...rect(4, 6, 5, 15, 'a'), ...rect(22, 6, 23, 15, 'b'),
+      ...rect(4, 8, 4, 11, '#334155'), ...rect(23, 8, 23, 11, '#334155'),
+      [2, 9, '#ef4444'], [2, 10, '#38bdf8'], [25, 9, '#22c55e'], [25, 10, '#fbbf24'],
+
+      // Marco interior oscuro del visor (ventana circular)
+      ...rect(6, 6, 21, 6, 'c'),
+      ...rect(6, 7, 6, 15, 'c'),
+      ...rect(21, 7, 21, 15, 'c'),
+      ...rect(6, 16, 21, 16, 'c'),
+
+      // Cristal espacial translúcido sobre el rostro con reflejos de curvatura
+      ...rect(7, 7, 20, 15, 'rgba(56, 189, 248, 0.26)'),
+      [8, 7, '#ffffff'], [9, 7, '#ffffff'], [10, 7, 'rgba(255,255,255,0.7)'],
+      [7, 8, '#ffffff'], [7, 9, 'rgba(255,255,255,0.7)'],
+      [19, 14, 'rgba(255,255,255,0.5)'], [20, 14, '#ffffff'], [20, 15, 'rgba(255,255,255,0.5)'],
+
+      // Anillo de sellado hermético y pestillos en el cuello
+      ...rect(4, 16, 5, 16, 'b'), ...rect(22, 16, 23, 16, 'b'),
+      ...rect(4, 17, 23, 17, 'c'), ...rect(5, 17, 22, 17, '#f59e0b'),
+      [13, 17, '#ef4444'], [14, 17, '#38bdf8'],
+      ...rect(6, 18, 21, 18, '#334155')
     ]
   },
   trajeAstronauta: {
-    a: '#f1f5f9', b: '#cbd5e1', c: '#1e293b', d: '#94a3b8',
+    a: '#ffffff', b: '#cbd5e1', c: '#1e293b', d: '#94a3b8',
     px: [
-      // cuello y hombros acolchados
-      ...rect(9, 18, 18, 18, 'c'), ...rect(8, 19, 19, 19, 'a'),
-      ...rect(7, 20, 20, 27, 'a'), ...rect(19, 20, 20, 27, 'b'),
-      // articulaciones flexibles en los brazos
+      // Cuello y hombros acolchados con contorno oscuro
+      ...rect(6, 19, 21, 19, 'c'), ...rect(8, 19, 19, 19, 'a'),
+      ...rect(6, 20, 6, 27, 'c'), ...rect(21, 20, 21, 27, 'c'),
+      ...rect(7, 20, 20, 27, 'a'), ...rect(18, 20, 20, 27, 'b'),
+
+      // Articulaciones reforzadas en las mangas
       ...rect(7, 21, 8, 21, 'd'), ...rect(7, 23, 8, 23, 'd'), ...rect(7, 25, 8, 25, 'd'),
       ...rect(19, 21, 20, 21, 'd'), ...rect(19, 23, 20, 23, 'd'), ...rect(19, 25, 20, 25, 'd'),
-      // insignias de misión en los hombros
+
+      // Insignias de misión
       [8, 20, '#ef4444'], [19, 20, '#2563eb'],
-      // consola pectoral de soporte vital (PLSS control unit)
+
+      // Consola pectoral de soporte vital (PLSS unit)
       ...rect(11, 21, 16, 25, 'c'), ...rect(12, 22, 15, 24, '#334155'),
       [12, 22, '#ef4444'], [13, 22, '#22c55e'], [15, 22, '#38bdf8'],
-      ...rect(12, 23, 15, 23, '#f8fafc'), [14, 24, '#fbbf24'],
-      // cinturón utilitario y hebilla reforzada
-      ...rect(7, 26, 20, 26, '#475569'), ...rect(12, 26, 15, 26, 'd'),
-      ...rect(7, 27, 20, 27, 'b')
+      ...rect(12, 23, 15, 23, '#ffffff'), [14, 24, '#fbbf24'],
+
+      // Cinturón utilitario de fijación
+      ...rect(6, 26, 21, 26, 'c'), ...rect(12, 26, 15, 26, 'd'),
+      ...rect(7, 27, 20, 27, 'b'), ...rect(6, 28, 21, 28, 'c')
     ]
   },
   botasAstronauta: {
-    a: '#f1f5f9', b: '#334155', c: '#38bdf8', d: '#cbd5e1',
+    a: '#ffffff', b: '#1e293b', c: '#38bdf8', d: '#cbd5e1',
     px: [
-      // bota izquierda
-      ...rect(7, 26, 11, 26, 'c'),
-      ...rect(6, 27, 12, 28, 'a'), [12, 27, 'd'], [12, 28, 'd'],
-      [7, 28, '#64748b'], [10, 28, '#64748b'],
-      ...rect(6, 29, 12, 29, 'b'),
-      // bota derecha
-      ...rect(16, 26, 20, 26, 'c'),
-      ...rect(15, 27, 21, 28, 'a'), [21, 27, 'd'], [21, 28, 'd'],
-      [16, 28, '#64748b'], [19, 28, '#64748b'],
-      ...rect(15, 29, 21, 29, 'b')
+      // Bota izquierda reforzada
+      ...rect(6, 26, 12, 26, 'b'), ...rect(7, 26, 11, 26, 'c'),
+      ...rect(5, 27, 13, 28, 'b'), ...rect(6, 27, 12, 28, 'a'),
+      [11, 27, 'd'], [12, 27, 'd'], [11, 28, 'd'], [12, 28, 'd'],
+      [7, 28, '#64748b'], [9, 28, '#64748b'],
+      ...rect(5, 29, 13, 29, 'b'),
+
+      // Bota derecha reforzada
+      ...rect(15, 26, 21, 26, 'b'), ...rect(16, 26, 20, 26, 'c'),
+      ...rect(14, 27, 22, 28, 'b'), ...rect(15, 27, 21, 28, 'a'),
+      [20, 27, 'd'], [21, 27, 'd'], [20, 28, 'd'], [21, 28, 'd'],
+      [16, 28, '#64748b'], [18, 28, '#64748b'],
+      ...rect(14, 29, 22, 29, 'b')
     ]
   },
   cohete: {
