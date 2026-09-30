@@ -5890,14 +5890,10 @@ input.vs-respuesta { max-width: 460px; }
   }
 }
 
-/* 1. Sin fondo (nadaFondo): suave lavado del color acento */
+/* 1. Sin fondo (nadaFondo): nada */
 .fox-difuminado-nadaFondo {
-  background: linear-gradient(
-    to top,
-    color-mix(in srgb, var(--accent) 12%, transparent) 0%,
-    color-mix(in srgb, var(--accent) 4%, transparent) 55%,
-    transparent 100%
-  );
+  display: none !important;
+  background: none !important;
 }
 
 /* 2. Pradera (wiese): verde fresco y armónico */
@@ -6026,6 +6022,7 @@ input.vs-respuesta { max-width: 460px; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: 14px;
 }
 
 .fox-aura-wrap .fox-face {
@@ -6036,149 +6033,133 @@ input.vs-respuesta { max-width: 460px; }
 .fox-aura-wrap::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 146%;
-  height: 146%;
-  border-radius: 50%;
+  inset: 0;
+  border-radius: 14px;
   pointer-events: none;
   z-index: 0;
   transition: opacity 0.4s ease, background 0.4s ease, transform 0.3s ease;
 }
 
 .fox-card-cara.fox-aura-wrap:hover::before {
-  transform: translate(-50%, -50%) scale(1.08);
+  transform: scale(1.03);
 }
 
-/* 1. Sin fondo (nadaFondo): suave halo del color acento */
+/* 1. Sin fondo (nadaFondo): NADA */
 .fox-aura-nadaFondo::before {
-  background: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--accent) 26%, transparent) 0%,
-    color-mix(in srgb, var(--accent) 10%, transparent) 46%,
-    transparent 72%
-  );
-}
-[data-theme='dark'] .fox-aura-nadaFondo::before {
-  background: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--accent) 36%, transparent) 0%,
-    color-mix(in srgb, var(--accent) 14%, transparent) 46%,
-    transparent 72%
-  );
+  display: none !important;
+  background: none !important;
 }
 
 /* 2. Pradera (wiese): verde pradera natural y fresco */
 .fox-aura-wiese::before {
   background: radial-gradient(
-    circle,
-    rgba(134, 239, 172, 0.52) 0%,
-    rgba(74, 222, 128, 0.24) 42%,
-    rgba(34, 197, 94, 0.08) 60%,
-    transparent 74%
+    ellipse at 50% 50%,
+    rgba(134, 239, 172, 0.45) 0%,
+    rgba(74, 222, 128, 0.22) 50%,
+    rgba(34, 197, 94, 0.05) 75%,
+    transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-wiese::before {
   background: radial-gradient(
-    circle,
-    rgba(34, 197, 94, 0.44) 0%,
-    rgba(21, 128, 61, 0.22) 45%,
-    transparent 74%
+    ellipse at 50% 50%,
+    rgba(34, 197, 94, 0.40) 0%,
+    rgba(21, 128, 61, 0.20) 52%,
+    transparent 100%
   );
 }
 
 /* 3. Playa (strand): arena dorada cálida y destello azul mar */
 .fox-aura-strand::before {
   background: radial-gradient(
-    circle,
-    rgba(254, 240, 138, 0.58) 0%,
-    rgba(251, 191, 36, 0.24) 38%,
-    rgba(56, 189, 248, 0.16) 58%,
-    transparent 75%
+    ellipse at 50% 50%,
+    rgba(254, 240, 138, 0.52) 0%,
+    rgba(251, 191, 36, 0.22) 44%,
+    rgba(56, 189, 248, 0.12) 72%,
+    transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-strand::before {
   background: radial-gradient(
-    circle,
-    rgba(245, 158, 11, 0.42) 0%,
-    rgba(14, 165, 233, 0.22) 48%,
-    transparent 75%
+    ellipse at 50% 50%,
+    rgba(245, 158, 11, 0.38) 0%,
+    rgba(14, 165, 233, 0.18) 52%,
+    transparent 100%
   );
 }
 
 /* 4. Desierto (wueste): cálido tono terracota y arena dorada */
 .fox-aura-wueste::before {
   background: radial-gradient(
-    circle,
-    rgba(254, 215, 170, 0.56) 0%,
-    rgba(251, 146, 60, 0.26) 40%,
-    rgba(234, 88, 12, 0.10) 60%,
-    transparent 74%
+    ellipse at 50% 50%,
+    rgba(254, 215, 170, 0.50) 0%,
+    rgba(251, 146, 60, 0.24) 45%,
+    rgba(234, 88, 12, 0.08) 75%,
+    transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-wueste::before {
   background: radial-gradient(
-    circle,
-    rgba(234, 88, 12, 0.42) 0%,
-    rgba(194, 65, 12, 0.20) 48%,
-    transparent 74%
+    ellipse at 50% 50%,
+    rgba(234, 88, 12, 0.38) 0%,
+    rgba(194, 65, 12, 0.18) 52%,
+    transparent 100%
   );
 }
 
 /* 5. Glaciar de hielo (eis): cian cristalino y azul escarcha */
 .fox-aura-eis::before {
   background: radial-gradient(
-    circle,
-    rgba(186, 230, 253, 0.62) 0%,
-    rgba(56, 189, 248, 0.28) 42%,
-    rgba(14, 165, 233, 0.10) 60%,
-    transparent 74%
+    ellipse at 50% 50%,
+    rgba(186, 230, 253, 0.55) 0%,
+    rgba(56, 189, 248, 0.25) 45%,
+    rgba(14, 165, 233, 0.08) 75%,
+    transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-eis::before {
   background: radial-gradient(
-    circle,
-    rgba(14, 165, 233, 0.46) 0%,
-    rgba(2, 132, 199, 0.22) 48%,
-    transparent 74%
+    ellipse at 50% 50%,
+    rgba(14, 165, 233, 0.40) 0%,
+    rgba(2, 132, 199, 0.18) 52%,
+    transparent 100%
   );
 }
 
 /* 6. Aula de clase (klasse): madera noble cálida y matiz ámbar */
 .fox-aura-klasse::before {
   background: radial-gradient(
-    circle,
-    rgba(254, 243, 199, 0.58) 0%,
-    rgba(245, 158, 11, 0.24) 40%,
-    rgba(180, 83, 9, 0.08) 58%,
-    transparent 72%
+    ellipse at 50% 50%,
+    rgba(254, 243, 199, 0.52) 0%,
+    rgba(245, 158, 11, 0.22) 45%,
+    rgba(180, 83, 9, 0.06) 72%,
+    transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-klasse::before {
   background: radial-gradient(
-    circle,
-    rgba(217, 119, 6, 0.42) 0%,
-    rgba(146, 64, 14, 0.20) 48%,
-    transparent 72%
+    ellipse at 50% 50%,
+    rgba(217, 119, 6, 0.38) 0%,
+    rgba(146, 64, 14, 0.16) 52%,
+    transparent 100%
   );
 }
 
 /* 7. Espacio exterior (weltraum): índigo cósmico y violeta nebulosa */
 .fox-aura-weltraum::before {
   background: radial-gradient(
-    circle,
-    rgba(192, 132, 252, 0.52) 0%,
-    rgba(139, 92, 246, 0.26) 40%,
-    rgba(99, 102, 241, 0.14) 60%,
-    transparent 75%
+    ellipse at 50% 50%,
+    rgba(192, 132, 252, 0.46) 0%,
+    rgba(139, 92, 246, 0.24) 45%,
+    rgba(99, 102, 241, 0.10) 75%,
+    transparent 100%
   );
 }
 [data-theme='dark'] .fox-aura-weltraum::before {
   background: radial-gradient(
-    circle,
-    rgba(168, 85, 247, 0.46) 0%,
-    rgba(124, 58, 237, 0.24) 48%,
-    transparent 75%
+    ellipse at 50% 50%,
+    rgba(168, 85, 247, 0.40) 0%,
+    rgba(124, 58, 237, 0.20) 52%,
+    transparent 100%
   );
 }
